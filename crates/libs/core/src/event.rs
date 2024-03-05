@@ -99,7 +99,7 @@ impl<T: Interface> Event<T> {
         for delegate in lock_free_calls.as_slice() {
             if let Err(error) = delegate.call(&mut callback) {
                 const RPC_E_SERVER_UNAVAILABLE: HRESULT = HRESULT(-2147023174); // HRESULT_FROM_WIN32(RPC_S_SERVER_UNAVAILABLE)
-                if matches!(error.code(), crate::imp::RPC_E_DISCONNECTED | crate::imp::JSCRIPT_E_CANTEXECUTE | RPC_E_SERVER_UNAVAILABLE) {
+                if matches!(error.code(), imp::RPC_E_DISCONNECTED | imp::JSCRIPT_E_CANTEXECUTE | RPC_E_SERVER_UNAVAILABLE) {
                     self.remove(delegate.to_token())?;
                 }
             }
@@ -190,7 +190,7 @@ impl<T: Interface> Drop for Array<T> {
         unsafe {
             if !self.is_empty() && (*self.buffer).0.release() == 0 {
                 std::ptr::drop_in_place(self.as_mut_slice());
-                crate::imp::heap_free(self.buffer as _)
+                imp::heap_free(self.buffer as _)
             }
         }
     }
@@ -199,7 +199,7 @@ impl<T: Interface> Drop for Array<T> {
 /// A reference-counted buffer.
 #[repr(C)]
 #[repr(align(8))]
-struct Buffer<T>(crate::imp::RefCount, std::marker::PhantomData<T>);
+struct Buffer<T>(imp::RefCount, std::marker::PhantomData<T>);
 
 impl<T: Interface> Buffer<T> {
     /// Creates a new `Buffer` with the specified size in bytes.
@@ -208,9 +208,9 @@ impl<T: Interface> Buffer<T> {
             Ok(std::ptr::null_mut())
         } else {
             let alloc_size = std::mem::size_of::<Self>() + len * std::mem::size_of::<Delegate<T>>();
-            let header = crate::imp::heap_alloc(alloc_size)? as *mut Self;
+            let header = imp::heap_alloc(alloc_size)? as *mut Self;
             unsafe {
-                header.write(Self(crate::imp::RefCount::new(1), std::marker::PhantomData));
+                header.write(Self(imp::RefCount::new(1), std::marker::PhantomData));
             }
             Ok(header)
         }
@@ -238,7 +238,7 @@ enum Delegate<T> {
 impl<T: Interface> Delegate<T> {
     /// Creates a new `Delegate<T>`, containing a suitable reference to the specified delegate.
     fn new(delegate: &T) -> Result<Self> {
-        if delegate.cast::<crate::imp::IAgileObject>().is_ok() {
+        if delegate.cast::<imp::IAgileObject>().is_ok() {
             Ok(Self::Direct(delegate.clone()))
         } else {
             Ok(Self::Indirect(AgileReference::new(delegate)?))
@@ -249,8 +249,8 @@ impl<T: Interface> Delegate<T> {
     fn to_token(&self) -> i64 {
         unsafe {
             match self {
-                Self::Direct(delegate) => crate::imp::EncodePointer(std::mem::transmute_copy(delegate)) as i64,
-                Self::Indirect(delegate) => crate::imp::EncodePointer(std::mem::transmute_copy(delegate)) as i64,
+                Self::Direct(delegate) => imp::EncodePointer(std::mem::transmute_copy(delegate)) as i64,
+                Self::Indirect(delegate) => imp::EncodePointer(std::mem::transmute_copy(delegate)) as i64,
             }
         }
     }

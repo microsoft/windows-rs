@@ -9,24 +9,24 @@
 ::windows_targets::link!("user32.dll" "system" fn GetDoubleClickTime() -> u32);
 ::windows_targets::link!("user32.dll" "system" fn GetFocus() -> super::super::super::Foundation:: HWND);
 ::windows_targets::link!("user32.dll" "system" fn GetKBCodePage() -> u32);
-::windows_targets::link!("user32.dll" "system" fn GetKeyNameTextA(lparam : i32, lpstring : ::windows_sys::core::PSTR, cchsize : i32) -> i32);
-::windows_targets::link!("user32.dll" "system" fn GetKeyNameTextW(lparam : i32, lpstring : ::windows_sys::core::PWSTR, cchsize : i32) -> i32);
+::windows_targets::link!("user32.dll" "system" fn GetKeyNameTextA(lparam : i32, lpstring : windows_sys::core::PSTR, cchsize : i32) -> i32);
+::windows_targets::link!("user32.dll" "system" fn GetKeyNameTextW(lparam : i32, lpstring : windows_sys::core::PWSTR, cchsize : i32) -> i32);
 ::windows_targets::link!("user32.dll" "system" fn GetKeyState(nvirtkey : i32) -> i16);
 #[cfg(feature = "Win32_UI_TextServices")]
 ::windows_targets::link!("user32.dll" "system" fn GetKeyboardLayout(idthread : u32) -> super::super::TextServices:: HKL);
 #[cfg(feature = "Win32_UI_TextServices")]
 ::windows_targets::link!("user32.dll" "system" fn GetKeyboardLayoutList(nbuff : i32, lplist : *mut super::super::TextServices:: HKL) -> i32);
-::windows_targets::link!("user32.dll" "system" fn GetKeyboardLayoutNameA(pwszklid : ::windows_sys::core::PSTR) -> super::super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn GetKeyboardLayoutNameW(pwszklid : ::windows_sys::core::PWSTR) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn GetKeyboardLayoutNameA(pwszklid : windows_sys::core::PSTR) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn GetKeyboardLayoutNameW(pwszklid : windows_sys::core::PWSTR) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn GetKeyboardState(lpkeystate : *mut u8) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn GetKeyboardType(ntypeflag : i32) -> i32);
 ::windows_targets::link!("user32.dll" "system" fn GetLastInputInfo(plii : *mut LASTINPUTINFO) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn GetMouseMovePointsEx(cbsize : u32, lppt : *const MOUSEMOVEPOINT, lpptbuf : *mut MOUSEMOVEPOINT, nbufpoints : i32, resolution : GET_MOUSE_MOVE_POINTS_EX_RESOLUTION) -> i32);
 ::windows_targets::link!("user32.dll" "system" fn IsWindowEnabled(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_TextServices")]
-::windows_targets::link!("user32.dll" "system" fn LoadKeyboardLayoutA(pwszklid : ::windows_sys::core::PCSTR, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices:: HKL);
+::windows_targets::link!("user32.dll" "system" fn LoadKeyboardLayoutA(pwszklid : windows_sys::core::PCSTR, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices:: HKL);
 #[cfg(feature = "Win32_UI_TextServices")]
-::windows_targets::link!("user32.dll" "system" fn LoadKeyboardLayoutW(pwszklid : ::windows_sys::core::PCWSTR, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices:: HKL);
+::windows_targets::link!("user32.dll" "system" fn LoadKeyboardLayoutW(pwszklid : windows_sys::core::PCWSTR, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices:: HKL);
 ::windows_targets::link!("user32.dll" "system" fn MapVirtualKeyA(ucode : u32, umaptype : MAP_VIRTUAL_KEY_TYPE) -> u32);
 #[cfg(feature = "Win32_UI_TextServices")]
 ::windows_targets::link!("user32.dll" "system" fn MapVirtualKeyExA(ucode : u32, umaptype : MAP_VIRTUAL_KEY_TYPE, dwhkl : super::super::TextServices:: HKL) -> u32);
@@ -46,9 +46,9 @@
 ::windows_targets::link!("user32.dll" "system" fn ToAscii(uvirtkey : u32, uscancode : u32, lpkeystate : *const u8, lpchar : *mut u16, uflags : u32) -> i32);
 #[cfg(feature = "Win32_UI_TextServices")]
 ::windows_targets::link!("user32.dll" "system" fn ToAsciiEx(uvirtkey : u32, uscancode : u32, lpkeystate : *const u8, lpchar : *mut u16, uflags : u32, dwhkl : super::super::TextServices:: HKL) -> i32);
-::windows_targets::link!("user32.dll" "system" fn ToUnicode(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : ::windows_sys::core::PWSTR, cchbuff : i32, wflags : u32) -> i32);
+::windows_targets::link!("user32.dll" "system" fn ToUnicode(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : windows_sys::core::PWSTR, cchbuff : i32, wflags : u32) -> i32);
 #[cfg(feature = "Win32_UI_TextServices")]
-::windows_targets::link!("user32.dll" "system" fn ToUnicodeEx(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : ::windows_sys::core::PWSTR, cchbuff : i32, wflags : u32, dwhkl : super::super::TextServices:: HKL) -> i32);
+::windows_targets::link!("user32.dll" "system" fn ToUnicodeEx(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : windows_sys::core::PWSTR, cchbuff : i32, wflags : u32, dwhkl : super::super::TextServices:: HKL) -> i32);
 ::windows_targets::link!("user32.dll" "system" fn TrackMouseEvent(lpeventtrack : *mut TRACKMOUSEEVENT) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_TextServices")]
 ::windows_targets::link!("user32.dll" "system" fn UnloadKeyboardLayout(hkl : super::super::TextServices:: HKL) -> super::super::super::Foundation:: BOOL);
@@ -471,23 +471,23 @@ pub const VK__none_: VIRTUAL_KEY = 255u16;
 pub const WCH_DEAD: u32 = 61441u32;
 pub const WCH_LGTR: u32 = 61442u32;
 pub const WCH_NONE: u32 = 61440u32;
-pub const wszACUTE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\u{301}");
-pub const wszBREVE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\u{306}");
-pub const wszCEDILLA: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\u{327}");
-pub const wszCIRCUMFLEX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\u{302}");
-pub const wszDIARESIS_TONOS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\u{385}");
-pub const wszDOT_ABOVE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\u{307}");
-pub const wszDOUBLE_ACUTE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\u{30b}");
-pub const wszGRAVE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\u{300}");
-pub const wszHACEK: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\u{30c}");
-pub const wszHOOK_ABOVE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\u{309}");
-pub const wszMACRON: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\u{304}");
-pub const wszOGONEK: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\u{328}");
-pub const wszOVERSCORE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\u{305}");
-pub const wszRING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\u{30a}");
-pub const wszTILDE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\u{303}");
-pub const wszTONOS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\u{384}");
-pub const wszUMLAUT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\u{308}");
+pub const wszACUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{301}");
+pub const wszBREVE: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{306}");
+pub const wszCEDILLA: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{327}");
+pub const wszCIRCUMFLEX: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{302}");
+pub const wszDIARESIS_TONOS: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{385}");
+pub const wszDOT_ABOVE: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{307}");
+pub const wszDOUBLE_ACUTE: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{30b}");
+pub const wszGRAVE: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{300}");
+pub const wszHACEK: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{30c}");
+pub const wszHOOK_ABOVE: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{309}");
+pub const wszMACRON: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{304}");
+pub const wszOGONEK: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{328}");
+pub const wszOVERSCORE: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{305}");
+pub const wszRING: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{30a}");
+pub const wszTILDE: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{303}");
+pub const wszTONOS: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{384}");
+pub const wszUMLAUT: windows_sys::core::PCWSTR = windows_sys::core::w!("\u{308}");
 pub type ACTIVATE_KEYBOARD_LAYOUT_FLAGS = u32;
 pub type GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = u32;
 pub type HOT_KEY_MODIFIERS = u32;
@@ -503,8 +503,8 @@ pub struct DEADKEY {
     pub wchComposed: u16,
     pub uFlags: u16,
 }
-impl ::core::marker::Copy for DEADKEY {}
-impl ::core::clone::Clone for DEADKEY {
+impl Copy for DEADKEY {}
+impl Clone for DEADKEY {
     fn clone(&self) -> Self {
         *self
     }
@@ -515,8 +515,8 @@ pub struct HARDWAREINPUT {
     pub wParamL: u16,
     pub wParamH: u16,
 }
-impl ::core::marker::Copy for HARDWAREINPUT {}
-impl ::core::clone::Clone for HARDWAREINPUT {
+impl Copy for HARDWAREINPUT {}
+impl Clone for HARDWAREINPUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -526,8 +526,8 @@ pub struct INPUT {
     pub r#type: INPUT_TYPE,
     pub Anonymous: INPUT_0,
 }
-impl ::core::marker::Copy for INPUT {}
-impl ::core::clone::Clone for INPUT {
+impl Copy for INPUT {}
+impl Clone for INPUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -538,8 +538,8 @@ pub union INPUT_0 {
     pub ki: KEYBDINPUT,
     pub hi: HARDWAREINPUT,
 }
-impl ::core::marker::Copy for INPUT_0 {}
-impl ::core::clone::Clone for INPUT_0 {
+impl Copy for INPUT_0 {}
+impl Clone for INPUT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -553,8 +553,8 @@ pub struct KBDNLSTABLES {
     pub NumOfMouseVKey: i32,
     pub pusMouseVKey: *mut u16,
 }
-impl ::core::marker::Copy for KBDNLSTABLES {}
-impl ::core::clone::Clone for KBDNLSTABLES {
+impl Copy for KBDNLSTABLES {}
+impl Clone for KBDNLSTABLES {
     fn clone(&self) -> Self {
         *self
     }
@@ -578,8 +578,8 @@ pub struct KBDTABLES {
     pub dwType: u32,
     pub dwSubType: u32,
 }
-impl ::core::marker::Copy for KBDTABLES {}
-impl ::core::clone::Clone for KBDTABLES {
+impl Copy for KBDTABLES {}
+impl Clone for KBDTABLES {
     fn clone(&self) -> Self {
         *self
     }
@@ -590,8 +590,8 @@ pub struct KBDTABLE_DESC {
     pub dwType: u32,
     pub dwSubType: u32,
 }
-impl ::core::marker::Copy for KBDTABLE_DESC {}
-impl ::core::clone::Clone for KBDTABLE_DESC {
+impl Copy for KBDTABLE_DESC {}
+impl Clone for KBDTABLE_DESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -601,8 +601,8 @@ pub struct KBDTABLE_MULTI {
     pub nTables: u32,
     pub aKbdTables: [KBDTABLE_DESC; 8],
 }
-impl ::core::marker::Copy for KBDTABLE_MULTI {}
-impl ::core::clone::Clone for KBDTABLE_MULTI {
+impl Copy for KBDTABLE_MULTI {}
+impl Clone for KBDTABLE_MULTI {
     fn clone(&self) -> Self {
         *self
     }
@@ -613,8 +613,8 @@ pub struct KBD_TYPE_INFO {
     pub dwType: u32,
     pub dwSubType: u32,
 }
-impl ::core::marker::Copy for KBD_TYPE_INFO {}
-impl ::core::clone::Clone for KBD_TYPE_INFO {
+impl Copy for KBD_TYPE_INFO {}
+impl Clone for KBD_TYPE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -627,8 +627,8 @@ pub struct KEYBDINPUT {
     pub time: u32,
     pub dwExtraInfo: usize,
 }
-impl ::core::marker::Copy for KEYBDINPUT {}
-impl ::core::clone::Clone for KEYBDINPUT {
+impl Copy for KEYBDINPUT {}
+impl Clone for KEYBDINPUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -638,8 +638,8 @@ pub struct LASTINPUTINFO {
     pub cbSize: u32,
     pub dwTime: u32,
 }
-impl ::core::marker::Copy for LASTINPUTINFO {}
-impl ::core::clone::Clone for LASTINPUTINFO {
+impl Copy for LASTINPUTINFO {}
+impl Clone for LASTINPUTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -650,8 +650,8 @@ pub struct LIGATURE1 {
     pub ModificationNumber: u16,
     pub wch: [u16; 1],
 }
-impl ::core::marker::Copy for LIGATURE1 {}
-impl ::core::clone::Clone for LIGATURE1 {
+impl Copy for LIGATURE1 {}
+impl Clone for LIGATURE1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -662,8 +662,8 @@ pub struct LIGATURE2 {
     pub ModificationNumber: u16,
     pub wch: [u16; 2],
 }
-impl ::core::marker::Copy for LIGATURE2 {}
-impl ::core::clone::Clone for LIGATURE2 {
+impl Copy for LIGATURE2 {}
+impl Clone for LIGATURE2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -674,8 +674,8 @@ pub struct LIGATURE3 {
     pub ModificationNumber: u16,
     pub wch: [u16; 3],
 }
-impl ::core::marker::Copy for LIGATURE3 {}
-impl ::core::clone::Clone for LIGATURE3 {
+impl Copy for LIGATURE3 {}
+impl Clone for LIGATURE3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -686,8 +686,8 @@ pub struct LIGATURE4 {
     pub ModificationNumber: u16,
     pub wch: [u16; 4],
 }
-impl ::core::marker::Copy for LIGATURE4 {}
-impl ::core::clone::Clone for LIGATURE4 {
+impl Copy for LIGATURE4 {}
+impl Clone for LIGATURE4 {
     fn clone(&self) -> Self {
         *self
     }
@@ -698,8 +698,8 @@ pub struct LIGATURE5 {
     pub ModificationNumber: u16,
     pub wch: [u16; 5],
 }
-impl ::core::marker::Copy for LIGATURE5 {}
-impl ::core::clone::Clone for LIGATURE5 {
+impl Copy for LIGATURE5 {}
+impl Clone for LIGATURE5 {
     fn clone(&self) -> Self {
         *self
     }
@@ -710,8 +710,8 @@ pub struct MODIFIERS {
     pub wMaxModBits: u16,
     pub ModNumber: [u8; 1],
 }
-impl ::core::marker::Copy for MODIFIERS {}
-impl ::core::clone::Clone for MODIFIERS {
+impl Copy for MODIFIERS {}
+impl Clone for MODIFIERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -725,8 +725,8 @@ pub struct MOUSEINPUT {
     pub time: u32,
     pub dwExtraInfo: usize,
 }
-impl ::core::marker::Copy for MOUSEINPUT {}
-impl ::core::clone::Clone for MOUSEINPUT {
+impl Copy for MOUSEINPUT {}
+impl Clone for MOUSEINPUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -738,8 +738,8 @@ pub struct MOUSEMOVEPOINT {
     pub time: u32,
     pub dwExtraInfo: usize,
 }
-impl ::core::marker::Copy for MOUSEMOVEPOINT {}
-impl ::core::clone::Clone for MOUSEMOVEPOINT {
+impl Copy for MOUSEMOVEPOINT {}
+impl Clone for MOUSEMOVEPOINT {
     fn clone(&self) -> Self {
         *self
     }
@@ -751,8 +751,8 @@ pub struct TRACKMOUSEEVENT {
     pub hwndTrack: super::super::super::Foundation::HWND,
     pub dwHoverTime: u32,
 }
-impl ::core::marker::Copy for TRACKMOUSEEVENT {}
-impl ::core::clone::Clone for TRACKMOUSEEVENT {
+impl Copy for TRACKMOUSEEVENT {}
+impl Clone for TRACKMOUSEEVENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -766,8 +766,8 @@ pub struct VK_F {
     pub NLSFEProc: [VK_FPARAM; 8],
     pub NLSFEProcAlt: [VK_FPARAM; 8],
 }
-impl ::core::marker::Copy for VK_F {}
-impl ::core::clone::Clone for VK_F {
+impl Copy for VK_F {}
+impl Clone for VK_F {
     fn clone(&self) -> Self {
         *self
     }
@@ -777,8 +777,8 @@ pub struct VK_FPARAM {
     pub NLSFEProcIndex: u8,
     pub NLSFEProcParam: u32,
 }
-impl ::core::marker::Copy for VK_FPARAM {}
-impl ::core::clone::Clone for VK_FPARAM {
+impl Copy for VK_FPARAM {}
+impl Clone for VK_FPARAM {
     fn clone(&self) -> Self {
         *self
     }
@@ -788,8 +788,8 @@ pub struct VK_TO_BIT {
     pub Vk: u8,
     pub ModBits: u8,
 }
-impl ::core::marker::Copy for VK_TO_BIT {}
-impl ::core::clone::Clone for VK_TO_BIT {
+impl Copy for VK_TO_BIT {}
+impl Clone for VK_TO_BIT {
     fn clone(&self) -> Self {
         *self
     }
@@ -800,8 +800,8 @@ pub struct VK_TO_WCHARS1 {
     pub Attributes: u8,
     pub wch: [u16; 1],
 }
-impl ::core::marker::Copy for VK_TO_WCHARS1 {}
-impl ::core::clone::Clone for VK_TO_WCHARS1 {
+impl Copy for VK_TO_WCHARS1 {}
+impl Clone for VK_TO_WCHARS1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -812,8 +812,8 @@ pub struct VK_TO_WCHARS10 {
     pub Attributes: u8,
     pub wch: [u16; 10],
 }
-impl ::core::marker::Copy for VK_TO_WCHARS10 {}
-impl ::core::clone::Clone for VK_TO_WCHARS10 {
+impl Copy for VK_TO_WCHARS10 {}
+impl Clone for VK_TO_WCHARS10 {
     fn clone(&self) -> Self {
         *self
     }
@@ -824,8 +824,8 @@ pub struct VK_TO_WCHARS2 {
     pub Attributes: u8,
     pub wch: [u16; 2],
 }
-impl ::core::marker::Copy for VK_TO_WCHARS2 {}
-impl ::core::clone::Clone for VK_TO_WCHARS2 {
+impl Copy for VK_TO_WCHARS2 {}
+impl Clone for VK_TO_WCHARS2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -836,8 +836,8 @@ pub struct VK_TO_WCHARS3 {
     pub Attributes: u8,
     pub wch: [u16; 3],
 }
-impl ::core::marker::Copy for VK_TO_WCHARS3 {}
-impl ::core::clone::Clone for VK_TO_WCHARS3 {
+impl Copy for VK_TO_WCHARS3 {}
+impl Clone for VK_TO_WCHARS3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -848,8 +848,8 @@ pub struct VK_TO_WCHARS4 {
     pub Attributes: u8,
     pub wch: [u16; 4],
 }
-impl ::core::marker::Copy for VK_TO_WCHARS4 {}
-impl ::core::clone::Clone for VK_TO_WCHARS4 {
+impl Copy for VK_TO_WCHARS4 {}
+impl Clone for VK_TO_WCHARS4 {
     fn clone(&self) -> Self {
         *self
     }
@@ -860,8 +860,8 @@ pub struct VK_TO_WCHARS5 {
     pub Attributes: u8,
     pub wch: [u16; 5],
 }
-impl ::core::marker::Copy for VK_TO_WCHARS5 {}
-impl ::core::clone::Clone for VK_TO_WCHARS5 {
+impl Copy for VK_TO_WCHARS5 {}
+impl Clone for VK_TO_WCHARS5 {
     fn clone(&self) -> Self {
         *self
     }
@@ -872,8 +872,8 @@ pub struct VK_TO_WCHARS6 {
     pub Attributes: u8,
     pub wch: [u16; 6],
 }
-impl ::core::marker::Copy for VK_TO_WCHARS6 {}
-impl ::core::clone::Clone for VK_TO_WCHARS6 {
+impl Copy for VK_TO_WCHARS6 {}
+impl Clone for VK_TO_WCHARS6 {
     fn clone(&self) -> Self {
         *self
     }
@@ -884,8 +884,8 @@ pub struct VK_TO_WCHARS7 {
     pub Attributes: u8,
     pub wch: [u16; 7],
 }
-impl ::core::marker::Copy for VK_TO_WCHARS7 {}
-impl ::core::clone::Clone for VK_TO_WCHARS7 {
+impl Copy for VK_TO_WCHARS7 {}
+impl Clone for VK_TO_WCHARS7 {
     fn clone(&self) -> Self {
         *self
     }
@@ -896,8 +896,8 @@ pub struct VK_TO_WCHARS8 {
     pub Attributes: u8,
     pub wch: [u16; 8],
 }
-impl ::core::marker::Copy for VK_TO_WCHARS8 {}
-impl ::core::clone::Clone for VK_TO_WCHARS8 {
+impl Copy for VK_TO_WCHARS8 {}
+impl Clone for VK_TO_WCHARS8 {
     fn clone(&self) -> Self {
         *self
     }
@@ -908,8 +908,8 @@ pub struct VK_TO_WCHARS9 {
     pub Attributes: u8,
     pub wch: [u16; 9],
 }
-impl ::core::marker::Copy for VK_TO_WCHARS9 {}
-impl ::core::clone::Clone for VK_TO_WCHARS9 {
+impl Copy for VK_TO_WCHARS9 {}
+impl Clone for VK_TO_WCHARS9 {
     fn clone(&self) -> Self {
         *self
     }
@@ -920,8 +920,8 @@ pub struct VK_TO_WCHAR_TABLE {
     pub nModifications: u8,
     pub cbSize: u8,
 }
-impl ::core::marker::Copy for VK_TO_WCHAR_TABLE {}
-impl ::core::clone::Clone for VK_TO_WCHAR_TABLE {
+impl Copy for VK_TO_WCHAR_TABLE {}
+impl Clone for VK_TO_WCHAR_TABLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -931,8 +931,8 @@ pub struct VK_VSC {
     pub Vk: u8,
     pub Vsc: u8,
 }
-impl ::core::marker::Copy for VK_VSC {}
-impl ::core::clone::Clone for VK_VSC {
+impl Copy for VK_VSC {}
+impl Clone for VK_VSC {
     fn clone(&self) -> Self {
         *self
     }
@@ -940,10 +940,10 @@ impl ::core::clone::Clone for VK_VSC {
 #[repr(C)]
 pub struct VSC_LPWSTR {
     pub vsc: u8,
-    pub pwsz: ::windows_sys::core::PWSTR,
+    pub pwsz: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for VSC_LPWSTR {}
-impl ::core::clone::Clone for VSC_LPWSTR {
+impl Copy for VSC_LPWSTR {}
+impl Clone for VSC_LPWSTR {
     fn clone(&self) -> Self {
         *self
     }
@@ -953,8 +953,8 @@ pub struct VSC_VK {
     pub Vsc: u8,
     pub Vk: u16,
 }
-impl ::core::marker::Copy for VSC_VK {}
-impl ::core::clone::Clone for VSC_VK {
+impl Copy for VSC_VK {}
+impl Clone for VSC_VK {
     fn clone(&self) -> Self {
         *self
     }

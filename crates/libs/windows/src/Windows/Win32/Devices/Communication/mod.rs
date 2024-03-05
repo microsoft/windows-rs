@@ -1,97 +1,97 @@
 #[inline]
-pub unsafe fn BuildCommDCBA<P0>(lpdef: P0, lpdcb: *mut DCB) -> ::windows_core::Result<()>
+pub unsafe fn BuildCommDCBA<P0>(lpdef: P0, lpdcb: *mut DCB) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn BuildCommDCBA(lpdef : ::windows_core::PCSTR, lpdcb : *mut DCB) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn BuildCommDCBA(lpdef : windows_core::PCSTR, lpdcb : *mut DCB) -> super::super::Foundation:: BOOL);
     BuildCommDCBA(lpdef.into_param().abi(), lpdcb).ok()
 }
 #[inline]
-pub unsafe fn BuildCommDCBAndTimeoutsA<P0>(lpdef: P0, lpdcb: *mut DCB, lpcommtimeouts: *mut COMMTIMEOUTS) -> ::windows_core::Result<()>
+pub unsafe fn BuildCommDCBAndTimeoutsA<P0>(lpdef: P0, lpdcb: *mut DCB, lpcommtimeouts: *mut COMMTIMEOUTS) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn BuildCommDCBAndTimeoutsA(lpdef : ::windows_core::PCSTR, lpdcb : *mut DCB, lpcommtimeouts : *mut COMMTIMEOUTS) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn BuildCommDCBAndTimeoutsA(lpdef : windows_core::PCSTR, lpdcb : *mut DCB, lpcommtimeouts : *mut COMMTIMEOUTS) -> super::super::Foundation:: BOOL);
     BuildCommDCBAndTimeoutsA(lpdef.into_param().abi(), lpdcb, lpcommtimeouts).ok()
 }
 #[inline]
-pub unsafe fn BuildCommDCBAndTimeoutsW<P0>(lpdef: P0, lpdcb: *mut DCB, lpcommtimeouts: *mut COMMTIMEOUTS) -> ::windows_core::Result<()>
+pub unsafe fn BuildCommDCBAndTimeoutsW<P0>(lpdef: P0, lpdcb: *mut DCB, lpcommtimeouts: *mut COMMTIMEOUTS) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn BuildCommDCBAndTimeoutsW(lpdef : ::windows_core::PCWSTR, lpdcb : *mut DCB, lpcommtimeouts : *mut COMMTIMEOUTS) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn BuildCommDCBAndTimeoutsW(lpdef : windows_core::PCWSTR, lpdcb : *mut DCB, lpcommtimeouts : *mut COMMTIMEOUTS) -> super::super::Foundation:: BOOL);
     BuildCommDCBAndTimeoutsW(lpdef.into_param().abi(), lpdcb, lpcommtimeouts).ok()
 }
 #[inline]
-pub unsafe fn BuildCommDCBW<P0>(lpdef: P0, lpdcb: *mut DCB) -> ::windows_core::Result<()>
+pub unsafe fn BuildCommDCBW<P0>(lpdef: P0, lpdcb: *mut DCB) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn BuildCommDCBW(lpdef : ::windows_core::PCWSTR, lpdcb : *mut DCB) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn BuildCommDCBW(lpdef : windows_core::PCWSTR, lpdcb : *mut DCB) -> super::super::Foundation:: BOOL);
     BuildCommDCBW(lpdef.into_param().abi(), lpdcb).ok()
 }
 #[inline]
-pub unsafe fn ClearCommBreak<P0>(hfile: P0) -> ::windows_core::Result<()>
+pub unsafe fn ClearCommBreak<P0>(hfile: P0) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn ClearCommBreak(hfile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     ClearCommBreak(hfile.into_param().abi()).ok()
 }
 #[inline]
-pub unsafe fn ClearCommError<P0>(hfile: P0, lperrors: ::core::option::Option<*mut CLEAR_COMM_ERROR_FLAGS>, lpstat: ::core::option::Option<*mut COMSTAT>) -> ::windows_core::Result<()>
+pub unsafe fn ClearCommError<P0>(hfile: P0, lperrors: Option<*mut CLEAR_COMM_ERROR_FLAGS>, lpstat: Option<*mut COMSTAT>) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn ClearCommError(hfile : super::super::Foundation:: HANDLE, lperrors : *mut CLEAR_COMM_ERROR_FLAGS, lpstat : *mut COMSTAT) -> super::super::Foundation:: BOOL);
-    ClearCommError(hfile.into_param().abi(), ::core::mem::transmute(lperrors.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpstat.unwrap_or(::std::ptr::null_mut()))).ok()
+    ClearCommError(hfile.into_param().abi(), core::mem::transmute(lperrors.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpstat.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn CommConfigDialogA<P0, P1>(lpszname: P0, hwnd: P1, lpcc: *mut COMMCONFIG) -> ::windows_core::Result<()>
+pub unsafe fn CommConfigDialogA<P0, P1>(lpszname: P0, hwnd: P1, lpcc: *mut COMMCONFIG) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P1: windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CommConfigDialogA(lpszname : ::windows_core::PCSTR, hwnd : super::super::Foundation:: HWND, lpcc : *mut COMMCONFIG) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn CommConfigDialogA(lpszname : windows_core::PCSTR, hwnd : super::super::Foundation:: HWND, lpcc : *mut COMMCONFIG) -> super::super::Foundation:: BOOL);
     CommConfigDialogA(lpszname.into_param().abi(), hwnd.into_param().abi(), lpcc).ok()
 }
 #[inline]
-pub unsafe fn CommConfigDialogW<P0, P1>(lpszname: P0, hwnd: P1, lpcc: *mut COMMCONFIG) -> ::windows_core::Result<()>
+pub unsafe fn CommConfigDialogW<P0, P1>(lpszname: P0, hwnd: P1, lpcc: *mut COMMCONFIG) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CommConfigDialogW(lpszname : ::windows_core::PCWSTR, hwnd : super::super::Foundation:: HWND, lpcc : *mut COMMCONFIG) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn CommConfigDialogW(lpszname : windows_core::PCWSTR, hwnd : super::super::Foundation:: HWND, lpcc : *mut COMMCONFIG) -> super::super::Foundation:: BOOL);
     CommConfigDialogW(lpszname.into_param().abi(), hwnd.into_param().abi(), lpcc).ok()
 }
 #[inline]
-pub unsafe fn EscapeCommFunction<P0>(hfile: P0, dwfunc: ESCAPE_COMM_FUNCTION) -> ::windows_core::Result<()>
+pub unsafe fn EscapeCommFunction<P0>(hfile: P0, dwfunc: ESCAPE_COMM_FUNCTION) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn EscapeCommFunction(hfile : super::super::Foundation:: HANDLE, dwfunc : ESCAPE_COMM_FUNCTION) -> super::super::Foundation:: BOOL);
     EscapeCommFunction(hfile.into_param().abi(), dwfunc).ok()
 }
 #[inline]
-pub unsafe fn GetCommConfig<P0>(hcommdev: P0, lpcc: ::core::option::Option<*mut COMMCONFIG>, lpdwsize: *mut u32) -> ::windows_core::Result<()>
+pub unsafe fn GetCommConfig<P0>(hcommdev: P0, lpcc: Option<*mut COMMCONFIG>, lpdwsize: *mut u32) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCommConfig(hcommdev : super::super::Foundation:: HANDLE, lpcc : *mut COMMCONFIG, lpdwsize : *mut u32) -> super::super::Foundation:: BOOL);
-    GetCommConfig(hcommdev.into_param().abi(), ::core::mem::transmute(lpcc.unwrap_or(::std::ptr::null_mut())), lpdwsize).ok()
+    GetCommConfig(hcommdev.into_param().abi(), core::mem::transmute(lpcc.unwrap_or(std::ptr::null_mut())), lpdwsize).ok()
 }
 #[inline]
-pub unsafe fn GetCommMask<P0>(hfile: P0, lpevtmask: *mut COMM_EVENT_MASK) -> ::windows_core::Result<()>
+pub unsafe fn GetCommMask<P0>(hfile: P0, lpevtmask: *mut COMM_EVENT_MASK) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCommMask(hfile : super::super::Foundation:: HANDLE, lpevtmask : *mut COMM_EVENT_MASK) -> super::super::Foundation:: BOOL);
     GetCommMask(hfile.into_param().abi(), lpevtmask).ok()
 }
 #[inline]
-pub unsafe fn GetCommModemStatus<P0>(hfile: P0, lpmodemstat: *mut MODEM_STATUS_FLAGS) -> ::windows_core::Result<()>
+pub unsafe fn GetCommModemStatus<P0>(hfile: P0, lpmodemstat: *mut MODEM_STATUS_FLAGS) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCommModemStatus(hfile : super::super::Foundation:: HANDLE, lpmodemstat : *mut MODEM_STATUS_FLAGS) -> super::super::Foundation:: BOOL);
     GetCommModemStatus(hfile.into_param().abi(), lpmodemstat).ok()
@@ -99,46 +99,46 @@ where
 #[inline]
 pub unsafe fn GetCommPorts(lpportnumbers: &mut [u32], puportnumbersfound: *mut u32) -> u32 {
     ::windows_targets::link!("api-ms-win-core-comm-l1-1-2.dll" "system" fn GetCommPorts(lpportnumbers : *mut u32, uportnumberscount : u32, puportnumbersfound : *mut u32) -> u32);
-    GetCommPorts(::core::mem::transmute(lpportnumbers.as_ptr()), lpportnumbers.len().try_into().unwrap(), puportnumbersfound)
+    GetCommPorts(core::mem::transmute(lpportnumbers.as_ptr()), lpportnumbers.len().try_into().unwrap(), puportnumbersfound)
 }
 #[inline]
-pub unsafe fn GetCommProperties<P0>(hfile: P0, lpcommprop: *mut COMMPROP) -> ::windows_core::Result<()>
+pub unsafe fn GetCommProperties<P0>(hfile: P0, lpcommprop: *mut COMMPROP) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCommProperties(hfile : super::super::Foundation:: HANDLE, lpcommprop : *mut COMMPROP) -> super::super::Foundation:: BOOL);
     GetCommProperties(hfile.into_param().abi(), lpcommprop).ok()
 }
 #[inline]
-pub unsafe fn GetCommState<P0>(hfile: P0, lpdcb: *mut DCB) -> ::windows_core::Result<()>
+pub unsafe fn GetCommState<P0>(hfile: P0, lpdcb: *mut DCB) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCommState(hfile : super::super::Foundation:: HANDLE, lpdcb : *mut DCB) -> super::super::Foundation:: BOOL);
     GetCommState(hfile.into_param().abi(), lpdcb).ok()
 }
 #[inline]
-pub unsafe fn GetCommTimeouts<P0>(hfile: P0, lpcommtimeouts: *mut COMMTIMEOUTS) -> ::windows_core::Result<()>
+pub unsafe fn GetCommTimeouts<P0>(hfile: P0, lpcommtimeouts: *mut COMMTIMEOUTS) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCommTimeouts(hfile : super::super::Foundation:: HANDLE, lpcommtimeouts : *mut COMMTIMEOUTS) -> super::super::Foundation:: BOOL);
     GetCommTimeouts(hfile.into_param().abi(), lpcommtimeouts).ok()
 }
 #[inline]
-pub unsafe fn GetDefaultCommConfigA<P0>(lpszname: P0, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> ::windows_core::Result<()>
+pub unsafe fn GetDefaultCommConfigA<P0>(lpszname: P0, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetDefaultCommConfigA(lpszname : ::windows_core::PCSTR, lpcc : *mut COMMCONFIG, lpdwsize : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetDefaultCommConfigA(lpszname : windows_core::PCSTR, lpcc : *mut COMMCONFIG, lpdwsize : *mut u32) -> super::super::Foundation:: BOOL);
     GetDefaultCommConfigA(lpszname.into_param().abi(), lpcc, lpdwsize).ok()
 }
 #[inline]
-pub unsafe fn GetDefaultCommConfigW<P0>(lpszname: P0, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> ::windows_core::Result<()>
+pub unsafe fn GetDefaultCommConfigW<P0>(lpszname: P0, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetDefaultCommConfigW(lpszname : ::windows_core::PCWSTR, lpcc : *mut COMMCONFIG, lpdwsize : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetDefaultCommConfigW(lpszname : windows_core::PCWSTR, lpcc : *mut COMMCONFIG, lpdwsize : *mut u32) -> super::super::Foundation:: BOOL);
     GetDefaultCommConfigW(lpszname.into_param().abi(), lpcc, lpdwsize).ok()
 }
 #[inline]
@@ -147,93 +147,93 @@ pub unsafe fn OpenCommPort(uportnumber: u32, dwdesiredaccess: u32, dwflagsandatt
     OpenCommPort(uportnumber, dwdesiredaccess, dwflagsandattributes)
 }
 #[inline]
-pub unsafe fn PurgeComm<P0>(hfile: P0, dwflags: PURGE_COMM_FLAGS) -> ::windows_core::Result<()>
+pub unsafe fn PurgeComm<P0>(hfile: P0, dwflags: PURGE_COMM_FLAGS) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn PurgeComm(hfile : super::super::Foundation:: HANDLE, dwflags : PURGE_COMM_FLAGS) -> super::super::Foundation:: BOOL);
     PurgeComm(hfile.into_param().abi(), dwflags).ok()
 }
 #[inline]
-pub unsafe fn SetCommBreak<P0>(hfile: P0) -> ::windows_core::Result<()>
+pub unsafe fn SetCommBreak<P0>(hfile: P0) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn SetCommBreak(hfile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     SetCommBreak(hfile.into_param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetCommConfig<P0>(hcommdev: P0, lpcc: *const COMMCONFIG, dwsize: u32) -> ::windows_core::Result<()>
+pub unsafe fn SetCommConfig<P0>(hcommdev: P0, lpcc: *const COMMCONFIG, dwsize: u32) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn SetCommConfig(hcommdev : super::super::Foundation:: HANDLE, lpcc : *const COMMCONFIG, dwsize : u32) -> super::super::Foundation:: BOOL);
     SetCommConfig(hcommdev.into_param().abi(), lpcc, dwsize).ok()
 }
 #[inline]
-pub unsafe fn SetCommMask<P0>(hfile: P0, dwevtmask: COMM_EVENT_MASK) -> ::windows_core::Result<()>
+pub unsafe fn SetCommMask<P0>(hfile: P0, dwevtmask: COMM_EVENT_MASK) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn SetCommMask(hfile : super::super::Foundation:: HANDLE, dwevtmask : COMM_EVENT_MASK) -> super::super::Foundation:: BOOL);
     SetCommMask(hfile.into_param().abi(), dwevtmask).ok()
 }
 #[inline]
-pub unsafe fn SetCommState<P0>(hfile: P0, lpdcb: *const DCB) -> ::windows_core::Result<()>
+pub unsafe fn SetCommState<P0>(hfile: P0, lpdcb: *const DCB) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn SetCommState(hfile : super::super::Foundation:: HANDLE, lpdcb : *const DCB) -> super::super::Foundation:: BOOL);
     SetCommState(hfile.into_param().abi(), lpdcb).ok()
 }
 #[inline]
-pub unsafe fn SetCommTimeouts<P0>(hfile: P0, lpcommtimeouts: *const COMMTIMEOUTS) -> ::windows_core::Result<()>
+pub unsafe fn SetCommTimeouts<P0>(hfile: P0, lpcommtimeouts: *const COMMTIMEOUTS) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn SetCommTimeouts(hfile : super::super::Foundation:: HANDLE, lpcommtimeouts : *const COMMTIMEOUTS) -> super::super::Foundation:: BOOL);
     SetCommTimeouts(hfile.into_param().abi(), lpcommtimeouts).ok()
 }
 #[inline]
-pub unsafe fn SetDefaultCommConfigA<P0>(lpszname: P0, lpcc: *const COMMCONFIG, dwsize: u32) -> ::windows_core::Result<()>
+pub unsafe fn SetDefaultCommConfigA<P0>(lpszname: P0, lpcc: *const COMMCONFIG, dwsize: u32) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetDefaultCommConfigA(lpszname : ::windows_core::PCSTR, lpcc : *const COMMCONFIG, dwsize : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn SetDefaultCommConfigA(lpszname : windows_core::PCSTR, lpcc : *const COMMCONFIG, dwsize : u32) -> super::super::Foundation:: BOOL);
     SetDefaultCommConfigA(lpszname.into_param().abi(), lpcc, dwsize).ok()
 }
 #[inline]
-pub unsafe fn SetDefaultCommConfigW<P0>(lpszname: P0, lpcc: *const COMMCONFIG, dwsize: u32) -> ::windows_core::Result<()>
+pub unsafe fn SetDefaultCommConfigW<P0>(lpszname: P0, lpcc: *const COMMCONFIG, dwsize: u32) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetDefaultCommConfigW(lpszname : ::windows_core::PCWSTR, lpcc : *const COMMCONFIG, dwsize : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn SetDefaultCommConfigW(lpszname : windows_core::PCWSTR, lpcc : *const COMMCONFIG, dwsize : u32) -> super::super::Foundation:: BOOL);
     SetDefaultCommConfigW(lpszname.into_param().abi(), lpcc, dwsize).ok()
 }
 #[inline]
-pub unsafe fn SetupComm<P0>(hfile: P0, dwinqueue: u32, dwoutqueue: u32) -> ::windows_core::Result<()>
+pub unsafe fn SetupComm<P0>(hfile: P0, dwinqueue: u32, dwoutqueue: u32) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn SetupComm(hfile : super::super::Foundation:: HANDLE, dwinqueue : u32, dwoutqueue : u32) -> super::super::Foundation:: BOOL);
     SetupComm(hfile.into_param().abi(), dwinqueue, dwoutqueue).ok()
 }
 #[inline]
-pub unsafe fn TransmitCommChar<P0>(hfile: P0, cchar: i8) -> ::windows_core::Result<()>
+pub unsafe fn TransmitCommChar<P0>(hfile: P0, cchar: i8) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn TransmitCommChar(hfile : super::super::Foundation:: HANDLE, cchar : i8) -> super::super::Foundation:: BOOL);
     TransmitCommChar(hfile.into_param().abi(), cchar).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn WaitCommEvent<P0>(hfile: P0, lpevtmask: *mut COMM_EVENT_MASK, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()>
+pub unsafe fn WaitCommEvent<P0>(hfile: P0, lpevtmask: *mut COMM_EVENT_MASK, lpoverlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn WaitCommEvent(hfile : super::super::Foundation:: HANDLE, lpevtmask : *mut COMM_EVENT_MASK, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WaitCommEvent(hfile.into_param().abi(), lpevtmask, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut()))).ok()
+    WaitCommEvent(hfile.into_param().abi(), lpevtmask, core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null_mut()))).ok()
 }
 pub const CE_BREAK: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(16u32);
 pub const CE_FRAME: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(8u32);
@@ -388,20 +388,20 @@ pub const SETDTR: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(5u32);
 pub const SETRTS: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(3u32);
 pub const SETXOFF: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(1u32);
 pub const SETXON: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(2u32);
-pub const SID_3GPP_SUPSVCMODEL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d08e07_d767_4478_b14a_eecc87ea12f7);
+pub const SID_3GPP_SUPSVCMODEL: windows_core::GUID = windows_core::GUID::from_u128(0xd7d08e07_d767_4478_b14a_eecc87ea12f7);
 pub const SPACEPARITY: DCB_PARITY = DCB_PARITY(4u8);
 pub const STOPBITS_10: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(1u16);
 pub const STOPBITS_15: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(2u16);
 pub const STOPBITS_20: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(4u16);
 pub const TWOSTOPBITS: DCB_STOP_BITS = DCB_STOP_BITS(2u8);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CLEAR_COMM_ERROR_FLAGS(pub u32);
-impl ::windows_core::TypeKind for CLEAR_COMM_ERROR_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for CLEAR_COMM_ERROR_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for CLEAR_COMM_ERROR_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for CLEAR_COMM_ERROR_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("CLEAR_COMM_ERROR_FLAGS").field(&self.0).finish()
     }
 }
@@ -410,42 +410,42 @@ impl CLEAR_COMM_ERROR_FLAGS {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for CLEAR_COMM_ERROR_FLAGS {
+impl core::ops::BitOr for CLEAR_COMM_ERROR_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for CLEAR_COMM_ERROR_FLAGS {
+impl core::ops::BitAnd for CLEAR_COMM_ERROR_FLAGS {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for CLEAR_COMM_ERROR_FLAGS {
+impl core::ops::BitOrAssign for CLEAR_COMM_ERROR_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for CLEAR_COMM_ERROR_FLAGS {
+impl core::ops::BitAndAssign for CLEAR_COMM_ERROR_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for CLEAR_COMM_ERROR_FLAGS {
+impl core::ops::Not for CLEAR_COMM_ERROR_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct COMMPROP_STOP_PARITY(pub u16);
-impl ::windows_core::TypeKind for COMMPROP_STOP_PARITY {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COMMPROP_STOP_PARITY {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for COMMPROP_STOP_PARITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for COMMPROP_STOP_PARITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("COMMPROP_STOP_PARITY").field(&self.0).finish()
     }
 }
@@ -454,42 +454,42 @@ impl COMMPROP_STOP_PARITY {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for COMMPROP_STOP_PARITY {
+impl core::ops::BitOr for COMMPROP_STOP_PARITY {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for COMMPROP_STOP_PARITY {
+impl core::ops::BitAnd for COMMPROP_STOP_PARITY {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for COMMPROP_STOP_PARITY {
+impl core::ops::BitOrAssign for COMMPROP_STOP_PARITY {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for COMMPROP_STOP_PARITY {
+impl core::ops::BitAndAssign for COMMPROP_STOP_PARITY {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for COMMPROP_STOP_PARITY {
+impl core::ops::Not for COMMPROP_STOP_PARITY {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct COMM_EVENT_MASK(pub u32);
-impl ::windows_core::TypeKind for COMM_EVENT_MASK {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COMM_EVENT_MASK {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for COMM_EVENT_MASK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for COMM_EVENT_MASK {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("COMM_EVENT_MASK").field(&self.0).finish()
     }
 }
@@ -498,75 +498,75 @@ impl COMM_EVENT_MASK {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for COMM_EVENT_MASK {
+impl core::ops::BitOr for COMM_EVENT_MASK {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for COMM_EVENT_MASK {
+impl core::ops::BitAnd for COMM_EVENT_MASK {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for COMM_EVENT_MASK {
+impl core::ops::BitOrAssign for COMM_EVENT_MASK {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for COMM_EVENT_MASK {
+impl core::ops::BitAndAssign for COMM_EVENT_MASK {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for COMM_EVENT_MASK {
+impl core::ops::Not for COMM_EVENT_MASK {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DCB_PARITY(pub u8);
-impl ::windows_core::TypeKind for DCB_PARITY {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for DCB_PARITY {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for DCB_PARITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for DCB_PARITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("DCB_PARITY").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DCB_STOP_BITS(pub u8);
-impl ::windows_core::TypeKind for DCB_STOP_BITS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for DCB_STOP_BITS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for DCB_STOP_BITS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for DCB_STOP_BITS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("DCB_STOP_BITS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ESCAPE_COMM_FUNCTION(pub u32);
-impl ::windows_core::TypeKind for ESCAPE_COMM_FUNCTION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for ESCAPE_COMM_FUNCTION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for ESCAPE_COMM_FUNCTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for ESCAPE_COMM_FUNCTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("ESCAPE_COMM_FUNCTION").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MODEMDEVCAPS_DIAL_OPTIONS(pub u32);
-impl ::windows_core::TypeKind for MODEMDEVCAPS_DIAL_OPTIONS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MODEMDEVCAPS_DIAL_OPTIONS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MODEMDEVCAPS_DIAL_OPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MODEMDEVCAPS_DIAL_OPTIONS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MODEMDEVCAPS_DIAL_OPTIONS").field(&self.0).finish()
     }
 }
@@ -575,42 +575,42 @@ impl MODEMDEVCAPS_DIAL_OPTIONS {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for MODEMDEVCAPS_DIAL_OPTIONS {
+impl core::ops::BitOr for MODEMDEVCAPS_DIAL_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for MODEMDEVCAPS_DIAL_OPTIONS {
+impl core::ops::BitAnd for MODEMDEVCAPS_DIAL_OPTIONS {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for MODEMDEVCAPS_DIAL_OPTIONS {
+impl core::ops::BitOrAssign for MODEMDEVCAPS_DIAL_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for MODEMDEVCAPS_DIAL_OPTIONS {
+impl core::ops::BitAndAssign for MODEMDEVCAPS_DIAL_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for MODEMDEVCAPS_DIAL_OPTIONS {
+impl core::ops::Not for MODEMDEVCAPS_DIAL_OPTIONS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MODEMDEVCAPS_SPEAKER_MODE(pub u32);
-impl ::windows_core::TypeKind for MODEMDEVCAPS_SPEAKER_MODE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MODEMDEVCAPS_SPEAKER_MODE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MODEMDEVCAPS_SPEAKER_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MODEMDEVCAPS_SPEAKER_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MODEMDEVCAPS_SPEAKER_MODE").field(&self.0).finish()
     }
 }
@@ -619,42 +619,42 @@ impl MODEMDEVCAPS_SPEAKER_MODE {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for MODEMDEVCAPS_SPEAKER_MODE {
+impl core::ops::BitOr for MODEMDEVCAPS_SPEAKER_MODE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for MODEMDEVCAPS_SPEAKER_MODE {
+impl core::ops::BitAnd for MODEMDEVCAPS_SPEAKER_MODE {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for MODEMDEVCAPS_SPEAKER_MODE {
+impl core::ops::BitOrAssign for MODEMDEVCAPS_SPEAKER_MODE {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for MODEMDEVCAPS_SPEAKER_MODE {
+impl core::ops::BitAndAssign for MODEMDEVCAPS_SPEAKER_MODE {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for MODEMDEVCAPS_SPEAKER_MODE {
+impl core::ops::Not for MODEMDEVCAPS_SPEAKER_MODE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MODEMDEVCAPS_SPEAKER_VOLUME(pub u32);
-impl ::windows_core::TypeKind for MODEMDEVCAPS_SPEAKER_VOLUME {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MODEMDEVCAPS_SPEAKER_VOLUME {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MODEMDEVCAPS_SPEAKER_VOLUME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MODEMDEVCAPS_SPEAKER_VOLUME {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MODEMDEVCAPS_SPEAKER_VOLUME").field(&self.0).finish()
     }
 }
@@ -663,64 +663,64 @@ impl MODEMDEVCAPS_SPEAKER_VOLUME {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for MODEMDEVCAPS_SPEAKER_VOLUME {
+impl core::ops::BitOr for MODEMDEVCAPS_SPEAKER_VOLUME {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for MODEMDEVCAPS_SPEAKER_VOLUME {
+impl core::ops::BitAnd for MODEMDEVCAPS_SPEAKER_VOLUME {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for MODEMDEVCAPS_SPEAKER_VOLUME {
+impl core::ops::BitOrAssign for MODEMDEVCAPS_SPEAKER_VOLUME {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for MODEMDEVCAPS_SPEAKER_VOLUME {
+impl core::ops::BitAndAssign for MODEMDEVCAPS_SPEAKER_VOLUME {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for MODEMDEVCAPS_SPEAKER_VOLUME {
+impl core::ops::Not for MODEMDEVCAPS_SPEAKER_VOLUME {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MODEMSETTINGS_SPEAKER_MODE(pub u32);
-impl ::windows_core::TypeKind for MODEMSETTINGS_SPEAKER_MODE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MODEMSETTINGS_SPEAKER_MODE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MODEMSETTINGS_SPEAKER_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MODEMSETTINGS_SPEAKER_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MODEMSETTINGS_SPEAKER_MODE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MODEM_SPEAKER_VOLUME(pub u32);
-impl ::windows_core::TypeKind for MODEM_SPEAKER_VOLUME {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MODEM_SPEAKER_VOLUME {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MODEM_SPEAKER_VOLUME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MODEM_SPEAKER_VOLUME {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MODEM_SPEAKER_VOLUME").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MODEM_STATUS_FLAGS(pub u32);
-impl ::windows_core::TypeKind for MODEM_STATUS_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MODEM_STATUS_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MODEM_STATUS_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MODEM_STATUS_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MODEM_STATUS_FLAGS").field(&self.0).finish()
     }
 }
@@ -729,42 +729,42 @@ impl MODEM_STATUS_FLAGS {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for MODEM_STATUS_FLAGS {
+impl core::ops::BitOr for MODEM_STATUS_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for MODEM_STATUS_FLAGS {
+impl core::ops::BitAnd for MODEM_STATUS_FLAGS {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for MODEM_STATUS_FLAGS {
+impl core::ops::BitOrAssign for MODEM_STATUS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for MODEM_STATUS_FLAGS {
+impl core::ops::BitAndAssign for MODEM_STATUS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for MODEM_STATUS_FLAGS {
+impl core::ops::Not for MODEM_STATUS_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PURGE_COMM_FLAGS(pub u32);
-impl ::windows_core::TypeKind for PURGE_COMM_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PURGE_COMM_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for PURGE_COMM_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PURGE_COMM_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PURGE_COMM_FLAGS").field(&self.0).finish()
     }
 }
@@ -773,29 +773,29 @@ impl PURGE_COMM_FLAGS {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for PURGE_COMM_FLAGS {
+impl core::ops::BitOr for PURGE_COMM_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for PURGE_COMM_FLAGS {
+impl core::ops::BitAnd for PURGE_COMM_FLAGS {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for PURGE_COMM_FLAGS {
+impl core::ops::BitOrAssign for PURGE_COMM_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for PURGE_COMM_FLAGS {
+impl core::ops::BitAndAssign for PURGE_COMM_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for PURGE_COMM_FLAGS {
+impl core::ops::Not for PURGE_COMM_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -812,29 +812,29 @@ pub struct COMMCONFIG {
     pub dwProviderSize: u32,
     pub wcProviderData: [u16; 1],
 }
-impl ::core::marker::Copy for COMMCONFIG {}
-impl ::core::clone::Clone for COMMCONFIG {
+impl Copy for COMMCONFIG {}
+impl Clone for COMMCONFIG {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for COMMCONFIG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for COMMCONFIG {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("COMMCONFIG").field("dwSize", &self.dwSize).field("wVersion", &self.wVersion).field("wReserved", &self.wReserved).field("dcb", &self.dcb).field("dwProviderSubType", &self.dwProviderSubType).field("dwProviderOffset", &self.dwProviderOffset).field("dwProviderSize", &self.dwProviderSize).field("wcProviderData", &self.wcProviderData).finish()
     }
 }
-impl ::windows_core::TypeKind for COMMCONFIG {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COMMCONFIG {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for COMMCONFIG {
+impl PartialEq for COMMCONFIG {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.wVersion == other.wVersion && self.wReserved == other.wReserved && self.dcb == other.dcb && self.dwProviderSubType == other.dwProviderSubType && self.dwProviderOffset == other.dwProviderOffset && self.dwProviderSize == other.dwProviderSize && self.wcProviderData == other.wcProviderData
     }
 }
-impl ::core::cmp::Eq for COMMCONFIG {}
-impl ::core::default::Default for COMMCONFIG {
+impl Eq for COMMCONFIG {}
+impl Default for COMMCONFIG {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -858,14 +858,14 @@ pub struct COMMPROP {
     pub dwProvSpec2: u32,
     pub wcProvChar: [u16; 1],
 }
-impl ::core::marker::Copy for COMMPROP {}
-impl ::core::clone::Clone for COMMPROP {
+impl Copy for COMMPROP {}
+impl Clone for COMMPROP {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for COMMPROP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for COMMPROP {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("COMMPROP")
             .field("wPacketLength", &self.wPacketLength)
             .field("wPacketVersion", &self.wPacketVersion)
@@ -888,10 +888,10 @@ impl ::core::fmt::Debug for COMMPROP {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for COMMPROP {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COMMPROP {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for COMMPROP {
+impl PartialEq for COMMPROP {
     fn eq(&self, other: &Self) -> bool {
         self.wPacketLength == other.wPacketLength
             && self.wPacketVersion == other.wPacketVersion
@@ -913,10 +913,10 @@ impl ::core::cmp::PartialEq for COMMPROP {
             && self.wcProvChar == other.wcProvChar
     }
 }
-impl ::core::cmp::Eq for COMMPROP {}
-impl ::core::default::Default for COMMPROP {
+impl Eq for COMMPROP {}
+impl Default for COMMPROP {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -927,29 +927,29 @@ pub struct COMMTIMEOUTS {
     pub WriteTotalTimeoutMultiplier: u32,
     pub WriteTotalTimeoutConstant: u32,
 }
-impl ::core::marker::Copy for COMMTIMEOUTS {}
-impl ::core::clone::Clone for COMMTIMEOUTS {
+impl Copy for COMMTIMEOUTS {}
+impl Clone for COMMTIMEOUTS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for COMMTIMEOUTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for COMMTIMEOUTS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("COMMTIMEOUTS").field("ReadIntervalTimeout", &self.ReadIntervalTimeout).field("ReadTotalTimeoutMultiplier", &self.ReadTotalTimeoutMultiplier).field("ReadTotalTimeoutConstant", &self.ReadTotalTimeoutConstant).field("WriteTotalTimeoutMultiplier", &self.WriteTotalTimeoutMultiplier).field("WriteTotalTimeoutConstant", &self.WriteTotalTimeoutConstant).finish()
     }
 }
-impl ::windows_core::TypeKind for COMMTIMEOUTS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COMMTIMEOUTS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for COMMTIMEOUTS {
+impl PartialEq for COMMTIMEOUTS {
     fn eq(&self, other: &Self) -> bool {
         self.ReadIntervalTimeout == other.ReadIntervalTimeout && self.ReadTotalTimeoutMultiplier == other.ReadTotalTimeoutMultiplier && self.ReadTotalTimeoutConstant == other.ReadTotalTimeoutConstant && self.WriteTotalTimeoutMultiplier == other.WriteTotalTimeoutMultiplier && self.WriteTotalTimeoutConstant == other.WriteTotalTimeoutConstant
     }
 }
-impl ::core::cmp::Eq for COMMTIMEOUTS {}
-impl ::core::default::Default for COMMTIMEOUTS {
+impl Eq for COMMTIMEOUTS {}
+impl Default for COMMTIMEOUTS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -958,29 +958,29 @@ pub struct COMSTAT {
     pub cbInQue: u32,
     pub cbOutQue: u32,
 }
-impl ::core::marker::Copy for COMSTAT {}
-impl ::core::clone::Clone for COMSTAT {
+impl Copy for COMSTAT {}
+impl Clone for COMSTAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for COMSTAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for COMSTAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("COMSTAT").field("_bitfield", &self._bitfield).field("cbInQue", &self.cbInQue).field("cbOutQue", &self.cbOutQue).finish()
     }
 }
-impl ::windows_core::TypeKind for COMSTAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COMSTAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for COMSTAT {
+impl PartialEq for COMSTAT {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield && self.cbInQue == other.cbInQue && self.cbOutQue == other.cbOutQue
     }
 }
-impl ::core::cmp::Eq for COMSTAT {}
-impl ::core::default::Default for COMSTAT {
+impl Eq for COMSTAT {}
+impl Default for COMSTAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1001,14 +1001,14 @@ pub struct DCB {
     pub EvtChar: i8,
     pub wReserved1: u16,
 }
-impl ::core::marker::Copy for DCB {}
-impl ::core::clone::Clone for DCB {
+impl Copy for DCB {}
+impl Clone for DCB {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for DCB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for DCB {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("DCB")
             .field("DCBlength", &self.DCBlength)
             .field("BaudRate", &self.BaudRate)
@@ -1028,18 +1028,18 @@ impl ::core::fmt::Debug for DCB {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for DCB {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for DCB {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for DCB {
+impl PartialEq for DCB {
     fn eq(&self, other: &Self) -> bool {
         self.DCBlength == other.DCBlength && self.BaudRate == other.BaudRate && self._bitfield == other._bitfield && self.wReserved == other.wReserved && self.XonLim == other.XonLim && self.XoffLim == other.XoffLim && self.ByteSize == other.ByteSize && self.Parity == other.Parity && self.StopBits == other.StopBits && self.XonChar == other.XonChar && self.XoffChar == other.XoffChar && self.ErrorChar == other.ErrorChar && self.EofChar == other.EofChar && self.EvtChar == other.EvtChar && self.wReserved1 == other.wReserved1
     }
 }
-impl ::core::cmp::Eq for DCB {}
-impl ::core::default::Default for DCB {
+impl Eq for DCB {}
+impl Default for DCB {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1065,14 +1065,14 @@ pub struct MODEMDEVCAPS {
     pub dwMaxDCERate: u32,
     pub abVariablePortion: [u8; 1],
 }
-impl ::core::marker::Copy for MODEMDEVCAPS {}
-impl ::core::clone::Clone for MODEMDEVCAPS {
+impl Copy for MODEMDEVCAPS {}
+impl Clone for MODEMDEVCAPS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for MODEMDEVCAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MODEMDEVCAPS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MODEMDEVCAPS")
             .field("dwActualSize", &self.dwActualSize)
             .field("dwRequiredSize", &self.dwRequiredSize)
@@ -1097,10 +1097,10 @@ impl ::core::fmt::Debug for MODEMDEVCAPS {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for MODEMDEVCAPS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MODEMDEVCAPS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MODEMDEVCAPS {
+impl PartialEq for MODEMDEVCAPS {
     fn eq(&self, other: &Self) -> bool {
         self.dwActualSize == other.dwActualSize
             && self.dwRequiredSize == other.dwRequiredSize
@@ -1124,10 +1124,10 @@ impl ::core::cmp::PartialEq for MODEMDEVCAPS {
             && self.abVariablePortion == other.abVariablePortion
     }
 }
-impl ::core::cmp::Eq for MODEMDEVCAPS {}
-impl ::core::default::Default for MODEMDEVCAPS {
+impl Eq for MODEMDEVCAPS {}
+impl Default for MODEMDEVCAPS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1145,14 +1145,14 @@ pub struct MODEMSETTINGS {
     pub dwNegotiatedDCERate: u32,
     pub abVariablePortion: [u8; 1],
 }
-impl ::core::marker::Copy for MODEMSETTINGS {}
-impl ::core::clone::Clone for MODEMSETTINGS {
+impl Copy for MODEMSETTINGS {}
+impl Clone for MODEMSETTINGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for MODEMSETTINGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MODEMSETTINGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MODEMSETTINGS")
             .field("dwActualSize", &self.dwActualSize)
             .field("dwRequiredSize", &self.dwRequiredSize)
@@ -1169,17 +1169,17 @@ impl ::core::fmt::Debug for MODEMSETTINGS {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for MODEMSETTINGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MODEMSETTINGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MODEMSETTINGS {
+impl PartialEq for MODEMSETTINGS {
     fn eq(&self, other: &Self) -> bool {
         self.dwActualSize == other.dwActualSize && self.dwRequiredSize == other.dwRequiredSize && self.dwDevSpecificOffset == other.dwDevSpecificOffset && self.dwDevSpecificSize == other.dwDevSpecificSize && self.dwCallSetupFailTimer == other.dwCallSetupFailTimer && self.dwInactivityTimeout == other.dwInactivityTimeout && self.dwSpeakerVolume == other.dwSpeakerVolume && self.dwSpeakerMode == other.dwSpeakerMode && self.dwPreferredModemOptions == other.dwPreferredModemOptions && self.dwNegotiatedModemOptions == other.dwNegotiatedModemOptions && self.dwNegotiatedDCERate == other.dwNegotiatedDCERate && self.abVariablePortion == other.abVariablePortion
     }
 }
-impl ::core::cmp::Eq for MODEMSETTINGS {}
-impl ::core::default::Default for MODEMSETTINGS {
+impl Eq for MODEMSETTINGS {}
+impl Default for MODEMSETTINGS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }

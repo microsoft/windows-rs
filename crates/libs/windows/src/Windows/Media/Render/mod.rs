@@ -1,5 +1,5 @@
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct AudioRenderCategory(pub i32);
 impl AudioRenderCategory {
     pub const Other: Self = Self(0i32);
@@ -15,14 +15,14 @@ impl AudioRenderCategory {
     pub const Movie: Self = Self(10i32);
     pub const Media: Self = Self(11i32);
 }
-impl ::windows_core::TypeKind for AudioRenderCategory {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for AudioRenderCategory {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for AudioRenderCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for AudioRenderCategory {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("AudioRenderCategory").field(&self.0).finish()
     }
 }
-impl ::windows_core::RuntimeType for AudioRenderCategory {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Render.AudioRenderCategory;i4)");
+impl windows_core::RuntimeType for AudioRenderCategory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Render.AudioRenderCategory;i4)");
 }

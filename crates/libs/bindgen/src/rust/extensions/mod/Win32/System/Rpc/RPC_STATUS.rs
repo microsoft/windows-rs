@@ -8,11 +8,11 @@ impl RPC_STATUS {
         !self.is_ok()
     }
     #[inline]
-    pub const fn to_hresult(self) -> ::windows_core::HRESULT {
-        ::windows_core::HRESULT::from_win32(self.0 as u32)
+    pub const fn to_hresult(self) -> windows_core::HRESULT {
+        windows_core::HRESULT::from_win32(self.0 as u32)
     }
     #[inline]
-    pub fn ok(self) -> ::windows_core::Result<()> {
+    pub fn ok(self) -> windows_core::Result<()> {
         if self.is_ok() {
             Ok(())
         } else {
@@ -20,12 +20,12 @@ impl RPC_STATUS {
         }
     }
 }
-impl ::core::convert::From<RPC_STATUS> for ::windows_core::HRESULT {
+impl From<RPC_STATUS> for windows_core::HRESULT {
     fn from(value: RPC_STATUS) -> Self {
         value.to_hresult()
     }
 }
-impl ::core::convert::From<RPC_STATUS> for ::windows_core::Error {
+impl From<RPC_STATUS> for windows_core::Error {
     fn from(value: RPC_STATUS) -> Self {
         value.to_hresult().into()
     }

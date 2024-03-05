@@ -8,14 +8,14 @@
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 ::windows_targets::link!("wintrust.dll" "system" fn CryptSIPGetSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, pdwencodingtype : *mut super:: CERT_QUERY_ENCODING_TYPE, dwindex : u32, pcbsigneddatamsg : *mut u32, pbsigneddatamsg : *mut u8) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-::windows_targets::link!("crypt32.dll" "system" fn CryptSIPLoad(pgsubject : *const ::windows_sys::core::GUID, dwflags : u32, psipdispatch : *mut SIP_DISPATCH_INFO) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("crypt32.dll" "system" fn CryptSIPLoad(pgsubject : *const windows_sys::core::GUID, dwflags : u32, psipdispatch : *mut SIP_DISPATCH_INFO) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 ::windows_targets::link!("wintrust.dll" "system" fn CryptSIPPutSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, dwencodingtype : super:: CERT_QUERY_ENCODING_TYPE, pdwindex : *mut u32, cbsigneddatamsg : u32, pbsigneddatamsg : *mut u8) -> super::super::super::Foundation:: BOOL);
-::windows_targets::link!("crypt32.dll" "system" fn CryptSIPRemoveProvider(pgprov : *mut ::windows_sys::core::GUID) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("crypt32.dll" "system" fn CryptSIPRemoveProvider(pgprov : *mut windows_sys::core::GUID) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 ::windows_targets::link!("wintrust.dll" "system" fn CryptSIPRemoveSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, dwindex : u32) -> super::super::super::Foundation:: BOOL);
-::windows_targets::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuid(filename : ::windows_sys::core::PCWSTR, hfilein : super::super::super::Foundation:: HANDLE, pgsubject : *mut ::windows_sys::core::GUID) -> super::super::super::Foundation:: BOOL);
-::windows_targets::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuidForCatalogFile(filename : ::windows_sys::core::PCWSTR, hfilein : super::super::super::Foundation:: HANDLE, pgsubject : *mut ::windows_sys::core::GUID) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuid(filename : windows_sys::core::PCWSTR, hfilein : super::super::super::Foundation:: HANDLE, pgsubject : *mut windows_sys::core::GUID) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuidForCatalogFile(filename : windows_sys::core::PCWSTR, hfilein : super::super::super::Foundation:: HANDLE, pgsubject : *mut windows_sys::core::GUID) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 ::windows_targets::link!("wintrust.dll" "system" fn CryptSIPVerifyIndirectData(psubjectinfo : *mut SIP_SUBJECTINFO, pindirectdata : *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation:: BOOL);
 pub const MSSIP_ADDINFO_BLOB: u32 = 3u32;
@@ -42,8 +42,8 @@ pub struct MS_ADDINFO_BLOB {
     pub cbMemSignedMsg: u32,
     pub pbMemSignedMsg: *mut u8,
 }
-impl ::core::marker::Copy for MS_ADDINFO_BLOB {}
-impl ::core::clone::Clone for MS_ADDINFO_BLOB {
+impl Copy for MS_ADDINFO_BLOB {}
+impl Clone for MS_ADDINFO_BLOB {
     fn clone(&self) -> Self {
         *self
     }
@@ -53,8 +53,8 @@ pub struct MS_ADDINFO_FLAT {
     pub cbStruct: u32,
     pub pIndirectData: *mut SIP_INDIRECT_DATA,
 }
-impl ::core::marker::Copy for MS_ADDINFO_FLAT {}
-impl ::core::clone::Clone for MS_ADDINFO_FLAT {
+impl Copy for MS_ADDINFO_FLAT {}
+impl Clone for MS_ADDINFO_FLAT {
     fn clone(&self) -> Self {
         *self
     }
@@ -62,20 +62,20 @@ impl ::core::clone::Clone for MS_ADDINFO_FLAT {
 #[repr(C)]
 pub struct SIP_ADD_NEWPROVIDER {
     pub cbStruct: u32,
-    pub pgSubject: *mut ::windows_sys::core::GUID,
-    pub pwszDLLFileName: ::windows_sys::core::PWSTR,
-    pub pwszMagicNumber: ::windows_sys::core::PWSTR,
-    pub pwszIsFunctionName: ::windows_sys::core::PWSTR,
-    pub pwszGetFuncName: ::windows_sys::core::PWSTR,
-    pub pwszPutFuncName: ::windows_sys::core::PWSTR,
-    pub pwszCreateFuncName: ::windows_sys::core::PWSTR,
-    pub pwszVerifyFuncName: ::windows_sys::core::PWSTR,
-    pub pwszRemoveFuncName: ::windows_sys::core::PWSTR,
-    pub pwszIsFunctionNameFmt2: ::windows_sys::core::PWSTR,
-    pub pwszGetCapFuncName: ::windows_sys::core::PWSTR,
+    pub pgSubject: *mut windows_sys::core::GUID,
+    pub pwszDLLFileName: windows_sys::core::PWSTR,
+    pub pwszMagicNumber: windows_sys::core::PWSTR,
+    pub pwszIsFunctionName: windows_sys::core::PWSTR,
+    pub pwszGetFuncName: windows_sys::core::PWSTR,
+    pub pwszPutFuncName: windows_sys::core::PWSTR,
+    pub pwszCreateFuncName: windows_sys::core::PWSTR,
+    pub pwszVerifyFuncName: windows_sys::core::PWSTR,
+    pub pwszRemoveFuncName: windows_sys::core::PWSTR,
+    pub pwszIsFunctionNameFmt2: windows_sys::core::PWSTR,
+    pub pwszGetCapFuncName: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for SIP_ADD_NEWPROVIDER {}
-impl ::core::clone::Clone for SIP_ADD_NEWPROVIDER {
+impl Copy for SIP_ADD_NEWPROVIDER {}
+impl Clone for SIP_ADD_NEWPROVIDER {
     fn clone(&self) -> Self {
         *self
     }
@@ -87,8 +87,8 @@ pub struct SIP_CAP_SET_V2 {
     pub isMultiSign: super::super::super::Foundation::BOOL,
     pub dwReserved: u32,
 }
-impl ::core::marker::Copy for SIP_CAP_SET_V2 {}
-impl ::core::clone::Clone for SIP_CAP_SET_V2 {
+impl Copy for SIP_CAP_SET_V2 {}
+impl Clone for SIP_CAP_SET_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -100,8 +100,8 @@ pub struct SIP_CAP_SET_V3 {
     pub isMultiSign: super::super::super::Foundation::BOOL,
     pub Anonymous: SIP_CAP_SET_V3_0,
 }
-impl ::core::marker::Copy for SIP_CAP_SET_V3 {}
-impl ::core::clone::Clone for SIP_CAP_SET_V3 {
+impl Copy for SIP_CAP_SET_V3 {}
+impl Clone for SIP_CAP_SET_V3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -111,8 +111,8 @@ pub union SIP_CAP_SET_V3_0 {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
-impl ::core::marker::Copy for SIP_CAP_SET_V3_0 {}
-impl ::core::clone::Clone for SIP_CAP_SET_V3_0 {
+impl Copy for SIP_CAP_SET_V3_0 {}
+impl Clone for SIP_CAP_SET_V3_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -129,9 +129,9 @@ pub struct SIP_DISPATCH_INFO {
     pub pfRemove: pCryptSIPRemoveSignedDataMsg,
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl ::core::marker::Copy for SIP_DISPATCH_INFO {}
+impl Copy for SIP_DISPATCH_INFO {}
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl ::core::clone::Clone for SIP_DISPATCH_INFO {
+impl Clone for SIP_DISPATCH_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -142,8 +142,8 @@ pub struct SIP_INDIRECT_DATA {
     pub DigestAlgorithm: super::CRYPT_ALGORITHM_IDENTIFIER,
     pub Digest: super::CRYPT_INTEGER_BLOB,
 }
-impl ::core::marker::Copy for SIP_INDIRECT_DATA {}
-impl ::core::clone::Clone for SIP_INDIRECT_DATA {
+impl Copy for SIP_INDIRECT_DATA {}
+impl Clone for SIP_INDIRECT_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -152,10 +152,10 @@ impl ::core::clone::Clone for SIP_INDIRECT_DATA {
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 pub struct SIP_SUBJECTINFO {
     pub cbSize: u32,
-    pub pgSubjectType: *mut ::windows_sys::core::GUID,
+    pub pgSubjectType: *mut windows_sys::core::GUID,
     pub hFile: super::super::super::Foundation::HANDLE,
-    pub pwsFileName: ::windows_sys::core::PCWSTR,
-    pub pwsDisplayName: ::windows_sys::core::PCWSTR,
+    pub pwsFileName: windows_sys::core::PCWSTR,
+    pub pwsDisplayName: windows_sys::core::PCWSTR,
     pub dwReserved1: u32,
     pub dwIntVersion: u32,
     pub hProv: usize,
@@ -168,12 +168,12 @@ pub struct SIP_SUBJECTINFO {
     pub dwIndex: u32,
     pub dwUnionChoice: u32,
     pub Anonymous: SIP_SUBJECTINFO_0,
-    pub pClientData: *mut ::core::ffi::c_void,
+    pub pClientData: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl ::core::marker::Copy for SIP_SUBJECTINFO {}
+impl Copy for SIP_SUBJECTINFO {}
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl ::core::clone::Clone for SIP_SUBJECTINFO {
+impl Clone for SIP_SUBJECTINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -186,26 +186,26 @@ pub union SIP_SUBJECTINFO_0 {
     pub psBlob: *mut MS_ADDINFO_BLOB,
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl ::core::marker::Copy for SIP_SUBJECTINFO_0 {}
+impl Copy for SIP_SUBJECTINFO_0 {}
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl ::core::clone::Clone for SIP_SUBJECTINFO_0 {
+impl Clone for SIP_SUBJECTINFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-pub type pCryptSIPCreateIndirectData = ::core::option::Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL>;
+pub type pCryptSIPCreateIndirectData = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-pub type pCryptSIPGetCaps = ::core::option::Option<unsafe extern "system" fn(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP_CAP_SET_V3) -> super::super::super::Foundation::BOOL>;
+pub type pCryptSIPGetCaps = Option<unsafe extern "system" fn(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP_CAP_SET_V3) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-pub type pCryptSIPGetSealedDigest = ::core::option::Option<unsafe extern "system" fn(psubjectinfo: *const SIP_SUBJECTINFO, psig: *const u8, dwsig: u32, pbdigest: *mut u8, pcbdigest: *mut u32) -> super::super::super::Foundation::BOOL>;
+pub type pCryptSIPGetSealedDigest = Option<unsafe extern "system" fn(psubjectinfo: *const SIP_SUBJECTINFO, psig: *const u8, dwsig: u32, pbdigest: *mut u8, pcbdigest: *mut u32) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-pub type pCryptSIPGetSignedDataMsg = ::core::option::Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pdwencodingtype: *mut u32, dwindex: u32, pcbsigneddatamsg: *mut u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL>;
+pub type pCryptSIPGetSignedDataMsg = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pdwencodingtype: *mut u32, dwindex: u32, pcbsigneddatamsg: *mut u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-pub type pCryptSIPPutSignedDataMsg = ::core::option::Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: u32, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL>;
+pub type pCryptSIPPutSignedDataMsg = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: u32, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-pub type pCryptSIPRemoveSignedDataMsg = ::core::option::Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, dwindex: u32) -> super::super::super::Foundation::BOOL>;
+pub type pCryptSIPRemoveSignedDataMsg = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, dwindex: u32) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-pub type pCryptSIPVerifyIndirectData = ::core::option::Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL>;
-pub type pfnIsFileSupported = ::core::option::Option<unsafe extern "system" fn(hfile: super::super::super::Foundation::HANDLE, pgsubject: *mut ::windows_sys::core::GUID) -> super::super::super::Foundation::BOOL>;
-pub type pfnIsFileSupportedName = ::core::option::Option<unsafe extern "system" fn(pwszfilename: ::windows_sys::core::PCWSTR, pgsubject: *mut ::windows_sys::core::GUID) -> super::super::super::Foundation::BOOL>;
+pub type pCryptSIPVerifyIndirectData = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL>;
+pub type pfnIsFileSupported = Option<unsafe extern "system" fn(hfile: super::super::super::Foundation::HANDLE, pgsubject: *mut windows_sys::core::GUID) -> super::super::super::Foundation::BOOL>;
+pub type pfnIsFileSupportedName = Option<unsafe extern "system" fn(pwszfilename: windows_sys::core::PCWSTR, pgsubject: *mut windows_sys::core::GUID) -> super::super::super::Foundation::BOOL>;

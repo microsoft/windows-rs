@@ -4,11 +4,11 @@ impl VARIANT_BOOL {
         self.0 != 0
     }
     #[inline]
-    pub fn ok(self) -> ::windows_core::Result<()> {
+    pub fn ok(self) -> windows_core::Result<()> {
         if self.as_bool() {
             Ok(())
         } else {
-            Err(::windows_core::Error::from_win32())
+            Err(windows_core::Error::from_win32())
         }
     }
     #[inline]
@@ -22,17 +22,17 @@ impl VARIANT_BOOL {
         self.ok().expect(msg);
     }
 }
-impl ::core::convert::From<VARIANT_BOOL> for bool {
+impl From<VARIANT_BOOL> for bool {
     fn from(value: VARIANT_BOOL) -> Self {
         value.as_bool()
     }
 }
-impl ::core::convert::From<&VARIANT_BOOL> for bool {
+impl From<&VARIANT_BOOL> for bool {
     fn from(value: &VARIANT_BOOL) -> Self {
         value.as_bool()
     }
 }
-impl ::core::convert::From<bool> for VARIANT_BOOL {
+impl From<bool> for VARIANT_BOOL {
     fn from(value: bool) -> Self {
         if value {
             VARIANT_TRUE
@@ -41,22 +41,22 @@ impl ::core::convert::From<bool> for VARIANT_BOOL {
         }
     }
 }
-impl ::core::convert::From<&bool> for VARIANT_BOOL {
+impl From<&bool> for VARIANT_BOOL {
     fn from(value: &bool) -> Self {
         (*value).into()
     }
 }
-impl ::core::cmp::PartialEq<bool> for VARIANT_BOOL {
+impl PartialEq<bool> for VARIANT_BOOL {
     fn eq(&self, other: &bool) -> bool {
         self.as_bool() == *other
     }
 }
-impl ::core::cmp::PartialEq<VARIANT_BOOL> for bool {
+impl PartialEq<VARIANT_BOOL> for bool {
     fn eq(&self, other: &VARIANT_BOOL) -> bool {
         *self == other.as_bool()
     }
 }
-impl ::core::ops::Not for VARIANT_BOOL {
+impl core::ops::Not for VARIANT_BOOL {
     type Output = Self;
     fn not(self) -> Self::Output {
         if self.as_bool() {

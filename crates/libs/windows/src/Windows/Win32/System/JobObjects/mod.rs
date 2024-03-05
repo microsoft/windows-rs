@@ -1,118 +1,118 @@
 #[inline]
-pub unsafe fn AssignProcessToJobObject<P0, P1>(hjob: P0, hprocess: P1) -> ::windows_core::Result<()>
+pub unsafe fn AssignProcessToJobObject<P0, P1>(hjob: P0, hprocess: P1) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn AssignProcessToJobObject(hjob : super::super::Foundation:: HANDLE, hprocess : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     AssignProcessToJobObject(hjob.into_param().abi(), hprocess.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateJobObjectA<P0>(lpjobattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpname: P0) -> ::windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateJobObjectA<P0>(lpjobattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpname: P0) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateJobObjectA(lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : ::windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateJobObjectA(::core::mem::transmute(lpjobattributes.unwrap_or(::std::ptr::null())), lpname.into_param().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
+    ::windows_targets::link!("kernel32.dll" "system" fn CreateJobObjectA(lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
+    let result__ = CreateJobObjectA(core::mem::transmute(lpjobattributes.unwrap_or(std::ptr::null())), lpname.into_param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateJobObjectW<P0>(lpjobattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpname: P0) -> ::windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateJobObjectW<P0>(lpjobattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpname: P0) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateJobObjectW(lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : ::windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateJobObjectW(::core::mem::transmute(lpjobattributes.unwrap_or(::std::ptr::null())), lpname.into_param().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
+    ::windows_targets::link!("kernel32.dll" "system" fn CreateJobObjectW(lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    let result__ = CreateJobObjectW(core::mem::transmute(lpjobattributes.unwrap_or(std::ptr::null())), lpname.into_param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn CreateJobSet(userjobset: &[JOB_SET_ARRAY], flags: u32) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("kernel32.dll" "system" fn CreateJobSet(numjob : u32, userjobset : *const JOB_SET_ARRAY, flags : u32) -> super::super::Foundation:: BOOL);
-    CreateJobSet(userjobset.len().try_into().unwrap(), ::core::mem::transmute(userjobset.as_ptr()), flags)
+    CreateJobSet(userjobset.len().try_into().unwrap(), core::mem::transmute(userjobset.as_ptr()), flags)
 }
 #[inline]
-pub unsafe fn FreeMemoryJobObject(buffer: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("kernel32.dll" "system" fn FreeMemoryJobObject(buffer : *const ::core::ffi::c_void));
+pub unsafe fn FreeMemoryJobObject(buffer: *const core::ffi::c_void) {
+    ::windows_targets::link!("kernel32.dll" "system" fn FreeMemoryJobObject(buffer : *const core::ffi::c_void));
     FreeMemoryJobObject(buffer)
 }
 #[inline]
-pub unsafe fn IsProcessInJob<P0, P1>(processhandle: P0, jobhandle: P1, result: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>
+pub unsafe fn IsProcessInJob<P0, P1>(processhandle: P0, jobhandle: P1, result: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn IsProcessInJob(processhandle : super::super::Foundation:: HANDLE, jobhandle : super::super::Foundation:: HANDLE, result : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     IsProcessInJob(processhandle.into_param().abi(), jobhandle.into_param().abi(), result).ok()
 }
 #[inline]
-pub unsafe fn OpenJobObjectA<P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn OpenJobObjectA<P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn OpenJobObjectA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : ::windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
+    ::windows_targets::link!("kernel32.dll" "system" fn OpenJobObjectA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     let result__ = OpenJobObjectA(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn OpenJobObjectW<P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn OpenJobObjectW<P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn OpenJobObjectW(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : ::windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    ::windows_targets::link!("kernel32.dll" "system" fn OpenJobObjectW(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = OpenJobObjectW(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn QueryInformationJobObject<P0>(hjob: P0, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *mut ::core::ffi::c_void, cbjobobjectinformationlength: u32, lpreturnlength: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
+pub unsafe fn QueryInformationJobObject<P0>(hjob: P0, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *mut core::ffi::c_void, cbjobobjectinformationlength: u32, lpreturnlength: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn QueryInformationJobObject(hjob : super::super::Foundation:: HANDLE, jobobjectinformationclass : JOBOBJECTINFOCLASS, lpjobobjectinformation : *mut ::core::ffi::c_void, cbjobobjectinformationlength : u32, lpreturnlength : *mut u32) -> super::super::Foundation:: BOOL);
-    QueryInformationJobObject(hjob.into_param().abi(), jobobjectinformationclass, lpjobobjectinformation, cbjobobjectinformationlength, ::core::mem::transmute(lpreturnlength.unwrap_or(::std::ptr::null_mut()))).ok()
+    ::windows_targets::link!("kernel32.dll" "system" fn QueryInformationJobObject(hjob : super::super::Foundation:: HANDLE, jobobjectinformationclass : JOBOBJECTINFOCLASS, lpjobobjectinformation : *mut core::ffi::c_void, cbjobobjectinformationlength : u32, lpreturnlength : *mut u32) -> super::super::Foundation:: BOOL);
+    QueryInformationJobObject(hjob.into_param().abi(), jobobjectinformationclass, lpjobobjectinformation, cbjobobjectinformationlength, core::mem::transmute(lpreturnlength.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn QueryIoRateControlInformationJobObject<P0, P1>(hjob: P0, volumename: P1, infoblocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount: *mut u32) -> u32
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn QueryIoRateControlInformationJobObject(hjob : super::super::Foundation:: HANDLE, volumename : ::windows_core::PCWSTR, infoblocks : *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount : *mut u32) -> u32);
+    ::windows_targets::link!("kernel32.dll" "system" fn QueryIoRateControlInformationJobObject(hjob : super::super::Foundation:: HANDLE, volumename : windows_core::PCWSTR, infoblocks : *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount : *mut u32) -> u32);
     QueryIoRateControlInformationJobObject(hjob.into_param().abi(), volumename.into_param().abi(), infoblocks, infoblockcount)
 }
 #[inline]
-pub unsafe fn SetInformationJobObject<P0>(hjob: P0, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *const ::core::ffi::c_void, cbjobobjectinformationlength: u32) -> ::windows_core::Result<()>
+pub unsafe fn SetInformationJobObject<P0>(hjob: P0, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *const core::ffi::c_void, cbjobobjectinformationlength: u32) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetInformationJobObject(hjob : super::super::Foundation:: HANDLE, jobobjectinformationclass : JOBOBJECTINFOCLASS, lpjobobjectinformation : *const ::core::ffi::c_void, cbjobobjectinformationlength : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn SetInformationJobObject(hjob : super::super::Foundation:: HANDLE, jobobjectinformationclass : JOBOBJECTINFOCLASS, lpjobobjectinformation : *const core::ffi::c_void, cbjobobjectinformationlength : u32) -> super::super::Foundation:: BOOL);
     SetInformationJobObject(hjob.into_param().abi(), jobobjectinformationclass, lpjobobjectinformation, cbjobobjectinformationlength).ok()
 }
 #[inline]
 pub unsafe fn SetIoRateControlInformationJobObject<P0>(hjob: P0, ioratecontrolinfo: *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn SetIoRateControlInformationJobObject(hjob : super::super::Foundation:: HANDLE, ioratecontrolinfo : *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32);
     SetIoRateControlInformationJobObject(hjob.into_param().abi(), ioratecontrolinfo)
 }
 #[inline]
-pub unsafe fn TerminateJobObject<P0>(hjob: P0, uexitcode: u32) -> ::windows_core::Result<()>
+pub unsafe fn TerminateJobObject<P0>(hjob: P0, uexitcode: u32) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn TerminateJobObject(hjob : super::super::Foundation:: HANDLE, uexitcode : u32) -> super::super::Foundation:: BOOL);
     TerminateJobObject(hjob.into_param().abi(), uexitcode).ok()
 }
 #[inline]
-pub unsafe fn UserHandleGrantAccess<P0, P1, P2>(huserhandle: P0, hjob: P1, bgrant: P2) -> ::windows_core::Result<()>
+pub unsafe fn UserHandleGrantAccess<P0, P1, P2>(huserhandle: P0, hjob: P1, bgrant: P2) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn UserHandleGrantAccess(huserhandle : super::super::Foundation:: HANDLE, hjob : super::super::Foundation:: HANDLE, bgrant : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     UserHandleGrantAccess(huserhandle.into_param().abi(), hjob.into_param().abi(), bgrant.into_param().abi()).ok()
@@ -235,57 +235,57 @@ pub const ToleranceIntervalShort: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = JO
 pub const ToleranceLow: JOBOBJECT_RATE_CONTROL_TOLERANCE = JOBOBJECT_RATE_CONTROL_TOLERANCE(1i32);
 pub const ToleranceMedium: JOBOBJECT_RATE_CONTROL_TOLERANCE = JOBOBJECT_RATE_CONTROL_TOLERANCE(2i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct JOBOBJECTINFOCLASS(pub i32);
-impl ::windows_core::TypeKind for JOBOBJECTINFOCLASS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECTINFOCLASS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for JOBOBJECTINFOCLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECTINFOCLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("JOBOBJECTINFOCLASS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(pub i32);
-impl ::windows_core::TypeKind for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE(pub i32);
-impl ::windows_core::TypeKind for JOBOBJECT_RATE_CONTROL_TOLERANCE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_RATE_CONTROL_TOLERANCE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for JOBOBJECT_RATE_CONTROL_TOLERANCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_RATE_CONTROL_TOLERANCE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("JOBOBJECT_RATE_CONTROL_TOLERANCE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(pub i32);
-impl ::windows_core::TypeKind for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct JOB_OBJECT_CPU_RATE_CONTROL(pub u32);
-impl ::windows_core::TypeKind for JOB_OBJECT_CPU_RATE_CONTROL {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOB_OBJECT_CPU_RATE_CONTROL {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for JOB_OBJECT_CPU_RATE_CONTROL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOB_OBJECT_CPU_RATE_CONTROL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("JOB_OBJECT_CPU_RATE_CONTROL").field(&self.0).finish()
     }
 }
@@ -294,42 +294,42 @@ impl JOB_OBJECT_CPU_RATE_CONTROL {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for JOB_OBJECT_CPU_RATE_CONTROL {
+impl core::ops::BitOr for JOB_OBJECT_CPU_RATE_CONTROL {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for JOB_OBJECT_CPU_RATE_CONTROL {
+impl core::ops::BitAnd for JOB_OBJECT_CPU_RATE_CONTROL {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for JOB_OBJECT_CPU_RATE_CONTROL {
+impl core::ops::BitOrAssign for JOB_OBJECT_CPU_RATE_CONTROL {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for JOB_OBJECT_CPU_RATE_CONTROL {
+impl core::ops::BitAndAssign for JOB_OBJECT_CPU_RATE_CONTROL {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for JOB_OBJECT_CPU_RATE_CONTROL {
+impl core::ops::Not for JOB_OBJECT_CPU_RATE_CONTROL {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct JOB_OBJECT_IO_RATE_CONTROL_FLAGS(pub i32);
-impl ::windows_core::TypeKind for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("JOB_OBJECT_IO_RATE_CONTROL_FLAGS").field(&self.0).finish()
     }
 }
@@ -338,42 +338,42 @@ impl JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
+impl core::ops::BitOr for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
+impl core::ops::BitAnd for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
+impl core::ops::BitOrAssign for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
+impl core::ops::BitAndAssign for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
+impl core::ops::Not for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct JOB_OBJECT_LIMIT(pub u32);
-impl ::windows_core::TypeKind for JOB_OBJECT_LIMIT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOB_OBJECT_LIMIT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for JOB_OBJECT_LIMIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOB_OBJECT_LIMIT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("JOB_OBJECT_LIMIT").field(&self.0).finish()
     }
 }
@@ -382,42 +382,42 @@ impl JOB_OBJECT_LIMIT {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for JOB_OBJECT_LIMIT {
+impl core::ops::BitOr for JOB_OBJECT_LIMIT {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for JOB_OBJECT_LIMIT {
+impl core::ops::BitAnd for JOB_OBJECT_LIMIT {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for JOB_OBJECT_LIMIT {
+impl core::ops::BitOrAssign for JOB_OBJECT_LIMIT {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for JOB_OBJECT_LIMIT {
+impl core::ops::BitAndAssign for JOB_OBJECT_LIMIT {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for JOB_OBJECT_LIMIT {
+impl core::ops::Not for JOB_OBJECT_LIMIT {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct JOB_OBJECT_NET_RATE_CONTROL_FLAGS(pub i32);
-impl ::windows_core::TypeKind for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("JOB_OBJECT_NET_RATE_CONTROL_FLAGS").field(&self.0).finish()
     }
 }
@@ -426,42 +426,42 @@ impl JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
+impl core::ops::BitOr for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
+impl core::ops::BitAnd for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
+impl core::ops::BitOrAssign for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
+impl core::ops::BitAndAssign for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
+impl core::ops::Not for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct JOB_OBJECT_SECURITY(pub u32);
-impl ::windows_core::TypeKind for JOB_OBJECT_SECURITY {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOB_OBJECT_SECURITY {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for JOB_OBJECT_SECURITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOB_OBJECT_SECURITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("JOB_OBJECT_SECURITY").field(&self.0).finish()
     }
 }
@@ -470,53 +470,53 @@ impl JOB_OBJECT_SECURITY {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for JOB_OBJECT_SECURITY {
+impl core::ops::BitOr for JOB_OBJECT_SECURITY {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for JOB_OBJECT_SECURITY {
+impl core::ops::BitAnd for JOB_OBJECT_SECURITY {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for JOB_OBJECT_SECURITY {
+impl core::ops::BitOrAssign for JOB_OBJECT_SECURITY {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for JOB_OBJECT_SECURITY {
+impl core::ops::BitAndAssign for JOB_OBJECT_SECURITY {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for JOB_OBJECT_SECURITY {
+impl core::ops::Not for JOB_OBJECT_SECURITY {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct JOB_OBJECT_TERMINATE_AT_END_ACTION(pub u32);
-impl ::windows_core::TypeKind for JOB_OBJECT_TERMINATE_AT_END_ACTION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOB_OBJECT_TERMINATE_AT_END_ACTION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for JOB_OBJECT_TERMINATE_AT_END_ACTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOB_OBJECT_TERMINATE_AT_END_ACTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("JOB_OBJECT_TERMINATE_AT_END_ACTION").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct JOB_OBJECT_UILIMIT(pub u32);
-impl ::windows_core::TypeKind for JOB_OBJECT_UILIMIT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOB_OBJECT_UILIMIT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for JOB_OBJECT_UILIMIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOB_OBJECT_UILIMIT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("JOB_OBJECT_UILIMIT").field(&self.0).finish()
     }
 }
@@ -525,29 +525,29 @@ impl JOB_OBJECT_UILIMIT {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for JOB_OBJECT_UILIMIT {
+impl core::ops::BitOr for JOB_OBJECT_UILIMIT {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for JOB_OBJECT_UILIMIT {
+impl core::ops::BitAnd for JOB_OBJECT_UILIMIT {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for JOB_OBJECT_UILIMIT {
+impl core::ops::BitOrAssign for JOB_OBJECT_UILIMIT {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for JOB_OBJECT_UILIMIT {
+impl core::ops::BitAndAssign for JOB_OBJECT_UILIMIT {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for JOB_OBJECT_UILIMIT {
+impl core::ops::Not for JOB_OBJECT_UILIMIT {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -555,32 +555,32 @@ impl ::core::ops::Not for JOB_OBJECT_UILIMIT {
 }
 #[repr(C)]
 pub struct JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
-    pub CompletionKey: *mut ::core::ffi::c_void,
+    pub CompletionKey: *mut core::ffi::c_void,
     pub CompletionPort: super::super::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {}
-impl ::core::clone::Clone for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
+impl Copy for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {}
+impl Clone for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_ASSOCIATE_COMPLETION_PORT").field("CompletionKey", &self.CompletionKey).field("CompletionPort", &self.CompletionPort).finish()
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
+impl PartialEq for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
     fn eq(&self, other: &Self) -> bool {
         self.CompletionKey == other.CompletionKey && self.CompletionPort == other.CompletionPort
     }
 }
-impl ::core::cmp::Eq for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {}
-impl ::core::default::Default for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
+impl Eq for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {}
+impl Default for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -594,14 +594,14 @@ pub struct JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
     pub ActiveProcesses: u32,
     pub TotalTerminatedProcesses: u32,
 }
-impl ::core::marker::Copy for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {}
-impl ::core::clone::Clone for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
+impl Copy for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {}
+impl Clone for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_BASIC_ACCOUNTING_INFORMATION")
             .field("TotalUserTime", &self.TotalUserTime)
             .field("TotalKernelTime", &self.TotalKernelTime)
@@ -614,18 +614,18 @@ impl ::core::fmt::Debug for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
+impl PartialEq for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.TotalUserTime == other.TotalUserTime && self.TotalKernelTime == other.TotalKernelTime && self.ThisPeriodTotalUserTime == other.ThisPeriodTotalUserTime && self.ThisPeriodTotalKernelTime == other.ThisPeriodTotalKernelTime && self.TotalPageFaultCount == other.TotalPageFaultCount && self.TotalProcesses == other.TotalProcesses && self.ActiveProcesses == other.ActiveProcesses && self.TotalTerminatedProcesses == other.TotalTerminatedProcesses
     }
 }
-impl ::core::cmp::Eq for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {}
-impl ::core::default::Default for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
+impl Eq for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {}
+impl Default for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -635,35 +635,35 @@ pub struct JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
     pub IoInfo: super::Threading::IO_COUNTERS,
 }
 #[cfg(feature = "Win32_System_Threading")]
-impl ::core::marker::Copy for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {}
+impl Copy for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {}
 #[cfg(feature = "Win32_System_Threading")]
-impl ::core::clone::Clone for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
+impl Clone for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Threading")]
-impl ::core::fmt::Debug for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION").field("BasicInfo", &self.BasicInfo).field("IoInfo", &self.IoInfo).finish()
     }
 }
 #[cfg(feature = "Win32_System_Threading")]
-impl ::windows_core::TypeKind for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Threading")]
-impl ::core::cmp::PartialEq for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
+impl PartialEq for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.BasicInfo == other.BasicInfo && self.IoInfo == other.IoInfo
     }
 }
 #[cfg(feature = "Win32_System_Threading")]
-impl ::core::cmp::Eq for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {}
+impl Eq for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {}
 #[cfg(feature = "Win32_System_Threading")]
-impl ::core::default::Default for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
+impl Default for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -678,14 +678,14 @@ pub struct JOBOBJECT_BASIC_LIMIT_INFORMATION {
     pub PriorityClass: u32,
     pub SchedulingClass: u32,
 }
-impl ::core::marker::Copy for JOBOBJECT_BASIC_LIMIT_INFORMATION {}
-impl ::core::clone::Clone for JOBOBJECT_BASIC_LIMIT_INFORMATION {
+impl Copy for JOBOBJECT_BASIC_LIMIT_INFORMATION {}
+impl Clone for JOBOBJECT_BASIC_LIMIT_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_BASIC_LIMIT_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_BASIC_LIMIT_INFORMATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_BASIC_LIMIT_INFORMATION")
             .field("PerProcessUserTimeLimit", &self.PerProcessUserTimeLimit)
             .field("PerJobUserTimeLimit", &self.PerJobUserTimeLimit)
@@ -699,18 +699,18 @@ impl ::core::fmt::Debug for JOBOBJECT_BASIC_LIMIT_INFORMATION {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_BASIC_LIMIT_INFORMATION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_BASIC_LIMIT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JOBOBJECT_BASIC_LIMIT_INFORMATION {
+impl PartialEq for JOBOBJECT_BASIC_LIMIT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.PerProcessUserTimeLimit == other.PerProcessUserTimeLimit && self.PerJobUserTimeLimit == other.PerJobUserTimeLimit && self.LimitFlags == other.LimitFlags && self.MinimumWorkingSetSize == other.MinimumWorkingSetSize && self.MaximumWorkingSetSize == other.MaximumWorkingSetSize && self.ActiveProcessLimit == other.ActiveProcessLimit && self.Affinity == other.Affinity && self.PriorityClass == other.PriorityClass && self.SchedulingClass == other.SchedulingClass
     }
 }
-impl ::core::cmp::Eq for JOBOBJECT_BASIC_LIMIT_INFORMATION {}
-impl ::core::default::Default for JOBOBJECT_BASIC_LIMIT_INFORMATION {
+impl Eq for JOBOBJECT_BASIC_LIMIT_INFORMATION {}
+impl Default for JOBOBJECT_BASIC_LIMIT_INFORMATION {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -719,58 +719,58 @@ pub struct JOBOBJECT_BASIC_PROCESS_ID_LIST {
     pub NumberOfProcessIdsInList: u32,
     pub ProcessIdList: [usize; 1],
 }
-impl ::core::marker::Copy for JOBOBJECT_BASIC_PROCESS_ID_LIST {}
-impl ::core::clone::Clone for JOBOBJECT_BASIC_PROCESS_ID_LIST {
+impl Copy for JOBOBJECT_BASIC_PROCESS_ID_LIST {}
+impl Clone for JOBOBJECT_BASIC_PROCESS_ID_LIST {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_BASIC_PROCESS_ID_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_BASIC_PROCESS_ID_LIST {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_BASIC_PROCESS_ID_LIST").field("NumberOfAssignedProcesses", &self.NumberOfAssignedProcesses).field("NumberOfProcessIdsInList", &self.NumberOfProcessIdsInList).field("ProcessIdList", &self.ProcessIdList).finish()
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_BASIC_PROCESS_ID_LIST {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_BASIC_PROCESS_ID_LIST {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JOBOBJECT_BASIC_PROCESS_ID_LIST {
+impl PartialEq for JOBOBJECT_BASIC_PROCESS_ID_LIST {
     fn eq(&self, other: &Self) -> bool {
         self.NumberOfAssignedProcesses == other.NumberOfAssignedProcesses && self.NumberOfProcessIdsInList == other.NumberOfProcessIdsInList && self.ProcessIdList == other.ProcessIdList
     }
 }
-impl ::core::cmp::Eq for JOBOBJECT_BASIC_PROCESS_ID_LIST {}
-impl ::core::default::Default for JOBOBJECT_BASIC_PROCESS_ID_LIST {
+impl Eq for JOBOBJECT_BASIC_PROCESS_ID_LIST {}
+impl Default for JOBOBJECT_BASIC_PROCESS_ID_LIST {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct JOBOBJECT_BASIC_UI_RESTRICTIONS {
     pub UIRestrictionsClass: JOB_OBJECT_UILIMIT,
 }
-impl ::core::marker::Copy for JOBOBJECT_BASIC_UI_RESTRICTIONS {}
-impl ::core::clone::Clone for JOBOBJECT_BASIC_UI_RESTRICTIONS {
+impl Copy for JOBOBJECT_BASIC_UI_RESTRICTIONS {}
+impl Clone for JOBOBJECT_BASIC_UI_RESTRICTIONS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_BASIC_UI_RESTRICTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_BASIC_UI_RESTRICTIONS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_BASIC_UI_RESTRICTIONS").field("UIRestrictionsClass", &self.UIRestrictionsClass).finish()
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_BASIC_UI_RESTRICTIONS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_BASIC_UI_RESTRICTIONS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JOBOBJECT_BASIC_UI_RESTRICTIONS {
+impl PartialEq for JOBOBJECT_BASIC_UI_RESTRICTIONS {
     fn eq(&self, other: &Self) -> bool {
         self.UIRestrictionsClass == other.UIRestrictionsClass
     }
 }
-impl ::core::cmp::Eq for JOBOBJECT_BASIC_UI_RESTRICTIONS {}
-impl ::core::default::Default for JOBOBJECT_BASIC_UI_RESTRICTIONS {
+impl Eq for JOBOBJECT_BASIC_UI_RESTRICTIONS {}
+impl Default for JOBOBJECT_BASIC_UI_RESTRICTIONS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -778,18 +778,18 @@ pub struct JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
     pub ControlFlags: JOB_OBJECT_CPU_RATE_CONTROL,
     pub Anonymous: JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0,
 }
-impl ::core::marker::Copy for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {}
-impl ::core::clone::Clone for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
+impl Copy for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {}
+impl Clone for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
+impl Default for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -798,18 +798,18 @@ pub union JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {
     pub Weight: u32,
     pub Anonymous: JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0,
 }
-impl ::core::marker::Copy for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {}
-impl ::core::clone::Clone for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {
+impl Copy for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {}
+impl Clone for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {
+impl Default for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -817,58 +817,58 @@ pub struct JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
     pub MinRate: u16,
     pub MaxRate: u16,
 }
-impl ::core::marker::Copy for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {}
-impl ::core::clone::Clone for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
+impl Copy for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {}
+impl Clone for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0").field("MinRate", &self.MinRate).field("MaxRate", &self.MaxRate).finish()
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
+impl PartialEq for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.MinRate == other.MinRate && self.MaxRate == other.MaxRate
     }
 }
-impl ::core::cmp::Eq for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {}
-impl ::core::default::Default for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
+impl Eq for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {}
+impl Default for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
     pub EndOfJobTimeAction: JOB_OBJECT_TERMINATE_AT_END_ACTION,
 }
-impl ::core::marker::Copy for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {}
-impl ::core::clone::Clone for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
+impl Copy for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {}
+impl Clone for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_END_OF_JOB_TIME_INFORMATION").field("EndOfJobTimeAction", &self.EndOfJobTimeAction).finish()
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
+impl PartialEq for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.EndOfJobTimeAction == other.EndOfJobTimeAction
     }
 }
-impl ::core::cmp::Eq for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {}
-impl ::core::default::Default for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
+impl Eq for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {}
+impl Default for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -882,35 +882,35 @@ pub struct JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     pub PeakJobMemoryUsed: usize,
 }
 #[cfg(feature = "Win32_System_Threading")]
-impl ::core::marker::Copy for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {}
+impl Copy for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {}
 #[cfg(feature = "Win32_System_Threading")]
-impl ::core::clone::Clone for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
+impl Clone for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Threading")]
-impl ::core::fmt::Debug for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_EXTENDED_LIMIT_INFORMATION").field("BasicLimitInformation", &self.BasicLimitInformation).field("IoInfo", &self.IoInfo).field("ProcessMemoryLimit", &self.ProcessMemoryLimit).field("JobMemoryLimit", &self.JobMemoryLimit).field("PeakProcessMemoryUsed", &self.PeakProcessMemoryUsed).field("PeakJobMemoryUsed", &self.PeakJobMemoryUsed).finish()
     }
 }
 #[cfg(feature = "Win32_System_Threading")]
-impl ::windows_core::TypeKind for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Threading")]
-impl ::core::cmp::PartialEq for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
+impl PartialEq for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.BasicLimitInformation == other.BasicLimitInformation && self.IoInfo == other.IoInfo && self.ProcessMemoryLimit == other.ProcessMemoryLimit && self.JobMemoryLimit == other.JobMemoryLimit && self.PeakProcessMemoryUsed == other.PeakProcessMemoryUsed && self.PeakJobMemoryUsed == other.PeakJobMemoryUsed
     }
 }
 #[cfg(feature = "Win32_System_Threading")]
-impl ::core::cmp::Eq for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {}
+impl Eq for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {}
 #[cfg(feature = "Win32_System_Threading")]
-impl ::core::default::Default for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
+impl Default for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -919,29 +919,29 @@ pub struct JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
     pub ReadStats: JOBOBJECT_IO_ATTRIBUTION_STATS,
     pub WriteStats: JOBOBJECT_IO_ATTRIBUTION_STATS,
 }
-impl ::core::marker::Copy for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {}
-impl ::core::clone::Clone for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
+impl Copy for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {}
+impl Clone for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_IO_ATTRIBUTION_INFORMATION").field("ControlFlags", &self.ControlFlags).field("ReadStats", &self.ReadStats).field("WriteStats", &self.WriteStats).finish()
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
+impl PartialEq for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.ControlFlags == other.ControlFlags && self.ReadStats == other.ReadStats && self.WriteStats == other.WriteStats
     }
 }
-impl ::core::cmp::Eq for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {}
-impl ::core::default::Default for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
+impl Eq for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {}
+impl Default for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -951,29 +951,29 @@ pub struct JOBOBJECT_IO_ATTRIBUTION_STATS {
     pub TotalNonOverlappedServiceTime: u64,
     pub TotalSize: u64,
 }
-impl ::core::marker::Copy for JOBOBJECT_IO_ATTRIBUTION_STATS {}
-impl ::core::clone::Clone for JOBOBJECT_IO_ATTRIBUTION_STATS {
+impl Copy for JOBOBJECT_IO_ATTRIBUTION_STATS {}
+impl Clone for JOBOBJECT_IO_ATTRIBUTION_STATS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_IO_ATTRIBUTION_STATS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_IO_ATTRIBUTION_STATS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_IO_ATTRIBUTION_STATS").field("IoCount", &self.IoCount).field("TotalNonOverlappedQueueTime", &self.TotalNonOverlappedQueueTime).field("TotalNonOverlappedServiceTime", &self.TotalNonOverlappedServiceTime).field("TotalSize", &self.TotalSize).finish()
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_IO_ATTRIBUTION_STATS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_IO_ATTRIBUTION_STATS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JOBOBJECT_IO_ATTRIBUTION_STATS {
+impl PartialEq for JOBOBJECT_IO_ATTRIBUTION_STATS {
     fn eq(&self, other: &Self) -> bool {
         self.IoCount == other.IoCount && self.TotalNonOverlappedQueueTime == other.TotalNonOverlappedQueueTime && self.TotalNonOverlappedServiceTime == other.TotalNonOverlappedServiceTime && self.TotalSize == other.TotalSize
     }
 }
-impl ::core::cmp::Eq for JOBOBJECT_IO_ATTRIBUTION_STATS {}
-impl ::core::default::Default for JOBOBJECT_IO_ATTRIBUTION_STATS {
+impl Eq for JOBOBJECT_IO_ATTRIBUTION_STATS {}
+impl Default for JOBOBJECT_IO_ATTRIBUTION_STATS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -981,33 +981,33 @@ pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
     pub ReservationIops: i64,
-    pub VolumeName: ::windows_core::PCWSTR,
+    pub VolumeName: windows_core::PCWSTR,
     pub BaseIoSize: u32,
     pub ControlFlags: u32,
 }
-impl ::core::marker::Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {}
-impl ::core::clone::Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
+impl Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {}
+impl Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_IO_RATE_CONTROL_INFORMATION").field("MaxIops", &self.MaxIops).field("MaxBandwidth", &self.MaxBandwidth).field("ReservationIops", &self.ReservationIops).field("VolumeName", &self.VolumeName).field("BaseIoSize", &self.BaseIoSize).field("ControlFlags", &self.ControlFlags).finish()
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
+impl PartialEq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.MaxIops == other.MaxIops && self.MaxBandwidth == other.MaxBandwidth && self.ReservationIops == other.ReservationIops && self.VolumeName == other.VolumeName && self.BaseIoSize == other.BaseIoSize && self.ControlFlags == other.ControlFlags
     }
 }
-impl ::core::cmp::Eq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {}
-impl ::core::default::Default for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
+impl Eq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {}
+impl Default for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1015,34 +1015,34 @@ pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
     pub ReservationIops: i64,
-    pub VolumeName: ::windows_core::PWSTR,
+    pub VolumeName: windows_core::PWSTR,
     pub BaseIoSize: u32,
     pub ControlFlags: JOB_OBJECT_IO_RATE_CONTROL_FLAGS,
     pub VolumeNameLength: u16,
 }
-impl ::core::marker::Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {}
-impl ::core::clone::Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
+impl Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {}
+impl Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1").field("MaxIops", &self.MaxIops).field("MaxBandwidth", &self.MaxBandwidth).field("ReservationIops", &self.ReservationIops).field("VolumeName", &self.VolumeName).field("BaseIoSize", &self.BaseIoSize).field("ControlFlags", &self.ControlFlags).field("VolumeNameLength", &self.VolumeNameLength).finish()
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
+impl PartialEq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
     fn eq(&self, other: &Self) -> bool {
         self.MaxIops == other.MaxIops && self.MaxBandwidth == other.MaxBandwidth && self.ReservationIops == other.ReservationIops && self.VolumeName == other.VolumeName && self.BaseIoSize == other.BaseIoSize && self.ControlFlags == other.ControlFlags && self.VolumeNameLength == other.VolumeNameLength
     }
 }
-impl ::core::cmp::Eq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {}
-impl ::core::default::Default for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
+impl Eq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {}
+impl Default for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1050,7 +1050,7 @@ pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
     pub ReservationIops: i64,
-    pub VolumeName: ::windows_core::PWSTR,
+    pub VolumeName: windows_core::PWSTR,
     pub BaseIoSize: u32,
     pub ControlFlags: JOB_OBJECT_IO_RATE_CONTROL_FLAGS,
     pub VolumeNameLength: u16,
@@ -1061,14 +1061,14 @@ pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
     pub ReservationTimePercent: i64,
     pub CriticalReservationTimePercent: i64,
 }
-impl ::core::marker::Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {}
-impl ::core::clone::Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
+impl Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {}
+impl Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2")
             .field("MaxIops", &self.MaxIops)
             .field("MaxBandwidth", &self.MaxBandwidth)
@@ -1086,18 +1086,18 @@ impl ::core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
+impl PartialEq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
     fn eq(&self, other: &Self) -> bool {
         self.MaxIops == other.MaxIops && self.MaxBandwidth == other.MaxBandwidth && self.ReservationIops == other.ReservationIops && self.VolumeName == other.VolumeName && self.BaseIoSize == other.BaseIoSize && self.ControlFlags == other.ControlFlags && self.VolumeNameLength == other.VolumeNameLength && self.CriticalReservationIops == other.CriticalReservationIops && self.ReservationBandwidth == other.ReservationBandwidth && self.CriticalReservationBandwidth == other.CriticalReservationBandwidth && self.MaxTimePercent == other.MaxTimePercent && self.ReservationTimePercent == other.ReservationTimePercent && self.CriticalReservationTimePercent == other.CriticalReservationTimePercent
     }
 }
-impl ::core::cmp::Eq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {}
-impl ::core::default::Default for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
+impl Eq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {}
+impl Default for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1105,7 +1105,7 @@ pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
     pub ReservationIops: i64,
-    pub VolumeName: ::windows_core::PWSTR,
+    pub VolumeName: windows_core::PWSTR,
     pub BaseIoSize: u32,
     pub ControlFlags: JOB_OBJECT_IO_RATE_CONTROL_FLAGS,
     pub VolumeNameLength: u16,
@@ -1122,14 +1122,14 @@ pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
     pub LimitExcessNotifyBandwidth: i64,
     pub LimitExcessNotifyTimePercent: i64,
 }
-impl ::core::marker::Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {}
-impl ::core::clone::Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
+impl Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {}
+impl Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3")
             .field("MaxIops", &self.MaxIops)
             .field("MaxBandwidth", &self.MaxBandwidth)
@@ -1153,10 +1153,10 @@ impl ::core::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
+impl PartialEq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
     fn eq(&self, other: &Self) -> bool {
         self.MaxIops == other.MaxIops
             && self.MaxBandwidth == other.MaxBandwidth
@@ -1179,39 +1179,39 @@ impl ::core::cmp::PartialEq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 
             && self.LimitExcessNotifyTimePercent == other.LimitExcessNotifyTimePercent
     }
 }
-impl ::core::cmp::Eq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {}
-impl ::core::default::Default for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
+impl Eq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {}
+impl Default for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct JOBOBJECT_JOBSET_INFORMATION {
     pub MemberLevel: u32,
 }
-impl ::core::marker::Copy for JOBOBJECT_JOBSET_INFORMATION {}
-impl ::core::clone::Clone for JOBOBJECT_JOBSET_INFORMATION {
+impl Copy for JOBOBJECT_JOBSET_INFORMATION {}
+impl Clone for JOBOBJECT_JOBSET_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_JOBSET_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_JOBSET_INFORMATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_JOBSET_INFORMATION").field("MemberLevel", &self.MemberLevel).finish()
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_JOBSET_INFORMATION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_JOBSET_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JOBOBJECT_JOBSET_INFORMATION {
+impl PartialEq for JOBOBJECT_JOBSET_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.MemberLevel == other.MemberLevel
     }
 }
-impl ::core::cmp::Eq for JOBOBJECT_JOBSET_INFORMATION {}
-impl ::core::default::Default for JOBOBJECT_JOBSET_INFORMATION {
+impl Eq for JOBOBJECT_JOBSET_INFORMATION {}
+impl Default for JOBOBJECT_JOBSET_INFORMATION {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1229,14 +1229,14 @@ pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
     pub RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub RateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
-impl ::core::marker::Copy for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {}
-impl ::core::clone::Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
+impl Copy for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {}
+impl Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_LIMIT_VIOLATION_INFORMATION")
             .field("LimitFlags", &self.LimitFlags)
             .field("ViolationLimitFlags", &self.ViolationLimitFlags)
@@ -1253,18 +1253,18 @@ impl ::core::fmt::Debug for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
+impl PartialEq for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.LimitFlags == other.LimitFlags && self.ViolationLimitFlags == other.ViolationLimitFlags && self.IoReadBytes == other.IoReadBytes && self.IoReadBytesLimit == other.IoReadBytesLimit && self.IoWriteBytes == other.IoWriteBytes && self.IoWriteBytesLimit == other.IoWriteBytesLimit && self.PerJobUserTime == other.PerJobUserTime && self.PerJobUserTimeLimit == other.PerJobUserTimeLimit && self.JobMemory == other.JobMemory && self.JobMemoryLimit == other.JobMemoryLimit && self.RateControlTolerance == other.RateControlTolerance && self.RateControlToleranceLimit == other.RateControlToleranceLimit
     }
 }
-impl ::core::cmp::Eq for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {}
-impl ::core::default::Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
+impl Eq for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {}
+impl Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1287,18 +1287,18 @@ pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
     pub NetRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub NetRateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
-impl ::core::marker::Copy for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {}
-impl ::core::clone::Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
+impl Copy for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {}
+impl Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
+impl Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1306,18 +1306,18 @@ pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
     pub JobHighMemoryLimit: u64,
     pub JobMemoryLimit: u64,
 }
-impl ::core::marker::Copy for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {}
-impl ::core::clone::Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
+impl Copy for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {}
+impl Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
+impl Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1325,18 +1325,18 @@ pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
     pub RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub CpuRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
-impl ::core::marker::Copy for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {}
-impl ::core::clone::Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
+impl Copy for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {}
+impl Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
+impl Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1344,18 +1344,18 @@ pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
     pub RateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub CpuRateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
-impl ::core::marker::Copy for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {}
-impl ::core::clone::Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
+impl Copy for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {}
+impl Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
+impl Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1364,29 +1364,29 @@ pub struct JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
     pub ControlFlags: JOB_OBJECT_NET_RATE_CONTROL_FLAGS,
     pub DscpTag: u8,
 }
-impl ::core::marker::Copy for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {}
-impl ::core::clone::Clone for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
+impl Copy for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {}
+impl Clone for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_NET_RATE_CONTROL_INFORMATION").field("MaxBandwidth", &self.MaxBandwidth).field("ControlFlags", &self.ControlFlags).field("DscpTag", &self.DscpTag).finish()
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
+impl PartialEq for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.MaxBandwidth == other.MaxBandwidth && self.ControlFlags == other.ControlFlags && self.DscpTag == other.DscpTag
     }
 }
-impl ::core::cmp::Eq for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {}
-impl ::core::default::Default for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
+impl Eq for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {}
+impl Default for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1399,29 +1399,29 @@ pub struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
     pub RateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
     pub LimitFlags: JOB_OBJECT_LIMIT,
 }
-impl ::core::marker::Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {}
-impl ::core::clone::Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
+impl Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {}
+impl Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION").field("IoReadBytesLimit", &self.IoReadBytesLimit).field("IoWriteBytesLimit", &self.IoWriteBytesLimit).field("PerJobUserTimeLimit", &self.PerJobUserTimeLimit).field("JobMemoryLimit", &self.JobMemoryLimit).field("RateControlTolerance", &self.RateControlTolerance).field("RateControlToleranceInterval", &self.RateControlToleranceInterval).field("LimitFlags", &self.LimitFlags).finish()
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
+impl PartialEq for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.IoReadBytesLimit == other.IoReadBytesLimit && self.IoWriteBytesLimit == other.IoWriteBytesLimit && self.PerJobUserTimeLimit == other.PerJobUserTimeLimit && self.JobMemoryLimit == other.JobMemoryLimit && self.RateControlTolerance == other.RateControlTolerance && self.RateControlToleranceInterval == other.RateControlToleranceInterval && self.LimitFlags == other.LimitFlags
     }
 }
-impl ::core::cmp::Eq for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {}
-impl ::core::default::Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
+impl Eq for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {}
+impl Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1439,18 +1439,18 @@ pub struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
     pub NetRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub NetRateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
 }
-impl ::core::marker::Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {}
-impl ::core::clone::Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
+impl Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {}
+impl Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
+impl Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1458,18 +1458,18 @@ pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
     pub JobHighMemoryLimit: u64,
     pub JobMemoryLimit: u64,
 }
-impl ::core::marker::Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {}
-impl ::core::clone::Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
+impl Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {}
+impl Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
+impl Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1477,18 +1477,18 @@ pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
     pub RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub CpuRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
-impl ::core::marker::Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {}
-impl ::core::clone::Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
+impl Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {}
+impl Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
+impl Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1496,18 +1496,18 @@ pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
     pub RateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
     pub CpuRateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
 }
-impl ::core::marker::Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {}
-impl ::core::clone::Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
+impl Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {}
+impl Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
+impl Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1520,35 +1520,35 @@ pub struct JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     pub RestrictedSids: *mut super::super::Security::TOKEN_GROUPS,
 }
 #[cfg(feature = "Win32_Security")]
-impl ::core::marker::Copy for JOBOBJECT_SECURITY_LIMIT_INFORMATION {}
+impl Copy for JOBOBJECT_SECURITY_LIMIT_INFORMATION {}
 #[cfg(feature = "Win32_Security")]
-impl ::core::clone::Clone for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
+impl Clone for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_Security")]
-impl ::core::fmt::Debug for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOBOBJECT_SECURITY_LIMIT_INFORMATION").field("SecurityLimitFlags", &self.SecurityLimitFlags).field("JobToken", &self.JobToken).field("SidsToDisable", &self.SidsToDisable).field("PrivilegesToDelete", &self.PrivilegesToDelete).field("RestrictedSids", &self.RestrictedSids).finish()
     }
 }
 #[cfg(feature = "Win32_Security")]
-impl ::windows_core::TypeKind for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
-impl ::core::cmp::PartialEq for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
+impl PartialEq for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.SecurityLimitFlags == other.SecurityLimitFlags && self.JobToken == other.JobToken && self.SidsToDisable == other.SidsToDisable && self.PrivilegesToDelete == other.PrivilegesToDelete && self.RestrictedSids == other.RestrictedSids
     }
 }
 #[cfg(feature = "Win32_Security")]
-impl ::core::cmp::Eq for JOBOBJECT_SECURITY_LIMIT_INFORMATION {}
+impl Eq for JOBOBJECT_SECURITY_LIMIT_INFORMATION {}
 #[cfg(feature = "Win32_Security")]
-impl ::core::default::Default for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
+impl Default for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1557,28 +1557,28 @@ pub struct JOB_SET_ARRAY {
     pub MemberLevel: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for JOB_SET_ARRAY {}
-impl ::core::clone::Clone for JOB_SET_ARRAY {
+impl Copy for JOB_SET_ARRAY {}
+impl Clone for JOB_SET_ARRAY {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JOB_SET_ARRAY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JOB_SET_ARRAY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JOB_SET_ARRAY").field("JobHandle", &self.JobHandle).field("MemberLevel", &self.MemberLevel).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows_core::TypeKind for JOB_SET_ARRAY {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JOB_SET_ARRAY {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JOB_SET_ARRAY {
+impl PartialEq for JOB_SET_ARRAY {
     fn eq(&self, other: &Self) -> bool {
         self.JobHandle == other.JobHandle && self.MemberLevel == other.MemberLevel && self.Flags == other.Flags
     }
 }
-impl ::core::cmp::Eq for JOB_SET_ARRAY {}
-impl ::core::default::Default for JOB_SET_ARRAY {
+impl Eq for JOB_SET_ARRAY {}
+impl Default for JOB_SET_ARRAY {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }

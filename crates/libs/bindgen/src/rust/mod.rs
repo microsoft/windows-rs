@@ -105,7 +105,7 @@ fn gen_package(writer: &Writer) -> Result<()> {
         let tokens_impl = if !writer.sys { namespace_impl(writer, tree) } else { String::new() };
 
         if !writer.sys && !tokens_impl.is_empty() {
-            tokens.push_str("#[cfg(feature = \"implement\")]\n::core::include!(\"impl.rs\");\n");
+            tokens.push_str("#[cfg(feature = \"implement\")]\ncore::include!(\"impl.rs\");\n");
         }
 
         let output = format!("{directory}/mod.rs");

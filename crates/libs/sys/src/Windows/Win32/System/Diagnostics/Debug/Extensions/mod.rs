@@ -1,17 +1,17 @@
-::windows_targets::link!("dbgmodel.dll" "system" fn CreateDataModelManager(debughost : * mut::core::ffi::c_void, manager : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("dbgeng.dll" "system" fn DebugConnect(remoteoptions : ::windows_sys::core::PCSTR, interfaceid : *const ::windows_sys::core::GUID, interface : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("dbgeng.dll" "system" fn DebugConnectWide(remoteoptions : ::windows_sys::core::PCWSTR, interfaceid : *const ::windows_sys::core::GUID, interface : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("dbgeng.dll" "system" fn DebugCreate(interfaceid : *const ::windows_sys::core::GUID, interface : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("dbgeng.dll" "system" fn DebugCreateEx(interfaceid : *const ::windows_sys::core::GUID, dbgengoptions : u32, interface : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("dbgmodel.dll" "system" fn CreateDataModelManager(debughost : * mut core::ffi::c_void, manager : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("dbgeng.dll" "system" fn DebugConnect(remoteoptions : windows_sys::core::PCSTR, interfaceid : *const windows_sys::core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("dbgeng.dll" "system" fn DebugConnectWide(remoteoptions : windows_sys::core::PCWSTR, interfaceid : *const windows_sys::core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("dbgeng.dll" "system" fn DebugCreate(interfaceid : *const windows_sys::core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("dbgeng.dll" "system" fn DebugCreateEx(interfaceid : *const windows_sys::core::GUID, dbgengoptions : u32, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const ADDRESS_TYPE_INDEX_NOT_FOUND: u32 = 11u32;
 pub const Ambiguous: SignatureComparison = 1i32;
 pub const CANNOT_ALLOCATE_MEMORY: u32 = 9u32;
-pub const CLSID_DebugFailureAnalysisBasic: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb74eed7f_1c7d_4c1b_959f_b96dd9175aa4);
-pub const CLSID_DebugFailureAnalysisKernel: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xee433078_64af_4c33_ab2f_ecad7f2a002d);
-pub const CLSID_DebugFailureAnalysisTarget: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xba9bfb05_ef75_4bbd_a745_a6b5529458b8);
-pub const CLSID_DebugFailureAnalysisUser: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe60b0c93_cf49_4a32_8147_0362202dc56b);
-pub const CLSID_DebugFailureAnalysisWinCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x67d5e86f_f5e2_462a_9233_1bd616fcc7e8);
-pub const CLSID_DebugFailureAnalysisXBox360: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x901625bb_95f1_4318_ac80_9d733cee8c8b);
+pub const CLSID_DebugFailureAnalysisBasic: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb74eed7f_1c7d_4c1b_959f_b96dd9175aa4);
+pub const CLSID_DebugFailureAnalysisKernel: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xee433078_64af_4c33_ab2f_ecad7f2a002d);
+pub const CLSID_DebugFailureAnalysisTarget: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xba9bfb05_ef75_4bbd_a745_a6b5529458b8);
+pub const CLSID_DebugFailureAnalysisUser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe60b0c93_cf49_4a32_8147_0362202dc56b);
+pub const CLSID_DebugFailureAnalysisWinCE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x67d5e86f_f5e2_462a_9233_1bd616fcc7e8);
+pub const CLSID_DebugFailureAnalysisXBox360: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x901625bb_95f1_4318_ac80_9d733cee8c8b);
 pub const CROSS_PLATFORM_MAXIMUM_PROCESSORS: u32 = 2048u32;
 pub const CURRENT_KD_SECONDARY_VERSION: u32 = 2u32;
 pub const CallingConventionCDecl: CallingConventionKind = 1i32;
@@ -1382,13 +1382,13 @@ pub const DEBUG_OUTPUT_DEBUGGEE_PROMPT: u32 = 256u32;
 pub const DEBUG_OUTPUT_ERROR: u32 = 2u32;
 pub const DEBUG_OUTPUT_EXTENSION_WARNING: u32 = 64u32;
 pub const DEBUG_OUTPUT_IDENTITY_DEFAULT: u32 = 0u32;
-pub const DEBUG_OUTPUT_NAME_END: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("**NAME**");
-pub const DEBUG_OUTPUT_NAME_END_T: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("**NAME**");
-pub const DEBUG_OUTPUT_NAME_END_WIDE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("**NAME**");
+pub const DEBUG_OUTPUT_NAME_END: windows_sys::core::PCSTR = windows_sys::core::s!("**NAME**");
+pub const DEBUG_OUTPUT_NAME_END_T: windows_sys::core::PCWSTR = windows_sys::core::w!("**NAME**");
+pub const DEBUG_OUTPUT_NAME_END_WIDE: windows_sys::core::PCWSTR = windows_sys::core::w!("**NAME**");
 pub const DEBUG_OUTPUT_NORMAL: u32 = 1u32;
-pub const DEBUG_OUTPUT_OFFSET_END: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("**OFF**");
-pub const DEBUG_OUTPUT_OFFSET_END_T: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("**OFF**");
-pub const DEBUG_OUTPUT_OFFSET_END_WIDE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("**OFF**");
+pub const DEBUG_OUTPUT_OFFSET_END: windows_sys::core::PCSTR = windows_sys::core::s!("**OFF**");
+pub const DEBUG_OUTPUT_OFFSET_END_T: windows_sys::core::PCWSTR = windows_sys::core::w!("**OFF**");
+pub const DEBUG_OUTPUT_OFFSET_END_WIDE: windows_sys::core::PCWSTR = windows_sys::core::w!("**OFF**");
 pub const DEBUG_OUTPUT_PROMPT: u32 = 16u32;
 pub const DEBUG_OUTPUT_PROMPT_REGISTERS: u32 = 32u32;
 pub const DEBUG_OUTPUT_STATUS: u32 = 1024u32;
@@ -1398,12 +1398,12 @@ pub const DEBUG_OUTPUT_SYMBOLS_NO_NAMES: u32 = 1u32;
 pub const DEBUG_OUTPUT_SYMBOLS_NO_OFFSETS: u32 = 2u32;
 pub const DEBUG_OUTPUT_SYMBOLS_NO_TYPES: u32 = 16u32;
 pub const DEBUG_OUTPUT_SYMBOLS_NO_VALUES: u32 = 4u32;
-pub const DEBUG_OUTPUT_TYPE_END: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("**TYPE**");
-pub const DEBUG_OUTPUT_TYPE_END_T: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("**TYPE**");
-pub const DEBUG_OUTPUT_TYPE_END_WIDE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("**TYPE**");
-pub const DEBUG_OUTPUT_VALUE_END: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("**VALUE**");
-pub const DEBUG_OUTPUT_VALUE_END_T: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("**VALUE**");
-pub const DEBUG_OUTPUT_VALUE_END_WIDE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("**VALUE**");
+pub const DEBUG_OUTPUT_TYPE_END: windows_sys::core::PCSTR = windows_sys::core::s!("**TYPE**");
+pub const DEBUG_OUTPUT_TYPE_END_T: windows_sys::core::PCWSTR = windows_sys::core::w!("**TYPE**");
+pub const DEBUG_OUTPUT_TYPE_END_WIDE: windows_sys::core::PCWSTR = windows_sys::core::w!("**TYPE**");
+pub const DEBUG_OUTPUT_VALUE_END: windows_sys::core::PCSTR = windows_sys::core::s!("**VALUE**");
+pub const DEBUG_OUTPUT_VALUE_END_T: windows_sys::core::PCWSTR = windows_sys::core::w!("**VALUE**");
+pub const DEBUG_OUTPUT_VALUE_END_WIDE: windows_sys::core::PCWSTR = windows_sys::core::w!("**VALUE**");
 pub const DEBUG_OUTPUT_VERBOSE: u32 = 8u32;
 pub const DEBUG_OUTPUT_WARNING: u32 = 4u32;
 pub const DEBUG_OUTPUT_XML: u32 = 2048u32;
@@ -1938,8 +1938,8 @@ pub struct ArrayDimension {
     pub Length: u64,
     pub Stride: u64,
 }
-impl ::core::marker::Copy for ArrayDimension {}
-impl ::core::clone::Clone for ArrayDimension {
+impl Copy for ArrayDimension {}
+impl Clone for ArrayDimension {
     fn clone(&self) -> Self {
         *self
     }
@@ -1949,24 +1949,24 @@ pub struct BUSDATA {
     pub BusDataType: u32,
     pub BusNumber: u32,
     pub SlotNumber: u32,
-    pub Buffer: *mut ::core::ffi::c_void,
+    pub Buffer: *mut core::ffi::c_void,
     pub Offset: u32,
     pub Length: u32,
 }
-impl ::core::marker::Copy for BUSDATA {}
-impl ::core::clone::Clone for BUSDATA {
+impl Copy for BUSDATA {}
+impl Clone for BUSDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct CKCL_DATA {
-    pub NextLogEvent: *mut ::core::ffi::c_void,
-    pub TAnalyzeString: ::windows_sys::core::PSTR,
+    pub NextLogEvent: *mut core::ffi::c_void,
+    pub TAnalyzeString: windows_sys::core::PSTR,
     pub TAnalyzeReturnType: TANALYZE_RETURN,
 }
-impl ::core::marker::Copy for CKCL_DATA {}
-impl ::core::clone::Clone for CKCL_DATA {
+impl Copy for CKCL_DATA {}
+impl Clone for CKCL_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1976,8 +1976,8 @@ pub struct CKCL_LISTHEAD {
     pub LogEventListHead: *mut CKCL_DATA,
     pub Heap: super::super::super::super::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for CKCL_LISTHEAD {}
-impl ::core::clone::Clone for CKCL_LISTHEAD {
+impl Copy for CKCL_LISTHEAD {}
+impl Clone for CKCL_LISTHEAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -1990,8 +1990,8 @@ pub struct CPU_INFO {
     pub ProcInfo: [DEBUG_PROCESSOR_IDENTIFICATION_ALL; 2048],
     pub Mhz: u32,
 }
-impl ::core::marker::Copy for CPU_INFO {}
-impl ::core::clone::Clone for CPU_INFO {
+impl Copy for CPU_INFO {}
+impl Clone for CPU_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2004,8 +2004,8 @@ pub struct CPU_INFO_v1 {
     pub ProcInfo: [DEBUG_PROCESSOR_IDENTIFICATION_ALL; 32],
     pub Mhz: u32,
 }
-impl ::core::marker::Copy for CPU_INFO_v1 {}
-impl ::core::clone::Clone for CPU_INFO_v1 {
+impl Copy for CPU_INFO_v1 {}
+impl Clone for CPU_INFO_v1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2018,8 +2018,8 @@ pub struct CPU_INFO_v2 {
     pub ProcInfo: [DEBUG_PROCESSOR_IDENTIFICATION_ALL; 1280],
     pub Mhz: u32,
 }
-impl ::core::marker::Copy for CPU_INFO_v2 {}
-impl ::core::clone::Clone for CPU_INFO_v2 {
+impl Copy for CPU_INFO_v2 {}
+impl Clone for CPU_INFO_v2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2032,9 +2032,9 @@ pub struct DBGKD_DEBUG_DATA_HEADER32 {
     pub Size: u32,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::marker::Copy for DBGKD_DEBUG_DATA_HEADER32 {}
+impl Copy for DBGKD_DEBUG_DATA_HEADER32 {}
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::clone::Clone for DBGKD_DEBUG_DATA_HEADER32 {
+impl Clone for DBGKD_DEBUG_DATA_HEADER32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2047,9 +2047,9 @@ pub struct DBGKD_DEBUG_DATA_HEADER64 {
     pub Size: u32,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::marker::Copy for DBGKD_DEBUG_DATA_HEADER64 {}
+impl Copy for DBGKD_DEBUG_DATA_HEADER64 {}
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::clone::Clone for DBGKD_DEBUG_DATA_HEADER64 {
+impl Clone for DBGKD_DEBUG_DATA_HEADER64 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2071,8 +2071,8 @@ pub struct DBGKD_GET_VERSION32 {
     pub BreakpointWithStatus: u32,
     pub DebuggerDataList: u32,
 }
-impl ::core::marker::Copy for DBGKD_GET_VERSION32 {}
-impl ::core::clone::Clone for DBGKD_GET_VERSION32 {
+impl Copy for DBGKD_GET_VERSION32 {}
+impl Clone for DBGKD_GET_VERSION32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2094,8 +2094,8 @@ pub struct DBGKD_GET_VERSION64 {
     pub PsLoadedModuleList: u64,
     pub DebuggerDataList: u64,
 }
-impl ::core::marker::Copy for DBGKD_GET_VERSION64 {}
-impl ::core::clone::Clone for DBGKD_GET_VERSION64 {
+impl Copy for DBGKD_GET_VERSION64 {}
+impl Clone for DBGKD_GET_VERSION64 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2114,8 +2114,8 @@ pub struct DBG_THREAD_ATTRIBUTES {
     pub StringData: [i8; 100],
     pub SymName: [i8; 100],
 }
-impl ::core::marker::Copy for DBG_THREAD_ATTRIBUTES {}
-impl ::core::clone::Clone for DBG_THREAD_ATTRIBUTES {
+impl Copy for DBG_THREAD_ATTRIBUTES {}
+impl Clone for DBG_THREAD_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -2138,8 +2138,8 @@ pub struct DEBUG_ANALYSIS_PROCESSOR_INFO {
     pub Version: [i8; 64],
     pub Description: [i8; 64],
 }
-impl ::core::marker::Copy for DEBUG_ANALYSIS_PROCESSOR_INFO {}
-impl ::core::clone::Clone for DEBUG_ANALYSIS_PROCESSOR_INFO {
+impl Copy for DEBUG_ANALYSIS_PROCESSOR_INFO {}
+impl Clone for DEBUG_ANALYSIS_PROCESSOR_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2159,8 +2159,8 @@ pub struct DEBUG_BREAKPOINT_PARAMETERS {
     pub CommandSize: u32,
     pub OffsetExpressionSize: u32,
 }
-impl ::core::marker::Copy for DEBUG_BREAKPOINT_PARAMETERS {}
-impl ::core::clone::Clone for DEBUG_BREAKPOINT_PARAMETERS {
+impl Copy for DEBUG_BREAKPOINT_PARAMETERS {}
+impl Clone for DEBUG_BREAKPOINT_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2173,8 +2173,8 @@ pub struct DEBUG_CACHED_SYMBOL_INFO {
     pub Id: u32,
     pub Arg3: u32,
 }
-impl ::core::marker::Copy for DEBUG_CACHED_SYMBOL_INFO {}
-impl ::core::clone::Clone for DEBUG_CACHED_SYMBOL_INFO {
+impl Copy for DEBUG_CACHED_SYMBOL_INFO {}
+impl Clone for DEBUG_CACHED_SYMBOL_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2184,8 +2184,8 @@ pub struct DEBUG_CLIENT_CONTEXT {
     pub cbSize: u32,
     pub eClient: u32,
 }
-impl ::core::marker::Copy for DEBUG_CLIENT_CONTEXT {}
-impl ::core::clone::Clone for DEBUG_CLIENT_CONTEXT {
+impl Copy for DEBUG_CLIENT_CONTEXT {}
+impl Clone for DEBUG_CLIENT_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2200,8 +2200,8 @@ pub struct DEBUG_CPU_MICROCODE_VERSION {
     pub ProcessorStepping: u32,
     pub ProcessorArchRev: u32,
 }
-impl ::core::marker::Copy for DEBUG_CPU_MICROCODE_VERSION {}
-impl ::core::clone::Clone for DEBUG_CPU_MICROCODE_VERSION {
+impl Copy for DEBUG_CPU_MICROCODE_VERSION {}
+impl Clone for DEBUG_CPU_MICROCODE_VERSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2213,8 +2213,8 @@ pub struct DEBUG_CPU_SPEED_INFO {
     pub RatedSpeed: u32,
     pub NameString: [u16; 256],
 }
-impl ::core::marker::Copy for DEBUG_CPU_SPEED_INFO {}
-impl ::core::clone::Clone for DEBUG_CPU_SPEED_INFO {
+impl Copy for DEBUG_CPU_SPEED_INFO {}
+impl Clone for DEBUG_CPU_SPEED_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2226,8 +2226,8 @@ pub struct DEBUG_CREATE_PROCESS_OPTIONS {
     pub VerifierFlags: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for DEBUG_CREATE_PROCESS_OPTIONS {}
-impl ::core::clone::Clone for DEBUG_CREATE_PROCESS_OPTIONS {
+impl Copy for DEBUG_CREATE_PROCESS_OPTIONS {}
+impl Clone for DEBUG_CREATE_PROCESS_OPTIONS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2240,8 +2240,8 @@ pub struct DEBUG_DECODE_ERROR {
     pub Source: [i8; 64],
     pub Message: [i8; 260],
 }
-impl ::core::marker::Copy for DEBUG_DECODE_ERROR {}
-impl ::core::clone::Clone for DEBUG_DECODE_ERROR {
+impl Copy for DEBUG_DECODE_ERROR {}
+impl Clone for DEBUG_DECODE_ERROR {
     fn clone(&self) -> Self {
         *self
     }
@@ -2257,8 +2257,8 @@ pub struct DEBUG_DEVICE_OBJECT_INFO {
     pub DevExtension: u64,
     pub DevObjExtension: u64,
 }
-impl ::core::marker::Copy for DEBUG_DEVICE_OBJECT_INFO {}
-impl ::core::clone::Clone for DEBUG_DEVICE_OBJECT_INFO {
+impl Copy for DEBUG_DEVICE_OBJECT_INFO {}
+impl Clone for DEBUG_DEVICE_OBJECT_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2273,8 +2273,8 @@ pub struct DEBUG_DRIVER_OBJECT_INFO {
     pub DeviceObject: u64,
     pub DriverName: DEBUG_DRIVER_OBJECT_INFO_0,
 }
-impl ::core::marker::Copy for DEBUG_DRIVER_OBJECT_INFO {}
-impl ::core::clone::Clone for DEBUG_DRIVER_OBJECT_INFO {
+impl Copy for DEBUG_DRIVER_OBJECT_INFO {}
+impl Clone for DEBUG_DRIVER_OBJECT_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2285,8 +2285,8 @@ pub struct DEBUG_DRIVER_OBJECT_INFO_0 {
     pub MaximumLength: u16,
     pub Buffer: u64,
 }
-impl ::core::marker::Copy for DEBUG_DRIVER_OBJECT_INFO_0 {}
-impl ::core::clone::Clone for DEBUG_DRIVER_OBJECT_INFO_0 {
+impl Copy for DEBUG_DRIVER_OBJECT_INFO_0 {}
+impl Clone for DEBUG_DRIVER_OBJECT_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2298,8 +2298,8 @@ pub struct DEBUG_EVENT_CONTEXT {
     pub ThreadEngineId: u32,
     pub FrameEngineId: u32,
 }
-impl ::core::marker::Copy for DEBUG_EVENT_CONTEXT {}
-impl ::core::clone::Clone for DEBUG_EVENT_CONTEXT {
+impl Copy for DEBUG_EVENT_CONTEXT {}
+impl Clone for DEBUG_EVENT_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2313,8 +2313,8 @@ pub struct DEBUG_EXCEPTION_FILTER_PARAMETERS {
     pub SecondCommandSize: u32,
     pub ExceptionCode: u32,
 }
-impl ::core::marker::Copy for DEBUG_EXCEPTION_FILTER_PARAMETERS {}
-impl ::core::clone::Clone for DEBUG_EXCEPTION_FILTER_PARAMETERS {
+impl Copy for DEBUG_EXCEPTION_FILTER_PARAMETERS {}
+impl Clone for DEBUG_EXCEPTION_FILTER_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2325,8 +2325,8 @@ pub struct DEBUG_GET_TEXT_COMPLETIONS_IN {
     pub MatchCountLimit: u32,
     pub Reserved: [u64; 3],
 }
-impl ::core::marker::Copy for DEBUG_GET_TEXT_COMPLETIONS_IN {}
-impl ::core::clone::Clone for DEBUG_GET_TEXT_COMPLETIONS_IN {
+impl Copy for DEBUG_GET_TEXT_COMPLETIONS_IN {}
+impl Clone for DEBUG_GET_TEXT_COMPLETIONS_IN {
     fn clone(&self) -> Self {
         *self
     }
@@ -2339,8 +2339,8 @@ pub struct DEBUG_GET_TEXT_COMPLETIONS_OUT {
     pub Reserved1: u32,
     pub Reserved2: [u64; 2],
 }
-impl ::core::marker::Copy for DEBUG_GET_TEXT_COMPLETIONS_OUT {}
-impl ::core::clone::Clone for DEBUG_GET_TEXT_COMPLETIONS_OUT {
+impl Copy for DEBUG_GET_TEXT_COMPLETIONS_OUT {}
+impl Clone for DEBUG_GET_TEXT_COMPLETIONS_OUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2354,8 +2354,8 @@ pub struct DEBUG_HANDLE_DATA_BASIC {
     pub HandleCount: u32,
     pub PointerCount: u32,
 }
-impl ::core::marker::Copy for DEBUG_HANDLE_DATA_BASIC {}
-impl ::core::clone::Clone for DEBUG_HANDLE_DATA_BASIC {
+impl Copy for DEBUG_HANDLE_DATA_BASIC {}
+impl Clone for DEBUG_HANDLE_DATA_BASIC {
     fn clone(&self) -> Self {
         *self
     }
@@ -2373,8 +2373,8 @@ pub struct DEBUG_IRP_INFO {
     pub CurrentStack: DEBUG_IRP_STACK_INFO,
     pub Stack: [DEBUG_IRP_STACK_INFO; 10],
 }
-impl ::core::marker::Copy for DEBUG_IRP_INFO {}
-impl ::core::clone::Clone for DEBUG_IRP_INFO {
+impl Copy for DEBUG_IRP_INFO {}
+impl Clone for DEBUG_IRP_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2388,8 +2388,8 @@ pub struct DEBUG_IRP_STACK_INFO {
     pub CompletionRoutine: u64,
     pub StackAddress: u64,
 }
-impl ::core::marker::Copy for DEBUG_IRP_STACK_INFO {}
-impl ::core::clone::Clone for DEBUG_IRP_STACK_INFO {
+impl Copy for DEBUG_IRP_STACK_INFO {}
+impl Clone for DEBUG_IRP_STACK_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2398,8 +2398,8 @@ impl ::core::clone::Clone for DEBUG_IRP_STACK_INFO {
 pub struct DEBUG_LAST_EVENT_INFO_BREAKPOINT {
     pub Id: u32,
 }
-impl ::core::marker::Copy for DEBUG_LAST_EVENT_INFO_BREAKPOINT {}
-impl ::core::clone::Clone for DEBUG_LAST_EVENT_INFO_BREAKPOINT {
+impl Copy for DEBUG_LAST_EVENT_INFO_BREAKPOINT {}
+impl Clone for DEBUG_LAST_EVENT_INFO_BREAKPOINT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2409,8 +2409,8 @@ pub struct DEBUG_LAST_EVENT_INFO_EXCEPTION {
     pub ExceptionRecord: super::EXCEPTION_RECORD64,
     pub FirstChance: u32,
 }
-impl ::core::marker::Copy for DEBUG_LAST_EVENT_INFO_EXCEPTION {}
-impl ::core::clone::Clone for DEBUG_LAST_EVENT_INFO_EXCEPTION {
+impl Copy for DEBUG_LAST_EVENT_INFO_EXCEPTION {}
+impl Clone for DEBUG_LAST_EVENT_INFO_EXCEPTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2419,8 +2419,8 @@ impl ::core::clone::Clone for DEBUG_LAST_EVENT_INFO_EXCEPTION {
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
     pub ExitCode: u32,
 }
-impl ::core::marker::Copy for DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {}
-impl ::core::clone::Clone for DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
+impl Copy for DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {}
+impl Clone for DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2429,8 +2429,8 @@ impl ::core::clone::Clone for DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
     pub ExitCode: u32,
 }
-impl ::core::marker::Copy for DEBUG_LAST_EVENT_INFO_EXIT_THREAD {}
-impl ::core::clone::Clone for DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
+impl Copy for DEBUG_LAST_EVENT_INFO_EXIT_THREAD {}
+impl Clone for DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -2439,8 +2439,8 @@ impl ::core::clone::Clone for DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
 pub struct DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
     pub Base: u64,
 }
-impl ::core::marker::Copy for DEBUG_LAST_EVENT_INFO_LOAD_MODULE {}
-impl ::core::clone::Clone for DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
+impl Copy for DEBUG_LAST_EVENT_INFO_LOAD_MODULE {}
+impl Clone for DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2451,8 +2451,8 @@ pub struct DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
     pub DataSize: u32,
     pub Address: u64,
 }
-impl ::core::marker::Copy for DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {}
-impl ::core::clone::Clone for DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
+impl Copy for DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {}
+impl Clone for DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2462,8 +2462,8 @@ pub struct DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
     pub Error: u32,
     pub Level: u32,
 }
-impl ::core::marker::Copy for DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {}
-impl ::core::clone::Clone for DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
+impl Copy for DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {}
+impl Clone for DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
     fn clone(&self) -> Self {
         *self
     }
@@ -2472,8 +2472,8 @@ impl ::core::clone::Clone for DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
 pub struct DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
     pub Base: u64,
 }
-impl ::core::marker::Copy for DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {}
-impl ::core::clone::Clone for DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
+impl Copy for DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {}
+impl Clone for DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2483,8 +2483,8 @@ pub struct DEBUG_MODULE_AND_ID {
     pub ModuleBase: u64,
     pub Id: u64,
 }
-impl ::core::marker::Copy for DEBUG_MODULE_AND_ID {}
-impl ::core::clone::Clone for DEBUG_MODULE_AND_ID {
+impl Copy for DEBUG_MODULE_AND_ID {}
+impl Clone for DEBUG_MODULE_AND_ID {
     fn clone(&self) -> Self {
         *self
     }
@@ -2504,8 +2504,8 @@ pub struct DEBUG_MODULE_PARAMETERS {
     pub MappedImageNameSize: u32,
     pub Reserved: [u64; 2],
 }
-impl ::core::marker::Copy for DEBUG_MODULE_PARAMETERS {}
-impl ::core::clone::Clone for DEBUG_MODULE_PARAMETERS {
+impl Copy for DEBUG_MODULE_PARAMETERS {}
+impl Clone for DEBUG_MODULE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2515,8 +2515,8 @@ pub struct DEBUG_OFFSET_REGION {
     pub Base: u64,
     pub Size: u64,
 }
-impl ::core::marker::Copy for DEBUG_OFFSET_REGION {}
-impl ::core::clone::Clone for DEBUG_OFFSET_REGION {
+impl Copy for DEBUG_OFFSET_REGION {}
+impl Clone for DEBUG_OFFSET_REGION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2534,8 +2534,8 @@ pub struct DEBUG_PNP_TRIAGE_INFO {
     pub ThreadCount: i32,
     pub TriagedThread_WaitTime: u64,
 }
-impl ::core::marker::Copy for DEBUG_PNP_TRIAGE_INFO {}
-impl ::core::clone::Clone for DEBUG_PNP_TRIAGE_INFO {
+impl Copy for DEBUG_PNP_TRIAGE_INFO {}
+impl Clone for DEBUG_PNP_TRIAGE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2548,8 +2548,8 @@ pub struct DEBUG_POOLTAG_DESCRIPTION {
     pub Binary: [i8; 32],
     pub Owner: [i8; 32],
 }
-impl ::core::marker::Copy for DEBUG_POOLTAG_DESCRIPTION {}
-impl ::core::clone::Clone for DEBUG_POOLTAG_DESCRIPTION {
+impl Copy for DEBUG_POOLTAG_DESCRIPTION {}
+impl Clone for DEBUG_POOLTAG_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2567,8 +2567,8 @@ pub struct DEBUG_POOL_DATA {
     pub Reserved2: [u64; 4],
     pub PoolTagDescription: [i8; 64],
 }
-impl ::core::marker::Copy for DEBUG_POOL_DATA {}
-impl ::core::clone::Clone for DEBUG_POOL_DATA {
+impl Copy for DEBUG_POOL_DATA {}
+impl Clone for DEBUG_POOL_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2578,8 +2578,8 @@ pub union DEBUG_POOL_DATA_0 {
     pub Anonymous: DEBUG_POOL_DATA_0_0,
     pub AsUlong: u32,
 }
-impl ::core::marker::Copy for DEBUG_POOL_DATA_0 {}
-impl ::core::clone::Clone for DEBUG_POOL_DATA_0 {
+impl Copy for DEBUG_POOL_DATA_0 {}
+impl Clone for DEBUG_POOL_DATA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2588,8 +2588,8 @@ impl ::core::clone::Clone for DEBUG_POOL_DATA_0 {
 pub struct DEBUG_POOL_DATA_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for DEBUG_POOL_DATA_0_0 {}
-impl ::core::clone::Clone for DEBUG_POOL_DATA_0_0 {
+impl Copy for DEBUG_POOL_DATA_0_0 {}
+impl Clone for DEBUG_POOL_DATA_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2603,8 +2603,8 @@ pub union DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     pub Arm: DEBUG_PROCESSOR_IDENTIFICATION_ARM,
     pub Arm64: DEBUG_PROCESSOR_IDENTIFICATION_ARM64,
 }
-impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_ALL {}
-impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_ALL {
+impl Copy for DEBUG_PROCESSOR_IDENTIFICATION_ALL {}
+impl Clone for DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     fn clone(&self) -> Self {
         *self
     }
@@ -2614,8 +2614,8 @@ pub struct DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
     pub Type: u32,
     pub Revision: u32,
 }
-impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {}
-impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
+impl Copy for DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {}
+impl Clone for DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2627,8 +2627,8 @@ pub struct DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     pub Stepping: u32,
     pub VendorString: [i8; 16],
 }
-impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {}
-impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
+impl Copy for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {}
+impl Clone for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2639,8 +2639,8 @@ pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     pub Revision: u32,
     pub VendorString: [i8; 16],
 }
-impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_ARM {}
-impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_ARM {
+impl Copy for DEBUG_PROCESSOR_IDENTIFICATION_ARM {}
+impl Clone for DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     fn clone(&self) -> Self {
         *self
     }
@@ -2651,8 +2651,8 @@ pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     pub Revision: u32,
     pub VendorString: [i8; 16],
 }
-impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {}
-impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
+impl Copy for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {}
+impl Clone for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2665,8 +2665,8 @@ pub struct DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     pub ArchRev: u32,
     pub VendorString: [i8; 16],
 }
-impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {}
-impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
+impl Copy for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {}
+impl Clone for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2678,8 +2678,8 @@ pub struct DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     pub Stepping: u32,
     pub VendorString: [i8; 16],
 }
-impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_X86 {}
-impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_X86 {
+impl Copy for DEBUG_PROCESSOR_IDENTIFICATION_X86 {}
+impl Clone for DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2689,12 +2689,12 @@ pub struct DEBUG_READ_USER_MINIDUMP_STREAM {
     pub StreamType: u32,
     pub Flags: u32,
     pub Offset: u64,
-    pub Buffer: *mut ::core::ffi::c_void,
+    pub Buffer: *mut core::ffi::c_void,
     pub BufferSize: u32,
     pub BufferUsed: u32,
 }
-impl ::core::marker::Copy for DEBUG_READ_USER_MINIDUMP_STREAM {}
-impl ::core::clone::Clone for DEBUG_READ_USER_MINIDUMP_STREAM {
+impl Copy for DEBUG_READ_USER_MINIDUMP_STREAM {}
+impl Clone for DEBUG_READ_USER_MINIDUMP_STREAM {
     fn clone(&self) -> Self {
         *self
     }
@@ -2709,8 +2709,8 @@ pub struct DEBUG_REGISTER_DESCRIPTION {
     pub SubregShift: u32,
     pub Reserved0: u32,
 }
-impl ::core::marker::Copy for DEBUG_REGISTER_DESCRIPTION {}
-impl ::core::clone::Clone for DEBUG_REGISTER_DESCRIPTION {
+impl Copy for DEBUG_REGISTER_DESCRIPTION {}
+impl Clone for DEBUG_REGISTER_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2738,8 +2738,8 @@ pub struct DEBUG_SMBIOS_INFO {
     pub SystemSKU: [i8; 64],
     pub SystemVersion: [i8; 64],
 }
-impl ::core::marker::Copy for DEBUG_SMBIOS_INFO {}
-impl ::core::clone::Clone for DEBUG_SMBIOS_INFO {
+impl Copy for DEBUG_SMBIOS_INFO {}
+impl Clone for DEBUG_SMBIOS_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2752,8 +2752,8 @@ pub struct DEBUG_SPECIFIC_FILTER_PARAMETERS {
     pub CommandSize: u32,
     pub ArgumentSize: u32,
 }
-impl ::core::marker::Copy for DEBUG_SPECIFIC_FILTER_PARAMETERS {}
-impl ::core::clone::Clone for DEBUG_SPECIFIC_FILTER_PARAMETERS {
+impl Copy for DEBUG_SPECIFIC_FILTER_PARAMETERS {}
+impl Clone for DEBUG_SPECIFIC_FILTER_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2770,8 +2770,8 @@ pub struct DEBUG_STACK_FRAME {
     pub Virtual: super::super::super::super::Foundation::BOOL,
     pub FrameNumber: u32,
 }
-impl ::core::marker::Copy for DEBUG_STACK_FRAME {}
-impl ::core::clone::Clone for DEBUG_STACK_FRAME {
+impl Copy for DEBUG_STACK_FRAME {}
+impl Clone for DEBUG_STACK_FRAME {
     fn clone(&self) -> Self {
         *self
     }
@@ -2790,8 +2790,8 @@ pub struct DEBUG_STACK_FRAME_EX {
     pub InlineFrameContext: u32,
     pub Reserved1: u32,
 }
-impl ::core::marker::Copy for DEBUG_STACK_FRAME_EX {}
-impl ::core::clone::Clone for DEBUG_STACK_FRAME_EX {
+impl Copy for DEBUG_STACK_FRAME_EX {}
+impl Clone for DEBUG_STACK_FRAME_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -2811,8 +2811,8 @@ pub struct DEBUG_SYMBOL_ENTRY {
     pub Arg32: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for DEBUG_SYMBOL_ENTRY {}
-impl ::core::clone::Clone for DEBUG_SYMBOL_ENTRY {
+impl Copy for DEBUG_SYMBOL_ENTRY {}
+impl Clone for DEBUG_SYMBOL_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2826,8 +2826,8 @@ pub struct DEBUG_SYMBOL_PARAMETERS {
     pub Flags: u32,
     pub Reserved: u64,
 }
-impl ::core::marker::Copy for DEBUG_SYMBOL_PARAMETERS {}
-impl ::core::clone::Clone for DEBUG_SYMBOL_PARAMETERS {
+impl Copy for DEBUG_SYMBOL_PARAMETERS {}
+impl Clone for DEBUG_SYMBOL_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2847,8 +2847,8 @@ pub struct DEBUG_SYMBOL_SOURCE_ENTRY {
     pub EndColumn: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for DEBUG_SYMBOL_SOURCE_ENTRY {}
-impl ::core::clone::Clone for DEBUG_SYMBOL_SOURCE_ENTRY {
+impl Copy for DEBUG_SYMBOL_SOURCE_ENTRY {}
+impl Clone for DEBUG_SYMBOL_SOURCE_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2866,8 +2866,8 @@ pub struct DEBUG_THREAD_BASIC_INFORMATION {
     pub StartOffset: u64,
     pub Affinity: u64,
 }
-impl ::core::marker::Copy for DEBUG_THREAD_BASIC_INFORMATION {}
-impl ::core::clone::Clone for DEBUG_THREAD_BASIC_INFORMATION {
+impl Copy for DEBUG_THREAD_BASIC_INFORMATION {}
+impl Clone for DEBUG_THREAD_BASIC_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2876,10 +2876,10 @@ impl ::core::clone::Clone for DEBUG_THREAD_BASIC_INFORMATION {
 pub struct DEBUG_TRIAGE_FOLLOWUP_INFO {
     pub SizeOfStruct: u32,
     pub OwnerNameSize: u32,
-    pub OwnerName: ::windows_sys::core::PSTR,
+    pub OwnerName: windows_sys::core::PSTR,
 }
-impl ::core::marker::Copy for DEBUG_TRIAGE_FOLLOWUP_INFO {}
-impl ::core::clone::Clone for DEBUG_TRIAGE_FOLLOWUP_INFO {
+impl Copy for DEBUG_TRIAGE_FOLLOWUP_INFO {}
+impl Clone for DEBUG_TRIAGE_FOLLOWUP_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2888,12 +2888,12 @@ impl ::core::clone::Clone for DEBUG_TRIAGE_FOLLOWUP_INFO {
 pub struct DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
     pub SizeOfStruct: u32,
     pub OwnerNameSize: u32,
-    pub OwnerName: ::windows_sys::core::PSTR,
+    pub OwnerName: windows_sys::core::PSTR,
     pub FeaturePathSize: u32,
-    pub FeaturePath: ::windows_sys::core::PSTR,
+    pub FeaturePath: windows_sys::core::PSTR,
 }
-impl ::core::marker::Copy for DEBUG_TRIAGE_FOLLOWUP_INFO_2 {}
-impl ::core::clone::Clone for DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
+impl Copy for DEBUG_TRIAGE_FOLLOWUP_INFO_2 {}
+impl Clone for DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2912,8 +2912,8 @@ pub struct DEBUG_TYPED_DATA {
     pub Register: u32,
     pub Internal: [u64; 9],
 }
-impl ::core::marker::Copy for DEBUG_TYPED_DATA {}
-impl ::core::clone::Clone for DEBUG_TYPED_DATA {
+impl Copy for DEBUG_TYPED_DATA {}
+impl Clone for DEBUG_TYPED_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2924,8 +2924,8 @@ pub struct DEBUG_VALUE {
     pub TailOfRawBytes: u32,
     pub Type: u32,
 }
-impl ::core::marker::Copy for DEBUG_VALUE {}
-impl ::core::clone::Clone for DEBUG_VALUE {
+impl Copy for DEBUG_VALUE {}
+impl Clone for DEBUG_VALUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2951,8 +2951,8 @@ pub union DEBUG_VALUE_0 {
     pub F128Parts64: DEBUG_VALUE_0_1,
     pub RawBytes: [u8; 24],
 }
-impl ::core::marker::Copy for DEBUG_VALUE_0 {}
-impl ::core::clone::Clone for DEBUG_VALUE_0 {
+impl Copy for DEBUG_VALUE_0 {}
+impl Clone for DEBUG_VALUE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2962,8 +2962,8 @@ pub struct DEBUG_VALUE_0_0 {
     pub I64: u64,
     pub Nat: super::super::super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for DEBUG_VALUE_0_0 {}
-impl ::core::clone::Clone for DEBUG_VALUE_0_0 {
+impl Copy for DEBUG_VALUE_0_0 {}
+impl Clone for DEBUG_VALUE_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2973,8 +2973,8 @@ pub struct DEBUG_VALUE_0_1 {
     pub LowPart: u64,
     pub HighPart: i64,
 }
-impl ::core::marker::Copy for DEBUG_VALUE_0_1 {}
-impl ::core::clone::Clone for DEBUG_VALUE_0_1 {
+impl Copy for DEBUG_VALUE_0_1 {}
+impl Clone for DEBUG_VALUE_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2984,8 +2984,8 @@ pub struct DEBUG_VALUE_0_2 {
     pub LowPart: u32,
     pub HighPart: u32,
 }
-impl ::core::marker::Copy for DEBUG_VALUE_0_2 {}
-impl ::core::clone::Clone for DEBUG_VALUE_0_2 {
+impl Copy for DEBUG_VALUE_0_2 {}
+impl Clone for DEBUG_VALUE_0_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2997,8 +2997,8 @@ pub struct EXTSTACKTRACE {
     pub ReturnAddress: u32,
     pub Args: [u32; 4],
 }
-impl ::core::marker::Copy for EXTSTACKTRACE {}
-impl ::core::clone::Clone for EXTSTACKTRACE {
+impl Copy for EXTSTACKTRACE {}
+impl Clone for EXTSTACKTRACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3010,8 +3010,8 @@ pub struct EXTSTACKTRACE32 {
     pub ReturnAddress: u32,
     pub Args: [u32; 4],
 }
-impl ::core::marker::Copy for EXTSTACKTRACE32 {}
-impl ::core::clone::Clone for EXTSTACKTRACE32 {
+impl Copy for EXTSTACKTRACE32 {}
+impl Clone for EXTSTACKTRACE32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3023,8 +3023,8 @@ pub struct EXTSTACKTRACE64 {
     pub ReturnAddress: u64,
     pub Args: [u64; 4],
 }
-impl ::core::marker::Copy for EXTSTACKTRACE64 {}
-impl ::core::clone::Clone for EXTSTACKTRACE64 {
+impl Copy for EXTSTACKTRACE64 {}
+impl Clone for EXTSTACKTRACE64 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3036,8 +3036,8 @@ pub struct EXT_API_VERSION {
     pub Revision: u16,
     pub Reserved: u16,
 }
-impl ::core::marker::Copy for EXT_API_VERSION {}
-impl ::core::clone::Clone for EXT_API_VERSION {
+impl Copy for EXT_API_VERSION {}
+impl Clone for EXT_API_VERSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3045,60 +3045,60 @@ impl ::core::clone::Clone for EXT_API_VERSION {
 #[repr(C)]
 pub struct EXT_CAB_XML_DATA {
     pub SizeOfStruct: u32,
-    pub XmlObjectTag: ::windows_sys::core::PCWSTR,
+    pub XmlObjectTag: windows_sys::core::PCWSTR,
     pub NumSubTags: u32,
     pub SubTags: [EXT_CAB_XML_DATA_0; 1],
 }
-impl ::core::marker::Copy for EXT_CAB_XML_DATA {}
-impl ::core::clone::Clone for EXT_CAB_XML_DATA {
+impl Copy for EXT_CAB_XML_DATA {}
+impl Clone for EXT_CAB_XML_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct EXT_CAB_XML_DATA_0 {
-    pub SubTag: ::windows_sys::core::PCWSTR,
-    pub MatchPattern: ::windows_sys::core::PCWSTR,
-    pub ReturnText: ::windows_sys::core::PWSTR,
+    pub SubTag: windows_sys::core::PCWSTR,
+    pub MatchPattern: windows_sys::core::PCWSTR,
+    pub ReturnText: windows_sys::core::PWSTR,
     pub ReturnTextSize: u32,
     pub _bitfield: u32,
     pub Reserved2: u32,
 }
-impl ::core::marker::Copy for EXT_CAB_XML_DATA_0 {}
-impl ::core::clone::Clone for EXT_CAB_XML_DATA_0 {
+impl Copy for EXT_CAB_XML_DATA_0 {}
+impl Clone for EXT_CAB_XML_DATA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct EXT_FIND_FILE {
-    pub FileName: ::windows_sys::core::PCWSTR,
+    pub FileName: windows_sys::core::PCWSTR,
     pub IndexedSize: u64,
     pub ImageTimeDateStamp: u32,
     pub ImageCheckSum: u32,
-    pub ExtraInfo: *mut ::core::ffi::c_void,
+    pub ExtraInfo: *mut core::ffi::c_void,
     pub ExtraInfoSize: u32,
     pub Flags: u32,
-    pub FileMapping: *mut ::core::ffi::c_void,
+    pub FileMapping: *mut core::ffi::c_void,
     pub FileMappingSize: u64,
     pub FileHandle: super::super::super::super::Foundation::HANDLE,
-    pub FoundFileName: ::windows_sys::core::PWSTR,
+    pub FoundFileName: windows_sys::core::PWSTR,
     pub FoundFileNameChars: u32,
 }
-impl ::core::marker::Copy for EXT_FIND_FILE {}
-impl ::core::clone::Clone for EXT_FIND_FILE {
+impl Copy for EXT_FIND_FILE {}
+impl Clone for EXT_FIND_FILE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct EXT_MATCH_PATTERN_A {
-    pub Str: ::windows_sys::core::PCSTR,
-    pub Pattern: ::windows_sys::core::PCSTR,
+    pub Str: windows_sys::core::PCSTR,
+    pub Pattern: windows_sys::core::PCSTR,
     pub CaseSensitive: u32,
 }
-impl ::core::marker::Copy for EXT_MATCH_PATTERN_A {}
-impl ::core::clone::Clone for EXT_MATCH_PATTERN_A {
+impl Copy for EXT_MATCH_PATTERN_A {}
+impl Clone for EXT_MATCH_PATTERN_A {
     fn clone(&self) -> Self {
         *self
     }
@@ -3120,11 +3120,11 @@ pub struct EXT_TYPED_DATA {
     pub DataBufferIndex: u32,
     pub DataBufferBytes: u32,
     pub DataBytesNeeded: u32,
-    pub Status: ::windows_sys::core::HRESULT,
+    pub Status: windows_sys::core::HRESULT,
     pub Reserved: [u64; 8],
 }
-impl ::core::marker::Copy for EXT_TYPED_DATA {}
-impl ::core::clone::Clone for EXT_TYPED_DATA {
+impl Copy for EXT_TYPED_DATA {}
+impl Clone for EXT_TYPED_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3135,8 +3135,8 @@ pub struct FA_ENTRY {
     pub FullSize: u16,
     pub DataSize: u16,
 }
-impl ::core::marker::Copy for FA_ENTRY {}
-impl ::core::clone::Clone for FA_ENTRY {
+impl Copy for FA_ENTRY {}
+impl Clone for FA_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -3155,19 +3155,19 @@ pub struct FIELD_INFO {
     pub BitField: FIELD_INFO_1,
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for FIELD_INFO {}
-impl ::core::clone::Clone for FIELD_INFO {
+impl Copy for FIELD_INFO {}
+impl Clone for FIELD_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub union FIELD_INFO_0 {
-    pub fieldCallBack: *mut ::core::ffi::c_void,
-    pub pBuffer: *mut ::core::ffi::c_void,
+    pub fieldCallBack: *mut core::ffi::c_void,
+    pub pBuffer: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for FIELD_INFO_0 {}
-impl ::core::clone::Clone for FIELD_INFO_0 {
+impl Copy for FIELD_INFO_0 {}
+impl Clone for FIELD_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3177,8 +3177,8 @@ pub struct FIELD_INFO_1 {
     pub Position: u16,
     pub Size: u16,
 }
-impl ::core::marker::Copy for FIELD_INFO_1 {}
-impl ::core::clone::Clone for FIELD_INFO_1 {
+impl Copy for FIELD_INFO_1 {}
+impl Clone for FIELD_INFO_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3187,10 +3187,10 @@ impl ::core::clone::Clone for FIELD_INFO_1 {
 pub struct GET_CONTEXT_EX {
     pub Status: u32,
     pub ContextSize: u32,
-    pub pContext: *mut ::core::ffi::c_void,
+    pub pContext: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for GET_CONTEXT_EX {}
-impl ::core::clone::Clone for GET_CONTEXT_EX {
+impl Copy for GET_CONTEXT_EX {}
+impl Clone for GET_CONTEXT_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -3201,8 +3201,8 @@ pub struct GET_CURRENT_PROCESS_ADDRESS {
     pub CurrentThread: u64,
     pub Address: u64,
 }
-impl ::core::marker::Copy for GET_CURRENT_PROCESS_ADDRESS {}
-impl ::core::clone::Clone for GET_CURRENT_PROCESS_ADDRESS {
+impl Copy for GET_CURRENT_PROCESS_ADDRESS {}
+impl Clone for GET_CURRENT_PROCESS_ADDRESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3212,33 +3212,33 @@ pub struct GET_CURRENT_THREAD_ADDRESS {
     pub Processor: u32,
     pub Address: u64,
 }
-impl ::core::marker::Copy for GET_CURRENT_THREAD_ADDRESS {}
-impl ::core::clone::Clone for GET_CURRENT_THREAD_ADDRESS {
+impl Copy for GET_CURRENT_THREAD_ADDRESS {}
+impl Clone for GET_CURRENT_THREAD_ADDRESS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct GET_EXPRESSION_EX {
-    pub Expression: ::windows_sys::core::PCSTR,
-    pub Remainder: ::windows_sys::core::PCSTR,
+    pub Expression: windows_sys::core::PCSTR,
+    pub Remainder: windows_sys::core::PCSTR,
     pub Value: u64,
 }
-impl ::core::marker::Copy for GET_EXPRESSION_EX {}
-impl ::core::clone::Clone for GET_EXPRESSION_EX {
+impl Copy for GET_EXPRESSION_EX {}
+impl Clone for GET_EXPRESSION_EX {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct GET_INPUT_LINE {
-    pub Prompt: ::windows_sys::core::PCSTR,
-    pub Buffer: ::windows_sys::core::PSTR,
+    pub Prompt: windows_sys::core::PCSTR,
+    pub Buffer: windows_sys::core::PSTR,
     pub BufferSize: u32,
     pub InputSize: u32,
 }
-impl ::core::marker::Copy for GET_INPUT_LINE {}
-impl ::core::clone::Clone for GET_INPUT_LINE {
+impl Copy for GET_INPUT_LINE {}
+impl Clone for GET_INPUT_LINE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3248,20 +3248,20 @@ pub struct GET_PEB_ADDRESS {
     pub CurrentThread: u64,
     pub Address: u64,
 }
-impl ::core::marker::Copy for GET_PEB_ADDRESS {}
-impl ::core::clone::Clone for GET_PEB_ADDRESS {
+impl Copy for GET_PEB_ADDRESS {}
+impl Clone for GET_PEB_ADDRESS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct GET_SET_SYMPATH {
-    pub Args: ::windows_sys::core::PCSTR,
-    pub Result: ::windows_sys::core::PSTR,
+    pub Args: windows_sys::core::PCSTR,
+    pub Result: windows_sys::core::PSTR,
     pub Length: i32,
 }
-impl ::core::marker::Copy for GET_SET_SYMPATH {}
-impl ::core::clone::Clone for GET_SET_SYMPATH {
+impl Copy for GET_SET_SYMPATH {}
+impl Clone for GET_SET_SYMPATH {
     fn clone(&self) -> Self {
         *self
     }
@@ -3270,8 +3270,8 @@ impl ::core::clone::Clone for GET_SET_SYMPATH {
 pub struct GET_TEB_ADDRESS {
     pub Address: u64,
 }
-impl ::core::marker::Copy for GET_TEB_ADDRESS {}
-impl ::core::clone::Clone for GET_TEB_ADDRESS {
+impl Copy for GET_TEB_ADDRESS {}
+impl Clone for GET_TEB_ADDRESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3281,8 +3281,8 @@ pub union INLINE_FRAME_CONTEXT {
     pub ContextValue: u32,
     pub Anonymous: INLINE_FRAME_CONTEXT_0,
 }
-impl ::core::marker::Copy for INLINE_FRAME_CONTEXT {}
-impl ::core::clone::Clone for INLINE_FRAME_CONTEXT {
+impl Copy for INLINE_FRAME_CONTEXT {}
+impl Clone for INLINE_FRAME_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3293,8 +3293,8 @@ pub struct INLINE_FRAME_CONTEXT_0 {
     pub FrameType: u8,
     pub FrameSignature: u16,
 }
-impl ::core::marker::Copy for INLINE_FRAME_CONTEXT_0 {}
-impl ::core::clone::Clone for INLINE_FRAME_CONTEXT_0 {
+impl Copy for INLINE_FRAME_CONTEXT_0 {}
+impl Clone for INLINE_FRAME_CONTEXT_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3305,8 +3305,8 @@ pub struct IOSPACE {
     pub Length: u32,
     pub Data: u32,
 }
-impl ::core::marker::Copy for IOSPACE {}
-impl ::core::clone::Clone for IOSPACE {
+impl Copy for IOSPACE {}
+impl Clone for IOSPACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3317,8 +3317,8 @@ pub struct IOSPACE32 {
     pub Length: u32,
     pub Data: u32,
 }
-impl ::core::marker::Copy for IOSPACE32 {}
-impl ::core::clone::Clone for IOSPACE32 {
+impl Copy for IOSPACE32 {}
+impl Clone for IOSPACE32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3329,8 +3329,8 @@ pub struct IOSPACE64 {
     pub Length: u32,
     pub Data: u32,
 }
-impl ::core::marker::Copy for IOSPACE64 {}
-impl ::core::clone::Clone for IOSPACE64 {
+impl Copy for IOSPACE64 {}
+impl Clone for IOSPACE64 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3344,8 +3344,8 @@ pub struct IOSPACE_EX {
     pub BusNumber: u32,
     pub AddressSpace: u32,
 }
-impl ::core::marker::Copy for IOSPACE_EX {}
-impl ::core::clone::Clone for IOSPACE_EX {
+impl Copy for IOSPACE_EX {}
+impl Clone for IOSPACE_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -3359,8 +3359,8 @@ pub struct IOSPACE_EX32 {
     pub BusNumber: u32,
     pub AddressSpace: u32,
 }
-impl ::core::marker::Copy for IOSPACE_EX32 {}
-impl ::core::clone::Clone for IOSPACE_EX32 {
+impl Copy for IOSPACE_EX32 {}
+impl Clone for IOSPACE_EX32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3374,8 +3374,8 @@ pub struct IOSPACE_EX64 {
     pub BusNumber: u32,
     pub AddressSpace: u32,
 }
-impl ::core::marker::Copy for IOSPACE_EX64 {}
-impl ::core::clone::Clone for IOSPACE_EX64 {
+impl Copy for IOSPACE_EX64 {}
+impl Clone for IOSPACE_EX64 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3451,9 +3451,9 @@ pub struct KDDEBUGGER_DATA32 {
     pub MmLoadedUserImageList: u32,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::marker::Copy for KDDEBUGGER_DATA32 {}
+impl Copy for KDDEBUGGER_DATA32 {}
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::clone::Clone for KDDEBUGGER_DATA32 {
+impl Clone for KDDEBUGGER_DATA32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3626,9 +3626,9 @@ pub struct KDDEBUGGER_DATA64 {
     pub OffsetPrcbExceptionStack: u16,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::marker::Copy for KDDEBUGGER_DATA64 {}
+impl Copy for KDDEBUGGER_DATA64 {}
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::clone::Clone for KDDEBUGGER_DATA64 {
+impl Clone for KDDEBUGGER_DATA64 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3646,8 +3646,8 @@ pub struct KDEXTS_LOCK_INFO {
     pub pOwnerThreads: *mut u64,
     pub pWaiterThreads: *mut u64,
 }
-impl ::core::marker::Copy for KDEXTS_LOCK_INFO {}
-impl ::core::clone::Clone for KDEXTS_LOCK_INFO {
+impl Copy for KDEXTS_LOCK_INFO {}
+impl Clone for KDEXTS_LOCK_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3664,8 +3664,8 @@ pub struct KDEXTS_PTE_INFO {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
 }
-impl ::core::marker::Copy for KDEXTS_PTE_INFO {}
-impl ::core::clone::Clone for KDEXTS_PTE_INFO {
+impl Copy for KDEXTS_PTE_INFO {}
+impl Clone for KDEXTS_PTE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3679,8 +3679,8 @@ pub struct KDEXT_FILELOCK_OWNER {
     pub DeviceObject: u64,
     pub BlockingDirver: [i8; 32],
 }
-impl ::core::marker::Copy for KDEXT_FILELOCK_OWNER {}
-impl ::core::clone::Clone for KDEXT_FILELOCK_OWNER {
+impl Copy for KDEXT_FILELOCK_OWNER {}
+impl Clone for KDEXT_FILELOCK_OWNER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3695,8 +3695,8 @@ pub struct KDEXT_HANDLE_INFORMATION {
     pub HandleAttributes: u32,
     pub PagedOut: super::super::super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for KDEXT_HANDLE_INFORMATION {}
-impl ::core::clone::Clone for KDEXT_HANDLE_INFORMATION {
+impl Copy for KDEXT_HANDLE_INFORMATION {}
+impl Clone for KDEXT_HANDLE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3706,10 +3706,10 @@ pub struct KDEXT_PROCESS_FIND_PARAMS {
     pub SizeofStruct: u32,
     pub Pid: u32,
     pub Session: u32,
-    pub ImageName: ::windows_sys::core::PSTR,
+    pub ImageName: windows_sys::core::PSTR,
 }
-impl ::core::marker::Copy for KDEXT_PROCESS_FIND_PARAMS {}
-impl ::core::clone::Clone for KDEXT_PROCESS_FIND_PARAMS {
+impl Copy for KDEXT_PROCESS_FIND_PARAMS {}
+impl Clone for KDEXT_PROCESS_FIND_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3721,8 +3721,8 @@ pub struct KDEXT_THREAD_FIND_PARAMS {
     pub Cid: u32,
     pub Thread: u64,
 }
-impl ::core::marker::Copy for KDEXT_THREAD_FIND_PARAMS {}
-impl ::core::clone::Clone for KDEXT_THREAD_FIND_PARAMS {
+impl Copy for KDEXT_THREAD_FIND_PARAMS {}
+impl Clone for KDEXT_THREAD_FIND_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3732,8 +3732,8 @@ pub struct Location {
     pub HostDefined: u64,
     pub Offset: u64,
 }
-impl ::core::marker::Copy for Location {}
-impl ::core::clone::Clone for Location {
+impl Copy for Location {}
+impl Clone for Location {
     fn clone(&self) -> Self {
         *self
     }
@@ -3758,8 +3758,8 @@ pub struct OS_INFO {
     pub BuildVersion: [i8; 64],
     pub ServicePackString: [i8; 64],
 }
-impl ::core::marker::Copy for OS_INFO {}
-impl ::core::clone::Clone for OS_INFO {
+impl Copy for OS_INFO {}
+impl Clone for OS_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3768,8 +3768,8 @@ impl ::core::clone::Clone for OS_INFO {
 pub struct OS_INFO_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for OS_INFO_0 {}
-impl ::core::clone::Clone for OS_INFO_0 {
+impl Copy for OS_INFO_0 {}
+impl Clone for OS_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3786,8 +3786,8 @@ pub struct OS_INFO_v1 {
     pub OsString: [i8; 64],
     pub ServicePackString: [i8; 64],
 }
-impl ::core::marker::Copy for OS_INFO_v1 {}
-impl ::core::clone::Clone for OS_INFO_v1 {
+impl Copy for OS_INFO_v1 {}
+impl Clone for OS_INFO_v1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3797,8 +3797,8 @@ pub union OS_INFO_v1_0 {
     pub Version: OS_INFO_v1_0_0,
     pub Ver64: u64,
 }
-impl ::core::marker::Copy for OS_INFO_v1_0 {}
-impl ::core::clone::Clone for OS_INFO_v1_0 {
+impl Copy for OS_INFO_v1_0 {}
+impl Clone for OS_INFO_v1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3808,8 +3808,8 @@ pub struct OS_INFO_v1_0_0 {
     pub Major: u32,
     pub Minor: u32,
 }
-impl ::core::marker::Copy for OS_INFO_v1_0_0 {}
-impl ::core::clone::Clone for OS_INFO_v1_0_0 {
+impl Copy for OS_INFO_v1_0_0 {}
+impl Clone for OS_INFO_v1_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3818,8 +3818,8 @@ impl ::core::clone::Clone for OS_INFO_v1_0_0 {
 pub struct OS_INFO_v1_1 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for OS_INFO_v1_1 {}
-impl ::core::clone::Clone for OS_INFO_v1_1 {
+impl Copy for OS_INFO_v1_1 {}
+impl Clone for OS_INFO_v1_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3830,8 +3830,8 @@ pub struct PHYSICAL {
     pub BufLen: u32,
     pub Buf: [u8; 1],
 }
-impl ::core::marker::Copy for PHYSICAL {}
-impl ::core::clone::Clone for PHYSICAL {
+impl Copy for PHYSICAL {}
+impl Clone for PHYSICAL {
     fn clone(&self) -> Self {
         *self
     }
@@ -3842,8 +3842,8 @@ pub struct PHYSICAL_TO_VIRTUAL {
     pub Size: u32,
     pub PdeAddress: u64,
 }
-impl ::core::marker::Copy for PHYSICAL_TO_VIRTUAL {}
-impl ::core::clone::Clone for PHYSICAL_TO_VIRTUAL {
+impl Copy for PHYSICAL_TO_VIRTUAL {}
+impl Clone for PHYSICAL_TO_VIRTUAL {
     fn clone(&self) -> Self {
         *self
     }
@@ -3855,8 +3855,8 @@ pub struct PHYSICAL_WITH_FLAGS {
     pub Flags: u32,
     pub Buf: [u8; 1],
 }
-impl ::core::marker::Copy for PHYSICAL_WITH_FLAGS {}
-impl ::core::clone::Clone for PHYSICAL_WITH_FLAGS {
+impl Copy for PHYSICAL_WITH_FLAGS {}
+impl Clone for PHYSICAL_WITH_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3872,8 +3872,8 @@ pub struct POINTER_SEARCH_PHYSICAL {
     pub MatchOffsetsSize: u32,
     pub MatchOffsetsCount: u32,
 }
-impl ::core::marker::Copy for POINTER_SEARCH_PHYSICAL {}
-impl ::core::clone::Clone for POINTER_SEARCH_PHYSICAL {
+impl Copy for POINTER_SEARCH_PHYSICAL {}
+impl Clone for POINTER_SEARCH_PHYSICAL {
     fn clone(&self) -> Self {
         *self
     }
@@ -3883,8 +3883,8 @@ pub struct PROCESSORINFO {
     pub Processor: u16,
     pub NumberProcessors: u16,
 }
-impl ::core::marker::Copy for PROCESSORINFO {}
-impl ::core::clone::Clone for PROCESSORINFO {
+impl Copy for PROCESSORINFO {}
+impl Clone for PROCESSORINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3899,8 +3899,8 @@ pub struct PROCESS_COMMIT_USAGE {
     pub ReleasedCommitDebt: u64,
     pub Reserved: u64,
 }
-impl ::core::marker::Copy for PROCESS_COMMIT_USAGE {}
-impl ::core::clone::Clone for PROCESS_COMMIT_USAGE {
+impl Copy for PROCESS_COMMIT_USAGE {}
+impl Clone for PROCESS_COMMIT_USAGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3912,8 +3912,8 @@ pub struct PROCESS_NAME_ENTRY {
     pub NameSize: u32,
     pub NextEntry: u32,
 }
-impl ::core::marker::Copy for PROCESS_NAME_ENTRY {}
-impl ::core::clone::Clone for PROCESS_NAME_ENTRY {
+impl Copy for PROCESS_NAME_ENTRY {}
+impl Clone for PROCESS_NAME_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -3925,8 +3925,8 @@ pub struct READCONTROLSPACE {
     pub BufLen: u32,
     pub Buf: [u8; 1],
 }
-impl ::core::marker::Copy for READCONTROLSPACE {}
-impl ::core::clone::Clone for READCONTROLSPACE {
+impl Copy for READCONTROLSPACE {}
+impl Clone for READCONTROLSPACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3938,8 +3938,8 @@ pub struct READCONTROLSPACE32 {
     pub BufLen: u32,
     pub Buf: [u8; 1],
 }
-impl ::core::marker::Copy for READCONTROLSPACE32 {}
-impl ::core::clone::Clone for READCONTROLSPACE32 {
+impl Copy for READCONTROLSPACE32 {}
+impl Clone for READCONTROLSPACE32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3951,8 +3951,8 @@ pub struct READCONTROLSPACE64 {
     pub BufLen: u32,
     pub Buf: [u8; 1],
 }
-impl ::core::marker::Copy for READCONTROLSPACE64 {}
-impl ::core::clone::Clone for READCONTROLSPACE64 {
+impl Copy for READCONTROLSPACE64 {}
+impl Clone for READCONTROLSPACE64 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3962,8 +3962,8 @@ pub struct READ_WRITE_MSR {
     pub Msr: u32,
     pub Value: i64,
 }
-impl ::core::marker::Copy for READ_WRITE_MSR {}
-impl ::core::clone::Clone for READ_WRITE_MSR {
+impl Copy for READ_WRITE_MSR {}
+impl Clone for READ_WRITE_MSR {
     fn clone(&self) -> Self {
         *self
     }
@@ -3974,25 +3974,25 @@ pub struct SEARCHMEMORY {
     pub SearchLength: u64,
     pub FoundAddress: u64,
     pub PatternLength: u32,
-    pub Pattern: *mut ::core::ffi::c_void,
+    pub Pattern: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for SEARCHMEMORY {}
-impl ::core::clone::Clone for SEARCHMEMORY {
+impl Copy for SEARCHMEMORY {}
+impl Clone for SEARCHMEMORY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct STACK_SRC_INFO {
-    pub ImagePath: ::windows_sys::core::PCWSTR,
-    pub ModuleName: ::windows_sys::core::PCWSTR,
-    pub Function: ::windows_sys::core::PCWSTR,
+    pub ImagePath: windows_sys::core::PCWSTR,
+    pub ModuleName: windows_sys::core::PCWSTR,
+    pub Function: windows_sys::core::PCWSTR,
     pub Displacement: u32,
     pub Row: u32,
     pub Column: u32,
 }
-impl ::core::marker::Copy for STACK_SRC_INFO {}
-impl ::core::clone::Clone for STACK_SRC_INFO {
+impl Copy for STACK_SRC_INFO {}
+impl Clone for STACK_SRC_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4002,8 +4002,8 @@ pub struct STACK_SYM_FRAME_INFO {
     pub StackFrameEx: DEBUG_STACK_FRAME_EX,
     pub SrcInfo: STACK_SRC_INFO,
 }
-impl ::core::marker::Copy for STACK_SYM_FRAME_INFO {}
-impl ::core::clone::Clone for STACK_SYM_FRAME_INFO {
+impl Copy for STACK_SYM_FRAME_INFO {}
+impl Clone for STACK_SYM_FRAME_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4017,8 +4017,8 @@ pub struct SYMBOL_INFO_EX {
     pub Displacement: u32,
     pub Reserved: [u32; 4],
 }
-impl ::core::marker::Copy for SYMBOL_INFO_EX {}
-impl ::core::clone::Clone for SYMBOL_INFO_EX {
+impl Copy for SYMBOL_INFO_EX {}
+impl Clone for SYMBOL_INFO_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -4040,19 +4040,19 @@ pub struct SYM_DUMP_PARAM {
     pub BufferSize: u32,
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for SYM_DUMP_PARAM {}
-impl ::core::clone::Clone for SYM_DUMP_PARAM {
+impl Copy for SYM_DUMP_PARAM {}
+impl Clone for SYM_DUMP_PARAM {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub union SYM_DUMP_PARAM_0 {
-    pub Context: *mut ::core::ffi::c_void,
-    pub pBuffer: *mut ::core::ffi::c_void,
+    pub Context: *mut core::ffi::c_void,
+    pub pBuffer: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for SYM_DUMP_PARAM_0 {}
-impl ::core::clone::Clone for SYM_DUMP_PARAM_0 {
+impl Copy for SYM_DUMP_PARAM_0 {}
+impl Clone for SYM_DUMP_PARAM_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4064,8 +4064,8 @@ pub struct ScriptDebugEventInformation {
     pub EventSpanEnd: ScriptDebugPosition,
     pub u: ScriptDebugEventInformation_0,
 }
-impl ::core::marker::Copy for ScriptDebugEventInformation {}
-impl ::core::clone::Clone for ScriptDebugEventInformation {
+impl Copy for ScriptDebugEventInformation {}
+impl Clone for ScriptDebugEventInformation {
     fn clone(&self) -> Self {
         *self
     }
@@ -4075,8 +4075,8 @@ pub union ScriptDebugEventInformation_0 {
     pub ExceptionInformation: ScriptDebugEventInformation_0_1,
     pub BreakpointInformation: ScriptDebugEventInformation_0_0,
 }
-impl ::core::marker::Copy for ScriptDebugEventInformation_0 {}
-impl ::core::clone::Clone for ScriptDebugEventInformation_0 {
+impl Copy for ScriptDebugEventInformation_0 {}
+impl Clone for ScriptDebugEventInformation_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4085,8 +4085,8 @@ impl ::core::clone::Clone for ScriptDebugEventInformation_0 {
 pub struct ScriptDebugEventInformation_0_0 {
     pub BreakpointId: u64,
 }
-impl ::core::marker::Copy for ScriptDebugEventInformation_0_0 {}
-impl ::core::clone::Clone for ScriptDebugEventInformation_0_0 {
+impl Copy for ScriptDebugEventInformation_0_0 {}
+impl Clone for ScriptDebugEventInformation_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4095,8 +4095,8 @@ impl ::core::clone::Clone for ScriptDebugEventInformation_0_0 {
 pub struct ScriptDebugEventInformation_0_1 {
     pub IsUncaught: u8,
 }
-impl ::core::marker::Copy for ScriptDebugEventInformation_0_1 {}
-impl ::core::clone::Clone for ScriptDebugEventInformation_0_1 {
+impl Copy for ScriptDebugEventInformation_0_1 {}
+impl Clone for ScriptDebugEventInformation_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4106,8 +4106,8 @@ pub struct ScriptDebugPosition {
     pub Line: u32,
     pub Column: u32,
 }
-impl ::core::marker::Copy for ScriptDebugPosition {}
-impl ::core::clone::Clone for ScriptDebugPosition {
+impl Copy for ScriptDebugPosition {}
+impl Clone for ScriptDebugPosition {
     fn clone(&self) -> Self {
         *self
     }
@@ -4124,8 +4124,8 @@ pub struct TARGET_DEBUG_INFO {
     pub Cpu: CPU_INFO,
     pub DumpFile: [i8; 260],
 }
-impl ::core::marker::Copy for TARGET_DEBUG_INFO {}
-impl ::core::clone::Clone for TARGET_DEBUG_INFO {
+impl Copy for TARGET_DEBUG_INFO {}
+impl Clone for TARGET_DEBUG_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4143,11 +4143,11 @@ pub struct TARGET_DEBUG_INFO_v1 {
     pub OsInfo: OS_INFO_v1,
     pub Cpu: CPU_INFO_v1,
     pub DumpFile: [i8; 260],
-    pub FailureData: *mut ::core::ffi::c_void,
+    pub FailureData: *mut core::ffi::c_void,
     pub StackTr: [i8; 4096],
 }
-impl ::core::marker::Copy for TARGET_DEBUG_INFO_v1 {}
-impl ::core::clone::Clone for TARGET_DEBUG_INFO_v1 {
+impl Copy for TARGET_DEBUG_INFO_v1 {}
+impl Clone for TARGET_DEBUG_INFO_v1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4164,8 +4164,8 @@ pub struct TARGET_DEBUG_INFO_v2 {
     pub Cpu: CPU_INFO_v2,
     pub DumpFile: [i8; 260],
 }
-impl ::core::marker::Copy for TARGET_DEBUG_INFO_v2 {}
-impl ::core::clone::Clone for TARGET_DEBUG_INFO_v2 {
+impl Copy for TARGET_DEBUG_INFO_v2 {}
+impl Clone for TARGET_DEBUG_INFO_v2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4175,8 +4175,8 @@ pub struct TRANSLATE_VIRTUAL_TO_PHYSICAL {
     pub Virtual: u64,
     pub Physical: u64,
 }
-impl ::core::marker::Copy for TRANSLATE_VIRTUAL_TO_PHYSICAL {}
-impl ::core::clone::Clone for TRANSLATE_VIRTUAL_TO_PHYSICAL {
+impl Copy for TRANSLATE_VIRTUAL_TO_PHYSICAL {}
+impl Clone for TRANSLATE_VIRTUAL_TO_PHYSICAL {
     fn clone(&self) -> Self {
         *self
     }
@@ -4189,19 +4189,19 @@ pub struct VIRTUAL_TO_PHYSICAL {
     pub Virtual: u64,
     pub Physical: u64,
 }
-impl ::core::marker::Copy for VIRTUAL_TO_PHYSICAL {}
-impl ::core::clone::Clone for VIRTUAL_TO_PHYSICAL {
+impl Copy for VIRTUAL_TO_PHYSICAL {}
+impl Clone for VIRTUAL_TO_PHYSICAL {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct WDBGEXTS_CLR_DATA_INTERFACE {
-    pub Iid: *const ::windows_sys::core::GUID,
-    pub Iface: *mut ::core::ffi::c_void,
+    pub Iid: *const windows_sys::core::GUID,
+    pub Iface: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for WDBGEXTS_CLR_DATA_INTERFACE {}
-impl ::core::clone::Clone for WDBGEXTS_CLR_DATA_INTERFACE {
+impl Copy for WDBGEXTS_CLR_DATA_INTERFACE {}
+impl Clone for WDBGEXTS_CLR_DATA_INTERFACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4214,12 +4214,12 @@ pub struct WDBGEXTS_DISASSEMBLE_BUFFER {
     pub FormatFlags: u32,
     pub DataBufferBytes: u32,
     pub DisasmBufferChars: u32,
-    pub DataBuffer: *mut ::core::ffi::c_void,
-    pub DisasmBuffer: ::windows_sys::core::PWSTR,
+    pub DataBuffer: *mut core::ffi::c_void,
+    pub DisasmBuffer: windows_sys::core::PWSTR,
     pub Reserved0: [u64; 3],
 }
-impl ::core::marker::Copy for WDBGEXTS_DISASSEMBLE_BUFFER {}
-impl ::core::clone::Clone for WDBGEXTS_DISASSEMBLE_BUFFER {
+impl Copy for WDBGEXTS_DISASSEMBLE_BUFFER {}
+impl Clone for WDBGEXTS_DISASSEMBLE_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4231,19 +4231,19 @@ pub struct WDBGEXTS_MODULE_IN_RANGE {
     pub FoundModBase: u64,
     pub FoundModSize: u32,
 }
-impl ::core::marker::Copy for WDBGEXTS_MODULE_IN_RANGE {}
-impl ::core::clone::Clone for WDBGEXTS_MODULE_IN_RANGE {
+impl Copy for WDBGEXTS_MODULE_IN_RANGE {}
+impl Clone for WDBGEXTS_MODULE_IN_RANGE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct WDBGEXTS_QUERY_INTERFACE {
-    pub Iid: *const ::windows_sys::core::GUID,
-    pub Iface: *mut ::core::ffi::c_void,
+    pub Iid: *const windows_sys::core::GUID,
+    pub Iface: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for WDBGEXTS_QUERY_INTERFACE {}
-impl ::core::clone::Clone for WDBGEXTS_QUERY_INTERFACE {
+impl Copy for WDBGEXTS_QUERY_INTERFACE {}
+impl Clone for WDBGEXTS_QUERY_INTERFACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4261,8 +4261,8 @@ pub struct WDBGEXTS_THREAD_OS_INFO {
     pub StartOffset: u64,
     pub Affinity: u64,
 }
-impl ::core::marker::Copy for WDBGEXTS_THREAD_OS_INFO {}
-impl ::core::clone::Clone for WDBGEXTS_THREAD_OS_INFO {
+impl Copy for WDBGEXTS_THREAD_OS_INFO {}
+impl Clone for WDBGEXTS_THREAD_OS_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4284,9 +4284,9 @@ pub struct WINDBG_EXTENSION_APIS {
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::marker::Copy for WINDBG_EXTENSION_APIS {}
+impl Copy for WINDBG_EXTENSION_APIS {}
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::clone::Clone for WINDBG_EXTENSION_APIS {
+impl Clone for WINDBG_EXTENSION_APIS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4308,9 +4308,9 @@ pub struct WINDBG_EXTENSION_APIS32 {
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE32,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::marker::Copy for WINDBG_EXTENSION_APIS32 {}
+impl Copy for WINDBG_EXTENSION_APIS32 {}
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::clone::Clone for WINDBG_EXTENSION_APIS32 {
+impl Clone for WINDBG_EXTENSION_APIS32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4332,9 +4332,9 @@ pub struct WINDBG_EXTENSION_APIS64 {
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE64,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::marker::Copy for WINDBG_EXTENSION_APIS64 {}
+impl Copy for WINDBG_EXTENSION_APIS64 {}
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::clone::Clone for WINDBG_EXTENSION_APIS64 {
+impl Clone for WINDBG_EXTENSION_APIS64 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4352,8 +4352,8 @@ pub struct WINDBG_OLDKD_EXTENSION_APIS {
     pub lpReadPhysicalMemRoutine: PWINDBG_OLDKD_READ_PHYSICAL_MEMORY,
     pub lpWritePhysicalMemRoutine: PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY,
 }
-impl ::core::marker::Copy for WINDBG_OLDKD_EXTENSION_APIS {}
-impl ::core::clone::Clone for WINDBG_OLDKD_EXTENSION_APIS {
+impl Copy for WINDBG_OLDKD_EXTENSION_APIS {}
+impl Clone for WINDBG_OLDKD_EXTENSION_APIS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4367,8 +4367,8 @@ pub struct WINDBG_OLD_EXTENSION_APIS {
     pub lpDisasmRoutine: PWINDBG_DISASM,
     pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
 }
-impl ::core::marker::Copy for WINDBG_OLD_EXTENSION_APIS {}
-impl ::core::clone::Clone for WINDBG_OLD_EXTENSION_APIS {
+impl Copy for WINDBG_OLD_EXTENSION_APIS {}
+impl Clone for WINDBG_OLD_EXTENSION_APIS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4384,106 +4384,106 @@ pub struct XML_DRIVER_NODE_INFO {
     pub Group: [i8; 260],
     pub Altitude: [i8; 260],
 }
-impl ::core::marker::Copy for XML_DRIVER_NODE_INFO {}
-impl ::core::clone::Clone for XML_DRIVER_NODE_INFO {
+impl Copy for XML_DRIVER_NODE_INFO {}
+impl Clone for XML_DRIVER_NODE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type ENTRY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(entryaddress: u64, context: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type EXTDLL_ITERATERTLBALANCEDNODES = ::core::option::Option<unsafe extern "system" fn(rootnode: u64, entryoffset: u32, callback: ENTRY_CALLBACK, callbackcontext: *mut ::core::ffi::c_void)>;
-pub type EXTDLL_QUERYDATABYTAG = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, dwdatatag: u32, pqueryinfo: *const ::core::ffi::c_void, pdata: *mut u8, cbdata: u32) -> ::windows_sys::core::HRESULT>;
-pub type EXTDLL_QUERYDATABYTAGEX = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, dwdatatag: u32, pqueryinfo: *const ::core::ffi::c_void, pdata: *mut u8, cbdata: u32, pdataex: *mut u8, cbdataex: u32) -> ::windows_sys::core::HRESULT>;
-pub type EXTS_JOB_PROCESS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(job: u64, process: u64, context: *mut ::core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
-pub type EXTS_TABLE_ENTRY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(entry: u64, context: *mut ::core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
-pub type EXT_ANALYSIS_PLUGIN = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, callphase: FA_EXTENSION_PLUGIN_PHASE, panalysis: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type EXT_ANALYZER = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, bucketsuffix: ::windows_sys::core::PSTR, cbbucketsuffix: u32, debugtext: ::windows_sys::core::PSTR, cbdebugtext: u32, flags: *const u32, panalysis: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type EXT_DECODE_ERROR = ::core::option::Option<unsafe extern "system" fn(pdecodeerror: *mut DEBUG_DECODE_ERROR)>;
-pub type EXT_GET_DEBUG_FAILURE_ANALYSIS = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, flags: u32, classid: ::windows_sys::core::GUID, ppanalysis: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type EXT_GET_ENVIRONMENT_VARIABLE = ::core::option::Option<unsafe extern "system" fn(peb: u64, variable: ::windows_sys::core::PCSTR, buffer: ::windows_sys::core::PCSTR, buffersize: u32) -> ::windows_sys::core::HRESULT>;
-pub type EXT_GET_FAILURE_ANALYSIS = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, flags: u32, ppanalysis: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type EXT_GET_FA_ENTRIES_DATA = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, count: *mut u32, entries: *mut *mut FA_ENTRY) -> ::windows_sys::core::HRESULT>;
-pub type EXT_GET_HANDLE_TRACE = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, tracetype: u32, startindex: u32, handlevalue: *mut u64, stackfunctions: *mut u64, stacktracesize: u32) -> ::windows_sys::core::HRESULT>;
-pub type EXT_RELOAD_TRIAGER = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type EXT_TARGET_INFO = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, ptargetinfo: *mut TARGET_DEBUG_INFO) -> ::windows_sys::core::HRESULT>;
-pub type EXT_TRIAGE_FOLLOWUP = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, symbolname: ::windows_sys::core::PCSTR, ownerinfo: *mut DEBUG_TRIAGE_FOLLOWUP_INFO) -> u32>;
-pub type EXT_XML_DATA = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, pxmpdata: *mut EXT_CAB_XML_DATA) -> ::windows_sys::core::HRESULT>;
-pub type KDEXTS_LOCK_CALLBACKROUTINE = ::core::option::Option<unsafe extern "system" fn(plock: *mut KDEXTS_LOCK_INFO, context: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type KDEXT_DUMP_HANDLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(handleinfo: *const KDEXT_HANDLE_INFORMATION, flags: u32, context: *mut ::core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
-pub type PDEBUG_EXTENSION_CALL = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, args: ::windows_sys::core::PCSTR) -> ::windows_sys::core::HRESULT>;
-pub type PDEBUG_EXTENSION_CANUNLOAD = ::core::option::Option<unsafe extern "system" fn() -> ::windows_sys::core::HRESULT>;
-pub type PDEBUG_EXTENSION_INITIALIZE = ::core::option::Option<unsafe extern "system" fn(version: *mut u32, flags: *mut u32) -> ::windows_sys::core::HRESULT>;
-pub type PDEBUG_EXTENSION_KNOWN_STRUCT = ::core::option::Option<unsafe extern "system" fn(flags: u32, offset: u64, typename: ::windows_sys::core::PCSTR, buffer: ::windows_sys::core::PSTR, bufferchars: *mut u32) -> ::windows_sys::core::HRESULT>;
-pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, flags: u32, offset: u64, typename: ::windows_sys::core::PCSTR, buffer: ::windows_sys::core::PSTR, bufferchars: *mut u32) -> ::windows_sys::core::HRESULT>;
-pub type PDEBUG_EXTENSION_NOTIFY = ::core::option::Option<unsafe extern "system" fn(notify: u32, argument: u64)>;
-pub type PDEBUG_EXTENSION_PROVIDE_VALUE = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, flags: u32, name: ::windows_sys::core::PCWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> ::windows_sys::core::HRESULT>;
-pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, flags: u32, buffer: ::windows_sys::core::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> ::windows_sys::core::HRESULT>;
-pub type PDEBUG_EXTENSION_UNINITIALIZE = ::core::option::Option<unsafe extern "system" fn()>;
-pub type PDEBUG_EXTENSION_UNLOAD = ::core::option::Option<unsafe extern "system" fn()>;
-pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = ::core::option::Option<unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows_sys::core::HRESULT>;
-pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = ::core::option::Option<unsafe extern "system" fn() -> ::windows_sys::core::HRESULT>;
-pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = ::core::option::Option<unsafe extern "system" fn(stacksymframes: *const STACK_SYM_FRAME_INFO) -> ::windows_sys::core::HRESULT>;
-pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = ::core::option::Option<unsafe extern "system" fn(systemthreadid: u32, nativeframes: *const DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> ::windows_sys::core::HRESULT>;
-pub type PENUMERATE_HANDLES = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, process: u64, handletodump: u64, flags: u32, callback: KDEXT_DUMP_HANDLE_CALLBACK, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type PENUMERATE_HASH_TABLE = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, hashtable: u64, callback: EXTS_TABLE_ENTRY_CALLBACK, context: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type PENUMERATE_JOB_PROCESSES = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, job: u64, callback: EXTS_JOB_PROCESS_CALLBACK, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type PENUMERATE_SYSTEM_LOCKS = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, flags: u32, callback: KDEXTS_LOCK_CALLBACKROUTINE, context: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-pub type PFIND_FILELOCK_OWNERINFO = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, pfilelockowner: *mut KDEXT_FILELOCK_OWNER) -> ::windows_sys::core::HRESULT>;
-pub type PFIND_MATCHING_PROCESS = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, processinfo: *const KDEXT_PROCESS_FIND_PARAMS, process: *mut u64) -> ::windows_sys::core::HRESULT>;
-pub type PFIND_MATCHING_THREAD = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, threadinfo: *mut KDEXT_THREAD_FIND_PARAMS) -> ::windows_sys::core::HRESULT>;
-pub type PGET_CPU_MICROCODE_VERSION = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, pcpumicrocodeversion: *mut DEBUG_CPU_MICROCODE_VERSION) -> ::windows_sys::core::HRESULT>;
-pub type PGET_CPU_PSPEED_INFO = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, pcpuspeedinfo: *mut DEBUG_CPU_SPEED_INFO) -> ::windows_sys::core::HRESULT>;
-pub type PGET_DEVICE_OBJECT_INFO = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, deviceobject: u64, pdevobjinfo: *mut DEBUG_DEVICE_OBJECT_INFO) -> ::windows_sys::core::HRESULT>;
-pub type PGET_DRIVER_OBJECT_INFO = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, driverobject: u64, pdrvobjinfo: *mut DEBUG_DRIVER_OBJECT_INFO) -> ::windows_sys::core::HRESULT>;
-pub type PGET_FULL_IMAGE_NAME = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, process: u64, fullimagename: *mut ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT>;
-pub type PGET_IRP_INFO = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, irp: u64, irpinfo: *mut DEBUG_IRP_INFO) -> ::windows_sys::core::HRESULT>;
-pub type PGET_PNP_TRIAGE_INFO = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, ppnptriageinfo: *mut DEBUG_PNP_TRIAGE_INFO) -> ::windows_sys::core::HRESULT>;
-pub type PGET_POOL_DATA = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, pool: u64, pooldata: *mut DEBUG_POOL_DATA) -> ::windows_sys::core::HRESULT>;
-pub type PGET_POOL_REGION = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, pool: u64, poolregion: *mut DEBUG_POOL_REGION) -> ::windows_sys::core::HRESULT>;
-pub type PGET_POOL_TAG_DESCRIPTION = ::core::option::Option<unsafe extern "system" fn(pooltag: u32, pdescription: *mut DEBUG_POOLTAG_DESCRIPTION) -> ::windows_sys::core::HRESULT>;
-pub type PGET_PROCESS_COMMIT = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, totalcommitcharge: *mut u64, numberofprocesses: *mut u32, commitdata: *mut *mut PROCESS_COMMIT_USAGE) -> ::windows_sys::core::HRESULT>;
-pub type PGET_SMBIOS_INFO = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, psmbiosinfo: *mut DEBUG_SMBIOS_INFO) -> ::windows_sys::core::HRESULT>;
-pub type PKDEXTS_GET_PTE_INFO = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, r#virtual: u64, pteinfo: *mut KDEXTS_PTE_INFO) -> ::windows_sys::core::HRESULT>;
-pub type PSYM_DUMP_FIELD_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pfield: *mut FIELD_INFO, usercontext: *mut ::core::ffi::c_void) -> u32>;
-pub type PWINDBG_CHECK_CONTROL_C = ::core::option::Option<unsafe extern "system" fn() -> u32>;
-pub type PWINDBG_CHECK_VERSION = ::core::option::Option<unsafe extern "system" fn() -> u32>;
-pub type PWINDBG_DISASM = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut usize, lpbuffer: ::windows_sys::core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
-pub type PWINDBG_DISASM32 = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut u32, lpbuffer: ::windows_sys::core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
-pub type PWINDBG_DISASM64 = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut u64, lpbuffer: ::windows_sys::core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
-pub type PWINDBG_EXTENSION_API_VERSION = ::core::option::Option<unsafe extern "system" fn() -> *mut EXT_API_VERSION>;
+pub type ENTRY_CALLBACK = Option<unsafe extern "system" fn(entryaddress: u64, context: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type EXTDLL_ITERATERTLBALANCEDNODES = Option<unsafe extern "system" fn(rootnode: u64, entryoffset: u32, callback: ENTRY_CALLBACK, callbackcontext: *mut core::ffi::c_void)>;
+pub type EXTDLL_QUERYDATABYTAG = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, dwdatatag: u32, pqueryinfo: *const core::ffi::c_void, pdata: *mut u8, cbdata: u32) -> windows_sys::core::HRESULT>;
+pub type EXTDLL_QUERYDATABYTAGEX = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, dwdatatag: u32, pqueryinfo: *const core::ffi::c_void, pdata: *mut u8, cbdata: u32, pdataex: *mut u8, cbdataex: u32) -> windows_sys::core::HRESULT>;
+pub type EXTS_JOB_PROCESS_CALLBACK = Option<unsafe extern "system" fn(job: u64, process: u64, context: *mut core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
+pub type EXTS_TABLE_ENTRY_CALLBACK = Option<unsafe extern "system" fn(entry: u64, context: *mut core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
+pub type EXT_ANALYSIS_PLUGIN = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, callphase: FA_EXTENSION_PLUGIN_PHASE, panalysis: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type EXT_ANALYZER = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, bucketsuffix: windows_sys::core::PSTR, cbbucketsuffix: u32, debugtext: windows_sys::core::PSTR, cbdebugtext: u32, flags: *const u32, panalysis: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type EXT_DECODE_ERROR = Option<unsafe extern "system" fn(pdecodeerror: *mut DEBUG_DECODE_ERROR)>;
+pub type EXT_GET_DEBUG_FAILURE_ANALYSIS = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, classid: windows_sys::core::GUID, ppanalysis: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type EXT_GET_ENVIRONMENT_VARIABLE = Option<unsafe extern "system" fn(peb: u64, variable: windows_sys::core::PCSTR, buffer: windows_sys::core::PCSTR, buffersize: u32) -> windows_sys::core::HRESULT>;
+pub type EXT_GET_FAILURE_ANALYSIS = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, ppanalysis: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type EXT_GET_FA_ENTRIES_DATA = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, count: *mut u32, entries: *mut *mut FA_ENTRY) -> windows_sys::core::HRESULT>;
+pub type EXT_GET_HANDLE_TRACE = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, tracetype: u32, startindex: u32, handlevalue: *mut u64, stackfunctions: *mut u64, stacktracesize: u32) -> windows_sys::core::HRESULT>;
+pub type EXT_RELOAD_TRIAGER = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type EXT_TARGET_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, ptargetinfo: *mut TARGET_DEBUG_INFO) -> windows_sys::core::HRESULT>;
+pub type EXT_TRIAGE_FOLLOWUP = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, symbolname: windows_sys::core::PCSTR, ownerinfo: *mut DEBUG_TRIAGE_FOLLOWUP_INFO) -> u32>;
+pub type EXT_XML_DATA = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pxmpdata: *mut EXT_CAB_XML_DATA) -> windows_sys::core::HRESULT>;
+pub type KDEXTS_LOCK_CALLBACKROUTINE = Option<unsafe extern "system" fn(plock: *mut KDEXTS_LOCK_INFO, context: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type KDEXT_DUMP_HANDLE_CALLBACK = Option<unsafe extern "system" fn(handleinfo: *const KDEXT_HANDLE_INFORMATION, flags: u32, context: *mut core::ffi::c_void) -> super::super::super::super::Foundation::BOOLEAN>;
+pub type PDEBUG_EXTENSION_CALL = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, args: windows_sys::core::PCSTR) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_CANUNLOAD = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_INITIALIZE = Option<unsafe extern "system" fn(version: *mut u32, flags: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_KNOWN_STRUCT = Option<unsafe extern "system" fn(flags: u32, offset: u64, typename: windows_sys::core::PCSTR, buffer: windows_sys::core::PSTR, bufferchars: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, offset: u64, typename: windows_sys::core::PCSTR, buffer: windows_sys::core::PSTR, bufferchars: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_NOTIFY = Option<unsafe extern "system" fn(notify: u32, argument: u64)>;
+pub type PDEBUG_EXTENSION_PROVIDE_VALUE = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, name: windows_sys::core::PCWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, buffer: windows_sys::core::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_UNINITIALIZE = Option<unsafe extern "system" fn()>;
+pub type PDEBUG_EXTENSION_UNLOAD = Option<unsafe extern "system" fn()>;
+pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const core::ffi::c_void, buffersize: u32) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
+pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = Option<unsafe extern "system" fn(stacksymframes: *const STACK_SYM_FRAME_INFO) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = Option<unsafe extern "system" fn(systemthreadid: u32, nativeframes: *const DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PENUMERATE_HANDLES = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, process: u64, handletodump: u64, flags: u32, callback: KDEXT_DUMP_HANDLE_CALLBACK, context: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type PENUMERATE_HASH_TABLE = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, hashtable: u64, callback: EXTS_TABLE_ENTRY_CALLBACK, context: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type PENUMERATE_JOB_PROCESSES = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, job: u64, callback: EXTS_JOB_PROCESS_CALLBACK, context: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type PENUMERATE_SYSTEM_LOCKS = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, callback: KDEXTS_LOCK_CALLBACKROUTINE, context: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type PFIND_FILELOCK_OWNERINFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pfilelockowner: *mut KDEXT_FILELOCK_OWNER) -> windows_sys::core::HRESULT>;
+pub type PFIND_MATCHING_PROCESS = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, processinfo: *const KDEXT_PROCESS_FIND_PARAMS, process: *mut u64) -> windows_sys::core::HRESULT>;
+pub type PFIND_MATCHING_THREAD = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, threadinfo: *mut KDEXT_THREAD_FIND_PARAMS) -> windows_sys::core::HRESULT>;
+pub type PGET_CPU_MICROCODE_VERSION = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pcpumicrocodeversion: *mut DEBUG_CPU_MICROCODE_VERSION) -> windows_sys::core::HRESULT>;
+pub type PGET_CPU_PSPEED_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pcpuspeedinfo: *mut DEBUG_CPU_SPEED_INFO) -> windows_sys::core::HRESULT>;
+pub type PGET_DEVICE_OBJECT_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, deviceobject: u64, pdevobjinfo: *mut DEBUG_DEVICE_OBJECT_INFO) -> windows_sys::core::HRESULT>;
+pub type PGET_DRIVER_OBJECT_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, driverobject: u64, pdrvobjinfo: *mut DEBUG_DRIVER_OBJECT_INFO) -> windows_sys::core::HRESULT>;
+pub type PGET_FULL_IMAGE_NAME = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, process: u64, fullimagename: *mut windows_sys::core::PSTR) -> windows_sys::core::HRESULT>;
+pub type PGET_IRP_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, irp: u64, irpinfo: *mut DEBUG_IRP_INFO) -> windows_sys::core::HRESULT>;
+pub type PGET_PNP_TRIAGE_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, ppnptriageinfo: *mut DEBUG_PNP_TRIAGE_INFO) -> windows_sys::core::HRESULT>;
+pub type PGET_POOL_DATA = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pool: u64, pooldata: *mut DEBUG_POOL_DATA) -> windows_sys::core::HRESULT>;
+pub type PGET_POOL_REGION = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pool: u64, poolregion: *mut DEBUG_POOL_REGION) -> windows_sys::core::HRESULT>;
+pub type PGET_POOL_TAG_DESCRIPTION = Option<unsafe extern "system" fn(pooltag: u32, pdescription: *mut DEBUG_POOLTAG_DESCRIPTION) -> windows_sys::core::HRESULT>;
+pub type PGET_PROCESS_COMMIT = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, totalcommitcharge: *mut u64, numberofprocesses: *mut u32, commitdata: *mut *mut PROCESS_COMMIT_USAGE) -> windows_sys::core::HRESULT>;
+pub type PGET_SMBIOS_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, psmbiosinfo: *mut DEBUG_SMBIOS_INFO) -> windows_sys::core::HRESULT>;
+pub type PKDEXTS_GET_PTE_INFO = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, r#virtual: u64, pteinfo: *mut KDEXTS_PTE_INFO) -> windows_sys::core::HRESULT>;
+pub type PSYM_DUMP_FIELD_CALLBACK = Option<unsafe extern "system" fn(pfield: *mut FIELD_INFO, usercontext: *mut core::ffi::c_void) -> u32>;
+pub type PWINDBG_CHECK_CONTROL_C = Option<unsafe extern "system" fn() -> u32>;
+pub type PWINDBG_CHECK_VERSION = Option<unsafe extern "system" fn() -> u32>;
+pub type PWINDBG_DISASM = Option<unsafe extern "system" fn(lpoffset: *mut usize, lpbuffer: windows_sys::core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
+pub type PWINDBG_DISASM32 = Option<unsafe extern "system" fn(lpoffset: *mut u32, lpbuffer: windows_sys::core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
+pub type PWINDBG_DISASM64 = Option<unsafe extern "system" fn(lpoffset: *mut u64, lpbuffer: windows_sys::core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
+pub type PWINDBG_EXTENSION_API_VERSION = Option<unsafe extern "system" fn() -> *mut EXT_API_VERSION>;
 #[cfg(feature = "Win32_System_Kernel")]
-pub type PWINDBG_EXTENSION_DLL_INIT = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS, majorversion: u16, minorversion: u16)>;
+pub type PWINDBG_EXTENSION_DLL_INIT = Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS, majorversion: u16, minorversion: u16)>;
 #[cfg(feature = "Win32_System_Kernel")]
-pub type PWINDBG_EXTENSION_DLL_INIT32 = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS32, majorversion: u16, minorversion: u16)>;
+pub type PWINDBG_EXTENSION_DLL_INIT32 = Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS32, majorversion: u16, minorversion: u16)>;
 #[cfg(feature = "Win32_System_Kernel")]
-pub type PWINDBG_EXTENSION_DLL_INIT64 = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS64, majorversion: u16, minorversion: u16)>;
-pub type PWINDBG_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: ::windows_sys::core::PCSTR)>;
-pub type PWINDBG_EXTENSION_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: ::windows_sys::core::PCSTR)>;
-pub type PWINDBG_EXTENSION_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u64, dwprocessor: u32, lpargumentstring: ::windows_sys::core::PCSTR)>;
-pub type PWINDBG_GET_EXPRESSION = ::core::option::Option<unsafe extern "system" fn(lpexpression: ::windows_sys::core::PCSTR) -> usize>;
-pub type PWINDBG_GET_EXPRESSION32 = ::core::option::Option<unsafe extern "system" fn(lpexpression: ::windows_sys::core::PCSTR) -> u32>;
-pub type PWINDBG_GET_EXPRESSION64 = ::core::option::Option<unsafe extern "system" fn(lpexpression: ::windows_sys::core::PCSTR) -> u64>;
-pub type PWINDBG_GET_SYMBOL = ::core::option::Option<unsafe extern "system" fn(offset: *mut ::core::ffi::c_void, pchbuffer: ::windows_sys::core::PCSTR, pdisplacement: *mut usize)>;
-pub type PWINDBG_GET_SYMBOL32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, pchbuffer: ::windows_sys::core::PCSTR, pdisplacement: *mut u32)>;
-pub type PWINDBG_GET_SYMBOL64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, pchbuffer: ::windows_sys::core::PCSTR, pdisplacement: *mut u64)>;
+pub type PWINDBG_EXTENSION_DLL_INIT64 = Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS64, majorversion: u16, minorversion: u16)>;
+pub type PWINDBG_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: windows_sys::core::PCSTR)>;
+pub type PWINDBG_EXTENSION_ROUTINE32 = Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: windows_sys::core::PCSTR)>;
+pub type PWINDBG_EXTENSION_ROUTINE64 = Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u64, dwprocessor: u32, lpargumentstring: windows_sys::core::PCSTR)>;
+pub type PWINDBG_GET_EXPRESSION = Option<unsafe extern "system" fn(lpexpression: windows_sys::core::PCSTR) -> usize>;
+pub type PWINDBG_GET_EXPRESSION32 = Option<unsafe extern "system" fn(lpexpression: windows_sys::core::PCSTR) -> u32>;
+pub type PWINDBG_GET_EXPRESSION64 = Option<unsafe extern "system" fn(lpexpression: windows_sys::core::PCSTR) -> u64>;
+pub type PWINDBG_GET_SYMBOL = Option<unsafe extern "system" fn(offset: *mut core::ffi::c_void, pchbuffer: windows_sys::core::PCSTR, pdisplacement: *mut usize)>;
+pub type PWINDBG_GET_SYMBOL32 = Option<unsafe extern "system" fn(offset: u32, pchbuffer: windows_sys::core::PCSTR, pdisplacement: *mut u32)>;
+pub type PWINDBG_GET_SYMBOL64 = Option<unsafe extern "system" fn(offset: u64, pchbuffer: windows_sys::core::PCSTR, pdisplacement: *mut u64)>;
 #[cfg(feature = "Win32_System_Kernel")]
-pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::CONTEXT, cbsizeofcontext: u32) -> u32>;
-pub type PWINDBG_IOCTL_ROUTINE = ::core::option::Option<unsafe extern "system" fn(ioctltype: u16, lpvdata: *mut ::core::ffi::c_void, cbsize: u32) -> u32>;
-pub type PWINDBG_OLDKD_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_OLDKD_EXTENSION_APIS, lpargumentstring: ::windows_sys::core::PCSTR)>;
-pub type PWINDBG_OLDKD_READ_PHYSICAL_MEMORY = ::core::option::Option<unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, count: u32, bytesread: *mut u32) -> u32>;
-pub type PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY = ::core::option::Option<unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, length: u32, byteswritten: *mut u32) -> u32>;
+pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::CONTEXT, cbsizeofcontext: u32) -> u32>;
+pub type PWINDBG_IOCTL_ROUTINE = Option<unsafe extern "system" fn(ioctltype: u16, lpvdata: *mut core::ffi::c_void, cbsize: u32) -> u32>;
+pub type PWINDBG_OLDKD_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_OLDKD_EXTENSION_APIS, lpargumentstring: windows_sys::core::PCSTR)>;
+pub type PWINDBG_OLDKD_READ_PHYSICAL_MEMORY = Option<unsafe extern "system" fn(address: u64, buffer: *mut core::ffi::c_void, count: u32, bytesread: *mut u32) -> u32>;
+pub type PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY = Option<unsafe extern "system" fn(address: u64, buffer: *mut core::ffi::c_void, length: u32, byteswritten: *mut u32) -> u32>;
 #[cfg(feature = "Win32_System_Kernel")]
-pub type PWINDBG_OLD_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_EXTENSION_APIS, lpargumentstring: ::windows_sys::core::PCSTR)>;
-pub type PWINDBG_OUTPUT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpformat: ::windows_sys::core::PCSTR)>;
-pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(offset: usize, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
-pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
-pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
+pub type PWINDBG_OLD_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_EXTENSION_APIS, lpargumentstring: windows_sys::core::PCSTR)>;
+pub type PWINDBG_OUTPUT_ROUTINE = Option<unsafe extern "system" fn(lpformat: windows_sys::core::PCSTR)>;
+pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(offset: usize, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
+pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = Option<unsafe extern "system" fn(offset: u32, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
+pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(offset: u64, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
 #[cfg(feature = "Win32_System_Kernel")]
-pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::CONTEXT, cbsizeofcontext: u32) -> u32>;
-pub type PWINDBG_STACKTRACE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE, frames: u32) -> u32>;
-pub type PWINDBG_STACKTRACE_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE32, frames: u32) -> u32>;
-pub type PWINDBG_STACKTRACE_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(framepointer: u64, stackpointer: u64, programcounter: u64, stackframes: *mut EXTSTACKTRACE64, frames: u32) -> u32>;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(offset: usize, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
-pub type fnDebugFailureAnalysisCreateInstance = ::core::option::Option<unsafe extern "system" fn(client: *mut ::core::ffi::c_void, args: ::windows_sys::core::PCWSTR, flags: u32, rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::CONTEXT, cbsizeofcontext: u32) -> u32>;
+pub type PWINDBG_STACKTRACE_ROUTINE = Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE, frames: u32) -> u32>;
+pub type PWINDBG_STACKTRACE_ROUTINE32 = Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE32, frames: u32) -> u32>;
+pub type PWINDBG_STACKTRACE_ROUTINE64 = Option<unsafe extern "system" fn(framepointer: u64, stackpointer: u64, programcounter: u64, stackframes: *mut EXTSTACKTRACE64, frames: u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(offset: usize, lpbuffer: *const core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32 = Option<unsafe extern "system" fn(offset: u32, lpbuffer: *const core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(offset: u64, lpbuffer: *const core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+pub type fnDebugFailureAnalysisCreateInstance = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, args: windows_sys::core::PCWSTR, flags: u32, rclsid: *const windows_sys::core::GUID, riid: *const windows_sys::core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;

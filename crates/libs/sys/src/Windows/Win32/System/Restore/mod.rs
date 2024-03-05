@@ -40,8 +40,8 @@ pub struct RESTOREPOINTINFOA {
     pub llSequenceNumber: i64,
     pub szDescription: [i8; 64],
 }
-impl ::core::marker::Copy for RESTOREPOINTINFOA {}
-impl ::core::clone::Clone for RESTOREPOINTINFOA {
+impl Copy for RESTOREPOINTINFOA {}
+impl Clone for RESTOREPOINTINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -54,8 +54,8 @@ pub struct RESTOREPOINTINFOEX {
     pub dwRPNum: u32,
     pub szDescription: [u16; 256],
 }
-impl ::core::marker::Copy for RESTOREPOINTINFOEX {}
-impl ::core::clone::Clone for RESTOREPOINTINFOEX {
+impl Copy for RESTOREPOINTINFOEX {}
+impl Clone for RESTOREPOINTINFOEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -67,8 +67,8 @@ pub struct RESTOREPOINTINFOW {
     pub llSequenceNumber: i64,
     pub szDescription: [u16; 256],
 }
-impl ::core::marker::Copy for RESTOREPOINTINFOW {}
-impl ::core::clone::Clone for RESTOREPOINTINFOW {
+impl Copy for RESTOREPOINTINFOW {}
+impl Clone for RESTOREPOINTINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -78,8 +78,8 @@ pub struct STATEMGRSTATUS {
     pub nStatus: super::super::Foundation::WIN32_ERROR,
     pub llSequenceNumber: i64,
 }
-impl ::core::marker::Copy for STATEMGRSTATUS {}
-impl ::core::clone::Clone for STATEMGRSTATUS {
+impl Copy for STATEMGRSTATUS {}
+impl Clone for STATEMGRSTATUS {
     fn clone(&self) -> Self {
         *self
     }

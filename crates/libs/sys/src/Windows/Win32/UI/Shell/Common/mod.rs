@@ -67,11 +67,11 @@ pub type SHCOLSTATE = i32;
 pub type STRRET_TYPE = i32;
 #[repr(C)]
 pub struct COMDLG_FILTERSPEC {
-    pub pszName: ::windows_sys::core::PCWSTR,
-    pub pszSpec: ::windows_sys::core::PCWSTR,
+    pub pszName: windows_sys::core::PCWSTR,
+    pub pszSpec: windows_sys::core::PCWSTR,
 }
-impl ::core::marker::Copy for COMDLG_FILTERSPEC {}
-impl ::core::clone::Clone for COMDLG_FILTERSPEC {
+impl Copy for COMDLG_FILTERSPEC {}
+impl Clone for COMDLG_FILTERSPEC {
     fn clone(&self) -> Self {
         *self
     }
@@ -80,8 +80,8 @@ impl ::core::clone::Clone for COMDLG_FILTERSPEC {
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,
 }
-impl ::core::marker::Copy for ITEMIDLIST {}
-impl ::core::clone::Clone for ITEMIDLIST {
+impl Copy for ITEMIDLIST {}
+impl Clone for ITEMIDLIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -92,8 +92,8 @@ pub struct SHELLDETAILS {
     pub cxChar: i32,
     pub str: STRRET,
 }
-impl ::core::marker::Copy for SHELLDETAILS {}
-impl ::core::clone::Clone for SHELLDETAILS {
+impl Copy for SHELLDETAILS {}
+impl Clone for SHELLDETAILS {
     fn clone(&self) -> Self {
         *self
     }
@@ -103,8 +103,8 @@ pub struct SHITEMID {
     pub cb: u16,
     pub abID: [u8; 1],
 }
-impl ::core::marker::Copy for SHITEMID {}
-impl ::core::clone::Clone for SHITEMID {
+impl Copy for SHITEMID {}
+impl Clone for SHITEMID {
     fn clone(&self) -> Self {
         *self
     }
@@ -114,20 +114,20 @@ pub struct STRRET {
     pub uType: u32,
     pub Anonymous: STRRET_0,
 }
-impl ::core::marker::Copy for STRRET {}
-impl ::core::clone::Clone for STRRET {
+impl Copy for STRRET {}
+impl Clone for STRRET {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub union STRRET_0 {
-    pub pOleStr: ::windows_sys::core::PWSTR,
+    pub pOleStr: windows_sys::core::PWSTR,
     pub uOffset: u32,
     pub cStr: [u8; 260],
 }
-impl ::core::marker::Copy for STRRET_0 {}
-impl ::core::clone::Clone for STRRET_0 {
+impl Copy for STRRET_0 {}
+impl Clone for STRRET_0 {
     fn clone(&self) -> Self {
         *self
     }

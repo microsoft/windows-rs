@@ -10,8 +10,8 @@ pub struct OPERATION_END_PARAMETERS {
     pub OperationId: u32,
     pub Flags: OPERATION_END_PARAMETERS_FLAGS,
 }
-impl ::core::marker::Copy for OPERATION_END_PARAMETERS {}
-impl ::core::clone::Clone for OPERATION_END_PARAMETERS {
+impl Copy for OPERATION_END_PARAMETERS {}
+impl Clone for OPERATION_END_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -22,8 +22,8 @@ pub struct OPERATION_START_PARAMETERS {
     pub OperationId: u32,
     pub Flags: OPERATION_START_FLAGS,
 }
-impl ::core::marker::Copy for OPERATION_START_PARAMETERS {}
-impl ::core::clone::Clone for OPERATION_START_PARAMETERS {
+impl Copy for OPERATION_START_PARAMETERS {}
+impl Clone for OPERATION_START_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }

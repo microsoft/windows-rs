@@ -1,21 +1,21 @@
 #[inline]
 pub unsafe fn AssociateColorProfileWithDeviceA<P0, P1, P2>(pmachinename: P0, pprofilename: P1, pdevicename: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P2: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn AssociateColorProfileWithDeviceA(pmachinename : ::windows_core::PCSTR, pprofilename : ::windows_core::PCSTR, pdevicename : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn AssociateColorProfileWithDeviceA(pmachinename : windows_core::PCSTR, pprofilename : windows_core::PCSTR, pdevicename : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     AssociateColorProfileWithDeviceA(pmachinename.into_param().abi(), pprofilename.into_param().abi(), pdevicename.into_param().abi())
 }
 #[inline]
 pub unsafe fn AssociateColorProfileWithDeviceW<P0, P1, P2>(pmachinename: P0, pprofilename: P1, pdevicename: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn AssociateColorProfileWithDeviceW(pmachinename : ::windows_core::PCWSTR, pprofilename : ::windows_core::PCWSTR, pdevicename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn AssociateColorProfileWithDeviceW(pmachinename : windows_core::PCWSTR, pprofilename : windows_core::PCWSTR, pdevicename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     AssociateColorProfileWithDeviceW(pmachinename.into_param().abi(), pprofilename.into_param().abi(), pdevicename.into_param().abi())
 }
 #[inline]
@@ -30,11 +30,11 @@ pub unsafe fn CMCheckColorsInGamut(hcmtransform: isize, lpargbtriple: *const sup
     CMCheckColorsInGamut(hcmtransform, lpargbtriple, lparesult, ncount)
 }
 #[inline]
-pub unsafe fn CMCheckRGBs<P0>(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lparesult: *mut u8, pfncallback: LPBMCALLBACKFN, ulcallbackdata: P0) -> super::super::Foundation::BOOL
+pub unsafe fn CMCheckRGBs<P0>(hcmtransform: isize, lpsrcbits: *const core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lparesult: *mut u8, pfncallback: LPBMCALLBACKFN, ulcallbackdata: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::LPARAM>,
+    P0: windows_core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows_targets::link!("icm32.dll" "system" fn CMCheckRGBs(hcmtransform : isize, lpsrcbits : *const ::core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwstride : u32, lparesult : *mut u8, pfncallback : LPBMCALLBACKFN, ulcallbackdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("icm32.dll" "system" fn CMCheckRGBs(hcmtransform : isize, lpsrcbits : *const core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwstride : u32, lparesult : *mut u8, pfncallback : LPBMCALLBACKFN, ulcallbackdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
     CMCheckRGBs(hcmtransform, lpsrcbits, bminput, dwwidth, dwheight, dwstride, lparesult, pfncallback, ulcallbackdata.into_param().abi())
 }
 #[inline]
@@ -50,47 +50,47 @@ pub unsafe fn CMConvertIndexToColorName(hprofile: isize, paindex: *const u32, pa
 #[inline]
 pub unsafe fn CMCreateDeviceLinkProfile(pahprofiles: &[isize], padwintents: &[u32], dwflags: u32, lpprofiledata: *mut *mut u8) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("icm32.dll" "system" fn CMCreateDeviceLinkProfile(pahprofiles : *const isize, nprofiles : u32, padwintents : *const u32, nintents : u32, dwflags : u32, lpprofiledata : *mut *mut u8) -> super::super::Foundation:: BOOL);
-    CMCreateDeviceLinkProfile(::core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len().try_into().unwrap(), ::core::mem::transmute(padwintents.as_ptr()), padwintents.len().try_into().unwrap(), dwflags, lpprofiledata)
+    CMCreateDeviceLinkProfile(core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len().try_into().unwrap(), core::mem::transmute(padwintents.as_ptr()), padwintents.len().try_into().unwrap(), dwflags, lpprofiledata)
 }
 #[inline]
 pub unsafe fn CMCreateMultiProfileTransform(pahprofiles: &[isize], padwintents: &[u32], dwflags: u32) -> isize {
     ::windows_targets::link!("icm32.dll" "system" fn CMCreateMultiProfileTransform(pahprofiles : *const isize, nprofiles : u32, padwintents : *const u32, nintents : u32, dwflags : u32) -> isize);
-    CMCreateMultiProfileTransform(::core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len().try_into().unwrap(), ::core::mem::transmute(padwintents.as_ptr()), padwintents.len().try_into().unwrap(), dwflags)
+    CMCreateMultiProfileTransform(core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len().try_into().unwrap(), core::mem::transmute(padwintents.as_ptr()), padwintents.len().try_into().unwrap(), dwflags)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn CMCreateProfile(lpcolorspace: *mut LOGCOLORSPACEA, lpprofiledata: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("icm32.dll" "system" fn CMCreateProfile(lpcolorspace : *mut LOGCOLORSPACEA, lpprofiledata : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+pub unsafe fn CMCreateProfile(lpcolorspace: *mut LOGCOLORSPACEA, lpprofiledata: *mut *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("icm32.dll" "system" fn CMCreateProfile(lpcolorspace : *mut LOGCOLORSPACEA, lpprofiledata : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     CMCreateProfile(lpcolorspace, lpprofiledata)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn CMCreateProfileW(lpcolorspace: *mut LOGCOLORSPACEW, lpprofiledata: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("icm32.dll" "system" fn CMCreateProfileW(lpcolorspace : *mut LOGCOLORSPACEW, lpprofiledata : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+pub unsafe fn CMCreateProfileW(lpcolorspace: *mut LOGCOLORSPACEW, lpprofiledata: *mut *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("icm32.dll" "system" fn CMCreateProfileW(lpcolorspace : *mut LOGCOLORSPACEW, lpprofiledata : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     CMCreateProfileW(lpcolorspace, lpprofiledata)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn CMCreateTransform(lpcolorspace: *const LOGCOLORSPACEA, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void) -> isize {
-    ::windows_targets::link!("icm32.dll" "system" fn CMCreateTransform(lpcolorspace : *const LOGCOLORSPACEA, lpdevcharacter : *const ::core::ffi::c_void, lptargetdevcharacter : *const ::core::ffi::c_void) -> isize);
+pub unsafe fn CMCreateTransform(lpcolorspace: *const LOGCOLORSPACEA, lpdevcharacter: *const core::ffi::c_void, lptargetdevcharacter: *const core::ffi::c_void) -> isize {
+    ::windows_targets::link!("icm32.dll" "system" fn CMCreateTransform(lpcolorspace : *const LOGCOLORSPACEA, lpdevcharacter : *const core::ffi::c_void, lptargetdevcharacter : *const core::ffi::c_void) -> isize);
     CMCreateTransform(lpcolorspace, lpdevcharacter, lptargetdevcharacter)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn CMCreateTransformExt(lpcolorspace: *const LOGCOLORSPACEA, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void, dwflags: u32) -> isize {
-    ::windows_targets::link!("icm32.dll" "system" fn CMCreateTransformExt(lpcolorspace : *const LOGCOLORSPACEA, lpdevcharacter : *const ::core::ffi::c_void, lptargetdevcharacter : *const ::core::ffi::c_void, dwflags : u32) -> isize);
+pub unsafe fn CMCreateTransformExt(lpcolorspace: *const LOGCOLORSPACEA, lpdevcharacter: *const core::ffi::c_void, lptargetdevcharacter: *const core::ffi::c_void, dwflags: u32) -> isize {
+    ::windows_targets::link!("icm32.dll" "system" fn CMCreateTransformExt(lpcolorspace : *const LOGCOLORSPACEA, lpdevcharacter : *const core::ffi::c_void, lptargetdevcharacter : *const core::ffi::c_void, dwflags : u32) -> isize);
     CMCreateTransformExt(lpcolorspace, lpdevcharacter, lptargetdevcharacter, dwflags)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn CMCreateTransformExtW(lpcolorspace: *const LOGCOLORSPACEW, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void, dwflags: u32) -> isize {
-    ::windows_targets::link!("icm32.dll" "system" fn CMCreateTransformExtW(lpcolorspace : *const LOGCOLORSPACEW, lpdevcharacter : *const ::core::ffi::c_void, lptargetdevcharacter : *const ::core::ffi::c_void, dwflags : u32) -> isize);
+pub unsafe fn CMCreateTransformExtW(lpcolorspace: *const LOGCOLORSPACEW, lpdevcharacter: *const core::ffi::c_void, lptargetdevcharacter: *const core::ffi::c_void, dwflags: u32) -> isize {
+    ::windows_targets::link!("icm32.dll" "system" fn CMCreateTransformExtW(lpcolorspace : *const LOGCOLORSPACEW, lpdevcharacter : *const core::ffi::c_void, lptargetdevcharacter : *const core::ffi::c_void, dwflags : u32) -> isize);
     CMCreateTransformExtW(lpcolorspace, lpdevcharacter, lptargetdevcharacter, dwflags)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn CMCreateTransformW(lpcolorspace: *const LOGCOLORSPACEW, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void) -> isize {
-    ::windows_targets::link!("icm32.dll" "system" fn CMCreateTransformW(lpcolorspace : *const LOGCOLORSPACEW, lpdevcharacter : *const ::core::ffi::c_void, lptargetdevcharacter : *const ::core::ffi::c_void) -> isize);
+pub unsafe fn CMCreateTransformW(lpcolorspace: *const LOGCOLORSPACEW, lpdevcharacter: *const core::ffi::c_void, lptargetdevcharacter: *const core::ffi::c_void) -> isize {
+    ::windows_targets::link!("icm32.dll" "system" fn CMCreateTransformW(lpcolorspace : *const LOGCOLORSPACEW, lpdevcharacter : *const core::ffi::c_void, lptargetdevcharacter : *const core::ffi::c_void) -> isize);
     CMCreateTransformW(lpcolorspace, lpdevcharacter, lptargetdevcharacter)
 }
 #[inline]
@@ -121,30 +121,30 @@ pub unsafe fn CMTranslateColors(hcmtransform: isize, lpainputcolors: *const COLO
 #[inline]
 pub unsafe fn CMTranslateRGB<P0>(hcmtransform: isize, colorref: P0, lpcolorref: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::COLORREF>,
+    P0: windows_core::IntoParam<super::super::Foundation::COLORREF>,
 {
     ::windows_targets::link!("icm32.dll" "system" fn CMTranslateRGB(hcmtransform : isize, colorref : super::super::Foundation:: COLORREF, lpcolorref : *mut u32, dwflags : u32) -> super::super::Foundation:: BOOL);
     CMTranslateRGB(hcmtransform, colorref.into_param().abi(), lpcolorref, dwflags)
 }
 #[inline]
-pub unsafe fn CMTranslateRGBs(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwtranslatedirection: u32) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("icm32.dll" "system" fn CMTranslateRGBs(hcmtransform : isize, lpsrcbits : *const ::core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwstride : u32, lpdestbits : *mut ::core::ffi::c_void, bmoutput : BMFORMAT, dwtranslatedirection : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn CMTranslateRGBs(hcmtransform: isize, lpsrcbits: *const core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lpdestbits: *mut core::ffi::c_void, bmoutput: BMFORMAT, dwtranslatedirection: u32) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("icm32.dll" "system" fn CMTranslateRGBs(hcmtransform : isize, lpsrcbits : *const core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwstride : u32, lpdestbits : *mut core::ffi::c_void, bmoutput : BMFORMAT, dwtranslatedirection : u32) -> super::super::Foundation:: BOOL);
     CMTranslateRGBs(hcmtransform, lpsrcbits, bminput, dwwidth, dwheight, dwstride, lpdestbits, bmoutput, dwtranslatedirection)
 }
 #[inline]
-pub unsafe fn CMTranslateRGBsExt<P0>(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, lpfncallback: LPBMCALLBACKFN, ulcallbackdata: P0) -> super::super::Foundation::BOOL
+pub unsafe fn CMTranslateRGBsExt<P0>(hcmtransform: isize, lpsrcbits: *const core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, lpdestbits: *mut core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, lpfncallback: LPBMCALLBACKFN, ulcallbackdata: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::LPARAM>,
+    P0: windows_core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows_targets::link!("icm32.dll" "system" fn CMTranslateRGBsExt(hcmtransform : isize, lpsrcbits : *const ::core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwinputstride : u32, lpdestbits : *mut ::core::ffi::c_void, bmoutput : BMFORMAT, dwoutputstride : u32, lpfncallback : LPBMCALLBACKFN, ulcallbackdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("icm32.dll" "system" fn CMTranslateRGBsExt(hcmtransform : isize, lpsrcbits : *const core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwinputstride : u32, lpdestbits : *mut core::ffi::c_void, bmoutput : BMFORMAT, dwoutputstride : u32, lpfncallback : LPBMCALLBACKFN, ulcallbackdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
     CMTranslateRGBsExt(hcmtransform, lpsrcbits, bminput, dwwidth, dwheight, dwinputstride, lpdestbits, bmoutput, dwoutputstride, lpfncallback, ulcallbackdata.into_param().abi())
 }
 #[inline]
-pub unsafe fn CheckBitmapBits<P0>(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, paresult: *mut u8, pfncallback: LPBMCALLBACKFN, lpcallbackdata: P0) -> super::super::Foundation::BOOL
+pub unsafe fn CheckBitmapBits<P0>(hcolortransform: isize, psrcbits: *const core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, paresult: *mut u8, pfncallback: LPBMCALLBACKFN, lpcallbackdata: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::LPARAM>,
+    P0: windows_core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn CheckBitmapBits(hcolortransform : isize, psrcbits : *const ::core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwstride : u32, paresult : *mut u8, pfncallback : LPBMCALLBACKFN, lpcallbackdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn CheckBitmapBits(hcolortransform : isize, psrcbits : *const core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwstride : u32, paresult : *mut u8, pfncallback : LPBMCALLBACKFN, lpcallbackdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
     CheckBitmapBits(hcolortransform, psrcbits, bminput, dwwidth, dwheight, dwstride, paresult, pfncallback, lpcallbackdata.into_param().abi())
 }
 #[inline]
@@ -154,11 +154,11 @@ pub unsafe fn CheckColors(hcolortransform: isize, painputcolors: *const COLOR, n
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn CheckColorsInGamut<P0>(hdc: P0, lprgbtriple: *const super::super::Graphics::Gdi::RGBTRIPLE, dlpbuffer: *mut ::core::ffi::c_void, ncount: u32) -> super::super::Foundation::BOOL
+pub unsafe fn CheckColorsInGamut<P0>(hdc: P0, lprgbtriple: *const super::super::Graphics::Gdi::RGBTRIPLE, dlpbuffer: *mut core::ffi::c_void, ncount: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn CheckColorsInGamut(hdc : super::super::Graphics::Gdi:: HDC, lprgbtriple : *const super::super::Graphics::Gdi:: RGBTRIPLE, dlpbuffer : *mut ::core::ffi::c_void, ncount : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("gdi32.dll" "system" fn CheckColorsInGamut(hdc : super::super::Graphics::Gdi:: HDC, lprgbtriple : *const super::super::Graphics::Gdi:: RGBTRIPLE, dlpbuffer : *mut core::ffi::c_void, ncount : u32) -> super::super::Foundation:: BOOL);
     CheckColorsInGamut(hdc.into_param().abi(), lprgbtriple, dlpbuffer, ncount)
 }
 #[inline]
@@ -170,8 +170,8 @@ pub unsafe fn CloseColorProfile(hprofile: isize) -> super::super::Foundation::BO
 #[inline]
 pub unsafe fn ColorCorrectPalette<P0, P1>(hdc: P0, hpal: P1, defirst: u32, num: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
-    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HPALETTE>,
+    P0: windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P1: windows_core::IntoParam<super::super::Graphics::Gdi::HPALETTE>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn ColorCorrectPalette(hdc : super::super::Graphics::Gdi:: HDC, hpal : super::super::Graphics::Gdi:: HPALETTE, defirst : u32, num : u32) -> super::super::Foundation:: BOOL);
     ColorCorrectPalette(hdc.into_param().abi(), hpal.into_param().abi(), defirst, num)
@@ -180,55 +180,55 @@ where
 #[inline]
 pub unsafe fn ColorMatchToTarget<P0, P1>(hdc: P0, hdctarget: P1, action: COLOR_MATCH_TO_TARGET_ACTION) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
-    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P1: windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn ColorMatchToTarget(hdc : super::super::Graphics::Gdi:: HDC, hdctarget : super::super::Graphics::Gdi:: HDC, action : COLOR_MATCH_TO_TARGET_ACTION) -> super::super::Foundation:: BOOL);
     ColorMatchToTarget(hdc.into_param().abi(), hdctarget.into_param().abi(), action)
 }
 #[inline]
-pub unsafe fn ColorProfileAddDisplayAssociation<P0, P1, P2>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: P0, targetadapterid: super::super::Foundation::LUID, sourceid: u32, setasdefault: P1, associateasadvancedcolor: P2) -> ::windows_core::Result<()>
+pub unsafe fn ColorProfileAddDisplayAssociation<P0, P1, P2>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: P0, targetadapterid: super::super::Foundation::LUID, sourceid: u32, setasdefault: P1, associateasadvancedcolor: P2) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
-    P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn ColorProfileAddDisplayAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : ::windows_core::PCWSTR, targetadapterid : super::super::Foundation:: LUID, sourceid : u32, setasdefault : super::super::Foundation:: BOOL, associateasadvancedcolor : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
-    ColorProfileAddDisplayAssociation(scope, profilename.into_param().abi(), ::core::mem::transmute(targetadapterid), sourceid, setasdefault.into_param().abi(), associateasadvancedcolor.into_param().abi()).ok()
+    ::windows_targets::link!("mscms.dll" "system" fn ColorProfileAddDisplayAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : windows_core::PCWSTR, targetadapterid : super::super::Foundation:: LUID, sourceid : u32, setasdefault : super::super::Foundation:: BOOL, associateasadvancedcolor : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    ColorProfileAddDisplayAssociation(scope, profilename.into_param().abi(), core::mem::transmute(targetadapterid), sourceid, setasdefault.into_param().abi(), associateasadvancedcolor.into_param().abi()).ok()
 }
 #[inline]
-pub unsafe fn ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE) -> ::windows_core::Result<::windows_core::PWSTR> {
-    ::windows_targets::link!("mscms.dll" "system" fn ColorProfileGetDisplayDefault(scope : WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid : super::super::Foundation:: LUID, sourceid : u32, profiletype : COLORPROFILETYPE, profilesubtype : COLORPROFILESUBTYPE, profilename : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
-    let mut result__ = ::std::mem::zeroed();
-    ColorProfileGetDisplayDefault(scope, ::core::mem::transmute(targetadapterid), sourceid, profiletype, profilesubtype, &mut result__).map(|| result__)
+pub unsafe fn ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE) -> windows_core::Result<windows_core::PWSTR> {
+    ::windows_targets::link!("mscms.dll" "system" fn ColorProfileGetDisplayDefault(scope : WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid : super::super::Foundation:: LUID, sourceid : u32, profiletype : COLORPROFILETYPE, profilesubtype : COLORPROFILESUBTYPE, profilename : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+    let mut result__ = std::mem::zeroed();
+    ColorProfileGetDisplayDefault(scope, core::mem::transmute(targetadapterid), sourceid, profiletype, profilesubtype, &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, profilelist: *mut *mut ::windows_core::PWSTR, profilecount: *mut u32) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("mscms.dll" "system" fn ColorProfileGetDisplayList(scope : WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid : super::super::Foundation:: LUID, sourceid : u32, profilelist : *mut *mut ::windows_core::PWSTR, profilecount : *mut u32) -> ::windows_core::HRESULT);
-    ColorProfileGetDisplayList(scope, ::core::mem::transmute(targetadapterid), sourceid, profilelist, profilecount).ok()
+pub unsafe fn ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, profilelist: *mut *mut windows_core::PWSTR, profilecount: *mut u32) -> windows_core::Result<()> {
+    ::windows_targets::link!("mscms.dll" "system" fn ColorProfileGetDisplayList(scope : WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid : super::super::Foundation:: LUID, sourceid : u32, profilelist : *mut *mut windows_core::PWSTR, profilecount : *mut u32) -> windows_core::HRESULT);
+    ColorProfileGetDisplayList(scope, core::mem::transmute(targetadapterid), sourceid, profilelist, profilecount).ok()
 }
 #[inline]
-pub unsafe fn ColorProfileGetDisplayUserScope(targetadapterid: super::super::Foundation::LUID, sourceid: u32) -> ::windows_core::Result<WCS_PROFILE_MANAGEMENT_SCOPE> {
-    ::windows_targets::link!("mscms.dll" "system" fn ColorProfileGetDisplayUserScope(targetadapterid : super::super::Foundation:: LUID, sourceid : u32, scope : *mut WCS_PROFILE_MANAGEMENT_SCOPE) -> ::windows_core::HRESULT);
-    let mut result__ = ::std::mem::zeroed();
-    ColorProfileGetDisplayUserScope(::core::mem::transmute(targetadapterid), sourceid, &mut result__).map(|| result__)
+pub unsafe fn ColorProfileGetDisplayUserScope(targetadapterid: super::super::Foundation::LUID, sourceid: u32) -> windows_core::Result<WCS_PROFILE_MANAGEMENT_SCOPE> {
+    ::windows_targets::link!("mscms.dll" "system" fn ColorProfileGetDisplayUserScope(targetadapterid : super::super::Foundation:: LUID, sourceid : u32, scope : *mut WCS_PROFILE_MANAGEMENT_SCOPE) -> windows_core::HRESULT);
+    let mut result__ = std::mem::zeroed();
+    ColorProfileGetDisplayUserScope(core::mem::transmute(targetadapterid), sourceid, &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn ColorProfileRemoveDisplayAssociation<P0, P1>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: P0, targetadapterid: super::super::Foundation::LUID, sourceid: u32, dissociateadvancedcolor: P1) -> ::windows_core::Result<()>
+pub unsafe fn ColorProfileRemoveDisplayAssociation<P0, P1>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: P0, targetadapterid: super::super::Foundation::LUID, sourceid: u32, dissociateadvancedcolor: P1) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn ColorProfileRemoveDisplayAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : ::windows_core::PCWSTR, targetadapterid : super::super::Foundation:: LUID, sourceid : u32, dissociateadvancedcolor : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
-    ColorProfileRemoveDisplayAssociation(scope, profilename.into_param().abi(), ::core::mem::transmute(targetadapterid), sourceid, dissociateadvancedcolor.into_param().abi()).ok()
+    ::windows_targets::link!("mscms.dll" "system" fn ColorProfileRemoveDisplayAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : windows_core::PCWSTR, targetadapterid : super::super::Foundation:: LUID, sourceid : u32, dissociateadvancedcolor : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    ColorProfileRemoveDisplayAssociation(scope, profilename.into_param().abi(), core::mem::transmute(targetadapterid), sourceid, dissociateadvancedcolor.into_param().abi()).ok()
 }
 #[inline]
-pub unsafe fn ColorProfileSetDisplayDefaultAssociation<P0>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: P0, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32) -> ::windows_core::Result<()>
+pub unsafe fn ColorProfileSetDisplayDefaultAssociation<P0>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: P0, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn ColorProfileSetDisplayDefaultAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : ::windows_core::PCWSTR, profiletype : COLORPROFILETYPE, profilesubtype : COLORPROFILESUBTYPE, targetadapterid : super::super::Foundation:: LUID, sourceid : u32) -> ::windows_core::HRESULT);
-    ColorProfileSetDisplayDefaultAssociation(scope, profilename.into_param().abi(), profiletype, profilesubtype, ::core::mem::transmute(targetadapterid), sourceid).ok()
+    ::windows_targets::link!("mscms.dll" "system" fn ColorProfileSetDisplayDefaultAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : windows_core::PCWSTR, profiletype : COLORPROFILETYPE, profilesubtype : COLORPROFILESUBTYPE, targetadapterid : super::super::Foundation:: LUID, sourceid : u32) -> windows_core::HRESULT);
+    ColorProfileSetDisplayDefaultAssociation(scope, profilename.into_param().abi(), profiletype, profilesubtype, core::mem::transmute(targetadapterid), sourceid).ok()
 }
 #[inline]
 pub unsafe fn ConvertColorNameToIndex(hprofile: isize, pacolorname: *const *const i8, paindex: *mut u32, dwcount: u32) -> super::super::Foundation::BOOL {
@@ -267,12 +267,12 @@ pub unsafe fn CreateColorTransformW(plogcolorspace: *const LOGCOLORSPACEW, hdest
 #[inline]
 pub unsafe fn CreateDeviceLinkProfile(hprofile: &[isize], padwintent: &[u32], dwflags: u32, pprofiledata: *mut *mut u8, indexpreferredcmm: u32) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("mscms.dll" "system" fn CreateDeviceLinkProfile(hprofile : *const isize, nprofiles : u32, padwintent : *const u32, nintents : u32, dwflags : u32, pprofiledata : *mut *mut u8, indexpreferredcmm : u32) -> super::super::Foundation:: BOOL);
-    CreateDeviceLinkProfile(::core::mem::transmute(hprofile.as_ptr()), hprofile.len().try_into().unwrap(), ::core::mem::transmute(padwintent.as_ptr()), padwintent.len().try_into().unwrap(), dwflags, pprofiledata, indexpreferredcmm)
+    CreateDeviceLinkProfile(core::mem::transmute(hprofile.as_ptr()), hprofile.len().try_into().unwrap(), core::mem::transmute(padwintent.as_ptr()), padwintent.len().try_into().unwrap(), dwflags, pprofiledata, indexpreferredcmm)
 }
 #[inline]
 pub unsafe fn CreateMultiProfileTransform(pahprofiles: &[isize], padwintent: &[u32], dwflags: u32, indexpreferredcmm: u32) -> isize {
     ::windows_targets::link!("mscms.dll" "system" fn CreateMultiProfileTransform(pahprofiles : *const isize, nprofiles : u32, padwintent : *const u32, nintents : u32, dwflags : u32, indexpreferredcmm : u32) -> isize);
-    CreateMultiProfileTransform(::core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len().try_into().unwrap(), ::core::mem::transmute(padwintent.as_ptr()), padwintent.len().try_into().unwrap(), dwflags, indexpreferredcmm)
+    CreateMultiProfileTransform(core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len().try_into().unwrap(), core::mem::transmute(padwintent.as_ptr()), padwintent.len().try_into().unwrap(), dwflags, indexpreferredcmm)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -289,7 +289,7 @@ pub unsafe fn CreateProfileFromLogColorSpaceW(plogcolorspace: *const LOGCOLORSPA
 #[inline]
 pub unsafe fn DeleteColorSpace<P0>(hcs: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<HCOLORSPACE>,
+    P0: windows_core::IntoParam<HCOLORSPACE>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn DeleteColorSpace(hcs : HCOLORSPACE) -> super::super::Foundation:: BOOL);
     DeleteColorSpace(hcs.into_param().abi())
@@ -302,45 +302,45 @@ pub unsafe fn DeleteColorTransform(hxform: isize) -> super::super::Foundation::B
 #[inline]
 pub unsafe fn DisassociateColorProfileFromDeviceA<P0, P1, P2>(pmachinename: P0, pprofilename: P1, pdevicename: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P2: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn DisassociateColorProfileFromDeviceA(pmachinename : ::windows_core::PCSTR, pprofilename : ::windows_core::PCSTR, pdevicename : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn DisassociateColorProfileFromDeviceA(pmachinename : windows_core::PCSTR, pprofilename : windows_core::PCSTR, pdevicename : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     DisassociateColorProfileFromDeviceA(pmachinename.into_param().abi(), pprofilename.into_param().abi(), pdevicename.into_param().abi())
 }
 #[inline]
 pub unsafe fn DisassociateColorProfileFromDeviceW<P0, P1, P2>(pmachinename: P0, pprofilename: P1, pdevicename: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn DisassociateColorProfileFromDeviceW(pmachinename : ::windows_core::PCWSTR, pprofilename : ::windows_core::PCWSTR, pdevicename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn DisassociateColorProfileFromDeviceW(pmachinename : windows_core::PCWSTR, pprofilename : windows_core::PCWSTR, pdevicename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     DisassociateColorProfileFromDeviceW(pmachinename.into_param().abi(), pprofilename.into_param().abi(), pdevicename.into_param().abi())
 }
 #[inline]
-pub unsafe fn EnumColorProfilesA<P0>(pmachinename: P0, penumrecord: *const ENUMTYPEA, penumerationbuffer: ::core::option::Option<*mut u8>, pdwsizeofenumerationbuffer: *mut u32, pnprofiles: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
+pub unsafe fn EnumColorProfilesA<P0>(pmachinename: P0, penumrecord: *const ENUMTYPEA, penumerationbuffer: Option<*mut u8>, pdwsizeofenumerationbuffer: *mut u32, pnprofiles: Option<*mut u32>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn EnumColorProfilesA(pmachinename : ::windows_core::PCSTR, penumrecord : *const ENUMTYPEA, penumerationbuffer : *mut u8, pdwsizeofenumerationbuffer : *mut u32, pnprofiles : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumColorProfilesA(pmachinename.into_param().abi(), penumrecord, ::core::mem::transmute(penumerationbuffer.unwrap_or(::std::ptr::null_mut())), pdwsizeofenumerationbuffer, ::core::mem::transmute(pnprofiles.unwrap_or(::std::ptr::null_mut())))
+    ::windows_targets::link!("mscms.dll" "system" fn EnumColorProfilesA(pmachinename : windows_core::PCSTR, penumrecord : *const ENUMTYPEA, penumerationbuffer : *mut u8, pdwsizeofenumerationbuffer : *mut u32, pnprofiles : *mut u32) -> super::super::Foundation:: BOOL);
+    EnumColorProfilesA(pmachinename.into_param().abi(), penumrecord, core::mem::transmute(penumerationbuffer.unwrap_or(std::ptr::null_mut())), pdwsizeofenumerationbuffer, core::mem::transmute(pnprofiles.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn EnumColorProfilesW<P0>(pmachinename: P0, penumrecord: *const ENUMTYPEW, penumerationbuffer: ::core::option::Option<*mut u8>, pdwsizeofenumerationbuffer: *mut u32, pnprofiles: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
+pub unsafe fn EnumColorProfilesW<P0>(pmachinename: P0, penumrecord: *const ENUMTYPEW, penumerationbuffer: Option<*mut u8>, pdwsizeofenumerationbuffer: *mut u32, pnprofiles: Option<*mut u32>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn EnumColorProfilesW(pmachinename : ::windows_core::PCWSTR, penumrecord : *const ENUMTYPEW, penumerationbuffer : *mut u8, pdwsizeofenumerationbuffer : *mut u32, pnprofiles : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumColorProfilesW(pmachinename.into_param().abi(), penumrecord, ::core::mem::transmute(penumerationbuffer.unwrap_or(::std::ptr::null_mut())), pdwsizeofenumerationbuffer, ::core::mem::transmute(pnprofiles.unwrap_or(::std::ptr::null_mut())))
+    ::windows_targets::link!("mscms.dll" "system" fn EnumColorProfilesW(pmachinename : windows_core::PCWSTR, penumrecord : *const ENUMTYPEW, penumerationbuffer : *mut u8, pdwsizeofenumerationbuffer : *mut u32, pnprofiles : *mut u32) -> super::super::Foundation:: BOOL);
+    EnumColorProfilesW(pmachinename.into_param().abi(), penumrecord, core::mem::transmute(penumerationbuffer.unwrap_or(std::ptr::null_mut())), pdwsizeofenumerationbuffer, core::mem::transmute(pnprofiles.unwrap_or(std::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn EnumICMProfilesA<P0, P1>(hdc: P0, proc: ICMENUMPROCA, param2: P1) -> i32
 where
-    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::LPARAM>,
+    P0: windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P1: windows_core::IntoParam<super::super::Foundation::LPARAM>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn EnumICMProfilesA(hdc : super::super::Graphics::Gdi:: HDC, proc : ICMENUMPROCA, param2 : super::super::Foundation:: LPARAM) -> i32);
     EnumICMProfilesA(hdc.into_param().abi(), proc, param2.into_param().abi())
@@ -349,8 +349,8 @@ where
 #[inline]
 pub unsafe fn EnumICMProfilesW<P0, P1>(hdc: P0, proc: ICMENUMPROCW, param2: P1) -> i32
 where
-    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::LPARAM>,
+    P0: windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P1: windows_core::IntoParam<super::super::Foundation::LPARAM>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn EnumICMProfilesW(hdc : super::super::Graphics::Gdi:: HDC, proc : ICMENUMPROCW, param2 : super::super::Foundation:: LPARAM) -> i32);
     EnumICMProfilesW(hdc.into_param().abi(), proc, param2.into_param().abi())
@@ -361,25 +361,25 @@ pub unsafe fn GetCMMInfo(hcolortransform: isize, param1: u32) -> u32 {
     GetCMMInfo(hcolortransform, param1)
 }
 #[inline]
-pub unsafe fn GetColorDirectoryA<P0>(pmachinename: P0, pbuffer: ::windows_core::PSTR, pdwsize: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetColorDirectoryA<P0>(pmachinename: P0, pbuffer: windows_core::PSTR, pdwsize: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn GetColorDirectoryA(pmachinename : ::windows_core::PCSTR, pbuffer : ::windows_core::PSTR, pdwsize : *mut u32) -> super::super::Foundation:: BOOL);
-    GetColorDirectoryA(pmachinename.into_param().abi(), ::core::mem::transmute(pbuffer), pdwsize)
+    ::windows_targets::link!("mscms.dll" "system" fn GetColorDirectoryA(pmachinename : windows_core::PCSTR, pbuffer : windows_core::PSTR, pdwsize : *mut u32) -> super::super::Foundation:: BOOL);
+    GetColorDirectoryA(pmachinename.into_param().abi(), core::mem::transmute(pbuffer), pdwsize)
 }
 #[inline]
-pub unsafe fn GetColorDirectoryW<P0>(pmachinename: P0, pbuffer: ::windows_core::PWSTR, pdwsize: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetColorDirectoryW<P0>(pmachinename: P0, pbuffer: windows_core::PWSTR, pdwsize: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn GetColorDirectoryW(pmachinename : ::windows_core::PCWSTR, pbuffer : ::windows_core::PWSTR, pdwsize : *mut u32) -> super::super::Foundation:: BOOL);
-    GetColorDirectoryW(pmachinename.into_param().abi(), ::core::mem::transmute(pbuffer), pdwsize)
+    ::windows_targets::link!("mscms.dll" "system" fn GetColorDirectoryW(pmachinename : windows_core::PCWSTR, pbuffer : windows_core::PWSTR, pdwsize : *mut u32) -> super::super::Foundation:: BOOL);
+    GetColorDirectoryW(pmachinename.into_param().abi(), core::mem::transmute(pbuffer), pdwsize)
 }
 #[inline]
-pub unsafe fn GetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, pcbelement: *mut u32, pelement: ::core::option::Option<*mut ::core::ffi::c_void>, pbreference: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("mscms.dll" "system" fn GetColorProfileElement(hprofile : isize, tag : u32, dwoffset : u32, pcbelement : *mut u32, pelement : *mut ::core::ffi::c_void, pbreference : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    GetColorProfileElement(hprofile, tag, dwoffset, pcbelement, ::core::mem::transmute(pelement.unwrap_or(::std::ptr::null_mut())), pbreference)
+pub unsafe fn GetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, pcbelement: *mut u32, pelement: Option<*mut core::ffi::c_void>, pbreference: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("mscms.dll" "system" fn GetColorProfileElement(hprofile : isize, tag : u32, dwoffset : u32, pcbelement : *mut u32, pelement : *mut core::ffi::c_void, pbreference : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    GetColorProfileElement(hprofile, tag, dwoffset, pcbelement, core::mem::transmute(pelement.unwrap_or(std::ptr::null_mut())), pbreference)
 }
 #[inline]
 pub unsafe fn GetColorProfileElementTag(hprofile: isize, dwindex: u32, ptag: *mut u32) -> super::super::Foundation::BOOL {
@@ -387,9 +387,9 @@ pub unsafe fn GetColorProfileElementTag(hprofile: isize, dwindex: u32, ptag: *mu
     GetColorProfileElementTag(hprofile, dwindex, ptag)
 }
 #[inline]
-pub unsafe fn GetColorProfileFromHandle(hprofile: isize, pprofile: ::core::option::Option<*mut u8>, pcbprofile: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetColorProfileFromHandle(hprofile: isize, pprofile: Option<*mut u8>, pcbprofile: *mut u32) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("mscms.dll" "system" fn GetColorProfileFromHandle(hprofile : isize, pprofile : *mut u8, pcbprofile : *mut u32) -> super::super::Foundation:: BOOL);
-    GetColorProfileFromHandle(hprofile, ::core::mem::transmute(pprofile.unwrap_or(::std::ptr::null_mut())), pcbprofile)
+    GetColorProfileFromHandle(hprofile, core::mem::transmute(pprofile.unwrap_or(std::ptr::null_mut())), pcbprofile)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -401,7 +401,7 @@ pub unsafe fn GetColorProfileHeader(hprofile: isize, pheader: *mut PROFILEHEADER
 #[inline]
 pub unsafe fn GetColorSpace<P0>(hdc: P0) -> HCOLORSPACE
 where
-    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn GetColorSpace(hdc : super::super::Graphics::Gdi:: HDC) -> HCOLORSPACE);
     GetColorSpace(hdc.into_param().abi())
@@ -413,36 +413,36 @@ pub unsafe fn GetCountColorProfileElements(hprofile: isize, pnelementcount: *mut
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetDeviceGammaRamp<P0>(hdc: P0, lpramp: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn GetDeviceGammaRamp<P0>(hdc: P0, lpramp: *mut core::ffi::c_void) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn GetDeviceGammaRamp(hdc : super::super::Graphics::Gdi:: HDC, lpramp : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("gdi32.dll" "system" fn GetDeviceGammaRamp(hdc : super::super::Graphics::Gdi:: HDC, lpramp : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     GetDeviceGammaRamp(hdc.into_param().abi(), lpramp)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetICMProfileA<P0>(hdc: P0, pbufsize: *mut u32, pszfilename: ::windows_core::PSTR) -> super::super::Foundation::BOOL
+pub unsafe fn GetICMProfileA<P0>(hdc: P0, pbufsize: *mut u32, pszfilename: windows_core::PSTR) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn GetICMProfileA(hdc : super::super::Graphics::Gdi:: HDC, pbufsize : *mut u32, pszfilename : ::windows_core::PSTR) -> super::super::Foundation:: BOOL);
-    GetICMProfileA(hdc.into_param().abi(), pbufsize, ::core::mem::transmute(pszfilename))
+    ::windows_targets::link!("gdi32.dll" "system" fn GetICMProfileA(hdc : super::super::Graphics::Gdi:: HDC, pbufsize : *mut u32, pszfilename : windows_core::PSTR) -> super::super::Foundation:: BOOL);
+    GetICMProfileA(hdc.into_param().abi(), pbufsize, core::mem::transmute(pszfilename))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetICMProfileW<P0>(hdc: P0, pbufsize: *mut u32, pszfilename: ::windows_core::PWSTR) -> super::super::Foundation::BOOL
+pub unsafe fn GetICMProfileW<P0>(hdc: P0, pbufsize: *mut u32, pszfilename: windows_core::PWSTR) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn GetICMProfileW(hdc : super::super::Graphics::Gdi:: HDC, pbufsize : *mut u32, pszfilename : ::windows_core::PWSTR) -> super::super::Foundation:: BOOL);
-    GetICMProfileW(hdc.into_param().abi(), pbufsize, ::core::mem::transmute(pszfilename))
+    ::windows_targets::link!("gdi32.dll" "system" fn GetICMProfileW(hdc : super::super::Graphics::Gdi:: HDC, pbufsize : *mut u32, pszfilename : windows_core::PWSTR) -> super::super::Foundation:: BOOL);
+    GetICMProfileW(hdc.into_param().abi(), pbufsize, core::mem::transmute(pszfilename))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetLogColorSpaceA<P0>(hcolorspace: P0, lpbuffer: *mut LOGCOLORSPACEA, nsize: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<HCOLORSPACE>,
+    P0: windows_core::IntoParam<HCOLORSPACE>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn GetLogColorSpaceA(hcolorspace : HCOLORSPACE, lpbuffer : *mut LOGCOLORSPACEA, nsize : u32) -> super::super::Foundation:: BOOL);
     GetLogColorSpaceA(hcolorspace.into_param().abi(), lpbuffer, nsize)
@@ -451,7 +451,7 @@ where
 #[inline]
 pub unsafe fn GetLogColorSpaceW<P0>(hcolorspace: P0, lpbuffer: *mut LOGCOLORSPACEW, nsize: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<HCOLORSPACE>,
+    P0: windows_core::IntoParam<HCOLORSPACE>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn GetLogColorSpaceW(hcolorspace : HCOLORSPACE, lpbuffer : *mut LOGCOLORSPACEW, nsize : u32) -> super::super::Foundation:: BOOL);
     GetLogColorSpaceW(hcolorspace.into_param().abi(), lpbuffer, nsize)
@@ -462,52 +462,52 @@ pub unsafe fn GetNamedProfileInfo(hprofile: isize, pnamedprofileinfo: *mut NAMED
     GetNamedProfileInfo(hprofile, pnamedprofileinfo)
 }
 #[inline]
-pub unsafe fn GetPS2ColorRenderingDictionary(hprofile: isize, dwintent: u32, pps2colorrenderingdictionary: ::core::option::Option<*mut u8>, pcbps2colorrenderingdictionary: *mut u32, pbbinary: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
+pub unsafe fn GetPS2ColorRenderingDictionary(hprofile: isize, dwintent: u32, pps2colorrenderingdictionary: Option<*mut u8>, pcbps2colorrenderingdictionary: *mut u32, pbbinary: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("mscms.dll" "system" fn GetPS2ColorRenderingDictionary(hprofile : isize, dwintent : u32, pps2colorrenderingdictionary : *mut u8, pcbps2colorrenderingdictionary : *mut u32, pbbinary : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    GetPS2ColorRenderingDictionary(hprofile, dwintent, ::core::mem::transmute(pps2colorrenderingdictionary.unwrap_or(::std::ptr::null_mut())), pcbps2colorrenderingdictionary, pbbinary)
+    GetPS2ColorRenderingDictionary(hprofile, dwintent, core::mem::transmute(pps2colorrenderingdictionary.unwrap_or(std::ptr::null_mut())), pcbps2colorrenderingdictionary, pbbinary)
 }
 #[inline]
-pub unsafe fn GetPS2ColorRenderingIntent(hprofile: isize, dwintent: u32, pbuffer: ::core::option::Option<*mut u8>, pcbps2colorrenderingintent: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetPS2ColorRenderingIntent(hprofile: isize, dwintent: u32, pbuffer: Option<*mut u8>, pcbps2colorrenderingintent: *mut u32) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("mscms.dll" "system" fn GetPS2ColorRenderingIntent(hprofile : isize, dwintent : u32, pbuffer : *mut u8, pcbps2colorrenderingintent : *mut u32) -> super::super::Foundation:: BOOL);
-    GetPS2ColorRenderingIntent(hprofile, dwintent, ::core::mem::transmute(pbuffer.unwrap_or(::std::ptr::null_mut())), pcbps2colorrenderingintent)
+    GetPS2ColorRenderingIntent(hprofile, dwintent, core::mem::transmute(pbuffer.unwrap_or(std::ptr::null_mut())), pcbps2colorrenderingintent)
 }
 #[inline]
-pub unsafe fn GetPS2ColorSpaceArray(hprofile: isize, dwintent: u32, dwcsatype: u32, pps2colorspacearray: ::core::option::Option<*mut u8>, pcbps2colorspacearray: *mut u32, pbbinary: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
+pub unsafe fn GetPS2ColorSpaceArray(hprofile: isize, dwintent: u32, dwcsatype: u32, pps2colorspacearray: Option<*mut u8>, pcbps2colorspacearray: *mut u32, pbbinary: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("mscms.dll" "system" fn GetPS2ColorSpaceArray(hprofile : isize, dwintent : u32, dwcsatype : u32, pps2colorspacearray : *mut u8, pcbps2colorspacearray : *mut u32, pbbinary : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    GetPS2ColorSpaceArray(hprofile, dwintent, dwcsatype, ::core::mem::transmute(pps2colorspacearray.unwrap_or(::std::ptr::null_mut())), pcbps2colorspacearray, pbbinary)
+    GetPS2ColorSpaceArray(hprofile, dwintent, dwcsatype, core::mem::transmute(pps2colorspacearray.unwrap_or(std::ptr::null_mut())), pcbps2colorspacearray, pbbinary)
 }
 #[inline]
-pub unsafe fn GetStandardColorSpaceProfileA<P0>(pmachinename: P0, dwscs: u32, pbuffer: ::windows_core::PSTR, pcbsize: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetStandardColorSpaceProfileA<P0>(pmachinename: P0, dwscs: u32, pbuffer: windows_core::PSTR, pcbsize: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn GetStandardColorSpaceProfileA(pmachinename : ::windows_core::PCSTR, dwscs : u32, pbuffer : ::windows_core::PSTR, pcbsize : *mut u32) -> super::super::Foundation:: BOOL);
-    GetStandardColorSpaceProfileA(pmachinename.into_param().abi(), dwscs, ::core::mem::transmute(pbuffer), pcbsize)
+    ::windows_targets::link!("mscms.dll" "system" fn GetStandardColorSpaceProfileA(pmachinename : windows_core::PCSTR, dwscs : u32, pbuffer : windows_core::PSTR, pcbsize : *mut u32) -> super::super::Foundation:: BOOL);
+    GetStandardColorSpaceProfileA(pmachinename.into_param().abi(), dwscs, core::mem::transmute(pbuffer), pcbsize)
 }
 #[inline]
-pub unsafe fn GetStandardColorSpaceProfileW<P0>(pmachinename: P0, dwscs: u32, pbuffer: ::windows_core::PWSTR, pcbsize: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetStandardColorSpaceProfileW<P0>(pmachinename: P0, dwscs: u32, pbuffer: windows_core::PWSTR, pcbsize: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn GetStandardColorSpaceProfileW(pmachinename : ::windows_core::PCWSTR, dwscs : u32, pbuffer : ::windows_core::PWSTR, pcbsize : *mut u32) -> super::super::Foundation:: BOOL);
-    GetStandardColorSpaceProfileW(pmachinename.into_param().abi(), dwscs, ::core::mem::transmute(pbuffer), pcbsize)
+    ::windows_targets::link!("mscms.dll" "system" fn GetStandardColorSpaceProfileW(pmachinename : windows_core::PCWSTR, dwscs : u32, pbuffer : windows_core::PWSTR, pcbsize : *mut u32) -> super::super::Foundation:: BOOL);
+    GetStandardColorSpaceProfileW(pmachinename.into_param().abi(), dwscs, core::mem::transmute(pbuffer), pcbsize)
 }
 #[inline]
 pub unsafe fn InstallColorProfileA<P0, P1>(pmachinename: P0, pprofilename: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn InstallColorProfileA(pmachinename : ::windows_core::PCSTR, pprofilename : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn InstallColorProfileA(pmachinename : windows_core::PCSTR, pprofilename : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     InstallColorProfileA(pmachinename.into_param().abi(), pprofilename.into_param().abi())
 }
 #[inline]
 pub unsafe fn InstallColorProfileW<P0, P1>(pmachinename: P0, pprofilename: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn InstallColorProfileW(pmachinename : ::windows_core::PCWSTR, pprofilename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn InstallColorProfileW(pmachinename : windows_core::PCWSTR, pprofilename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     InstallColorProfileW(pmachinename.into_param().abi(), pprofilename.into_param().abi())
 }
 #[inline]
@@ -533,19 +533,19 @@ pub unsafe fn OpenColorProfileW(pprofile: *const PROFILE, dwdesiredaccess: u32, 
 #[inline]
 pub unsafe fn RegisterCMMA<P0, P1>(pmachinename: P0, cmmid: u32, pcmmdll: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn RegisterCMMA(pmachinename : ::windows_core::PCSTR, cmmid : u32, pcmmdll : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn RegisterCMMA(pmachinename : windows_core::PCSTR, cmmid : u32, pcmmdll : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     RegisterCMMA(pmachinename.into_param().abi(), cmmid, pcmmdll.into_param().abi())
 }
 #[inline]
 pub unsafe fn RegisterCMMW<P0, P1>(pmachinename: P0, cmmid: u32, pcmmdll: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn RegisterCMMW(pmachinename : ::windows_core::PCWSTR, cmmid : u32, pcmmdll : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn RegisterCMMW(pmachinename : windows_core::PCWSTR, cmmid : u32, pcmmdll : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     RegisterCMMW(pmachinename.into_param().abi(), cmmid, pcmmdll.into_param().abi())
 }
 #[inline]
@@ -554,8 +554,8 @@ pub unsafe fn SelectCMM(dwcmmtype: u32) -> super::super::Foundation::BOOL {
     SelectCMM(dwcmmtype)
 }
 #[inline]
-pub unsafe fn SetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, pcbelement: *const u32, pelement: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("mscms.dll" "system" fn SetColorProfileElement(hprofile : isize, tag : u32, dwoffset : u32, pcbelement : *const u32, pelement : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+pub unsafe fn SetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, pcbelement: *const u32, pelement: *const core::ffi::c_void) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("mscms.dll" "system" fn SetColorProfileElement(hprofile : isize, tag : u32, dwoffset : u32, pcbelement : *const u32, pelement : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetColorProfileElement(hprofile, tag, dwoffset, pcbelement, pelement)
 }
 #[inline]
@@ -578,26 +578,26 @@ pub unsafe fn SetColorProfileHeader(hprofile: isize, pheader: *const PROFILEHEAD
 #[inline]
 pub unsafe fn SetColorSpace<P0, P1>(hdc: P0, hcs: P1) -> HCOLORSPACE
 where
-    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
-    P1: ::windows_core::IntoParam<HCOLORSPACE>,
+    P0: windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P1: windows_core::IntoParam<HCOLORSPACE>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn SetColorSpace(hdc : super::super::Graphics::Gdi:: HDC, hcs : HCOLORSPACE) -> HCOLORSPACE);
     SetColorSpace(hdc.into_param().abi(), hcs.into_param().abi())
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn SetDeviceGammaRamp<P0>(hdc: P0, lpramp: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn SetDeviceGammaRamp<P0>(hdc: P0, lpramp: *const core::ffi::c_void) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn SetDeviceGammaRamp(hdc : super::super::Graphics::Gdi:: HDC, lpramp : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("gdi32.dll" "system" fn SetDeviceGammaRamp(hdc : super::super::Graphics::Gdi:: HDC, lpramp : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetDeviceGammaRamp(hdc.into_param().abi(), lpramp)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn SetICMMode<P0>(hdc: P0, mode: ICM_MODE) -> i32
 where
-    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn SetICMMode(hdc : super::super::Graphics::Gdi:: HDC, mode : ICM_MODE) -> i32);
     SetICMMode(hdc.into_param().abi(), mode)
@@ -606,38 +606,38 @@ where
 #[inline]
 pub unsafe fn SetICMProfileA<P0, P1>(hdc: P0, lpfilename: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn SetICMProfileA(hdc : super::super::Graphics::Gdi:: HDC, lpfilename : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("gdi32.dll" "system" fn SetICMProfileA(hdc : super::super::Graphics::Gdi:: HDC, lpfilename : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     SetICMProfileA(hdc.into_param().abi(), lpfilename.into_param().abi())
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn SetICMProfileW<P0, P1>(hdc: P0, lpfilename: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn SetICMProfileW(hdc : super::super::Graphics::Gdi:: HDC, lpfilename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("gdi32.dll" "system" fn SetICMProfileW(hdc : super::super::Graphics::Gdi:: HDC, lpfilename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     SetICMProfileW(hdc.into_param().abi(), lpfilename.into_param().abi())
 }
 #[inline]
 pub unsafe fn SetStandardColorSpaceProfileA<P0, P1>(pmachinename: P0, dwprofileid: u32, pprofilename: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn SetStandardColorSpaceProfileA(pmachinename : ::windows_core::PCSTR, dwprofileid : u32, pprofilename : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn SetStandardColorSpaceProfileA(pmachinename : windows_core::PCSTR, dwprofileid : u32, pprofilename : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     SetStandardColorSpaceProfileA(pmachinename.into_param().abi(), dwprofileid, pprofilename.into_param().abi())
 }
 #[inline]
 pub unsafe fn SetStandardColorSpaceProfileW<P0, P1>(pmachinename: P0, dwprofileid: u32, pprofilename: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn SetStandardColorSpaceProfileW(pmachinename : ::windows_core::PCWSTR, dwprofileid : u32, pprofilename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn SetStandardColorSpaceProfileW(pmachinename : windows_core::PCWSTR, dwprofileid : u32, pprofilename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     SetStandardColorSpaceProfileW(pmachinename.into_param().abi(), dwprofileid, pprofilename.into_param().abi())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -653,11 +653,11 @@ pub unsafe fn SetupColorMatchingW(pcms: *mut COLORMATCHSETUPW) -> super::super::
     SetupColorMatchingW(pcms)
 }
 #[inline]
-pub unsafe fn TranslateBitmapBits<P0>(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, pdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, pfncallback: LPBMCALLBACKFN, ulcallbackdata: P0) -> super::super::Foundation::BOOL
+pub unsafe fn TranslateBitmapBits<P0>(hcolortransform: isize, psrcbits: *const core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, pdestbits: *mut core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, pfncallback: LPBMCALLBACKFN, ulcallbackdata: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::LPARAM>,
+    P0: windows_core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn TranslateBitmapBits(hcolortransform : isize, psrcbits : *const ::core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwinputstride : u32, pdestbits : *mut ::core::ffi::c_void, bmoutput : BMFORMAT, dwoutputstride : u32, pfncallback : LPBMCALLBACKFN, ulcallbackdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn TranslateBitmapBits(hcolortransform : isize, psrcbits : *const core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwinputstride : u32, pdestbits : *mut core::ffi::c_void, bmoutput : BMFORMAT, dwoutputstride : u32, pfncallback : LPBMCALLBACKFN, ulcallbackdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
     TranslateBitmapBits(hcolortransform, psrcbits, bminput, dwwidth, dwheight, dwinputstride, pdestbits, bmoutput, dwoutputstride, pfncallback, ulcallbackdata.into_param().abi())
 }
 #[inline]
@@ -668,70 +668,70 @@ pub unsafe fn TranslateColors(hcolortransform: isize, painputcolors: *const COLO
 #[inline]
 pub unsafe fn UninstallColorProfileA<P0, P1, P2>(pmachinename: P0, pprofilename: P1, bdelete: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn UninstallColorProfileA(pmachinename : ::windows_core::PCSTR, pprofilename : ::windows_core::PCSTR, bdelete : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn UninstallColorProfileA(pmachinename : windows_core::PCSTR, pprofilename : windows_core::PCSTR, bdelete : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     UninstallColorProfileA(pmachinename.into_param().abi(), pprofilename.into_param().abi(), bdelete.into_param().abi())
 }
 #[inline]
 pub unsafe fn UninstallColorProfileW<P0, P1, P2>(pmachinename: P0, pprofilename: P1, bdelete: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn UninstallColorProfileW(pmachinename : ::windows_core::PCWSTR, pprofilename : ::windows_core::PCWSTR, bdelete : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn UninstallColorProfileW(pmachinename : windows_core::PCWSTR, pprofilename : windows_core::PCWSTR, bdelete : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     UninstallColorProfileW(pmachinename.into_param().abi(), pprofilename.into_param().abi(), bdelete.into_param().abi())
 }
 #[inline]
 pub unsafe fn UnregisterCMMA<P0>(pmachinename: P0, cmmid: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn UnregisterCMMA(pmachinename : ::windows_core::PCSTR, cmmid : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn UnregisterCMMA(pmachinename : windows_core::PCSTR, cmmid : u32) -> super::super::Foundation:: BOOL);
     UnregisterCMMA(pmachinename.into_param().abi(), cmmid)
 }
 #[inline]
 pub unsafe fn UnregisterCMMW<P0>(pmachinename: P0, cmmid: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn UnregisterCMMW(pmachinename : ::windows_core::PCWSTR, cmmid : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn UnregisterCMMW(pmachinename : windows_core::PCWSTR, cmmid : u32) -> super::super::Foundation:: BOOL);
     UnregisterCMMW(pmachinename.into_param().abi(), cmmid)
 }
 #[inline]
 pub unsafe fn UpdateICMRegKeyA<P0, P1>(reserved: u32, lpszcmid: P0, lpszfilename: P1, command: ICM_COMMAND) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn UpdateICMRegKeyA(reserved : u32, lpszcmid : ::windows_core::PCSTR, lpszfilename : ::windows_core::PCSTR, command : ICM_COMMAND) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("gdi32.dll" "system" fn UpdateICMRegKeyA(reserved : u32, lpszcmid : windows_core::PCSTR, lpszfilename : windows_core::PCSTR, command : ICM_COMMAND) -> super::super::Foundation:: BOOL);
     UpdateICMRegKeyA(reserved, lpszcmid.into_param().abi(), lpszfilename.into_param().abi(), command)
 }
 #[inline]
 pub unsafe fn UpdateICMRegKeyW<P0, P1>(reserved: u32, lpszcmid: P0, lpszfilename: P1, command: ICM_COMMAND) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn UpdateICMRegKeyW(reserved : u32, lpszcmid : ::windows_core::PCWSTR, lpszfilename : ::windows_core::PCWSTR, command : ICM_COMMAND) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("gdi32.dll" "system" fn UpdateICMRegKeyW(reserved : u32, lpszcmid : windows_core::PCWSTR, lpszfilename : windows_core::PCWSTR, command : ICM_COMMAND) -> super::super::Foundation:: BOOL);
     UpdateICMRegKeyW(reserved, lpszcmid.into_param().abi(), lpszfilename.into_param().abi(), command)
 }
 #[inline]
 pub unsafe fn WcsAssociateColorProfileWithDevice<P0, P1>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: P0, pdevicename: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn WcsAssociateColorProfileWithDevice(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename : ::windows_core::PCWSTR, pdevicename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn WcsAssociateColorProfileWithDevice(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename : windows_core::PCWSTR, pdevicename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     WcsAssociateColorProfileWithDevice(scope, pprofilename.into_param().abi(), pdevicename.into_param().abi())
 }
 #[inline]
-pub unsafe fn WcsCheckColors(hcolortransform: isize, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const ::core::ffi::c_void, paresult: &mut [u8]) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("mscms.dll" "system" fn WcsCheckColors(hcolortransform : isize, ncolors : u32, ninputchannels : u32, cdtinput : COLORDATATYPE, cbinput : u32, pinputdata : *const ::core::ffi::c_void, paresult : *mut u8) -> super::super::Foundation:: BOOL);
-    WcsCheckColors(hcolortransform, paresult.len().try_into().unwrap(), ninputchannels, cdtinput, cbinput, pinputdata, ::core::mem::transmute(paresult.as_ptr()))
+pub unsafe fn WcsCheckColors(hcolortransform: isize, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const core::ffi::c_void, paresult: &mut [u8]) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("mscms.dll" "system" fn WcsCheckColors(hcolortransform : isize, ncolors : u32, ninputchannels : u32, cdtinput : COLORDATATYPE, cbinput : u32, pinputdata : *const core::ffi::c_void, paresult : *mut u8) -> super::super::Foundation:: BOOL);
+    WcsCheckColors(hcolortransform, paresult.len().try_into().unwrap(), ninputchannels, cdtinput, cbinput, pinputdata, core::mem::transmute(paresult.as_ptr()))
 }
 #[inline]
 pub unsafe fn WcsCreateIccProfile(hwcsprofile: isize, dwoptions: u32) -> isize {
@@ -741,16 +741,16 @@ pub unsafe fn WcsCreateIccProfile(hwcsprofile: isize, dwoptions: u32) -> isize {
 #[inline]
 pub unsafe fn WcsDisassociateColorProfileFromDevice<P0, P1>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: P0, pdevicename: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn WcsDisassociateColorProfileFromDevice(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename : ::windows_core::PCWSTR, pdevicename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn WcsDisassociateColorProfileFromDevice(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename : windows_core::PCWSTR, pdevicename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     WcsDisassociateColorProfileFromDevice(scope, pprofilename.into_param().abi(), pdevicename.into_param().abi())
 }
 #[inline]
-pub unsafe fn WcsEnumColorProfiles(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pbuffer: &mut [u8], pnprofiles: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL {
+pub unsafe fn WcsEnumColorProfiles(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pbuffer: &mut [u8], pnprofiles: Option<*mut u32>) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("mscms.dll" "system" fn WcsEnumColorProfiles(scope : WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord : *const ENUMTYPEW, pbuffer : *mut u8, dwsize : u32, pnprofiles : *mut u32) -> super::super::Foundation:: BOOL);
-    WcsEnumColorProfiles(scope, penumrecord, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pnprofiles.unwrap_or(::std::ptr::null_mut())))
+    WcsEnumColorProfiles(scope, penumrecord, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), core::mem::transmute(pnprofiles.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn WcsEnumColorProfilesSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pdwsize: *mut u32) -> super::super::Foundation::BOOL {
@@ -763,19 +763,19 @@ pub unsafe fn WcsGetCalibrationManagementState(pbisenabled: *mut super::super::F
     WcsGetCalibrationManagementState(pbisenabled)
 }
 #[inline]
-pub unsafe fn WcsGetDefaultColorProfile<P0>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: P0, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, cbprofilename: u32, pprofilename: ::windows_core::PWSTR) -> super::super::Foundation::BOOL
+pub unsafe fn WcsGetDefaultColorProfile<P0>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: P0, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, cbprofilename: u32, pprofilename: windows_core::PWSTR) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn WcsGetDefaultColorProfile(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename : ::windows_core::PCWSTR, cptcolorprofiletype : COLORPROFILETYPE, cpstcolorprofilesubtype : COLORPROFILESUBTYPE, dwprofileid : u32, cbprofilename : u32, pprofilename : ::windows_core::PWSTR) -> super::super::Foundation:: BOOL);
-    WcsGetDefaultColorProfile(scope, pdevicename.into_param().abi(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, cbprofilename, ::core::mem::transmute(pprofilename))
+    ::windows_targets::link!("mscms.dll" "system" fn WcsGetDefaultColorProfile(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename : windows_core::PCWSTR, cptcolorprofiletype : COLORPROFILETYPE, cpstcolorprofilesubtype : COLORPROFILESUBTYPE, dwprofileid : u32, cbprofilename : u32, pprofilename : windows_core::PWSTR) -> super::super::Foundation:: BOOL);
+    WcsGetDefaultColorProfile(scope, pdevicename.into_param().abi(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, cbprofilename, core::mem::transmute(pprofilename))
 }
 #[inline]
 pub unsafe fn WcsGetDefaultColorProfileSize<P0>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: P0, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, pcbprofilename: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn WcsGetDefaultColorProfileSize(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename : ::windows_core::PCWSTR, cptcolorprofiletype : COLORPROFILETYPE, cpstcolorprofilesubtype : COLORPROFILESUBTYPE, dwprofileid : u32, pcbprofilename : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn WcsGetDefaultColorProfileSize(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename : windows_core::PCWSTR, cptcolorprofiletype : COLORPROFILETYPE, cpstcolorprofilesubtype : COLORPROFILESUBTYPE, dwprofileid : u32, pcbprofilename : *mut u32) -> super::super::Foundation:: BOOL);
     WcsGetDefaultColorProfileSize(scope, pdevicename.into_param().abi(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, pcbprofilename)
 }
 #[inline]
@@ -786,25 +786,25 @@ pub unsafe fn WcsGetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, 
 #[inline]
 pub unsafe fn WcsGetUsePerUserProfiles<P0>(pdevicename: P0, dwdeviceclass: u32, puseperuserprofiles: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn WcsGetUsePerUserProfiles(pdevicename : ::windows_core::PCWSTR, dwdeviceclass : u32, puseperuserprofiles : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn WcsGetUsePerUserProfiles(pdevicename : windows_core::PCWSTR, dwdeviceclass : u32, puseperuserprofiles : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     WcsGetUsePerUserProfiles(pdevicename.into_param().abi(), dwdeviceclass, puseperuserprofiles)
 }
 #[inline]
-pub unsafe fn WcsOpenColorProfileA(pcdmpprofile: *const PROFILE, pcampprofile: ::core::option::Option<*const PROFILE>, pgmmpprofile: ::core::option::Option<*const PROFILE>, dwdesireaccess: u32, dwsharemode: u32, dwcreationmode: u32, dwflags: u32) -> isize {
+pub unsafe fn WcsOpenColorProfileA(pcdmpprofile: *const PROFILE, pcampprofile: Option<*const PROFILE>, pgmmpprofile: Option<*const PROFILE>, dwdesireaccess: u32, dwsharemode: u32, dwcreationmode: u32, dwflags: u32) -> isize {
     ::windows_targets::link!("mscms.dll" "system" fn WcsOpenColorProfileA(pcdmpprofile : *const PROFILE, pcampprofile : *const PROFILE, pgmmpprofile : *const PROFILE, dwdesireaccess : u32, dwsharemode : u32, dwcreationmode : u32, dwflags : u32) -> isize);
-    WcsOpenColorProfileA(pcdmpprofile, ::core::mem::transmute(pcampprofile.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pgmmpprofile.unwrap_or(::std::ptr::null())), dwdesireaccess, dwsharemode, dwcreationmode, dwflags)
+    WcsOpenColorProfileA(pcdmpprofile, core::mem::transmute(pcampprofile.unwrap_or(std::ptr::null())), core::mem::transmute(pgmmpprofile.unwrap_or(std::ptr::null())), dwdesireaccess, dwsharemode, dwcreationmode, dwflags)
 }
 #[inline]
-pub unsafe fn WcsOpenColorProfileW(pcdmpprofile: *const PROFILE, pcampprofile: ::core::option::Option<*const PROFILE>, pgmmpprofile: ::core::option::Option<*const PROFILE>, dwdesireaccess: u32, dwsharemode: u32, dwcreationmode: u32, dwflags: u32) -> isize {
+pub unsafe fn WcsOpenColorProfileW(pcdmpprofile: *const PROFILE, pcampprofile: Option<*const PROFILE>, pgmmpprofile: Option<*const PROFILE>, dwdesireaccess: u32, dwsharemode: u32, dwcreationmode: u32, dwflags: u32) -> isize {
     ::windows_targets::link!("mscms.dll" "system" fn WcsOpenColorProfileW(pcdmpprofile : *const PROFILE, pcampprofile : *const PROFILE, pgmmpprofile : *const PROFILE, dwdesireaccess : u32, dwsharemode : u32, dwcreationmode : u32, dwflags : u32) -> isize);
-    WcsOpenColorProfileW(pcdmpprofile, ::core::mem::transmute(pcampprofile.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pgmmpprofile.unwrap_or(::std::ptr::null())), dwdesireaccess, dwsharemode, dwcreationmode, dwflags)
+    WcsOpenColorProfileW(pcdmpprofile, core::mem::transmute(pcampprofile.unwrap_or(std::ptr::null())), core::mem::transmute(pgmmpprofile.unwrap_or(std::ptr::null())), dwdesireaccess, dwsharemode, dwcreationmode, dwflags)
 }
 #[inline]
 pub unsafe fn WcsSetCalibrationManagementState<P0>(bisenabled: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("mscms.dll" "system" fn WcsSetCalibrationManagementState(bisenabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     WcsSetCalibrationManagementState(bisenabled.into_param().abi())
@@ -812,10 +812,10 @@ where
 #[inline]
 pub unsafe fn WcsSetDefaultColorProfile<P0, P1>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: P0, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, pprofilename: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn WcsSetDefaultColorProfile(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename : ::windows_core::PCWSTR, cptcolorprofiletype : COLORPROFILETYPE, cpstcolorprofilesubtype : COLORPROFILESUBTYPE, dwprofileid : u32, pprofilename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn WcsSetDefaultColorProfile(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename : windows_core::PCWSTR, cptcolorprofiletype : COLORPROFILETYPE, cpstcolorprofilesubtype : COLORPROFILESUBTYPE, dwprofileid : u32, pprofilename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     WcsSetDefaultColorProfile(scope, pdevicename.into_param().abi(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, pprofilename.into_param().abi())
 }
 #[inline]
@@ -826,99 +826,99 @@ pub unsafe fn WcsSetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, 
 #[inline]
 pub unsafe fn WcsSetUsePerUserProfiles<P0, P1>(pdevicename: P0, dwdeviceclass: u32, useperuserprofiles: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("mscms.dll" "system" fn WcsSetUsePerUserProfiles(pdevicename : ::windows_core::PCWSTR, dwdeviceclass : u32, useperuserprofiles : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mscms.dll" "system" fn WcsSetUsePerUserProfiles(pdevicename : windows_core::PCWSTR, dwdeviceclass : u32, useperuserprofiles : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     WcsSetUsePerUserProfiles(pdevicename.into_param().abi(), dwdeviceclass, useperuserprofiles.into_param().abi())
 }
 #[inline]
-pub unsafe fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const ::core::ffi::c_void, noutputchannels: u32, cdtoutput: COLORDATATYPE, cboutput: u32, poutputdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("mscms.dll" "system" fn WcsTranslateColors(hcolortransform : isize, ncolors : u32, ninputchannels : u32, cdtinput : COLORDATATYPE, cbinput : u32, pinputdata : *const ::core::ffi::c_void, noutputchannels : u32, cdtoutput : COLORDATATYPE, cboutput : u32, poutputdata : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+pub unsafe fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const core::ffi::c_void, noutputchannels: u32, cdtoutput: COLORDATATYPE, cboutput: u32, poutputdata: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("mscms.dll" "system" fn WcsTranslateColors(hcolortransform : isize, ncolors : u32, ninputchannels : u32, cdtinput : COLORDATATYPE, cbinput : u32, pinputdata : *const core::ffi::c_void, noutputchannels : u32, cdtoutput : COLORDATATYPE, cboutput : u32, poutputdata : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     WcsTranslateColors(hcolortransform, ncolors, ninputchannels, cdtinput, cbinput, pinputdata, noutputchannels, cdtoutput, cboutput, poutputdata)
 }
-::windows_core::imp::com_interface!(IDeviceModelPlugIn, IDeviceModelPlugIn_Vtbl, 0x1cd63475_07c4_46fe_a903_d655316d11fd);
-::windows_core::imp::interface_hierarchy!(IDeviceModelPlugIn, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IDeviceModelPlugIn, IDeviceModelPlugIn_Vtbl, 0x1cd63475_07c4_46fe_a903_d655316d11fd);
+windows_core::imp::interface_hierarchy!(IDeviceModelPlugIn, windows_core::IUnknown);
 impl IDeviceModelPlugIn {
-    pub unsafe fn Initialize<P0>(&self, bstrxml: P0, cnummodels: u32, imodelposition: u32) -> ::windows_core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, bstrxml: P0, cnummodels: u32, imodelposition: u32) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P0: windows_core::IntoParam<windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), bstrxml.into_param().abi(), cnummodels, imodelposition).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), bstrxml.into_param().abi(), cnummodels, imodelposition).ok()
     }
-    pub unsafe fn GetNumChannels(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetNumChannels)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetNumChannels(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetNumChannels)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn DeviceToColorimetricColors(&self, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: &mut [XYZColorF]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).DeviceToColorimetricColors)(::windows_core::Interface::as_raw(self), pxyzcolors.len().try_into().unwrap(), cchannels, pdevicevalues, ::core::mem::transmute(pxyzcolors.as_ptr())).ok()
+    pub unsafe fn DeviceToColorimetricColors(&self, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: &mut [XYZColorF]) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).DeviceToColorimetricColors)(windows_core::Interface::as_raw(self), pxyzcolors.len().try_into().unwrap(), cchannels, pdevicevalues, core::mem::transmute(pxyzcolors.as_ptr())).ok()
     }
-    pub unsafe fn ColorimetricToDeviceColors(&self, cchannels: u32, pxyzcolors: &[XYZColorF]) -> ::windows_core::Result<f32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ColorimetricToDeviceColors)(::windows_core::Interface::as_raw(self), pxyzcolors.len().try_into().unwrap(), cchannels, ::core::mem::transmute(pxyzcolors.as_ptr()), &mut result__).map(|| result__)
+    pub unsafe fn ColorimetricToDeviceColors(&self, cchannels: u32, pxyzcolors: &[XYZColorF]) -> windows_core::Result<f32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).ColorimetricToDeviceColors)(windows_core::Interface::as_raw(self), pxyzcolors.len().try_into().unwrap(), cchannels, core::mem::transmute(pxyzcolors.as_ptr()), &mut result__).map(|| result__)
     }
-    pub unsafe fn ColorimetricToDeviceColorsWithBlack(&self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pblackinformation: *const BlackInformation) -> ::windows_core::Result<f32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ColorimetricToDeviceColorsWithBlack)(::windows_core::Interface::as_raw(self), ccolors, cchannels, pxyzcolors, pblackinformation, &mut result__).map(|| result__)
+    pub unsafe fn ColorimetricToDeviceColorsWithBlack(&self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pblackinformation: *const BlackInformation) -> windows_core::Result<f32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).ColorimetricToDeviceColorsWithBlack)(windows_core::Interface::as_raw(self), ccolors, cchannels, pxyzcolors, pblackinformation, &mut result__).map(|| result__)
     }
-    pub unsafe fn SetTransformDeviceModelInfo<P0>(&self, imodelposition: u32, pidevicemodelother: P0) -> ::windows_core::Result<()>
+    pub unsafe fn SetTransformDeviceModelInfo<P0>(&self, imodelposition: u32, pidevicemodelother: P0) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IDeviceModelPlugIn>,
+        P0: windows_core::IntoParam<IDeviceModelPlugIn>,
     {
-        (::windows_core::Interface::vtable(self).SetTransformDeviceModelInfo)(::windows_core::Interface::as_raw(self), imodelposition, pidevicemodelother.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTransformDeviceModelInfo)(windows_core::Interface::as_raw(self), imodelposition, pidevicemodelother.into_param().abi()).ok()
     }
-    pub unsafe fn GetPrimarySamples(&self, pprimarycolor: *mut PrimaryXYZColors) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetPrimarySamples)(::windows_core::Interface::as_raw(self), pprimarycolor).ok()
+    pub unsafe fn GetPrimarySamples(&self, pprimarycolor: *mut PrimaryXYZColors) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetPrimarySamples)(windows_core::Interface::as_raw(self), pprimarycolor).ok()
     }
-    pub unsafe fn GetGamutBoundaryMeshSize(&self, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetGamutBoundaryMeshSize)(::windows_core::Interface::as_raw(self), pnumvertices, pnumtriangles).ok()
+    pub unsafe fn GetGamutBoundaryMeshSize(&self, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetGamutBoundaryMeshSize)(windows_core::Interface::as_raw(self), pnumvertices, pnumtriangles).ok()
     }
-    pub unsafe fn GetGamutBoundaryMesh(&self, cchannels: u32, cvertices: u32, pvertices: *mut f32, ptriangles: &mut [GamutShellTriangle]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetGamutBoundaryMesh)(::windows_core::Interface::as_raw(self), cchannels, cvertices, ptriangles.len().try_into().unwrap(), pvertices, ::core::mem::transmute(ptriangles.as_ptr())).ok()
+    pub unsafe fn GetGamutBoundaryMesh(&self, cchannels: u32, cvertices: u32, pvertices: *mut f32, ptriangles: &mut [GamutShellTriangle]) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetGamutBoundaryMesh)(windows_core::Interface::as_raw(self), cchannels, cvertices, ptriangles.len().try_into().unwrap(), pvertices, core::mem::transmute(ptriangles.as_ptr())).ok()
     }
-    pub unsafe fn GetNeutralAxisSize(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetNeutralAxisSize)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    pub unsafe fn GetNeutralAxisSize(&self) -> windows_core::Result<u32> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetNeutralAxisSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetNeutralAxis(&self, pxyzcolors: &mut [XYZColorF]) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetNeutralAxis)(::windows_core::Interface::as_raw(self), pxyzcolors.len().try_into().unwrap(), ::core::mem::transmute(pxyzcolors.as_ptr())).ok()
+    pub unsafe fn GetNeutralAxis(&self, pxyzcolors: &mut [XYZColorF]) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetNeutralAxis)(windows_core::Interface::as_raw(self), pxyzcolors.len().try_into().unwrap(), core::mem::transmute(pxyzcolors.as_ptr())).ok()
     }
 }
 #[repr(C)]
 pub struct IDeviceModelPlugIn_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, u32, u32) -> ::windows_core::HRESULT,
-    pub GetNumChannels: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub DeviceToColorimetricColors: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const f32, *mut XYZColorF) -> ::windows_core::HRESULT,
-    pub ColorimetricToDeviceColors: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const XYZColorF, *mut f32) -> ::windows_core::HRESULT,
-    pub ColorimetricToDeviceColorsWithBlack: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const XYZColorF, *const BlackInformation, *mut f32) -> ::windows_core::HRESULT,
-    pub SetTransformDeviceModelInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetPrimarySamples: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PrimaryXYZColors) -> ::windows_core::HRESULT,
-    pub GetGamutBoundaryMeshSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32) -> ::windows_core::HRESULT,
-    pub GetGamutBoundaryMesh: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32, *mut f32, *mut GamutShellTriangle) -> ::windows_core::HRESULT,
-    pub GetNeutralAxisSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-    pub GetNeutralAxis: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut XYZColorF) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, u32, u32) -> windows_core::HRESULT,
+    pub GetNumChannels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub DeviceToColorimetricColors: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const f32, *mut XYZColorF) -> windows_core::HRESULT,
+    pub ColorimetricToDeviceColors: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const XYZColorF, *mut f32) -> windows_core::HRESULT,
+    pub ColorimetricToDeviceColorsWithBlack: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const XYZColorF, *const BlackInformation, *mut f32) -> windows_core::HRESULT,
+    pub SetTransformDeviceModelInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetPrimarySamples: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrimaryXYZColors) -> windows_core::HRESULT,
+    pub GetGamutBoundaryMeshSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
+    pub GetGamutBoundaryMesh: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut f32, *mut GamutShellTriangle) -> windows_core::HRESULT,
+    pub GetNeutralAxisSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub GetNeutralAxis: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut XYZColorF) -> windows_core::HRESULT,
 }
-::windows_core::imp::com_interface!(IGamutMapModelPlugIn, IGamutMapModelPlugIn_Vtbl, 0x2dd80115_ad1e_41f6_a219_a4f4b583d1f9);
-::windows_core::imp::interface_hierarchy!(IGamutMapModelPlugIn, ::windows_core::IUnknown);
+windows_core::imp::com_interface!(IGamutMapModelPlugIn, IGamutMapModelPlugIn_Vtbl, 0x2dd80115_ad1e_41f6_a219_a4f4b583d1f9);
+windows_core::imp::interface_hierarchy!(IGamutMapModelPlugIn, windows_core::IUnknown);
 impl IGamutMapModelPlugIn {
-    pub unsafe fn Initialize<P0, P1, P2>(&self, bstrxml: P0, psrcplugin: P1, pdestplugin: P2, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows_core::Result<()>
+    pub unsafe fn Initialize<P0, P1, P2>(&self, bstrxml: P0, psrcplugin: P1, pdestplugin: P2, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
-        P1: ::windows_core::IntoParam<IDeviceModelPlugIn>,
-        P2: ::windows_core::IntoParam<IDeviceModelPlugIn>,
+        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P1: windows_core::IntoParam<IDeviceModelPlugIn>,
+        P2: windows_core::IntoParam<IDeviceModelPlugIn>,
     {
-        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), bstrxml.into_param().abi(), psrcplugin.into_param().abi(), pdestplugin.into_param().abi(), psrcgbd, pdestgbd).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), bstrxml.into_param().abi(), psrcplugin.into_param().abi(), pdestplugin.into_param().abi(), psrcgbd, pdestgbd).ok()
     }
-    pub unsafe fn SourceToDestinationAppearanceColors(&self, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SourceToDestinationAppearanceColors)(::windows_core::Interface::as_raw(self), ccolors, pinputcolors, poutputcolors).ok()
+    pub unsafe fn SourceToDestinationAppearanceColors(&self, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SourceToDestinationAppearanceColors)(windows_core::Interface::as_raw(self), ccolors, pinputcolors, poutputcolors).ok()
     }
 }
 #[repr(C)]
 pub struct IGamutMapModelPlugIn_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const GamutBoundaryDescription, *const GamutBoundaryDescription) -> ::windows_core::HRESULT,
-    pub SourceToDestinationAppearanceColors: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const JChColorF, *mut JChColorF) -> ::windows_core::HRESULT,
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, *mut core::ffi::c_void, *const GamutBoundaryDescription, *const GamutBoundaryDescription) -> windows_core::HRESULT,
+    pub SourceToDestinationAppearanceColors: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const JChColorF, *mut JChColorF) -> windows_core::HRESULT,
 }
 pub const ATTRIB_MATTE: u32 = 2u32;
 pub const ATTRIB_TRANSPARENCY: u32 = 1u32;
@@ -964,7 +964,7 @@ pub const BM_x555Yxy: BMFORMAT = BMFORMAT(258i32);
 pub const BM_xBGRQUADS: BMFORMAT = BMFORMAT(16i32);
 pub const BM_xG3CHQUADS: BMFORMAT = BMFORMAT(772i32);
 pub const BM_xRGBQUADS: BMFORMAT = BMFORMAT(8i32);
-pub const CATID_WcsPlugin: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0b402e0_8240_405f_8a16_8a5b4df2f0dd);
+pub const CATID_WcsPlugin: windows_core::GUID = windows_core::GUID::from_u128(0xa0b402e0_8240_405f_8a16_8a5b4df2f0dd);
 pub const CMM_DESCRIPTION: u32 = 5u32;
 pub const CMM_DLL_VERSION: u32 = 3u32;
 pub const CMM_DRIVER_VERSION: u32 = 2u32;
@@ -1098,123 +1098,123 @@ pub const WCS_ICCONLY: i32 = 65536i32;
 pub const WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(1i32);
 pub const WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BMFORMAT(pub i32);
-impl ::windows_core::TypeKind for BMFORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for BMFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for BMFORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for BMFORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("BMFORMAT").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct COLORDATATYPE(pub i32);
-impl ::windows_core::TypeKind for COLORDATATYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COLORDATATYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for COLORDATATYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for COLORDATATYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("COLORDATATYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct COLORPROFILESUBTYPE(pub i32);
-impl ::windows_core::TypeKind for COLORPROFILESUBTYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COLORPROFILESUBTYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for COLORPROFILESUBTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for COLORPROFILESUBTYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("COLORPROFILESUBTYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct COLORPROFILETYPE(pub i32);
-impl ::windows_core::TypeKind for COLORPROFILETYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COLORPROFILETYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for COLORPROFILETYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for COLORPROFILETYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("COLORPROFILETYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct COLORTYPE(pub i32);
-impl ::windows_core::TypeKind for COLORTYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COLORTYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for COLORTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for COLORTYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("COLORTYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct COLOR_MATCH_TO_TARGET_ACTION(pub u32);
-impl ::windows_core::TypeKind for COLOR_MATCH_TO_TARGET_ACTION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COLOR_MATCH_TO_TARGET_ACTION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for COLOR_MATCH_TO_TARGET_ACTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for COLOR_MATCH_TO_TARGET_ACTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("COLOR_MATCH_TO_TARGET_ACTION").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ICM_COMMAND(pub u32);
-impl ::windows_core::TypeKind for ICM_COMMAND {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for ICM_COMMAND {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for ICM_COMMAND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for ICM_COMMAND {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("ICM_COMMAND").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ICM_MODE(pub i32);
-impl ::windows_core::TypeKind for ICM_MODE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for ICM_MODE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for ICM_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for ICM_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("ICM_MODE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct LCSCSTYPE(pub i32);
-impl ::windows_core::TypeKind for LCSCSTYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for LCSCSTYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for LCSCSTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for LCSCSTYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("LCSCSTYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WCS_DEVICE_CAPABILITIES_TYPE(pub i32);
-impl ::windows_core::TypeKind for WCS_DEVICE_CAPABILITIES_TYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for WCS_DEVICE_CAPABILITIES_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for WCS_DEVICE_CAPABILITIES_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for WCS_DEVICE_CAPABILITIES_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("WCS_DEVICE_CAPABILITIES_TYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WCS_PROFILE_MANAGEMENT_SCOPE(pub i32);
-impl ::windows_core::TypeKind for WCS_PROFILE_MANAGEMENT_SCOPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for WCS_PROFILE_MANAGEMENT_SCOPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for WCS_PROFILE_MANAGEMENT_SCOPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for WCS_PROFILE_MANAGEMENT_SCOPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("WCS_PROFILE_MANAGEMENT_SCOPE").field(&self.0).finish()
     }
 }
@@ -1223,29 +1223,29 @@ pub struct BlackInformation {
     pub fBlackOnly: super::super::Foundation::BOOL,
     pub blackWeight: f32,
 }
-impl ::core::marker::Copy for BlackInformation {}
-impl ::core::clone::Clone for BlackInformation {
+impl Copy for BlackInformation {}
+impl Clone for BlackInformation {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for BlackInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for BlackInformation {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("BlackInformation").field("fBlackOnly", &self.fBlackOnly).field("blackWeight", &self.blackWeight).finish()
     }
 }
-impl ::windows_core::TypeKind for BlackInformation {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for BlackInformation {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for BlackInformation {
+impl PartialEq for BlackInformation {
     fn eq(&self, other: &Self) -> bool {
         self.fBlackOnly == other.fBlackOnly && self.blackWeight == other.blackWeight
     }
 }
-impl ::core::cmp::Eq for BlackInformation {}
-impl ::core::default::Default for BlackInformation {
+impl Eq for BlackInformation {}
+impl Default for BlackInformation {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1255,29 +1255,29 @@ pub struct CMYKCOLOR {
     pub yellow: u16,
     pub black: u16,
 }
-impl ::core::marker::Copy for CMYKCOLOR {}
-impl ::core::clone::Clone for CMYKCOLOR {
+impl Copy for CMYKCOLOR {}
+impl Clone for CMYKCOLOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for CMYKCOLOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for CMYKCOLOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("CMYKCOLOR").field("cyan", &self.cyan).field("magenta", &self.magenta).field("yellow", &self.yellow).field("black", &self.black).finish()
     }
 }
-impl ::windows_core::TypeKind for CMYKCOLOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for CMYKCOLOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for CMYKCOLOR {
+impl PartialEq for CMYKCOLOR {
     fn eq(&self, other: &Self) -> bool {
         self.cyan == other.cyan && self.magenta == other.magenta && self.yellow == other.yellow && self.black == other.black
     }
 }
-impl ::core::cmp::Eq for CMYKCOLOR {}
-impl ::core::default::Default for CMYKCOLOR {
+impl Eq for CMYKCOLOR {}
+impl Default for CMYKCOLOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1293,48 +1293,48 @@ pub union COLOR {
     pub hifi: HiFiCOLOR,
     pub Anonymous: COLOR_0,
 }
-impl ::core::marker::Copy for COLOR {}
-impl ::core::clone::Clone for COLOR {
+impl Copy for COLOR {}
+impl Clone for COLOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for COLOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COLOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for COLOR {
+impl Default for COLOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct COLOR_0 {
     pub reserved1: u32,
-    pub reserved2: *mut ::core::ffi::c_void,
+    pub reserved2: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for COLOR_0 {}
-impl ::core::clone::Clone for COLOR_0 {
+impl Copy for COLOR_0 {}
+impl Clone for COLOR_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for COLOR_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for COLOR_0 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("COLOR_0").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).finish()
     }
 }
-impl ::windows_core::TypeKind for COLOR_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COLOR_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for COLOR_0 {
+impl PartialEq for COLOR_0 {
     fn eq(&self, other: &Self) -> bool {
         self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2
     }
 }
-impl ::core::cmp::Eq for COLOR_0 {}
-impl ::core::default::Default for COLOR_0 {
+impl Eq for COLOR_0 {}
+impl Default for COLOR_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1344,16 +1344,16 @@ pub struct COLORMATCHSETUPA {
     pub dwVersion: u32,
     pub dwFlags: u32,
     pub hwndOwner: super::super::Foundation::HWND,
-    pub pSourceName: ::windows_core::PCSTR,
-    pub pDisplayName: ::windows_core::PCSTR,
-    pub pPrinterName: ::windows_core::PCSTR,
+    pub pSourceName: windows_core::PCSTR,
+    pub pDisplayName: windows_core::PCSTR,
+    pub pPrinterName: windows_core::PCSTR,
     pub dwRenderIntent: u32,
     pub dwProofingIntent: u32,
-    pub pMonitorProfile: ::windows_core::PSTR,
+    pub pMonitorProfile: windows_core::PSTR,
     pub ccMonitorProfile: u32,
-    pub pPrinterProfile: ::windows_core::PSTR,
+    pub pPrinterProfile: windows_core::PSTR,
     pub ccPrinterProfile: u32,
-    pub pTargetProfile: ::windows_core::PSTR,
+    pub pTargetProfile: windows_core::PSTR,
     pub ccTargetProfile: u32,
     pub lpfnHook: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
@@ -1361,16 +1361,16 @@ pub struct COLORMATCHSETUPA {
     pub lParamApplyCallback: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for COLORMATCHSETUPA {}
+impl Copy for COLORMATCHSETUPA {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for COLORMATCHSETUPA {
+impl Clone for COLORMATCHSETUPA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::fmt::Debug for COLORMATCHSETUPA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for COLORMATCHSETUPA {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("COLORMATCHSETUPA")
             .field("dwSize", &self.dwSize)
             .field("dwVersion", &self.dwVersion)
@@ -1393,13 +1393,13 @@ impl ::core::fmt::Debug for COLORMATCHSETUPA {
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::windows_core::TypeKind for COLORMATCHSETUPA {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COLORMATCHSETUPA {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::default::Default for COLORMATCHSETUPA {
+impl Default for COLORMATCHSETUPA {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1409,16 +1409,16 @@ pub struct COLORMATCHSETUPW {
     pub dwVersion: u32,
     pub dwFlags: u32,
     pub hwndOwner: super::super::Foundation::HWND,
-    pub pSourceName: ::windows_core::PCWSTR,
-    pub pDisplayName: ::windows_core::PCWSTR,
-    pub pPrinterName: ::windows_core::PCWSTR,
+    pub pSourceName: windows_core::PCWSTR,
+    pub pDisplayName: windows_core::PCWSTR,
+    pub pPrinterName: windows_core::PCWSTR,
     pub dwRenderIntent: u32,
     pub dwProofingIntent: u32,
-    pub pMonitorProfile: ::windows_core::PWSTR,
+    pub pMonitorProfile: windows_core::PWSTR,
     pub ccMonitorProfile: u32,
-    pub pPrinterProfile: ::windows_core::PWSTR,
+    pub pPrinterProfile: windows_core::PWSTR,
     pub ccPrinterProfile: u32,
-    pub pTargetProfile: ::windows_core::PWSTR,
+    pub pTargetProfile: windows_core::PWSTR,
     pub ccTargetProfile: u32,
     pub lpfnHook: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
@@ -1426,16 +1426,16 @@ pub struct COLORMATCHSETUPW {
     pub lParamApplyCallback: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for COLORMATCHSETUPW {}
+impl Copy for COLORMATCHSETUPW {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for COLORMATCHSETUPW {
+impl Clone for COLORMATCHSETUPW {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::fmt::Debug for COLORMATCHSETUPW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for COLORMATCHSETUPW {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("COLORMATCHSETUPW")
             .field("dwSize", &self.dwSize)
             .field("dwVersion", &self.dwVersion)
@@ -1458,13 +1458,13 @@ impl ::core::fmt::Debug for COLORMATCHSETUPW {
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::windows_core::TypeKind for COLORMATCHSETUPW {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COLORMATCHSETUPW {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::default::Default for COLORMATCHSETUPW {
+impl Default for COLORMATCHSETUPW {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1475,35 +1475,35 @@ pub struct EMRCREATECOLORSPACE {
     pub lcs: LOGCOLORSPACEA,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for EMRCREATECOLORSPACE {}
+impl Copy for EMRCREATECOLORSPACE {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for EMRCREATECOLORSPACE {
+impl Clone for EMRCREATECOLORSPACE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for EMRCREATECOLORSPACE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for EMRCREATECOLORSPACE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("EMRCREATECOLORSPACE").field("emr", &self.emr).field("ihCS", &self.ihCS).field("lcs", &self.lcs).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::windows_core::TypeKind for EMRCREATECOLORSPACE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for EMRCREATECOLORSPACE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for EMRCREATECOLORSPACE {
+impl PartialEq for EMRCREATECOLORSPACE {
     fn eq(&self, other: &Self) -> bool {
         self.emr == other.emr && self.ihCS == other.ihCS && self.lcs == other.lcs
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for EMRCREATECOLORSPACE {}
+impl Eq for EMRCREATECOLORSPACE {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::default::Default for EMRCREATECOLORSPACE {
+impl Default for EMRCREATECOLORSPACE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1517,35 +1517,35 @@ pub struct EMRCREATECOLORSPACEW {
     pub Data: [u8; 1],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for EMRCREATECOLORSPACEW {}
+impl Copy for EMRCREATECOLORSPACEW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for EMRCREATECOLORSPACEW {
+impl Clone for EMRCREATECOLORSPACEW {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for EMRCREATECOLORSPACEW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for EMRCREATECOLORSPACEW {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("EMRCREATECOLORSPACEW").field("emr", &self.emr).field("ihCS", &self.ihCS).field("lcs", &self.lcs).field("dwFlags", &self.dwFlags).field("cbData", &self.cbData).field("Data", &self.Data).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::windows_core::TypeKind for EMRCREATECOLORSPACEW {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for EMRCREATECOLORSPACEW {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for EMRCREATECOLORSPACEW {
+impl PartialEq for EMRCREATECOLORSPACEW {
     fn eq(&self, other: &Self) -> bool {
         self.emr == other.emr && self.ihCS == other.ihCS && self.lcs == other.lcs && self.dwFlags == other.dwFlags && self.cbData == other.cbData && self.Data == other.Data
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for EMRCREATECOLORSPACEW {}
+impl Eq for EMRCREATECOLORSPACEW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::default::Default for EMRCREATECOLORSPACEW {
+impl Default for EMRCREATECOLORSPACEW {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1553,7 +1553,7 @@ pub struct ENUMTYPEA {
     pub dwSize: u32,
     pub dwVersion: u32,
     pub dwFields: u32,
-    pub pDeviceName: ::windows_core::PCSTR,
+    pub pDeviceName: windows_core::PCSTR,
     pub dwMediaType: u32,
     pub dwDitheringMode: u32,
     pub dwResolution: [u32; 2],
@@ -1571,14 +1571,14 @@ pub struct ENUMTYPEA {
     pub dwCreator: u32,
     pub dwDeviceClass: u32,
 }
-impl ::core::marker::Copy for ENUMTYPEA {}
-impl ::core::clone::Clone for ENUMTYPEA {
+impl Copy for ENUMTYPEA {}
+impl Clone for ENUMTYPEA {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for ENUMTYPEA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for ENUMTYPEA {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("ENUMTYPEA")
             .field("dwSize", &self.dwSize)
             .field("dwVersion", &self.dwVersion)
@@ -1603,10 +1603,10 @@ impl ::core::fmt::Debug for ENUMTYPEA {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for ENUMTYPEA {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for ENUMTYPEA {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for ENUMTYPEA {
+impl PartialEq for ENUMTYPEA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
             && self.dwVersion == other.dwVersion
@@ -1630,10 +1630,10 @@ impl ::core::cmp::PartialEq for ENUMTYPEA {
             && self.dwDeviceClass == other.dwDeviceClass
     }
 }
-impl ::core::cmp::Eq for ENUMTYPEA {}
-impl ::core::default::Default for ENUMTYPEA {
+impl Eq for ENUMTYPEA {}
+impl Default for ENUMTYPEA {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1641,7 +1641,7 @@ pub struct ENUMTYPEW {
     pub dwSize: u32,
     pub dwVersion: u32,
     pub dwFields: u32,
-    pub pDeviceName: ::windows_core::PCWSTR,
+    pub pDeviceName: windows_core::PCWSTR,
     pub dwMediaType: u32,
     pub dwDitheringMode: u32,
     pub dwResolution: [u32; 2],
@@ -1659,14 +1659,14 @@ pub struct ENUMTYPEW {
     pub dwCreator: u32,
     pub dwDeviceClass: u32,
 }
-impl ::core::marker::Copy for ENUMTYPEW {}
-impl ::core::clone::Clone for ENUMTYPEW {
+impl Copy for ENUMTYPEW {}
+impl Clone for ENUMTYPEW {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for ENUMTYPEW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for ENUMTYPEW {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("ENUMTYPEW")
             .field("dwSize", &self.dwSize)
             .field("dwVersion", &self.dwVersion)
@@ -1691,10 +1691,10 @@ impl ::core::fmt::Debug for ENUMTYPEW {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for ENUMTYPEW {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for ENUMTYPEW {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for ENUMTYPEW {
+impl PartialEq for ENUMTYPEW {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
             && self.dwVersion == other.dwVersion
@@ -1718,10 +1718,10 @@ impl ::core::cmp::PartialEq for ENUMTYPEW {
             && self.dwDeviceClass == other.dwDeviceClass
     }
 }
-impl ::core::cmp::Eq for ENUMTYPEW {}
-impl ::core::default::Default for ENUMTYPEW {
+impl Eq for ENUMTYPEW {}
+impl Default for ENUMTYPEW {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1730,58 +1730,58 @@ pub struct GENERIC3CHANNEL {
     pub ch2: u16,
     pub ch3: u16,
 }
-impl ::core::marker::Copy for GENERIC3CHANNEL {}
-impl ::core::clone::Clone for GENERIC3CHANNEL {
+impl Copy for GENERIC3CHANNEL {}
+impl Clone for GENERIC3CHANNEL {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for GENERIC3CHANNEL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for GENERIC3CHANNEL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("GENERIC3CHANNEL").field("ch1", &self.ch1).field("ch2", &self.ch2).field("ch3", &self.ch3).finish()
     }
 }
-impl ::windows_core::TypeKind for GENERIC3CHANNEL {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for GENERIC3CHANNEL {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for GENERIC3CHANNEL {
+impl PartialEq for GENERIC3CHANNEL {
     fn eq(&self, other: &Self) -> bool {
         self.ch1 == other.ch1 && self.ch2 == other.ch2 && self.ch3 == other.ch3
     }
 }
-impl ::core::cmp::Eq for GENERIC3CHANNEL {}
-impl ::core::default::Default for GENERIC3CHANNEL {
+impl Eq for GENERIC3CHANNEL {}
+impl Default for GENERIC3CHANNEL {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct GRAYCOLOR {
     pub gray: u16,
 }
-impl ::core::marker::Copy for GRAYCOLOR {}
-impl ::core::clone::Clone for GRAYCOLOR {
+impl Copy for GRAYCOLOR {}
+impl Clone for GRAYCOLOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for GRAYCOLOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for GRAYCOLOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("GRAYCOLOR").field("gray", &self.gray).finish()
     }
 }
-impl ::windows_core::TypeKind for GRAYCOLOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for GRAYCOLOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for GRAYCOLOR {
+impl PartialEq for GRAYCOLOR {
     fn eq(&self, other: &Self) -> bool {
         self.gray == other.gray
     }
 }
-impl ::core::cmp::Eq for GRAYCOLOR {}
-impl ::core::default::Default for GRAYCOLOR {
+impl Eq for GRAYCOLOR {}
+impl Default for GRAYCOLOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1793,29 +1793,29 @@ pub struct GamutBoundaryDescription {
     pub pPlausibleShell: *mut GamutShell,
     pub pPossibleShell: *mut GamutShell,
 }
-impl ::core::marker::Copy for GamutBoundaryDescription {}
-impl ::core::clone::Clone for GamutBoundaryDescription {
+impl Copy for GamutBoundaryDescription {}
+impl Clone for GamutBoundaryDescription {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for GamutBoundaryDescription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for GamutBoundaryDescription {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("GamutBoundaryDescription").field("pPrimaries", &self.pPrimaries).field("cNeutralSamples", &self.cNeutralSamples).field("pNeutralSamples", &self.pNeutralSamples).field("pReferenceShell", &self.pReferenceShell).field("pPlausibleShell", &self.pPlausibleShell).field("pPossibleShell", &self.pPossibleShell).finish()
     }
 }
-impl ::windows_core::TypeKind for GamutBoundaryDescription {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for GamutBoundaryDescription {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for GamutBoundaryDescription {
+impl PartialEq for GamutBoundaryDescription {
     fn eq(&self, other: &Self) -> bool {
         self.pPrimaries == other.pPrimaries && self.cNeutralSamples == other.cNeutralSamples && self.pNeutralSamples == other.pNeutralSamples && self.pReferenceShell == other.pReferenceShell && self.pPlausibleShell == other.pPlausibleShell && self.pPossibleShell == other.pPossibleShell
     }
 }
-impl ::core::cmp::Eq for GamutBoundaryDescription {}
-impl ::core::default::Default for GamutBoundaryDescription {
+impl Eq for GamutBoundaryDescription {}
+impl Default for GamutBoundaryDescription {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1827,114 +1827,114 @@ pub struct GamutShell {
     pub pVertices: *mut JabColorF,
     pub pTriangles: *mut GamutShellTriangle,
 }
-impl ::core::marker::Copy for GamutShell {}
-impl ::core::clone::Clone for GamutShell {
+impl Copy for GamutShell {}
+impl Clone for GamutShell {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for GamutShell {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for GamutShell {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("GamutShell").field("JMin", &self.JMin).field("JMax", &self.JMax).field("cVertices", &self.cVertices).field("cTriangles", &self.cTriangles).field("pVertices", &self.pVertices).field("pTriangles", &self.pTriangles).finish()
     }
 }
-impl ::windows_core::TypeKind for GamutShell {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for GamutShell {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for GamutShell {
+impl PartialEq for GamutShell {
     fn eq(&self, other: &Self) -> bool {
         self.JMin == other.JMin && self.JMax == other.JMax && self.cVertices == other.cVertices && self.cTriangles == other.cTriangles && self.pVertices == other.pVertices && self.pTriangles == other.pTriangles
     }
 }
-impl ::core::cmp::Eq for GamutShell {}
-impl ::core::default::Default for GamutShell {
+impl Eq for GamutShell {}
+impl Default for GamutShell {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct GamutShellTriangle {
     pub aVertexIndex: [u32; 3],
 }
-impl ::core::marker::Copy for GamutShellTriangle {}
-impl ::core::clone::Clone for GamutShellTriangle {
+impl Copy for GamutShellTriangle {}
+impl Clone for GamutShellTriangle {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for GamutShellTriangle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for GamutShellTriangle {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("GamutShellTriangle").field("aVertexIndex", &self.aVertexIndex).finish()
     }
 }
-impl ::windows_core::TypeKind for GamutShellTriangle {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for GamutShellTriangle {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for GamutShellTriangle {
+impl PartialEq for GamutShellTriangle {
     fn eq(&self, other: &Self) -> bool {
         self.aVertexIndex == other.aVertexIndex
     }
 }
-impl ::core::cmp::Eq for GamutShellTriangle {}
-impl ::core::default::Default for GamutShellTriangle {
+impl Eq for GamutShellTriangle {}
+impl Default for GamutShellTriangle {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct HCOLORSPACE(pub isize);
 impl HCOLORSPACE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
     }
 }
-impl ::core::default::Default for HCOLORSPACE {
+impl Default for HCOLORSPACE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for HCOLORSPACE {
+impl Clone for HCOLORSPACE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for HCOLORSPACE {}
-impl ::core::fmt::Debug for HCOLORSPACE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for HCOLORSPACE {}
+impl core::fmt::Debug for HCOLORSPACE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("HCOLORSPACE").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for HCOLORSPACE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for HCOLORSPACE {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 pub struct HiFiCOLOR {
     pub channel: [u8; 8],
 }
-impl ::core::marker::Copy for HiFiCOLOR {}
-impl ::core::clone::Clone for HiFiCOLOR {
+impl Copy for HiFiCOLOR {}
+impl Clone for HiFiCOLOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for HiFiCOLOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for HiFiCOLOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("HiFiCOLOR").field("channel", &self.channel).finish()
     }
 }
-impl ::windows_core::TypeKind for HiFiCOLOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for HiFiCOLOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for HiFiCOLOR {
+impl PartialEq for HiFiCOLOR {
     fn eq(&self, other: &Self) -> bool {
         self.channel == other.channel
     }
 }
-impl ::core::cmp::Eq for HiFiCOLOR {}
-impl ::core::default::Default for HiFiCOLOR {
+impl Eq for HiFiCOLOR {}
+impl Default for HiFiCOLOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1943,29 +1943,29 @@ pub struct JChColorF {
     pub C: f32,
     pub h: f32,
 }
-impl ::core::marker::Copy for JChColorF {}
-impl ::core::clone::Clone for JChColorF {
+impl Copy for JChColorF {}
+impl Clone for JChColorF {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JChColorF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JChColorF {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JChColorF").field("J", &self.J).field("C", &self.C).field("h", &self.h).finish()
     }
 }
-impl ::windows_core::TypeKind for JChColorF {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JChColorF {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JChColorF {
+impl PartialEq for JChColorF {
     fn eq(&self, other: &Self) -> bool {
         self.J == other.J && self.C == other.C && self.h == other.h
     }
 }
-impl ::core::cmp::Eq for JChColorF {}
-impl ::core::default::Default for JChColorF {
+impl Eq for JChColorF {}
+impl Default for JChColorF {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1974,29 +1974,29 @@ pub struct JabColorF {
     pub a: f32,
     pub b: f32,
 }
-impl ::core::marker::Copy for JabColorF {}
-impl ::core::clone::Clone for JabColorF {
+impl Copy for JabColorF {}
+impl Clone for JabColorF {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for JabColorF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for JabColorF {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("JabColorF").field("J", &self.J).field("a", &self.a).field("b", &self.b).finish()
     }
 }
-impl ::windows_core::TypeKind for JabColorF {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for JabColorF {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for JabColorF {
+impl PartialEq for JabColorF {
     fn eq(&self, other: &Self) -> bool {
         self.J == other.J && self.a == other.a && self.b == other.b
     }
 }
-impl ::core::cmp::Eq for JabColorF {}
-impl ::core::default::Default for JabColorF {
+impl Eq for JabColorF {}
+impl Default for JabColorF {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2014,35 +2014,35 @@ pub struct LOGCOLORSPACEA {
     pub lcsFilename: [i8; 260],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for LOGCOLORSPACEA {}
+impl Copy for LOGCOLORSPACEA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for LOGCOLORSPACEA {
+impl Clone for LOGCOLORSPACEA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for LOGCOLORSPACEA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for LOGCOLORSPACEA {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("LOGCOLORSPACEA").field("lcsSignature", &self.lcsSignature).field("lcsVersion", &self.lcsVersion).field("lcsSize", &self.lcsSize).field("lcsCSType", &self.lcsCSType).field("lcsIntent", &self.lcsIntent).field("lcsEndpoints", &self.lcsEndpoints).field("lcsGammaRed", &self.lcsGammaRed).field("lcsGammaGreen", &self.lcsGammaGreen).field("lcsGammaBlue", &self.lcsGammaBlue).field("lcsFilename", &self.lcsFilename).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::windows_core::TypeKind for LOGCOLORSPACEA {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for LOGCOLORSPACEA {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for LOGCOLORSPACEA {
+impl PartialEq for LOGCOLORSPACEA {
     fn eq(&self, other: &Self) -> bool {
         self.lcsSignature == other.lcsSignature && self.lcsVersion == other.lcsVersion && self.lcsSize == other.lcsSize && self.lcsCSType == other.lcsCSType && self.lcsIntent == other.lcsIntent && self.lcsEndpoints == other.lcsEndpoints && self.lcsGammaRed == other.lcsGammaRed && self.lcsGammaGreen == other.lcsGammaGreen && self.lcsGammaBlue == other.lcsGammaBlue && self.lcsFilename == other.lcsFilename
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for LOGCOLORSPACEA {}
+impl Eq for LOGCOLORSPACEA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::default::Default for LOGCOLORSPACEA {
+impl Default for LOGCOLORSPACEA {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2060,35 +2060,35 @@ pub struct LOGCOLORSPACEW {
     pub lcsFilename: [u16; 260],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for LOGCOLORSPACEW {}
+impl Copy for LOGCOLORSPACEW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for LOGCOLORSPACEW {
+impl Clone for LOGCOLORSPACEW {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for LOGCOLORSPACEW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for LOGCOLORSPACEW {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("LOGCOLORSPACEW").field("lcsSignature", &self.lcsSignature).field("lcsVersion", &self.lcsVersion).field("lcsSize", &self.lcsSize).field("lcsCSType", &self.lcsCSType).field("lcsIntent", &self.lcsIntent).field("lcsEndpoints", &self.lcsEndpoints).field("lcsGammaRed", &self.lcsGammaRed).field("lcsGammaGreen", &self.lcsGammaGreen).field("lcsGammaBlue", &self.lcsGammaBlue).field("lcsFilename", &self.lcsFilename).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::windows_core::TypeKind for LOGCOLORSPACEW {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for LOGCOLORSPACEW {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for LOGCOLORSPACEW {
+impl PartialEq for LOGCOLORSPACEW {
     fn eq(&self, other: &Self) -> bool {
         self.lcsSignature == other.lcsSignature && self.lcsVersion == other.lcsVersion && self.lcsSize == other.lcsSize && self.lcsCSType == other.lcsCSType && self.lcsIntent == other.lcsIntent && self.lcsEndpoints == other.lcsEndpoints && self.lcsGammaRed == other.lcsGammaRed && self.lcsGammaGreen == other.lcsGammaGreen && self.lcsGammaBlue == other.lcsGammaBlue && self.lcsFilename == other.lcsFilename
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for LOGCOLORSPACEW {}
+impl Eq for LOGCOLORSPACEW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::default::Default for LOGCOLORSPACEW {
+impl Default for LOGCOLORSPACEW {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2097,58 +2097,58 @@ pub struct LabCOLOR {
     pub a: u16,
     pub b: u16,
 }
-impl ::core::marker::Copy for LabCOLOR {}
-impl ::core::clone::Clone for LabCOLOR {
+impl Copy for LabCOLOR {}
+impl Clone for LabCOLOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for LabCOLOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for LabCOLOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("LabCOLOR").field("L", &self.L).field("a", &self.a).field("b", &self.b).finish()
     }
 }
-impl ::windows_core::TypeKind for LabCOLOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for LabCOLOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for LabCOLOR {
+impl PartialEq for LabCOLOR {
     fn eq(&self, other: &Self) -> bool {
         self.L == other.L && self.a == other.a && self.b == other.b
     }
 }
-impl ::core::cmp::Eq for LabCOLOR {}
-impl ::core::default::Default for LabCOLOR {
+impl Eq for LabCOLOR {}
+impl Default for LabCOLOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NAMEDCOLOR {
     pub dwIndex: u32,
 }
-impl ::core::marker::Copy for NAMEDCOLOR {}
-impl ::core::clone::Clone for NAMEDCOLOR {
+impl Copy for NAMEDCOLOR {}
+impl Clone for NAMEDCOLOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NAMEDCOLOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NAMEDCOLOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NAMEDCOLOR").field("dwIndex", &self.dwIndex).finish()
     }
 }
-impl ::windows_core::TypeKind for NAMEDCOLOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NAMEDCOLOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NAMEDCOLOR {
+impl PartialEq for NAMEDCOLOR {
     fn eq(&self, other: &Self) -> bool {
         self.dwIndex == other.dwIndex
     }
 }
-impl ::core::cmp::Eq for NAMEDCOLOR {}
-impl ::core::default::Default for NAMEDCOLOR {
+impl Eq for NAMEDCOLOR {}
+impl Default for NAMEDCOLOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2159,60 +2159,60 @@ pub struct NAMED_PROFILE_INFO {
     pub szPrefix: [i8; 32],
     pub szSuffix: [i8; 32],
 }
-impl ::core::marker::Copy for NAMED_PROFILE_INFO {}
-impl ::core::clone::Clone for NAMED_PROFILE_INFO {
+impl Copy for NAMED_PROFILE_INFO {}
+impl Clone for NAMED_PROFILE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NAMED_PROFILE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NAMED_PROFILE_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NAMED_PROFILE_INFO").field("dwFlags", &self.dwFlags).field("dwCount", &self.dwCount).field("dwCountDevCoordinates", &self.dwCountDevCoordinates).field("szPrefix", &self.szPrefix).field("szSuffix", &self.szSuffix).finish()
     }
 }
-impl ::windows_core::TypeKind for NAMED_PROFILE_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NAMED_PROFILE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NAMED_PROFILE_INFO {
+impl PartialEq for NAMED_PROFILE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags && self.dwCount == other.dwCount && self.dwCountDevCoordinates == other.dwCountDevCoordinates && self.szPrefix == other.szPrefix && self.szSuffix == other.szSuffix
     }
 }
-impl ::core::cmp::Eq for NAMED_PROFILE_INFO {}
-impl ::core::default::Default for NAMED_PROFILE_INFO {
+impl Eq for NAMED_PROFILE_INFO {}
+impl Default for NAMED_PROFILE_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct PROFILE {
     pub dwType: u32,
-    pub pProfileData: *mut ::core::ffi::c_void,
+    pub pProfileData: *mut core::ffi::c_void,
     pub cbDataSize: u32,
 }
-impl ::core::marker::Copy for PROFILE {}
-impl ::core::clone::Clone for PROFILE {
+impl Copy for PROFILE {}
+impl Clone for PROFILE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PROFILE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PROFILE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PROFILE").field("dwType", &self.dwType).field("pProfileData", &self.pProfileData).field("cbDataSize", &self.cbDataSize).finish()
     }
 }
-impl ::windows_core::TypeKind for PROFILE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PROFILE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PROFILE {
+impl PartialEq for PROFILE {
     fn eq(&self, other: &Self) -> bool {
         self.dwType == other.dwType && self.pProfileData == other.pProfileData && self.cbDataSize == other.cbDataSize
     }
 }
-impl ::core::cmp::Eq for PROFILE {}
-impl ::core::default::Default for PROFILE {
+impl Eq for PROFILE {}
+impl Default for PROFILE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2237,16 +2237,16 @@ pub struct PROFILEHEADER {
     pub phReserved: [u8; 44],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for PROFILEHEADER {}
+impl Copy for PROFILEHEADER {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for PROFILEHEADER {
+impl Clone for PROFILEHEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for PROFILEHEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PROFILEHEADER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PROFILEHEADER")
             .field("phSize", &self.phSize)
             .field("phCMMType", &self.phCMMType)
@@ -2269,21 +2269,21 @@ impl ::core::fmt::Debug for PROFILEHEADER {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::windows_core::TypeKind for PROFILEHEADER {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PROFILEHEADER {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for PROFILEHEADER {
+impl PartialEq for PROFILEHEADER {
     fn eq(&self, other: &Self) -> bool {
         self.phSize == other.phSize && self.phCMMType == other.phCMMType && self.phVersion == other.phVersion && self.phClass == other.phClass && self.phDataColorSpace == other.phDataColorSpace && self.phConnectionSpace == other.phConnectionSpace && self.phDateTime == other.phDateTime && self.phSignature == other.phSignature && self.phPlatform == other.phPlatform && self.phProfileFlags == other.phProfileFlags && self.phManufacturer == other.phManufacturer && self.phModel == other.phModel && self.phAttributes == other.phAttributes && self.phRenderingIntent == other.phRenderingIntent && self.phIlluminant == other.phIlluminant && self.phCreator == other.phCreator && self.phReserved == other.phReserved
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for PROFILEHEADER {}
+impl Eq for PROFILEHEADER {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::default::Default for PROFILEHEADER {
+impl Default for PROFILEHEADER {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2297,29 +2297,29 @@ pub struct PrimaryJabColors {
     pub black: JabColorF,
     pub white: JabColorF,
 }
-impl ::core::marker::Copy for PrimaryJabColors {}
-impl ::core::clone::Clone for PrimaryJabColors {
+impl Copy for PrimaryJabColors {}
+impl Clone for PrimaryJabColors {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PrimaryJabColors {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PrimaryJabColors {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PrimaryJabColors").field("red", &self.red).field("yellow", &self.yellow).field("green", &self.green).field("cyan", &self.cyan).field("blue", &self.blue).field("magenta", &self.magenta).field("black", &self.black).field("white", &self.white).finish()
     }
 }
-impl ::windows_core::TypeKind for PrimaryJabColors {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PrimaryJabColors {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PrimaryJabColors {
+impl PartialEq for PrimaryJabColors {
     fn eq(&self, other: &Self) -> bool {
         self.red == other.red && self.yellow == other.yellow && self.green == other.green && self.cyan == other.cyan && self.blue == other.blue && self.magenta == other.magenta && self.black == other.black && self.white == other.white
     }
 }
-impl ::core::cmp::Eq for PrimaryJabColors {}
-impl ::core::default::Default for PrimaryJabColors {
+impl Eq for PrimaryJabColors {}
+impl Default for PrimaryJabColors {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2333,29 +2333,29 @@ pub struct PrimaryXYZColors {
     pub black: XYZColorF,
     pub white: XYZColorF,
 }
-impl ::core::marker::Copy for PrimaryXYZColors {}
-impl ::core::clone::Clone for PrimaryXYZColors {
+impl Copy for PrimaryXYZColors {}
+impl Clone for PrimaryXYZColors {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PrimaryXYZColors {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PrimaryXYZColors {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("PrimaryXYZColors").field("red", &self.red).field("yellow", &self.yellow).field("green", &self.green).field("cyan", &self.cyan).field("blue", &self.blue).field("magenta", &self.magenta).field("black", &self.black).field("white", &self.white).finish()
     }
 }
-impl ::windows_core::TypeKind for PrimaryXYZColors {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PrimaryXYZColors {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for PrimaryXYZColors {
+impl PartialEq for PrimaryXYZColors {
     fn eq(&self, other: &Self) -> bool {
         self.red == other.red && self.yellow == other.yellow && self.green == other.green && self.cyan == other.cyan && self.blue == other.blue && self.magenta == other.magenta && self.black == other.black && self.white == other.white
     }
 }
-impl ::core::cmp::Eq for PrimaryXYZColors {}
-impl ::core::default::Default for PrimaryXYZColors {
+impl Eq for PrimaryXYZColors {}
+impl Default for PrimaryXYZColors {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2364,29 +2364,29 @@ pub struct RGBCOLOR {
     pub green: u16,
     pub blue: u16,
 }
-impl ::core::marker::Copy for RGBCOLOR {}
-impl ::core::clone::Clone for RGBCOLOR {
+impl Copy for RGBCOLOR {}
+impl Clone for RGBCOLOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RGBCOLOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RGBCOLOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RGBCOLOR").field("red", &self.red).field("green", &self.green).field("blue", &self.blue).finish()
     }
 }
-impl ::windows_core::TypeKind for RGBCOLOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RGBCOLOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RGBCOLOR {
+impl PartialEq for RGBCOLOR {
     fn eq(&self, other: &Self) -> bool {
         self.red == other.red && self.green == other.green && self.blue == other.blue
     }
 }
-impl ::core::cmp::Eq for RGBCOLOR {}
-impl ::core::default::Default for RGBCOLOR {
+impl Eq for RGBCOLOR {}
+impl Default for RGBCOLOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2397,29 +2397,29 @@ pub struct WCS_DEVICE_MHC2_CAPABILITIES {
     pub CscXyzMatrixRows: u32,
     pub CscXyzMatrixColumns: u32,
 }
-impl ::core::marker::Copy for WCS_DEVICE_MHC2_CAPABILITIES {}
-impl ::core::clone::Clone for WCS_DEVICE_MHC2_CAPABILITIES {
+impl Copy for WCS_DEVICE_MHC2_CAPABILITIES {}
+impl Clone for WCS_DEVICE_MHC2_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for WCS_DEVICE_MHC2_CAPABILITIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for WCS_DEVICE_MHC2_CAPABILITIES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("WCS_DEVICE_MHC2_CAPABILITIES").field("Size", &self.Size).field("SupportsMhc2", &self.SupportsMhc2).field("RegammaLutEntryCount", &self.RegammaLutEntryCount).field("CscXyzMatrixRows", &self.CscXyzMatrixRows).field("CscXyzMatrixColumns", &self.CscXyzMatrixColumns).finish()
     }
 }
-impl ::windows_core::TypeKind for WCS_DEVICE_MHC2_CAPABILITIES {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for WCS_DEVICE_MHC2_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for WCS_DEVICE_MHC2_CAPABILITIES {
+impl PartialEq for WCS_DEVICE_MHC2_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.SupportsMhc2 == other.SupportsMhc2 && self.RegammaLutEntryCount == other.RegammaLutEntryCount && self.CscXyzMatrixRows == other.CscXyzMatrixRows && self.CscXyzMatrixColumns == other.CscXyzMatrixColumns
     }
 }
-impl ::core::cmp::Eq for WCS_DEVICE_MHC2_CAPABILITIES {}
-impl ::core::default::Default for WCS_DEVICE_MHC2_CAPABILITIES {
+impl Eq for WCS_DEVICE_MHC2_CAPABILITIES {}
+impl Default for WCS_DEVICE_MHC2_CAPABILITIES {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2427,29 +2427,29 @@ pub struct WCS_DEVICE_VCGT_CAPABILITIES {
     pub Size: u32,
     pub SupportsVcgt: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for WCS_DEVICE_VCGT_CAPABILITIES {}
-impl ::core::clone::Clone for WCS_DEVICE_VCGT_CAPABILITIES {
+impl Copy for WCS_DEVICE_VCGT_CAPABILITIES {}
+impl Clone for WCS_DEVICE_VCGT_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for WCS_DEVICE_VCGT_CAPABILITIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for WCS_DEVICE_VCGT_CAPABILITIES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("WCS_DEVICE_VCGT_CAPABILITIES").field("Size", &self.Size).field("SupportsVcgt", &self.SupportsVcgt).finish()
     }
 }
-impl ::windows_core::TypeKind for WCS_DEVICE_VCGT_CAPABILITIES {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for WCS_DEVICE_VCGT_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for WCS_DEVICE_VCGT_CAPABILITIES {
+impl PartialEq for WCS_DEVICE_VCGT_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.SupportsVcgt == other.SupportsVcgt
     }
 }
-impl ::core::cmp::Eq for WCS_DEVICE_VCGT_CAPABILITIES {}
-impl ::core::default::Default for WCS_DEVICE_VCGT_CAPABILITIES {
+impl Eq for WCS_DEVICE_VCGT_CAPABILITIES {}
+impl Default for WCS_DEVICE_VCGT_CAPABILITIES {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2458,29 +2458,29 @@ pub struct XYZCOLOR {
     pub Y: u16,
     pub Z: u16,
 }
-impl ::core::marker::Copy for XYZCOLOR {}
-impl ::core::clone::Clone for XYZCOLOR {
+impl Copy for XYZCOLOR {}
+impl Clone for XYZCOLOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for XYZCOLOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for XYZCOLOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("XYZCOLOR").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
     }
 }
-impl ::windows_core::TypeKind for XYZCOLOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for XYZCOLOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for XYZCOLOR {
+impl PartialEq for XYZCOLOR {
     fn eq(&self, other: &Self) -> bool {
         self.X == other.X && self.Y == other.Y && self.Z == other.Z
     }
 }
-impl ::core::cmp::Eq for XYZCOLOR {}
-impl ::core::default::Default for XYZCOLOR {
+impl Eq for XYZCOLOR {}
+impl Default for XYZCOLOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2489,29 +2489,29 @@ pub struct XYZColorF {
     pub Y: f32,
     pub Z: f32,
 }
-impl ::core::marker::Copy for XYZColorF {}
-impl ::core::clone::Clone for XYZColorF {
+impl Copy for XYZColorF {}
+impl Clone for XYZColorF {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for XYZColorF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for XYZColorF {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("XYZColorF").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
     }
 }
-impl ::windows_core::TypeKind for XYZColorF {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for XYZColorF {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for XYZColorF {
+impl PartialEq for XYZColorF {
     fn eq(&self, other: &Self) -> bool {
         self.X == other.X && self.Y == other.Y && self.Z == other.Z
     }
 }
-impl ::core::cmp::Eq for XYZColorF {}
-impl ::core::default::Default for XYZColorF {
+impl Eq for XYZColorF {}
+impl Default for XYZColorF {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2520,37 +2520,37 @@ pub struct YxyCOLOR {
     pub x: u16,
     pub y: u16,
 }
-impl ::core::marker::Copy for YxyCOLOR {}
-impl ::core::clone::Clone for YxyCOLOR {
+impl Copy for YxyCOLOR {}
+impl Clone for YxyCOLOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for YxyCOLOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for YxyCOLOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("YxyCOLOR").field("Y", &self.Y).field("x", &self.x).field("y", &self.y).finish()
     }
 }
-impl ::windows_core::TypeKind for YxyCOLOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for YxyCOLOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for YxyCOLOR {
+impl PartialEq for YxyCOLOR {
     fn eq(&self, other: &Self) -> bool {
         self.Y == other.Y && self.x == other.x && self.y == other.y
     }
 }
-impl ::core::cmp::Eq for YxyCOLOR {}
-impl ::core::default::Default for YxyCOLOR {
+impl Eq for YxyCOLOR {}
+impl Default for YxyCOLOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-pub type ICMENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR, param1: super::super::Foundation::LPARAM) -> i32>;
-pub type ICMENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: super::super::Foundation::LPARAM) -> i32>;
-pub type LPBMCALLBACKFN = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type ICMENUMPROCA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: super::super::Foundation::LPARAM) -> i32>;
+pub type ICMENUMPROCW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: super::super::Foundation::LPARAM) -> i32>;
+pub type LPBMCALLBACKFN = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type PCMSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPA, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type PCMSCALLBACKA = Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPA, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type PCMSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPW, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type PCMSCALLBACKW = Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPW, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "implement")]
-::core::include!("impl.rs");
+core::include!("impl.rs");

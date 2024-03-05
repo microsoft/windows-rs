@@ -1,44 +1,44 @@
-::windows_targets::link!("gpedit.dll" "system" fn BrowseForGPO(lpbrowseinfo : *mut GPOBROWSEINFO) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("advapi32.dll" "system" fn CommandLineFromMsiDescriptor(descriptor : ::windows_sys::core::PCWSTR, commandline : ::windows_sys::core::PWSTR, commandlinelength : *mut u32) -> u32);
-::windows_targets::link!("gpedit.dll" "system" fn CreateGPOLink(lpgpo : ::windows_sys::core::PCWSTR, lpcontainer : ::windows_sys::core::PCWSTR, fhighpriority : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("gpedit.dll" "system" fn DeleteAllGPOLinks(lpcontainer : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("gpedit.dll" "system" fn DeleteGPOLink(lpgpo : ::windows_sys::core::PCWSTR, lpcontainer : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("gpedit.dll" "system" fn BrowseForGPO(lpbrowseinfo : *mut GPOBROWSEINFO) -> windows_sys::core::HRESULT);
+::windows_targets::link!("advapi32.dll" "system" fn CommandLineFromMsiDescriptor(descriptor : windows_sys::core::PCWSTR, commandline : windows_sys::core::PWSTR, commandlinelength : *mut u32) -> u32);
+::windows_targets::link!("gpedit.dll" "system" fn CreateGPOLink(lpgpo : windows_sys::core::PCWSTR, lpcontainer : windows_sys::core::PCWSTR, fhighpriority : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+::windows_targets::link!("gpedit.dll" "system" fn DeleteAllGPOLinks(lpcontainer : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("gpedit.dll" "system" fn DeleteGPOLink(lpgpo : windows_sys::core::PCWSTR, lpcontainer : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("userenv.dll" "system" fn EnterCriticalPolicySection(bmachine : super::super::Foundation:: BOOL) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("gpedit.dll" "system" fn ExportRSoPData(lpnamespace : ::windows_sys::core::PCWSTR, lpfilename : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("gpedit.dll" "system" fn ExportRSoPData(lpnamespace : windows_sys::core::PCWSTR, lpfilename : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("userenv.dll" "system" fn FreeGPOListA(pgpolist : *const GROUP_POLICY_OBJECTA) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("userenv.dll" "system" fn FreeGPOListW(pgpolist : *const GROUP_POLICY_OBJECTW) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("userenv.dll" "system" fn GenerateGPNotification(bmachine : super::super::Foundation:: BOOL, lpwszmgmtproduct : ::windows_sys::core::PCWSTR, dwmgmtproductoptions : u32) -> u32);
-::windows_targets::link!("userenv.dll" "system" fn GetAppliedGPOListA(dwflags : u32, pmachinename : ::windows_sys::core::PCSTR, psiduser : super::super::Foundation:: PSID, pguidextension : *const ::windows_sys::core::GUID, ppgpolist : *mut *mut GROUP_POLICY_OBJECTA) -> u32);
-::windows_targets::link!("userenv.dll" "system" fn GetAppliedGPOListW(dwflags : u32, pmachinename : ::windows_sys::core::PCWSTR, psiduser : super::super::Foundation:: PSID, pguidextension : *const ::windows_sys::core::GUID, ppgpolist : *mut *mut GROUP_POLICY_OBJECTW) -> u32);
-::windows_targets::link!("userenv.dll" "system" fn GetGPOListA(htoken : super::super::Foundation:: HANDLE, lpname : ::windows_sys::core::PCSTR, lphostname : ::windows_sys::core::PCSTR, lpcomputername : ::windows_sys::core::PCSTR, dwflags : u32, pgpolist : *mut *mut GROUP_POLICY_OBJECTA) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("userenv.dll" "system" fn GetGPOListW(htoken : super::super::Foundation:: HANDLE, lpname : ::windows_sys::core::PCWSTR, lphostname : ::windows_sys::core::PCWSTR, lpcomputername : ::windows_sys::core::PCWSTR, dwflags : u32, pgpolist : *mut *mut GROUP_POLICY_OBJECTW) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("advapi32.dll" "system" fn GetLocalManagedApplicationData(productcode : ::windows_sys::core::PCWSTR, displayname : *mut ::windows_sys::core::PWSTR, supporturl : *mut ::windows_sys::core::PWSTR));
+::windows_targets::link!("userenv.dll" "system" fn GenerateGPNotification(bmachine : super::super::Foundation:: BOOL, lpwszmgmtproduct : windows_sys::core::PCWSTR, dwmgmtproductoptions : u32) -> u32);
+::windows_targets::link!("userenv.dll" "system" fn GetAppliedGPOListA(dwflags : u32, pmachinename : windows_sys::core::PCSTR, psiduser : super::super::Foundation:: PSID, pguidextension : *const windows_sys::core::GUID, ppgpolist : *mut *mut GROUP_POLICY_OBJECTA) -> u32);
+::windows_targets::link!("userenv.dll" "system" fn GetAppliedGPOListW(dwflags : u32, pmachinename : windows_sys::core::PCWSTR, psiduser : super::super::Foundation:: PSID, pguidextension : *const windows_sys::core::GUID, ppgpolist : *mut *mut GROUP_POLICY_OBJECTW) -> u32);
+::windows_targets::link!("userenv.dll" "system" fn GetGPOListA(htoken : super::super::Foundation:: HANDLE, lpname : windows_sys::core::PCSTR, lphostname : windows_sys::core::PCSTR, lpcomputername : windows_sys::core::PCSTR, dwflags : u32, pgpolist : *mut *mut GROUP_POLICY_OBJECTA) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" fn GetGPOListW(htoken : super::super::Foundation:: HANDLE, lpname : windows_sys::core::PCWSTR, lphostname : windows_sys::core::PCWSTR, lpcomputername : windows_sys::core::PCWSTR, dwflags : u32, pgpolist : *mut *mut GROUP_POLICY_OBJECTW) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" fn GetLocalManagedApplicationData(productcode : windows_sys::core::PCWSTR, displayname : *mut windows_sys::core::PWSTR, supporturl : *mut windows_sys::core::PWSTR));
 ::windows_targets::link!("advapi32.dll" "system" fn GetLocalManagedApplications(buserapps : super::super::Foundation:: BOOL, pdwapps : *mut u32, prglocalapps : *mut *mut LOCALMANAGEDAPPLICATION) -> u32);
 #[cfg(feature = "Win32_UI_Shell")]
 ::windows_targets::link!("advapi32.dll" "system" fn GetManagedApplicationCategories(dwreserved : u32, pappcategory : *mut super::super::UI::Shell:: APPCATEGORYINFOLIST) -> u32);
-::windows_targets::link!("advapi32.dll" "system" fn GetManagedApplications(pcategory : *const ::windows_sys::core::GUID, dwqueryflags : u32, dwinfolevel : u32, pdwapps : *mut u32, prgmanagedapps : *mut *mut MANAGEDAPPLICATION) -> u32);
-::windows_targets::link!("gpedit.dll" "system" fn ImportRSoPData(lpnamespace : ::windows_sys::core::PCWSTR, lpfilename : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("advapi32.dll" "system" fn GetManagedApplications(pcategory : *const windows_sys::core::GUID, dwqueryflags : u32, dwinfolevel : u32, pdwapps : *mut u32, prgmanagedapps : *mut *mut MANAGEDAPPLICATION) -> u32);
+::windows_targets::link!("gpedit.dll" "system" fn ImportRSoPData(lpnamespace : windows_sys::core::PCWSTR, lpfilename : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("advapi32.dll" "system" fn InstallApplication(pinstallinfo : *const INSTALLDATA) -> u32);
 ::windows_targets::link!("userenv.dll" "system" fn LeaveCriticalPolicySection(hsection : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("userenv.dll" "system" fn ProcessGroupPolicyCompleted(extensionid : *const ::windows_sys::core::GUID, pasynchandle : usize, dwstatus : u32) -> u32);
-::windows_targets::link!("userenv.dll" "system" fn ProcessGroupPolicyCompletedEx(extensionid : *const ::windows_sys::core::GUID, pasynchandle : usize, dwstatus : u32, rsopstatus : ::windows_sys::core::HRESULT) -> u32);
+::windows_targets::link!("userenv.dll" "system" fn ProcessGroupPolicyCompleted(extensionid : *const windows_sys::core::GUID, pasynchandle : usize, dwstatus : u32) -> u32);
+::windows_targets::link!("userenv.dll" "system" fn ProcessGroupPolicyCompletedEx(extensionid : *const windows_sys::core::GUID, pasynchandle : usize, dwstatus : u32, rsopstatus : windows_sys::core::HRESULT) -> u32);
 ::windows_targets::link!("userenv.dll" "system" fn RefreshPolicy(bmachine : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("userenv.dll" "system" fn RefreshPolicyEx(bmachine : super::super::Foundation:: BOOL, dwoptions : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("userenv.dll" "system" fn RegisterGPNotification(hevent : super::super::Foundation:: HANDLE, bmachine : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security")]
-::windows_targets::link!("userenv.dll" "system" fn RsopAccessCheckByType(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pprincipalselfsid : super::super::Foundation:: PSID, prsoptoken : *const ::core::ffi::c_void, dwdesiredaccessmask : u32, pobjecttypelist : *const super::super::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, pgenericmapping : *const super::super::Security:: GENERIC_MAPPING, pprivilegeset : *const super::super::Security:: PRIVILEGE_SET, pdwprivilegesetlength : *const u32, pdwgrantedaccessmask : *mut u32, pbaccessstatus : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("userenv.dll" "system" fn RsopFileAccessCheck(pszfilename : ::windows_sys::core::PCWSTR, prsoptoken : *const ::core::ffi::c_void, dwdesiredaccessmask : u32, pdwgrantedaccessmask : *mut u32, pbaccessstatus : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("userenv.dll" "system" fn RsopResetPolicySettingStatus(dwflags : u32, pservices : * mut::core::ffi::c_void, psettinginstance : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("userenv.dll" "system" fn RsopSetPolicySettingStatus(dwflags : u32, pservices : * mut::core::ffi::c_void, psettinginstance : * mut::core::ffi::c_void, ninfo : u32, pstatus : *const POLICYSETTINGSTATUSINFO) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("advapi32.dll" "system" fn UninstallApplication(productcode : ::windows_sys::core::PCWSTR, dwstatus : u32) -> u32);
+::windows_targets::link!("userenv.dll" "system" fn RsopAccessCheckByType(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pprincipalselfsid : super::super::Foundation:: PSID, prsoptoken : *const core::ffi::c_void, dwdesiredaccessmask : u32, pobjecttypelist : *const super::super::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, pgenericmapping : *const super::super::Security:: GENERIC_MAPPING, pprivilegeset : *const super::super::Security:: PRIVILEGE_SET, pdwprivilegesetlength : *const u32, pdwgrantedaccessmask : *mut u32, pbaccessstatus : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+::windows_targets::link!("userenv.dll" "system" fn RsopFileAccessCheck(pszfilename : windows_sys::core::PCWSTR, prsoptoken : *const core::ffi::c_void, dwdesiredaccessmask : u32, pdwgrantedaccessmask : *mut u32, pbaccessstatus : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+::windows_targets::link!("userenv.dll" "system" fn RsopResetPolicySettingStatus(dwflags : u32, pservices : * mut core::ffi::c_void, psettinginstance : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("userenv.dll" "system" fn RsopSetPolicySettingStatus(dwflags : u32, pservices : * mut core::ffi::c_void, psettinginstance : * mut core::ffi::c_void, ninfo : u32, pstatus : *const POLICYSETTINGSTATUSINFO) -> windows_sys::core::HRESULT);
+::windows_targets::link!("advapi32.dll" "system" fn UninstallApplication(productcode : windows_sys::core::PCWSTR, dwstatus : u32) -> u32);
 ::windows_targets::link!("userenv.dll" "system" fn UnregisterGPNotification(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 pub const ABSENT: APPSTATE = 0i32;
-pub const ADMXCOMMENTS_EXTENSION_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6c5a2a86_9eb3_42b9_aa83_a7371ba011b9);
+pub const ADMXCOMMENTS_EXTENSION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6c5a2a86_9eb3_42b9_aa83_a7371ba011b9);
 pub const APPNAME: INSTALLSPECTYPE = 1i32;
 pub const ASSIGNED: APPSTATE = 1i32;
-pub const CLSID_GPESnapIn: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8fc0b734_a0e1_11d1_a7d3_0000f87571e3);
-pub const CLSID_GroupPolicyObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xea502722_a23d_11d1_a7d3_0000f87571e3);
-pub const CLSID_RSOPSnapIn: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6dc3804b_7212_458d_adb0_9a07e2ae1fa2);
+pub const CLSID_GPESnapIn: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fc0b734_a0e1_11d1_a7d3_0000f87571e3);
+pub const CLSID_GroupPolicyObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xea502722_a23d_11d1_a7d3_0000f87571e3);
+pub const CLSID_RSOPSnapIn: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6dc3804b_7212_458d_adb0_9a07e2ae1fa2);
 pub const COMCLASS: INSTALLSPECTYPE = 4i32;
 pub const FILEEXT: INSTALLSPECTYPE = 2i32;
 pub const FLAG_ASSUME_COMP_WQLFILTER_TRUE: u32 = 33554432u32;
@@ -104,19 +104,19 @@ pub const GPO_OPTION_DISABLE_USER: GPO_OPTIONS = 1u32;
 pub const GPO_SECTION_MACHINE: GPO_SECTION = 2u32;
 pub const GPO_SECTION_ROOT: GPO_SECTION = 0u32;
 pub const GPO_SECTION_USER: GPO_SECTION = 1u32;
-pub const GP_DLLNAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DllName");
-pub const GP_ENABLEASYNCHRONOUSPROCESSING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EnableAsynchronousProcessing");
-pub const GP_MAXNOGPOLISTCHANGESINTERVAL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MaxNoGPOListChangesInterval");
-pub const GP_NOBACKGROUNDPOLICY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NoBackgroundPolicy");
-pub const GP_NOGPOLISTCHANGES: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NoGPOListChanges");
-pub const GP_NOMACHINEPOLICY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NoMachinePolicy");
-pub const GP_NOSLOWLINK: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NoSlowLink");
-pub const GP_NOTIFYLINKTRANSITION: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NotifyLinkTransition");
-pub const GP_NOUSERPOLICY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NoUserPolicy");
-pub const GP_PERUSERLOCALSETTINGS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PerUserLocalSettings");
-pub const GP_PROCESSGROUPPOLICY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ProcessGroupPolicy");
-pub const GP_REQUIRESSUCCESSFULREGISTRY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("RequiresSuccessfulRegistry");
-pub const GROUP_POLICY_TRIGGER_EVENT_PROVIDER_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbd2f4252_5e1e_49fc_9a30_f3978ad89ee2);
+pub const GP_DLLNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("DllName");
+pub const GP_ENABLEASYNCHRONOUSPROCESSING: windows_sys::core::PCWSTR = windows_sys::core::w!("EnableAsynchronousProcessing");
+pub const GP_MAXNOGPOLISTCHANGESINTERVAL: windows_sys::core::PCWSTR = windows_sys::core::w!("MaxNoGPOListChangesInterval");
+pub const GP_NOBACKGROUNDPOLICY: windows_sys::core::PCWSTR = windows_sys::core::w!("NoBackgroundPolicy");
+pub const GP_NOGPOLISTCHANGES: windows_sys::core::PCWSTR = windows_sys::core::w!("NoGPOListChanges");
+pub const GP_NOMACHINEPOLICY: windows_sys::core::PCWSTR = windows_sys::core::w!("NoMachinePolicy");
+pub const GP_NOSLOWLINK: windows_sys::core::PCWSTR = windows_sys::core::w!("NoSlowLink");
+pub const GP_NOTIFYLINKTRANSITION: windows_sys::core::PCWSTR = windows_sys::core::w!("NotifyLinkTransition");
+pub const GP_NOUSERPOLICY: windows_sys::core::PCWSTR = windows_sys::core::w!("NoUserPolicy");
+pub const GP_PERUSERLOCALSETTINGS: windows_sys::core::PCWSTR = windows_sys::core::w!("PerUserLocalSettings");
+pub const GP_PROCESSGROUPPOLICY: windows_sys::core::PCWSTR = windows_sys::core::w!("ProcessGroupPolicy");
+pub const GP_REQUIRESSUCCESSFULREGISTRY: windows_sys::core::PCWSTR = windows_sys::core::w!("RequiresSuccessfulRegistry");
+pub const GROUP_POLICY_TRIGGER_EVENT_PROVIDER_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbd2f4252_5e1e_49fc_9a30_f3978ad89ee2);
 pub const LOCALSTATE_ASSIGNED: u32 = 1u32;
 pub const LOCALSTATE_ORPHANED: u32 = 32u32;
 pub const LOCALSTATE_POLICYREMOVE_ORPHAN: u32 = 8u32;
@@ -124,21 +124,21 @@ pub const LOCALSTATE_POLICYREMOVE_UNINSTALL: u32 = 16u32;
 pub const LOCALSTATE_PUBLISHED: u32 = 2u32;
 pub const LOCALSTATE_UNINSTALLED: u32 = 64u32;
 pub const LOCALSTATE_UNINSTALL_UNMANAGED: u32 = 4u32;
-pub const MACHINE_POLICY_PRESENT_TRIGGER_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x659fcae6_5bdb_4da9_b1ff_ca2a178d46e0);
+pub const MACHINE_POLICY_PRESENT_TRIGGER_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x659fcae6_5bdb_4da9_b1ff_ca2a178d46e0);
 pub const MANAGED_APPS_FROMCATEGORY: u32 = 2u32;
 pub const MANAGED_APPS_INFOLEVEL_DEFAULT: u32 = 65536u32;
 pub const MANAGED_APPS_USERAPPLICATIONS: u32 = 1u32;
 pub const MANAGED_APPTYPE_SETUPEXE: u32 = 2u32;
 pub const MANAGED_APPTYPE_UNSUPPORTED: u32 = 3u32;
 pub const MANAGED_APPTYPE_WINDOWSINSTALLER: u32 = 1u32;
-pub const NODEID_Machine: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8fc0b737_a0e1_11d1_a7d3_0000f87571e3);
-pub const NODEID_MachineSWSettings: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8fc0b73a_a0e1_11d1_a7d3_0000f87571e3);
-pub const NODEID_RSOPMachine: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbd4c1a2e_0b7a_4a62_a6b0_c0577539c97e);
-pub const NODEID_RSOPMachineSWSettings: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6a76273e_eb8e_45db_94c5_25663a5f2c1a);
-pub const NODEID_RSOPUser: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xab87364f_0cec_4cd8_9bf8_898f34628fb8);
-pub const NODEID_RSOPUserSWSettings: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe52c5ce3_fd27_4402_84de_d9a5f2858910);
-pub const NODEID_User: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8fc0b738_a0e1_11d1_a7d3_0000f87571e3);
-pub const NODEID_UserSWSettings: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8fc0b73c_a0e1_11d1_a7d3_0000f87571e3);
+pub const NODEID_Machine: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fc0b737_a0e1_11d1_a7d3_0000f87571e3);
+pub const NODEID_MachineSWSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fc0b73a_a0e1_11d1_a7d3_0000f87571e3);
+pub const NODEID_RSOPMachine: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbd4c1a2e_0b7a_4a62_a6b0_c0577539c97e);
+pub const NODEID_RSOPMachineSWSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a76273e_eb8e_45db_94c5_25663a5f2c1a);
+pub const NODEID_RSOPUser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xab87364f_0cec_4cd8_9bf8_898f34628fb8);
+pub const NODEID_RSOPUserSWSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe52c5ce3_fd27_4402_84de_d9a5f2858910);
+pub const NODEID_User: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fc0b738_a0e1_11d1_a7d3_0000f87571e3);
+pub const NODEID_UserSWSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fc0b73c_a0e1_11d1_a7d3_0000f87571e3);
 pub const PI_APPLYPOLICY: u32 = 2u32;
 pub const PI_NOUI: u32 = 1u32;
 pub const PROGID: INSTALLSPECTYPE = 3i32;
@@ -147,7 +147,7 @@ pub const PT_ROAMING: u32 = 2u32;
 pub const PT_ROAMING_PREEXISTING: u32 = 8u32;
 pub const PT_TEMPORARY: u32 = 1u32;
 pub const PUBLISHED: APPSTATE = 2i32;
-pub const REGISTRY_EXTENSION_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x35378eac_683f_11d2_a89a_00c04fbbcfa2);
+pub const REGISTRY_EXTENSION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x35378eac_683f_11d2_a89a_00c04fbbcfa2);
 pub const RP_FORCE: u32 = 1u32;
 pub const RP_SYNC: u32 = 2u32;
 pub const RSOPApplied: SETTINGSTATUS = 1i32;
@@ -166,7 +166,7 @@ pub const RSOP_PLANNING_ASSUME_SLOW_LINK: u32 = 1u32;
 pub const RSOP_PLANNING_ASSUME_USER_WQLFILTER_TRUE: u32 = 8u32;
 pub const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4u32;
 pub const RSOP_USER_ACCESS_DENIED: u32 = 1u32;
-pub const USER_POLICY_PRESENT_TRIGGER_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x54fb46c8_f089_464c_b1fd_59d1b62c3b50);
+pub const USER_POLICY_PRESENT_TRIGGER_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x54fb46c8_f089_464c_b1fd_59d1b62c3b50);
 pub const backupMostRecent: GPMSearchProperty = 9i32;
 pub const gpoComputerExtensions: GPMSearchProperty = 5i32;
 pub const gpoDisplayName: GPMSearchProperty = 2i32;
@@ -254,56 +254,56 @@ pub type GROUP_POLICY_HINT_TYPE = i32;
 pub type GROUP_POLICY_OBJECT_TYPE = i32;
 pub type INSTALLSPECTYPE = i32;
 pub type SETTINGSTATUS = i32;
-pub const GPM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf5694708_88fe_4b35_babf_e56162d5fbc8);
-pub const GPMAsyncCancel: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x372796a9_76ec_479d_ad6c_556318ed5f9d);
-pub const GPMBackup: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xed1a54b8_5efa_482a_93c0_8ad86f0d68c3);
-pub const GPMBackupCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xeb8f035b_70db_4a9f_9676_37c25994e9dc);
-pub const GPMBackupDir: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfce4a59d_0f21_4afa_b859_e6d0c62cd10c);
-pub const GPMBackupDirEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe8c0988a_cf03_4c5b_8be2_2aa9ad32aada);
-pub const GPMCSECollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcf92b828_2d44_4b61_b10a_b327afd42da8);
-pub const GPMClientSideExtension: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc1a2e70e_659c_4b1a_940b_f88b0af9c8a4);
-pub const GPMConstants: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3855e880_cd9e_4d0c_9eaf_1579283a1888);
-pub const GPMDomain: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x710901be_1050_4cb1_838a_c5cff259e183);
-pub const GPMGPO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd2ce2994_59b5_4064_b581_4d68486a16c4);
-pub const GPMGPOCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7a057325_832d_4de3_a41f_c780436a4e09);
-pub const GPMGPOLink: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc1df9880_5303_42c6_8a3c_0488e1bf7364);
-pub const GPMGPOLinksCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf6ed581a_49a5_47e2_b771_fd8dc02b6259);
-pub const GPMMapEntry: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8c975253_5431_4471_b35d_0626c928258a);
-pub const GPMMapEntryCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0cf75d5b_a3a1_4c55_b4fe_9e149c41f66d);
-pub const GPMMigrationTable: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x55af4043_2a06_4f72_abef_631b44079c76);
-pub const GPMPermission: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5871a40a_e9c0_46ec_913e_944ef9225a94);
-pub const GPMRSOP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x489b0caf_9ec2_4eb7_91f5_b6f71d43da8c);
-pub const GPMResult: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x92101ac0_9287_4206_a3b2_4bdb73d225f6);
-pub const GPMSOM: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x32d93fac_450e_44cf_829c_8b22ff6bdae1);
-pub const GPMSOMCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x24c1f147_3720_4f5b_a9c3_06b4e4f931d2);
-pub const GPMSearchCriteria: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x17aaca26_5ce0_44fa_8cc0_5259e6483566);
-pub const GPMSecurityInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x547a5e8f_9162_4516_a4df_9ddb9686d846);
-pub const GPMSitesContainer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x229f5c42_852c_4b30_945f_c522be9bd386);
-pub const GPMStarterGPOBackup: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x389e400a_d8ef_455b_a861_5f9ca34a6a02);
-pub const GPMStarterGPOBackupCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe75ea59d_1aeb_4cb5_a78a_281daa582406);
-pub const GPMStarterGPOCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x82f8aa8b_49ba_43b2_956e_3397f9b94c3a);
-pub const GPMStatusMessage: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4b77cc94_d255_409b_bc62_370881715a19);
-pub const GPMStatusMsgCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2824e4be_4bcc_4cac_9e60_0e3ed7f12496);
-pub const GPMTemplate: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecf1d454_71da_4e2f_a8c0_8185465911d9);
-pub const GPMTrustee: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc54a700d_19b6_4211_bcb0_e8e2475e471e);
-pub const GPMWMIFilter: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x626745d8_0dea_4062_bf60_cfc5b1ca1286);
-pub const GPMWMIFilterCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x74dc6d28_e820_47d6_a0b8_f08d93d7fa33);
+pub const GPM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf5694708_88fe_4b35_babf_e56162d5fbc8);
+pub const GPMAsyncCancel: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x372796a9_76ec_479d_ad6c_556318ed5f9d);
+pub const GPMBackup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xed1a54b8_5efa_482a_93c0_8ad86f0d68c3);
+pub const GPMBackupCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb8f035b_70db_4a9f_9676_37c25994e9dc);
+pub const GPMBackupDir: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfce4a59d_0f21_4afa_b859_e6d0c62cd10c);
+pub const GPMBackupDirEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe8c0988a_cf03_4c5b_8be2_2aa9ad32aada);
+pub const GPMCSECollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcf92b828_2d44_4b61_b10a_b327afd42da8);
+pub const GPMClientSideExtension: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc1a2e70e_659c_4b1a_940b_f88b0af9c8a4);
+pub const GPMConstants: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3855e880_cd9e_4d0c_9eaf_1579283a1888);
+pub const GPMDomain: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x710901be_1050_4cb1_838a_c5cff259e183);
+pub const GPMGPO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd2ce2994_59b5_4064_b581_4d68486a16c4);
+pub const GPMGPOCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7a057325_832d_4de3_a41f_c780436a4e09);
+pub const GPMGPOLink: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc1df9880_5303_42c6_8a3c_0488e1bf7364);
+pub const GPMGPOLinksCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf6ed581a_49a5_47e2_b771_fd8dc02b6259);
+pub const GPMMapEntry: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8c975253_5431_4471_b35d_0626c928258a);
+pub const GPMMapEntryCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0cf75d5b_a3a1_4c55_b4fe_9e149c41f66d);
+pub const GPMMigrationTable: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x55af4043_2a06_4f72_abef_631b44079c76);
+pub const GPMPermission: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5871a40a_e9c0_46ec_913e_944ef9225a94);
+pub const GPMRSOP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x489b0caf_9ec2_4eb7_91f5_b6f71d43da8c);
+pub const GPMResult: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x92101ac0_9287_4206_a3b2_4bdb73d225f6);
+pub const GPMSOM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x32d93fac_450e_44cf_829c_8b22ff6bdae1);
+pub const GPMSOMCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x24c1f147_3720_4f5b_a9c3_06b4e4f931d2);
+pub const GPMSearchCriteria: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x17aaca26_5ce0_44fa_8cc0_5259e6483566);
+pub const GPMSecurityInfo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x547a5e8f_9162_4516_a4df_9ddb9686d846);
+pub const GPMSitesContainer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x229f5c42_852c_4b30_945f_c522be9bd386);
+pub const GPMStarterGPOBackup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x389e400a_d8ef_455b_a861_5f9ca34a6a02);
+pub const GPMStarterGPOBackupCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe75ea59d_1aeb_4cb5_a78a_281daa582406);
+pub const GPMStarterGPOCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x82f8aa8b_49ba_43b2_956e_3397f9b94c3a);
+pub const GPMStatusMessage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4b77cc94_d255_409b_bc62_370881715a19);
+pub const GPMStatusMsgCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2824e4be_4bcc_4cac_9e60_0e3ed7f12496);
+pub const GPMTemplate: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecf1d454_71da_4e2f_a8c0_8185465911d9);
+pub const GPMTrustee: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc54a700d_19b6_4211_bcb0_e8e2475e471e);
+pub const GPMWMIFilter: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x626745d8_0dea_4062_bf60_cfc5b1ca1286);
+pub const GPMWMIFilterCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x74dc6d28_e820_47d6_a0b8_f08d93d7fa33);
 #[repr(C)]
 pub struct GPOBROWSEINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub hwndOwner: super::super::Foundation::HWND,
-    pub lpTitle: ::windows_sys::core::PWSTR,
-    pub lpInitialOU: ::windows_sys::core::PWSTR,
-    pub lpDSPath: ::windows_sys::core::PWSTR,
+    pub lpTitle: windows_sys::core::PWSTR,
+    pub lpInitialOU: windows_sys::core::PWSTR,
+    pub lpDSPath: windows_sys::core::PWSTR,
     pub dwDSPathSize: u32,
-    pub lpName: ::windows_sys::core::PWSTR,
+    pub lpName: windows_sys::core::PWSTR,
     pub dwNameSize: u32,
     pub gpoType: GROUP_POLICY_OBJECT_TYPE,
     pub gpoHint: GROUP_POLICY_HINT_TYPE,
 }
-impl ::core::marker::Copy for GPOBROWSEINFO {}
-impl ::core::clone::Clone for GPOBROWSEINFO {
+impl Copy for GPOBROWSEINFO {}
+impl Clone for GPOBROWSEINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -312,20 +312,20 @@ impl ::core::clone::Clone for GPOBROWSEINFO {
 pub struct GROUP_POLICY_OBJECTA {
     pub dwOptions: u32,
     pub dwVersion: u32,
-    pub lpDSPath: ::windows_sys::core::PSTR,
-    pub lpFileSysPath: ::windows_sys::core::PSTR,
-    pub lpDisplayName: ::windows_sys::core::PSTR,
+    pub lpDSPath: windows_sys::core::PSTR,
+    pub lpFileSysPath: windows_sys::core::PSTR,
+    pub lpDisplayName: windows_sys::core::PSTR,
     pub szGPOName: [i8; 50],
     pub GPOLink: GPO_LINK,
     pub lParam: super::super::Foundation::LPARAM,
     pub pNext: *mut GROUP_POLICY_OBJECTA,
     pub pPrev: *mut GROUP_POLICY_OBJECTA,
-    pub lpExtensions: ::windows_sys::core::PSTR,
+    pub lpExtensions: windows_sys::core::PSTR,
     pub lParam2: super::super::Foundation::LPARAM,
-    pub lpLink: ::windows_sys::core::PSTR,
+    pub lpLink: windows_sys::core::PSTR,
 }
-impl ::core::marker::Copy for GROUP_POLICY_OBJECTA {}
-impl ::core::clone::Clone for GROUP_POLICY_OBJECTA {
+impl Copy for GROUP_POLICY_OBJECTA {}
+impl Clone for GROUP_POLICY_OBJECTA {
     fn clone(&self) -> Self {
         *self
     }
@@ -334,20 +334,20 @@ impl ::core::clone::Clone for GROUP_POLICY_OBJECTA {
 pub struct GROUP_POLICY_OBJECTW {
     pub dwOptions: u32,
     pub dwVersion: u32,
-    pub lpDSPath: ::windows_sys::core::PWSTR,
-    pub lpFileSysPath: ::windows_sys::core::PWSTR,
-    pub lpDisplayName: ::windows_sys::core::PWSTR,
+    pub lpDSPath: windows_sys::core::PWSTR,
+    pub lpFileSysPath: windows_sys::core::PWSTR,
+    pub lpDisplayName: windows_sys::core::PWSTR,
     pub szGPOName: [u16; 50],
     pub GPOLink: GPO_LINK,
     pub lParam: super::super::Foundation::LPARAM,
     pub pNext: *mut GROUP_POLICY_OBJECTW,
     pub pPrev: *mut GROUP_POLICY_OBJECTW,
-    pub lpExtensions: ::windows_sys::core::PWSTR,
+    pub lpExtensions: windows_sys::core::PWSTR,
     pub lParam2: super::super::Foundation::LPARAM,
-    pub lpLink: ::windows_sys::core::PWSTR,
+    pub lpLink: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for GROUP_POLICY_OBJECTW {}
-impl ::core::clone::Clone for GROUP_POLICY_OBJECTW {
+impl Copy for GROUP_POLICY_OBJECTW {}
+impl Clone for GROUP_POLICY_OBJECTW {
     fn clone(&self) -> Self {
         *self
     }
@@ -357,8 +357,8 @@ pub struct INSTALLDATA {
     pub Type: INSTALLSPECTYPE,
     pub Spec: INSTALLSPEC,
 }
-impl ::core::marker::Copy for INSTALLDATA {}
-impl ::core::clone::Clone for INSTALLDATA {
+impl Copy for INSTALLDATA {}
+impl Clone for INSTALLDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -366,88 +366,88 @@ impl ::core::clone::Clone for INSTALLDATA {
 #[repr(C)]
 pub union INSTALLSPEC {
     pub AppName: INSTALLSPEC_0,
-    pub FileExt: ::windows_sys::core::PWSTR,
-    pub ProgId: ::windows_sys::core::PWSTR,
+    pub FileExt: windows_sys::core::PWSTR,
+    pub ProgId: windows_sys::core::PWSTR,
     pub COMClass: INSTALLSPEC_1,
 }
-impl ::core::marker::Copy for INSTALLSPEC {}
-impl ::core::clone::Clone for INSTALLSPEC {
+impl Copy for INSTALLSPEC {}
+impl Clone for INSTALLSPEC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct INSTALLSPEC_0 {
-    pub Name: ::windows_sys::core::PWSTR,
-    pub GPOId: ::windows_sys::core::GUID,
+    pub Name: windows_sys::core::PWSTR,
+    pub GPOId: windows_sys::core::GUID,
 }
-impl ::core::marker::Copy for INSTALLSPEC_0 {}
-impl ::core::clone::Clone for INSTALLSPEC_0 {
+impl Copy for INSTALLSPEC_0 {}
+impl Clone for INSTALLSPEC_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct INSTALLSPEC_1 {
-    pub Clsid: ::windows_sys::core::GUID,
+    pub Clsid: windows_sys::core::GUID,
     pub ClsCtx: u32,
 }
-impl ::core::marker::Copy for INSTALLSPEC_1 {}
-impl ::core::clone::Clone for INSTALLSPEC_1 {
+impl Copy for INSTALLSPEC_1 {}
+impl Clone for INSTALLSPEC_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct LOCALMANAGEDAPPLICATION {
-    pub pszDeploymentName: ::windows_sys::core::PWSTR,
-    pub pszPolicyName: ::windows_sys::core::PWSTR,
-    pub pszProductId: ::windows_sys::core::PWSTR,
+    pub pszDeploymentName: windows_sys::core::PWSTR,
+    pub pszPolicyName: windows_sys::core::PWSTR,
+    pub pszProductId: windows_sys::core::PWSTR,
     pub dwState: u32,
 }
-impl ::core::marker::Copy for LOCALMANAGEDAPPLICATION {}
-impl ::core::clone::Clone for LOCALMANAGEDAPPLICATION {
+impl Copy for LOCALMANAGEDAPPLICATION {}
+impl Clone for LOCALMANAGEDAPPLICATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct MANAGEDAPPLICATION {
-    pub pszPackageName: ::windows_sys::core::PWSTR,
-    pub pszPublisher: ::windows_sys::core::PWSTR,
+    pub pszPackageName: windows_sys::core::PWSTR,
+    pub pszPublisher: windows_sys::core::PWSTR,
     pub dwVersionHi: u32,
     pub dwVersionLo: u32,
     pub dwRevision: u32,
-    pub GpoId: ::windows_sys::core::GUID,
-    pub pszPolicyName: ::windows_sys::core::PWSTR,
-    pub ProductId: ::windows_sys::core::GUID,
+    pub GpoId: windows_sys::core::GUID,
+    pub pszPolicyName: windows_sys::core::PWSTR,
+    pub ProductId: windows_sys::core::GUID,
     pub Language: u16,
-    pub pszOwner: ::windows_sys::core::PWSTR,
-    pub pszCompany: ::windows_sys::core::PWSTR,
-    pub pszComments: ::windows_sys::core::PWSTR,
-    pub pszContact: ::windows_sys::core::PWSTR,
-    pub pszSupportUrl: ::windows_sys::core::PWSTR,
+    pub pszOwner: windows_sys::core::PWSTR,
+    pub pszCompany: windows_sys::core::PWSTR,
+    pub pszComments: windows_sys::core::PWSTR,
+    pub pszContact: windows_sys::core::PWSTR,
+    pub pszSupportUrl: windows_sys::core::PWSTR,
     pub dwPathType: u32,
     pub bInstalled: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for MANAGEDAPPLICATION {}
-impl ::core::clone::Clone for MANAGEDAPPLICATION {
+impl Copy for MANAGEDAPPLICATION {}
+impl Clone for MANAGEDAPPLICATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct POLICYSETTINGSTATUSINFO {
-    pub szKey: ::windows_sys::core::PWSTR,
-    pub szEventSource: ::windows_sys::core::PWSTR,
-    pub szEventLogName: ::windows_sys::core::PWSTR,
+    pub szKey: windows_sys::core::PWSTR,
+    pub szEventSource: windows_sys::core::PWSTR,
+    pub szEventLogName: windows_sys::core::PWSTR,
     pub dwEventID: u32,
     pub dwErrorCode: u32,
     pub status: SETTINGSTATUS,
     pub timeLogged: super::super::Foundation::SYSTEMTIME,
 }
-impl ::core::marker::Copy for POLICYSETTINGSTATUSINFO {}
-impl ::core::clone::Clone for POLICYSETTINGSTATUSINFO {
+impl Copy for POLICYSETTINGSTATUSINFO {}
+impl Clone for POLICYSETTINGSTATUSINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -455,25 +455,25 @@ impl ::core::clone::Clone for POLICYSETTINGSTATUSINFO {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct RSOP_TARGET {
-    pub pwszAccountName: ::windows_sys::core::PWSTR,
-    pub pwszNewSOM: ::windows_sys::core::PWSTR,
+    pub pwszAccountName: windows_sys::core::PWSTR,
+    pub pwszNewSOM: windows_sys::core::PWSTR,
     pub psaSecurityGroups: *mut super::Com::SAFEARRAY,
-    pub pRsopToken: *mut ::core::ffi::c_void,
+    pub pRsopToken: *mut core::ffi::c_void,
     pub pGPOList: *mut GROUP_POLICY_OBJECTA,
-    pub pWbemServices: *mut ::core::ffi::c_void,
+    pub pWbemServices: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RSOP_TARGET {}
+impl Copy for RSOP_TARGET {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RSOP_TARGET {
+impl Clone for RSOP_TARGET {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub type PFNGENERATEGROUPPOLICY = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, pbabort: *mut super::super::Foundation::BOOL, pwszsite: ::windows_sys::core::PCWSTR, pcomputertarget: *const RSOP_TARGET, pusertarget: *const RSOP_TARGET) -> u32>;
+pub type PFNGENERATEGROUPPOLICY = Option<unsafe extern "system" fn(dwflags: u32, pbabort: *mut super::super::Foundation::BOOL, pwszsite: windows_sys::core::PCWSTR, pcomputertarget: *const RSOP_TARGET, pusertarget: *const RSOP_TARGET) -> u32>;
 #[cfg(feature = "Win32_System_Registry")]
-pub type PFNPROCESSGROUPPOLICY = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK) -> u32>;
+pub type PFNPROCESSGROUPPOLICY = Option<unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK) -> u32>;
 #[cfg(feature = "Win32_System_Registry")]
-pub type PFNPROCESSGROUPPOLICYEX = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK, pwbemservices: *mut ::core::ffi::c_void, prsopstatus: *mut ::windows_sys::core::HRESULT) -> u32>;
-pub type PFNSTATUSMESSAGECALLBACK = ::core::option::Option<unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: ::windows_sys::core::PCWSTR) -> u32>;
+pub type PFNPROCESSGROUPPOLICYEX = Option<unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK, pwbemservices: *mut core::ffi::c_void, prsopstatus: *mut windows_sys::core::HRESULT) -> u32>;
+pub type PFNSTATUSMESSAGECALLBACK = Option<unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: windows_sys::core::PCWSTR) -> u32>;

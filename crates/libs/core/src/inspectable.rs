@@ -45,7 +45,7 @@ unsafe impl Interface for IInspectable {
 }
 
 impl RuntimeType for IInspectable {
-    const SIGNATURE: crate::imp::ConstBuffer = crate::imp::ConstBuffer::from_slice(b"cinterface(IInspectable)");
+    const SIGNATURE: imp::ConstBuffer = imp::ConstBuffer::from_slice(b"cinterface(IInspectable)");
 }
 
 impl RuntimeName for IInspectable {}

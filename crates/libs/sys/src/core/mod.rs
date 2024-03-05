@@ -18,9 +18,9 @@ pub struct GUID {
     pub data4: [u8; 8],
 }
 
-impl ::core::marker::Copy for GUID {}
+impl Copy for GUID {}
 
-impl ::core::clone::Clone for GUID {
+impl Clone for GUID {
     fn clone(&self) -> Self {
         *self
     }

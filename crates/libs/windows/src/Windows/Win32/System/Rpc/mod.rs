@@ -1,40 +1,40 @@
 #[inline]
 pub unsafe fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: &mut [u8; 256]) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn DceErrorInqTextA(rpcstatus : RPC_STATUS, errortext : ::windows_core::PSTR) -> RPC_STATUS);
-    DceErrorInqTextA(rpcstatus, ::core::mem::transmute(errortext.as_ptr()))
+    ::windows_targets::link!("rpcrt4.dll" "system" fn DceErrorInqTextA(rpcstatus : RPC_STATUS, errortext : windows_core::PSTR) -> RPC_STATUS);
+    DceErrorInqTextA(rpcstatus, core::mem::transmute(errortext.as_ptr()))
 }
 #[inline]
 pub unsafe fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: &mut [u16; 256]) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn DceErrorInqTextW(rpcstatus : RPC_STATUS, errortext : ::windows_core::PWSTR) -> RPC_STATUS);
-    DceErrorInqTextW(rpcstatus, ::core::mem::transmute(errortext.as_ptr()))
+    ::windows_targets::link!("rpcrt4.dll" "system" fn DceErrorInqTextW(rpcstatus : RPC_STATUS, errortext : windows_core::PWSTR) -> RPC_STATUS);
+    DceErrorInqTextW(rpcstatus, core::mem::transmute(errortext.as_ptr()))
 }
 #[inline]
 pub unsafe fn IUnknown_AddRef_Proxy<P0>(this: P0) -> u32
 where
-    P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
+    P0: windows_core::IntoParam<windows_core::IUnknown>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn IUnknown_AddRef_Proxy(this : * mut::core::ffi::c_void) -> u32);
+    ::windows_targets::link!("rpcrt4.dll" "system" fn IUnknown_AddRef_Proxy(this : * mut core::ffi::c_void) -> u32);
     IUnknown_AddRef_Proxy(this.into_param().abi())
 }
 #[inline]
-pub unsafe fn IUnknown_QueryInterface_Proxy<P0>(this: P0, riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
+pub unsafe fn IUnknown_QueryInterface_Proxy<P0>(this: P0, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
+    P0: windows_core::IntoParam<windows_core::IUnknown>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn IUnknown_QueryInterface_Proxy(this : * mut::core::ffi::c_void, riid : *const ::windows_core::GUID, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("rpcrt4.dll" "system" fn IUnknown_QueryInterface_Proxy(this : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     IUnknown_QueryInterface_Proxy(this.into_param().abi(), riid, ppvobject).ok()
 }
 #[inline]
 pub unsafe fn IUnknown_Release_Proxy<P0>(this: P0) -> u32
 where
-    P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
+    P0: windows_core::IntoParam<windows_core::IUnknown>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn IUnknown_Release_Proxy(this : * mut::core::ffi::c_void) -> u32);
+    ::windows_targets::link!("rpcrt4.dll" "system" fn IUnknown_Release_Proxy(this : * mut core::ffi::c_void) -> u32);
     IUnknown_Release_Proxy(this.into_param().abi())
 }
 #[inline]
-pub unsafe fn I_RpcAllocate(size: u32) -> *mut ::core::ffi::c_void {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcAllocate(size : u32) -> *mut ::core::ffi::c_void);
+pub unsafe fn I_RpcAllocate(size: u32) -> *mut core::ffi::c_void {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcAllocate(size : u32) -> *mut core::ffi::c_void);
     I_RpcAllocate(size)
 }
 #[cfg(feature = "Win32_System_IO")]
@@ -50,98 +50,98 @@ pub unsafe fn I_RpcAsyncSetHandle(message: *const RPC_MESSAGE, pasync: *const RP
     I_RpcAsyncSetHandle(message, pasync)
 }
 #[inline]
-pub unsafe fn I_RpcBindingCopy(sourcebinding: *mut ::core::ffi::c_void, destinationbinding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingCopy(sourcebinding : *mut ::core::ffi::c_void, destinationbinding : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn I_RpcBindingCopy(sourcebinding: *mut core::ffi::c_void, destinationbinding: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingCopy(sourcebinding : *mut core::ffi::c_void, destinationbinding : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     I_RpcBindingCopy(sourcebinding, destinationbinding)
 }
 #[inline]
-pub unsafe fn I_RpcBindingCreateNP<P0, P1, P2>(servername: P0, servicename: P1, networkoptions: P2, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn I_RpcBindingCreateNP<P0, P1, P2>(servername: P0, servicename: P1, networkoptions: P2, binding: *mut *mut core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingCreateNP(servername : ::windows_core::PCWSTR, servicename : ::windows_core::PCWSTR, networkoptions : ::windows_core::PCWSTR, binding : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingCreateNP(servername : windows_core::PCWSTR, servicename : windows_core::PCWSTR, networkoptions : windows_core::PCWSTR, binding : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     I_RpcBindingCreateNP(servername.into_param().abi(), servicename.into_param().abi(), networkoptions.into_param().abi(), binding)
 }
 #[inline]
-pub unsafe fn I_RpcBindingHandleToAsyncHandle(binding: *mut ::core::ffi::c_void, asynchandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingHandleToAsyncHandle(binding : *mut ::core::ffi::c_void, asynchandle : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn I_RpcBindingHandleToAsyncHandle(binding: *mut core::ffi::c_void, asynchandle: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingHandleToAsyncHandle(binding : *mut core::ffi::c_void, asynchandle : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     I_RpcBindingHandleToAsyncHandle(binding, asynchandle)
 }
 #[inline]
-pub unsafe fn I_RpcBindingInqClientTokenAttributes(binding: *const ::core::ffi::c_void, tokenid: ::core::option::Option<*mut super::super::Foundation::LUID>, authenticationid: ::core::option::Option<*mut super::super::Foundation::LUID>, modifiedid: ::core::option::Option<*mut super::super::Foundation::LUID>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqClientTokenAttributes(binding : *const ::core::ffi::c_void, tokenid : *mut super::super::Foundation:: LUID, authenticationid : *mut super::super::Foundation:: LUID, modifiedid : *mut super::super::Foundation:: LUID) -> RPC_STATUS);
-    I_RpcBindingInqClientTokenAttributes(binding, ::core::mem::transmute(tokenid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authenticationid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(modifiedid.unwrap_or(::std::ptr::null_mut())))
+pub unsafe fn I_RpcBindingInqClientTokenAttributes(binding: *const core::ffi::c_void, tokenid: Option<*mut super::super::Foundation::LUID>, authenticationid: Option<*mut super::super::Foundation::LUID>, modifiedid: Option<*mut super::super::Foundation::LUID>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqClientTokenAttributes(binding : *const core::ffi::c_void, tokenid : *mut super::super::Foundation:: LUID, authenticationid : *mut super::super::Foundation:: LUID, modifiedid : *mut super::super::Foundation:: LUID) -> RPC_STATUS);
+    I_RpcBindingInqClientTokenAttributes(binding, core::mem::transmute(tokenid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authenticationid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(modifiedid.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn I_RpcBindingInqDynamicEndpointA(binding: *const ::core::ffi::c_void, dynamicendpoint: *mut ::windows_core::PSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqDynamicEndpointA(binding : *const ::core::ffi::c_void, dynamicendpoint : *mut ::windows_core::PSTR) -> RPC_STATUS);
+pub unsafe fn I_RpcBindingInqDynamicEndpointA(binding: *const core::ffi::c_void, dynamicendpoint: *mut windows_core::PSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqDynamicEndpointA(binding : *const core::ffi::c_void, dynamicendpoint : *mut windows_core::PSTR) -> RPC_STATUS);
     I_RpcBindingInqDynamicEndpointA(binding, dynamicendpoint)
 }
 #[inline]
-pub unsafe fn I_RpcBindingInqDynamicEndpointW(binding: *const ::core::ffi::c_void, dynamicendpoint: *mut ::windows_core::PWSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqDynamicEndpointW(binding : *const ::core::ffi::c_void, dynamicendpoint : *mut ::windows_core::PWSTR) -> RPC_STATUS);
+pub unsafe fn I_RpcBindingInqDynamicEndpointW(binding: *const core::ffi::c_void, dynamicendpoint: *mut windows_core::PWSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqDynamicEndpointW(binding : *const core::ffi::c_void, dynamicendpoint : *mut windows_core::PWSTR) -> RPC_STATUS);
     I_RpcBindingInqDynamicEndpointW(binding, dynamicendpoint)
 }
 #[inline]
-pub unsafe fn I_RpcBindingInqLocalClientPID(binding: *mut ::core::ffi::c_void, pid: *mut u32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqLocalClientPID(binding : *mut ::core::ffi::c_void, pid : *mut u32) -> RPC_STATUS);
+pub unsafe fn I_RpcBindingInqLocalClientPID(binding: *mut core::ffi::c_void, pid: *mut u32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqLocalClientPID(binding : *mut core::ffi::c_void, pid : *mut u32) -> RPC_STATUS);
     I_RpcBindingInqLocalClientPID(binding, pid)
 }
 #[inline]
-pub unsafe fn I_RpcBindingInqMarshalledTargetInfo(binding: *const ::core::ffi::c_void, marshalledtargetinfosize: *mut u32, marshalledtargetinfo: *mut ::windows_core::PSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqMarshalledTargetInfo(binding : *const ::core::ffi::c_void, marshalledtargetinfosize : *mut u32, marshalledtargetinfo : *mut ::windows_core::PSTR) -> RPC_STATUS);
+pub unsafe fn I_RpcBindingInqMarshalledTargetInfo(binding: *const core::ffi::c_void, marshalledtargetinfosize: *mut u32, marshalledtargetinfo: *mut windows_core::PSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqMarshalledTargetInfo(binding : *const core::ffi::c_void, marshalledtargetinfosize : *mut u32, marshalledtargetinfo : *mut windows_core::PSTR) -> RPC_STATUS);
     I_RpcBindingInqMarshalledTargetInfo(binding, marshalledtargetinfosize, marshalledtargetinfo)
 }
 #[inline]
-pub unsafe fn I_RpcBindingInqSecurityContext(binding: *mut ::core::ffi::c_void, securitycontexthandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqSecurityContext(binding : *mut ::core::ffi::c_void, securitycontexthandle : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn I_RpcBindingInqSecurityContext(binding: *mut core::ffi::c_void, securitycontexthandle: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqSecurityContext(binding : *mut core::ffi::c_void, securitycontexthandle : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     I_RpcBindingInqSecurityContext(binding, securitycontexthandle)
 }
 #[inline]
-pub unsafe fn I_RpcBindingInqSecurityContextKeyInfo(binding: ::core::option::Option<*const ::core::ffi::c_void>, keyinfo: *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqSecurityContextKeyInfo(binding : *const ::core::ffi::c_void, keyinfo : *mut ::core::ffi::c_void) -> RPC_STATUS);
-    I_RpcBindingInqSecurityContextKeyInfo(::core::mem::transmute(binding.unwrap_or(::std::ptr::null())), keyinfo)
+pub unsafe fn I_RpcBindingInqSecurityContextKeyInfo(binding: Option<*const core::ffi::c_void>, keyinfo: *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqSecurityContextKeyInfo(binding : *const core::ffi::c_void, keyinfo : *mut core::ffi::c_void) -> RPC_STATUS);
+    I_RpcBindingInqSecurityContextKeyInfo(core::mem::transmute(binding.unwrap_or(std::ptr::null())), keyinfo)
 }
 #[inline]
-pub unsafe fn I_RpcBindingInqTransportType(binding: *mut ::core::ffi::c_void, r#type: *mut u32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqTransportType(binding : *mut ::core::ffi::c_void, r#type : *mut u32) -> RPC_STATUS);
+pub unsafe fn I_RpcBindingInqTransportType(binding: *mut core::ffi::c_void, r#type: *mut u32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqTransportType(binding : *mut core::ffi::c_void, r#type : *mut u32) -> RPC_STATUS);
     I_RpcBindingInqTransportType(binding, r#type)
 }
 #[inline]
-pub unsafe fn I_RpcBindingInqWireIdForSnego(binding: *const ::core::ffi::c_void, wireid: *mut u8) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqWireIdForSnego(binding : *const ::core::ffi::c_void, wireid : *mut u8) -> RPC_STATUS);
+pub unsafe fn I_RpcBindingInqWireIdForSnego(binding: *const core::ffi::c_void, wireid: *mut u8) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingInqWireIdForSnego(binding : *const core::ffi::c_void, wireid : *mut u8) -> RPC_STATUS);
     I_RpcBindingInqWireIdForSnego(binding, wireid)
 }
 #[inline]
-pub unsafe fn I_RpcBindingIsClientLocal(bindinghandle: *mut ::core::ffi::c_void, clientlocalflag: *mut u32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingIsClientLocal(bindinghandle : *mut ::core::ffi::c_void, clientlocalflag : *mut u32) -> RPC_STATUS);
+pub unsafe fn I_RpcBindingIsClientLocal(bindinghandle: *mut core::ffi::c_void, clientlocalflag: *mut u32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingIsClientLocal(bindinghandle : *mut core::ffi::c_void, clientlocalflag : *mut u32) -> RPC_STATUS);
     I_RpcBindingIsClientLocal(bindinghandle, clientlocalflag)
 }
 #[inline]
-pub unsafe fn I_RpcBindingIsServerLocal(binding: *const ::core::ffi::c_void, serverlocalflag: *mut u32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingIsServerLocal(binding : *const ::core::ffi::c_void, serverlocalflag : *mut u32) -> RPC_STATUS);
+pub unsafe fn I_RpcBindingIsServerLocal(binding: *const core::ffi::c_void, serverlocalflag: *mut u32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingIsServerLocal(binding : *const core::ffi::c_void, serverlocalflag : *mut u32) -> RPC_STATUS);
     I_RpcBindingIsServerLocal(binding, serverlocalflag)
 }
 #[inline]
-pub unsafe fn I_RpcBindingSetPrivateOption(hbinding: *const ::core::ffi::c_void, option: u32, optionvalue: usize) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingSetPrivateOption(hbinding : *const ::core::ffi::c_void, option : u32, optionvalue : usize) -> RPC_STATUS);
+pub unsafe fn I_RpcBindingSetPrivateOption(hbinding: *const core::ffi::c_void, option: u32, optionvalue: usize) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingSetPrivateOption(hbinding : *const core::ffi::c_void, option : u32, optionvalue : usize) -> RPC_STATUS);
     I_RpcBindingSetPrivateOption(hbinding, option, optionvalue)
 }
 #[inline]
-pub unsafe fn I_RpcBindingToStaticStringBindingW(binding: *mut ::core::ffi::c_void, stringbinding: *mut *mut u16) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingToStaticStringBindingW(binding : *mut ::core::ffi::c_void, stringbinding : *mut *mut u16) -> RPC_STATUS);
+pub unsafe fn I_RpcBindingToStaticStringBindingW(binding: *mut core::ffi::c_void, stringbinding: *mut *mut u16) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcBindingToStaticStringBindingW(binding : *mut core::ffi::c_void, stringbinding : *mut *mut u16) -> RPC_STATUS);
     I_RpcBindingToStaticStringBindingW(binding, stringbinding)
 }
 #[inline]
-pub unsafe fn I_RpcClearMutex(mutex: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcClearMutex(mutex : *mut ::core::ffi::c_void));
+pub unsafe fn I_RpcClearMutex(mutex: *mut core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcClearMutex(mutex : *mut core::ffi::c_void));
     I_RpcClearMutex(mutex)
 }
 #[inline]
-pub unsafe fn I_RpcDeleteMutex(mutex: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcDeleteMutex(mutex : *mut ::core::ffi::c_void));
+pub unsafe fn I_RpcDeleteMutex(mutex: *mut core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcDeleteMutex(mutex : *mut core::ffi::c_void));
     I_RpcDeleteMutex(mutex)
 }
 #[inline]
@@ -150,8 +150,8 @@ pub unsafe fn I_RpcExceptionFilter(exceptioncode: u32) -> i32 {
     I_RpcExceptionFilter(exceptioncode)
 }
 #[inline]
-pub unsafe fn I_RpcFree(object: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcFree(object : *mut ::core::ffi::c_void));
+pub unsafe fn I_RpcFree(object: *mut core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcFree(object : *mut core::ffi::c_void));
     I_RpcFree(object)
 }
 #[inline]
@@ -170,18 +170,18 @@ pub unsafe fn I_RpcGetBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     I_RpcGetBuffer(message)
 }
 #[inline]
-pub unsafe fn I_RpcGetBufferWithObject(message: *mut RPC_MESSAGE, objectuuid: *mut ::windows_core::GUID) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcGetBufferWithObject(message : *mut RPC_MESSAGE, objectuuid : *mut ::windows_core::GUID) -> RPC_STATUS);
+pub unsafe fn I_RpcGetBufferWithObject(message: *mut RPC_MESSAGE, objectuuid: *mut windows_core::GUID) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcGetBufferWithObject(message : *mut RPC_MESSAGE, objectuuid : *mut windows_core::GUID) -> RPC_STATUS);
     I_RpcGetBufferWithObject(message, objectuuid)
 }
 #[inline]
-pub unsafe fn I_RpcGetCurrentCallHandle() -> *mut ::core::ffi::c_void {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcGetCurrentCallHandle() -> *mut ::core::ffi::c_void);
+pub unsafe fn I_RpcGetCurrentCallHandle() -> *mut core::ffi::c_void {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcGetCurrentCallHandle() -> *mut core::ffi::c_void);
     I_RpcGetCurrentCallHandle()
 }
 #[inline]
-pub unsafe fn I_RpcGetDefaultSD(ppsecuritydescriptor: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcGetDefaultSD(ppsecuritydescriptor : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn I_RpcGetDefaultSD(ppsecuritydescriptor: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcGetDefaultSD(ppsecuritydescriptor : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     I_RpcGetDefaultSD(ppsecuritydescriptor)
 }
 #[inline]
@@ -190,8 +190,8 @@ pub unsafe fn I_RpcGetExtendedError() -> RPC_STATUS {
     I_RpcGetExtendedError()
 }
 #[inline]
-pub unsafe fn I_RpcIfInqTransferSyntaxes(rpcifhandle: *mut ::core::ffi::c_void, transfersyntaxes: *mut RPC_TRANSFER_SYNTAX, transfersyntaxsize: u32, transfersyntaxcount: *mut u32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcIfInqTransferSyntaxes(rpcifhandle : *mut ::core::ffi::c_void, transfersyntaxes : *mut RPC_TRANSFER_SYNTAX, transfersyntaxsize : u32, transfersyntaxcount : *mut u32) -> RPC_STATUS);
+pub unsafe fn I_RpcIfInqTransferSyntaxes(rpcifhandle: *mut core::ffi::c_void, transfersyntaxes: *mut RPC_TRANSFER_SYNTAX, transfersyntaxsize: u32, transfersyntaxcount: *mut u32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcIfInqTransferSyntaxes(rpcifhandle : *mut core::ffi::c_void, transfersyntaxes : *mut RPC_TRANSFER_SYNTAX, transfersyntaxsize : u32, transfersyntaxcount : *mut u32) -> RPC_STATUS);
     I_RpcIfInqTransferSyntaxes(rpcifhandle, transfersyntaxes, transfersyntaxsize, transfersyntaxcount)
 }
 #[inline]
@@ -210,19 +210,19 @@ pub unsafe fn I_RpcNegotiateTransferSyntax(message: *mut RPC_MESSAGE) -> RPC_STA
     I_RpcNegotiateTransferSyntax(message)
 }
 #[inline]
-pub unsafe fn I_RpcNsBindingSetEntryNameA<P0>(binding: *const ::core::ffi::c_void, entrynamesyntax: u32, entryname: P0) -> RPC_STATUS
+pub unsafe fn I_RpcNsBindingSetEntryNameA<P0>(binding: *const core::ffi::c_void, entrynamesyntax: u32, entryname: P0) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcNsBindingSetEntryNameA(binding : *const ::core::ffi::c_void, entrynamesyntax : u32, entryname : ::windows_core::PCSTR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcNsBindingSetEntryNameA(binding : *const core::ffi::c_void, entrynamesyntax : u32, entryname : windows_core::PCSTR) -> RPC_STATUS);
     I_RpcNsBindingSetEntryNameA(binding, entrynamesyntax, entryname.into_param().abi())
 }
 #[inline]
-pub unsafe fn I_RpcNsBindingSetEntryNameW<P0>(binding: *const ::core::ffi::c_void, entrynamesyntax: u32, entryname: P0) -> RPC_STATUS
+pub unsafe fn I_RpcNsBindingSetEntryNameW<P0>(binding: *const core::ffi::c_void, entrynamesyntax: u32, entryname: P0) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcNsBindingSetEntryNameW(binding : *const ::core::ffi::c_void, entrynamesyntax : u32, entryname : ::windows_core::PCWSTR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcNsBindingSetEntryNameW(binding : *const core::ffi::c_void, entrynamesyntax : u32, entryname : windows_core::PCWSTR) -> RPC_STATUS);
     I_RpcNsBindingSetEntryNameW(binding, entrynamesyntax, entryname.into_param().abi())
 }
 #[inline]
@@ -246,14 +246,14 @@ pub unsafe fn I_RpcNsRaiseException(message: *mut RPC_MESSAGE, status: RPC_STATU
     I_RpcNsRaiseException(message, status)
 }
 #[inline]
-pub unsafe fn I_RpcNsSendReceive(message: *mut RPC_MESSAGE, handle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcns4.dll" "system" fn I_RpcNsSendReceive(message : *mut RPC_MESSAGE, handle : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn I_RpcNsSendReceive(message: *mut RPC_MESSAGE, handle: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcns4.dll" "system" fn I_RpcNsSendReceive(message : *mut RPC_MESSAGE, handle : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     I_RpcNsSendReceive(message, handle)
 }
 #[inline]
-pub unsafe fn I_RpcOpenClientProcess(binding: ::core::option::Option<*const ::core::ffi::c_void>, desiredaccess: u32, clientprocess: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcOpenClientProcess(binding : *const ::core::ffi::c_void, desiredaccess : u32, clientprocess : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    I_RpcOpenClientProcess(::core::mem::transmute(binding.unwrap_or(::std::ptr::null())), desiredaccess, clientprocess)
+pub unsafe fn I_RpcOpenClientProcess(binding: Option<*const core::ffi::c_void>, desiredaccess: u32, clientprocess: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcOpenClientProcess(binding : *const core::ffi::c_void, desiredaccess : u32, clientprocess : *mut *mut core::ffi::c_void) -> RPC_STATUS);
+    I_RpcOpenClientProcess(core::mem::transmute(binding.unwrap_or(std::ptr::null())), desiredaccess, clientprocess)
 }
 #[inline]
 pub unsafe fn I_RpcPauseExecution(milliseconds: u32) {
@@ -281,8 +281,8 @@ pub unsafe fn I_RpcRecordCalloutFailure(rpcstatus: RPC_STATUS, calloutstate: *mu
     I_RpcRecordCalloutFailure(rpcstatus, calloutstate, dllname)
 }
 #[inline]
-pub unsafe fn I_RpcRequestMutex(mutex: *mut *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcRequestMutex(mutex : *mut *mut ::core::ffi::c_void));
+pub unsafe fn I_RpcRequestMutex(mutex: *mut *mut core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcRequestMutex(mutex : *mut *mut core::ffi::c_void));
     I_RpcRequestMutex(mutex)
 }
 #[inline]
@@ -296,8 +296,8 @@ pub unsafe fn I_RpcSendReceive(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     I_RpcSendReceive(message)
 }
 #[inline]
-pub unsafe fn I_RpcServerCheckClientRestriction(context: *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerCheckClientRestriction(context : *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn I_RpcServerCheckClientRestriction(context: *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerCheckClientRestriction(context : *mut core::ffi::c_void) -> RPC_STATUS);
     I_RpcServerCheckClientRestriction(context)
 }
 #[inline]
@@ -306,9 +306,9 @@ pub unsafe fn I_RpcServerDisableExceptionFilter() -> i32 {
     I_RpcServerDisableExceptionFilter()
 }
 #[inline]
-pub unsafe fn I_RpcServerGetAssociationID(binding: ::core::option::Option<*const ::core::ffi::c_void>, associationid: *mut u32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerGetAssociationID(binding : *const ::core::ffi::c_void, associationid : *mut u32) -> RPC_STATUS);
-    I_RpcServerGetAssociationID(::core::mem::transmute(binding.unwrap_or(::std::ptr::null())), associationid)
+pub unsafe fn I_RpcServerGetAssociationID(binding: Option<*const core::ffi::c_void>, associationid: *mut u32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerGetAssociationID(binding : *const core::ffi::c_void, associationid : *mut u32) -> RPC_STATUS);
+    I_RpcServerGetAssociationID(core::mem::transmute(binding.unwrap_or(std::ptr::null())), associationid)
 }
 #[inline]
 pub unsafe fn I_RpcServerInqAddressChangeFn() -> *mut RPC_ADDRESS_CHANGE_FN {
@@ -316,13 +316,13 @@ pub unsafe fn I_RpcServerInqAddressChangeFn() -> *mut RPC_ADDRESS_CHANGE_FN {
     I_RpcServerInqAddressChangeFn()
 }
 #[inline]
-pub unsafe fn I_RpcServerInqLocalConnAddress(binding: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, buffersize: *mut u32, addressformat: *mut u32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerInqLocalConnAddress(binding : *mut ::core::ffi::c_void, buffer : *mut ::core::ffi::c_void, buffersize : *mut u32, addressformat : *mut u32) -> RPC_STATUS);
+pub unsafe fn I_RpcServerInqLocalConnAddress(binding: *mut core::ffi::c_void, buffer: *mut core::ffi::c_void, buffersize: *mut u32, addressformat: *mut u32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerInqLocalConnAddress(binding : *mut core::ffi::c_void, buffer : *mut core::ffi::c_void, buffersize : *mut u32, addressformat : *mut u32) -> RPC_STATUS);
     I_RpcServerInqLocalConnAddress(binding, buffer, buffersize, addressformat)
 }
 #[inline]
-pub unsafe fn I_RpcServerInqRemoteConnAddress(binding: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, buffersize: *mut u32, addressformat: *mut u32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerInqRemoteConnAddress(binding : *mut ::core::ffi::c_void, buffer : *mut ::core::ffi::c_void, buffersize : *mut u32, addressformat : *mut u32) -> RPC_STATUS);
+pub unsafe fn I_RpcServerInqRemoteConnAddress(binding: *mut core::ffi::c_void, buffer: *mut core::ffi::c_void, buffersize: *mut u32, addressformat: *mut u32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerInqRemoteConnAddress(binding : *mut core::ffi::c_void, buffer : *mut core::ffi::c_void, buffersize : *mut u32, addressformat : *mut u32) -> RPC_STATUS);
     I_RpcServerInqRemoteConnAddress(binding, buffer, buffersize, addressformat)
 }
 #[inline]
@@ -341,66 +341,66 @@ pub unsafe fn I_RpcServerSetAddressChangeFn(paddresschangefn: *mut RPC_ADDRESS_C
     I_RpcServerSetAddressChangeFn(paddresschangefn)
 }
 #[inline]
-pub unsafe fn I_RpcServerStartService<P0, P1>(protseq: P0, endpoint: P1, ifspec: *const ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn I_RpcServerStartService<P0, P1>(protseq: P0, endpoint: P1, ifspec: *const core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerStartService(protseq : ::windows_core::PCWSTR, endpoint : ::windows_core::PCWSTR, ifspec : *const ::core::ffi::c_void) -> RPC_STATUS);
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerStartService(protseq : windows_core::PCWSTR, endpoint : windows_core::PCWSTR, ifspec : *const core::ffi::c_void) -> RPC_STATUS);
     I_RpcServerStartService(protseq.into_param().abi(), endpoint.into_param().abi(), ifspec)
 }
 #[inline]
-pub unsafe fn I_RpcServerSubscribeForDisconnectNotification(binding: ::core::option::Option<*const ::core::ffi::c_void>, hevent: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerSubscribeForDisconnectNotification(binding : *const ::core::ffi::c_void, hevent : *const ::core::ffi::c_void) -> RPC_STATUS);
-    I_RpcServerSubscribeForDisconnectNotification(::core::mem::transmute(binding.unwrap_or(::std::ptr::null())), ::core::mem::transmute(hevent.unwrap_or(::std::ptr::null())))
+pub unsafe fn I_RpcServerSubscribeForDisconnectNotification(binding: Option<*const core::ffi::c_void>, hevent: Option<*const core::ffi::c_void>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerSubscribeForDisconnectNotification(binding : *const core::ffi::c_void, hevent : *const core::ffi::c_void) -> RPC_STATUS);
+    I_RpcServerSubscribeForDisconnectNotification(core::mem::transmute(binding.unwrap_or(std::ptr::null())), core::mem::transmute(hevent.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn I_RpcServerSubscribeForDisconnectNotification2(binding: ::core::option::Option<*const ::core::ffi::c_void>, hevent: *const ::core::ffi::c_void, subscriptionid: *mut ::windows_core::GUID) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerSubscribeForDisconnectNotification2(binding : *const ::core::ffi::c_void, hevent : *const ::core::ffi::c_void, subscriptionid : *mut ::windows_core::GUID) -> RPC_STATUS);
-    I_RpcServerSubscribeForDisconnectNotification2(::core::mem::transmute(binding.unwrap_or(::std::ptr::null())), hevent, subscriptionid)
+pub unsafe fn I_RpcServerSubscribeForDisconnectNotification2(binding: Option<*const core::ffi::c_void>, hevent: *const core::ffi::c_void, subscriptionid: *mut windows_core::GUID) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerSubscribeForDisconnectNotification2(binding : *const core::ffi::c_void, hevent : *const core::ffi::c_void, subscriptionid : *mut windows_core::GUID) -> RPC_STATUS);
+    I_RpcServerSubscribeForDisconnectNotification2(core::mem::transmute(binding.unwrap_or(std::ptr::null())), hevent, subscriptionid)
 }
 #[inline]
-pub unsafe fn I_RpcServerUnsubscribeForDisconnectNotification(binding: ::core::option::Option<*const ::core::ffi::c_void>, subscriptionid: ::windows_core::GUID) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerUnsubscribeForDisconnectNotification(binding : *const ::core::ffi::c_void, subscriptionid : ::windows_core::GUID) -> RPC_STATUS);
-    I_RpcServerUnsubscribeForDisconnectNotification(::core::mem::transmute(binding.unwrap_or(::std::ptr::null())), ::core::mem::transmute(subscriptionid))
+pub unsafe fn I_RpcServerUnsubscribeForDisconnectNotification(binding: Option<*const core::ffi::c_void>, subscriptionid: windows_core::GUID) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerUnsubscribeForDisconnectNotification(binding : *const core::ffi::c_void, subscriptionid : windows_core::GUID) -> RPC_STATUS);
+    I_RpcServerUnsubscribeForDisconnectNotification(core::mem::transmute(binding.unwrap_or(std::ptr::null())), core::mem::transmute(subscriptionid))
 }
 #[inline]
-pub unsafe fn I_RpcServerUseProtseq2A<P0, P1>(networkaddress: P0, protseq: P1, maxcalls: u32, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>, policy: *const ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn I_RpcServerUseProtseq2A<P0, P1>(networkaddress: P0, protseq: P1, maxcalls: u32, securitydescriptor: Option<*const core::ffi::c_void>, policy: *const core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerUseProtseq2A(networkaddress : ::windows_core::PCSTR, protseq : ::windows_core::PCSTR, maxcalls : u32, securitydescriptor : *const ::core::ffi::c_void, policy : *const ::core::ffi::c_void) -> RPC_STATUS);
-    I_RpcServerUseProtseq2A(networkaddress.into_param().abi(), protseq.into_param().abi(), maxcalls, ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), policy)
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerUseProtseq2A(networkaddress : windows_core::PCSTR, protseq : windows_core::PCSTR, maxcalls : u32, securitydescriptor : *const core::ffi::c_void, policy : *const core::ffi::c_void) -> RPC_STATUS);
+    I_RpcServerUseProtseq2A(networkaddress.into_param().abi(), protseq.into_param().abi(), maxcalls, core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())), policy)
 }
 #[inline]
-pub unsafe fn I_RpcServerUseProtseq2W<P0, P1>(networkaddress: P0, protseq: P1, maxcalls: u32, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>, policy: *const ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn I_RpcServerUseProtseq2W<P0, P1>(networkaddress: P0, protseq: P1, maxcalls: u32, securitydescriptor: Option<*const core::ffi::c_void>, policy: *const core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerUseProtseq2W(networkaddress : ::windows_core::PCWSTR, protseq : ::windows_core::PCWSTR, maxcalls : u32, securitydescriptor : *const ::core::ffi::c_void, policy : *const ::core::ffi::c_void) -> RPC_STATUS);
-    I_RpcServerUseProtseq2W(networkaddress.into_param().abi(), protseq.into_param().abi(), maxcalls, ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), policy)
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerUseProtseq2W(networkaddress : windows_core::PCWSTR, protseq : windows_core::PCWSTR, maxcalls : u32, securitydescriptor : *const core::ffi::c_void, policy : *const core::ffi::c_void) -> RPC_STATUS);
+    I_RpcServerUseProtseq2W(networkaddress.into_param().abi(), protseq.into_param().abi(), maxcalls, core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())), policy)
 }
 #[inline]
-pub unsafe fn I_RpcServerUseProtseqEp2A<P0, P1, P2>(networkaddress: P0, protseq: P1, maxcalls: u32, endpoint: P2, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>, policy: *const ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn I_RpcServerUseProtseqEp2A<P0, P1, P2>(networkaddress: P0, protseq: P1, maxcalls: u32, endpoint: P2, securitydescriptor: Option<*const core::ffi::c_void>, policy: *const core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P2: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerUseProtseqEp2A(networkaddress : ::windows_core::PCSTR, protseq : ::windows_core::PCSTR, maxcalls : u32, endpoint : ::windows_core::PCSTR, securitydescriptor : *const ::core::ffi::c_void, policy : *const ::core::ffi::c_void) -> RPC_STATUS);
-    I_RpcServerUseProtseqEp2A(networkaddress.into_param().abi(), protseq.into_param().abi(), maxcalls, endpoint.into_param().abi(), ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), policy)
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerUseProtseqEp2A(networkaddress : windows_core::PCSTR, protseq : windows_core::PCSTR, maxcalls : u32, endpoint : windows_core::PCSTR, securitydescriptor : *const core::ffi::c_void, policy : *const core::ffi::c_void) -> RPC_STATUS);
+    I_RpcServerUseProtseqEp2A(networkaddress.into_param().abi(), protseq.into_param().abi(), maxcalls, endpoint.into_param().abi(), core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())), policy)
 }
 #[inline]
-pub unsafe fn I_RpcServerUseProtseqEp2W<P0, P1, P2>(networkaddress: P0, protseq: P1, maxcalls: u32, endpoint: P2, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>, policy: *const ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn I_RpcServerUseProtseqEp2W<P0, P1, P2>(networkaddress: P0, protseq: P1, maxcalls: u32, endpoint: P2, securitydescriptor: Option<*const core::ffi::c_void>, policy: *const core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerUseProtseqEp2W(networkaddress : ::windows_core::PCWSTR, protseq : ::windows_core::PCWSTR, maxcalls : u32, endpoint : ::windows_core::PCWSTR, securitydescriptor : *const ::core::ffi::c_void, policy : *const ::core::ffi::c_void) -> RPC_STATUS);
-    I_RpcServerUseProtseqEp2W(networkaddress.into_param().abi(), protseq.into_param().abi(), maxcalls, endpoint.into_param().abi(), ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), policy)
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcServerUseProtseqEp2W(networkaddress : windows_core::PCWSTR, protseq : windows_core::PCWSTR, maxcalls : u32, endpoint : windows_core::PCWSTR, securitydescriptor : *const core::ffi::c_void, policy : *const core::ffi::c_void) -> RPC_STATUS);
+    I_RpcServerUseProtseqEp2W(networkaddress.into_param().abi(), protseq.into_param().abi(), maxcalls, endpoint.into_param().abi(), core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())), policy)
 }
 #[inline]
 pub unsafe fn I_RpcSessionStrictContextHandle() {
@@ -413,8 +413,8 @@ pub unsafe fn I_RpcSsDontSerializeContext() {
     I_RpcSsDontSerializeContext()
 }
 #[inline]
-pub unsafe fn I_RpcSystemHandleTypeSpecificWork(handle: *mut ::core::ffi::c_void, actualtype: u8, idltype: u8, marshaldirection: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcSystemHandleTypeSpecificWork(handle : *mut ::core::ffi::c_void, actualtype : u8, idltype : u8, marshaldirection : LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION) -> RPC_STATUS);
+pub unsafe fn I_RpcSystemHandleTypeSpecificWork(handle: *mut core::ffi::c_void, actualtype: u8, idltype: u8, marshaldirection: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcSystemHandleTypeSpecificWork(handle : *mut core::ffi::c_void, actualtype : u8, idltype : u8, marshaldirection : LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION) -> RPC_STATUS);
     I_RpcSystemHandleTypeSpecificWork(handle, actualtype, idltype, marshaldirection)
 }
 #[inline]
@@ -423,104 +423,104 @@ pub unsafe fn I_RpcTurnOnEEInfoPropagation() -> RPC_STATUS {
     I_RpcTurnOnEEInfoPropagation()
 }
 #[inline]
-pub unsafe fn I_UuidCreate(uuid: *mut ::windows_core::GUID) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn I_UuidCreate(uuid : *mut ::windows_core::GUID) -> RPC_STATUS);
+pub unsafe fn I_UuidCreate(uuid: *mut windows_core::GUID) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn I_UuidCreate(uuid : *mut windows_core::GUID) -> RPC_STATUS);
     I_UuidCreate(uuid)
 }
 #[inline]
-pub unsafe fn MesBufferHandleReset(handle: *const ::core::ffi::c_void, handlestyle: u32, operation: MIDL_ES_CODE, pbuffer: ::core::option::Option<&[u8]>, pencodedsize: ::core::option::Option<*mut u32>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn MesBufferHandleReset(handle : *const ::core::ffi::c_void, handlestyle : u32, operation : MIDL_ES_CODE, pbuffer : *const *const i8, buffersize : u32, pencodedsize : *mut u32) -> RPC_STATUS);
-    MesBufferHandleReset(handle, handlestyle, operation, ::core::mem::transmute(pbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pencodedsize.unwrap_or(::std::ptr::null_mut())))
+pub unsafe fn MesBufferHandleReset(handle: *const core::ffi::c_void, handlestyle: u32, operation: MIDL_ES_CODE, pbuffer: Option<&[u8]>, pencodedsize: Option<*mut u32>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn MesBufferHandleReset(handle : *const core::ffi::c_void, handlestyle : u32, operation : MIDL_ES_CODE, pbuffer : *const *const i8, buffersize : u32, pencodedsize : *mut u32) -> RPC_STATUS);
+    MesBufferHandleReset(handle, handlestyle, operation, core::mem::transmute(pbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pencodedsize.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn MesDecodeBufferHandleCreate(buffer: &[u8], phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn MesDecodeBufferHandleCreate(buffer : ::windows_core::PCSTR, buffersize : u32, phandle : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    MesDecodeBufferHandleCreate(::core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), phandle)
+pub unsafe fn MesDecodeBufferHandleCreate(buffer: &[u8], phandle: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn MesDecodeBufferHandleCreate(buffer : windows_core::PCSTR, buffersize : u32, phandle : *mut *mut core::ffi::c_void) -> RPC_STATUS);
+    MesDecodeBufferHandleCreate(core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), phandle)
 }
 #[inline]
-pub unsafe fn MesDecodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, readfn: MIDL_ES_READ, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn MesDecodeIncrementalHandleCreate(userstate : *mut ::core::ffi::c_void, readfn : MIDL_ES_READ, phandle : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn MesDecodeIncrementalHandleCreate(userstate: *mut core::ffi::c_void, readfn: MIDL_ES_READ, phandle: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn MesDecodeIncrementalHandleCreate(userstate : *mut core::ffi::c_void, readfn : MIDL_ES_READ, phandle : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     MesDecodeIncrementalHandleCreate(userstate, readfn, phandle)
 }
 #[inline]
-pub unsafe fn MesEncodeDynBufferHandleCreate(pbuffer: *mut *mut i8, pencodedsize: *mut u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn MesEncodeDynBufferHandleCreate(pbuffer : *mut *mut i8, pencodedsize : *mut u32, phandle : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn MesEncodeDynBufferHandleCreate(pbuffer: *mut *mut i8, pencodedsize: *mut u32, phandle: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn MesEncodeDynBufferHandleCreate(pbuffer : *mut *mut i8, pencodedsize : *mut u32, phandle : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     MesEncodeDynBufferHandleCreate(pbuffer, pencodedsize, phandle)
 }
 #[inline]
-pub unsafe fn MesEncodeFixedBufferHandleCreate(pbuffer: &mut [u8], pencodedsize: *mut u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn MesEncodeFixedBufferHandleCreate(pbuffer : ::windows_core::PSTR, buffersize : u32, pencodedsize : *mut u32, phandle : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    MesEncodeFixedBufferHandleCreate(::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), pencodedsize, phandle)
+pub unsafe fn MesEncodeFixedBufferHandleCreate(pbuffer: &mut [u8], pencodedsize: *mut u32, phandle: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn MesEncodeFixedBufferHandleCreate(pbuffer : windows_core::PSTR, buffersize : u32, pencodedsize : *mut u32, phandle : *mut *mut core::ffi::c_void) -> RPC_STATUS);
+    MesEncodeFixedBufferHandleCreate(core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), pencodedsize, phandle)
 }
 #[inline]
-pub unsafe fn MesEncodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, allocfn: MIDL_ES_ALLOC, writefn: MIDL_ES_WRITE, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn MesEncodeIncrementalHandleCreate(userstate : *mut ::core::ffi::c_void, allocfn : MIDL_ES_ALLOC, writefn : MIDL_ES_WRITE, phandle : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn MesEncodeIncrementalHandleCreate(userstate: *mut core::ffi::c_void, allocfn: MIDL_ES_ALLOC, writefn: MIDL_ES_WRITE, phandle: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn MesEncodeIncrementalHandleCreate(userstate : *mut core::ffi::c_void, allocfn : MIDL_ES_ALLOC, writefn : MIDL_ES_WRITE, phandle : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     MesEncodeIncrementalHandleCreate(userstate, allocfn, writefn, phandle)
 }
 #[inline]
-pub unsafe fn MesHandleFree(handle: *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn MesHandleFree(handle : *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn MesHandleFree(handle: *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn MesHandleFree(handle : *mut core::ffi::c_void) -> RPC_STATUS);
     MesHandleFree(handle)
 }
 #[inline]
-pub unsafe fn MesIncrementalHandleReset(handle: *mut ::core::ffi::c_void, userstate: *mut ::core::ffi::c_void, allocfn: MIDL_ES_ALLOC, writefn: MIDL_ES_WRITE, readfn: MIDL_ES_READ, operation: MIDL_ES_CODE) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn MesIncrementalHandleReset(handle : *mut ::core::ffi::c_void, userstate : *mut ::core::ffi::c_void, allocfn : MIDL_ES_ALLOC, writefn : MIDL_ES_WRITE, readfn : MIDL_ES_READ, operation : MIDL_ES_CODE) -> RPC_STATUS);
+pub unsafe fn MesIncrementalHandleReset(handle: *mut core::ffi::c_void, userstate: *mut core::ffi::c_void, allocfn: MIDL_ES_ALLOC, writefn: MIDL_ES_WRITE, readfn: MIDL_ES_READ, operation: MIDL_ES_CODE) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn MesIncrementalHandleReset(handle : *mut core::ffi::c_void, userstate : *mut core::ffi::c_void, allocfn : MIDL_ES_ALLOC, writefn : MIDL_ES_WRITE, readfn : MIDL_ES_READ, operation : MIDL_ES_CODE) -> RPC_STATUS);
     MesIncrementalHandleReset(handle, userstate, allocfn, writefn, readfn, operation)
 }
 #[inline]
-pub unsafe fn MesInqProcEncodingId(handle: *mut ::core::ffi::c_void, pinterfaceid: *mut RPC_SYNTAX_IDENTIFIER, pprocnum: *mut u32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn MesInqProcEncodingId(handle : *mut ::core::ffi::c_void, pinterfaceid : *mut RPC_SYNTAX_IDENTIFIER, pprocnum : *mut u32) -> RPC_STATUS);
+pub unsafe fn MesInqProcEncodingId(handle: *mut core::ffi::c_void, pinterfaceid: *mut RPC_SYNTAX_IDENTIFIER, pprocnum: *mut u32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn MesInqProcEncodingId(handle : *mut core::ffi::c_void, pinterfaceid : *mut RPC_SYNTAX_IDENTIFIER, pprocnum : *mut u32) -> RPC_STATUS);
     MesInqProcEncodingId(handle, pinterfaceid, pprocnum)
 }
 #[inline]
-pub unsafe fn NDRCContextBinding(ccontext: isize) -> *mut ::core::ffi::c_void {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NDRCContextBinding(ccontext : isize) -> *mut ::core::ffi::c_void);
+pub unsafe fn NDRCContextBinding(ccontext: isize) -> *mut core::ffi::c_void {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NDRCContextBinding(ccontext : isize) -> *mut core::ffi::c_void);
     NDRCContextBinding(ccontext)
 }
 #[inline]
-pub unsafe fn NDRCContextMarshall(ccontext: isize, pbuff: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NDRCContextMarshall(ccontext : isize, pbuff : *mut ::core::ffi::c_void));
+pub unsafe fn NDRCContextMarshall(ccontext: isize, pbuff: *mut core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NDRCContextMarshall(ccontext : isize, pbuff : *mut core::ffi::c_void));
     NDRCContextMarshall(ccontext, pbuff)
 }
 #[inline]
-pub unsafe fn NDRCContextUnmarshall(pccontext: ::core::option::Option<*mut isize>, hbinding: *const ::core::ffi::c_void, pbuff: *const ::core::ffi::c_void, datarepresentation: u32) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NDRCContextUnmarshall(pccontext : *mut isize, hbinding : *const ::core::ffi::c_void, pbuff : *const ::core::ffi::c_void, datarepresentation : u32));
-    NDRCContextUnmarshall(::core::mem::transmute(pccontext.unwrap_or(::std::ptr::null_mut())), hbinding, pbuff, datarepresentation)
+pub unsafe fn NDRCContextUnmarshall(pccontext: Option<*mut isize>, hbinding: *const core::ffi::c_void, pbuff: *const core::ffi::c_void, datarepresentation: u32) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NDRCContextUnmarshall(pccontext : *mut isize, hbinding : *const core::ffi::c_void, pbuff : *const core::ffi::c_void, datarepresentation : u32));
+    NDRCContextUnmarshall(core::mem::transmute(pccontext.unwrap_or(std::ptr::null_mut())), hbinding, pbuff, datarepresentation)
 }
 #[inline]
-pub unsafe fn NDRSContextMarshall(ccontext: *const NDR_SCONTEXT, pbuff: *mut ::core::ffi::c_void, userrundownin: NDR_RUNDOWN) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NDRSContextMarshall(ccontext : *const NDR_SCONTEXT, pbuff : *mut ::core::ffi::c_void, userrundownin : NDR_RUNDOWN));
+pub unsafe fn NDRSContextMarshall(ccontext: *const NDR_SCONTEXT, pbuff: *mut core::ffi::c_void, userrundownin: NDR_RUNDOWN) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NDRSContextMarshall(ccontext : *const NDR_SCONTEXT, pbuff : *mut core::ffi::c_void, userrundownin : NDR_RUNDOWN));
     NDRSContextMarshall(ccontext, pbuff, userrundownin)
 }
 #[inline]
-pub unsafe fn NDRSContextMarshall2(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT, pbuff: *mut ::core::ffi::c_void, userrundownin: NDR_RUNDOWN, ctxguard: ::core::option::Option<*const ::core::ffi::c_void>, flags: u32) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NDRSContextMarshall2(bindinghandle : *const ::core::ffi::c_void, ccontext : *const NDR_SCONTEXT, pbuff : *mut ::core::ffi::c_void, userrundownin : NDR_RUNDOWN, ctxguard : *const ::core::ffi::c_void, flags : u32));
-    NDRSContextMarshall2(bindinghandle, ccontext, pbuff, userrundownin, ::core::mem::transmute(ctxguard.unwrap_or(::std::ptr::null())), flags)
+pub unsafe fn NDRSContextMarshall2(bindinghandle: *const core::ffi::c_void, ccontext: *const NDR_SCONTEXT, pbuff: *mut core::ffi::c_void, userrundownin: NDR_RUNDOWN, ctxguard: Option<*const core::ffi::c_void>, flags: u32) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NDRSContextMarshall2(bindinghandle : *const core::ffi::c_void, ccontext : *const NDR_SCONTEXT, pbuff : *mut core::ffi::c_void, userrundownin : NDR_RUNDOWN, ctxguard : *const core::ffi::c_void, flags : u32));
+    NDRSContextMarshall2(bindinghandle, ccontext, pbuff, userrundownin, core::mem::transmute(ctxguard.unwrap_or(std::ptr::null())), flags)
 }
 #[inline]
-pub unsafe fn NDRSContextMarshallEx(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT, pbuff: *mut ::core::ffi::c_void, userrundownin: NDR_RUNDOWN) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NDRSContextMarshallEx(bindinghandle : *const ::core::ffi::c_void, ccontext : *const NDR_SCONTEXT, pbuff : *mut ::core::ffi::c_void, userrundownin : NDR_RUNDOWN));
+pub unsafe fn NDRSContextMarshallEx(bindinghandle: *const core::ffi::c_void, ccontext: *const NDR_SCONTEXT, pbuff: *mut core::ffi::c_void, userrundownin: NDR_RUNDOWN) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NDRSContextMarshallEx(bindinghandle : *const core::ffi::c_void, ccontext : *const NDR_SCONTEXT, pbuff : *mut core::ffi::c_void, userrundownin : NDR_RUNDOWN));
     NDRSContextMarshallEx(bindinghandle, ccontext, pbuff, userrundownin)
 }
 #[inline]
-pub unsafe fn NDRSContextUnmarshall(pbuff: *const ::core::ffi::c_void, datarepresentation: u32) -> *mut NDR_SCONTEXT {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NDRSContextUnmarshall(pbuff : *const ::core::ffi::c_void, datarepresentation : u32) -> *mut NDR_SCONTEXT);
+pub unsafe fn NDRSContextUnmarshall(pbuff: *const core::ffi::c_void, datarepresentation: u32) -> *mut NDR_SCONTEXT {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NDRSContextUnmarshall(pbuff : *const core::ffi::c_void, datarepresentation : u32) -> *mut NDR_SCONTEXT);
     NDRSContextUnmarshall(pbuff, datarepresentation)
 }
 #[inline]
-pub unsafe fn NDRSContextUnmarshall2(bindinghandle: *const ::core::ffi::c_void, pbuff: ::core::option::Option<*const ::core::ffi::c_void>, datarepresentation: u32, ctxguard: ::core::option::Option<*const ::core::ffi::c_void>, flags: u32) -> *mut NDR_SCONTEXT {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NDRSContextUnmarshall2(bindinghandle : *const ::core::ffi::c_void, pbuff : *const ::core::ffi::c_void, datarepresentation : u32, ctxguard : *const ::core::ffi::c_void, flags : u32) -> *mut NDR_SCONTEXT);
-    NDRSContextUnmarshall2(bindinghandle, ::core::mem::transmute(pbuff.unwrap_or(::std::ptr::null())), datarepresentation, ::core::mem::transmute(ctxguard.unwrap_or(::std::ptr::null())), flags)
+pub unsafe fn NDRSContextUnmarshall2(bindinghandle: *const core::ffi::c_void, pbuff: Option<*const core::ffi::c_void>, datarepresentation: u32, ctxguard: Option<*const core::ffi::c_void>, flags: u32) -> *mut NDR_SCONTEXT {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NDRSContextUnmarshall2(bindinghandle : *const core::ffi::c_void, pbuff : *const core::ffi::c_void, datarepresentation : u32, ctxguard : *const core::ffi::c_void, flags : u32) -> *mut NDR_SCONTEXT);
+    NDRSContextUnmarshall2(bindinghandle, core::mem::transmute(pbuff.unwrap_or(std::ptr::null())), datarepresentation, core::mem::transmute(ctxguard.unwrap_or(std::ptr::null())), flags)
 }
 #[inline]
-pub unsafe fn NDRSContextUnmarshallEx(bindinghandle: *const ::core::ffi::c_void, pbuff: *const ::core::ffi::c_void, datarepresentation: u32) -> *mut NDR_SCONTEXT {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NDRSContextUnmarshallEx(bindinghandle : *const ::core::ffi::c_void, pbuff : *const ::core::ffi::c_void, datarepresentation : u32) -> *mut NDR_SCONTEXT);
+pub unsafe fn NDRSContextUnmarshallEx(bindinghandle: *const core::ffi::c_void, pbuff: *const core::ffi::c_void, datarepresentation: u32) -> *mut NDR_SCONTEXT {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NDRSContextUnmarshallEx(bindinghandle : *const core::ffi::c_void, pbuff : *const core::ffi::c_void, datarepresentation : u32) -> *mut NDR_SCONTEXT);
     NDRSContextUnmarshallEx(bindinghandle, pbuff, datarepresentation)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn Ndr64AsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN {
-    ::windows_targets::link!("rpcrt4.dll" "cdecl" fn Ndr64AsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN);
+pub unsafe fn Ndr64AsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut core::ffi::c_void) -> CLIENT_CALL_RETURN {
+    ::windows_targets::link!("rpcrt4.dll" "cdecl" fn Ndr64AsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void) -> CLIENT_CALL_RETURN);
     Ndr64AsyncClientCall(pproxyinfo, nprocnum, preturnvalue)
 }
 #[inline]
@@ -535,24 +535,24 @@ pub unsafe fn Ndr64AsyncServerCallAll(prpcmsg: *mut RPC_MESSAGE) {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn Ndr64DcomAsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN {
-    ::windows_targets::link!("rpcrt4.dll" "cdecl" fn Ndr64DcomAsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN);
+pub unsafe fn Ndr64DcomAsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut core::ffi::c_void) -> CLIENT_CALL_RETURN {
+    ::windows_targets::link!("rpcrt4.dll" "cdecl" fn Ndr64DcomAsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void) -> CLIENT_CALL_RETURN);
     Ndr64DcomAsyncClientCall(pproxyinfo, nprocnum, preturnvalue)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn Ndr64DcomAsyncStubCall<P0, P1>(pthis: P0, pchannel: P1, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32
 where
-    P0: ::windows_core::IntoParam<super::Com::IRpcStubBuffer>,
-    P1: ::windows_core::IntoParam<super::Com::IRpcChannelBuffer>,
+    P0: windows_core::IntoParam<super::Com::IRpcStubBuffer>,
+    P1: windows_core::IntoParam<super::Com::IRpcChannelBuffer>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn Ndr64DcomAsyncStubCall(pthis : * mut::core::ffi::c_void, pchannel : * mut::core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
+    ::windows_targets::link!("rpcrt4.dll" "system" fn Ndr64DcomAsyncStubCall(pthis : * mut core::ffi::c_void, pchannel : * mut core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
     Ndr64DcomAsyncStubCall(pthis.into_param().abi(), pchannel.into_param().abi(), prpcmsg, pdwstubphase)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrAllocate(pstubmsg: *mut MIDL_STUB_MESSAGE, len: usize) -> *mut ::core::ffi::c_void {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrAllocate(pstubmsg : *mut MIDL_STUB_MESSAGE, len : usize) -> *mut ::core::ffi::c_void);
+pub unsafe fn NdrAllocate(pstubmsg: *mut MIDL_STUB_MESSAGE, len: usize) -> *mut core::ffi::c_void {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrAllocate(pstubmsg : *mut MIDL_STUB_MESSAGE, len : usize) -> *mut core::ffi::c_void);
     NdrAllocate(pstubmsg, len)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -592,8 +592,8 @@ pub unsafe fn NdrByteCountPointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pp
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrClearOutParameters(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8, argaddr: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrClearOutParameters(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8, argaddr : *mut ::core::ffi::c_void));
+pub unsafe fn NdrClearOutParameters(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8, argaddr: *mut core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrClearOutParameters(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8, argaddr : *mut core::ffi::c_void));
     NdrClearOutParameters(pstubmsg, pformat, argaddr)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -604,8 +604,8 @@ pub unsafe fn NdrClientCall2(pstubdescriptor: *mut MIDL_STUB_DESC, pformat: *mut
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrClientCall3(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN {
-    ::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrClientCall3(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN);
+pub unsafe fn NdrClientCall3(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut core::ffi::c_void) -> CLIENT_CALL_RETURN {
+    ::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrClientCall3(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void) -> CLIENT_CALL_RETURN);
     NdrClientCall3(pproxyinfo, nprocnum, preturnvalue)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -616,8 +616,8 @@ pub unsafe fn NdrClientContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, context
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrClientContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pcontexthandle: *mut isize, bindhandle: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrClientContextUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pcontexthandle : *mut isize, bindhandle : *mut ::core::ffi::c_void));
+pub unsafe fn NdrClientContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pcontexthandle: *mut isize, bindhandle: *mut core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrClientContextUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pcontexthandle : *mut isize, bindhandle : *mut core::ffi::c_void));
     NdrClientContextUnmarshall(pstubmsg, pcontexthandle, bindhandle)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -868,8 +868,8 @@ pub unsafe fn NdrCorrelationFree(pstubmsg: *mut MIDL_STUB_MESSAGE) {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrCorrelationInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut ::core::ffi::c_void, cachesize: u32, flags: u32) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrCorrelationInitialize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut ::core::ffi::c_void, cachesize : u32, flags : u32));
+pub unsafe fn NdrCorrelationInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut core::ffi::c_void, cachesize: u32, flags: u32) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrCorrelationInitialize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut core::ffi::c_void, cachesize : u32, flags : u32));
     NdrCorrelationInitialize(pstubmsg, pmemory, cachesize, flags)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -882,9 +882,9 @@ pub unsafe fn NdrCorrelationPass(pstubmsg: *mut MIDL_STUB_MESSAGE) {
 #[inline]
 pub unsafe fn NdrCreateServerInterfaceFromStub<P0>(pstub: P0, pserverif: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<super::Com::IRpcStubBuffer>,
+    P0: windows_core::IntoParam<super::Com::IRpcStubBuffer>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrCreateServerInterfaceFromStub(pstub : * mut::core::ffi::c_void, pserverif : *mut RPC_SERVER_INTERFACE) -> RPC_STATUS);
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrCreateServerInterfaceFromStub(pstub : * mut core::ffi::c_void, pserverif : *mut RPC_SERVER_INTERFACE) -> RPC_STATUS);
     NdrCreateServerInterfaceFromStub(pstub.into_param().abi(), pserverif)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -897,10 +897,10 @@ pub unsafe fn NdrDcomAsyncClientCall(pstubdescriptor: *mut MIDL_STUB_DESC, pform
 #[inline]
 pub unsafe fn NdrDcomAsyncStubCall<P0, P1>(pthis: P0, pchannel: P1, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32
 where
-    P0: ::windows_core::IntoParam<super::Com::IRpcStubBuffer>,
-    P1: ::windows_core::IntoParam<super::Com::IRpcChannelBuffer>,
+    P0: windows_core::IntoParam<super::Com::IRpcStubBuffer>,
+    P1: windows_core::IntoParam<super::Com::IRpcChannelBuffer>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrDcomAsyncStubCall(pthis : * mut::core::ffi::c_void, pchannel : * mut::core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrDcomAsyncStubCall(pthis : * mut core::ffi::c_void, pchannel : * mut core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
     NdrDcomAsyncStubCall(pthis.into_param().abi(), pchannel.into_param().abi(), prpcmsg, pdwstubphase)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -981,14 +981,14 @@ pub unsafe fn NdrFullPointerXlatInit(numberofpointers: u32, xlatside: XLAT_SIDE)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32, handle: *mut ::core::ffi::c_void) -> *mut u8 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrGetBuffer(pstubmsg : *mut MIDL_STUB_MESSAGE, bufferlength : u32, handle : *mut ::core::ffi::c_void) -> *mut u8);
+pub unsafe fn NdrGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32, handle: *mut core::ffi::c_void) -> *mut u8 {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrGetBuffer(pstubmsg : *mut MIDL_STUB_MESSAGE, bufferlength : u32, handle : *mut core::ffi::c_void) -> *mut u8);
     NdrGetBuffer(pstubmsg, bufferlength, handle)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrGetDcomProtocolVersion(pstubmsg: *mut MIDL_STUB_MESSAGE, pversion: *mut RPC_VERSION) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrGetDcomProtocolVersion(pstubmsg : *mut MIDL_STUB_MESSAGE, pversion : *mut RPC_VERSION) -> ::windows_core::HRESULT);
+pub unsafe fn NdrGetDcomProtocolVersion(pstubmsg: *mut MIDL_STUB_MESSAGE, pversion: *mut RPC_VERSION) -> windows_core::Result<()> {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrGetDcomProtocolVersion(pstubmsg : *mut MIDL_STUB_MESSAGE, pversion : *mut RPC_VERSION) -> windows_core::HRESULT);
     NdrGetDcomProtocolVersion(pstubmsg, pversion).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1035,120 +1035,120 @@ pub unsafe fn NdrMapCommAndFaultStatus(pstubmsg: *mut MIDL_STUB_MESSAGE, pcommst
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesProcEncodeDecode(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8) {
-    ::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrMesProcEncodeDecode(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8));
+pub unsafe fn NdrMesProcEncodeDecode(handle: *mut core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8) {
+    ::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrMesProcEncodeDecode(handle : *mut core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8));
     NdrMesProcEncodeDecode(handle, pstubdesc, pformatstring)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesProcEncodeDecode2(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8) -> CLIENT_CALL_RETURN {
-    ::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrMesProcEncodeDecode2(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8) -> CLIENT_CALL_RETURN);
+pub unsafe fn NdrMesProcEncodeDecode2(handle: *mut core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8) -> CLIENT_CALL_RETURN {
+    ::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrMesProcEncodeDecode2(handle : *mut core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8) -> CLIENT_CALL_RETURN);
     NdrMesProcEncodeDecode2(handle, pstubdesc, pformatstring)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesProcEncodeDecode3(handle: *mut ::core::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN {
-    ::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrMesProcEncodeDecode3(handle : *mut ::core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN);
+pub unsafe fn NdrMesProcEncodeDecode3(handle: *mut core::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut core::ffi::c_void) -> CLIENT_CALL_RETURN {
+    ::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrMesProcEncodeDecode3(handle : *mut core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void) -> CLIENT_CALL_RETURN);
     NdrMesProcEncodeDecode3(handle, pproxyinfo, nprocnum, preturnvalue)
 }
 #[inline]
-pub unsafe fn NdrMesSimpleTypeAlignSize(param0: *mut ::core::ffi::c_void) -> usize {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeAlignSize(param0 : *mut ::core::ffi::c_void) -> usize);
+pub unsafe fn NdrMesSimpleTypeAlignSize(param0: *mut core::ffi::c_void) -> usize {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeAlignSize(param0 : *mut core::ffi::c_void) -> usize);
     NdrMesSimpleTypeAlignSize(param0)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesSimpleTypeAlignSizeAll(handle: *mut ::core::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO) -> usize {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeAlignSizeAll(handle : *mut ::core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO) -> usize);
+pub unsafe fn NdrMesSimpleTypeAlignSizeAll(handle: *mut core::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO) -> usize {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeAlignSizeAll(handle : *mut core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO) -> usize);
     NdrMesSimpleTypeAlignSizeAll(handle, pproxyinfo)
 }
 #[inline]
-pub unsafe fn NdrMesSimpleTypeDecode(handle: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, size: i16) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeDecode(handle : *mut ::core::ffi::c_void, pobject : *mut ::core::ffi::c_void, size : i16));
+pub unsafe fn NdrMesSimpleTypeDecode(handle: *mut core::ffi::c_void, pobject: *mut core::ffi::c_void, size: i16) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeDecode(handle : *mut core::ffi::c_void, pobject : *mut core::ffi::c_void, size : i16));
     NdrMesSimpleTypeDecode(handle, pobject, size)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesSimpleTypeDecodeAll(handle: *mut ::core::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, pobject: *mut ::core::ffi::c_void, size: i16) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeDecodeAll(handle : *mut ::core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, pobject : *mut ::core::ffi::c_void, size : i16));
+pub unsafe fn NdrMesSimpleTypeDecodeAll(handle: *mut core::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, pobject: *mut core::ffi::c_void, size: i16) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeDecodeAll(handle : *mut core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, pobject : *mut core::ffi::c_void, size : i16));
     NdrMesSimpleTypeDecodeAll(handle, pproxyinfo, pobject, size)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesSimpleTypeEncode(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pobject: *const ::core::ffi::c_void, size: i16) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeEncode(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pobject : *const ::core::ffi::c_void, size : i16));
+pub unsafe fn NdrMesSimpleTypeEncode(handle: *mut core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pobject: *const core::ffi::c_void, size: i16) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeEncode(handle : *mut core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pobject : *const core::ffi::c_void, size : i16));
     NdrMesSimpleTypeEncode(handle, pstubdesc, pobject, size)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesSimpleTypeEncodeAll(handle: *mut ::core::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, pobject: *const ::core::ffi::c_void, size: i16) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeEncodeAll(handle : *mut ::core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, pobject : *const ::core::ffi::c_void, size : i16));
+pub unsafe fn NdrMesSimpleTypeEncodeAll(handle: *mut core::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, pobject: *const core::ffi::c_void, size: i16) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeEncodeAll(handle : *mut core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, pobject : *const core::ffi::c_void, size : i16));
     NdrMesSimpleTypeEncodeAll(handle, pproxyinfo, pobject, size)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeAlignSize(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const ::core::ffi::c_void) -> usize {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeAlignSize(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *const ::core::ffi::c_void) -> usize);
+pub unsafe fn NdrMesTypeAlignSize(handle: *mut core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const core::ffi::c_void) -> usize {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeAlignSize(handle : *mut core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *const core::ffi::c_void) -> usize);
     NdrMesTypeAlignSize(handle, pstubdesc, pformatstring, pobject)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeAlignSize2(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const ::core::ffi::c_void) -> usize {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeAlignSize2(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *const ::core::ffi::c_void) -> usize);
+pub unsafe fn NdrMesTypeAlignSize2(handle: *mut core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const core::ffi::c_void) -> usize {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeAlignSize2(handle : *mut core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *const core::ffi::c_void) -> usize);
     NdrMesTypeAlignSize2(handle, ppicklinginfo, pstubdesc, pformatstring, pobject)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeAlignSize3(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *const ::core::ffi::c_void) -> usize {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeAlignSize3(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset : *const *const u32, ntypeindex : u32, pobject : *const ::core::ffi::c_void) -> usize);
+pub unsafe fn NdrMesTypeAlignSize3(handle: *mut core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *const core::ffi::c_void) -> usize {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeAlignSize3(handle : *mut core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset : *const *const u32, ntypeindex : u32, pobject : *const core::ffi::c_void) -> usize);
     NdrMesTypeAlignSize3(handle, ppicklinginfo, pproxyinfo, arrtypeoffset, ntypeindex, pobject)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeDecode(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeDecode(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *mut ::core::ffi::c_void));
+pub unsafe fn NdrMesTypeDecode(handle: *mut core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *mut core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeDecode(handle : *mut core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *mut core::ffi::c_void));
     NdrMesTypeDecode(handle, pstubdesc, pformatstring, pobject)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeDecode2(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeDecode2(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *mut ::core::ffi::c_void));
+pub unsafe fn NdrMesTypeDecode2(handle: *mut core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *mut core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeDecode2(handle : *mut core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *mut core::ffi::c_void));
     NdrMesTypeDecode2(handle, ppicklinginfo, pstubdesc, pformatstring, pobject)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeDecode3(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeDecode3(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset : *const *const u32, ntypeindex : u32, pobject : *mut ::core::ffi::c_void));
+pub unsafe fn NdrMesTypeDecode3(handle: *mut core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *mut core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeDecode3(handle : *mut core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset : *const *const u32, ntypeindex : u32, pobject : *mut core::ffi::c_void));
     NdrMesTypeDecode3(handle, ppicklinginfo, pproxyinfo, arrtypeoffset, ntypeindex, pobject)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeEncode(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeEncode(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *const ::core::ffi::c_void));
+pub unsafe fn NdrMesTypeEncode(handle: *mut core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeEncode(handle : *mut core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *const core::ffi::c_void));
     NdrMesTypeEncode(handle, pstubdesc, pformatstring, pobject)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeEncode2(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeEncode2(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *const ::core::ffi::c_void));
+pub unsafe fn NdrMesTypeEncode2(handle: *mut core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeEncode2(handle : *mut core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *const core::ffi::c_void));
     NdrMesTypeEncode2(handle, ppicklinginfo, pstubdesc, pformatstring, pobject)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeEncode3(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeEncode3(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset : *const *const u32, ntypeindex : u32, pobject : *const ::core::ffi::c_void));
+pub unsafe fn NdrMesTypeEncode3(handle: *mut core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *const core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeEncode3(handle : *mut core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset : *const *const u32, ntypeindex : u32, pobject : *const core::ffi::c_void));
     NdrMesTypeEncode3(handle, ppicklinginfo, pproxyinfo, arrtypeoffset, ntypeindex, pobject)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeFree2(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeFree2(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *mut ::core::ffi::c_void));
+pub unsafe fn NdrMesTypeFree2(handle: *mut core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *mut core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeFree2(handle : *mut core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *mut core::ffi::c_void));
     NdrMesTypeFree2(handle, ppicklinginfo, pstubdesc, pformatstring, pobject)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeFree3(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeFree3(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset : *const *const u32, ntypeindex : u32, pobject : *mut ::core::ffi::c_void));
+pub unsafe fn NdrMesTypeFree3(handle: *mut core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *mut core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeFree3(handle : *mut core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset : *const *const u32, ntypeindex : u32, pobject : *mut core::ffi::c_void));
     NdrMesTypeFree3(handle, ppicklinginfo, pproxyinfo, arrtypeoffset, ntypeindex, pobject)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1207,48 +1207,48 @@ pub unsafe fn NdrNonEncapsulatedUnionUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrNsGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32, handle: *mut ::core::ffi::c_void) -> *mut u8 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrNsGetBuffer(pstubmsg : *mut MIDL_STUB_MESSAGE, bufferlength : u32, handle : *mut ::core::ffi::c_void) -> *mut u8);
+pub unsafe fn NdrNsGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32, handle: *mut core::ffi::c_void) -> *mut u8 {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrNsGetBuffer(pstubmsg : *mut MIDL_STUB_MESSAGE, bufferlength : u32, handle : *mut core::ffi::c_void) -> *mut u8);
     NdrNsGetBuffer(pstubmsg, bufferlength, handle)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrNsSendReceive(pstubmsg: *mut MIDL_STUB_MESSAGE, pbufferend: *mut u8, pautohandle: *mut *mut ::core::ffi::c_void) -> *mut u8 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrNsSendReceive(pstubmsg : *mut MIDL_STUB_MESSAGE, pbufferend : *mut u8, pautohandle : *mut *mut ::core::ffi::c_void) -> *mut u8);
+pub unsafe fn NdrNsSendReceive(pstubmsg: *mut MIDL_STUB_MESSAGE, pbufferend: *mut u8, pautohandle: *mut *mut core::ffi::c_void) -> *mut u8 {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrNsSendReceive(pstubmsg : *mut MIDL_STUB_MESSAGE, pbufferend : *mut u8, pautohandle : *mut *mut core::ffi::c_void) -> *mut u8);
     NdrNsSendReceive(pstubmsg, pbufferend, pautohandle)
 }
 #[inline]
-pub unsafe fn NdrOleAllocate(size: usize) -> *mut ::core::ffi::c_void {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrOleAllocate(size : usize) -> *mut ::core::ffi::c_void);
+pub unsafe fn NdrOleAllocate(size: usize) -> *mut core::ffi::c_void {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrOleAllocate(size : usize) -> *mut core::ffi::c_void);
     NdrOleAllocate(size)
 }
 #[inline]
-pub unsafe fn NdrOleFree(nodetofree: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrOleFree(nodetofree : *const ::core::ffi::c_void));
+pub unsafe fn NdrOleFree(nodetofree: *const core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrOleFree(nodetofree : *const core::ffi::c_void));
     NdrOleFree(nodetofree)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrPartialIgnoreClientBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreClientBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut ::core::ffi::c_void));
+pub unsafe fn NdrPartialIgnoreClientBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreClientBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut core::ffi::c_void));
     NdrPartialIgnoreClientBufferSize(pstubmsg, pmemory)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrPartialIgnoreClientMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreClientMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut ::core::ffi::c_void));
+pub unsafe fn NdrPartialIgnoreClientMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreClientMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut core::ffi::c_void));
     NdrPartialIgnoreClientMarshall(pstubmsg, pmemory)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrPartialIgnoreServerInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut ::core::ffi::c_void, pformat: *mut u8) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreServerInitialize(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut ::core::ffi::c_void, pformat : *mut u8));
+pub unsafe fn NdrPartialIgnoreServerInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut core::ffi::c_void, pformat: *mut u8) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreServerInitialize(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut core::ffi::c_void, pformat : *mut u8));
     NdrPartialIgnoreServerInitialize(pstubmsg, ppmemory, pformat)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrPartialIgnoreServerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreServerUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut ::core::ffi::c_void));
+pub unsafe fn NdrPartialIgnoreServerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreServerUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut core::ffi::c_void));
     NdrPartialIgnoreServerUnmarshall(pstubmsg, ppmemory)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1288,13 +1288,13 @@ pub unsafe fn NdrRangeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mu
     NdrRangeUnmarshall(pstubmsg, ppmemory, pformat, fmustalloc)
 }
 #[inline]
-pub unsafe fn NdrRpcSmClientAllocate(size: usize) -> *mut ::core::ffi::c_void {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrRpcSmClientAllocate(size : usize) -> *mut ::core::ffi::c_void);
+pub unsafe fn NdrRpcSmClientAllocate(size: usize) -> *mut core::ffi::c_void {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrRpcSmClientAllocate(size : usize) -> *mut core::ffi::c_void);
     NdrRpcSmClientAllocate(size)
 }
 #[inline]
-pub unsafe fn NdrRpcSmClientFree(nodetofree: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrRpcSmClientFree(nodetofree : *const ::core::ffi::c_void));
+pub unsafe fn NdrRpcSmClientFree(nodetofree: *const core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrRpcSmClientFree(nodetofree : *const core::ffi::c_void));
     NdrRpcSmClientFree(nodetofree)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1304,13 +1304,13 @@ pub unsafe fn NdrRpcSmSetClientToOsf(pmessage: *mut MIDL_STUB_MESSAGE) {
     NdrRpcSmSetClientToOsf(pmessage)
 }
 #[inline]
-pub unsafe fn NdrRpcSsDefaultAllocate(size: usize) -> *mut ::core::ffi::c_void {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrRpcSsDefaultAllocate(size : usize) -> *mut ::core::ffi::c_void);
+pub unsafe fn NdrRpcSsDefaultAllocate(size: usize) -> *mut core::ffi::c_void {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrRpcSsDefaultAllocate(size : usize) -> *mut core::ffi::c_void);
     NdrRpcSsDefaultAllocate(size)
 }
 #[inline]
-pub unsafe fn NdrRpcSsDefaultFree(nodetofree: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrRpcSsDefaultFree(nodetofree : *const ::core::ffi::c_void));
+pub unsafe fn NdrRpcSsDefaultFree(nodetofree: *const core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrRpcSsDefaultFree(nodetofree : *const core::ffi::c_void));
     NdrRpcSsDefaultFree(nodetofree)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1443,13 +1443,13 @@ pub unsafe fn NdrSimpleTypeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory:
     NdrSimpleTypeUnmarshall(pstubmsg, pmemory, formatchar)
 }
 #[inline]
-pub unsafe fn NdrStubCall2(pthis: *mut ::core::ffi::c_void, pchannel: *mut ::core::ffi::c_void, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrStubCall2(pthis : *mut ::core::ffi::c_void, pchannel : *mut ::core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
+pub unsafe fn NdrStubCall2(pthis: *mut core::ffi::c_void, pchannel: *mut core::ffi::c_void, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32 {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrStubCall2(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
     NdrStubCall2(pthis, pchannel, prpcmsg, pdwstubphase)
 }
 #[inline]
-pub unsafe fn NdrStubCall3(pthis: *mut ::core::ffi::c_void, pchannel: *mut ::core::ffi::c_void, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrStubCall3(pthis : *mut ::core::ffi::c_void, pchannel : *mut ::core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
+pub unsafe fn NdrStubCall3(pthis: *mut core::ffi::c_void, pchannel: *mut core::ffi::c_void, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32 {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn NdrStubCall3(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
     NdrStubCall3(pthis, pchannel, prpcmsg, pdwstubphase)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1557,16 +1557,16 @@ pub unsafe fn RpcAsyncAbortCall(pasync: *mut RPC_ASYNC_STATE, exceptioncode: u32
 #[inline]
 pub unsafe fn RpcAsyncCancelCall<P0>(pasync: *mut RPC_ASYNC_STATE, fabort: P0) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("rpcrt4.dll" "system" fn RpcAsyncCancelCall(pasync : *mut RPC_ASYNC_STATE, fabort : super::super::Foundation:: BOOL) -> RPC_STATUS);
     RpcAsyncCancelCall(pasync, fabort.into_param().abi())
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn RpcAsyncCompleteCall(pasync: *mut RPC_ASYNC_STATE, reply: ::core::option::Option<*mut ::core::ffi::c_void>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcAsyncCompleteCall(pasync : *mut RPC_ASYNC_STATE, reply : *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcAsyncCompleteCall(pasync, ::core::mem::transmute(reply.unwrap_or(::std::ptr::null_mut())))
+pub unsafe fn RpcAsyncCompleteCall(pasync: *mut RPC_ASYNC_STATE, reply: Option<*mut core::ffi::c_void>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcAsyncCompleteCall(pasync : *mut RPC_ASYNC_STATE, reply : *mut core::ffi::c_void) -> RPC_STATUS);
+    RpcAsyncCompleteCall(pasync, core::mem::transmute(reply.unwrap_or(std::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -1588,172 +1588,172 @@ pub unsafe fn RpcAsyncRegisterInfo(pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn RpcBindingBind(pasync: ::core::option::Option<*const RPC_ASYNC_STATE>, binding: *const ::core::ffi::c_void, ifspec: *const ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingBind(pasync : *const RPC_ASYNC_STATE, binding : *const ::core::ffi::c_void, ifspec : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcBindingBind(::core::mem::transmute(pasync.unwrap_or(::std::ptr::null())), binding, ifspec)
+pub unsafe fn RpcBindingBind(pasync: Option<*const RPC_ASYNC_STATE>, binding: *const core::ffi::c_void, ifspec: *const core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingBind(pasync : *const RPC_ASYNC_STATE, binding : *const core::ffi::c_void, ifspec : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcBindingBind(core::mem::transmute(pasync.unwrap_or(std::ptr::null())), binding, ifspec)
 }
 #[inline]
-pub unsafe fn RpcBindingCopy(sourcebinding: *const ::core::ffi::c_void, destinationbinding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingCopy(sourcebinding : *const ::core::ffi::c_void, destinationbinding : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcBindingCopy(sourcebinding: *const core::ffi::c_void, destinationbinding: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingCopy(sourcebinding : *const core::ffi::c_void, destinationbinding : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcBindingCopy(sourcebinding, destinationbinding)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn RpcBindingCreateA(template: *const RPC_BINDING_HANDLE_TEMPLATE_V1_A, security: ::core::option::Option<*const RPC_BINDING_HANDLE_SECURITY_V1_A>, options: ::core::option::Option<*const RPC_BINDING_HANDLE_OPTIONS_V1>, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingCreateA(template : *const RPC_BINDING_HANDLE_TEMPLATE_V1_A, security : *const RPC_BINDING_HANDLE_SECURITY_V1_A, options : *const RPC_BINDING_HANDLE_OPTIONS_V1, binding : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcBindingCreateA(template, ::core::mem::transmute(security.unwrap_or(::std::ptr::null())), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), binding)
+pub unsafe fn RpcBindingCreateA(template: *const RPC_BINDING_HANDLE_TEMPLATE_V1_A, security: Option<*const RPC_BINDING_HANDLE_SECURITY_V1_A>, options: Option<*const RPC_BINDING_HANDLE_OPTIONS_V1>, binding: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingCreateA(template : *const RPC_BINDING_HANDLE_TEMPLATE_V1_A, security : *const RPC_BINDING_HANDLE_SECURITY_V1_A, options : *const RPC_BINDING_HANDLE_OPTIONS_V1, binding : *mut *mut core::ffi::c_void) -> RPC_STATUS);
+    RpcBindingCreateA(template, core::mem::transmute(security.unwrap_or(std::ptr::null())), core::mem::transmute(options.unwrap_or(std::ptr::null())), binding)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn RpcBindingCreateW(template: *const RPC_BINDING_HANDLE_TEMPLATE_V1_W, security: ::core::option::Option<*const RPC_BINDING_HANDLE_SECURITY_V1_W>, options: ::core::option::Option<*const RPC_BINDING_HANDLE_OPTIONS_V1>, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingCreateW(template : *const RPC_BINDING_HANDLE_TEMPLATE_V1_W, security : *const RPC_BINDING_HANDLE_SECURITY_V1_W, options : *const RPC_BINDING_HANDLE_OPTIONS_V1, binding : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcBindingCreateW(template, ::core::mem::transmute(security.unwrap_or(::std::ptr::null())), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), binding)
+pub unsafe fn RpcBindingCreateW(template: *const RPC_BINDING_HANDLE_TEMPLATE_V1_W, security: Option<*const RPC_BINDING_HANDLE_SECURITY_V1_W>, options: Option<*const RPC_BINDING_HANDLE_OPTIONS_V1>, binding: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingCreateW(template : *const RPC_BINDING_HANDLE_TEMPLATE_V1_W, security : *const RPC_BINDING_HANDLE_SECURITY_V1_W, options : *const RPC_BINDING_HANDLE_OPTIONS_V1, binding : *mut *mut core::ffi::c_void) -> RPC_STATUS);
+    RpcBindingCreateW(template, core::mem::transmute(security.unwrap_or(std::ptr::null())), core::mem::transmute(options.unwrap_or(std::ptr::null())), binding)
 }
 #[inline]
-pub unsafe fn RpcBindingFree(binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingFree(binding : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcBindingFree(binding: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingFree(binding : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcBindingFree(binding)
 }
 #[inline]
-pub unsafe fn RpcBindingFromStringBindingA<P0>(stringbinding: P0, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn RpcBindingFromStringBindingA<P0>(stringbinding: P0, binding: *mut *mut core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingFromStringBindingA(stringbinding : ::windows_core::PCSTR, binding : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingFromStringBindingA(stringbinding : windows_core::PCSTR, binding : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcBindingFromStringBindingA(stringbinding.into_param().abi(), binding)
 }
 #[inline]
-pub unsafe fn RpcBindingFromStringBindingW<P0>(stringbinding: P0, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn RpcBindingFromStringBindingW<P0>(stringbinding: P0, binding: *mut *mut core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingFromStringBindingW(stringbinding : ::windows_core::PCWSTR, binding : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingFromStringBindingW(stringbinding : windows_core::PCWSTR, binding : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcBindingFromStringBindingW(stringbinding.into_param().abi(), binding)
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthClientA(clientbinding: ::core::option::Option<*const ::core::ffi::c_void>, privs: *mut *mut ::core::ffi::c_void, serverprincname: ::core::option::Option<*mut ::windows_core::PSTR>, authnlevel: ::core::option::Option<*mut u32>, authnsvc: ::core::option::Option<*mut u32>, authzsvc: ::core::option::Option<*mut u32>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthClientA(clientbinding : *const ::core::ffi::c_void, privs : *mut *mut ::core::ffi::c_void, serverprincname : *mut ::windows_core::PSTR, authnlevel : *mut u32, authnsvc : *mut u32, authzsvc : *mut u32) -> RPC_STATUS);
-    RpcBindingInqAuthClientA(::core::mem::transmute(clientbinding.unwrap_or(::std::ptr::null())), privs, ::core::mem::transmute(serverprincname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authnlevel.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authnsvc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authzsvc.unwrap_or(::std::ptr::null_mut())))
+pub unsafe fn RpcBindingInqAuthClientA(clientbinding: Option<*const core::ffi::c_void>, privs: *mut *mut core::ffi::c_void, serverprincname: Option<*mut windows_core::PSTR>, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authzsvc: Option<*mut u32>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthClientA(clientbinding : *const core::ffi::c_void, privs : *mut *mut core::ffi::c_void, serverprincname : *mut windows_core::PSTR, authnlevel : *mut u32, authnsvc : *mut u32, authzsvc : *mut u32) -> RPC_STATUS);
+    RpcBindingInqAuthClientA(core::mem::transmute(clientbinding.unwrap_or(std::ptr::null())), privs, core::mem::transmute(serverprincname.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authnlevel.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authnsvc.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authzsvc.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthClientExA(clientbinding: ::core::option::Option<*const ::core::ffi::c_void>, privs: *mut *mut ::core::ffi::c_void, serverprincname: ::core::option::Option<*mut ::windows_core::PSTR>, authnlevel: ::core::option::Option<*mut u32>, authnsvc: ::core::option::Option<*mut u32>, authzsvc: ::core::option::Option<*mut u32>, flags: u32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthClientExA(clientbinding : *const ::core::ffi::c_void, privs : *mut *mut ::core::ffi::c_void, serverprincname : *mut ::windows_core::PSTR, authnlevel : *mut u32, authnsvc : *mut u32, authzsvc : *mut u32, flags : u32) -> RPC_STATUS);
-    RpcBindingInqAuthClientExA(::core::mem::transmute(clientbinding.unwrap_or(::std::ptr::null())), privs, ::core::mem::transmute(serverprincname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authnlevel.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authnsvc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authzsvc.unwrap_or(::std::ptr::null_mut())), flags)
+pub unsafe fn RpcBindingInqAuthClientExA(clientbinding: Option<*const core::ffi::c_void>, privs: *mut *mut core::ffi::c_void, serverprincname: Option<*mut windows_core::PSTR>, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authzsvc: Option<*mut u32>, flags: u32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthClientExA(clientbinding : *const core::ffi::c_void, privs : *mut *mut core::ffi::c_void, serverprincname : *mut windows_core::PSTR, authnlevel : *mut u32, authnsvc : *mut u32, authzsvc : *mut u32, flags : u32) -> RPC_STATUS);
+    RpcBindingInqAuthClientExA(core::mem::transmute(clientbinding.unwrap_or(std::ptr::null())), privs, core::mem::transmute(serverprincname.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authnlevel.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authnsvc.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authzsvc.unwrap_or(std::ptr::null_mut())), flags)
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthClientExW(clientbinding: ::core::option::Option<*const ::core::ffi::c_void>, privs: *mut *mut ::core::ffi::c_void, serverprincname: ::core::option::Option<*mut ::windows_core::PWSTR>, authnlevel: ::core::option::Option<*mut u32>, authnsvc: ::core::option::Option<*mut u32>, authzsvc: ::core::option::Option<*mut u32>, flags: u32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthClientExW(clientbinding : *const ::core::ffi::c_void, privs : *mut *mut ::core::ffi::c_void, serverprincname : *mut ::windows_core::PWSTR, authnlevel : *mut u32, authnsvc : *mut u32, authzsvc : *mut u32, flags : u32) -> RPC_STATUS);
-    RpcBindingInqAuthClientExW(::core::mem::transmute(clientbinding.unwrap_or(::std::ptr::null())), privs, ::core::mem::transmute(serverprincname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authnlevel.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authnsvc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authzsvc.unwrap_or(::std::ptr::null_mut())), flags)
+pub unsafe fn RpcBindingInqAuthClientExW(clientbinding: Option<*const core::ffi::c_void>, privs: *mut *mut core::ffi::c_void, serverprincname: Option<*mut windows_core::PWSTR>, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authzsvc: Option<*mut u32>, flags: u32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthClientExW(clientbinding : *const core::ffi::c_void, privs : *mut *mut core::ffi::c_void, serverprincname : *mut windows_core::PWSTR, authnlevel : *mut u32, authnsvc : *mut u32, authzsvc : *mut u32, flags : u32) -> RPC_STATUS);
+    RpcBindingInqAuthClientExW(core::mem::transmute(clientbinding.unwrap_or(std::ptr::null())), privs, core::mem::transmute(serverprincname.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authnlevel.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authnsvc.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authzsvc.unwrap_or(std::ptr::null_mut())), flags)
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthClientW(clientbinding: ::core::option::Option<*const ::core::ffi::c_void>, privs: *mut *mut ::core::ffi::c_void, serverprincname: ::core::option::Option<*mut ::windows_core::PWSTR>, authnlevel: ::core::option::Option<*mut u32>, authnsvc: ::core::option::Option<*mut u32>, authzsvc: ::core::option::Option<*mut u32>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthClientW(clientbinding : *const ::core::ffi::c_void, privs : *mut *mut ::core::ffi::c_void, serverprincname : *mut ::windows_core::PWSTR, authnlevel : *mut u32, authnsvc : *mut u32, authzsvc : *mut u32) -> RPC_STATUS);
-    RpcBindingInqAuthClientW(::core::mem::transmute(clientbinding.unwrap_or(::std::ptr::null())), privs, ::core::mem::transmute(serverprincname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authnlevel.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authnsvc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authzsvc.unwrap_or(::std::ptr::null_mut())))
+pub unsafe fn RpcBindingInqAuthClientW(clientbinding: Option<*const core::ffi::c_void>, privs: *mut *mut core::ffi::c_void, serverprincname: Option<*mut windows_core::PWSTR>, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authzsvc: Option<*mut u32>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthClientW(clientbinding : *const core::ffi::c_void, privs : *mut *mut core::ffi::c_void, serverprincname : *mut windows_core::PWSTR, authnlevel : *mut u32, authnsvc : *mut u32, authzsvc : *mut u32) -> RPC_STATUS);
+    RpcBindingInqAuthClientW(core::mem::transmute(clientbinding.unwrap_or(std::ptr::null())), privs, core::mem::transmute(serverprincname.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authnlevel.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authnsvc.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authzsvc.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthInfoA(binding: *const ::core::ffi::c_void, serverprincname: ::core::option::Option<*mut ::windows_core::PSTR>, authnlevel: ::core::option::Option<*mut u32>, authnsvc: ::core::option::Option<*mut u32>, authidentity: ::core::option::Option<*mut *mut ::core::ffi::c_void>, authzsvc: ::core::option::Option<*mut u32>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthInfoA(binding : *const ::core::ffi::c_void, serverprincname : *mut ::windows_core::PSTR, authnlevel : *mut u32, authnsvc : *mut u32, authidentity : *mut *mut ::core::ffi::c_void, authzsvc : *mut u32) -> RPC_STATUS);
-    RpcBindingInqAuthInfoA(binding, ::core::mem::transmute(serverprincname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authnlevel.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authnsvc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authzsvc.unwrap_or(::std::ptr::null_mut())))
-}
-#[cfg(feature = "Win32_System_Com")]
-#[inline]
-pub unsafe fn RpcBindingInqAuthInfoExA(binding: *const ::core::ffi::c_void, serverprincname: ::core::option::Option<*mut ::windows_core::PSTR>, authnlevel: ::core::option::Option<*mut u32>, authnsvc: ::core::option::Option<*mut u32>, authidentity: ::core::option::Option<*mut *mut ::core::ffi::c_void>, authzsvc: ::core::option::Option<*mut u32>, rpcqosversion: u32, securityqos: ::core::option::Option<*mut RPC_SECURITY_QOS>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthInfoExA(binding : *const ::core::ffi::c_void, serverprincname : *mut ::windows_core::PSTR, authnlevel : *mut u32, authnsvc : *mut u32, authidentity : *mut *mut ::core::ffi::c_void, authzsvc : *mut u32, rpcqosversion : u32, securityqos : *mut RPC_SECURITY_QOS) -> RPC_STATUS);
-    RpcBindingInqAuthInfoExA(binding, ::core::mem::transmute(serverprincname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authnlevel.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authnsvc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authzsvc.unwrap_or(::std::ptr::null_mut())), rpcqosversion, ::core::mem::transmute(securityqos.unwrap_or(::std::ptr::null_mut())))
+pub unsafe fn RpcBindingInqAuthInfoA(binding: *const core::ffi::c_void, serverprincname: Option<*mut windows_core::PSTR>, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authidentity: Option<*mut *mut core::ffi::c_void>, authzsvc: Option<*mut u32>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthInfoA(binding : *const core::ffi::c_void, serverprincname : *mut windows_core::PSTR, authnlevel : *mut u32, authnsvc : *mut u32, authidentity : *mut *mut core::ffi::c_void, authzsvc : *mut u32) -> RPC_STATUS);
+    RpcBindingInqAuthInfoA(binding, core::mem::transmute(serverprincname.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authnlevel.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authnsvc.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authidentity.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authzsvc.unwrap_or(std::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn RpcBindingInqAuthInfoExW(binding: *const ::core::ffi::c_void, serverprincname: ::core::option::Option<*mut ::windows_core::PWSTR>, authnlevel: ::core::option::Option<*mut u32>, authnsvc: ::core::option::Option<*mut u32>, authidentity: ::core::option::Option<*mut *mut ::core::ffi::c_void>, authzsvc: ::core::option::Option<*mut u32>, rpcqosversion: u32, securityqos: ::core::option::Option<*mut RPC_SECURITY_QOS>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthInfoExW(binding : *const ::core::ffi::c_void, serverprincname : *mut ::windows_core::PWSTR, authnlevel : *mut u32, authnsvc : *mut u32, authidentity : *mut *mut ::core::ffi::c_void, authzsvc : *mut u32, rpcqosversion : u32, securityqos : *mut RPC_SECURITY_QOS) -> RPC_STATUS);
-    RpcBindingInqAuthInfoExW(binding, ::core::mem::transmute(serverprincname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authnlevel.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authnsvc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authzsvc.unwrap_or(::std::ptr::null_mut())), rpcqosversion, ::core::mem::transmute(securityqos.unwrap_or(::std::ptr::null_mut())))
+pub unsafe fn RpcBindingInqAuthInfoExA(binding: *const core::ffi::c_void, serverprincname: Option<*mut windows_core::PSTR>, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authidentity: Option<*mut *mut core::ffi::c_void>, authzsvc: Option<*mut u32>, rpcqosversion: u32, securityqos: Option<*mut RPC_SECURITY_QOS>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthInfoExA(binding : *const core::ffi::c_void, serverprincname : *mut windows_core::PSTR, authnlevel : *mut u32, authnsvc : *mut u32, authidentity : *mut *mut core::ffi::c_void, authzsvc : *mut u32, rpcqosversion : u32, securityqos : *mut RPC_SECURITY_QOS) -> RPC_STATUS);
+    RpcBindingInqAuthInfoExA(binding, core::mem::transmute(serverprincname.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authnlevel.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authnsvc.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authidentity.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authzsvc.unwrap_or(std::ptr::null_mut())), rpcqosversion, core::mem::transmute(securityqos.unwrap_or(std::ptr::null_mut())))
+}
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
+pub unsafe fn RpcBindingInqAuthInfoExW(binding: *const core::ffi::c_void, serverprincname: Option<*mut windows_core::PWSTR>, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authidentity: Option<*mut *mut core::ffi::c_void>, authzsvc: Option<*mut u32>, rpcqosversion: u32, securityqos: Option<*mut RPC_SECURITY_QOS>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthInfoExW(binding : *const core::ffi::c_void, serverprincname : *mut windows_core::PWSTR, authnlevel : *mut u32, authnsvc : *mut u32, authidentity : *mut *mut core::ffi::c_void, authzsvc : *mut u32, rpcqosversion : u32, securityqos : *mut RPC_SECURITY_QOS) -> RPC_STATUS);
+    RpcBindingInqAuthInfoExW(binding, core::mem::transmute(serverprincname.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authnlevel.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authnsvc.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authidentity.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authzsvc.unwrap_or(std::ptr::null_mut())), rpcqosversion, core::mem::transmute(securityqos.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthInfoW(binding: *const ::core::ffi::c_void, serverprincname: ::core::option::Option<*mut ::windows_core::PWSTR>, authnlevel: ::core::option::Option<*mut u32>, authnsvc: ::core::option::Option<*mut u32>, authidentity: ::core::option::Option<*mut *mut ::core::ffi::c_void>, authzsvc: ::core::option::Option<*mut u32>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthInfoW(binding : *const ::core::ffi::c_void, serverprincname : *mut ::windows_core::PWSTR, authnlevel : *mut u32, authnsvc : *mut u32, authidentity : *mut *mut ::core::ffi::c_void, authzsvc : *mut u32) -> RPC_STATUS);
-    RpcBindingInqAuthInfoW(binding, ::core::mem::transmute(serverprincname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authnlevel.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authnsvc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(authzsvc.unwrap_or(::std::ptr::null_mut())))
+pub unsafe fn RpcBindingInqAuthInfoW(binding: *const core::ffi::c_void, serverprincname: Option<*mut windows_core::PWSTR>, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authidentity: Option<*mut *mut core::ffi::c_void>, authzsvc: Option<*mut u32>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthInfoW(binding : *const core::ffi::c_void, serverprincname : *mut windows_core::PWSTR, authnlevel : *mut u32, authnsvc : *mut u32, authidentity : *mut *mut core::ffi::c_void, authzsvc : *mut u32) -> RPC_STATUS);
+    RpcBindingInqAuthInfoW(binding, core::mem::transmute(serverprincname.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authnlevel.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authnsvc.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authidentity.unwrap_or(std::ptr::null_mut())), core::mem::transmute(authzsvc.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn RpcBindingInqMaxCalls(binding: *const ::core::ffi::c_void, maxcalls: *mut u32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqMaxCalls(binding : *const ::core::ffi::c_void, maxcalls : *mut u32) -> RPC_STATUS);
+pub unsafe fn RpcBindingInqMaxCalls(binding: *const core::ffi::c_void, maxcalls: *mut u32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqMaxCalls(binding : *const core::ffi::c_void, maxcalls : *mut u32) -> RPC_STATUS);
     RpcBindingInqMaxCalls(binding, maxcalls)
 }
 #[inline]
-pub unsafe fn RpcBindingInqObject(binding: *const ::core::ffi::c_void, objectuuid: *mut ::windows_core::GUID) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqObject(binding : *const ::core::ffi::c_void, objectuuid : *mut ::windows_core::GUID) -> RPC_STATUS);
+pub unsafe fn RpcBindingInqObject(binding: *const core::ffi::c_void, objectuuid: *mut windows_core::GUID) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqObject(binding : *const core::ffi::c_void, objectuuid : *mut windows_core::GUID) -> RPC_STATUS);
     RpcBindingInqObject(binding, objectuuid)
 }
 #[inline]
-pub unsafe fn RpcBindingInqOption(hbinding: *const ::core::ffi::c_void, option: u32, poptionvalue: *mut usize) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqOption(hbinding : *const ::core::ffi::c_void, option : u32, poptionvalue : *mut usize) -> RPC_STATUS);
+pub unsafe fn RpcBindingInqOption(hbinding: *const core::ffi::c_void, option: u32, poptionvalue: *mut usize) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingInqOption(hbinding : *const core::ffi::c_void, option : u32, poptionvalue : *mut usize) -> RPC_STATUS);
     RpcBindingInqOption(hbinding, option, poptionvalue)
 }
 #[inline]
-pub unsafe fn RpcBindingReset(binding: *const ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingReset(binding : *const ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcBindingReset(binding: *const core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingReset(binding : *const core::ffi::c_void) -> RPC_STATUS);
     RpcBindingReset(binding)
 }
 #[inline]
-pub unsafe fn RpcBindingServerFromClient(clientbinding: ::core::option::Option<*const ::core::ffi::c_void>, serverbinding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingServerFromClient(clientbinding : *const ::core::ffi::c_void, serverbinding : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcBindingServerFromClient(::core::mem::transmute(clientbinding.unwrap_or(::std::ptr::null())), serverbinding)
+pub unsafe fn RpcBindingServerFromClient(clientbinding: Option<*const core::ffi::c_void>, serverbinding: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingServerFromClient(clientbinding : *const core::ffi::c_void, serverbinding : *mut *mut core::ffi::c_void) -> RPC_STATUS);
+    RpcBindingServerFromClient(core::mem::transmute(clientbinding.unwrap_or(std::ptr::null())), serverbinding)
 }
 #[inline]
-pub unsafe fn RpcBindingSetAuthInfoA<P0>(binding: *const ::core::ffi::c_void, serverprincname: P0, authnlevel: u32, authnsvc: u32, authidentity: ::core::option::Option<*const ::core::ffi::c_void>, authzsvc: u32) -> RPC_STATUS
+pub unsafe fn RpcBindingSetAuthInfoA<P0>(binding: *const core::ffi::c_void, serverprincname: P0, authnlevel: u32, authnsvc: u32, authidentity: Option<*const core::ffi::c_void>, authzsvc: u32) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingSetAuthInfoA(binding : *const ::core::ffi::c_void, serverprincname : ::windows_core::PCSTR, authnlevel : u32, authnsvc : u32, authidentity : *const ::core::ffi::c_void, authzsvc : u32) -> RPC_STATUS);
-    RpcBindingSetAuthInfoA(binding, serverprincname.into_param().abi(), authnlevel, authnsvc, ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), authzsvc)
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingSetAuthInfoA(binding : *const core::ffi::c_void, serverprincname : windows_core::PCSTR, authnlevel : u32, authnsvc : u32, authidentity : *const core::ffi::c_void, authzsvc : u32) -> RPC_STATUS);
+    RpcBindingSetAuthInfoA(binding, serverprincname.into_param().abi(), authnlevel, authnsvc, core::mem::transmute(authidentity.unwrap_or(std::ptr::null())), authzsvc)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn RpcBindingSetAuthInfoExA<P0>(binding: *const ::core::ffi::c_void, serverprincname: P0, authnlevel: u32, authnsvc: u32, authidentity: ::core::option::Option<*const ::core::ffi::c_void>, authzsvc: u32, securityqos: ::core::option::Option<*const RPC_SECURITY_QOS>) -> RPC_STATUS
+pub unsafe fn RpcBindingSetAuthInfoExA<P0>(binding: *const core::ffi::c_void, serverprincname: P0, authnlevel: u32, authnsvc: u32, authidentity: Option<*const core::ffi::c_void>, authzsvc: u32, securityqos: Option<*const RPC_SECURITY_QOS>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingSetAuthInfoExA(binding : *const ::core::ffi::c_void, serverprincname : ::windows_core::PCSTR, authnlevel : u32, authnsvc : u32, authidentity : *const ::core::ffi::c_void, authzsvc : u32, securityqos : *const RPC_SECURITY_QOS) -> RPC_STATUS);
-    RpcBindingSetAuthInfoExA(binding, serverprincname.into_param().abi(), authnlevel, authnsvc, ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), authzsvc, ::core::mem::transmute(securityqos.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingSetAuthInfoExA(binding : *const core::ffi::c_void, serverprincname : windows_core::PCSTR, authnlevel : u32, authnsvc : u32, authidentity : *const core::ffi::c_void, authzsvc : u32, securityqos : *const RPC_SECURITY_QOS) -> RPC_STATUS);
+    RpcBindingSetAuthInfoExA(binding, serverprincname.into_param().abi(), authnlevel, authnsvc, core::mem::transmute(authidentity.unwrap_or(std::ptr::null())), authzsvc, core::mem::transmute(securityqos.unwrap_or(std::ptr::null())))
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn RpcBindingSetAuthInfoExW<P0>(binding: *const ::core::ffi::c_void, serverprincname: P0, authnlevel: u32, authnsvc: u32, authidentity: ::core::option::Option<*const ::core::ffi::c_void>, authzsvc: u32, securityqos: ::core::option::Option<*const RPC_SECURITY_QOS>) -> RPC_STATUS
+pub unsafe fn RpcBindingSetAuthInfoExW<P0>(binding: *const core::ffi::c_void, serverprincname: P0, authnlevel: u32, authnsvc: u32, authidentity: Option<*const core::ffi::c_void>, authzsvc: u32, securityqos: Option<*const RPC_SECURITY_QOS>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingSetAuthInfoExW(binding : *const ::core::ffi::c_void, serverprincname : ::windows_core::PCWSTR, authnlevel : u32, authnsvc : u32, authidentity : *const ::core::ffi::c_void, authzsvc : u32, securityqos : *const RPC_SECURITY_QOS) -> RPC_STATUS);
-    RpcBindingSetAuthInfoExW(binding, serverprincname.into_param().abi(), authnlevel, authnsvc, ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), authzsvc, ::core::mem::transmute(securityqos.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingSetAuthInfoExW(binding : *const core::ffi::c_void, serverprincname : windows_core::PCWSTR, authnlevel : u32, authnsvc : u32, authidentity : *const core::ffi::c_void, authzsvc : u32, securityqos : *const RPC_SECURITY_QOS) -> RPC_STATUS);
+    RpcBindingSetAuthInfoExW(binding, serverprincname.into_param().abi(), authnlevel, authnsvc, core::mem::transmute(authidentity.unwrap_or(std::ptr::null())), authzsvc, core::mem::transmute(securityqos.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcBindingSetAuthInfoW<P0>(binding: *const ::core::ffi::c_void, serverprincname: P0, authnlevel: u32, authnsvc: u32, authidentity: ::core::option::Option<*const ::core::ffi::c_void>, authzsvc: u32) -> RPC_STATUS
+pub unsafe fn RpcBindingSetAuthInfoW<P0>(binding: *const core::ffi::c_void, serverprincname: P0, authnlevel: u32, authnsvc: u32, authidentity: Option<*const core::ffi::c_void>, authzsvc: u32) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingSetAuthInfoW(binding : *const ::core::ffi::c_void, serverprincname : ::windows_core::PCWSTR, authnlevel : u32, authnsvc : u32, authidentity : *const ::core::ffi::c_void, authzsvc : u32) -> RPC_STATUS);
-    RpcBindingSetAuthInfoW(binding, serverprincname.into_param().abi(), authnlevel, authnsvc, ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), authzsvc)
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingSetAuthInfoW(binding : *const core::ffi::c_void, serverprincname : windows_core::PCWSTR, authnlevel : u32, authnsvc : u32, authidentity : *const core::ffi::c_void, authzsvc : u32) -> RPC_STATUS);
+    RpcBindingSetAuthInfoW(binding, serverprincname.into_param().abi(), authnlevel, authnsvc, core::mem::transmute(authidentity.unwrap_or(std::ptr::null())), authzsvc)
 }
 #[inline]
-pub unsafe fn RpcBindingSetObject(binding: *const ::core::ffi::c_void, objectuuid: *const ::windows_core::GUID) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingSetObject(binding : *const ::core::ffi::c_void, objectuuid : *const ::windows_core::GUID) -> RPC_STATUS);
+pub unsafe fn RpcBindingSetObject(binding: *const core::ffi::c_void, objectuuid: *const windows_core::GUID) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingSetObject(binding : *const core::ffi::c_void, objectuuid : *const windows_core::GUID) -> RPC_STATUS);
     RpcBindingSetObject(binding, objectuuid)
 }
 #[inline]
-pub unsafe fn RpcBindingSetOption(hbinding: *const ::core::ffi::c_void, option: u32, optionvalue: usize) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingSetOption(hbinding : *const ::core::ffi::c_void, option : u32, optionvalue : usize) -> RPC_STATUS);
+pub unsafe fn RpcBindingSetOption(hbinding: *const core::ffi::c_void, option: u32, optionvalue: usize) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingSetOption(hbinding : *const core::ffi::c_void, option : u32, optionvalue : usize) -> RPC_STATUS);
     RpcBindingSetOption(hbinding, option, optionvalue)
 }
 #[inline]
-pub unsafe fn RpcBindingToStringBindingA(binding: *const ::core::ffi::c_void, stringbinding: *mut ::windows_core::PSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingToStringBindingA(binding : *const ::core::ffi::c_void, stringbinding : *mut ::windows_core::PSTR) -> RPC_STATUS);
+pub unsafe fn RpcBindingToStringBindingA(binding: *const core::ffi::c_void, stringbinding: *mut windows_core::PSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingToStringBindingA(binding : *const core::ffi::c_void, stringbinding : *mut windows_core::PSTR) -> RPC_STATUS);
     RpcBindingToStringBindingA(binding, stringbinding)
 }
 #[inline]
-pub unsafe fn RpcBindingToStringBindingW(binding: *const ::core::ffi::c_void, stringbinding: *mut ::windows_core::PWSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingToStringBindingW(binding : *const ::core::ffi::c_void, stringbinding : *mut ::windows_core::PWSTR) -> RPC_STATUS);
+pub unsafe fn RpcBindingToStringBindingW(binding: *const core::ffi::c_void, stringbinding: *mut windows_core::PWSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingToStringBindingW(binding : *const core::ffi::c_void, stringbinding : *mut windows_core::PWSTR) -> RPC_STATUS);
     RpcBindingToStringBindingW(binding, stringbinding)
 }
 #[inline]
-pub unsafe fn RpcBindingUnbind(binding: *const ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingUnbind(binding : *const ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcBindingUnbind(binding: *const core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcBindingUnbind(binding : *const core::ffi::c_void) -> RPC_STATUS);
     RpcBindingUnbind(binding)
 }
 #[inline]
@@ -1762,68 +1762,68 @@ pub unsafe fn RpcBindingVectorFree(bindingvector: *mut *mut RPC_BINDING_VECTOR) 
     RpcBindingVectorFree(bindingvector)
 }
 #[inline]
-pub unsafe fn RpcCancelThread(thread: *const ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcCancelThread(thread : *const ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcCancelThread(thread: *const core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcCancelThread(thread : *const core::ffi::c_void) -> RPC_STATUS);
     RpcCancelThread(thread)
 }
 #[inline]
-pub unsafe fn RpcCancelThreadEx(thread: *const ::core::ffi::c_void, timeout: i32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcCancelThreadEx(thread : *const ::core::ffi::c_void, timeout : i32) -> RPC_STATUS);
+pub unsafe fn RpcCancelThreadEx(thread: *const core::ffi::c_void, timeout: i32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcCancelThreadEx(thread : *const core::ffi::c_void, timeout : i32) -> RPC_STATUS);
     RpcCancelThreadEx(thread, timeout)
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
-pub unsafe fn RpcCertGeneratePrincipalNameA(context: *const super::super::Security::Cryptography::CERT_CONTEXT, flags: u32, pbuffer: *mut ::windows_core::PSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcCertGeneratePrincipalNameA(context : *const super::super::Security::Cryptography:: CERT_CONTEXT, flags : u32, pbuffer : *mut ::windows_core::PSTR) -> RPC_STATUS);
+pub unsafe fn RpcCertGeneratePrincipalNameA(context: *const super::super::Security::Cryptography::CERT_CONTEXT, flags: u32, pbuffer: *mut windows_core::PSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcCertGeneratePrincipalNameA(context : *const super::super::Security::Cryptography:: CERT_CONTEXT, flags : u32, pbuffer : *mut windows_core::PSTR) -> RPC_STATUS);
     RpcCertGeneratePrincipalNameA(context, flags, pbuffer)
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
-pub unsafe fn RpcCertGeneratePrincipalNameW(context: *const super::super::Security::Cryptography::CERT_CONTEXT, flags: u32, pbuffer: *mut ::windows_core::PWSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcCertGeneratePrincipalNameW(context : *const super::super::Security::Cryptography:: CERT_CONTEXT, flags : u32, pbuffer : *mut ::windows_core::PWSTR) -> RPC_STATUS);
+pub unsafe fn RpcCertGeneratePrincipalNameW(context: *const super::super::Security::Cryptography::CERT_CONTEXT, flags: u32, pbuffer: *mut windows_core::PWSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcCertGeneratePrincipalNameW(context : *const super::super::Security::Cryptography:: CERT_CONTEXT, flags : u32, pbuffer : *mut windows_core::PWSTR) -> RPC_STATUS);
     RpcCertGeneratePrincipalNameW(context, flags, pbuffer)
 }
 #[inline]
-pub unsafe fn RpcEpRegisterA<P0>(ifspec: *const ::core::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: ::core::option::Option<*const UUID_VECTOR>, annotation: P0) -> RPC_STATUS
+pub unsafe fn RpcEpRegisterA<P0>(ifspec: *const core::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: Option<*const UUID_VECTOR>, annotation: P0) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcEpRegisterA(ifspec : *const ::core::ffi::c_void, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : ::windows_core::PCSTR) -> RPC_STATUS);
-    RpcEpRegisterA(ifspec, bindingvector, ::core::mem::transmute(uuidvector.unwrap_or(::std::ptr::null())), annotation.into_param().abi())
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcEpRegisterA(ifspec : *const core::ffi::c_void, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : windows_core::PCSTR) -> RPC_STATUS);
+    RpcEpRegisterA(ifspec, bindingvector, core::mem::transmute(uuidvector.unwrap_or(std::ptr::null())), annotation.into_param().abi())
 }
 #[inline]
-pub unsafe fn RpcEpRegisterNoReplaceA<P0>(ifspec: *const ::core::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: ::core::option::Option<*const UUID_VECTOR>, annotation: P0) -> RPC_STATUS
+pub unsafe fn RpcEpRegisterNoReplaceA<P0>(ifspec: *const core::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: Option<*const UUID_VECTOR>, annotation: P0) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcEpRegisterNoReplaceA(ifspec : *const ::core::ffi::c_void, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : ::windows_core::PCSTR) -> RPC_STATUS);
-    RpcEpRegisterNoReplaceA(ifspec, bindingvector, ::core::mem::transmute(uuidvector.unwrap_or(::std::ptr::null())), annotation.into_param().abi())
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcEpRegisterNoReplaceA(ifspec : *const core::ffi::c_void, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : windows_core::PCSTR) -> RPC_STATUS);
+    RpcEpRegisterNoReplaceA(ifspec, bindingvector, core::mem::transmute(uuidvector.unwrap_or(std::ptr::null())), annotation.into_param().abi())
 }
 #[inline]
-pub unsafe fn RpcEpRegisterNoReplaceW<P0>(ifspec: *const ::core::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: ::core::option::Option<*const UUID_VECTOR>, annotation: P0) -> RPC_STATUS
+pub unsafe fn RpcEpRegisterNoReplaceW<P0>(ifspec: *const core::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: Option<*const UUID_VECTOR>, annotation: P0) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcEpRegisterNoReplaceW(ifspec : *const ::core::ffi::c_void, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : ::windows_core::PCWSTR) -> RPC_STATUS);
-    RpcEpRegisterNoReplaceW(ifspec, bindingvector, ::core::mem::transmute(uuidvector.unwrap_or(::std::ptr::null())), annotation.into_param().abi())
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcEpRegisterNoReplaceW(ifspec : *const core::ffi::c_void, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : windows_core::PCWSTR) -> RPC_STATUS);
+    RpcEpRegisterNoReplaceW(ifspec, bindingvector, core::mem::transmute(uuidvector.unwrap_or(std::ptr::null())), annotation.into_param().abi())
 }
 #[inline]
-pub unsafe fn RpcEpRegisterW<P0>(ifspec: *const ::core::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: ::core::option::Option<*const UUID_VECTOR>, annotation: P0) -> RPC_STATUS
+pub unsafe fn RpcEpRegisterW<P0>(ifspec: *const core::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: Option<*const UUID_VECTOR>, annotation: P0) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcEpRegisterW(ifspec : *const ::core::ffi::c_void, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : ::windows_core::PCWSTR) -> RPC_STATUS);
-    RpcEpRegisterW(ifspec, bindingvector, ::core::mem::transmute(uuidvector.unwrap_or(::std::ptr::null())), annotation.into_param().abi())
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcEpRegisterW(ifspec : *const core::ffi::c_void, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR, annotation : windows_core::PCWSTR) -> RPC_STATUS);
+    RpcEpRegisterW(ifspec, bindingvector, core::mem::transmute(uuidvector.unwrap_or(std::ptr::null())), annotation.into_param().abi())
 }
 #[inline]
-pub unsafe fn RpcEpResolveBinding(binding: *const ::core::ffi::c_void, ifspec: *const ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcEpResolveBinding(binding : *const ::core::ffi::c_void, ifspec : *const ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcEpResolveBinding(binding: *const core::ffi::c_void, ifspec: *const core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcEpResolveBinding(binding : *const core::ffi::c_void, ifspec : *const core::ffi::c_void) -> RPC_STATUS);
     RpcEpResolveBinding(binding, ifspec)
 }
 #[inline]
-pub unsafe fn RpcEpUnregister(ifspec: *const ::core::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: ::core::option::Option<*const UUID_VECTOR>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcEpUnregister(ifspec : *const ::core::ffi::c_void, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR) -> RPC_STATUS);
-    RpcEpUnregister(ifspec, bindingvector, ::core::mem::transmute(uuidvector.unwrap_or(::std::ptr::null())))
+pub unsafe fn RpcEpUnregister(ifspec: *const core::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: Option<*const UUID_VECTOR>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcEpUnregister(ifspec : *const core::ffi::c_void, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR) -> RPC_STATUS);
+    RpcEpUnregister(ifspec, bindingvector, core::mem::transmute(uuidvector.unwrap_or(std::ptr::null())))
 }
 #[inline]
 pub unsafe fn RpcErrorAddRecord(errorinfo: *const RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS {
@@ -1843,7 +1843,7 @@ pub unsafe fn RpcErrorEndEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> 
 #[inline]
 pub unsafe fn RpcErrorGetNextRecord<P0>(enumhandle: *const RPC_ERROR_ENUM_HANDLE, copystrings: P0, errorinfo: *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorGetNextRecord(enumhandle : *const RPC_ERROR_ENUM_HANDLE, copystrings : super::super::Foundation:: BOOL, errorinfo : *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS);
     RpcErrorGetNextRecord(enumhandle, copystrings.into_param().abi(), errorinfo)
@@ -1854,8 +1854,8 @@ pub unsafe fn RpcErrorGetNumberOfRecords(enumhandle: *const RPC_ERROR_ENUM_HANDL
     RpcErrorGetNumberOfRecords(enumhandle, records)
 }
 #[inline]
-pub unsafe fn RpcErrorLoadErrorInfo(errorblob: *const ::core::ffi::c_void, blobsize: usize, enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorLoadErrorInfo(errorblob : *const ::core::ffi::c_void, blobsize : usize, enumhandle : *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS);
+pub unsafe fn RpcErrorLoadErrorInfo(errorblob: *const core::ffi::c_void, blobsize: usize, enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorLoadErrorInfo(errorblob : *const core::ffi::c_void, blobsize : usize, enumhandle : *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS);
     RpcErrorLoadErrorInfo(errorblob, blobsize, enumhandle)
 }
 #[inline]
@@ -1864,8 +1864,8 @@ pub unsafe fn RpcErrorResetEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -
     RpcErrorResetEnumeration(enumhandle)
 }
 #[inline]
-pub unsafe fn RpcErrorSaveErrorInfo(enumhandle: *const RPC_ERROR_ENUM_HANDLE, errorblob: *mut *mut ::core::ffi::c_void, blobsize: *mut usize) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorSaveErrorInfo(enumhandle : *const RPC_ERROR_ENUM_HANDLE, errorblob : *mut *mut ::core::ffi::c_void, blobsize : *mut usize) -> RPC_STATUS);
+pub unsafe fn RpcErrorSaveErrorInfo(enumhandle: *const RPC_ERROR_ENUM_HANDLE, errorblob: *mut *mut core::ffi::c_void, blobsize: *mut usize) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcErrorSaveErrorInfo(enumhandle : *const RPC_ERROR_ENUM_HANDLE, errorblob : *mut *mut core::ffi::c_void, blobsize : *mut usize) -> RPC_STATUS);
     RpcErrorSaveErrorInfo(enumhandle, errorblob, blobsize)
 }
 #[inline]
@@ -1879,17 +1879,17 @@ pub unsafe fn RpcExceptionFilter(exceptioncode: u32) -> i32 {
     RpcExceptionFilter(exceptioncode)
 }
 #[inline]
-pub unsafe fn RpcFreeAuthorizationContext(pauthzclientcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcFreeAuthorizationContext(pauthzclientcontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcFreeAuthorizationContext(pauthzclientcontext: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcFreeAuthorizationContext(pauthzclientcontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcFreeAuthorizationContext(pauthzclientcontext)
 }
 #[inline]
-pub unsafe fn RpcGetAuthorizationContextForClient<P0>(clientbinding: ::core::option::Option<*const ::core::ffi::c_void>, impersonateonreturn: P0, reserved1: ::core::option::Option<*const ::core::ffi::c_void>, pexpirationtime: ::core::option::Option<*const i64>, reserved2: super::super::Foundation::LUID, reserved3: u32, reserved4: ::core::option::Option<*const ::core::ffi::c_void>, pauthzclientcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn RpcGetAuthorizationContextForClient<P0>(clientbinding: Option<*const core::ffi::c_void>, impersonateonreturn: P0, reserved1: Option<*const core::ffi::c_void>, pexpirationtime: Option<*const i64>, reserved2: super::super::Foundation::LUID, reserved3: u32, reserved4: Option<*const core::ffi::c_void>, pauthzclientcontext: *mut *mut core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcGetAuthorizationContextForClient(clientbinding : *const ::core::ffi::c_void, impersonateonreturn : super::super::Foundation:: BOOL, reserved1 : *const ::core::ffi::c_void, pexpirationtime : *const i64, reserved2 : super::super::Foundation:: LUID, reserved3 : u32, reserved4 : *const ::core::ffi::c_void, pauthzclientcontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcGetAuthorizationContextForClient(::core::mem::transmute(clientbinding.unwrap_or(::std::ptr::null())), impersonateonreturn.into_param().abi(), ::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pexpirationtime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(reserved2), reserved3, ::core::mem::transmute(reserved4.unwrap_or(::std::ptr::null())), pauthzclientcontext)
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcGetAuthorizationContextForClient(clientbinding : *const core::ffi::c_void, impersonateonreturn : super::super::Foundation:: BOOL, reserved1 : *const core::ffi::c_void, pexpirationtime : *const i64, reserved2 : super::super::Foundation:: LUID, reserved3 : u32, reserved4 : *const core::ffi::c_void, pauthzclientcontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
+    RpcGetAuthorizationContextForClient(core::mem::transmute(clientbinding.unwrap_or(std::ptr::null())), impersonateonreturn.into_param().abi(), core::mem::transmute(reserved1.unwrap_or(std::ptr::null())), core::mem::transmute(pexpirationtime.unwrap_or(std::ptr::null())), core::mem::transmute(reserved2), reserved3, core::mem::transmute(reserved4.unwrap_or(std::ptr::null())), pauthzclientcontext)
 }
 #[inline]
 pub unsafe fn RpcIfIdVectorFree(ifidvector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS {
@@ -1897,24 +1897,24 @@ pub unsafe fn RpcIfIdVectorFree(ifidvector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_S
     RpcIfIdVectorFree(ifidvector)
 }
 #[inline]
-pub unsafe fn RpcIfInqId(rpcifhandle: *const ::core::ffi::c_void, rpcifid: *mut RPC_IF_ID) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcIfInqId(rpcifhandle : *const ::core::ffi::c_void, rpcifid : *mut RPC_IF_ID) -> RPC_STATUS);
+pub unsafe fn RpcIfInqId(rpcifhandle: *const core::ffi::c_void, rpcifid: *mut RPC_IF_ID) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcIfInqId(rpcifhandle : *const core::ffi::c_void, rpcifid : *mut RPC_IF_ID) -> RPC_STATUS);
     RpcIfInqId(rpcifhandle, rpcifid)
 }
 #[inline]
-pub unsafe fn RpcImpersonateClient(bindinghandle: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcImpersonateClient(bindinghandle : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcImpersonateClient(::core::mem::transmute(bindinghandle.unwrap_or(::std::ptr::null())))
+pub unsafe fn RpcImpersonateClient(bindinghandle: Option<*const core::ffi::c_void>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcImpersonateClient(bindinghandle : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcImpersonateClient(core::mem::transmute(bindinghandle.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcImpersonateClient2(bindinghandle: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcImpersonateClient2(bindinghandle : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcImpersonateClient2(::core::mem::transmute(bindinghandle.unwrap_or(::std::ptr::null())))
+pub unsafe fn RpcImpersonateClient2(bindinghandle: Option<*const core::ffi::c_void>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcImpersonateClient2(bindinghandle : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcImpersonateClient2(core::mem::transmute(bindinghandle.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcImpersonateClientContainer(bindinghandle: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcImpersonateClientContainer(bindinghandle : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcImpersonateClientContainer(::core::mem::transmute(bindinghandle.unwrap_or(::std::ptr::null())))
+pub unsafe fn RpcImpersonateClientContainer(bindinghandle: Option<*const core::ffi::c_void>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcImpersonateClientContainer(bindinghandle : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcImpersonateClientContainer(core::mem::transmute(bindinghandle.unwrap_or(std::ptr::null())))
 }
 #[inline]
 pub unsafe fn RpcMgmtEnableIdleCleanup() -> RPC_STATUS {
@@ -1922,33 +1922,33 @@ pub unsafe fn RpcMgmtEnableIdleCleanup() -> RPC_STATUS {
     RpcMgmtEnableIdleCleanup()
 }
 #[inline]
-pub unsafe fn RpcMgmtEpEltInqBegin(epbinding: ::core::option::Option<*const ::core::ffi::c_void>, inquirytype: u32, ifid: ::core::option::Option<*const RPC_IF_ID>, versoption: u32, objectuuid: ::core::option::Option<*const ::windows_core::GUID>, inquirycontext: *mut *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqBegin(epbinding : *const ::core::ffi::c_void, inquirytype : u32, ifid : *const RPC_IF_ID, versoption : u32, objectuuid : *const ::windows_core::GUID, inquirycontext : *mut *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcMgmtEpEltInqBegin(::core::mem::transmute(epbinding.unwrap_or(::std::ptr::null())), inquirytype, ::core::mem::transmute(ifid.unwrap_or(::std::ptr::null())), versoption, ::core::mem::transmute(objectuuid.unwrap_or(::std::ptr::null())), inquirycontext)
+pub unsafe fn RpcMgmtEpEltInqBegin(epbinding: Option<*const core::ffi::c_void>, inquirytype: u32, ifid: Option<*const RPC_IF_ID>, versoption: u32, objectuuid: Option<*const windows_core::GUID>, inquirycontext: *mut *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqBegin(epbinding : *const core::ffi::c_void, inquirytype : u32, ifid : *const RPC_IF_ID, versoption : u32, objectuuid : *const windows_core::GUID, inquirycontext : *mut *mut *mut core::ffi::c_void) -> RPC_STATUS);
+    RpcMgmtEpEltInqBegin(core::mem::transmute(epbinding.unwrap_or(std::ptr::null())), inquirytype, core::mem::transmute(ifid.unwrap_or(std::ptr::null())), versoption, core::mem::transmute(objectuuid.unwrap_or(std::ptr::null())), inquirycontext)
 }
 #[inline]
-pub unsafe fn RpcMgmtEpEltInqDone(inquirycontext: *mut *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqDone(inquirycontext : *mut *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcMgmtEpEltInqDone(inquirycontext: *mut *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqDone(inquirycontext : *mut *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcMgmtEpEltInqDone(inquirycontext)
 }
 #[inline]
-pub unsafe fn RpcMgmtEpEltInqNextA(inquirycontext: *const *const ::core::ffi::c_void, ifid: *mut RPC_IF_ID, binding: ::core::option::Option<*mut *mut ::core::ffi::c_void>, objectuuid: ::core::option::Option<*mut ::windows_core::GUID>, annotation: ::core::option::Option<*mut ::windows_core::PSTR>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqNextA(inquirycontext : *const *const ::core::ffi::c_void, ifid : *mut RPC_IF_ID, binding : *mut *mut ::core::ffi::c_void, objectuuid : *mut ::windows_core::GUID, annotation : *mut ::windows_core::PSTR) -> RPC_STATUS);
-    RpcMgmtEpEltInqNextA(inquirycontext, ifid, ::core::mem::transmute(binding.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(objectuuid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(annotation.unwrap_or(::std::ptr::null_mut())))
+pub unsafe fn RpcMgmtEpEltInqNextA(inquirycontext: *const *const core::ffi::c_void, ifid: *mut RPC_IF_ID, binding: Option<*mut *mut core::ffi::c_void>, objectuuid: Option<*mut windows_core::GUID>, annotation: Option<*mut windows_core::PSTR>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqNextA(inquirycontext : *const *const core::ffi::c_void, ifid : *mut RPC_IF_ID, binding : *mut *mut core::ffi::c_void, objectuuid : *mut windows_core::GUID, annotation : *mut windows_core::PSTR) -> RPC_STATUS);
+    RpcMgmtEpEltInqNextA(inquirycontext, ifid, core::mem::transmute(binding.unwrap_or(std::ptr::null_mut())), core::mem::transmute(objectuuid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(annotation.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn RpcMgmtEpEltInqNextW(inquirycontext: *const *const ::core::ffi::c_void, ifid: *mut RPC_IF_ID, binding: ::core::option::Option<*mut *mut ::core::ffi::c_void>, objectuuid: ::core::option::Option<*mut ::windows_core::GUID>, annotation: ::core::option::Option<*mut ::windows_core::PWSTR>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqNextW(inquirycontext : *const *const ::core::ffi::c_void, ifid : *mut RPC_IF_ID, binding : *mut *mut ::core::ffi::c_void, objectuuid : *mut ::windows_core::GUID, annotation : *mut ::windows_core::PWSTR) -> RPC_STATUS);
-    RpcMgmtEpEltInqNextW(inquirycontext, ifid, ::core::mem::transmute(binding.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(objectuuid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(annotation.unwrap_or(::std::ptr::null_mut())))
+pub unsafe fn RpcMgmtEpEltInqNextW(inquirycontext: *const *const core::ffi::c_void, ifid: *mut RPC_IF_ID, binding: Option<*mut *mut core::ffi::c_void>, objectuuid: Option<*mut windows_core::GUID>, annotation: Option<*mut windows_core::PWSTR>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqNextW(inquirycontext : *const *const core::ffi::c_void, ifid : *mut RPC_IF_ID, binding : *mut *mut core::ffi::c_void, objectuuid : *mut windows_core::GUID, annotation : *mut windows_core::PWSTR) -> RPC_STATUS);
+    RpcMgmtEpEltInqNextW(inquirycontext, ifid, core::mem::transmute(binding.unwrap_or(std::ptr::null_mut())), core::mem::transmute(objectuuid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(annotation.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn RpcMgmtEpUnregister(epbinding: ::core::option::Option<*const ::core::ffi::c_void>, ifid: *const RPC_IF_ID, binding: *const ::core::ffi::c_void, objectuuid: ::core::option::Option<*const ::windows_core::GUID>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtEpUnregister(epbinding : *const ::core::ffi::c_void, ifid : *const RPC_IF_ID, binding : *const ::core::ffi::c_void, objectuuid : *const ::windows_core::GUID) -> RPC_STATUS);
-    RpcMgmtEpUnregister(::core::mem::transmute(epbinding.unwrap_or(::std::ptr::null())), ifid, binding, ::core::mem::transmute(objectuuid.unwrap_or(::std::ptr::null())))
+pub unsafe fn RpcMgmtEpUnregister(epbinding: Option<*const core::ffi::c_void>, ifid: *const RPC_IF_ID, binding: *const core::ffi::c_void, objectuuid: Option<*const windows_core::GUID>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtEpUnregister(epbinding : *const core::ffi::c_void, ifid : *const RPC_IF_ID, binding : *const core::ffi::c_void, objectuuid : *const windows_core::GUID) -> RPC_STATUS);
+    RpcMgmtEpUnregister(core::mem::transmute(epbinding.unwrap_or(std::ptr::null())), ifid, binding, core::mem::transmute(objectuuid.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcMgmtInqComTimeout(binding: *const ::core::ffi::c_void, timeout: *mut u32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtInqComTimeout(binding : *const ::core::ffi::c_void, timeout : *mut u32) -> RPC_STATUS);
+pub unsafe fn RpcMgmtInqComTimeout(binding: *const core::ffi::c_void, timeout: *mut u32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtInqComTimeout(binding : *const core::ffi::c_void, timeout : *mut u32) -> RPC_STATUS);
     RpcMgmtInqComTimeout(binding, timeout)
 }
 #[inline]
@@ -1957,29 +1957,29 @@ pub unsafe fn RpcMgmtInqDefaultProtectLevel(authnsvc: u32, authnlevel: *mut u32)
     RpcMgmtInqDefaultProtectLevel(authnsvc, authnlevel)
 }
 #[inline]
-pub unsafe fn RpcMgmtInqIfIds(binding: ::core::option::Option<*const ::core::ffi::c_void>, ifidvector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtInqIfIds(binding : *const ::core::ffi::c_void, ifidvector : *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS);
-    RpcMgmtInqIfIds(::core::mem::transmute(binding.unwrap_or(::std::ptr::null())), ifidvector)
+pub unsafe fn RpcMgmtInqIfIds(binding: Option<*const core::ffi::c_void>, ifidvector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtInqIfIds(binding : *const core::ffi::c_void, ifidvector : *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS);
+    RpcMgmtInqIfIds(core::mem::transmute(binding.unwrap_or(std::ptr::null())), ifidvector)
 }
 #[inline]
-pub unsafe fn RpcMgmtInqServerPrincNameA(binding: ::core::option::Option<*const ::core::ffi::c_void>, authnsvc: u32, serverprincname: *mut ::windows_core::PSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtInqServerPrincNameA(binding : *const ::core::ffi::c_void, authnsvc : u32, serverprincname : *mut ::windows_core::PSTR) -> RPC_STATUS);
-    RpcMgmtInqServerPrincNameA(::core::mem::transmute(binding.unwrap_or(::std::ptr::null())), authnsvc, serverprincname)
+pub unsafe fn RpcMgmtInqServerPrincNameA(binding: Option<*const core::ffi::c_void>, authnsvc: u32, serverprincname: *mut windows_core::PSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtInqServerPrincNameA(binding : *const core::ffi::c_void, authnsvc : u32, serverprincname : *mut windows_core::PSTR) -> RPC_STATUS);
+    RpcMgmtInqServerPrincNameA(core::mem::transmute(binding.unwrap_or(std::ptr::null())), authnsvc, serverprincname)
 }
 #[inline]
-pub unsafe fn RpcMgmtInqServerPrincNameW(binding: ::core::option::Option<*const ::core::ffi::c_void>, authnsvc: u32, serverprincname: *mut ::windows_core::PWSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtInqServerPrincNameW(binding : *const ::core::ffi::c_void, authnsvc : u32, serverprincname : *mut ::windows_core::PWSTR) -> RPC_STATUS);
-    RpcMgmtInqServerPrincNameW(::core::mem::transmute(binding.unwrap_or(::std::ptr::null())), authnsvc, serverprincname)
+pub unsafe fn RpcMgmtInqServerPrincNameW(binding: Option<*const core::ffi::c_void>, authnsvc: u32, serverprincname: *mut windows_core::PWSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtInqServerPrincNameW(binding : *const core::ffi::c_void, authnsvc : u32, serverprincname : *mut windows_core::PWSTR) -> RPC_STATUS);
+    RpcMgmtInqServerPrincNameW(core::mem::transmute(binding.unwrap_or(std::ptr::null())), authnsvc, serverprincname)
 }
 #[inline]
-pub unsafe fn RpcMgmtInqStats(binding: ::core::option::Option<*const ::core::ffi::c_void>, statistics: *mut *mut RPC_STATS_VECTOR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtInqStats(binding : *const ::core::ffi::c_void, statistics : *mut *mut RPC_STATS_VECTOR) -> RPC_STATUS);
-    RpcMgmtInqStats(::core::mem::transmute(binding.unwrap_or(::std::ptr::null())), statistics)
+pub unsafe fn RpcMgmtInqStats(binding: Option<*const core::ffi::c_void>, statistics: *mut *mut RPC_STATS_VECTOR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtInqStats(binding : *const core::ffi::c_void, statistics : *mut *mut RPC_STATS_VECTOR) -> RPC_STATUS);
+    RpcMgmtInqStats(core::mem::transmute(binding.unwrap_or(std::ptr::null())), statistics)
 }
 #[inline]
-pub unsafe fn RpcMgmtIsServerListening(binding: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtIsServerListening(binding : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcMgmtIsServerListening(::core::mem::transmute(binding.unwrap_or(::std::ptr::null())))
+pub unsafe fn RpcMgmtIsServerListening(binding: Option<*const core::ffi::c_void>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtIsServerListening(binding : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcMgmtIsServerListening(core::mem::transmute(binding.unwrap_or(std::ptr::null())))
 }
 #[inline]
 pub unsafe fn RpcMgmtSetAuthorizationFn(authorizationfn: RPC_MGMT_AUTHORIZATION_FN) -> RPC_STATUS {
@@ -1992,8 +1992,8 @@ pub unsafe fn RpcMgmtSetCancelTimeout(timeout: i32) -> RPC_STATUS {
     RpcMgmtSetCancelTimeout(timeout)
 }
 #[inline]
-pub unsafe fn RpcMgmtSetComTimeout(binding: *const ::core::ffi::c_void, timeout: u32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtSetComTimeout(binding : *const ::core::ffi::c_void, timeout : u32) -> RPC_STATUS);
+pub unsafe fn RpcMgmtSetComTimeout(binding: *const core::ffi::c_void, timeout: u32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtSetComTimeout(binding : *const core::ffi::c_void, timeout : u32) -> RPC_STATUS);
     RpcMgmtSetComTimeout(binding, timeout)
 }
 #[inline]
@@ -2007,9 +2007,9 @@ pub unsafe fn RpcMgmtStatsVectorFree(statsvector: *mut *mut RPC_STATS_VECTOR) ->
     RpcMgmtStatsVectorFree(statsvector)
 }
 #[inline]
-pub unsafe fn RpcMgmtStopServerListening(binding: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtStopServerListening(binding : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcMgmtStopServerListening(::core::mem::transmute(binding.unwrap_or(::std::ptr::null())))
+pub unsafe fn RpcMgmtStopServerListening(binding: Option<*const core::ffi::c_void>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcMgmtStopServerListening(binding : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcMgmtStopServerListening(core::mem::transmute(binding.unwrap_or(std::ptr::null())))
 }
 #[inline]
 pub unsafe fn RpcMgmtWaitServerListen() -> RPC_STATUS {
@@ -2029,342 +2029,342 @@ pub unsafe fn RpcNetworkInqProtseqsW(protseqvector: *mut *mut RPC_PROTSEQ_VECTOR
 #[inline]
 pub unsafe fn RpcNetworkIsProtseqValidA<P0>(protseq: P0) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcNetworkIsProtseqValidA(protseq : ::windows_core::PCSTR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcNetworkIsProtseqValidA(protseq : windows_core::PCSTR) -> RPC_STATUS);
     RpcNetworkIsProtseqValidA(protseq.into_param().abi())
 }
 #[inline]
 pub unsafe fn RpcNetworkIsProtseqValidW<P0>(protseq: P0) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcNetworkIsProtseqValidW(protseq : ::windows_core::PCWSTR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcNetworkIsProtseqValidW(protseq : windows_core::PCWSTR) -> RPC_STATUS);
     RpcNetworkIsProtseqValidW(protseq.into_param().abi())
 }
 #[inline]
-pub unsafe fn RpcNsBindingExportA<P0>(entrynamesyntax: u32, entryname: P0, ifspec: ::core::option::Option<*const ::core::ffi::c_void>, bindingvec: ::core::option::Option<*const RPC_BINDING_VECTOR>, objectuuidvec: ::core::option::Option<*const UUID_VECTOR>) -> RPC_STATUS
+pub unsafe fn RpcNsBindingExportA<P0>(entrynamesyntax: u32, entryname: P0, ifspec: Option<*const core::ffi::c_void>, bindingvec: Option<*const RPC_BINDING_VECTOR>, objectuuidvec: Option<*const UUID_VECTOR>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingExportA(entrynamesyntax : u32, entryname : ::windows_core::PCSTR, ifspec : *const ::core::ffi::c_void, bindingvec : *const RPC_BINDING_VECTOR, objectuuidvec : *const UUID_VECTOR) -> RPC_STATUS);
-    RpcNsBindingExportA(entrynamesyntax, entryname.into_param().abi(), ::core::mem::transmute(ifspec.unwrap_or(::std::ptr::null())), ::core::mem::transmute(bindingvec.unwrap_or(::std::ptr::null())), ::core::mem::transmute(objectuuidvec.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingExportA(entrynamesyntax : u32, entryname : windows_core::PCSTR, ifspec : *const core::ffi::c_void, bindingvec : *const RPC_BINDING_VECTOR, objectuuidvec : *const UUID_VECTOR) -> RPC_STATUS);
+    RpcNsBindingExportA(entrynamesyntax, entryname.into_param().abi(), core::mem::transmute(ifspec.unwrap_or(std::ptr::null())), core::mem::transmute(bindingvec.unwrap_or(std::ptr::null())), core::mem::transmute(objectuuidvec.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcNsBindingExportPnPA<P0>(entrynamesyntax: u32, entryname: P0, ifspec: ::core::option::Option<*const ::core::ffi::c_void>, objectvector: ::core::option::Option<*const UUID_VECTOR>) -> RPC_STATUS
+pub unsafe fn RpcNsBindingExportPnPA<P0>(entrynamesyntax: u32, entryname: P0, ifspec: Option<*const core::ffi::c_void>, objectvector: Option<*const UUID_VECTOR>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingExportPnPA(entrynamesyntax : u32, entryname : ::windows_core::PCSTR, ifspec : *const ::core::ffi::c_void, objectvector : *const UUID_VECTOR) -> RPC_STATUS);
-    RpcNsBindingExportPnPA(entrynamesyntax, entryname.into_param().abi(), ::core::mem::transmute(ifspec.unwrap_or(::std::ptr::null())), ::core::mem::transmute(objectvector.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingExportPnPA(entrynamesyntax : u32, entryname : windows_core::PCSTR, ifspec : *const core::ffi::c_void, objectvector : *const UUID_VECTOR) -> RPC_STATUS);
+    RpcNsBindingExportPnPA(entrynamesyntax, entryname.into_param().abi(), core::mem::transmute(ifspec.unwrap_or(std::ptr::null())), core::mem::transmute(objectvector.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcNsBindingExportPnPW<P0>(entrynamesyntax: u32, entryname: P0, ifspec: ::core::option::Option<*const ::core::ffi::c_void>, objectvector: ::core::option::Option<*const UUID_VECTOR>) -> RPC_STATUS
+pub unsafe fn RpcNsBindingExportPnPW<P0>(entrynamesyntax: u32, entryname: P0, ifspec: Option<*const core::ffi::c_void>, objectvector: Option<*const UUID_VECTOR>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingExportPnPW(entrynamesyntax : u32, entryname : ::windows_core::PCWSTR, ifspec : *const ::core::ffi::c_void, objectvector : *const UUID_VECTOR) -> RPC_STATUS);
-    RpcNsBindingExportPnPW(entrynamesyntax, entryname.into_param().abi(), ::core::mem::transmute(ifspec.unwrap_or(::std::ptr::null())), ::core::mem::transmute(objectvector.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingExportPnPW(entrynamesyntax : u32, entryname : windows_core::PCWSTR, ifspec : *const core::ffi::c_void, objectvector : *const UUID_VECTOR) -> RPC_STATUS);
+    RpcNsBindingExportPnPW(entrynamesyntax, entryname.into_param().abi(), core::mem::transmute(ifspec.unwrap_or(std::ptr::null())), core::mem::transmute(objectvector.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcNsBindingExportW<P0>(entrynamesyntax: u32, entryname: P0, ifspec: ::core::option::Option<*const ::core::ffi::c_void>, bindingvec: ::core::option::Option<*const RPC_BINDING_VECTOR>, objectuuidvec: ::core::option::Option<*const UUID_VECTOR>) -> RPC_STATUS
+pub unsafe fn RpcNsBindingExportW<P0>(entrynamesyntax: u32, entryname: P0, ifspec: Option<*const core::ffi::c_void>, bindingvec: Option<*const RPC_BINDING_VECTOR>, objectuuidvec: Option<*const UUID_VECTOR>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingExportW(entrynamesyntax : u32, entryname : ::windows_core::PCWSTR, ifspec : *const ::core::ffi::c_void, bindingvec : *const RPC_BINDING_VECTOR, objectuuidvec : *const UUID_VECTOR) -> RPC_STATUS);
-    RpcNsBindingExportW(entrynamesyntax, entryname.into_param().abi(), ::core::mem::transmute(ifspec.unwrap_or(::std::ptr::null())), ::core::mem::transmute(bindingvec.unwrap_or(::std::ptr::null())), ::core::mem::transmute(objectuuidvec.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingExportW(entrynamesyntax : u32, entryname : windows_core::PCWSTR, ifspec : *const core::ffi::c_void, bindingvec : *const RPC_BINDING_VECTOR, objectuuidvec : *const UUID_VECTOR) -> RPC_STATUS);
+    RpcNsBindingExportW(entrynamesyntax, entryname.into_param().abi(), core::mem::transmute(ifspec.unwrap_or(std::ptr::null())), core::mem::transmute(bindingvec.unwrap_or(std::ptr::null())), core::mem::transmute(objectuuidvec.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcNsBindingImportBeginA<P0>(entrynamesyntax: u32, entryname: P0, ifspec: ::core::option::Option<*const ::core::ffi::c_void>, objuuid: ::core::option::Option<*const ::windows_core::GUID>, importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn RpcNsBindingImportBeginA<P0>(entrynamesyntax: u32, entryname: P0, ifspec: Option<*const core::ffi::c_void>, objuuid: Option<*const windows_core::GUID>, importcontext: *mut *mut core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingImportBeginA(entrynamesyntax : u32, entryname : ::windows_core::PCSTR, ifspec : *const ::core::ffi::c_void, objuuid : *const ::windows_core::GUID, importcontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcNsBindingImportBeginA(entrynamesyntax, entryname.into_param().abi(), ::core::mem::transmute(ifspec.unwrap_or(::std::ptr::null())), ::core::mem::transmute(objuuid.unwrap_or(::std::ptr::null())), importcontext)
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingImportBeginA(entrynamesyntax : u32, entryname : windows_core::PCSTR, ifspec : *const core::ffi::c_void, objuuid : *const windows_core::GUID, importcontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
+    RpcNsBindingImportBeginA(entrynamesyntax, entryname.into_param().abi(), core::mem::transmute(ifspec.unwrap_or(std::ptr::null())), core::mem::transmute(objuuid.unwrap_or(std::ptr::null())), importcontext)
 }
 #[inline]
-pub unsafe fn RpcNsBindingImportBeginW<P0>(entrynamesyntax: u32, entryname: P0, ifspec: ::core::option::Option<*const ::core::ffi::c_void>, objuuid: ::core::option::Option<*const ::windows_core::GUID>, importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn RpcNsBindingImportBeginW<P0>(entrynamesyntax: u32, entryname: P0, ifspec: Option<*const core::ffi::c_void>, objuuid: Option<*const windows_core::GUID>, importcontext: *mut *mut core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingImportBeginW(entrynamesyntax : u32, entryname : ::windows_core::PCWSTR, ifspec : *const ::core::ffi::c_void, objuuid : *const ::windows_core::GUID, importcontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcNsBindingImportBeginW(entrynamesyntax, entryname.into_param().abi(), ::core::mem::transmute(ifspec.unwrap_or(::std::ptr::null())), ::core::mem::transmute(objuuid.unwrap_or(::std::ptr::null())), importcontext)
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingImportBeginW(entrynamesyntax : u32, entryname : windows_core::PCWSTR, ifspec : *const core::ffi::c_void, objuuid : *const windows_core::GUID, importcontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
+    RpcNsBindingImportBeginW(entrynamesyntax, entryname.into_param().abi(), core::mem::transmute(ifspec.unwrap_or(std::ptr::null())), core::mem::transmute(objuuid.unwrap_or(std::ptr::null())), importcontext)
 }
 #[inline]
-pub unsafe fn RpcNsBindingImportDone(importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingImportDone(importcontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcNsBindingImportDone(importcontext: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingImportDone(importcontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcNsBindingImportDone(importcontext)
 }
 #[inline]
-pub unsafe fn RpcNsBindingImportNext(importcontext: *mut ::core::ffi::c_void, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingImportNext(importcontext : *mut ::core::ffi::c_void, binding : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcNsBindingImportNext(importcontext: *mut core::ffi::c_void, binding: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingImportNext(importcontext : *mut core::ffi::c_void, binding : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcNsBindingImportNext(importcontext, binding)
 }
 #[inline]
-pub unsafe fn RpcNsBindingInqEntryNameA(binding: *const ::core::ffi::c_void, entrynamesyntax: u32, entryname: *mut ::windows_core::PSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcNsBindingInqEntryNameA(binding : *const ::core::ffi::c_void, entrynamesyntax : u32, entryname : *mut ::windows_core::PSTR) -> RPC_STATUS);
+pub unsafe fn RpcNsBindingInqEntryNameA(binding: *const core::ffi::c_void, entrynamesyntax: u32, entryname: *mut windows_core::PSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcNsBindingInqEntryNameA(binding : *const core::ffi::c_void, entrynamesyntax : u32, entryname : *mut windows_core::PSTR) -> RPC_STATUS);
     RpcNsBindingInqEntryNameA(binding, entrynamesyntax, entryname)
 }
 #[inline]
-pub unsafe fn RpcNsBindingInqEntryNameW(binding: *const ::core::ffi::c_void, entrynamesyntax: u32, entryname: *mut ::windows_core::PWSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcNsBindingInqEntryNameW(binding : *const ::core::ffi::c_void, entrynamesyntax : u32, entryname : *mut ::windows_core::PWSTR) -> RPC_STATUS);
+pub unsafe fn RpcNsBindingInqEntryNameW(binding: *const core::ffi::c_void, entrynamesyntax: u32, entryname: *mut windows_core::PWSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcNsBindingInqEntryNameW(binding : *const core::ffi::c_void, entrynamesyntax : u32, entryname : *mut windows_core::PWSTR) -> RPC_STATUS);
     RpcNsBindingInqEntryNameW(binding, entrynamesyntax, entryname)
 }
 #[inline]
-pub unsafe fn RpcNsBindingLookupBeginA<P0>(entrynamesyntax: u32, entryname: P0, ifspec: ::core::option::Option<*const ::core::ffi::c_void>, objuuid: ::core::option::Option<*const ::windows_core::GUID>, bindingmaxcount: u32, lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn RpcNsBindingLookupBeginA<P0>(entrynamesyntax: u32, entryname: P0, ifspec: Option<*const core::ffi::c_void>, objuuid: Option<*const windows_core::GUID>, bindingmaxcount: u32, lookupcontext: *mut *mut core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingLookupBeginA(entrynamesyntax : u32, entryname : ::windows_core::PCSTR, ifspec : *const ::core::ffi::c_void, objuuid : *const ::windows_core::GUID, bindingmaxcount : u32, lookupcontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcNsBindingLookupBeginA(entrynamesyntax, entryname.into_param().abi(), ::core::mem::transmute(ifspec.unwrap_or(::std::ptr::null())), ::core::mem::transmute(objuuid.unwrap_or(::std::ptr::null())), bindingmaxcount, lookupcontext)
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingLookupBeginA(entrynamesyntax : u32, entryname : windows_core::PCSTR, ifspec : *const core::ffi::c_void, objuuid : *const windows_core::GUID, bindingmaxcount : u32, lookupcontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
+    RpcNsBindingLookupBeginA(entrynamesyntax, entryname.into_param().abi(), core::mem::transmute(ifspec.unwrap_or(std::ptr::null())), core::mem::transmute(objuuid.unwrap_or(std::ptr::null())), bindingmaxcount, lookupcontext)
 }
 #[inline]
-pub unsafe fn RpcNsBindingLookupBeginW<P0>(entrynamesyntax: u32, entryname: P0, ifspec: ::core::option::Option<*const ::core::ffi::c_void>, objuuid: ::core::option::Option<*const ::windows_core::GUID>, bindingmaxcount: u32, lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn RpcNsBindingLookupBeginW<P0>(entrynamesyntax: u32, entryname: P0, ifspec: Option<*const core::ffi::c_void>, objuuid: Option<*const windows_core::GUID>, bindingmaxcount: u32, lookupcontext: *mut *mut core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingLookupBeginW(entrynamesyntax : u32, entryname : ::windows_core::PCWSTR, ifspec : *const ::core::ffi::c_void, objuuid : *const ::windows_core::GUID, bindingmaxcount : u32, lookupcontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcNsBindingLookupBeginW(entrynamesyntax, entryname.into_param().abi(), ::core::mem::transmute(ifspec.unwrap_or(::std::ptr::null())), ::core::mem::transmute(objuuid.unwrap_or(::std::ptr::null())), bindingmaxcount, lookupcontext)
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingLookupBeginW(entrynamesyntax : u32, entryname : windows_core::PCWSTR, ifspec : *const core::ffi::c_void, objuuid : *const windows_core::GUID, bindingmaxcount : u32, lookupcontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
+    RpcNsBindingLookupBeginW(entrynamesyntax, entryname.into_param().abi(), core::mem::transmute(ifspec.unwrap_or(std::ptr::null())), core::mem::transmute(objuuid.unwrap_or(std::ptr::null())), bindingmaxcount, lookupcontext)
 }
 #[inline]
-pub unsafe fn RpcNsBindingLookupDone(lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingLookupDone(lookupcontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcNsBindingLookupDone(lookupcontext: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingLookupDone(lookupcontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcNsBindingLookupDone(lookupcontext)
 }
 #[inline]
-pub unsafe fn RpcNsBindingLookupNext(lookupcontext: *mut ::core::ffi::c_void, bindingvec: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingLookupNext(lookupcontext : *mut ::core::ffi::c_void, bindingvec : *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS);
+pub unsafe fn RpcNsBindingLookupNext(lookupcontext: *mut core::ffi::c_void, bindingvec: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingLookupNext(lookupcontext : *mut core::ffi::c_void, bindingvec : *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS);
     RpcNsBindingLookupNext(lookupcontext, bindingvec)
 }
 #[inline]
-pub unsafe fn RpcNsBindingSelect(bindingvec: *mut RPC_BINDING_VECTOR, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingSelect(bindingvec : *mut RPC_BINDING_VECTOR, binding : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcNsBindingSelect(bindingvec: *mut RPC_BINDING_VECTOR, binding: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingSelect(bindingvec : *mut RPC_BINDING_VECTOR, binding : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcNsBindingSelect(bindingvec, binding)
 }
 #[inline]
-pub unsafe fn RpcNsBindingUnexportA<P0>(entrynamesyntax: u32, entryname: P0, ifspec: ::core::option::Option<*const ::core::ffi::c_void>, objectuuidvec: ::core::option::Option<*const UUID_VECTOR>) -> RPC_STATUS
+pub unsafe fn RpcNsBindingUnexportA<P0>(entrynamesyntax: u32, entryname: P0, ifspec: Option<*const core::ffi::c_void>, objectuuidvec: Option<*const UUID_VECTOR>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingUnexportA(entrynamesyntax : u32, entryname : ::windows_core::PCSTR, ifspec : *const ::core::ffi::c_void, objectuuidvec : *const UUID_VECTOR) -> RPC_STATUS);
-    RpcNsBindingUnexportA(entrynamesyntax, entryname.into_param().abi(), ::core::mem::transmute(ifspec.unwrap_or(::std::ptr::null())), ::core::mem::transmute(objectuuidvec.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingUnexportA(entrynamesyntax : u32, entryname : windows_core::PCSTR, ifspec : *const core::ffi::c_void, objectuuidvec : *const UUID_VECTOR) -> RPC_STATUS);
+    RpcNsBindingUnexportA(entrynamesyntax, entryname.into_param().abi(), core::mem::transmute(ifspec.unwrap_or(std::ptr::null())), core::mem::transmute(objectuuidvec.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcNsBindingUnexportPnPA<P0>(entrynamesyntax: u32, entryname: P0, ifspec: ::core::option::Option<*const ::core::ffi::c_void>, objectvector: ::core::option::Option<*const UUID_VECTOR>) -> RPC_STATUS
+pub unsafe fn RpcNsBindingUnexportPnPA<P0>(entrynamesyntax: u32, entryname: P0, ifspec: Option<*const core::ffi::c_void>, objectvector: Option<*const UUID_VECTOR>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingUnexportPnPA(entrynamesyntax : u32, entryname : ::windows_core::PCSTR, ifspec : *const ::core::ffi::c_void, objectvector : *const UUID_VECTOR) -> RPC_STATUS);
-    RpcNsBindingUnexportPnPA(entrynamesyntax, entryname.into_param().abi(), ::core::mem::transmute(ifspec.unwrap_or(::std::ptr::null())), ::core::mem::transmute(objectvector.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingUnexportPnPA(entrynamesyntax : u32, entryname : windows_core::PCSTR, ifspec : *const core::ffi::c_void, objectvector : *const UUID_VECTOR) -> RPC_STATUS);
+    RpcNsBindingUnexportPnPA(entrynamesyntax, entryname.into_param().abi(), core::mem::transmute(ifspec.unwrap_or(std::ptr::null())), core::mem::transmute(objectvector.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcNsBindingUnexportPnPW<P0>(entrynamesyntax: u32, entryname: P0, ifspec: ::core::option::Option<*const ::core::ffi::c_void>, objectvector: ::core::option::Option<*const UUID_VECTOR>) -> RPC_STATUS
+pub unsafe fn RpcNsBindingUnexportPnPW<P0>(entrynamesyntax: u32, entryname: P0, ifspec: Option<*const core::ffi::c_void>, objectvector: Option<*const UUID_VECTOR>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingUnexportPnPW(entrynamesyntax : u32, entryname : ::windows_core::PCWSTR, ifspec : *const ::core::ffi::c_void, objectvector : *const UUID_VECTOR) -> RPC_STATUS);
-    RpcNsBindingUnexportPnPW(entrynamesyntax, entryname.into_param().abi(), ::core::mem::transmute(ifspec.unwrap_or(::std::ptr::null())), ::core::mem::transmute(objectvector.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingUnexportPnPW(entrynamesyntax : u32, entryname : windows_core::PCWSTR, ifspec : *const core::ffi::c_void, objectvector : *const UUID_VECTOR) -> RPC_STATUS);
+    RpcNsBindingUnexportPnPW(entrynamesyntax, entryname.into_param().abi(), core::mem::transmute(ifspec.unwrap_or(std::ptr::null())), core::mem::transmute(objectvector.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcNsBindingUnexportW<P0>(entrynamesyntax: u32, entryname: P0, ifspec: ::core::option::Option<*const ::core::ffi::c_void>, objectuuidvec: ::core::option::Option<*const UUID_VECTOR>) -> RPC_STATUS
+pub unsafe fn RpcNsBindingUnexportW<P0>(entrynamesyntax: u32, entryname: P0, ifspec: Option<*const core::ffi::c_void>, objectuuidvec: Option<*const UUID_VECTOR>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingUnexportW(entrynamesyntax : u32, entryname : ::windows_core::PCWSTR, ifspec : *const ::core::ffi::c_void, objectuuidvec : *const UUID_VECTOR) -> RPC_STATUS);
-    RpcNsBindingUnexportW(entrynamesyntax, entryname.into_param().abi(), ::core::mem::transmute(ifspec.unwrap_or(::std::ptr::null())), ::core::mem::transmute(objectuuidvec.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsBindingUnexportW(entrynamesyntax : u32, entryname : windows_core::PCWSTR, ifspec : *const core::ffi::c_void, objectuuidvec : *const UUID_VECTOR) -> RPC_STATUS);
+    RpcNsBindingUnexportW(entrynamesyntax, entryname.into_param().abi(), core::mem::transmute(ifspec.unwrap_or(std::ptr::null())), core::mem::transmute(objectuuidvec.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcNsEntryExpandNameA<P0>(entrynamesyntax: u32, entryname: P0, expandedname: *mut ::windows_core::PSTR) -> RPC_STATUS
+pub unsafe fn RpcNsEntryExpandNameA<P0>(entrynamesyntax: u32, entryname: P0, expandedname: *mut windows_core::PSTR) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsEntryExpandNameA(entrynamesyntax : u32, entryname : ::windows_core::PCSTR, expandedname : *mut ::windows_core::PSTR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsEntryExpandNameA(entrynamesyntax : u32, entryname : windows_core::PCSTR, expandedname : *mut windows_core::PSTR) -> RPC_STATUS);
     RpcNsEntryExpandNameA(entrynamesyntax, entryname.into_param().abi(), expandedname)
 }
 #[inline]
-pub unsafe fn RpcNsEntryExpandNameW<P0>(entrynamesyntax: u32, entryname: P0, expandedname: *mut ::windows_core::PWSTR) -> RPC_STATUS
+pub unsafe fn RpcNsEntryExpandNameW<P0>(entrynamesyntax: u32, entryname: P0, expandedname: *mut windows_core::PWSTR) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsEntryExpandNameW(entrynamesyntax : u32, entryname : ::windows_core::PCWSTR, expandedname : *mut ::windows_core::PWSTR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsEntryExpandNameW(entrynamesyntax : u32, entryname : windows_core::PCWSTR, expandedname : *mut windows_core::PWSTR) -> RPC_STATUS);
     RpcNsEntryExpandNameW(entrynamesyntax, entryname.into_param().abi(), expandedname)
 }
 #[inline]
-pub unsafe fn RpcNsEntryObjectInqBeginA<P0>(entrynamesyntax: u32, entryname: P0, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn RpcNsEntryObjectInqBeginA<P0>(entrynamesyntax: u32, entryname: P0, inquirycontext: *mut *mut core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsEntryObjectInqBeginA(entrynamesyntax : u32, entryname : ::windows_core::PCSTR, inquirycontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsEntryObjectInqBeginA(entrynamesyntax : u32, entryname : windows_core::PCSTR, inquirycontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcNsEntryObjectInqBeginA(entrynamesyntax, entryname.into_param().abi(), inquirycontext)
 }
 #[inline]
-pub unsafe fn RpcNsEntryObjectInqBeginW<P0>(entrynamesyntax: u32, entryname: P0, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn RpcNsEntryObjectInqBeginW<P0>(entrynamesyntax: u32, entryname: P0, inquirycontext: *mut *mut core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsEntryObjectInqBeginW(entrynamesyntax : u32, entryname : ::windows_core::PCWSTR, inquirycontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsEntryObjectInqBeginW(entrynamesyntax : u32, entryname : windows_core::PCWSTR, inquirycontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcNsEntryObjectInqBeginW(entrynamesyntax, entryname.into_param().abi(), inquirycontext)
 }
 #[inline]
-pub unsafe fn RpcNsEntryObjectInqDone(inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsEntryObjectInqDone(inquirycontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcNsEntryObjectInqDone(inquirycontext: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsEntryObjectInqDone(inquirycontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcNsEntryObjectInqDone(inquirycontext)
 }
 #[inline]
-pub unsafe fn RpcNsEntryObjectInqNext(inquirycontext: *mut ::core::ffi::c_void, objuuid: *mut ::windows_core::GUID) -> RPC_STATUS {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsEntryObjectInqNext(inquirycontext : *mut ::core::ffi::c_void, objuuid : *mut ::windows_core::GUID) -> RPC_STATUS);
+pub unsafe fn RpcNsEntryObjectInqNext(inquirycontext: *mut core::ffi::c_void, objuuid: *mut windows_core::GUID) -> RPC_STATUS {
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsEntryObjectInqNext(inquirycontext : *mut core::ffi::c_void, objuuid : *mut windows_core::GUID) -> RPC_STATUS);
     RpcNsEntryObjectInqNext(inquirycontext, objuuid)
 }
 #[inline]
 pub unsafe fn RpcNsGroupDeleteA<P0>(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: P0) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupDeleteA(groupnamesyntax : GROUP_NAME_SYNTAX, groupname : ::windows_core::PCSTR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupDeleteA(groupnamesyntax : GROUP_NAME_SYNTAX, groupname : windows_core::PCSTR) -> RPC_STATUS);
     RpcNsGroupDeleteA(groupnamesyntax, groupname.into_param().abi())
 }
 #[inline]
 pub unsafe fn RpcNsGroupDeleteW<P0>(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: P0) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupDeleteW(groupnamesyntax : GROUP_NAME_SYNTAX, groupname : ::windows_core::PCWSTR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupDeleteW(groupnamesyntax : GROUP_NAME_SYNTAX, groupname : windows_core::PCWSTR) -> RPC_STATUS);
     RpcNsGroupDeleteW(groupnamesyntax, groupname.into_param().abi())
 }
 #[inline]
 pub unsafe fn RpcNsGroupMbrAddA<P0, P1>(groupnamesyntax: u32, groupname: P0, membernamesyntax: u32, membername: P1) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupMbrAddA(groupnamesyntax : u32, groupname : ::windows_core::PCSTR, membernamesyntax : u32, membername : ::windows_core::PCSTR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupMbrAddA(groupnamesyntax : u32, groupname : windows_core::PCSTR, membernamesyntax : u32, membername : windows_core::PCSTR) -> RPC_STATUS);
     RpcNsGroupMbrAddA(groupnamesyntax, groupname.into_param().abi(), membernamesyntax, membername.into_param().abi())
 }
 #[inline]
 pub unsafe fn RpcNsGroupMbrAddW<P0, P1>(groupnamesyntax: u32, groupname: P0, membernamesyntax: u32, membername: P1) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupMbrAddW(groupnamesyntax : u32, groupname : ::windows_core::PCWSTR, membernamesyntax : u32, membername : ::windows_core::PCWSTR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupMbrAddW(groupnamesyntax : u32, groupname : windows_core::PCWSTR, membernamesyntax : u32, membername : windows_core::PCWSTR) -> RPC_STATUS);
     RpcNsGroupMbrAddW(groupnamesyntax, groupname.into_param().abi(), membernamesyntax, membername.into_param().abi())
 }
 #[inline]
-pub unsafe fn RpcNsGroupMbrInqBeginA<P0>(groupnamesyntax: u32, groupname: P0, membernamesyntax: u32, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn RpcNsGroupMbrInqBeginA<P0>(groupnamesyntax: u32, groupname: P0, membernamesyntax: u32, inquirycontext: *mut *mut core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupMbrInqBeginA(groupnamesyntax : u32, groupname : ::windows_core::PCSTR, membernamesyntax : u32, inquirycontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupMbrInqBeginA(groupnamesyntax : u32, groupname : windows_core::PCSTR, membernamesyntax : u32, inquirycontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcNsGroupMbrInqBeginA(groupnamesyntax, groupname.into_param().abi(), membernamesyntax, inquirycontext)
 }
 #[inline]
-pub unsafe fn RpcNsGroupMbrInqBeginW<P0>(groupnamesyntax: u32, groupname: P0, membernamesyntax: u32, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn RpcNsGroupMbrInqBeginW<P0>(groupnamesyntax: u32, groupname: P0, membernamesyntax: u32, inquirycontext: *mut *mut core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupMbrInqBeginW(groupnamesyntax : u32, groupname : ::windows_core::PCWSTR, membernamesyntax : u32, inquirycontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupMbrInqBeginW(groupnamesyntax : u32, groupname : windows_core::PCWSTR, membernamesyntax : u32, inquirycontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcNsGroupMbrInqBeginW(groupnamesyntax, groupname.into_param().abi(), membernamesyntax, inquirycontext)
 }
 #[inline]
-pub unsafe fn RpcNsGroupMbrInqDone(inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupMbrInqDone(inquirycontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcNsGroupMbrInqDone(inquirycontext: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupMbrInqDone(inquirycontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcNsGroupMbrInqDone(inquirycontext)
 }
 #[inline]
-pub unsafe fn RpcNsGroupMbrInqNextA(inquirycontext: *mut ::core::ffi::c_void, membername: *mut ::windows_core::PSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupMbrInqNextA(inquirycontext : *mut ::core::ffi::c_void, membername : *mut ::windows_core::PSTR) -> RPC_STATUS);
+pub unsafe fn RpcNsGroupMbrInqNextA(inquirycontext: *mut core::ffi::c_void, membername: *mut windows_core::PSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupMbrInqNextA(inquirycontext : *mut core::ffi::c_void, membername : *mut windows_core::PSTR) -> RPC_STATUS);
     RpcNsGroupMbrInqNextA(inquirycontext, membername)
 }
 #[inline]
-pub unsafe fn RpcNsGroupMbrInqNextW(inquirycontext: *mut ::core::ffi::c_void, membername: *mut ::windows_core::PWSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupMbrInqNextW(inquirycontext : *mut ::core::ffi::c_void, membername : *mut ::windows_core::PWSTR) -> RPC_STATUS);
+pub unsafe fn RpcNsGroupMbrInqNextW(inquirycontext: *mut core::ffi::c_void, membername: *mut windows_core::PWSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupMbrInqNextW(inquirycontext : *mut core::ffi::c_void, membername : *mut windows_core::PWSTR) -> RPC_STATUS);
     RpcNsGroupMbrInqNextW(inquirycontext, membername)
 }
 #[inline]
 pub unsafe fn RpcNsGroupMbrRemoveA<P0, P1>(groupnamesyntax: u32, groupname: P0, membernamesyntax: u32, membername: P1) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupMbrRemoveA(groupnamesyntax : u32, groupname : ::windows_core::PCSTR, membernamesyntax : u32, membername : ::windows_core::PCSTR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupMbrRemoveA(groupnamesyntax : u32, groupname : windows_core::PCSTR, membernamesyntax : u32, membername : windows_core::PCSTR) -> RPC_STATUS);
     RpcNsGroupMbrRemoveA(groupnamesyntax, groupname.into_param().abi(), membernamesyntax, membername.into_param().abi())
 }
 #[inline]
 pub unsafe fn RpcNsGroupMbrRemoveW<P0, P1>(groupnamesyntax: u32, groupname: P0, membernamesyntax: u32, membername: P1) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupMbrRemoveW(groupnamesyntax : u32, groupname : ::windows_core::PCWSTR, membernamesyntax : u32, membername : ::windows_core::PCWSTR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsGroupMbrRemoveW(groupnamesyntax : u32, groupname : windows_core::PCWSTR, membernamesyntax : u32, membername : windows_core::PCWSTR) -> RPC_STATUS);
     RpcNsGroupMbrRemoveW(groupnamesyntax, groupname.into_param().abi(), membernamesyntax, membername.into_param().abi())
 }
 #[inline]
-pub unsafe fn RpcNsMgmtBindingUnexportA<P0>(entrynamesyntax: u32, entryname: P0, ifid: ::core::option::Option<*const RPC_IF_ID>, versoption: u32, objectuuidvec: ::core::option::Option<*const UUID_VECTOR>) -> RPC_STATUS
+pub unsafe fn RpcNsMgmtBindingUnexportA<P0>(entrynamesyntax: u32, entryname: P0, ifid: Option<*const RPC_IF_ID>, versoption: u32, objectuuidvec: Option<*const UUID_VECTOR>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsMgmtBindingUnexportA(entrynamesyntax : u32, entryname : ::windows_core::PCSTR, ifid : *const RPC_IF_ID, versoption : u32, objectuuidvec : *const UUID_VECTOR) -> RPC_STATUS);
-    RpcNsMgmtBindingUnexportA(entrynamesyntax, entryname.into_param().abi(), ::core::mem::transmute(ifid.unwrap_or(::std::ptr::null())), versoption, ::core::mem::transmute(objectuuidvec.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsMgmtBindingUnexportA(entrynamesyntax : u32, entryname : windows_core::PCSTR, ifid : *const RPC_IF_ID, versoption : u32, objectuuidvec : *const UUID_VECTOR) -> RPC_STATUS);
+    RpcNsMgmtBindingUnexportA(entrynamesyntax, entryname.into_param().abi(), core::mem::transmute(ifid.unwrap_or(std::ptr::null())), versoption, core::mem::transmute(objectuuidvec.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcNsMgmtBindingUnexportW<P0>(entrynamesyntax: u32, entryname: P0, ifid: ::core::option::Option<*const RPC_IF_ID>, versoption: u32, objectuuidvec: ::core::option::Option<*const UUID_VECTOR>) -> RPC_STATUS
+pub unsafe fn RpcNsMgmtBindingUnexportW<P0>(entrynamesyntax: u32, entryname: P0, ifid: Option<*const RPC_IF_ID>, versoption: u32, objectuuidvec: Option<*const UUID_VECTOR>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsMgmtBindingUnexportW(entrynamesyntax : u32, entryname : ::windows_core::PCWSTR, ifid : *const RPC_IF_ID, versoption : u32, objectuuidvec : *const UUID_VECTOR) -> RPC_STATUS);
-    RpcNsMgmtBindingUnexportW(entrynamesyntax, entryname.into_param().abi(), ::core::mem::transmute(ifid.unwrap_or(::std::ptr::null())), versoption, ::core::mem::transmute(objectuuidvec.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsMgmtBindingUnexportW(entrynamesyntax : u32, entryname : windows_core::PCWSTR, ifid : *const RPC_IF_ID, versoption : u32, objectuuidvec : *const UUID_VECTOR) -> RPC_STATUS);
+    RpcNsMgmtBindingUnexportW(entrynamesyntax, entryname.into_param().abi(), core::mem::transmute(ifid.unwrap_or(std::ptr::null())), versoption, core::mem::transmute(objectuuidvec.unwrap_or(std::ptr::null())))
 }
 #[inline]
 pub unsafe fn RpcNsMgmtEntryCreateA<P0>(entrynamesyntax: u32, entryname: P0) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryCreateA(entrynamesyntax : u32, entryname : ::windows_core::PCSTR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryCreateA(entrynamesyntax : u32, entryname : windows_core::PCSTR) -> RPC_STATUS);
     RpcNsMgmtEntryCreateA(entrynamesyntax, entryname.into_param().abi())
 }
 #[inline]
 pub unsafe fn RpcNsMgmtEntryCreateW<P0>(entrynamesyntax: u32, entryname: P0) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryCreateW(entrynamesyntax : u32, entryname : ::windows_core::PCWSTR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryCreateW(entrynamesyntax : u32, entryname : windows_core::PCWSTR) -> RPC_STATUS);
     RpcNsMgmtEntryCreateW(entrynamesyntax, entryname.into_param().abi())
 }
 #[inline]
 pub unsafe fn RpcNsMgmtEntryDeleteA<P0>(entrynamesyntax: u32, entryname: P0) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryDeleteA(entrynamesyntax : u32, entryname : ::windows_core::PCSTR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryDeleteA(entrynamesyntax : u32, entryname : windows_core::PCSTR) -> RPC_STATUS);
     RpcNsMgmtEntryDeleteA(entrynamesyntax, entryname.into_param().abi())
 }
 #[inline]
 pub unsafe fn RpcNsMgmtEntryDeleteW<P0>(entrynamesyntax: u32, entryname: P0) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryDeleteW(entrynamesyntax : u32, entryname : ::windows_core::PCWSTR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryDeleteW(entrynamesyntax : u32, entryname : windows_core::PCWSTR) -> RPC_STATUS);
     RpcNsMgmtEntryDeleteW(entrynamesyntax, entryname.into_param().abi())
 }
 #[inline]
 pub unsafe fn RpcNsMgmtEntryInqIfIdsA<P0>(entrynamesyntax: u32, entryname: P0, ifidvec: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryInqIfIdsA(entrynamesyntax : u32, entryname : ::windows_core::PCSTR, ifidvec : *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryInqIfIdsA(entrynamesyntax : u32, entryname : windows_core::PCSTR, ifidvec : *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS);
     RpcNsMgmtEntryInqIfIdsA(entrynamesyntax, entryname.into_param().abi(), ifidvec)
 }
 #[inline]
 pub unsafe fn RpcNsMgmtEntryInqIfIdsW<P0>(entrynamesyntax: u32, entryname: P0, ifidvec: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryInqIfIdsW(entrynamesyntax : u32, entryname : ::windows_core::PCWSTR, ifidvec : *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsMgmtEntryInqIfIdsW(entrynamesyntax : u32, entryname : windows_core::PCWSTR, ifidvec : *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS);
     RpcNsMgmtEntryInqIfIdsW(entrynamesyntax, entryname.into_param().abi(), ifidvec)
 }
 #[inline]
-pub unsafe fn RpcNsMgmtHandleSetExpAge(nshandle: *mut ::core::ffi::c_void, expirationage: u32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsMgmtHandleSetExpAge(nshandle : *mut ::core::ffi::c_void, expirationage : u32) -> RPC_STATUS);
+pub unsafe fn RpcNsMgmtHandleSetExpAge(nshandle: *mut core::ffi::c_void, expirationage: u32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsMgmtHandleSetExpAge(nshandle : *mut core::ffi::c_void, expirationage : u32) -> RPC_STATUS);
     RpcNsMgmtHandleSetExpAge(nshandle, expirationage)
 }
 #[inline]
@@ -2380,94 +2380,94 @@ pub unsafe fn RpcNsMgmtSetExpAge(expirationage: u32) -> RPC_STATUS {
 #[inline]
 pub unsafe fn RpcNsProfileDeleteA<P0>(profilenamesyntax: u32, profilename: P0) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileDeleteA(profilenamesyntax : u32, profilename : ::windows_core::PCSTR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileDeleteA(profilenamesyntax : u32, profilename : windows_core::PCSTR) -> RPC_STATUS);
     RpcNsProfileDeleteA(profilenamesyntax, profilename.into_param().abi())
 }
 #[inline]
 pub unsafe fn RpcNsProfileDeleteW<P0>(profilenamesyntax: u32, profilename: P0) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileDeleteW(profilenamesyntax : u32, profilename : ::windows_core::PCWSTR) -> RPC_STATUS);
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileDeleteW(profilenamesyntax : u32, profilename : windows_core::PCWSTR) -> RPC_STATUS);
     RpcNsProfileDeleteW(profilenamesyntax, profilename.into_param().abi())
 }
 #[inline]
-pub unsafe fn RpcNsProfileEltAddA<P0, P1, P2>(profilenamesyntax: u32, profilename: P0, ifid: ::core::option::Option<*const RPC_IF_ID>, membernamesyntax: u32, membername: P1, priority: u32, annotation: P2) -> RPC_STATUS
+pub unsafe fn RpcNsProfileEltAddA<P0, P1, P2>(profilenamesyntax: u32, profilename: P0, ifid: Option<*const RPC_IF_ID>, membernamesyntax: u32, membername: P1, priority: u32, annotation: P2) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P2: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileEltAddA(profilenamesyntax : u32, profilename : ::windows_core::PCSTR, ifid : *const RPC_IF_ID, membernamesyntax : u32, membername : ::windows_core::PCSTR, priority : u32, annotation : ::windows_core::PCSTR) -> RPC_STATUS);
-    RpcNsProfileEltAddA(profilenamesyntax, profilename.into_param().abi(), ::core::mem::transmute(ifid.unwrap_or(::std::ptr::null())), membernamesyntax, membername.into_param().abi(), priority, annotation.into_param().abi())
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileEltAddA(profilenamesyntax : u32, profilename : windows_core::PCSTR, ifid : *const RPC_IF_ID, membernamesyntax : u32, membername : windows_core::PCSTR, priority : u32, annotation : windows_core::PCSTR) -> RPC_STATUS);
+    RpcNsProfileEltAddA(profilenamesyntax, profilename.into_param().abi(), core::mem::transmute(ifid.unwrap_or(std::ptr::null())), membernamesyntax, membername.into_param().abi(), priority, annotation.into_param().abi())
 }
 #[inline]
-pub unsafe fn RpcNsProfileEltAddW<P0, P1, P2>(profilenamesyntax: u32, profilename: P0, ifid: ::core::option::Option<*const RPC_IF_ID>, membernamesyntax: u32, membername: P1, priority: u32, annotation: P2) -> RPC_STATUS
+pub unsafe fn RpcNsProfileEltAddW<P0, P1, P2>(profilenamesyntax: u32, profilename: P0, ifid: Option<*const RPC_IF_ID>, membernamesyntax: u32, membername: P1, priority: u32, annotation: P2) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P2: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileEltAddW(profilenamesyntax : u32, profilename : ::windows_core::PCWSTR, ifid : *const RPC_IF_ID, membernamesyntax : u32, membername : ::windows_core::PCWSTR, priority : u32, annotation : ::windows_core::PCWSTR) -> RPC_STATUS);
-    RpcNsProfileEltAddW(profilenamesyntax, profilename.into_param().abi(), ::core::mem::transmute(ifid.unwrap_or(::std::ptr::null())), membernamesyntax, membername.into_param().abi(), priority, annotation.into_param().abi())
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileEltAddW(profilenamesyntax : u32, profilename : windows_core::PCWSTR, ifid : *const RPC_IF_ID, membernamesyntax : u32, membername : windows_core::PCWSTR, priority : u32, annotation : windows_core::PCWSTR) -> RPC_STATUS);
+    RpcNsProfileEltAddW(profilenamesyntax, profilename.into_param().abi(), core::mem::transmute(ifid.unwrap_or(std::ptr::null())), membernamesyntax, membername.into_param().abi(), priority, annotation.into_param().abi())
 }
 #[inline]
-pub unsafe fn RpcNsProfileEltInqBeginA<P0, P1>(profilenamesyntax: u32, profilename: P0, inquirytype: u32, ifid: ::core::option::Option<*const RPC_IF_ID>, versoption: u32, membernamesyntax: u32, membername: P1, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn RpcNsProfileEltInqBeginA<P0, P1>(profilenamesyntax: u32, profilename: P0, inquirytype: u32, ifid: Option<*const RPC_IF_ID>, versoption: u32, membernamesyntax: u32, membername: P1, inquirycontext: *mut *mut core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileEltInqBeginA(profilenamesyntax : u32, profilename : ::windows_core::PCSTR, inquirytype : u32, ifid : *const RPC_IF_ID, versoption : u32, membernamesyntax : u32, membername : ::windows_core::PCSTR, inquirycontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcNsProfileEltInqBeginA(profilenamesyntax, profilename.into_param().abi(), inquirytype, ::core::mem::transmute(ifid.unwrap_or(::std::ptr::null())), versoption, membernamesyntax, membername.into_param().abi(), inquirycontext)
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileEltInqBeginA(profilenamesyntax : u32, profilename : windows_core::PCSTR, inquirytype : u32, ifid : *const RPC_IF_ID, versoption : u32, membernamesyntax : u32, membername : windows_core::PCSTR, inquirycontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
+    RpcNsProfileEltInqBeginA(profilenamesyntax, profilename.into_param().abi(), inquirytype, core::mem::transmute(ifid.unwrap_or(std::ptr::null())), versoption, membernamesyntax, membername.into_param().abi(), inquirycontext)
 }
 #[inline]
-pub unsafe fn RpcNsProfileEltInqBeginW<P0, P1>(profilenamesyntax: u32, profilename: P0, inquirytype: u32, ifid: ::core::option::Option<*const RPC_IF_ID>, versoption: u32, membernamesyntax: u32, membername: P1, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS
+pub unsafe fn RpcNsProfileEltInqBeginW<P0, P1>(profilenamesyntax: u32, profilename: P0, inquirytype: u32, ifid: Option<*const RPC_IF_ID>, versoption: u32, membernamesyntax: u32, membername: P1, inquirycontext: *mut *mut core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileEltInqBeginW(profilenamesyntax : u32, profilename : ::windows_core::PCWSTR, inquirytype : u32, ifid : *const RPC_IF_ID, versoption : u32, membernamesyntax : u32, membername : ::windows_core::PCWSTR, inquirycontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcNsProfileEltInqBeginW(profilenamesyntax, profilename.into_param().abi(), inquirytype, ::core::mem::transmute(ifid.unwrap_or(::std::ptr::null())), versoption, membernamesyntax, membername.into_param().abi(), inquirycontext)
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileEltInqBeginW(profilenamesyntax : u32, profilename : windows_core::PCWSTR, inquirytype : u32, ifid : *const RPC_IF_ID, versoption : u32, membernamesyntax : u32, membername : windows_core::PCWSTR, inquirycontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
+    RpcNsProfileEltInqBeginW(profilenamesyntax, profilename.into_param().abi(), inquirytype, core::mem::transmute(ifid.unwrap_or(std::ptr::null())), versoption, membernamesyntax, membername.into_param().abi(), inquirycontext)
 }
 #[inline]
-pub unsafe fn RpcNsProfileEltInqDone(inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileEltInqDone(inquirycontext : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcNsProfileEltInqDone(inquirycontext: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileEltInqDone(inquirycontext : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcNsProfileEltInqDone(inquirycontext)
 }
 #[inline]
-pub unsafe fn RpcNsProfileEltInqNextA(inquirycontext: *const ::core::ffi::c_void, ifid: ::core::option::Option<*mut RPC_IF_ID>, membername: *mut ::windows_core::PSTR, priority: *mut u32, annotation: *mut ::windows_core::PSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileEltInqNextA(inquirycontext : *const ::core::ffi::c_void, ifid : *mut RPC_IF_ID, membername : *mut ::windows_core::PSTR, priority : *mut u32, annotation : *mut ::windows_core::PSTR) -> RPC_STATUS);
-    RpcNsProfileEltInqNextA(inquirycontext, ::core::mem::transmute(ifid.unwrap_or(::std::ptr::null_mut())), membername, priority, annotation)
+pub unsafe fn RpcNsProfileEltInqNextA(inquirycontext: *const core::ffi::c_void, ifid: Option<*mut RPC_IF_ID>, membername: *mut windows_core::PSTR, priority: *mut u32, annotation: *mut windows_core::PSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileEltInqNextA(inquirycontext : *const core::ffi::c_void, ifid : *mut RPC_IF_ID, membername : *mut windows_core::PSTR, priority : *mut u32, annotation : *mut windows_core::PSTR) -> RPC_STATUS);
+    RpcNsProfileEltInqNextA(inquirycontext, core::mem::transmute(ifid.unwrap_or(std::ptr::null_mut())), membername, priority, annotation)
 }
 #[inline]
-pub unsafe fn RpcNsProfileEltInqNextW(inquirycontext: *const ::core::ffi::c_void, ifid: ::core::option::Option<*mut RPC_IF_ID>, membername: *mut ::windows_core::PWSTR, priority: *mut u32, annotation: *mut ::windows_core::PWSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileEltInqNextW(inquirycontext : *const ::core::ffi::c_void, ifid : *mut RPC_IF_ID, membername : *mut ::windows_core::PWSTR, priority : *mut u32, annotation : *mut ::windows_core::PWSTR) -> RPC_STATUS);
-    RpcNsProfileEltInqNextW(inquirycontext, ::core::mem::transmute(ifid.unwrap_or(::std::ptr::null_mut())), membername, priority, annotation)
+pub unsafe fn RpcNsProfileEltInqNextW(inquirycontext: *const core::ffi::c_void, ifid: Option<*mut RPC_IF_ID>, membername: *mut windows_core::PWSTR, priority: *mut u32, annotation: *mut windows_core::PWSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileEltInqNextW(inquirycontext : *const core::ffi::c_void, ifid : *mut RPC_IF_ID, membername : *mut windows_core::PWSTR, priority : *mut u32, annotation : *mut windows_core::PWSTR) -> RPC_STATUS);
+    RpcNsProfileEltInqNextW(inquirycontext, core::mem::transmute(ifid.unwrap_or(std::ptr::null_mut())), membername, priority, annotation)
 }
 #[inline]
-pub unsafe fn RpcNsProfileEltRemoveA<P0, P1>(profilenamesyntax: u32, profilename: P0, ifid: ::core::option::Option<*const RPC_IF_ID>, membernamesyntax: u32, membername: P1) -> RPC_STATUS
+pub unsafe fn RpcNsProfileEltRemoveA<P0, P1>(profilenamesyntax: u32, profilename: P0, ifid: Option<*const RPC_IF_ID>, membernamesyntax: u32, membername: P1) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileEltRemoveA(profilenamesyntax : u32, profilename : ::windows_core::PCSTR, ifid : *const RPC_IF_ID, membernamesyntax : u32, membername : ::windows_core::PCSTR) -> RPC_STATUS);
-    RpcNsProfileEltRemoveA(profilenamesyntax, profilename.into_param().abi(), ::core::mem::transmute(ifid.unwrap_or(::std::ptr::null())), membernamesyntax, membername.into_param().abi())
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileEltRemoveA(profilenamesyntax : u32, profilename : windows_core::PCSTR, ifid : *const RPC_IF_ID, membernamesyntax : u32, membername : windows_core::PCSTR) -> RPC_STATUS);
+    RpcNsProfileEltRemoveA(profilenamesyntax, profilename.into_param().abi(), core::mem::transmute(ifid.unwrap_or(std::ptr::null())), membernamesyntax, membername.into_param().abi())
 }
 #[inline]
-pub unsafe fn RpcNsProfileEltRemoveW<P0, P1>(profilenamesyntax: u32, profilename: P0, ifid: ::core::option::Option<*const RPC_IF_ID>, membernamesyntax: u32, membername: P1) -> RPC_STATUS
+pub unsafe fn RpcNsProfileEltRemoveW<P0, P1>(profilenamesyntax: u32, profilename: P0, ifid: Option<*const RPC_IF_ID>, membernamesyntax: u32, membername: P1) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileEltRemoveW(profilenamesyntax : u32, profilename : ::windows_core::PCWSTR, ifid : *const RPC_IF_ID, membernamesyntax : u32, membername : ::windows_core::PCWSTR) -> RPC_STATUS);
-    RpcNsProfileEltRemoveW(profilenamesyntax, profilename.into_param().abi(), ::core::mem::transmute(ifid.unwrap_or(::std::ptr::null())), membernamesyntax, membername.into_param().abi())
+    ::windows_targets::link!("rpcns4.dll" "system" fn RpcNsProfileEltRemoveW(profilenamesyntax : u32, profilename : windows_core::PCWSTR, ifid : *const RPC_IF_ID, membernamesyntax : u32, membername : windows_core::PCWSTR) -> RPC_STATUS);
+    RpcNsProfileEltRemoveW(profilenamesyntax, profilename.into_param().abi(), core::mem::transmute(ifid.unwrap_or(std::ptr::null())), membernamesyntax, membername.into_param().abi())
 }
 #[inline]
-pub unsafe fn RpcObjectInqType(objuuid: *const ::windows_core::GUID, typeuuid: ::core::option::Option<*mut ::windows_core::GUID>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcObjectInqType(objuuid : *const ::windows_core::GUID, typeuuid : *mut ::windows_core::GUID) -> RPC_STATUS);
-    RpcObjectInqType(objuuid, ::core::mem::transmute(typeuuid.unwrap_or(::std::ptr::null_mut())))
+pub unsafe fn RpcObjectInqType(objuuid: *const windows_core::GUID, typeuuid: Option<*mut windows_core::GUID>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcObjectInqType(objuuid : *const windows_core::GUID, typeuuid : *mut windows_core::GUID) -> RPC_STATUS);
+    RpcObjectInqType(objuuid, core::mem::transmute(typeuuid.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn RpcObjectSetInqFn(inquiryfn: RPC_OBJECT_INQ_FN) -> RPC_STATUS {
@@ -2475,9 +2475,9 @@ pub unsafe fn RpcObjectSetInqFn(inquiryfn: RPC_OBJECT_INQ_FN) -> RPC_STATUS {
     RpcObjectSetInqFn(inquiryfn)
 }
 #[inline]
-pub unsafe fn RpcObjectSetType(objuuid: *const ::windows_core::GUID, typeuuid: ::core::option::Option<*const ::windows_core::GUID>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcObjectSetType(objuuid : *const ::windows_core::GUID, typeuuid : *const ::windows_core::GUID) -> RPC_STATUS);
-    RpcObjectSetType(objuuid, ::core::mem::transmute(typeuuid.unwrap_or(::std::ptr::null())))
+pub unsafe fn RpcObjectSetType(objuuid: *const windows_core::GUID, typeuuid: Option<*const windows_core::GUID>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcObjectSetType(objuuid : *const windows_core::GUID, typeuuid : *const windows_core::GUID) -> RPC_STATUS);
+    RpcObjectSetType(objuuid, core::mem::transmute(typeuuid.unwrap_or(std::ptr::null())))
 }
 #[inline]
 pub unsafe fn RpcProtseqVectorFreeA(protseqvector: *mut *mut RPC_PROTSEQ_VECTORA) -> RPC_STATUS {
@@ -2505,18 +2505,18 @@ pub unsafe fn RpcRevertToSelf() -> RPC_STATUS {
     RpcRevertToSelf()
 }
 #[inline]
-pub unsafe fn RpcRevertToSelfEx(bindinghandle: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcRevertToSelfEx(bindinghandle : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcRevertToSelfEx(::core::mem::transmute(bindinghandle.unwrap_or(::std::ptr::null())))
+pub unsafe fn RpcRevertToSelfEx(bindinghandle: Option<*const core::ffi::c_void>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcRevertToSelfEx(bindinghandle : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcRevertToSelfEx(core::mem::transmute(bindinghandle.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcServerCompleteSecurityCallback(bindinghandle: *const ::core::ffi::c_void, status: RPC_STATUS) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerCompleteSecurityCallback(bindinghandle : *const ::core::ffi::c_void, status : RPC_STATUS) -> RPC_STATUS);
+pub unsafe fn RpcServerCompleteSecurityCallback(bindinghandle: *const core::ffi::c_void, status: RPC_STATUS) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerCompleteSecurityCallback(bindinghandle : *const core::ffi::c_void, status : RPC_STATUS) -> RPC_STATUS);
     RpcServerCompleteSecurityCallback(bindinghandle, status)
 }
 #[inline]
-pub unsafe fn RpcServerInqBindingHandle(binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInqBindingHandle(binding : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcServerInqBindingHandle(binding: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInqBindingHandle(binding : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcServerInqBindingHandle(binding)
 }
 #[inline]
@@ -2525,63 +2525,63 @@ pub unsafe fn RpcServerInqBindings(bindingvector: *mut *mut RPC_BINDING_VECTOR) 
     RpcServerInqBindings(bindingvector)
 }
 #[inline]
-pub unsafe fn RpcServerInqBindingsEx(securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>, bindingvector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInqBindingsEx(securitydescriptor : *const ::core::ffi::c_void, bindingvector : *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS);
-    RpcServerInqBindingsEx(::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), bindingvector)
+pub unsafe fn RpcServerInqBindingsEx(securitydescriptor: Option<*const core::ffi::c_void>, bindingvector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInqBindingsEx(securitydescriptor : *const core::ffi::c_void, bindingvector : *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS);
+    RpcServerInqBindingsEx(core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())), bindingvector)
 }
 #[inline]
-pub unsafe fn RpcServerInqCallAttributesA(clientbinding: ::core::option::Option<*const ::core::ffi::c_void>, rpccallattributes: *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInqCallAttributesA(clientbinding : *const ::core::ffi::c_void, rpccallattributes : *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerInqCallAttributesA(::core::mem::transmute(clientbinding.unwrap_or(::std::ptr::null())), rpccallattributes)
+pub unsafe fn RpcServerInqCallAttributesA(clientbinding: Option<*const core::ffi::c_void>, rpccallattributes: *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInqCallAttributesA(clientbinding : *const core::ffi::c_void, rpccallattributes : *mut core::ffi::c_void) -> RPC_STATUS);
+    RpcServerInqCallAttributesA(core::mem::transmute(clientbinding.unwrap_or(std::ptr::null())), rpccallattributes)
 }
 #[inline]
-pub unsafe fn RpcServerInqCallAttributesW(clientbinding: ::core::option::Option<*const ::core::ffi::c_void>, rpccallattributes: *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInqCallAttributesW(clientbinding : *const ::core::ffi::c_void, rpccallattributes : *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerInqCallAttributesW(::core::mem::transmute(clientbinding.unwrap_or(::std::ptr::null())), rpccallattributes)
+pub unsafe fn RpcServerInqCallAttributesW(clientbinding: Option<*const core::ffi::c_void>, rpccallattributes: *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInqCallAttributesW(clientbinding : *const core::ffi::c_void, rpccallattributes : *mut core::ffi::c_void) -> RPC_STATUS);
+    RpcServerInqCallAttributesW(core::mem::transmute(clientbinding.unwrap_or(std::ptr::null())), rpccallattributes)
 }
 #[inline]
-pub unsafe fn RpcServerInqDefaultPrincNameA(authnsvc: u32, princname: *mut ::windows_core::PSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInqDefaultPrincNameA(authnsvc : u32, princname : *mut ::windows_core::PSTR) -> RPC_STATUS);
+pub unsafe fn RpcServerInqDefaultPrincNameA(authnsvc: u32, princname: *mut windows_core::PSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInqDefaultPrincNameA(authnsvc : u32, princname : *mut windows_core::PSTR) -> RPC_STATUS);
     RpcServerInqDefaultPrincNameA(authnsvc, princname)
 }
 #[inline]
-pub unsafe fn RpcServerInqDefaultPrincNameW(authnsvc: u32, princname: *mut ::windows_core::PWSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInqDefaultPrincNameW(authnsvc : u32, princname : *mut ::windows_core::PWSTR) -> RPC_STATUS);
+pub unsafe fn RpcServerInqDefaultPrincNameW(authnsvc: u32, princname: *mut windows_core::PWSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInqDefaultPrincNameW(authnsvc : u32, princname : *mut windows_core::PWSTR) -> RPC_STATUS);
     RpcServerInqDefaultPrincNameW(authnsvc, princname)
 }
 #[inline]
-pub unsafe fn RpcServerInqIf(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: ::core::option::Option<*const ::windows_core::GUID>, mgrepv: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInqIf(ifspec : *const ::core::ffi::c_void, mgrtypeuuid : *const ::windows_core::GUID, mgrepv : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerInqIf(ifspec, ::core::mem::transmute(mgrtypeuuid.unwrap_or(::std::ptr::null())), mgrepv)
+pub unsafe fn RpcServerInqIf(ifspec: *const core::ffi::c_void, mgrtypeuuid: Option<*const windows_core::GUID>, mgrepv: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInqIf(ifspec : *const core::ffi::c_void, mgrtypeuuid : *const windows_core::GUID, mgrepv : *mut *mut core::ffi::c_void) -> RPC_STATUS);
+    RpcServerInqIf(ifspec, core::mem::transmute(mgrtypeuuid.unwrap_or(std::ptr::null())), mgrepv)
 }
 #[inline]
-pub unsafe fn RpcServerInterfaceGroupActivate(ifgroup: *const ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupActivate(ifgroup : *const ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcServerInterfaceGroupActivate(ifgroup: *const core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupActivate(ifgroup : *const core::ffi::c_void) -> RPC_STATUS);
     RpcServerInterfaceGroupActivate(ifgroup)
 }
 #[inline]
-pub unsafe fn RpcServerInterfaceGroupClose(ifgroup: *const ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupClose(ifgroup : *const ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcServerInterfaceGroupClose(ifgroup: *const core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupClose(ifgroup : *const core::ffi::c_void) -> RPC_STATUS);
     RpcServerInterfaceGroupClose(ifgroup)
 }
 #[inline]
-pub unsafe fn RpcServerInterfaceGroupCreateA(interfaces: &[RPC_INTERFACE_TEMPLATEA], endpoints: &[RPC_ENDPOINT_TEMPLATEA], idleperiod: u32, idlecallbackfn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupCreateA(interfaces : *const RPC_INTERFACE_TEMPLATEA, numifs : u32, endpoints : *const RPC_ENDPOINT_TEMPLATEA, numendpoints : u32, idleperiod : u32, idlecallbackfn : RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, idlecallbackcontext : *const ::core::ffi::c_void, ifgroup : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerInterfaceGroupCreateA(::core::mem::transmute(interfaces.as_ptr()), interfaces.len().try_into().unwrap(), ::core::mem::transmute(endpoints.as_ptr()), endpoints.len().try_into().unwrap(), idleperiod, idlecallbackfn, idlecallbackcontext, ifgroup)
+pub unsafe fn RpcServerInterfaceGroupCreateA(interfaces: &[RPC_INTERFACE_TEMPLATEA], endpoints: &[RPC_ENDPOINT_TEMPLATEA], idleperiod: u32, idlecallbackfn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, idlecallbackcontext: *const core::ffi::c_void, ifgroup: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupCreateA(interfaces : *const RPC_INTERFACE_TEMPLATEA, numifs : u32, endpoints : *const RPC_ENDPOINT_TEMPLATEA, numendpoints : u32, idleperiod : u32, idlecallbackfn : RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, idlecallbackcontext : *const core::ffi::c_void, ifgroup : *mut *mut core::ffi::c_void) -> RPC_STATUS);
+    RpcServerInterfaceGroupCreateA(core::mem::transmute(interfaces.as_ptr()), interfaces.len().try_into().unwrap(), core::mem::transmute(endpoints.as_ptr()), endpoints.len().try_into().unwrap(), idleperiod, idlecallbackfn, idlecallbackcontext, ifgroup)
 }
 #[inline]
-pub unsafe fn RpcServerInterfaceGroupCreateW(interfaces: &[RPC_INTERFACE_TEMPLATEW], endpoints: &[RPC_ENDPOINT_TEMPLATEW], idleperiod: u32, idlecallbackfn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupCreateW(interfaces : *const RPC_INTERFACE_TEMPLATEW, numifs : u32, endpoints : *const RPC_ENDPOINT_TEMPLATEW, numendpoints : u32, idleperiod : u32, idlecallbackfn : RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, idlecallbackcontext : *const ::core::ffi::c_void, ifgroup : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerInterfaceGroupCreateW(::core::mem::transmute(interfaces.as_ptr()), interfaces.len().try_into().unwrap(), ::core::mem::transmute(endpoints.as_ptr()), endpoints.len().try_into().unwrap(), idleperiod, idlecallbackfn, idlecallbackcontext, ifgroup)
+pub unsafe fn RpcServerInterfaceGroupCreateW(interfaces: &[RPC_INTERFACE_TEMPLATEW], endpoints: &[RPC_ENDPOINT_TEMPLATEW], idleperiod: u32, idlecallbackfn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, idlecallbackcontext: *const core::ffi::c_void, ifgroup: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupCreateW(interfaces : *const RPC_INTERFACE_TEMPLATEW, numifs : u32, endpoints : *const RPC_ENDPOINT_TEMPLATEW, numendpoints : u32, idleperiod : u32, idlecallbackfn : RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, idlecallbackcontext : *const core::ffi::c_void, ifgroup : *mut *mut core::ffi::c_void) -> RPC_STATUS);
+    RpcServerInterfaceGroupCreateW(core::mem::transmute(interfaces.as_ptr()), interfaces.len().try_into().unwrap(), core::mem::transmute(endpoints.as_ptr()), endpoints.len().try_into().unwrap(), idleperiod, idlecallbackfn, idlecallbackcontext, ifgroup)
 }
 #[inline]
-pub unsafe fn RpcServerInterfaceGroupDeactivate(ifgroup: *const ::core::ffi::c_void, forcedeactivation: u32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupDeactivate(ifgroup : *const ::core::ffi::c_void, forcedeactivation : u32) -> RPC_STATUS);
+pub unsafe fn RpcServerInterfaceGroupDeactivate(ifgroup: *const core::ffi::c_void, forcedeactivation: u32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupDeactivate(ifgroup : *const core::ffi::c_void, forcedeactivation : u32) -> RPC_STATUS);
     RpcServerInterfaceGroupDeactivate(ifgroup, forcedeactivation)
 }
 #[inline]
-pub unsafe fn RpcServerInterfaceGroupInqBindings(ifgroup: *const ::core::ffi::c_void, bindingvector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupInqBindings(ifgroup : *const ::core::ffi::c_void, bindingvector : *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS);
+pub unsafe fn RpcServerInterfaceGroupInqBindings(ifgroup: *const core::ffi::c_void, bindingvector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupInqBindings(ifgroup : *const core::ffi::c_void, bindingvector : *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS);
     RpcServerInterfaceGroupInqBindings(ifgroup, bindingvector)
 }
 #[inline]
@@ -2590,186 +2590,186 @@ pub unsafe fn RpcServerListen(minimumcallthreads: u32, maxcalls: u32, dontwait: 
     RpcServerListen(minimumcallthreads, maxcalls, dontwait)
 }
 #[inline]
-pub unsafe fn RpcServerRegisterAuthInfoA<P0>(serverprincname: P0, authnsvc: u32, getkeyfn: RPC_AUTH_KEY_RETRIEVAL_FN, arg: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS
+pub unsafe fn RpcServerRegisterAuthInfoA<P0>(serverprincname: P0, authnsvc: u32, getkeyfn: RPC_AUTH_KEY_RETRIEVAL_FN, arg: Option<*const core::ffi::c_void>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerRegisterAuthInfoA(serverprincname : ::windows_core::PCSTR, authnsvc : u32, getkeyfn : RPC_AUTH_KEY_RETRIEVAL_FN, arg : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerRegisterAuthInfoA(serverprincname.into_param().abi(), authnsvc, getkeyfn, ::core::mem::transmute(arg.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerRegisterAuthInfoA(serverprincname : windows_core::PCSTR, authnsvc : u32, getkeyfn : RPC_AUTH_KEY_RETRIEVAL_FN, arg : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcServerRegisterAuthInfoA(serverprincname.into_param().abi(), authnsvc, getkeyfn, core::mem::transmute(arg.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcServerRegisterAuthInfoW<P0>(serverprincname: P0, authnsvc: u32, getkeyfn: RPC_AUTH_KEY_RETRIEVAL_FN, arg: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS
+pub unsafe fn RpcServerRegisterAuthInfoW<P0>(serverprincname: P0, authnsvc: u32, getkeyfn: RPC_AUTH_KEY_RETRIEVAL_FN, arg: Option<*const core::ffi::c_void>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerRegisterAuthInfoW(serverprincname : ::windows_core::PCWSTR, authnsvc : u32, getkeyfn : RPC_AUTH_KEY_RETRIEVAL_FN, arg : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerRegisterAuthInfoW(serverprincname.into_param().abi(), authnsvc, getkeyfn, ::core::mem::transmute(arg.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerRegisterAuthInfoW(serverprincname : windows_core::PCWSTR, authnsvc : u32, getkeyfn : RPC_AUTH_KEY_RETRIEVAL_FN, arg : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcServerRegisterAuthInfoW(serverprincname.into_param().abi(), authnsvc, getkeyfn, core::mem::transmute(arg.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcServerRegisterIf(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: ::core::option::Option<*const ::windows_core::GUID>, mgrepv: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf(ifspec : *const ::core::ffi::c_void, mgrtypeuuid : *const ::windows_core::GUID, mgrepv : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerRegisterIf(ifspec, ::core::mem::transmute(mgrtypeuuid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(mgrepv.unwrap_or(::std::ptr::null())))
+pub unsafe fn RpcServerRegisterIf(ifspec: *const core::ffi::c_void, mgrtypeuuid: Option<*const windows_core::GUID>, mgrepv: Option<*const core::ffi::c_void>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf(ifspec : *const core::ffi::c_void, mgrtypeuuid : *const windows_core::GUID, mgrepv : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcServerRegisterIf(ifspec, core::mem::transmute(mgrtypeuuid.unwrap_or(std::ptr::null())), core::mem::transmute(mgrepv.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcServerRegisterIf2(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: ::core::option::Option<*const ::windows_core::GUID>, mgrepv: ::core::option::Option<*const ::core::ffi::c_void>, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallbackfn: RPC_IF_CALLBACK_FN) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf2(ifspec : *const ::core::ffi::c_void, mgrtypeuuid : *const ::windows_core::GUID, mgrepv : *const ::core::ffi::c_void, flags : u32, maxcalls : u32, maxrpcsize : u32, ifcallbackfn : RPC_IF_CALLBACK_FN) -> RPC_STATUS);
-    RpcServerRegisterIf2(ifspec, ::core::mem::transmute(mgrtypeuuid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(mgrepv.unwrap_or(::std::ptr::null())), flags, maxcalls, maxrpcsize, ifcallbackfn)
+pub unsafe fn RpcServerRegisterIf2(ifspec: *const core::ffi::c_void, mgrtypeuuid: Option<*const windows_core::GUID>, mgrepv: Option<*const core::ffi::c_void>, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallbackfn: RPC_IF_CALLBACK_FN) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf2(ifspec : *const core::ffi::c_void, mgrtypeuuid : *const windows_core::GUID, mgrepv : *const core::ffi::c_void, flags : u32, maxcalls : u32, maxrpcsize : u32, ifcallbackfn : RPC_IF_CALLBACK_FN) -> RPC_STATUS);
+    RpcServerRegisterIf2(ifspec, core::mem::transmute(mgrtypeuuid.unwrap_or(std::ptr::null())), core::mem::transmute(mgrepv.unwrap_or(std::ptr::null())), flags, maxcalls, maxrpcsize, ifcallbackfn)
 }
 #[inline]
-pub unsafe fn RpcServerRegisterIf3(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: ::core::option::Option<*const ::windows_core::GUID>, mgrepv: ::core::option::Option<*const ::core::ffi::c_void>, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: RPC_IF_CALLBACK_FN, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf3(ifspec : *const ::core::ffi::c_void, mgrtypeuuid : *const ::windows_core::GUID, mgrepv : *const ::core::ffi::c_void, flags : u32, maxcalls : u32, maxrpcsize : u32, ifcallback : RPC_IF_CALLBACK_FN, securitydescriptor : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerRegisterIf3(ifspec, ::core::mem::transmute(mgrtypeuuid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(mgrepv.unwrap_or(::std::ptr::null())), flags, maxcalls, maxrpcsize, ifcallback, ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())))
+pub unsafe fn RpcServerRegisterIf3(ifspec: *const core::ffi::c_void, mgrtypeuuid: Option<*const windows_core::GUID>, mgrepv: Option<*const core::ffi::c_void>, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: RPC_IF_CALLBACK_FN, securitydescriptor: Option<*const core::ffi::c_void>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf3(ifspec : *const core::ffi::c_void, mgrtypeuuid : *const windows_core::GUID, mgrepv : *const core::ffi::c_void, flags : u32, maxcalls : u32, maxrpcsize : u32, ifcallback : RPC_IF_CALLBACK_FN, securitydescriptor : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcServerRegisterIf3(ifspec, core::mem::transmute(mgrtypeuuid.unwrap_or(std::ptr::null())), core::mem::transmute(mgrepv.unwrap_or(std::ptr::null())), flags, maxcalls, maxrpcsize, ifcallback, core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcServerRegisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: ::core::option::Option<*const ::windows_core::GUID>, mgrepv: ::core::option::Option<*const ::core::ffi::c_void>, flags: u32, maxcalls: u32, ifcallback: RPC_IF_CALLBACK_FN) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerRegisterIfEx(ifspec : *const ::core::ffi::c_void, mgrtypeuuid : *const ::windows_core::GUID, mgrepv : *const ::core::ffi::c_void, flags : u32, maxcalls : u32, ifcallback : RPC_IF_CALLBACK_FN) -> RPC_STATUS);
-    RpcServerRegisterIfEx(ifspec, ::core::mem::transmute(mgrtypeuuid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(mgrepv.unwrap_or(::std::ptr::null())), flags, maxcalls, ifcallback)
+pub unsafe fn RpcServerRegisterIfEx(ifspec: *const core::ffi::c_void, mgrtypeuuid: Option<*const windows_core::GUID>, mgrepv: Option<*const core::ffi::c_void>, flags: u32, maxcalls: u32, ifcallback: RPC_IF_CALLBACK_FN) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerRegisterIfEx(ifspec : *const core::ffi::c_void, mgrtypeuuid : *const windows_core::GUID, mgrepv : *const core::ffi::c_void, flags : u32, maxcalls : u32, ifcallback : RPC_IF_CALLBACK_FN) -> RPC_STATUS);
+    RpcServerRegisterIfEx(ifspec, core::mem::transmute(mgrtypeuuid.unwrap_or(std::ptr::null())), core::mem::transmute(mgrepv.unwrap_or(std::ptr::null())), flags, maxcalls, ifcallback)
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn RpcServerSubscribeForNotification(binding: ::core::option::Option<*const ::core::ffi::c_void>, notification: RPC_NOTIFICATIONS, notificationtype: RPC_NOTIFICATION_TYPES, notificationinfo: *const RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerSubscribeForNotification(binding : *const ::core::ffi::c_void, notification : RPC_NOTIFICATIONS, notificationtype : RPC_NOTIFICATION_TYPES, notificationinfo : *const RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS);
-    RpcServerSubscribeForNotification(::core::mem::transmute(binding.unwrap_or(::std::ptr::null())), notification, notificationtype, notificationinfo)
+pub unsafe fn RpcServerSubscribeForNotification(binding: Option<*const core::ffi::c_void>, notification: RPC_NOTIFICATIONS, notificationtype: RPC_NOTIFICATION_TYPES, notificationinfo: *const RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerSubscribeForNotification(binding : *const core::ffi::c_void, notification : RPC_NOTIFICATIONS, notificationtype : RPC_NOTIFICATION_TYPES, notificationinfo : *const RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS);
+    RpcServerSubscribeForNotification(core::mem::transmute(binding.unwrap_or(std::ptr::null())), notification, notificationtype, notificationinfo)
 }
 #[inline]
-pub unsafe fn RpcServerTestCancel(bindinghandle: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerTestCancel(bindinghandle : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerTestCancel(::core::mem::transmute(bindinghandle.unwrap_or(::std::ptr::null())))
+pub unsafe fn RpcServerTestCancel(bindinghandle: Option<*const core::ffi::c_void>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerTestCancel(bindinghandle : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcServerTestCancel(core::mem::transmute(bindinghandle.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcServerUnregisterIf(ifspec: ::core::option::Option<*const ::core::ffi::c_void>, mgrtypeuuid: ::core::option::Option<*const ::windows_core::GUID>, waitforcallstocomplete: u32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUnregisterIf(ifspec : *const ::core::ffi::c_void, mgrtypeuuid : *const ::windows_core::GUID, waitforcallstocomplete : u32) -> RPC_STATUS);
-    RpcServerUnregisterIf(::core::mem::transmute(ifspec.unwrap_or(::std::ptr::null())), ::core::mem::transmute(mgrtypeuuid.unwrap_or(::std::ptr::null())), waitforcallstocomplete)
+pub unsafe fn RpcServerUnregisterIf(ifspec: Option<*const core::ffi::c_void>, mgrtypeuuid: Option<*const windows_core::GUID>, waitforcallstocomplete: u32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUnregisterIf(ifspec : *const core::ffi::c_void, mgrtypeuuid : *const windows_core::GUID, waitforcallstocomplete : u32) -> RPC_STATUS);
+    RpcServerUnregisterIf(core::mem::transmute(ifspec.unwrap_or(std::ptr::null())), core::mem::transmute(mgrtypeuuid.unwrap_or(std::ptr::null())), waitforcallstocomplete)
 }
 #[inline]
-pub unsafe fn RpcServerUnregisterIfEx(ifspec: ::core::option::Option<*const ::core::ffi::c_void>, mgrtypeuuid: ::core::option::Option<*const ::windows_core::GUID>, rundowncontexthandles: i32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUnregisterIfEx(ifspec : *const ::core::ffi::c_void, mgrtypeuuid : *const ::windows_core::GUID, rundowncontexthandles : i32) -> RPC_STATUS);
-    RpcServerUnregisterIfEx(::core::mem::transmute(ifspec.unwrap_or(::std::ptr::null())), ::core::mem::transmute(mgrtypeuuid.unwrap_or(::std::ptr::null())), rundowncontexthandles)
+pub unsafe fn RpcServerUnregisterIfEx(ifspec: Option<*const core::ffi::c_void>, mgrtypeuuid: Option<*const windows_core::GUID>, rundowncontexthandles: i32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUnregisterIfEx(ifspec : *const core::ffi::c_void, mgrtypeuuid : *const windows_core::GUID, rundowncontexthandles : i32) -> RPC_STATUS);
+    RpcServerUnregisterIfEx(core::mem::transmute(ifspec.unwrap_or(std::ptr::null())), core::mem::transmute(mgrtypeuuid.unwrap_or(std::ptr::null())), rundowncontexthandles)
 }
 #[inline]
-pub unsafe fn RpcServerUnsubscribeForNotification(binding: ::core::option::Option<*const ::core::ffi::c_void>, notification: RPC_NOTIFICATIONS, notificationsqueued: *mut u32) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUnsubscribeForNotification(binding : *const ::core::ffi::c_void, notification : RPC_NOTIFICATIONS, notificationsqueued : *mut u32) -> RPC_STATUS);
-    RpcServerUnsubscribeForNotification(::core::mem::transmute(binding.unwrap_or(::std::ptr::null())), notification, notificationsqueued)
+pub unsafe fn RpcServerUnsubscribeForNotification(binding: Option<*const core::ffi::c_void>, notification: RPC_NOTIFICATIONS, notificationsqueued: *mut u32) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUnsubscribeForNotification(binding : *const core::ffi::c_void, notification : RPC_NOTIFICATIONS, notificationsqueued : *mut u32) -> RPC_STATUS);
+    RpcServerUnsubscribeForNotification(core::mem::transmute(binding.unwrap_or(std::ptr::null())), notification, notificationsqueued)
 }
 #[inline]
-pub unsafe fn RpcServerUseAllProtseqs(maxcalls: u32, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseAllProtseqs(maxcalls : u32, securitydescriptor : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerUseAllProtseqs(maxcalls, ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())))
+pub unsafe fn RpcServerUseAllProtseqs(maxcalls: u32, securitydescriptor: Option<*const core::ffi::c_void>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseAllProtseqs(maxcalls : u32, securitydescriptor : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcServerUseAllProtseqs(maxcalls, core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcServerUseAllProtseqsEx(maxcalls: u32, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>, policy: *const RPC_POLICY) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseAllProtseqsEx(maxcalls : u32, securitydescriptor : *const ::core::ffi::c_void, policy : *const RPC_POLICY) -> RPC_STATUS);
-    RpcServerUseAllProtseqsEx(maxcalls, ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), policy)
+pub unsafe fn RpcServerUseAllProtseqsEx(maxcalls: u32, securitydescriptor: Option<*const core::ffi::c_void>, policy: *const RPC_POLICY) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseAllProtseqsEx(maxcalls : u32, securitydescriptor : *const core::ffi::c_void, policy : *const RPC_POLICY) -> RPC_STATUS);
+    RpcServerUseAllProtseqsEx(maxcalls, core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())), policy)
 }
 #[inline]
-pub unsafe fn RpcServerUseAllProtseqsIf(maxcalls: u32, ifspec: *const ::core::ffi::c_void, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseAllProtseqsIf(maxcalls : u32, ifspec : *const ::core::ffi::c_void, securitydescriptor : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerUseAllProtseqsIf(maxcalls, ifspec, ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())))
+pub unsafe fn RpcServerUseAllProtseqsIf(maxcalls: u32, ifspec: *const core::ffi::c_void, securitydescriptor: Option<*const core::ffi::c_void>) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseAllProtseqsIf(maxcalls : u32, ifspec : *const core::ffi::c_void, securitydescriptor : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcServerUseAllProtseqsIf(maxcalls, ifspec, core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcServerUseAllProtseqsIfEx(maxcalls: u32, ifspec: *const ::core::ffi::c_void, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>, policy: *const RPC_POLICY) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseAllProtseqsIfEx(maxcalls : u32, ifspec : *const ::core::ffi::c_void, securitydescriptor : *const ::core::ffi::c_void, policy : *const RPC_POLICY) -> RPC_STATUS);
-    RpcServerUseAllProtseqsIfEx(maxcalls, ifspec, ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), policy)
+pub unsafe fn RpcServerUseAllProtseqsIfEx(maxcalls: u32, ifspec: *const core::ffi::c_void, securitydescriptor: Option<*const core::ffi::c_void>, policy: *const RPC_POLICY) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseAllProtseqsIfEx(maxcalls : u32, ifspec : *const core::ffi::c_void, securitydescriptor : *const core::ffi::c_void, policy : *const RPC_POLICY) -> RPC_STATUS);
+    RpcServerUseAllProtseqsIfEx(maxcalls, ifspec, core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())), policy)
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqA<P0>(protseq: P0, maxcalls: u32, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS
+pub unsafe fn RpcServerUseProtseqA<P0>(protseq: P0, maxcalls: u32, securitydescriptor: Option<*const core::ffi::c_void>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqA(protseq : ::windows_core::PCSTR, maxcalls : u32, securitydescriptor : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerUseProtseqA(protseq.into_param().abi(), maxcalls, ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqA(protseq : windows_core::PCSTR, maxcalls : u32, securitydescriptor : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcServerUseProtseqA(protseq.into_param().abi(), maxcalls, core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqEpA<P0, P1>(protseq: P0, maxcalls: u32, endpoint: P1, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS
+pub unsafe fn RpcServerUseProtseqEpA<P0, P1>(protseq: P0, maxcalls: u32, endpoint: P1, securitydescriptor: Option<*const core::ffi::c_void>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqEpA(protseq : ::windows_core::PCSTR, maxcalls : u32, endpoint : ::windows_core::PCSTR, securitydescriptor : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerUseProtseqEpA(protseq.into_param().abi(), maxcalls, endpoint.into_param().abi(), ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqEpA(protseq : windows_core::PCSTR, maxcalls : u32, endpoint : windows_core::PCSTR, securitydescriptor : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcServerUseProtseqEpA(protseq.into_param().abi(), maxcalls, endpoint.into_param().abi(), core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqEpExA<P0, P1>(protseq: P0, maxcalls: u32, endpoint: P1, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>, policy: *const RPC_POLICY) -> RPC_STATUS
+pub unsafe fn RpcServerUseProtseqEpExA<P0, P1>(protseq: P0, maxcalls: u32, endpoint: P1, securitydescriptor: Option<*const core::ffi::c_void>, policy: *const RPC_POLICY) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqEpExA(protseq : ::windows_core::PCSTR, maxcalls : u32, endpoint : ::windows_core::PCSTR, securitydescriptor : *const ::core::ffi::c_void, policy : *const RPC_POLICY) -> RPC_STATUS);
-    RpcServerUseProtseqEpExA(protseq.into_param().abi(), maxcalls, endpoint.into_param().abi(), ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), policy)
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqEpExA(protseq : windows_core::PCSTR, maxcalls : u32, endpoint : windows_core::PCSTR, securitydescriptor : *const core::ffi::c_void, policy : *const RPC_POLICY) -> RPC_STATUS);
+    RpcServerUseProtseqEpExA(protseq.into_param().abi(), maxcalls, endpoint.into_param().abi(), core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())), policy)
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqEpExW<P0, P1>(protseq: P0, maxcalls: u32, endpoint: P1, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>, policy: *const RPC_POLICY) -> RPC_STATUS
+pub unsafe fn RpcServerUseProtseqEpExW<P0, P1>(protseq: P0, maxcalls: u32, endpoint: P1, securitydescriptor: Option<*const core::ffi::c_void>, policy: *const RPC_POLICY) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqEpExW(protseq : ::windows_core::PCWSTR, maxcalls : u32, endpoint : ::windows_core::PCWSTR, securitydescriptor : *const ::core::ffi::c_void, policy : *const RPC_POLICY) -> RPC_STATUS);
-    RpcServerUseProtseqEpExW(protseq.into_param().abi(), maxcalls, endpoint.into_param().abi(), ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), policy)
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqEpExW(protseq : windows_core::PCWSTR, maxcalls : u32, endpoint : windows_core::PCWSTR, securitydescriptor : *const core::ffi::c_void, policy : *const RPC_POLICY) -> RPC_STATUS);
+    RpcServerUseProtseqEpExW(protseq.into_param().abi(), maxcalls, endpoint.into_param().abi(), core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())), policy)
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqEpW<P0, P1>(protseq: P0, maxcalls: u32, endpoint: P1, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS
+pub unsafe fn RpcServerUseProtseqEpW<P0, P1>(protseq: P0, maxcalls: u32, endpoint: P1, securitydescriptor: Option<*const core::ffi::c_void>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqEpW(protseq : ::windows_core::PCWSTR, maxcalls : u32, endpoint : ::windows_core::PCWSTR, securitydescriptor : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerUseProtseqEpW(protseq.into_param().abi(), maxcalls, endpoint.into_param().abi(), ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqEpW(protseq : windows_core::PCWSTR, maxcalls : u32, endpoint : windows_core::PCWSTR, securitydescriptor : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcServerUseProtseqEpW(protseq.into_param().abi(), maxcalls, endpoint.into_param().abi(), core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqExA<P0>(protseq: P0, maxcalls: u32, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>, policy: *const RPC_POLICY) -> RPC_STATUS
+pub unsafe fn RpcServerUseProtseqExA<P0>(protseq: P0, maxcalls: u32, securitydescriptor: Option<*const core::ffi::c_void>, policy: *const RPC_POLICY) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqExA(protseq : ::windows_core::PCSTR, maxcalls : u32, securitydescriptor : *const ::core::ffi::c_void, policy : *const RPC_POLICY) -> RPC_STATUS);
-    RpcServerUseProtseqExA(protseq.into_param().abi(), maxcalls, ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), policy)
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqExA(protseq : windows_core::PCSTR, maxcalls : u32, securitydescriptor : *const core::ffi::c_void, policy : *const RPC_POLICY) -> RPC_STATUS);
+    RpcServerUseProtseqExA(protseq.into_param().abi(), maxcalls, core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())), policy)
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqExW<P0>(protseq: P0, maxcalls: u32, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>, policy: *const RPC_POLICY) -> RPC_STATUS
+pub unsafe fn RpcServerUseProtseqExW<P0>(protseq: P0, maxcalls: u32, securitydescriptor: Option<*const core::ffi::c_void>, policy: *const RPC_POLICY) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqExW(protseq : ::windows_core::PCWSTR, maxcalls : u32, securitydescriptor : *const ::core::ffi::c_void, policy : *const RPC_POLICY) -> RPC_STATUS);
-    RpcServerUseProtseqExW(protseq.into_param().abi(), maxcalls, ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), policy)
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqExW(protseq : windows_core::PCWSTR, maxcalls : u32, securitydescriptor : *const core::ffi::c_void, policy : *const RPC_POLICY) -> RPC_STATUS);
+    RpcServerUseProtseqExW(protseq.into_param().abi(), maxcalls, core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())), policy)
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqIfA<P0>(protseq: P0, maxcalls: u32, ifspec: *const ::core::ffi::c_void, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS
+pub unsafe fn RpcServerUseProtseqIfA<P0>(protseq: P0, maxcalls: u32, ifspec: *const core::ffi::c_void, securitydescriptor: Option<*const core::ffi::c_void>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqIfA(protseq : ::windows_core::PCSTR, maxcalls : u32, ifspec : *const ::core::ffi::c_void, securitydescriptor : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerUseProtseqIfA(protseq.into_param().abi(), maxcalls, ifspec, ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqIfA(protseq : windows_core::PCSTR, maxcalls : u32, ifspec : *const core::ffi::c_void, securitydescriptor : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcServerUseProtseqIfA(protseq.into_param().abi(), maxcalls, ifspec, core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqIfExA<P0>(protseq: P0, maxcalls: u32, ifspec: *const ::core::ffi::c_void, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>, policy: *const RPC_POLICY) -> RPC_STATUS
+pub unsafe fn RpcServerUseProtseqIfExA<P0>(protseq: P0, maxcalls: u32, ifspec: *const core::ffi::c_void, securitydescriptor: Option<*const core::ffi::c_void>, policy: *const RPC_POLICY) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqIfExA(protseq : ::windows_core::PCSTR, maxcalls : u32, ifspec : *const ::core::ffi::c_void, securitydescriptor : *const ::core::ffi::c_void, policy : *const RPC_POLICY) -> RPC_STATUS);
-    RpcServerUseProtseqIfExA(protseq.into_param().abi(), maxcalls, ifspec, ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), policy)
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqIfExA(protseq : windows_core::PCSTR, maxcalls : u32, ifspec : *const core::ffi::c_void, securitydescriptor : *const core::ffi::c_void, policy : *const RPC_POLICY) -> RPC_STATUS);
+    RpcServerUseProtseqIfExA(protseq.into_param().abi(), maxcalls, ifspec, core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())), policy)
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqIfExW<P0>(protseq: P0, maxcalls: u32, ifspec: *const ::core::ffi::c_void, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>, policy: *const RPC_POLICY) -> RPC_STATUS
+pub unsafe fn RpcServerUseProtseqIfExW<P0>(protseq: P0, maxcalls: u32, ifspec: *const core::ffi::c_void, securitydescriptor: Option<*const core::ffi::c_void>, policy: *const RPC_POLICY) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqIfExW(protseq : ::windows_core::PCWSTR, maxcalls : u32, ifspec : *const ::core::ffi::c_void, securitydescriptor : *const ::core::ffi::c_void, policy : *const RPC_POLICY) -> RPC_STATUS);
-    RpcServerUseProtseqIfExW(protseq.into_param().abi(), maxcalls, ifspec, ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), policy)
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqIfExW(protseq : windows_core::PCWSTR, maxcalls : u32, ifspec : *const core::ffi::c_void, securitydescriptor : *const core::ffi::c_void, policy : *const RPC_POLICY) -> RPC_STATUS);
+    RpcServerUseProtseqIfExW(protseq.into_param().abi(), maxcalls, ifspec, core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())), policy)
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqIfW<P0>(protseq: P0, maxcalls: u32, ifspec: *const ::core::ffi::c_void, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS
+pub unsafe fn RpcServerUseProtseqIfW<P0>(protseq: P0, maxcalls: u32, ifspec: *const core::ffi::c_void, securitydescriptor: Option<*const core::ffi::c_void>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqIfW(protseq : ::windows_core::PCWSTR, maxcalls : u32, ifspec : *const ::core::ffi::c_void, securitydescriptor : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerUseProtseqIfW(protseq.into_param().abi(), maxcalls, ifspec, ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqIfW(protseq : windows_core::PCWSTR, maxcalls : u32, ifspec : *const core::ffi::c_void, securitydescriptor : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcServerUseProtseqIfW(protseq.into_param().abi(), maxcalls, ifspec, core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqW<P0>(protseq: P0, maxcalls: u32, securitydescriptor: ::core::option::Option<*const ::core::ffi::c_void>) -> RPC_STATUS
+pub unsafe fn RpcServerUseProtseqW<P0>(protseq: P0, maxcalls: u32, securitydescriptor: Option<*const core::ffi::c_void>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqW(protseq : ::windows_core::PCWSTR, maxcalls : u32, securitydescriptor : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcServerUseProtseqW(protseq.into_param().abi(), maxcalls, ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())))
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcServerUseProtseqW(protseq : windows_core::PCWSTR, maxcalls : u32, securitydescriptor : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcServerUseProtseqW(protseq.into_param().abi(), maxcalls, core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())))
 }
 #[inline]
 pub unsafe fn RpcServerYield() {
@@ -2777,18 +2777,18 @@ pub unsafe fn RpcServerYield() {
     RpcServerYield()
 }
 #[inline]
-pub unsafe fn RpcSmAllocate(size: usize, pstatus: *mut RPC_STATUS) -> *mut ::core::ffi::c_void {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSmAllocate(size : usize, pstatus : *mut RPC_STATUS) -> *mut ::core::ffi::c_void);
+pub unsafe fn RpcSmAllocate(size: usize, pstatus: *mut RPC_STATUS) -> *mut core::ffi::c_void {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSmAllocate(size : usize, pstatus : *mut RPC_STATUS) -> *mut core::ffi::c_void);
     RpcSmAllocate(size, pstatus)
 }
 #[inline]
-pub unsafe fn RpcSmClientFree(pnodetofree: *const ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSmClientFree(pnodetofree : *const ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcSmClientFree(pnodetofree: *const core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSmClientFree(pnodetofree : *const core::ffi::c_void) -> RPC_STATUS);
     RpcSmClientFree(pnodetofree)
 }
 #[inline]
-pub unsafe fn RpcSmDestroyClientContext(contexthandle: *const *const ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSmDestroyClientContext(contexthandle : *const *const ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcSmDestroyClientContext(contexthandle: *const *const core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSmDestroyClientContext(contexthandle : *const *const core::ffi::c_void) -> RPC_STATUS);
     RpcSmDestroyClientContext(contexthandle)
 }
 #[inline]
@@ -2802,13 +2802,13 @@ pub unsafe fn RpcSmEnableAllocate() -> RPC_STATUS {
     RpcSmEnableAllocate()
 }
 #[inline]
-pub unsafe fn RpcSmFree(nodetofree: *const ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSmFree(nodetofree : *const ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcSmFree(nodetofree: *const core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSmFree(nodetofree : *const core::ffi::c_void) -> RPC_STATUS);
     RpcSmFree(nodetofree)
 }
 #[inline]
-pub unsafe fn RpcSmGetThreadHandle(pstatus: *mut RPC_STATUS) -> *mut ::core::ffi::c_void {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSmGetThreadHandle(pstatus : *mut RPC_STATUS) -> *mut ::core::ffi::c_void);
+pub unsafe fn RpcSmGetThreadHandle(pstatus: *mut RPC_STATUS) -> *mut core::ffi::c_void {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSmGetThreadHandle(pstatus : *mut RPC_STATUS) -> *mut core::ffi::c_void);
     RpcSmGetThreadHandle(pstatus)
 }
 #[inline]
@@ -2817,8 +2817,8 @@ pub unsafe fn RpcSmSetClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree:
     RpcSmSetClientAllocFree(clientalloc, clientfree)
 }
 #[inline]
-pub unsafe fn RpcSmSetThreadHandle(id: *const ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSmSetThreadHandle(id : *const ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcSmSetThreadHandle(id: *const core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSmSetThreadHandle(id : *const core::ffi::c_void) -> RPC_STATUS);
     RpcSmSetThreadHandle(id)
 }
 #[inline]
@@ -2827,23 +2827,23 @@ pub unsafe fn RpcSmSwapClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree
     RpcSmSwapClientAllocFree(clientalloc, clientfree, oldclientalloc, oldclientfree)
 }
 #[inline]
-pub unsafe fn RpcSsAllocate(size: usize) -> *mut ::core::ffi::c_void {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSsAllocate(size : usize) -> *mut ::core::ffi::c_void);
+pub unsafe fn RpcSsAllocate(size: usize) -> *mut core::ffi::c_void {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSsAllocate(size : usize) -> *mut core::ffi::c_void);
     RpcSsAllocate(size)
 }
 #[inline]
-pub unsafe fn RpcSsContextLockExclusive(serverbindinghandle: ::core::option::Option<*const ::core::ffi::c_void>, usercontext: *const ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSsContextLockExclusive(serverbindinghandle : *const ::core::ffi::c_void, usercontext : *const ::core::ffi::c_void) -> RPC_STATUS);
-    RpcSsContextLockExclusive(::core::mem::transmute(serverbindinghandle.unwrap_or(::std::ptr::null())), usercontext)
+pub unsafe fn RpcSsContextLockExclusive(serverbindinghandle: Option<*const core::ffi::c_void>, usercontext: *const core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSsContextLockExclusive(serverbindinghandle : *const core::ffi::c_void, usercontext : *const core::ffi::c_void) -> RPC_STATUS);
+    RpcSsContextLockExclusive(core::mem::transmute(serverbindinghandle.unwrap_or(std::ptr::null())), usercontext)
 }
 #[inline]
-pub unsafe fn RpcSsContextLockShared(serverbindinghandle: *const ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSsContextLockShared(serverbindinghandle : *const ::core::ffi::c_void, usercontext : *const ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcSsContextLockShared(serverbindinghandle: *const core::ffi::c_void, usercontext: *const core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSsContextLockShared(serverbindinghandle : *const core::ffi::c_void, usercontext : *const core::ffi::c_void) -> RPC_STATUS);
     RpcSsContextLockShared(serverbindinghandle, usercontext)
 }
 #[inline]
-pub unsafe fn RpcSsDestroyClientContext(contexthandle: *const *const ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSsDestroyClientContext(contexthandle : *const *const ::core::ffi::c_void));
+pub unsafe fn RpcSsDestroyClientContext(contexthandle: *const *const core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSsDestroyClientContext(contexthandle : *const *const core::ffi::c_void));
     RpcSsDestroyClientContext(contexthandle)
 }
 #[inline]
@@ -2862,18 +2862,18 @@ pub unsafe fn RpcSsEnableAllocate() {
     RpcSsEnableAllocate()
 }
 #[inline]
-pub unsafe fn RpcSsFree(nodetofree: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSsFree(nodetofree : *const ::core::ffi::c_void));
+pub unsafe fn RpcSsFree(nodetofree: *const core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSsFree(nodetofree : *const core::ffi::c_void));
     RpcSsFree(nodetofree)
 }
 #[inline]
-pub unsafe fn RpcSsGetContextBinding(contexthandle: *const ::core::ffi::c_void, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSsGetContextBinding(contexthandle : *const ::core::ffi::c_void, binding : *mut *mut ::core::ffi::c_void) -> RPC_STATUS);
+pub unsafe fn RpcSsGetContextBinding(contexthandle: *const core::ffi::c_void, binding: *mut *mut core::ffi::c_void) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSsGetContextBinding(contexthandle : *const core::ffi::c_void, binding : *mut *mut core::ffi::c_void) -> RPC_STATUS);
     RpcSsGetContextBinding(contexthandle, binding)
 }
 #[inline]
-pub unsafe fn RpcSsGetThreadHandle() -> *mut ::core::ffi::c_void {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSsGetThreadHandle() -> *mut ::core::ffi::c_void);
+pub unsafe fn RpcSsGetThreadHandle() -> *mut core::ffi::c_void {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSsGetThreadHandle() -> *mut core::ffi::c_void);
     RpcSsGetThreadHandle()
 }
 #[inline]
@@ -2882,8 +2882,8 @@ pub unsafe fn RpcSsSetClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree:
     RpcSsSetClientAllocFree(clientalloc, clientfree)
 }
 #[inline]
-pub unsafe fn RpcSsSetThreadHandle(id: *const ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSsSetThreadHandle(id : *const ::core::ffi::c_void));
+pub unsafe fn RpcSsSetThreadHandle(id: *const core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcSsSetThreadHandle(id : *const core::ffi::c_void));
     RpcSsSetThreadHandle(id)
 }
 #[inline]
@@ -2892,53 +2892,53 @@ pub unsafe fn RpcSsSwapClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree
     RpcSsSwapClientAllocFree(clientalloc, clientfree, oldclientalloc, oldclientfree)
 }
 #[inline]
-pub unsafe fn RpcStringBindingComposeA<P0, P1, P2, P3, P4>(objuuid: P0, protseq: P1, networkaddr: P2, endpoint: P3, options: P4, stringbinding: ::core::option::Option<*mut ::windows_core::PSTR>) -> RPC_STATUS
+pub unsafe fn RpcStringBindingComposeA<P0, P1, P2, P3, P4>(objuuid: P0, protseq: P1, networkaddr: P2, endpoint: P3, options: P4, stringbinding: Option<*mut windows_core::PSTR>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P3: ::windows_core::IntoParam<::windows_core::PCSTR>,
-    P4: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P2: windows_core::IntoParam<windows_core::PCSTR>,
+    P3: windows_core::IntoParam<windows_core::PCSTR>,
+    P4: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcStringBindingComposeA(objuuid : ::windows_core::PCSTR, protseq : ::windows_core::PCSTR, networkaddr : ::windows_core::PCSTR, endpoint : ::windows_core::PCSTR, options : ::windows_core::PCSTR, stringbinding : *mut ::windows_core::PSTR) -> RPC_STATUS);
-    RpcStringBindingComposeA(objuuid.into_param().abi(), protseq.into_param().abi(), networkaddr.into_param().abi(), endpoint.into_param().abi(), options.into_param().abi(), ::core::mem::transmute(stringbinding.unwrap_or(::std::ptr::null_mut())))
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcStringBindingComposeA(objuuid : windows_core::PCSTR, protseq : windows_core::PCSTR, networkaddr : windows_core::PCSTR, endpoint : windows_core::PCSTR, options : windows_core::PCSTR, stringbinding : *mut windows_core::PSTR) -> RPC_STATUS);
+    RpcStringBindingComposeA(objuuid.into_param().abi(), protseq.into_param().abi(), networkaddr.into_param().abi(), endpoint.into_param().abi(), options.into_param().abi(), core::mem::transmute(stringbinding.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn RpcStringBindingComposeW<P0, P1, P2, P3, P4>(objuuid: P0, protseq: P1, networkaddr: P2, endpoint: P3, options: P4, stringbinding: ::core::option::Option<*mut ::windows_core::PWSTR>) -> RPC_STATUS
+pub unsafe fn RpcStringBindingComposeW<P0, P1, P2, P3, P4>(objuuid: P0, protseq: P1, networkaddr: P2, endpoint: P3, options: P4, stringbinding: Option<*mut windows_core::PWSTR>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P4: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P2: windows_core::IntoParam<windows_core::PCWSTR>,
+    P3: windows_core::IntoParam<windows_core::PCWSTR>,
+    P4: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcStringBindingComposeW(objuuid : ::windows_core::PCWSTR, protseq : ::windows_core::PCWSTR, networkaddr : ::windows_core::PCWSTR, endpoint : ::windows_core::PCWSTR, options : ::windows_core::PCWSTR, stringbinding : *mut ::windows_core::PWSTR) -> RPC_STATUS);
-    RpcStringBindingComposeW(objuuid.into_param().abi(), protseq.into_param().abi(), networkaddr.into_param().abi(), endpoint.into_param().abi(), options.into_param().abi(), ::core::mem::transmute(stringbinding.unwrap_or(::std::ptr::null_mut())))
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcStringBindingComposeW(objuuid : windows_core::PCWSTR, protseq : windows_core::PCWSTR, networkaddr : windows_core::PCWSTR, endpoint : windows_core::PCWSTR, options : windows_core::PCWSTR, stringbinding : *mut windows_core::PWSTR) -> RPC_STATUS);
+    RpcStringBindingComposeW(objuuid.into_param().abi(), protseq.into_param().abi(), networkaddr.into_param().abi(), endpoint.into_param().abi(), options.into_param().abi(), core::mem::transmute(stringbinding.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn RpcStringBindingParseA<P0>(stringbinding: P0, objuuid: ::core::option::Option<*mut ::windows_core::PSTR>, protseq: ::core::option::Option<*mut ::windows_core::PSTR>, networkaddr: ::core::option::Option<*mut ::windows_core::PSTR>, endpoint: ::core::option::Option<*mut ::windows_core::PSTR>, networkoptions: ::core::option::Option<*mut ::windows_core::PSTR>) -> RPC_STATUS
+pub unsafe fn RpcStringBindingParseA<P0>(stringbinding: P0, objuuid: Option<*mut windows_core::PSTR>, protseq: Option<*mut windows_core::PSTR>, networkaddr: Option<*mut windows_core::PSTR>, endpoint: Option<*mut windows_core::PSTR>, networkoptions: Option<*mut windows_core::PSTR>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcStringBindingParseA(stringbinding : ::windows_core::PCSTR, objuuid : *mut ::windows_core::PSTR, protseq : *mut ::windows_core::PSTR, networkaddr : *mut ::windows_core::PSTR, endpoint : *mut ::windows_core::PSTR, networkoptions : *mut ::windows_core::PSTR) -> RPC_STATUS);
-    RpcStringBindingParseA(stringbinding.into_param().abi(), ::core::mem::transmute(objuuid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(protseq.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(networkaddr.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(endpoint.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(networkoptions.unwrap_or(::std::ptr::null_mut())))
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcStringBindingParseA(stringbinding : windows_core::PCSTR, objuuid : *mut windows_core::PSTR, protseq : *mut windows_core::PSTR, networkaddr : *mut windows_core::PSTR, endpoint : *mut windows_core::PSTR, networkoptions : *mut windows_core::PSTR) -> RPC_STATUS);
+    RpcStringBindingParseA(stringbinding.into_param().abi(), core::mem::transmute(objuuid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(protseq.unwrap_or(std::ptr::null_mut())), core::mem::transmute(networkaddr.unwrap_or(std::ptr::null_mut())), core::mem::transmute(endpoint.unwrap_or(std::ptr::null_mut())), core::mem::transmute(networkoptions.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn RpcStringBindingParseW<P0>(stringbinding: P0, objuuid: ::core::option::Option<*mut ::windows_core::PWSTR>, protseq: ::core::option::Option<*mut ::windows_core::PWSTR>, networkaddr: ::core::option::Option<*mut ::windows_core::PWSTR>, endpoint: ::core::option::Option<*mut ::windows_core::PWSTR>, networkoptions: ::core::option::Option<*mut ::windows_core::PWSTR>) -> RPC_STATUS
+pub unsafe fn RpcStringBindingParseW<P0>(stringbinding: P0, objuuid: Option<*mut windows_core::PWSTR>, protseq: Option<*mut windows_core::PWSTR>, networkaddr: Option<*mut windows_core::PWSTR>, endpoint: Option<*mut windows_core::PWSTR>, networkoptions: Option<*mut windows_core::PWSTR>) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcStringBindingParseW(stringbinding : ::windows_core::PCWSTR, objuuid : *mut ::windows_core::PWSTR, protseq : *mut ::windows_core::PWSTR, networkaddr : *mut ::windows_core::PWSTR, endpoint : *mut ::windows_core::PWSTR, networkoptions : *mut ::windows_core::PWSTR) -> RPC_STATUS);
-    RpcStringBindingParseW(stringbinding.into_param().abi(), ::core::mem::transmute(objuuid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(protseq.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(networkaddr.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(endpoint.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(networkoptions.unwrap_or(::std::ptr::null_mut())))
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcStringBindingParseW(stringbinding : windows_core::PCWSTR, objuuid : *mut windows_core::PWSTR, protseq : *mut windows_core::PWSTR, networkaddr : *mut windows_core::PWSTR, endpoint : *mut windows_core::PWSTR, networkoptions : *mut windows_core::PWSTR) -> RPC_STATUS);
+    RpcStringBindingParseW(stringbinding.into_param().abi(), core::mem::transmute(objuuid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(protseq.unwrap_or(std::ptr::null_mut())), core::mem::transmute(networkaddr.unwrap_or(std::ptr::null_mut())), core::mem::transmute(endpoint.unwrap_or(std::ptr::null_mut())), core::mem::transmute(networkoptions.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn RpcStringFreeA(string: *mut ::windows_core::PSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcStringFreeA(string : *mut ::windows_core::PSTR) -> RPC_STATUS);
+pub unsafe fn RpcStringFreeA(string: *mut windows_core::PSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcStringFreeA(string : *mut windows_core::PSTR) -> RPC_STATUS);
     RpcStringFreeA(string)
 }
 #[inline]
-pub unsafe fn RpcStringFreeW(string: *mut ::windows_core::PWSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcStringFreeW(string : *mut ::windows_core::PWSTR) -> RPC_STATUS);
+pub unsafe fn RpcStringFreeW(string: *mut windows_core::PWSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcStringFreeW(string : *mut windows_core::PWSTR) -> RPC_STATUS);
     RpcStringFreeW(string)
 }
 #[inline]
@@ -2947,69 +2947,69 @@ pub unsafe fn RpcTestCancel() -> RPC_STATUS {
     RpcTestCancel()
 }
 #[inline]
-pub unsafe fn RpcUserFree(asynchandle: *mut ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void) {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcUserFree(asynchandle : *mut ::core::ffi::c_void, pbuffer : *mut ::core::ffi::c_void));
+pub unsafe fn RpcUserFree(asynchandle: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void) {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn RpcUserFree(asynchandle : *mut core::ffi::c_void, pbuffer : *mut core::ffi::c_void));
     RpcUserFree(asynchandle, pbuffer)
 }
 #[inline]
-pub unsafe fn UuidCompare(uuid1: *const ::windows_core::GUID, uuid2: *const ::windows_core::GUID, status: *mut RPC_STATUS) -> i32 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidCompare(uuid1 : *const ::windows_core::GUID, uuid2 : *const ::windows_core::GUID, status : *mut RPC_STATUS) -> i32);
+pub unsafe fn UuidCompare(uuid1: *const windows_core::GUID, uuid2: *const windows_core::GUID, status: *mut RPC_STATUS) -> i32 {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidCompare(uuid1 : *const windows_core::GUID, uuid2 : *const windows_core::GUID, status : *mut RPC_STATUS) -> i32);
     UuidCompare(uuid1, uuid2, status)
 }
 #[inline]
-pub unsafe fn UuidCreate(uuid: *mut ::windows_core::GUID) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidCreate(uuid : *mut ::windows_core::GUID) -> RPC_STATUS);
+pub unsafe fn UuidCreate(uuid: *mut windows_core::GUID) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidCreate(uuid : *mut windows_core::GUID) -> RPC_STATUS);
     UuidCreate(uuid)
 }
 #[inline]
-pub unsafe fn UuidCreateNil(niluuid: *mut ::windows_core::GUID) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidCreateNil(niluuid : *mut ::windows_core::GUID) -> RPC_STATUS);
+pub unsafe fn UuidCreateNil(niluuid: *mut windows_core::GUID) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidCreateNil(niluuid : *mut windows_core::GUID) -> RPC_STATUS);
     UuidCreateNil(niluuid)
 }
 #[inline]
-pub unsafe fn UuidCreateSequential(uuid: *mut ::windows_core::GUID) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidCreateSequential(uuid : *mut ::windows_core::GUID) -> RPC_STATUS);
+pub unsafe fn UuidCreateSequential(uuid: *mut windows_core::GUID) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidCreateSequential(uuid : *mut windows_core::GUID) -> RPC_STATUS);
     UuidCreateSequential(uuid)
 }
 #[inline]
-pub unsafe fn UuidEqual(uuid1: *const ::windows_core::GUID, uuid2: *const ::windows_core::GUID, status: *mut RPC_STATUS) -> i32 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidEqual(uuid1 : *const ::windows_core::GUID, uuid2 : *const ::windows_core::GUID, status : *mut RPC_STATUS) -> i32);
+pub unsafe fn UuidEqual(uuid1: *const windows_core::GUID, uuid2: *const windows_core::GUID, status: *mut RPC_STATUS) -> i32 {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidEqual(uuid1 : *const windows_core::GUID, uuid2 : *const windows_core::GUID, status : *mut RPC_STATUS) -> i32);
     UuidEqual(uuid1, uuid2, status)
 }
 #[inline]
-pub unsafe fn UuidFromStringA<P0>(stringuuid: P0, uuid: *mut ::windows_core::GUID) -> RPC_STATUS
+pub unsafe fn UuidFromStringA<P0>(stringuuid: P0, uuid: *mut windows_core::GUID) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: windows_core::IntoParam<windows_core::PCSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidFromStringA(stringuuid : ::windows_core::PCSTR, uuid : *mut ::windows_core::GUID) -> RPC_STATUS);
+    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidFromStringA(stringuuid : windows_core::PCSTR, uuid : *mut windows_core::GUID) -> RPC_STATUS);
     UuidFromStringA(stringuuid.into_param().abi(), uuid)
 }
 #[inline]
-pub unsafe fn UuidFromStringW<P0>(stringuuid: P0, uuid: *mut ::windows_core::GUID) -> RPC_STATUS
+pub unsafe fn UuidFromStringW<P0>(stringuuid: P0, uuid: *mut windows_core::GUID) -> RPC_STATUS
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: windows_core::IntoParam<windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidFromStringW(stringuuid : ::windows_core::PCWSTR, uuid : *mut ::windows_core::GUID) -> RPC_STATUS);
+    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidFromStringW(stringuuid : windows_core::PCWSTR, uuid : *mut windows_core::GUID) -> RPC_STATUS);
     UuidFromStringW(stringuuid.into_param().abi(), uuid)
 }
 #[inline]
-pub unsafe fn UuidHash(uuid: *const ::windows_core::GUID, status: *mut RPC_STATUS) -> u16 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidHash(uuid : *const ::windows_core::GUID, status : *mut RPC_STATUS) -> u16);
+pub unsafe fn UuidHash(uuid: *const windows_core::GUID, status: *mut RPC_STATUS) -> u16 {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidHash(uuid : *const windows_core::GUID, status : *mut RPC_STATUS) -> u16);
     UuidHash(uuid, status)
 }
 #[inline]
-pub unsafe fn UuidIsNil(uuid: *const ::windows_core::GUID, status: *mut RPC_STATUS) -> i32 {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidIsNil(uuid : *const ::windows_core::GUID, status : *mut RPC_STATUS) -> i32);
+pub unsafe fn UuidIsNil(uuid: *const windows_core::GUID, status: *mut RPC_STATUS) -> i32 {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidIsNil(uuid : *const windows_core::GUID, status : *mut RPC_STATUS) -> i32);
     UuidIsNil(uuid, status)
 }
 #[inline]
-pub unsafe fn UuidToStringA(uuid: *const ::windows_core::GUID, stringuuid: *mut ::windows_core::PSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidToStringA(uuid : *const ::windows_core::GUID, stringuuid : *mut ::windows_core::PSTR) -> RPC_STATUS);
+pub unsafe fn UuidToStringA(uuid: *const windows_core::GUID, stringuuid: *mut windows_core::PSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidToStringA(uuid : *const windows_core::GUID, stringuuid : *mut windows_core::PSTR) -> RPC_STATUS);
     UuidToStringA(uuid, stringuuid)
 }
 #[inline]
-pub unsafe fn UuidToStringW(uuid: *const ::windows_core::GUID, stringuuid: *mut ::windows_core::PWSTR) -> RPC_STATUS {
-    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidToStringW(uuid : *const ::windows_core::GUID, stringuuid : *mut ::windows_core::PWSTR) -> RPC_STATUS);
+pub unsafe fn UuidToStringW(uuid: *const windows_core::GUID, stringuuid: *mut windows_core::PWSTR) -> RPC_STATUS {
+    ::windows_targets::link!("rpcrt4.dll" "system" fn UuidToStringW(uuid : *const windows_core::GUID, stringuuid : *mut windows_core::PWSTR) -> RPC_STATUS);
     UuidToStringW(uuid, stringuuid)
 }
 pub const DCE_C_ERROR_STRING_LEN: u32 = 256u32;
@@ -3470,123 +3470,123 @@ pub const rlafIPv4: RpcLocalAddressFormat = RpcLocalAddressFormat(1i32);
 pub const rlafIPv6: RpcLocalAddressFormat = RpcLocalAddressFormat(2i32);
 pub const rlafInvalid: RpcLocalAddressFormat = RpcLocalAddressFormat(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EXPR_TOKEN(pub i32);
-impl ::windows_core::TypeKind for EXPR_TOKEN {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for EXPR_TOKEN {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for EXPR_TOKEN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for EXPR_TOKEN {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("EXPR_TOKEN").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ExtendedErrorParamTypes(pub i32);
-impl ::windows_core::TypeKind for ExtendedErrorParamTypes {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for ExtendedErrorParamTypes {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for ExtendedErrorParamTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for ExtendedErrorParamTypes {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("ExtendedErrorParamTypes").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GROUP_NAME_SYNTAX(pub u32);
-impl ::windows_core::TypeKind for GROUP_NAME_SYNTAX {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for GROUP_NAME_SYNTAX {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for GROUP_NAME_SYNTAX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for GROUP_NAME_SYNTAX {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("GROUP_NAME_SYNTAX").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IDL_CS_CONVERT(pub i32);
-impl ::windows_core::TypeKind for IDL_CS_CONVERT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for IDL_CS_CONVERT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for IDL_CS_CONVERT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for IDL_CS_CONVERT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("IDL_CS_CONVERT").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(pub i32);
-impl ::windows_core::TypeKind for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MIDL_ES_CODE(pub i32);
-impl ::windows_core::TypeKind for MIDL_ES_CODE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MIDL_ES_CODE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MIDL_ES_CODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MIDL_ES_CODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MIDL_ES_CODE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MIDL_ES_HANDLE_STYLE(pub i32);
-impl ::windows_core::TypeKind for MIDL_ES_HANDLE_STYLE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MIDL_ES_HANDLE_STYLE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for MIDL_ES_HANDLE_STYLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MIDL_ES_HANDLE_STYLE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("MIDL_ES_HANDLE_STYLE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PROXY_PHASE(pub i32);
-impl ::windows_core::TypeKind for PROXY_PHASE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PROXY_PHASE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for PROXY_PHASE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for PROXY_PHASE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PROXY_PHASE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RPC_ADDRESS_CHANGE_TYPE(pub i32);
-impl ::windows_core::TypeKind for RPC_ADDRESS_CHANGE_TYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_ADDRESS_CHANGE_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RPC_ADDRESS_CHANGE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_ADDRESS_CHANGE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RPC_ADDRESS_CHANGE_TYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RPC_ASYNC_EVENT(pub i32);
-impl ::windows_core::TypeKind for RPC_ASYNC_EVENT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_ASYNC_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RPC_ASYNC_EVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_ASYNC_EVENT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RPC_ASYNC_EVENT").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RPC_BINDING_HANDLE_OPTIONS_FLAGS(pub u32);
-impl ::windows_core::TypeKind for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RPC_BINDING_HANDLE_OPTIONS_FLAGS").field(&self.0).finish()
     }
 }
@@ -3595,53 +3595,53 @@ impl RPC_BINDING_HANDLE_OPTIONS_FLAGS {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+impl core::ops::BitOr for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+impl core::ops::BitAnd for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+impl core::ops::BitOrAssign for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+impl core::ops::BitAndAssign for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+impl core::ops::Not for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RPC_C_AUTHN_INFO_TYPE(pub u32);
-impl ::windows_core::TypeKind for RPC_C_AUTHN_INFO_TYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_C_AUTHN_INFO_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RPC_C_AUTHN_INFO_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_C_AUTHN_INFO_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RPC_C_AUTHN_INFO_TYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RPC_C_HTTP_AUTHN_TARGET(pub u32);
-impl ::windows_core::TypeKind for RPC_C_HTTP_AUTHN_TARGET {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_C_HTTP_AUTHN_TARGET {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RPC_C_HTTP_AUTHN_TARGET {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_C_HTTP_AUTHN_TARGET {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RPC_C_HTTP_AUTHN_TARGET").field(&self.0).finish()
     }
 }
@@ -3650,42 +3650,42 @@ impl RPC_C_HTTP_AUTHN_TARGET {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for RPC_C_HTTP_AUTHN_TARGET {
+impl core::ops::BitOr for RPC_C_HTTP_AUTHN_TARGET {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for RPC_C_HTTP_AUTHN_TARGET {
+impl core::ops::BitAnd for RPC_C_HTTP_AUTHN_TARGET {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for RPC_C_HTTP_AUTHN_TARGET {
+impl core::ops::BitOrAssign for RPC_C_HTTP_AUTHN_TARGET {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for RPC_C_HTTP_AUTHN_TARGET {
+impl core::ops::BitAndAssign for RPC_C_HTTP_AUTHN_TARGET {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for RPC_C_HTTP_AUTHN_TARGET {
+impl core::ops::Not for RPC_C_HTTP_AUTHN_TARGET {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RPC_C_HTTP_FLAGS(pub u32);
-impl ::windows_core::TypeKind for RPC_C_HTTP_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_C_HTTP_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RPC_C_HTTP_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_C_HTTP_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RPC_C_HTTP_FLAGS").field(&self.0).finish()
     }
 }
@@ -3694,42 +3694,42 @@ impl RPC_C_HTTP_FLAGS {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for RPC_C_HTTP_FLAGS {
+impl core::ops::BitOr for RPC_C_HTTP_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for RPC_C_HTTP_FLAGS {
+impl core::ops::BitAnd for RPC_C_HTTP_FLAGS {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for RPC_C_HTTP_FLAGS {
+impl core::ops::BitOrAssign for RPC_C_HTTP_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for RPC_C_HTTP_FLAGS {
+impl core::ops::BitAndAssign for RPC_C_HTTP_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for RPC_C_HTTP_FLAGS {
+impl core::ops::Not for RPC_C_HTTP_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RPC_C_QOS_CAPABILITIES(pub u32);
-impl ::windows_core::TypeKind for RPC_C_QOS_CAPABILITIES {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_C_QOS_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RPC_C_QOS_CAPABILITIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_C_QOS_CAPABILITIES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RPC_C_QOS_CAPABILITIES").field(&self.0).finish()
     }
 }
@@ -3738,186 +3738,186 @@ impl RPC_C_QOS_CAPABILITIES {
         self.0 & other.0 == other.0
     }
 }
-impl ::core::ops::BitOr for RPC_C_QOS_CAPABILITIES {
+impl core::ops::BitOr for RPC_C_QOS_CAPABILITIES {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
         Self(self.0 | other.0)
     }
 }
-impl ::core::ops::BitAnd for RPC_C_QOS_CAPABILITIES {
+impl core::ops::BitAnd for RPC_C_QOS_CAPABILITIES {
     type Output = Self;
     fn bitand(self, other: Self) -> Self {
         Self(self.0 & other.0)
     }
 }
-impl ::core::ops::BitOrAssign for RPC_C_QOS_CAPABILITIES {
+impl core::ops::BitOrAssign for RPC_C_QOS_CAPABILITIES {
     fn bitor_assign(&mut self, other: Self) {
         self.0.bitor_assign(other.0)
     }
 }
-impl ::core::ops::BitAndAssign for RPC_C_QOS_CAPABILITIES {
+impl core::ops::BitAndAssign for RPC_C_QOS_CAPABILITIES {
     fn bitand_assign(&mut self, other: Self) {
         self.0.bitand_assign(other.0)
     }
 }
-impl ::core::ops::Not for RPC_C_QOS_CAPABILITIES {
+impl core::ops::Not for RPC_C_QOS_CAPABILITIES {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RPC_C_QOS_IDENTITY(pub u32);
-impl ::windows_core::TypeKind for RPC_C_QOS_IDENTITY {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_C_QOS_IDENTITY {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RPC_C_QOS_IDENTITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_C_QOS_IDENTITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RPC_C_QOS_IDENTITY").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RPC_HTTP_REDIRECTOR_STAGE(pub i32);
-impl ::windows_core::TypeKind for RPC_HTTP_REDIRECTOR_STAGE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_HTTP_REDIRECTOR_STAGE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RPC_HTTP_REDIRECTOR_STAGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_HTTP_REDIRECTOR_STAGE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RPC_HTTP_REDIRECTOR_STAGE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RPC_NOTIFICATIONS(pub i32);
-impl ::windows_core::TypeKind for RPC_NOTIFICATIONS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_NOTIFICATIONS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RPC_NOTIFICATIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_NOTIFICATIONS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RPC_NOTIFICATIONS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RPC_NOTIFICATION_TYPES(pub i32);
-impl ::windows_core::TypeKind for RPC_NOTIFICATION_TYPES {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_NOTIFICATION_TYPES {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RPC_NOTIFICATION_TYPES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_NOTIFICATION_TYPES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RPC_NOTIFICATION_TYPES").field(&self.0).finish()
     }
 }
 #[must_use]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RPC_STATUS(pub i32);
-impl ::windows_core::TypeKind for RPC_STATUS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RPC_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RPC_STATUS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RpcCallClientLocality(pub i32);
-impl ::windows_core::TypeKind for RpcCallClientLocality {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RpcCallClientLocality {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RpcCallClientLocality {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RpcCallClientLocality {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RpcCallClientLocality").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RpcCallType(pub i32);
-impl ::windows_core::TypeKind for RpcCallType {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RpcCallType {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RpcCallType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RpcCallType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RpcCallType").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RpcLocalAddressFormat(pub i32);
-impl ::windows_core::TypeKind for RpcLocalAddressFormat {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RpcLocalAddressFormat {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RpcLocalAddressFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RpcLocalAddressFormat {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RpcLocalAddressFormat").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RpcPerfCounters(pub i32);
-impl ::windows_core::TypeKind for RpcPerfCounters {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RpcPerfCounters {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RpcPerfCounters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RpcPerfCounters {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("RpcPerfCounters").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SEC_WINNT_AUTH_IDENTITY(pub u32);
-impl ::windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("SEC_WINNT_AUTH_IDENTITY").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct STUB_PHASE(pub i32);
-impl ::windows_core::TypeKind for STUB_PHASE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for STUB_PHASE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for STUB_PHASE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for STUB_PHASE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("STUB_PHASE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct USER_MARSHAL_CB_TYPE(pub i32);
-impl ::windows_core::TypeKind for USER_MARSHAL_CB_TYPE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for USER_MARSHAL_CB_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for USER_MARSHAL_CB_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for USER_MARSHAL_CB_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("USER_MARSHAL_CB_TYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct XLAT_SIDE(pub i32);
-impl ::windows_core::TypeKind for XLAT_SIDE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for XLAT_SIDE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for XLAT_SIDE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for XLAT_SIDE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("XLAT_SIDE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct system_handle_t(pub i32);
-impl ::windows_core::TypeKind for system_handle_t {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for system_handle_t {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::fmt::Debug for system_handle_t {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for system_handle_t {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("system_handle_t").field(&self.0).finish()
     }
 }
@@ -3930,78 +3930,78 @@ pub struct ARRAY_INFO {
     pub OffsetArray: *mut u32,
     pub ActualCountArray: *mut u32,
 }
-impl ::core::marker::Copy for ARRAY_INFO {}
-impl ::core::clone::Clone for ARRAY_INFO {
+impl Copy for ARRAY_INFO {}
+impl Clone for ARRAY_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for ARRAY_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for ARRAY_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("ARRAY_INFO").field("Dimension", &self.Dimension).field("BufferConformanceMark", &self.BufferConformanceMark).field("BufferVarianceMark", &self.BufferVarianceMark).field("MaxCountArray", &self.MaxCountArray).field("OffsetArray", &self.OffsetArray).field("ActualCountArray", &self.ActualCountArray).finish()
     }
 }
-impl ::windows_core::TypeKind for ARRAY_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for ARRAY_INFO {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for ARRAY_INFO {
+impl PartialEq for ARRAY_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.Dimension == other.Dimension && self.BufferConformanceMark == other.BufferConformanceMark && self.BufferVarianceMark == other.BufferVarianceMark && self.MaxCountArray == other.MaxCountArray && self.OffsetArray == other.OffsetArray && self.ActualCountArray == other.ActualCountArray
     }
 }
-impl ::core::cmp::Eq for ARRAY_INFO {}
-impl ::core::default::Default for ARRAY_INFO {
+impl Eq for ARRAY_INFO {}
+impl Default for ARRAY_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct BinaryParam {
-    pub Buffer: *mut ::core::ffi::c_void,
+    pub Buffer: *mut core::ffi::c_void,
     pub Size: i16,
 }
-impl ::core::marker::Copy for BinaryParam {}
-impl ::core::clone::Clone for BinaryParam {
+impl Copy for BinaryParam {}
+impl Clone for BinaryParam {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for BinaryParam {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for BinaryParam {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("BinaryParam").field("Buffer", &self.Buffer).field("Size", &self.Size).finish()
     }
 }
-impl ::windows_core::TypeKind for BinaryParam {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for BinaryParam {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for BinaryParam {
+impl PartialEq for BinaryParam {
     fn eq(&self, other: &Self) -> bool {
         self.Buffer == other.Buffer && self.Size == other.Size
     }
 }
-impl ::core::cmp::Eq for BinaryParam {}
-impl ::core::default::Default for BinaryParam {
+impl Eq for BinaryParam {}
+impl Default for BinaryParam {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub union CLIENT_CALL_RETURN {
-    pub Pointer: *mut ::core::ffi::c_void,
+    pub Pointer: *mut core::ffi::c_void,
     pub Simple: isize,
 }
-impl ::core::marker::Copy for CLIENT_CALL_RETURN {}
-impl ::core::clone::Clone for CLIENT_CALL_RETURN {
+impl Copy for CLIENT_CALL_RETURN {}
+impl Clone for CLIENT_CALL_RETURN {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for CLIENT_CALL_RETURN {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for CLIENT_CALL_RETURN {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for CLIENT_CALL_RETURN {
+impl Default for CLIENT_CALL_RETURN {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4009,87 +4009,87 @@ pub struct COMM_FAULT_OFFSETS {
     pub CommOffset: i16,
     pub FaultOffset: i16,
 }
-impl ::core::marker::Copy for COMM_FAULT_OFFSETS {}
-impl ::core::clone::Clone for COMM_FAULT_OFFSETS {
+impl Copy for COMM_FAULT_OFFSETS {}
+impl Clone for COMM_FAULT_OFFSETS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for COMM_FAULT_OFFSETS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for COMM_FAULT_OFFSETS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("COMM_FAULT_OFFSETS").field("CommOffset", &self.CommOffset).field("FaultOffset", &self.FaultOffset).finish()
     }
 }
-impl ::windows_core::TypeKind for COMM_FAULT_OFFSETS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for COMM_FAULT_OFFSETS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for COMM_FAULT_OFFSETS {
+impl PartialEq for COMM_FAULT_OFFSETS {
     fn eq(&self, other: &Self) -> bool {
         self.CommOffset == other.CommOffset && self.FaultOffset == other.FaultOffset
     }
 }
-impl ::core::cmp::Eq for COMM_FAULT_OFFSETS {}
-impl ::core::default::Default for COMM_FAULT_OFFSETS {
+impl Eq for COMM_FAULT_OFFSETS {}
+impl Default for COMM_FAULT_OFFSETS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct FULL_PTR_XLAT_TABLES {
-    pub RefIdToPointer: *mut ::core::ffi::c_void,
-    pub PointerToRefId: *mut ::core::ffi::c_void,
+    pub RefIdToPointer: *mut core::ffi::c_void,
+    pub PointerToRefId: *mut core::ffi::c_void,
     pub NextRefId: u32,
     pub XlatSide: XLAT_SIDE,
 }
-impl ::core::marker::Copy for FULL_PTR_XLAT_TABLES {}
-impl ::core::clone::Clone for FULL_PTR_XLAT_TABLES {
+impl Copy for FULL_PTR_XLAT_TABLES {}
+impl Clone for FULL_PTR_XLAT_TABLES {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for FULL_PTR_XLAT_TABLES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for FULL_PTR_XLAT_TABLES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("FULL_PTR_XLAT_TABLES").field("RefIdToPointer", &self.RefIdToPointer).field("PointerToRefId", &self.PointerToRefId).field("NextRefId", &self.NextRefId).field("XlatSide", &self.XlatSide).finish()
     }
 }
-impl ::windows_core::TypeKind for FULL_PTR_XLAT_TABLES {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for FULL_PTR_XLAT_TABLES {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for FULL_PTR_XLAT_TABLES {
+impl PartialEq for FULL_PTR_XLAT_TABLES {
     fn eq(&self, other: &Self) -> bool {
         self.RefIdToPointer == other.RefIdToPointer && self.PointerToRefId == other.PointerToRefId && self.NextRefId == other.NextRefId && self.XlatSide == other.XlatSide
     }
 }
-impl ::core::cmp::Eq for FULL_PTR_XLAT_TABLES {}
-impl ::core::default::Default for FULL_PTR_XLAT_TABLES {
+impl Eq for FULL_PTR_XLAT_TABLES {}
+impl Default for FULL_PTR_XLAT_TABLES {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct GENERIC_BINDING_INFO {
-    pub pObj: *mut ::core::ffi::c_void,
+    pub pObj: *mut core::ffi::c_void,
     pub Size: u32,
     pub pfnBind: GENERIC_BINDING_ROUTINE,
     pub pfnUnbind: GENERIC_UNBIND_ROUTINE,
 }
-impl ::core::marker::Copy for GENERIC_BINDING_INFO {}
-impl ::core::clone::Clone for GENERIC_BINDING_INFO {
+impl Copy for GENERIC_BINDING_INFO {}
+impl Clone for GENERIC_BINDING_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for GENERIC_BINDING_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for GENERIC_BINDING_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("GENERIC_BINDING_INFO").field("pObj", &self.pObj).field("Size", &self.Size).finish()
     }
 }
-impl ::windows_core::TypeKind for GENERIC_BINDING_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for GENERIC_BINDING_INFO {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for GENERIC_BINDING_INFO {
+impl Default for GENERIC_BINDING_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4097,23 +4097,23 @@ pub struct GENERIC_BINDING_ROUTINE_PAIR {
     pub pfnBind: GENERIC_BINDING_ROUTINE,
     pub pfnUnbind: GENERIC_UNBIND_ROUTINE,
 }
-impl ::core::marker::Copy for GENERIC_BINDING_ROUTINE_PAIR {}
-impl ::core::clone::Clone for GENERIC_BINDING_ROUTINE_PAIR {
+impl Copy for GENERIC_BINDING_ROUTINE_PAIR {}
+impl Clone for GENERIC_BINDING_ROUTINE_PAIR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for GENERIC_BINDING_ROUTINE_PAIR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for GENERIC_BINDING_ROUTINE_PAIR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("GENERIC_BINDING_ROUTINE_PAIR").finish()
     }
 }
-impl ::windows_core::TypeKind for GENERIC_BINDING_ROUTINE_PAIR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for GENERIC_BINDING_ROUTINE_PAIR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for GENERIC_BINDING_ROUTINE_PAIR {
+impl Default for GENERIC_BINDING_ROUTINE_PAIR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4128,23 +4128,23 @@ pub struct I_RpcProxyCallbackInterface {
     pub RpcProxyUpdatePerfCounterFn: I_RpcProxyUpdatePerfCounterFn,
     pub RpcProxyUpdatePerfCounterBackendServerFn: I_RpcProxyUpdatePerfCounterBackendServerFn,
 }
-impl ::core::marker::Copy for I_RpcProxyCallbackInterface {}
-impl ::core::clone::Clone for I_RpcProxyCallbackInterface {
+impl Copy for I_RpcProxyCallbackInterface {}
+impl Clone for I_RpcProxyCallbackInterface {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for I_RpcProxyCallbackInterface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for I_RpcProxyCallbackInterface {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("I_RpcProxyCallbackInterface").finish()
     }
 }
-impl ::windows_core::TypeKind for I_RpcProxyCallbackInterface {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for I_RpcProxyCallbackInterface {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for I_RpcProxyCallbackInterface {
+impl Default for I_RpcProxyCallbackInterface {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4152,29 +4152,29 @@ pub struct MALLOC_FREE_STRUCT {
     pub pfnAllocate: isize,
     pub pfnFree: isize,
 }
-impl ::core::marker::Copy for MALLOC_FREE_STRUCT {}
-impl ::core::clone::Clone for MALLOC_FREE_STRUCT {
+impl Copy for MALLOC_FREE_STRUCT {}
+impl Clone for MALLOC_FREE_STRUCT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for MALLOC_FREE_STRUCT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MALLOC_FREE_STRUCT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MALLOC_FREE_STRUCT").field("pfnAllocate", &self.pfnAllocate).field("pfnFree", &self.pfnFree).finish()
     }
 }
-impl ::windows_core::TypeKind for MALLOC_FREE_STRUCT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MALLOC_FREE_STRUCT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MALLOC_FREE_STRUCT {
+impl PartialEq for MALLOC_FREE_STRUCT {
     fn eq(&self, other: &Self) -> bool {
         self.pfnAllocate == other.pfnAllocate && self.pfnFree == other.pfnFree
     }
 }
-impl ::core::cmp::Eq for MALLOC_FREE_STRUCT {}
-impl ::core::default::Default for MALLOC_FREE_STRUCT {
+impl Eq for MALLOC_FREE_STRUCT {}
+impl Default for MALLOC_FREE_STRUCT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4182,29 +4182,29 @@ pub struct MIDL_FORMAT_STRING {
     pub Pad: i16,
     pub Format: [u8; 1],
 }
-impl ::core::marker::Copy for MIDL_FORMAT_STRING {}
-impl ::core::clone::Clone for MIDL_FORMAT_STRING {
+impl Copy for MIDL_FORMAT_STRING {}
+impl Clone for MIDL_FORMAT_STRING {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for MIDL_FORMAT_STRING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MIDL_FORMAT_STRING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MIDL_FORMAT_STRING").field("Pad", &self.Pad).field("Format", &self.Format).finish()
     }
 }
-impl ::windows_core::TypeKind for MIDL_FORMAT_STRING {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MIDL_FORMAT_STRING {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MIDL_FORMAT_STRING {
+impl PartialEq for MIDL_FORMAT_STRING {
     fn eq(&self, other: &Self) -> bool {
         self.Pad == other.Pad && self.Format == other.Format
     }
 }
-impl ::core::cmp::Eq for MIDL_FORMAT_STRING {}
-impl ::core::default::Default for MIDL_FORMAT_STRING {
+impl Eq for MIDL_FORMAT_STRING {}
+impl Default for MIDL_FORMAT_STRING {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4215,29 +4215,29 @@ pub struct MIDL_INTERCEPTION_INFO {
     pub ProcCount: u32,
     pub TypeString: *mut u8,
 }
-impl ::core::marker::Copy for MIDL_INTERCEPTION_INFO {}
-impl ::core::clone::Clone for MIDL_INTERCEPTION_INFO {
+impl Copy for MIDL_INTERCEPTION_INFO {}
+impl Clone for MIDL_INTERCEPTION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for MIDL_INTERCEPTION_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MIDL_INTERCEPTION_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MIDL_INTERCEPTION_INFO").field("Version", &self.Version).field("ProcString", &self.ProcString).field("ProcFormatOffsetTable", &self.ProcFormatOffsetTable).field("ProcCount", &self.ProcCount).field("TypeString", &self.TypeString).finish()
     }
 }
-impl ::windows_core::TypeKind for MIDL_INTERCEPTION_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MIDL_INTERCEPTION_INFO {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MIDL_INTERCEPTION_INFO {
+impl PartialEq for MIDL_INTERCEPTION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.ProcString == other.ProcString && self.ProcFormatOffsetTable == other.ProcFormatOffsetTable && self.ProcCount == other.ProcCount && self.TypeString == other.TypeString
     }
 }
-impl ::core::cmp::Eq for MIDL_INTERCEPTION_INFO {}
-impl ::core::default::Default for MIDL_INTERCEPTION_INFO {
+impl Eq for MIDL_INTERCEPTION_INFO {}
+impl Default for MIDL_INTERCEPTION_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4245,29 +4245,29 @@ pub struct MIDL_INTERFACE_METHOD_PROPERTIES {
     pub MethodCount: u16,
     pub MethodProperties: *const *const MIDL_METHOD_PROPERTY_MAP,
 }
-impl ::core::marker::Copy for MIDL_INTERFACE_METHOD_PROPERTIES {}
-impl ::core::clone::Clone for MIDL_INTERFACE_METHOD_PROPERTIES {
+impl Copy for MIDL_INTERFACE_METHOD_PROPERTIES {}
+impl Clone for MIDL_INTERFACE_METHOD_PROPERTIES {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for MIDL_INTERFACE_METHOD_PROPERTIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MIDL_INTERFACE_METHOD_PROPERTIES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MIDL_INTERFACE_METHOD_PROPERTIES").field("MethodCount", &self.MethodCount).field("MethodProperties", &self.MethodProperties).finish()
     }
 }
-impl ::windows_core::TypeKind for MIDL_INTERFACE_METHOD_PROPERTIES {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MIDL_INTERFACE_METHOD_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MIDL_INTERFACE_METHOD_PROPERTIES {
+impl PartialEq for MIDL_INTERFACE_METHOD_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
         self.MethodCount == other.MethodCount && self.MethodProperties == other.MethodProperties
     }
 }
-impl ::core::cmp::Eq for MIDL_INTERFACE_METHOD_PROPERTIES {}
-impl ::core::default::Default for MIDL_INTERFACE_METHOD_PROPERTIES {
+impl Eq for MIDL_INTERFACE_METHOD_PROPERTIES {}
+impl Default for MIDL_INTERFACE_METHOD_PROPERTIES {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4275,29 +4275,29 @@ pub struct MIDL_METHOD_PROPERTY {
     pub Id: u32,
     pub Value: usize,
 }
-impl ::core::marker::Copy for MIDL_METHOD_PROPERTY {}
-impl ::core::clone::Clone for MIDL_METHOD_PROPERTY {
+impl Copy for MIDL_METHOD_PROPERTY {}
+impl Clone for MIDL_METHOD_PROPERTY {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for MIDL_METHOD_PROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MIDL_METHOD_PROPERTY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MIDL_METHOD_PROPERTY").field("Id", &self.Id).field("Value", &self.Value).finish()
     }
 }
-impl ::windows_core::TypeKind for MIDL_METHOD_PROPERTY {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MIDL_METHOD_PROPERTY {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MIDL_METHOD_PROPERTY {
+impl PartialEq for MIDL_METHOD_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
         self.Id == other.Id && self.Value == other.Value
     }
 }
-impl ::core::cmp::Eq for MIDL_METHOD_PROPERTY {}
-impl ::core::default::Default for MIDL_METHOD_PROPERTY {
+impl Eq for MIDL_METHOD_PROPERTY {}
+impl Default for MIDL_METHOD_PROPERTY {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4305,29 +4305,29 @@ pub struct MIDL_METHOD_PROPERTY_MAP {
     pub Count: u32,
     pub Properties: *const MIDL_METHOD_PROPERTY,
 }
-impl ::core::marker::Copy for MIDL_METHOD_PROPERTY_MAP {}
-impl ::core::clone::Clone for MIDL_METHOD_PROPERTY_MAP {
+impl Copy for MIDL_METHOD_PROPERTY_MAP {}
+impl Clone for MIDL_METHOD_PROPERTY_MAP {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for MIDL_METHOD_PROPERTY_MAP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MIDL_METHOD_PROPERTY_MAP {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MIDL_METHOD_PROPERTY_MAP").field("Count", &self.Count).field("Properties", &self.Properties).finish()
     }
 }
-impl ::windows_core::TypeKind for MIDL_METHOD_PROPERTY_MAP {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MIDL_METHOD_PROPERTY_MAP {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MIDL_METHOD_PROPERTY_MAP {
+impl PartialEq for MIDL_METHOD_PROPERTY_MAP {
     fn eq(&self, other: &Self) -> bool {
         self.Count == other.Count && self.Properties == other.Properties
     }
 }
-impl ::core::cmp::Eq for MIDL_METHOD_PROPERTY_MAP {}
-impl ::core::default::Default for MIDL_METHOD_PROPERTY_MAP {
+impl Eq for MIDL_METHOD_PROPERTY_MAP {}
+impl Default for MIDL_METHOD_PROPERTY_MAP {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4343,35 +4343,35 @@ pub struct MIDL_SERVER_INFO {
     pub pSyntaxInfo: *mut MIDL_SYNTAX_INFO,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for MIDL_SERVER_INFO {}
+impl Copy for MIDL_SERVER_INFO {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for MIDL_SERVER_INFO {
+impl Clone for MIDL_SERVER_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for MIDL_SERVER_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MIDL_SERVER_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MIDL_SERVER_INFO").field("pStubDesc", &self.pStubDesc).field("DispatchTable", &self.DispatchTable).field("ProcString", &self.ProcString).field("FmtStringOffset", &self.FmtStringOffset).field("ThunkTable", &self.ThunkTable).field("pTransferSyntax", &self.pTransferSyntax).field("nCount", &self.nCount).field("pSyntaxInfo", &self.pSyntaxInfo).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for MIDL_SERVER_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MIDL_SERVER_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for MIDL_SERVER_INFO {
+impl PartialEq for MIDL_SERVER_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.pStubDesc == other.pStubDesc && self.DispatchTable == other.DispatchTable && self.ProcString == other.ProcString && self.FmtStringOffset == other.FmtStringOffset && self.ThunkTable == other.ThunkTable && self.pTransferSyntax == other.pTransferSyntax && self.nCount == other.nCount && self.pSyntaxInfo == other.pSyntaxInfo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for MIDL_SERVER_INFO {}
+impl Eq for MIDL_SERVER_INFO {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for MIDL_SERVER_INFO {
+impl Default for MIDL_SERVER_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4385,41 +4385,41 @@ pub struct MIDL_STUBLESS_PROXY_INFO {
     pub pSyntaxInfo: *mut MIDL_SYNTAX_INFO,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for MIDL_STUBLESS_PROXY_INFO {}
+impl Copy for MIDL_STUBLESS_PROXY_INFO {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for MIDL_STUBLESS_PROXY_INFO {
+impl Clone for MIDL_STUBLESS_PROXY_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for MIDL_STUBLESS_PROXY_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MIDL_STUBLESS_PROXY_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MIDL_STUBLESS_PROXY_INFO").field("pStubDesc", &self.pStubDesc).field("ProcFormatString", &self.ProcFormatString).field("FormatStringOffset", &self.FormatStringOffset).field("pTransferSyntax", &self.pTransferSyntax).field("nCount", &self.nCount).field("pSyntaxInfo", &self.pSyntaxInfo).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for MIDL_STUBLESS_PROXY_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MIDL_STUBLESS_PROXY_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for MIDL_STUBLESS_PROXY_INFO {
+impl PartialEq for MIDL_STUBLESS_PROXY_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.pStubDesc == other.pStubDesc && self.ProcFormatString == other.ProcFormatString && self.FormatStringOffset == other.FormatStringOffset && self.pTransferSyntax == other.pTransferSyntax && self.nCount == other.nCount && self.pSyntaxInfo == other.pSyntaxInfo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for MIDL_STUBLESS_PROXY_INFO {}
+impl Eq for MIDL_STUBLESS_PROXY_INFO {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for MIDL_STUBLESS_PROXY_INFO {
+impl Default for MIDL_STUBLESS_PROXY_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_STUB_DESC {
-    pub RpcInterfaceInformation: *mut ::core::ffi::c_void,
+    pub RpcInterfaceInformation: *mut core::ffi::c_void,
     pub pfnAllocate: PFN_RPC_ALLOCATE,
     pub pfnFree: PFN_RPC_FREE,
     pub IMPLICIT_HANDLE_INFO: MIDL_STUB_DESC_0,
@@ -4437,50 +4437,50 @@ pub struct MIDL_STUB_DESC {
     pub NotifyRoutineTable: *const NDR_NOTIFY_ROUTINE,
     pub mFlags: usize,
     pub CsRoutineTables: *const NDR_CS_ROUTINES,
-    pub ProxyServerInfo: *mut ::core::ffi::c_void,
+    pub ProxyServerInfo: *mut core::ffi::c_void,
     pub pExprInfo: *const NDR_EXPR_DESC,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for MIDL_STUB_DESC {}
+impl Copy for MIDL_STUB_DESC {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for MIDL_STUB_DESC {
+impl Clone for MIDL_STUB_DESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for MIDL_STUB_DESC {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MIDL_STUB_DESC {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for MIDL_STUB_DESC {
+impl Default for MIDL_STUB_DESC {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub union MIDL_STUB_DESC_0 {
-    pub pAutoHandle: *mut *mut ::core::ffi::c_void,
-    pub pPrimitiveHandle: *mut *mut ::core::ffi::c_void,
+    pub pAutoHandle: *mut *mut core::ffi::c_void,
+    pub pPrimitiveHandle: *mut *mut core::ffi::c_void,
     pub pGenericBindingInfo: *mut GENERIC_BINDING_INFO,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for MIDL_STUB_DESC_0 {}
+impl Copy for MIDL_STUB_DESC_0 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for MIDL_STUB_DESC_0 {
+impl Clone for MIDL_STUB_DESC_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for MIDL_STUB_DESC_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MIDL_STUB_DESC_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for MIDL_STUB_DESC_0 {
+impl Default for MIDL_STUB_DESC_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4513,48 +4513,48 @@ pub struct MIDL_STUB_MESSAGE {
     pub StackTop: *mut u8,
     pub pPresentedType: *mut u8,
     pub pTransmitType: *mut u8,
-    pub SavedHandle: *mut ::core::ffi::c_void,
+    pub SavedHandle: *mut core::ffi::c_void,
     pub StubDesc: *const MIDL_STUB_DESC,
     pub FullPtrXlatTables: *mut FULL_PTR_XLAT_TABLES,
     pub FullPtrRefId: u32,
     pub PointerLength: u32,
     pub _bitfield: i32,
     pub dwDestContext: u32,
-    pub pvDestContext: *mut ::core::ffi::c_void,
+    pub pvDestContext: *mut core::ffi::c_void,
     pub SavedContextHandles: *mut *mut NDR_SCONTEXT,
     pub ParamNumber: i32,
-    pub pRpcChannelBuffer: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::IRpcChannelBuffer>>,
+    pub pRpcChannelBuffer: std::mem::ManuallyDrop<Option<super::Com::IRpcChannelBuffer>>,
     pub pArrayInfo: *mut ARRAY_INFO,
     pub SizePtrCountArray: *mut u32,
     pub SizePtrOffsetArray: *mut u32,
     pub SizePtrLengthArray: *mut u32,
-    pub pArgQueue: *mut ::core::ffi::c_void,
+    pub pArgQueue: *mut core::ffi::c_void,
     pub dwStubPhase: u32,
-    pub LowStackMark: *mut ::core::ffi::c_void,
+    pub LowStackMark: *mut core::ffi::c_void,
     pub pAsyncMsg: PNDR_ASYNC_MESSAGE,
     pub pCorrInfo: PNDR_CORRELATION_INFO,
     pub pCorrMemory: *mut u8,
-    pub pMemoryList: *mut ::core::ffi::c_void,
+    pub pMemoryList: *mut core::ffi::c_void,
     pub pCSInfo: isize,
     pub ConformanceMark: *mut u8,
     pub VarianceMark: *mut u8,
     pub Unused: isize,
     pub pContext: *mut _NDR_PROC_CONTEXT,
-    pub ContextHandleHash: *mut ::core::ffi::c_void,
-    pub pUserMarshalList: *mut ::core::ffi::c_void,
+    pub ContextHandleHash: *mut core::ffi::c_void,
+    pub pUserMarshalList: *mut core::ffi::c_void,
     pub Reserved51_3: isize,
     pub Reserved51_4: isize,
     pub Reserved51_5: isize,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for MIDL_STUB_MESSAGE {
+impl Clone for MIDL_STUB_MESSAGE {
     fn clone(&self) -> Self {
-        unsafe { ::core::mem::transmute_copy(self) }
+        unsafe { core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for MIDL_STUB_MESSAGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MIDL_STUB_MESSAGE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MIDL_STUB_MESSAGE")
             .field("RpcMsg", &self.RpcMsg)
             .field("Buffer", &self.Buffer)
@@ -4617,13 +4617,13 @@ impl ::core::fmt::Debug for MIDL_STUB_MESSAGE {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for MIDL_STUB_MESSAGE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MIDL_STUB_MESSAGE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for MIDL_STUB_MESSAGE {
+impl Default for MIDL_STUB_MESSAGE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4633,33 +4633,33 @@ pub struct MIDL_SYNTAX_INFO {
     pub ProcString: *mut u8,
     pub FmtStringOffset: *const u16,
     pub TypeString: *mut u8,
-    pub aUserMarshalQuadruple: *const ::core::ffi::c_void,
+    pub aUserMarshalQuadruple: *const core::ffi::c_void,
     pub pMethodProperties: *const MIDL_INTERFACE_METHOD_PROPERTIES,
     pub pReserved2: usize,
 }
-impl ::core::marker::Copy for MIDL_SYNTAX_INFO {}
-impl ::core::clone::Clone for MIDL_SYNTAX_INFO {
+impl Copy for MIDL_SYNTAX_INFO {}
+impl Clone for MIDL_SYNTAX_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for MIDL_SYNTAX_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MIDL_SYNTAX_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MIDL_SYNTAX_INFO").field("TransferSyntax", &self.TransferSyntax).field("DispatchTable", &self.DispatchTable).field("ProcString", &self.ProcString).field("FmtStringOffset", &self.FmtStringOffset).field("TypeString", &self.TypeString).field("aUserMarshalQuadruple", &self.aUserMarshalQuadruple).field("pMethodProperties", &self.pMethodProperties).field("pReserved2", &self.pReserved2).finish()
     }
 }
-impl ::windows_core::TypeKind for MIDL_SYNTAX_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MIDL_SYNTAX_INFO {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MIDL_SYNTAX_INFO {
+impl PartialEq for MIDL_SYNTAX_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.TransferSyntax == other.TransferSyntax && self.DispatchTable == other.DispatchTable && self.ProcString == other.ProcString && self.FmtStringOffset == other.FmtStringOffset && self.TypeString == other.TypeString && self.aUserMarshalQuadruple == other.aUserMarshalQuadruple && self.pMethodProperties == other.pMethodProperties && self.pReserved2 == other.pReserved2
     }
 }
-impl ::core::cmp::Eq for MIDL_SYNTAX_INFO {}
-impl ::core::default::Default for MIDL_SYNTAX_INFO {
+impl Eq for MIDL_SYNTAX_INFO {}
+impl Default for MIDL_SYNTAX_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4668,29 +4668,29 @@ pub struct MIDL_TYPE_PICKLING_INFO {
     pub Flags: u32,
     pub Reserved: [usize; 3],
 }
-impl ::core::marker::Copy for MIDL_TYPE_PICKLING_INFO {}
-impl ::core::clone::Clone for MIDL_TYPE_PICKLING_INFO {
+impl Copy for MIDL_TYPE_PICKLING_INFO {}
+impl Clone for MIDL_TYPE_PICKLING_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for MIDL_TYPE_PICKLING_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MIDL_TYPE_PICKLING_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MIDL_TYPE_PICKLING_INFO").field("Version", &self.Version).field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows_core::TypeKind for MIDL_TYPE_PICKLING_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MIDL_TYPE_PICKLING_INFO {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for MIDL_TYPE_PICKLING_INFO {
+impl PartialEq for MIDL_TYPE_PICKLING_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Flags == other.Flags && self.Reserved == other.Reserved
     }
 }
-impl ::core::cmp::Eq for MIDL_TYPE_PICKLING_INFO {}
-impl ::core::default::Default for MIDL_TYPE_PICKLING_INFO {
+impl Eq for MIDL_TYPE_PICKLING_INFO {}
+impl Default for MIDL_TYPE_PICKLING_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4703,94 +4703,94 @@ pub struct MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     pub StubDesc: *mut MIDL_STUB_DESC,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for MIDL_WINRT_TYPE_SERIALIZATION_INFO {}
+impl Copy for MIDL_WINRT_TYPE_SERIALIZATION_INFO {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
+impl Clone for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("MIDL_WINRT_TYPE_SERIALIZATION_INFO").field("Version", &self.Version).field("TypeFormatString", &self.TypeFormatString).field("FormatStringSize", &self.FormatStringSize).field("TypeOffset", &self.TypeOffset).field("StubDesc", &self.StubDesc).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
+impl PartialEq for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.TypeFormatString == other.TypeFormatString && self.FormatStringSize == other.FormatStringSize && self.TypeOffset == other.TypeOffset && self.StubDesc == other.StubDesc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for MIDL_WINRT_TYPE_SERIALIZATION_INFO {}
+impl Eq for MIDL_WINRT_TYPE_SERIALIZATION_INFO {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
+impl Default for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NDR64_ARRAY_ELEMENT_INFO {
     pub ElementMemSize: u32,
-    pub Element: *mut ::core::ffi::c_void,
+    pub Element: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDR64_ARRAY_ELEMENT_INFO {}
-impl ::core::clone::Clone for NDR64_ARRAY_ELEMENT_INFO {
+impl Copy for NDR64_ARRAY_ELEMENT_INFO {}
+impl Clone for NDR64_ARRAY_ELEMENT_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_ARRAY_ELEMENT_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_ARRAY_ELEMENT_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_ARRAY_ELEMENT_INFO").field("ElementMemSize", &self.ElementMemSize).field("Element", &self.Element).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_ARRAY_ELEMENT_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_ARRAY_ELEMENT_INFO {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_ARRAY_ELEMENT_INFO {
+impl PartialEq for NDR64_ARRAY_ELEMENT_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.ElementMemSize == other.ElementMemSize && self.Element == other.Element
     }
 }
-impl ::core::cmp::Eq for NDR64_ARRAY_ELEMENT_INFO {}
-impl ::core::default::Default for NDR64_ARRAY_ELEMENT_INFO {
+impl Eq for NDR64_ARRAY_ELEMENT_INFO {}
+impl Default for NDR64_ARRAY_ELEMENT_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NDR64_ARRAY_FLAGS {
     pub _bitfield: u8,
 }
-impl ::core::marker::Copy for NDR64_ARRAY_FLAGS {}
-impl ::core::clone::Clone for NDR64_ARRAY_FLAGS {
+impl Copy for NDR64_ARRAY_FLAGS {}
+impl Clone for NDR64_ARRAY_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_ARRAY_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_ARRAY_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_ARRAY_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_ARRAY_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_ARRAY_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_ARRAY_FLAGS {
+impl PartialEq for NDR64_ARRAY_FLAGS {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::core::cmp::Eq for NDR64_ARRAY_FLAGS {}
-impl ::core::default::Default for NDR64_ARRAY_FLAGS {
+impl Eq for NDR64_ARRAY_FLAGS {}
+impl Default for NDR64_ARRAY_FLAGS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4799,18 +4799,18 @@ pub union NDR64_BINDINGS {
     pub Generic: NDR64_BIND_GENERIC,
     pub Context: NDR64_BIND_CONTEXT,
 }
-impl ::core::marker::Copy for NDR64_BINDINGS {}
-impl ::core::clone::Clone for NDR64_BINDINGS {
+impl Copy for NDR64_BINDINGS {}
+impl Clone for NDR64_BINDINGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for NDR64_BINDINGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_BINDINGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for NDR64_BINDINGS {
+impl Default for NDR64_BINDINGS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4818,29 +4818,29 @@ pub struct NDR64_BIND_AND_NOTIFY_EXTENSION {
     pub Binding: NDR64_BIND_CONTEXT,
     pub NotifyIndex: u16,
 }
-impl ::core::marker::Copy for NDR64_BIND_AND_NOTIFY_EXTENSION {}
-impl ::core::clone::Clone for NDR64_BIND_AND_NOTIFY_EXTENSION {
+impl Copy for NDR64_BIND_AND_NOTIFY_EXTENSION {}
+impl Clone for NDR64_BIND_AND_NOTIFY_EXTENSION {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_BIND_AND_NOTIFY_EXTENSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_BIND_AND_NOTIFY_EXTENSION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_BIND_AND_NOTIFY_EXTENSION").field("Binding", &self.Binding).field("NotifyIndex", &self.NotifyIndex).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_BIND_AND_NOTIFY_EXTENSION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_BIND_AND_NOTIFY_EXTENSION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_BIND_AND_NOTIFY_EXTENSION {
+impl PartialEq for NDR64_BIND_AND_NOTIFY_EXTENSION {
     fn eq(&self, other: &Self) -> bool {
         self.Binding == other.Binding && self.NotifyIndex == other.NotifyIndex
     }
 }
-impl ::core::cmp::Eq for NDR64_BIND_AND_NOTIFY_EXTENSION {}
-impl ::core::default::Default for NDR64_BIND_AND_NOTIFY_EXTENSION {
+impl Eq for NDR64_BIND_AND_NOTIFY_EXTENSION {}
+impl Default for NDR64_BIND_AND_NOTIFY_EXTENSION {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4851,29 +4851,29 @@ pub struct NDR64_BIND_CONTEXT {
     pub RoutineIndex: u8,
     pub Ordinal: u8,
 }
-impl ::core::marker::Copy for NDR64_BIND_CONTEXT {}
-impl ::core::clone::Clone for NDR64_BIND_CONTEXT {
+impl Copy for NDR64_BIND_CONTEXT {}
+impl Clone for NDR64_BIND_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_BIND_CONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_BIND_CONTEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_BIND_CONTEXT").field("HandleType", &self.HandleType).field("Flags", &self.Flags).field("StackOffset", &self.StackOffset).field("RoutineIndex", &self.RoutineIndex).field("Ordinal", &self.Ordinal).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_BIND_CONTEXT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_BIND_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_BIND_CONTEXT {
+impl PartialEq for NDR64_BIND_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         self.HandleType == other.HandleType && self.Flags == other.Flags && self.StackOffset == other.StackOffset && self.RoutineIndex == other.RoutineIndex && self.Ordinal == other.Ordinal
     }
 }
-impl ::core::cmp::Eq for NDR64_BIND_CONTEXT {}
-impl ::core::default::Default for NDR64_BIND_CONTEXT {
+impl Eq for NDR64_BIND_CONTEXT {}
+impl Default for NDR64_BIND_CONTEXT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4884,29 +4884,29 @@ pub struct NDR64_BIND_GENERIC {
     pub RoutineIndex: u8,
     pub Size: u8,
 }
-impl ::core::marker::Copy for NDR64_BIND_GENERIC {}
-impl ::core::clone::Clone for NDR64_BIND_GENERIC {
+impl Copy for NDR64_BIND_GENERIC {}
+impl Clone for NDR64_BIND_GENERIC {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_BIND_GENERIC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_BIND_GENERIC {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_BIND_GENERIC").field("HandleType", &self.HandleType).field("Flags", &self.Flags).field("StackOffset", &self.StackOffset).field("RoutineIndex", &self.RoutineIndex).field("Size", &self.Size).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_BIND_GENERIC {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_BIND_GENERIC {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_BIND_GENERIC {
+impl PartialEq for NDR64_BIND_GENERIC {
     fn eq(&self, other: &Self) -> bool {
         self.HandleType == other.HandleType && self.Flags == other.Flags && self.StackOffset == other.StackOffset && self.RoutineIndex == other.RoutineIndex && self.Size == other.Size
     }
 }
-impl ::core::cmp::Eq for NDR64_BIND_GENERIC {}
-impl ::core::default::Default for NDR64_BIND_GENERIC {
+impl Eq for NDR64_BIND_GENERIC {}
+impl Default for NDR64_BIND_GENERIC {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4916,29 +4916,29 @@ pub struct NDR64_BIND_PRIMITIVE {
     pub StackOffset: u16,
     pub Reserved: u16,
 }
-impl ::core::marker::Copy for NDR64_BIND_PRIMITIVE {}
-impl ::core::clone::Clone for NDR64_BIND_PRIMITIVE {
+impl Copy for NDR64_BIND_PRIMITIVE {}
+impl Clone for NDR64_BIND_PRIMITIVE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_BIND_PRIMITIVE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_BIND_PRIMITIVE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_BIND_PRIMITIVE").field("HandleType", &self.HandleType).field("Flags", &self.Flags).field("StackOffset", &self.StackOffset).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_BIND_PRIMITIVE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_BIND_PRIMITIVE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_BIND_PRIMITIVE {
+impl PartialEq for NDR64_BIND_PRIMITIVE {
     fn eq(&self, other: &Self) -> bool {
         self.HandleType == other.HandleType && self.Flags == other.Flags && self.StackOffset == other.StackOffset && self.Reserved == other.Reserved
     }
 }
-impl ::core::cmp::Eq for NDR64_BIND_PRIMITIVE {}
-impl ::core::default::Default for NDR64_BIND_PRIMITIVE {
+impl Eq for NDR64_BIND_PRIMITIVE {}
+impl Default for NDR64_BIND_PRIMITIVE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4948,31 +4948,31 @@ pub struct NDR64_BOGUS_ARRAY_HEADER_FORMAT {
     pub Flags: NDR64_ARRAY_FLAGS,
     pub NumberDims: u8,
     pub NumberElements: u32,
-    pub Element: *mut ::core::ffi::c_void,
+    pub Element: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDR64_BOGUS_ARRAY_HEADER_FORMAT {}
-impl ::core::clone::Clone for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
+impl Copy for NDR64_BOGUS_ARRAY_HEADER_FORMAT {}
+impl Clone for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_BOGUS_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("NumberDims", &self.NumberDims).field("NumberElements", &self.NumberElements).field("Element", &self.Element).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
+impl PartialEq for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.NumberDims == other.NumberDims && self.NumberElements == other.NumberElements && self.Element == other.Element
     }
 }
-impl ::core::cmp::Eq for NDR64_BOGUS_ARRAY_HEADER_FORMAT {}
-impl ::core::default::Default for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
+impl Eq for NDR64_BOGUS_ARRAY_HEADER_FORMAT {}
+impl Default for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4982,33 +4982,33 @@ pub struct NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
     pub Flags: NDR64_STRUCTURE_FLAGS,
     pub Reserve: u8,
     pub MemorySize: u32,
-    pub OriginalMemberLayout: *mut ::core::ffi::c_void,
-    pub OriginalPointerLayout: *mut ::core::ffi::c_void,
-    pub PointerLayout: *mut ::core::ffi::c_void,
+    pub OriginalMemberLayout: *mut core::ffi::c_void,
+    pub OriginalPointerLayout: *mut core::ffi::c_void,
+    pub PointerLayout: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {}
-impl ::core::clone::Clone for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
+impl Copy for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {}
+impl Clone for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_BOGUS_STRUCTURE_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserve", &self.Reserve).field("MemorySize", &self.MemorySize).field("OriginalMemberLayout", &self.OriginalMemberLayout).field("OriginalPointerLayout", &self.OriginalPointerLayout).field("PointerLayout", &self.PointerLayout).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
+impl PartialEq for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserve == other.Reserve && self.MemorySize == other.MemorySize && self.OriginalMemberLayout == other.OriginalMemberLayout && self.OriginalPointerLayout == other.OriginalPointerLayout && self.PointerLayout == other.PointerLayout
     }
 }
-impl ::core::cmp::Eq for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {}
-impl ::core::default::Default for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
+impl Eq for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {}
+impl Default for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5018,58 +5018,58 @@ pub struct NDR64_BUFFER_ALIGN_FORMAT {
     pub Reserved: u16,
     pub Reserved2: u32,
 }
-impl ::core::marker::Copy for NDR64_BUFFER_ALIGN_FORMAT {}
-impl ::core::clone::Clone for NDR64_BUFFER_ALIGN_FORMAT {
+impl Copy for NDR64_BUFFER_ALIGN_FORMAT {}
+impl Clone for NDR64_BUFFER_ALIGN_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_BUFFER_ALIGN_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_BUFFER_ALIGN_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_BUFFER_ALIGN_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_BUFFER_ALIGN_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_BUFFER_ALIGN_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_BUFFER_ALIGN_FORMAT {
+impl PartialEq for NDR64_BUFFER_ALIGN_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Reserved == other.Reserved && self.Reserved2 == other.Reserved2
     }
 }
-impl ::core::cmp::Eq for NDR64_BUFFER_ALIGN_FORMAT {}
-impl ::core::default::Default for NDR64_BUFFER_ALIGN_FORMAT {
+impl Eq for NDR64_BUFFER_ALIGN_FORMAT {}
+impl Default for NDR64_BUFFER_ALIGN_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NDR64_CONFORMANT_STRING_FORMAT {
     pub Header: NDR64_STRING_HEADER_FORMAT,
 }
-impl ::core::marker::Copy for NDR64_CONFORMANT_STRING_FORMAT {}
-impl ::core::clone::Clone for NDR64_CONFORMANT_STRING_FORMAT {
+impl Copy for NDR64_CONFORMANT_STRING_FORMAT {}
+impl Clone for NDR64_CONFORMANT_STRING_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_CONFORMANT_STRING_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_CONFORMANT_STRING_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_CONFORMANT_STRING_FORMAT").field("Header", &self.Header).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_CONFORMANT_STRING_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_CONFORMANT_STRING_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_CONFORMANT_STRING_FORMAT {
+impl PartialEq for NDR64_CONFORMANT_STRING_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header
     }
 }
-impl ::core::cmp::Eq for NDR64_CONFORMANT_STRING_FORMAT {}
-impl ::core::default::Default for NDR64_CONFORMANT_STRING_FORMAT {
+impl Eq for NDR64_CONFORMANT_STRING_FORMAT {}
+impl Default for NDR64_CONFORMANT_STRING_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5079,31 +5079,31 @@ pub struct NDR64_CONF_ARRAY_HEADER_FORMAT {
     pub Flags: NDR64_ARRAY_FLAGS,
     pub Reserved: u8,
     pub ElementSize: u32,
-    pub ConfDescriptor: *mut ::core::ffi::c_void,
+    pub ConfDescriptor: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDR64_CONF_ARRAY_HEADER_FORMAT {}
-impl ::core::clone::Clone for NDR64_CONF_ARRAY_HEADER_FORMAT {
+impl Copy for NDR64_CONF_ARRAY_HEADER_FORMAT {}
+impl Clone for NDR64_CONF_ARRAY_HEADER_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_CONF_ARRAY_HEADER_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_CONF_ARRAY_HEADER_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_CONF_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("ElementSize", &self.ElementSize).field("ConfDescriptor", &self.ConfDescriptor).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_CONF_ARRAY_HEADER_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_CONF_ARRAY_HEADER_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_CONF_ARRAY_HEADER_FORMAT {
+impl PartialEq for NDR64_CONF_ARRAY_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserved == other.Reserved && self.ElementSize == other.ElementSize && self.ConfDescriptor == other.ConfDescriptor
     }
 }
-impl ::core::cmp::Eq for NDR64_CONF_ARRAY_HEADER_FORMAT {}
-impl ::core::default::Default for NDR64_CONF_ARRAY_HEADER_FORMAT {
+impl Eq for NDR64_CONF_ARRAY_HEADER_FORMAT {}
+impl Default for NDR64_CONF_ARRAY_HEADER_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5113,34 +5113,34 @@ pub struct NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
     pub Flags: NDR64_STRUCTURE_FLAGS,
     pub Dimensions: u8,
     pub MemorySize: u32,
-    pub OriginalMemberLayout: *mut ::core::ffi::c_void,
-    pub OriginalPointerLayout: *mut ::core::ffi::c_void,
-    pub PointerLayout: *mut ::core::ffi::c_void,
-    pub ConfArrayDescription: *mut ::core::ffi::c_void,
+    pub OriginalMemberLayout: *mut core::ffi::c_void,
+    pub OriginalPointerLayout: *mut core::ffi::c_void,
+    pub PointerLayout: *mut core::ffi::c_void,
+    pub ConfArrayDescription: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {}
-impl ::core::clone::Clone for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
+impl Copy for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {}
+impl Clone for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Dimensions", &self.Dimensions).field("MemorySize", &self.MemorySize).field("OriginalMemberLayout", &self.OriginalMemberLayout).field("OriginalPointerLayout", &self.OriginalPointerLayout).field("PointerLayout", &self.PointerLayout).field("ConfArrayDescription", &self.ConfArrayDescription).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
+impl PartialEq for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Dimensions == other.Dimensions && self.MemorySize == other.MemorySize && self.OriginalMemberLayout == other.OriginalMemberLayout && self.OriginalPointerLayout == other.OriginalPointerLayout && self.PointerLayout == other.PointerLayout && self.ConfArrayDescription == other.ConfArrayDescription
     }
 }
-impl ::core::cmp::Eq for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {}
-impl ::core::default::Default for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
+impl Eq for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {}
+impl Default for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5150,31 +5150,31 @@ pub struct NDR64_CONF_STRUCTURE_HEADER_FORMAT {
     pub Flags: NDR64_STRUCTURE_FLAGS,
     pub Reserve: u8,
     pub MemorySize: u32,
-    pub ArrayDescription: *mut ::core::ffi::c_void,
+    pub ArrayDescription: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDR64_CONF_STRUCTURE_HEADER_FORMAT {}
-impl ::core::clone::Clone for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
+impl Copy for NDR64_CONF_STRUCTURE_HEADER_FORMAT {}
+impl Clone for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_CONF_STRUCTURE_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserve", &self.Reserve).field("MemorySize", &self.MemorySize).field("ArrayDescription", &self.ArrayDescription).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
+impl PartialEq for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserve == other.Reserve && self.MemorySize == other.MemorySize && self.ArrayDescription == other.ArrayDescription
     }
 }
-impl ::core::cmp::Eq for NDR64_CONF_STRUCTURE_HEADER_FORMAT {}
-impl ::core::default::Default for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
+impl Eq for NDR64_CONF_STRUCTURE_HEADER_FORMAT {}
+impl Default for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5184,64 +5184,64 @@ pub struct NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
     pub Flags: NDR64_ARRAY_FLAGS,
     pub Reserved: u8,
     pub ElementSize: u32,
-    pub ConfDescriptor: *mut ::core::ffi::c_void,
-    pub VarDescriptor: *mut ::core::ffi::c_void,
+    pub ConfDescriptor: *mut core::ffi::c_void,
+    pub VarDescriptor: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {}
-impl ::core::clone::Clone for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
+impl Copy for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {}
+impl Clone for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_CONF_VAR_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("ElementSize", &self.ElementSize).field("ConfDescriptor", &self.ConfDescriptor).field("VarDescriptor", &self.VarDescriptor).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
+impl PartialEq for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserved == other.Reserved && self.ElementSize == other.ElementSize && self.ConfDescriptor == other.ConfDescriptor && self.VarDescriptor == other.VarDescriptor
     }
 }
-impl ::core::cmp::Eq for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {}
-impl ::core::default::Default for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
+impl Eq for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {}
+impl Default for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
     pub FixedArrayFormat: NDR64_BOGUS_ARRAY_HEADER_FORMAT,
-    pub ConfDescription: *mut ::core::ffi::c_void,
-    pub VarDescription: *mut ::core::ffi::c_void,
-    pub OffsetDescription: *mut ::core::ffi::c_void,
+    pub ConfDescription: *mut core::ffi::c_void,
+    pub VarDescription: *mut core::ffi::c_void,
+    pub OffsetDescription: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {}
-impl ::core::clone::Clone for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
+impl Copy for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {}
+impl Clone for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT").field("FixedArrayFormat", &self.FixedArrayFormat).field("ConfDescription", &self.ConfDescription).field("VarDescription", &self.VarDescription).field("OffsetDescription", &self.OffsetDescription).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
+impl PartialEq for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FixedArrayFormat == other.FixedArrayFormat && self.ConfDescription == other.ConfDescription && self.VarDescription == other.VarDescription && self.OffsetDescription == other.OffsetDescription
     }
 }
-impl ::core::cmp::Eq for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {}
-impl ::core::default::Default for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
+impl Eq for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {}
+impl Default for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5249,60 +5249,60 @@ pub struct NDR64_CONSTANT_IID_FORMAT {
     pub FormatCode: u8,
     pub Flags: u8,
     pub Reserved: u16,
-    pub Guid: ::windows_core::GUID,
+    pub Guid: windows_core::GUID,
 }
-impl ::core::marker::Copy for NDR64_CONSTANT_IID_FORMAT {}
-impl ::core::clone::Clone for NDR64_CONSTANT_IID_FORMAT {
+impl Copy for NDR64_CONSTANT_IID_FORMAT {}
+impl Clone for NDR64_CONSTANT_IID_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_CONSTANT_IID_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_CONSTANT_IID_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_CONSTANT_IID_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Guid", &self.Guid).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_CONSTANT_IID_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_CONSTANT_IID_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_CONSTANT_IID_FORMAT {
+impl PartialEq for NDR64_CONSTANT_IID_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Reserved == other.Reserved && self.Guid == other.Guid
     }
 }
-impl ::core::cmp::Eq for NDR64_CONSTANT_IID_FORMAT {}
-impl ::core::default::Default for NDR64_CONSTANT_IID_FORMAT {
+impl Eq for NDR64_CONSTANT_IID_FORMAT {}
+impl Default for NDR64_CONSTANT_IID_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NDR64_CONTEXT_HANDLE_FLAGS {
     pub _bitfield: u8,
 }
-impl ::core::marker::Copy for NDR64_CONTEXT_HANDLE_FLAGS {}
-impl ::core::clone::Clone for NDR64_CONTEXT_HANDLE_FLAGS {
+impl Copy for NDR64_CONTEXT_HANDLE_FLAGS {}
+impl Clone for NDR64_CONTEXT_HANDLE_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_CONTEXT_HANDLE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_CONTEXT_HANDLE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_CONTEXT_HANDLE_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_CONTEXT_HANDLE_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_CONTEXT_HANDLE_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_CONTEXT_HANDLE_FLAGS {
+impl PartialEq for NDR64_CONTEXT_HANDLE_FLAGS {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::core::cmp::Eq for NDR64_CONTEXT_HANDLE_FLAGS {}
-impl ::core::default::Default for NDR64_CONTEXT_HANDLE_FLAGS {
+impl Eq for NDR64_CONTEXT_HANDLE_FLAGS {}
+impl Default for NDR64_CONTEXT_HANDLE_FLAGS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5312,29 +5312,29 @@ pub struct NDR64_CONTEXT_HANDLE_FORMAT {
     pub RundownRoutineIndex: u8,
     pub Ordinal: u8,
 }
-impl ::core::marker::Copy for NDR64_CONTEXT_HANDLE_FORMAT {}
-impl ::core::clone::Clone for NDR64_CONTEXT_HANDLE_FORMAT {
+impl Copy for NDR64_CONTEXT_HANDLE_FORMAT {}
+impl Clone for NDR64_CONTEXT_HANDLE_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_CONTEXT_HANDLE_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_CONTEXT_HANDLE_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_CONTEXT_HANDLE_FORMAT").field("FormatCode", &self.FormatCode).field("ContextFlags", &self.ContextFlags).field("RundownRoutineIndex", &self.RundownRoutineIndex).field("Ordinal", &self.Ordinal).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_CONTEXT_HANDLE_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_CONTEXT_HANDLE_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_CONTEXT_HANDLE_FORMAT {
+impl PartialEq for NDR64_CONTEXT_HANDLE_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.ContextFlags == other.ContextFlags && self.RundownRoutineIndex == other.RundownRoutineIndex && self.Ordinal == other.Ordinal
     }
 }
-impl ::core::cmp::Eq for NDR64_CONTEXT_HANDLE_FORMAT {}
-impl ::core::default::Default for NDR64_CONTEXT_HANDLE_FORMAT {
+impl Eq for NDR64_CONTEXT_HANDLE_FORMAT {}
+impl Default for NDR64_CONTEXT_HANDLE_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5342,31 +5342,31 @@ pub struct NDR64_EMBEDDED_COMPLEX_FORMAT {
     pub FormatCode: u8,
     pub Reserve1: u8,
     pub Reserve2: u16,
-    pub Type: *mut ::core::ffi::c_void,
+    pub Type: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDR64_EMBEDDED_COMPLEX_FORMAT {}
-impl ::core::clone::Clone for NDR64_EMBEDDED_COMPLEX_FORMAT {
+impl Copy for NDR64_EMBEDDED_COMPLEX_FORMAT {}
+impl Clone for NDR64_EMBEDDED_COMPLEX_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_EMBEDDED_COMPLEX_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_EMBEDDED_COMPLEX_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_EMBEDDED_COMPLEX_FORMAT").field("FormatCode", &self.FormatCode).field("Reserve1", &self.Reserve1).field("Reserve2", &self.Reserve2).field("Type", &self.Type).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_EMBEDDED_COMPLEX_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_EMBEDDED_COMPLEX_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_EMBEDDED_COMPLEX_FORMAT {
+impl PartialEq for NDR64_EMBEDDED_COMPLEX_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Reserve1 == other.Reserve1 && self.Reserve2 == other.Reserve2 && self.Type == other.Type
     }
 }
-impl ::core::cmp::Eq for NDR64_EMBEDDED_COMPLEX_FORMAT {}
-impl ::core::default::Default for NDR64_EMBEDDED_COMPLEX_FORMAT {
+impl Eq for NDR64_EMBEDDED_COMPLEX_FORMAT {}
+impl Default for NDR64_EMBEDDED_COMPLEX_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5379,29 +5379,29 @@ pub struct NDR64_ENCAPSULATED_UNION {
     pub MemorySize: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for NDR64_ENCAPSULATED_UNION {}
-impl ::core::clone::Clone for NDR64_ENCAPSULATED_UNION {
+impl Copy for NDR64_ENCAPSULATED_UNION {}
+impl Clone for NDR64_ENCAPSULATED_UNION {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_ENCAPSULATED_UNION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_ENCAPSULATED_UNION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_ENCAPSULATED_UNION").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("SwitchType", &self.SwitchType).field("MemoryOffset", &self.MemoryOffset).field("MemorySize", &self.MemorySize).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_ENCAPSULATED_UNION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_ENCAPSULATED_UNION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_ENCAPSULATED_UNION {
+impl PartialEq for NDR64_ENCAPSULATED_UNION {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.SwitchType == other.SwitchType && self.MemoryOffset == other.MemoryOffset && self.MemorySize == other.MemorySize && self.Reserved == other.Reserved
     }
 }
-impl ::core::cmp::Eq for NDR64_ENCAPSULATED_UNION {}
-impl ::core::default::Default for NDR64_ENCAPSULATED_UNION {
+impl Eq for NDR64_ENCAPSULATED_UNION {}
+impl Default for NDR64_ENCAPSULATED_UNION {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5411,29 +5411,29 @@ pub struct NDR64_EXPR_CONST32 {
     pub Reserved1: u16,
     pub ConstValue: u32,
 }
-impl ::core::marker::Copy for NDR64_EXPR_CONST32 {}
-impl ::core::clone::Clone for NDR64_EXPR_CONST32 {
+impl Copy for NDR64_EXPR_CONST32 {}
+impl Clone for NDR64_EXPR_CONST32 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_EXPR_CONST32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_EXPR_CONST32 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_EXPR_CONST32").field("ExprType", &self.ExprType).field("Reserved", &self.Reserved).field("Reserved1", &self.Reserved1).field("ConstValue", &self.ConstValue).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_EXPR_CONST32 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_EXPR_CONST32 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_EXPR_CONST32 {
+impl PartialEq for NDR64_EXPR_CONST32 {
     fn eq(&self, other: &Self) -> bool {
         self.ExprType == other.ExprType && self.Reserved == other.Reserved && self.Reserved1 == other.Reserved1 && self.ConstValue == other.ConstValue
     }
 }
-impl ::core::cmp::Eq for NDR64_EXPR_CONST32 {}
-impl ::core::default::Default for NDR64_EXPR_CONST32 {
+impl Eq for NDR64_EXPR_CONST32 {}
+impl Default for NDR64_EXPR_CONST32 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5443,29 +5443,29 @@ pub struct NDR64_EXPR_CONST64 {
     pub Reserved1: u16,
     pub ConstValue: i64,
 }
-impl ::core::marker::Copy for NDR64_EXPR_CONST64 {}
-impl ::core::clone::Clone for NDR64_EXPR_CONST64 {
+impl Copy for NDR64_EXPR_CONST64 {}
+impl Clone for NDR64_EXPR_CONST64 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_EXPR_CONST64 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_EXPR_CONST64 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_EXPR_CONST64").field("ExprType", &self.ExprType).field("Reserved", &self.Reserved).field("Reserved1", &self.Reserved1).field("ConstValue", &self.ConstValue).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_EXPR_CONST64 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_EXPR_CONST64 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_EXPR_CONST64 {
+impl PartialEq for NDR64_EXPR_CONST64 {
     fn eq(&self, other: &Self) -> bool {
         self.ExprType == other.ExprType && self.Reserved == other.Reserved && self.Reserved1 == other.Reserved1 && self.ConstValue == other.ConstValue
     }
 }
-impl ::core::cmp::Eq for NDR64_EXPR_CONST64 {}
-impl ::core::default::Default for NDR64_EXPR_CONST64 {
+impl Eq for NDR64_EXPR_CONST64 {}
+impl Default for NDR64_EXPR_CONST64 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5474,29 +5474,29 @@ pub struct NDR64_EXPR_NOOP {
     pub Size: u8,
     pub Reserved: u16,
 }
-impl ::core::marker::Copy for NDR64_EXPR_NOOP {}
-impl ::core::clone::Clone for NDR64_EXPR_NOOP {
+impl Copy for NDR64_EXPR_NOOP {}
+impl Clone for NDR64_EXPR_NOOP {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_EXPR_NOOP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_EXPR_NOOP {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_EXPR_NOOP").field("ExprType", &self.ExprType).field("Size", &self.Size).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_EXPR_NOOP {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_EXPR_NOOP {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_EXPR_NOOP {
+impl PartialEq for NDR64_EXPR_NOOP {
     fn eq(&self, other: &Self) -> bool {
         self.ExprType == other.ExprType && self.Size == other.Size && self.Reserved == other.Reserved
     }
 }
-impl ::core::cmp::Eq for NDR64_EXPR_NOOP {}
-impl ::core::default::Default for NDR64_EXPR_NOOP {
+impl Eq for NDR64_EXPR_NOOP {}
+impl Default for NDR64_EXPR_NOOP {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5506,29 +5506,29 @@ pub struct NDR64_EXPR_OPERATOR {
     pub CastType: u8,
     pub Reserved: u8,
 }
-impl ::core::marker::Copy for NDR64_EXPR_OPERATOR {}
-impl ::core::clone::Clone for NDR64_EXPR_OPERATOR {
+impl Copy for NDR64_EXPR_OPERATOR {}
+impl Clone for NDR64_EXPR_OPERATOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_EXPR_OPERATOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_EXPR_OPERATOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_EXPR_OPERATOR").field("ExprType", &self.ExprType).field("Operator", &self.Operator).field("CastType", &self.CastType).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_EXPR_OPERATOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_EXPR_OPERATOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_EXPR_OPERATOR {
+impl PartialEq for NDR64_EXPR_OPERATOR {
     fn eq(&self, other: &Self) -> bool {
         self.ExprType == other.ExprType && self.Operator == other.Operator && self.CastType == other.CastType && self.Reserved == other.Reserved
     }
 }
-impl ::core::cmp::Eq for NDR64_EXPR_OPERATOR {}
-impl ::core::default::Default for NDR64_EXPR_OPERATOR {
+impl Eq for NDR64_EXPR_OPERATOR {}
+impl Default for NDR64_EXPR_OPERATOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5538,29 +5538,29 @@ pub struct NDR64_EXPR_VAR {
     pub Reserved: u16,
     pub Offset: u32,
 }
-impl ::core::marker::Copy for NDR64_EXPR_VAR {}
-impl ::core::clone::Clone for NDR64_EXPR_VAR {
+impl Copy for NDR64_EXPR_VAR {}
+impl Clone for NDR64_EXPR_VAR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_EXPR_VAR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_EXPR_VAR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_EXPR_VAR").field("ExprType", &self.ExprType).field("VarType", &self.VarType).field("Reserved", &self.Reserved).field("Offset", &self.Offset).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_EXPR_VAR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_EXPR_VAR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_EXPR_VAR {
+impl PartialEq for NDR64_EXPR_VAR {
     fn eq(&self, other: &Self) -> bool {
         self.ExprType == other.ExprType && self.VarType == other.VarType && self.Reserved == other.Reserved && self.Offset == other.Offset
     }
 }
-impl ::core::cmp::Eq for NDR64_EXPR_VAR {}
-impl ::core::default::Default for NDR64_EXPR_VAR {
+impl Eq for NDR64_EXPR_VAR {}
+impl Default for NDR64_EXPR_VAR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5569,29 +5569,29 @@ pub struct NDR64_FIXED_REPEAT_FORMAT {
     pub Iterations: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for NDR64_FIXED_REPEAT_FORMAT {}
-impl ::core::clone::Clone for NDR64_FIXED_REPEAT_FORMAT {
+impl Copy for NDR64_FIXED_REPEAT_FORMAT {}
+impl Clone for NDR64_FIXED_REPEAT_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_FIXED_REPEAT_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_FIXED_REPEAT_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_FIXED_REPEAT_FORMAT").field("RepeatFormat", &self.RepeatFormat).field("Iterations", &self.Iterations).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_FIXED_REPEAT_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_FIXED_REPEAT_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_FIXED_REPEAT_FORMAT {
+impl PartialEq for NDR64_FIXED_REPEAT_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.RepeatFormat == other.RepeatFormat && self.Iterations == other.Iterations && self.Reserved == other.Reserved
     }
 }
-impl ::core::cmp::Eq for NDR64_FIXED_REPEAT_FORMAT {}
-impl ::core::default::Default for NDR64_FIXED_REPEAT_FORMAT {
+impl Eq for NDR64_FIXED_REPEAT_FORMAT {}
+impl Default for NDR64_FIXED_REPEAT_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5602,58 +5602,58 @@ pub struct NDR64_FIX_ARRAY_HEADER_FORMAT {
     pub Reserved: u8,
     pub TotalSize: u32,
 }
-impl ::core::marker::Copy for NDR64_FIX_ARRAY_HEADER_FORMAT {}
-impl ::core::clone::Clone for NDR64_FIX_ARRAY_HEADER_FORMAT {
+impl Copy for NDR64_FIX_ARRAY_HEADER_FORMAT {}
+impl Clone for NDR64_FIX_ARRAY_HEADER_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_FIX_ARRAY_HEADER_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_FIX_ARRAY_HEADER_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_FIX_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("TotalSize", &self.TotalSize).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_FIX_ARRAY_HEADER_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_FIX_ARRAY_HEADER_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_FIX_ARRAY_HEADER_FORMAT {
+impl PartialEq for NDR64_FIX_ARRAY_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserved == other.Reserved && self.TotalSize == other.TotalSize
     }
 }
-impl ::core::cmp::Eq for NDR64_FIX_ARRAY_HEADER_FORMAT {}
-impl ::core::default::Default for NDR64_FIX_ARRAY_HEADER_FORMAT {
+impl Eq for NDR64_FIX_ARRAY_HEADER_FORMAT {}
+impl Default for NDR64_FIX_ARRAY_HEADER_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NDR64_IID_FLAGS {
     pub _bitfield: u8,
 }
-impl ::core::marker::Copy for NDR64_IID_FLAGS {}
-impl ::core::clone::Clone for NDR64_IID_FLAGS {
+impl Copy for NDR64_IID_FLAGS {}
+impl Clone for NDR64_IID_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_IID_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_IID_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_IID_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_IID_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_IID_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_IID_FLAGS {
+impl PartialEq for NDR64_IID_FLAGS {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::core::cmp::Eq for NDR64_IID_FLAGS {}
-impl ::core::default::Default for NDR64_IID_FLAGS {
+impl Eq for NDR64_IID_FLAGS {}
+impl Default for NDR64_IID_FLAGS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5661,31 +5661,31 @@ pub struct NDR64_IID_FORMAT {
     pub FormatCode: u8,
     pub Flags: u8,
     pub Reserved: u16,
-    pub IIDDescriptor: *mut ::core::ffi::c_void,
+    pub IIDDescriptor: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDR64_IID_FORMAT {}
-impl ::core::clone::Clone for NDR64_IID_FORMAT {
+impl Copy for NDR64_IID_FORMAT {}
+impl Clone for NDR64_IID_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_IID_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_IID_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_IID_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("IIDDescriptor", &self.IIDDescriptor).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_IID_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_IID_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_IID_FORMAT {
+impl PartialEq for NDR64_IID_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Reserved == other.Reserved && self.IIDDescriptor == other.IIDDescriptor
     }
 }
-impl ::core::cmp::Eq for NDR64_IID_FORMAT {}
-impl ::core::default::Default for NDR64_IID_FORMAT {
+impl Eq for NDR64_IID_FORMAT {}
+impl Default for NDR64_IID_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5695,29 +5695,29 @@ pub struct NDR64_MEMPAD_FORMAT {
     pub MemPad: u16,
     pub Reserved2: u32,
 }
-impl ::core::marker::Copy for NDR64_MEMPAD_FORMAT {}
-impl ::core::clone::Clone for NDR64_MEMPAD_FORMAT {
+impl Copy for NDR64_MEMPAD_FORMAT {}
+impl Clone for NDR64_MEMPAD_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_MEMPAD_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_MEMPAD_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_MEMPAD_FORMAT").field("FormatCode", &self.FormatCode).field("Reserve1", &self.Reserve1).field("MemPad", &self.MemPad).field("Reserved2", &self.Reserved2).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_MEMPAD_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_MEMPAD_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_MEMPAD_FORMAT {
+impl PartialEq for NDR64_MEMPAD_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Reserve1 == other.Reserve1 && self.MemPad == other.MemPad && self.Reserved2 == other.Reserved2
     }
 }
-impl ::core::cmp::Eq for NDR64_MEMPAD_FORMAT {}
-impl ::core::default::Default for NDR64_MEMPAD_FORMAT {
+impl Eq for NDR64_MEMPAD_FORMAT {}
+impl Default for NDR64_MEMPAD_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5725,29 +5725,29 @@ pub struct NDR64_NON_CONFORMANT_STRING_FORMAT {
     pub Header: NDR64_STRING_HEADER_FORMAT,
     pub TotalSize: u32,
 }
-impl ::core::marker::Copy for NDR64_NON_CONFORMANT_STRING_FORMAT {}
-impl ::core::clone::Clone for NDR64_NON_CONFORMANT_STRING_FORMAT {
+impl Copy for NDR64_NON_CONFORMANT_STRING_FORMAT {}
+impl Clone for NDR64_NON_CONFORMANT_STRING_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_NON_CONFORMANT_STRING_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_NON_CONFORMANT_STRING_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_NON_CONFORMANT_STRING_FORMAT").field("Header", &self.Header).field("TotalSize", &self.TotalSize).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_NON_CONFORMANT_STRING_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_NON_CONFORMANT_STRING_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_NON_CONFORMANT_STRING_FORMAT {
+impl PartialEq for NDR64_NON_CONFORMANT_STRING_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.TotalSize == other.TotalSize
     }
 }
-impl ::core::cmp::Eq for NDR64_NON_CONFORMANT_STRING_FORMAT {}
-impl ::core::default::Default for NDR64_NON_CONFORMANT_STRING_FORMAT {
+impl Eq for NDR64_NON_CONFORMANT_STRING_FORMAT {}
+impl Default for NDR64_NON_CONFORMANT_STRING_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5757,32 +5757,32 @@ pub struct NDR64_NON_ENCAPSULATED_UNION {
     pub Flags: u8,
     pub SwitchType: u8,
     pub MemorySize: u32,
-    pub Switch: *mut ::core::ffi::c_void,
+    pub Switch: *mut core::ffi::c_void,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for NDR64_NON_ENCAPSULATED_UNION {}
-impl ::core::clone::Clone for NDR64_NON_ENCAPSULATED_UNION {
+impl Copy for NDR64_NON_ENCAPSULATED_UNION {}
+impl Clone for NDR64_NON_ENCAPSULATED_UNION {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_NON_ENCAPSULATED_UNION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_NON_ENCAPSULATED_UNION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_NON_ENCAPSULATED_UNION").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("SwitchType", &self.SwitchType).field("MemorySize", &self.MemorySize).field("Switch", &self.Switch).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_NON_ENCAPSULATED_UNION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_NON_ENCAPSULATED_UNION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_NON_ENCAPSULATED_UNION {
+impl PartialEq for NDR64_NON_ENCAPSULATED_UNION {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.SwitchType == other.SwitchType && self.MemorySize == other.MemorySize && self.Switch == other.Switch && self.Reserved == other.Reserved
     }
 }
-impl ::core::cmp::Eq for NDR64_NON_ENCAPSULATED_UNION {}
-impl ::core::default::Default for NDR64_NON_ENCAPSULATED_UNION {
+impl Eq for NDR64_NON_ENCAPSULATED_UNION {}
+impl Default for NDR64_NON_ENCAPSULATED_UNION {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5792,119 +5792,119 @@ pub struct NDR64_NO_REPEAT_FORMAT {
     pub Reserved1: u16,
     pub Reserved2: u32,
 }
-impl ::core::marker::Copy for NDR64_NO_REPEAT_FORMAT {}
-impl ::core::clone::Clone for NDR64_NO_REPEAT_FORMAT {
+impl Copy for NDR64_NO_REPEAT_FORMAT {}
+impl Clone for NDR64_NO_REPEAT_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_NO_REPEAT_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_NO_REPEAT_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_NO_REPEAT_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_NO_REPEAT_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_NO_REPEAT_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_NO_REPEAT_FORMAT {
+impl PartialEq for NDR64_NO_REPEAT_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2
     }
 }
-impl ::core::cmp::Eq for NDR64_NO_REPEAT_FORMAT {}
-impl ::core::default::Default for NDR64_NO_REPEAT_FORMAT {
+impl Eq for NDR64_NO_REPEAT_FORMAT {}
+impl Default for NDR64_NO_REPEAT_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NDR64_PARAM_FLAGS {
     pub _bitfield: u16,
 }
-impl ::core::marker::Copy for NDR64_PARAM_FLAGS {}
-impl ::core::clone::Clone for NDR64_PARAM_FLAGS {
+impl Copy for NDR64_PARAM_FLAGS {}
+impl Clone for NDR64_PARAM_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_PARAM_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_PARAM_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_PARAM_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_PARAM_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_PARAM_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_PARAM_FLAGS {
+impl PartialEq for NDR64_PARAM_FLAGS {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::core::cmp::Eq for NDR64_PARAM_FLAGS {}
-impl ::core::default::Default for NDR64_PARAM_FLAGS {
+impl Eq for NDR64_PARAM_FLAGS {}
+impl Default for NDR64_PARAM_FLAGS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NDR64_PARAM_FORMAT {
-    pub Type: *mut ::core::ffi::c_void,
+    pub Type: *mut core::ffi::c_void,
     pub Attributes: NDR64_PARAM_FLAGS,
     pub Reserved: u16,
     pub StackOffset: u32,
 }
-impl ::core::marker::Copy for NDR64_PARAM_FORMAT {}
-impl ::core::clone::Clone for NDR64_PARAM_FORMAT {
+impl Copy for NDR64_PARAM_FORMAT {}
+impl Clone for NDR64_PARAM_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_PARAM_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_PARAM_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_PARAM_FORMAT").field("Type", &self.Type).field("Attributes", &self.Attributes).field("Reserved", &self.Reserved).field("StackOffset", &self.StackOffset).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_PARAM_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_PARAM_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_PARAM_FORMAT {
+impl PartialEq for NDR64_PARAM_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.Attributes == other.Attributes && self.Reserved == other.Reserved && self.StackOffset == other.StackOffset
     }
 }
-impl ::core::cmp::Eq for NDR64_PARAM_FORMAT {}
-impl ::core::default::Default for NDR64_PARAM_FORMAT {
+impl Eq for NDR64_PARAM_FORMAT {}
+impl Default for NDR64_PARAM_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NDR64_PIPE_FLAGS {
     pub _bitfield: u8,
 }
-impl ::core::marker::Copy for NDR64_PIPE_FLAGS {}
-impl ::core::clone::Clone for NDR64_PIPE_FLAGS {
+impl Copy for NDR64_PIPE_FLAGS {}
+impl Clone for NDR64_PIPE_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_PIPE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_PIPE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_PIPE_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_PIPE_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_PIPE_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_PIPE_FLAGS {
+impl PartialEq for NDR64_PIPE_FLAGS {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::core::cmp::Eq for NDR64_PIPE_FLAGS {}
-impl ::core::default::Default for NDR64_PIPE_FLAGS {
+impl Eq for NDR64_PIPE_FLAGS {}
+impl Default for NDR64_PIPE_FLAGS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5913,33 +5913,33 @@ pub struct NDR64_PIPE_FORMAT {
     pub Flags: u8,
     pub Alignment: u8,
     pub Reserved: u8,
-    pub Type: *mut ::core::ffi::c_void,
+    pub Type: *mut core::ffi::c_void,
     pub MemorySize: u32,
     pub BufferSize: u32,
 }
-impl ::core::marker::Copy for NDR64_PIPE_FORMAT {}
-impl ::core::clone::Clone for NDR64_PIPE_FORMAT {
+impl Copy for NDR64_PIPE_FORMAT {}
+impl Clone for NDR64_PIPE_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_PIPE_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_PIPE_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_PIPE_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Alignment", &self.Alignment).field("Reserved", &self.Reserved).field("Type", &self.Type).field("MemorySize", &self.MemorySize).field("BufferSize", &self.BufferSize).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_PIPE_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_PIPE_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_PIPE_FORMAT {
+impl PartialEq for NDR64_PIPE_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Alignment == other.Alignment && self.Reserved == other.Reserved && self.Type == other.Type && self.MemorySize == other.MemorySize && self.BufferSize == other.BufferSize
     }
 }
-impl ::core::cmp::Eq for NDR64_PIPE_FORMAT {}
-impl ::core::default::Default for NDR64_PIPE_FORMAT {
+impl Eq for NDR64_PIPE_FORMAT {}
+impl Default for NDR64_PIPE_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5947,31 +5947,31 @@ pub struct NDR64_POINTER_FORMAT {
     pub FormatCode: u8,
     pub Flags: u8,
     pub Reserved: u16,
-    pub Pointee: *mut ::core::ffi::c_void,
+    pub Pointee: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDR64_POINTER_FORMAT {}
-impl ::core::clone::Clone for NDR64_POINTER_FORMAT {
+impl Copy for NDR64_POINTER_FORMAT {}
+impl Clone for NDR64_POINTER_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_POINTER_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_POINTER_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_POINTER_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Pointee", &self.Pointee).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_POINTER_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_POINTER_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_POINTER_FORMAT {
+impl PartialEq for NDR64_POINTER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Reserved == other.Reserved && self.Pointee == other.Pointee
     }
 }
-impl ::core::cmp::Eq for NDR64_POINTER_FORMAT {}
-impl ::core::default::Default for NDR64_POINTER_FORMAT {
+impl Eq for NDR64_POINTER_FORMAT {}
+impl Default for NDR64_POINTER_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5979,87 +5979,87 @@ pub struct NDR64_POINTER_INSTANCE_HEADER_FORMAT {
     pub Offset: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for NDR64_POINTER_INSTANCE_HEADER_FORMAT {}
-impl ::core::clone::Clone for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
+impl Copy for NDR64_POINTER_INSTANCE_HEADER_FORMAT {}
+impl Clone for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_POINTER_INSTANCE_HEADER_FORMAT").field("Offset", &self.Offset).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
+impl PartialEq for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.Offset == other.Offset && self.Reserved == other.Reserved
     }
 }
-impl ::core::cmp::Eq for NDR64_POINTER_INSTANCE_HEADER_FORMAT {}
-impl ::core::default::Default for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
+impl Eq for NDR64_POINTER_INSTANCE_HEADER_FORMAT {}
+impl Default for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NDR64_POINTER_REPEAT_FLAGS {
     pub _bitfield: u8,
 }
-impl ::core::marker::Copy for NDR64_POINTER_REPEAT_FLAGS {}
-impl ::core::clone::Clone for NDR64_POINTER_REPEAT_FLAGS {
+impl Copy for NDR64_POINTER_REPEAT_FLAGS {}
+impl Clone for NDR64_POINTER_REPEAT_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_POINTER_REPEAT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_POINTER_REPEAT_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_POINTER_REPEAT_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_POINTER_REPEAT_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_POINTER_REPEAT_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_POINTER_REPEAT_FLAGS {
+impl PartialEq for NDR64_POINTER_REPEAT_FLAGS {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::core::cmp::Eq for NDR64_POINTER_REPEAT_FLAGS {}
-impl ::core::default::Default for NDR64_POINTER_REPEAT_FLAGS {
+impl Eq for NDR64_POINTER_REPEAT_FLAGS {}
+impl Default for NDR64_POINTER_REPEAT_FLAGS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NDR64_PROC_FLAGS {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for NDR64_PROC_FLAGS {}
-impl ::core::clone::Clone for NDR64_PROC_FLAGS {
+impl Copy for NDR64_PROC_FLAGS {}
+impl Clone for NDR64_PROC_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_PROC_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_PROC_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_PROC_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_PROC_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_PROC_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_PROC_FLAGS {
+impl PartialEq for NDR64_PROC_FLAGS {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::core::cmp::Eq for NDR64_PROC_FLAGS {}
-impl ::core::default::Default for NDR64_PROC_FLAGS {
+impl Eq for NDR64_PROC_FLAGS {}
+impl Default for NDR64_PROC_FLAGS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6073,29 +6073,29 @@ pub struct NDR64_PROC_FORMAT {
     pub NumberOfParams: u16,
     pub ExtensionSize: u16,
 }
-impl ::core::marker::Copy for NDR64_PROC_FORMAT {}
-impl ::core::clone::Clone for NDR64_PROC_FORMAT {
+impl Copy for NDR64_PROC_FORMAT {}
+impl Clone for NDR64_PROC_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_PROC_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_PROC_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_PROC_FORMAT").field("Flags", &self.Flags).field("StackSize", &self.StackSize).field("ConstantClientBufferSize", &self.ConstantClientBufferSize).field("ConstantServerBufferSize", &self.ConstantServerBufferSize).field("RpcFlags", &self.RpcFlags).field("FloatDoubleMask", &self.FloatDoubleMask).field("NumberOfParams", &self.NumberOfParams).field("ExtensionSize", &self.ExtensionSize).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_PROC_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_PROC_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_PROC_FORMAT {
+impl PartialEq for NDR64_PROC_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags && self.StackSize == other.StackSize && self.ConstantClientBufferSize == other.ConstantClientBufferSize && self.ConstantServerBufferSize == other.ConstantServerBufferSize && self.RpcFlags == other.RpcFlags && self.FloatDoubleMask == other.FloatDoubleMask && self.NumberOfParams == other.NumberOfParams && self.ExtensionSize == other.ExtensionSize
     }
 }
-impl ::core::cmp::Eq for NDR64_PROC_FORMAT {}
-impl ::core::default::Default for NDR64_PROC_FORMAT {
+impl Eq for NDR64_PROC_FORMAT {}
+impl Default for NDR64_PROC_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6105,29 +6105,29 @@ pub struct NDR64_RANGED_STRING_FORMAT {
     pub Min: u64,
     pub Max: u64,
 }
-impl ::core::marker::Copy for NDR64_RANGED_STRING_FORMAT {}
-impl ::core::clone::Clone for NDR64_RANGED_STRING_FORMAT {
+impl Copy for NDR64_RANGED_STRING_FORMAT {}
+impl Clone for NDR64_RANGED_STRING_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_RANGED_STRING_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_RANGED_STRING_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_RANGED_STRING_FORMAT").field("Header", &self.Header).field("Reserved", &self.Reserved).field("Min", &self.Min).field("Max", &self.Max).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_RANGED_STRING_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_RANGED_STRING_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_RANGED_STRING_FORMAT {
+impl PartialEq for NDR64_RANGED_STRING_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Reserved == other.Reserved && self.Min == other.Min && self.Max == other.Max
     }
 }
-impl ::core::cmp::Eq for NDR64_RANGED_STRING_FORMAT {}
-impl ::core::default::Default for NDR64_RANGED_STRING_FORMAT {
+impl Eq for NDR64_RANGED_STRING_FORMAT {}
+impl Default for NDR64_RANGED_STRING_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6138,29 +6138,29 @@ pub struct NDR64_RANGE_FORMAT {
     pub MinValue: i64,
     pub MaxValue: i64,
 }
-impl ::core::marker::Copy for NDR64_RANGE_FORMAT {}
-impl ::core::clone::Clone for NDR64_RANGE_FORMAT {
+impl Copy for NDR64_RANGE_FORMAT {}
+impl Clone for NDR64_RANGE_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_RANGE_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_RANGE_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_RANGE_FORMAT").field("FormatCode", &self.FormatCode).field("RangeType", &self.RangeType).field("Reserved", &self.Reserved).field("MinValue", &self.MinValue).field("MaxValue", &self.MaxValue).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_RANGE_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_RANGE_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_RANGE_FORMAT {
+impl PartialEq for NDR64_RANGE_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.RangeType == other.RangeType && self.Reserved == other.Reserved && self.MinValue == other.MinValue && self.MaxValue == other.MaxValue
     }
 }
-impl ::core::cmp::Eq for NDR64_RANGE_FORMAT {}
-impl ::core::default::Default for NDR64_RANGE_FORMAT {
+impl Eq for NDR64_RANGE_FORMAT {}
+impl Default for NDR64_RANGE_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6169,35 +6169,35 @@ pub struct NDR64_RANGE_PIPE_FORMAT {
     pub Flags: u8,
     pub Alignment: u8,
     pub Reserved: u8,
-    pub Type: *mut ::core::ffi::c_void,
+    pub Type: *mut core::ffi::c_void,
     pub MemorySize: u32,
     pub BufferSize: u32,
     pub MinValue: u32,
     pub MaxValue: u32,
 }
-impl ::core::marker::Copy for NDR64_RANGE_PIPE_FORMAT {}
-impl ::core::clone::Clone for NDR64_RANGE_PIPE_FORMAT {
+impl Copy for NDR64_RANGE_PIPE_FORMAT {}
+impl Clone for NDR64_RANGE_PIPE_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_RANGE_PIPE_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_RANGE_PIPE_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_RANGE_PIPE_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Alignment", &self.Alignment).field("Reserved", &self.Reserved).field("Type", &self.Type).field("MemorySize", &self.MemorySize).field("BufferSize", &self.BufferSize).field("MinValue", &self.MinValue).field("MaxValue", &self.MaxValue).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_RANGE_PIPE_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_RANGE_PIPE_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_RANGE_PIPE_FORMAT {
+impl PartialEq for NDR64_RANGE_PIPE_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Alignment == other.Alignment && self.Reserved == other.Reserved && self.Type == other.Type && self.MemorySize == other.MemorySize && self.BufferSize == other.BufferSize && self.MinValue == other.MinValue && self.MaxValue == other.MaxValue
     }
 }
-impl ::core::cmp::Eq for NDR64_RANGE_PIPE_FORMAT {}
-impl ::core::default::Default for NDR64_RANGE_PIPE_FORMAT {
+impl Eq for NDR64_RANGE_PIPE_FORMAT {}
+impl Default for NDR64_RANGE_PIPE_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6209,58 +6209,58 @@ pub struct NDR64_REPEAT_FORMAT {
     pub OffsetToArray: u32,
     pub NumberOfPointers: u32,
 }
-impl ::core::marker::Copy for NDR64_REPEAT_FORMAT {}
-impl ::core::clone::Clone for NDR64_REPEAT_FORMAT {
+impl Copy for NDR64_REPEAT_FORMAT {}
+impl Clone for NDR64_REPEAT_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_REPEAT_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_REPEAT_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_REPEAT_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Increment", &self.Increment).field("OffsetToArray", &self.OffsetToArray).field("NumberOfPointers", &self.NumberOfPointers).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_REPEAT_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_REPEAT_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_REPEAT_FORMAT {
+impl PartialEq for NDR64_REPEAT_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Reserved == other.Reserved && self.Increment == other.Increment && self.OffsetToArray == other.OffsetToArray && self.NumberOfPointers == other.NumberOfPointers
     }
 }
-impl ::core::cmp::Eq for NDR64_REPEAT_FORMAT {}
-impl ::core::default::Default for NDR64_REPEAT_FORMAT {
+impl Eq for NDR64_REPEAT_FORMAT {}
+impl Default for NDR64_REPEAT_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NDR64_RPC_FLAGS {
     pub _bitfield: u16,
 }
-impl ::core::marker::Copy for NDR64_RPC_FLAGS {}
-impl ::core::clone::Clone for NDR64_RPC_FLAGS {
+impl Copy for NDR64_RPC_FLAGS {}
+impl Clone for NDR64_RPC_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_RPC_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_RPC_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_RPC_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_RPC_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_RPC_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_RPC_FLAGS {
+impl PartialEq for NDR64_RPC_FLAGS {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::core::cmp::Eq for NDR64_RPC_FLAGS {}
-impl ::core::default::Default for NDR64_RPC_FLAGS {
+impl Eq for NDR64_RPC_FLAGS {}
+impl Default for NDR64_RPC_FLAGS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6270,29 +6270,29 @@ pub struct NDR64_SIMPLE_MEMBER_FORMAT {
     pub Reserved2: u16,
     pub Reserved3: u32,
 }
-impl ::core::marker::Copy for NDR64_SIMPLE_MEMBER_FORMAT {}
-impl ::core::clone::Clone for NDR64_SIMPLE_MEMBER_FORMAT {
+impl Copy for NDR64_SIMPLE_MEMBER_FORMAT {}
+impl Clone for NDR64_SIMPLE_MEMBER_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_SIMPLE_MEMBER_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_SIMPLE_MEMBER_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_SIMPLE_MEMBER_FORMAT").field("FormatCode", &self.FormatCode).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_SIMPLE_MEMBER_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_SIMPLE_MEMBER_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_SIMPLE_MEMBER_FORMAT {
+impl PartialEq for NDR64_SIMPLE_MEMBER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3
     }
 }
-impl ::core::cmp::Eq for NDR64_SIMPLE_MEMBER_FORMAT {}
-impl ::core::default::Default for NDR64_SIMPLE_MEMBER_FORMAT {
+impl Eq for NDR64_SIMPLE_MEMBER_FORMAT {}
+impl Default for NDR64_SIMPLE_MEMBER_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6302,88 +6302,88 @@ pub struct NDR64_SIMPLE_REGION_FORMAT {
     pub RegionSize: u16,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for NDR64_SIMPLE_REGION_FORMAT {}
-impl ::core::clone::Clone for NDR64_SIMPLE_REGION_FORMAT {
+impl Copy for NDR64_SIMPLE_REGION_FORMAT {}
+impl Clone for NDR64_SIMPLE_REGION_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_SIMPLE_REGION_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_SIMPLE_REGION_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_SIMPLE_REGION_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("RegionSize", &self.RegionSize).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_SIMPLE_REGION_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_SIMPLE_REGION_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_SIMPLE_REGION_FORMAT {
+impl PartialEq for NDR64_SIMPLE_REGION_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.RegionSize == other.RegionSize && self.Reserved == other.Reserved
     }
 }
-impl ::core::cmp::Eq for NDR64_SIMPLE_REGION_FORMAT {}
-impl ::core::default::Default for NDR64_SIMPLE_REGION_FORMAT {
+impl Eq for NDR64_SIMPLE_REGION_FORMAT {}
+impl Default for NDR64_SIMPLE_REGION_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NDR64_SIZED_CONFORMANT_STRING_FORMAT {
     pub Header: NDR64_STRING_HEADER_FORMAT,
-    pub SizeDescription: *mut ::core::ffi::c_void,
+    pub SizeDescription: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDR64_SIZED_CONFORMANT_STRING_FORMAT {}
-impl ::core::clone::Clone for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
+impl Copy for NDR64_SIZED_CONFORMANT_STRING_FORMAT {}
+impl Clone for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_SIZED_CONFORMANT_STRING_FORMAT").field("Header", &self.Header).field("SizeDescription", &self.SizeDescription).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
+impl PartialEq for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.SizeDescription == other.SizeDescription
     }
 }
-impl ::core::cmp::Eq for NDR64_SIZED_CONFORMANT_STRING_FORMAT {}
-impl ::core::default::Default for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
+impl Eq for NDR64_SIZED_CONFORMANT_STRING_FORMAT {}
+impl Default for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NDR64_STRING_FLAGS {
     pub _bitfield: u8,
 }
-impl ::core::marker::Copy for NDR64_STRING_FLAGS {}
-impl ::core::clone::Clone for NDR64_STRING_FLAGS {
+impl Copy for NDR64_STRING_FLAGS {}
+impl Clone for NDR64_STRING_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_STRING_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_STRING_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_STRING_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_STRING_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_STRING_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_STRING_FLAGS {
+impl PartialEq for NDR64_STRING_FLAGS {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::core::cmp::Eq for NDR64_STRING_FLAGS {}
-impl ::core::default::Default for NDR64_STRING_FLAGS {
+impl Eq for NDR64_STRING_FLAGS {}
+impl Default for NDR64_STRING_FLAGS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6392,58 +6392,58 @@ pub struct NDR64_STRING_HEADER_FORMAT {
     pub Flags: NDR64_STRING_FLAGS,
     pub ElementSize: u16,
 }
-impl ::core::marker::Copy for NDR64_STRING_HEADER_FORMAT {}
-impl ::core::clone::Clone for NDR64_STRING_HEADER_FORMAT {
+impl Copy for NDR64_STRING_HEADER_FORMAT {}
+impl Clone for NDR64_STRING_HEADER_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_STRING_HEADER_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_STRING_HEADER_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_STRING_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("ElementSize", &self.ElementSize).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_STRING_HEADER_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_STRING_HEADER_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_STRING_HEADER_FORMAT {
+impl PartialEq for NDR64_STRING_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.ElementSize == other.ElementSize
     }
 }
-impl ::core::cmp::Eq for NDR64_STRING_HEADER_FORMAT {}
-impl ::core::default::Default for NDR64_STRING_HEADER_FORMAT {
+impl Eq for NDR64_STRING_HEADER_FORMAT {}
+impl Default for NDR64_STRING_HEADER_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NDR64_STRUCTURE_FLAGS {
     pub _bitfield: u8,
 }
-impl ::core::marker::Copy for NDR64_STRUCTURE_FLAGS {}
-impl ::core::clone::Clone for NDR64_STRUCTURE_FLAGS {
+impl Copy for NDR64_STRUCTURE_FLAGS {}
+impl Clone for NDR64_STRUCTURE_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_STRUCTURE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_STRUCTURE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_STRUCTURE_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_STRUCTURE_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_STRUCTURE_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_STRUCTURE_FLAGS {
+impl PartialEq for NDR64_STRUCTURE_FLAGS {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::core::cmp::Eq for NDR64_STRUCTURE_FLAGS {}
-impl ::core::default::Default for NDR64_STRUCTURE_FLAGS {
+impl Eq for NDR64_STRUCTURE_FLAGS {}
+impl Default for NDR64_STRUCTURE_FLAGS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6454,29 +6454,29 @@ pub struct NDR64_STRUCTURE_HEADER_FORMAT {
     pub Reserve: u8,
     pub MemorySize: u32,
 }
-impl ::core::marker::Copy for NDR64_STRUCTURE_HEADER_FORMAT {}
-impl ::core::clone::Clone for NDR64_STRUCTURE_HEADER_FORMAT {
+impl Copy for NDR64_STRUCTURE_HEADER_FORMAT {}
+impl Clone for NDR64_STRUCTURE_HEADER_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_STRUCTURE_HEADER_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_STRUCTURE_HEADER_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_STRUCTURE_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserve", &self.Reserve).field("MemorySize", &self.MemorySize).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_STRUCTURE_HEADER_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_STRUCTURE_HEADER_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_STRUCTURE_HEADER_FORMAT {
+impl PartialEq for NDR64_STRUCTURE_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserve == other.Reserve && self.MemorySize == other.MemorySize
     }
 }
-impl ::core::cmp::Eq for NDR64_STRUCTURE_HEADER_FORMAT {}
-impl ::core::default::Default for NDR64_STRUCTURE_HEADER_FORMAT {
+impl Eq for NDR64_STRUCTURE_HEADER_FORMAT {}
+impl Default for NDR64_STRUCTURE_HEADER_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6485,58 +6485,58 @@ pub struct NDR64_SYSTEM_HANDLE_FORMAT {
     pub HandleType: u8,
     pub DesiredAccess: u32,
 }
-impl ::core::marker::Copy for NDR64_SYSTEM_HANDLE_FORMAT {}
-impl ::core::clone::Clone for NDR64_SYSTEM_HANDLE_FORMAT {
+impl Copy for NDR64_SYSTEM_HANDLE_FORMAT {}
+impl Clone for NDR64_SYSTEM_HANDLE_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_SYSTEM_HANDLE_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_SYSTEM_HANDLE_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_SYSTEM_HANDLE_FORMAT").field("FormatCode", &self.FormatCode).field("HandleType", &self.HandleType).field("DesiredAccess", &self.DesiredAccess).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_SYSTEM_HANDLE_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_SYSTEM_HANDLE_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_SYSTEM_HANDLE_FORMAT {
+impl PartialEq for NDR64_SYSTEM_HANDLE_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.HandleType == other.HandleType && self.DesiredAccess == other.DesiredAccess
     }
 }
-impl ::core::cmp::Eq for NDR64_SYSTEM_HANDLE_FORMAT {}
-impl ::core::default::Default for NDR64_SYSTEM_HANDLE_FORMAT {
+impl Eq for NDR64_SYSTEM_HANDLE_FORMAT {}
+impl Default for NDR64_SYSTEM_HANDLE_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NDR64_TRANSMIT_AS_FLAGS {
     pub _bitfield: u8,
 }
-impl ::core::marker::Copy for NDR64_TRANSMIT_AS_FLAGS {}
-impl ::core::clone::Clone for NDR64_TRANSMIT_AS_FLAGS {
+impl Copy for NDR64_TRANSMIT_AS_FLAGS {}
+impl Clone for NDR64_TRANSMIT_AS_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_TRANSMIT_AS_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_TRANSMIT_AS_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_TRANSMIT_AS_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_TRANSMIT_AS_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_TRANSMIT_AS_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_TRANSMIT_AS_FLAGS {
+impl PartialEq for NDR64_TRANSMIT_AS_FLAGS {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::core::cmp::Eq for NDR64_TRANSMIT_AS_FLAGS {}
-impl ::core::default::Default for NDR64_TRANSMIT_AS_FLAGS {
+impl Eq for NDR64_TRANSMIT_AS_FLAGS {}
+impl Default for NDR64_TRANSMIT_AS_FLAGS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6548,31 +6548,31 @@ pub struct NDR64_TRANSMIT_AS_FORMAT {
     pub MemoryAlignment: u16,
     pub PresentedTypeMemorySize: u32,
     pub TransmittedTypeBufferSize: u32,
-    pub TransmittedType: *mut ::core::ffi::c_void,
+    pub TransmittedType: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDR64_TRANSMIT_AS_FORMAT {}
-impl ::core::clone::Clone for NDR64_TRANSMIT_AS_FORMAT {
+impl Copy for NDR64_TRANSMIT_AS_FORMAT {}
+impl Clone for NDR64_TRANSMIT_AS_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_TRANSMIT_AS_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_TRANSMIT_AS_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_TRANSMIT_AS_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("RoutineIndex", &self.RoutineIndex).field("TransmittedTypeWireAlignment", &self.TransmittedTypeWireAlignment).field("MemoryAlignment", &self.MemoryAlignment).field("PresentedTypeMemorySize", &self.PresentedTypeMemorySize).field("TransmittedTypeBufferSize", &self.TransmittedTypeBufferSize).field("TransmittedType", &self.TransmittedType).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_TRANSMIT_AS_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_TRANSMIT_AS_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_TRANSMIT_AS_FORMAT {
+impl PartialEq for NDR64_TRANSMIT_AS_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.RoutineIndex == other.RoutineIndex && self.TransmittedTypeWireAlignment == other.TransmittedTypeWireAlignment && self.MemoryAlignment == other.MemoryAlignment && self.PresentedTypeMemorySize == other.PresentedTypeMemorySize && self.TransmittedTypeBufferSize == other.TransmittedTypeBufferSize && self.TransmittedType == other.TransmittedType
     }
 }
-impl ::core::cmp::Eq for NDR64_TRANSMIT_AS_FORMAT {}
-impl ::core::default::Default for NDR64_TRANSMIT_AS_FORMAT {
+impl Eq for NDR64_TRANSMIT_AS_FORMAT {}
+impl Default for NDR64_TRANSMIT_AS_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6580,64 +6580,64 @@ pub struct NDR64_TYPE_STRICT_CONTEXT_HANDLE {
     pub FormatCode: u8,
     pub RealFormatCode: u8,
     pub Reserved: u16,
-    pub Type: *mut ::core::ffi::c_void,
+    pub Type: *mut core::ffi::c_void,
     pub CtxtFlags: u32,
     pub CtxtID: u32,
 }
-impl ::core::marker::Copy for NDR64_TYPE_STRICT_CONTEXT_HANDLE {}
-impl ::core::clone::Clone for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
+impl Copy for NDR64_TYPE_STRICT_CONTEXT_HANDLE {}
+impl Clone for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_TYPE_STRICT_CONTEXT_HANDLE").field("FormatCode", &self.FormatCode).field("RealFormatCode", &self.RealFormatCode).field("Reserved", &self.Reserved).field("Type", &self.Type).field("CtxtFlags", &self.CtxtFlags).field("CtxtID", &self.CtxtID).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
+impl PartialEq for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.RealFormatCode == other.RealFormatCode && self.Reserved == other.Reserved && self.Type == other.Type && self.CtxtFlags == other.CtxtFlags && self.CtxtID == other.CtxtID
     }
 }
-impl ::core::cmp::Eq for NDR64_TYPE_STRICT_CONTEXT_HANDLE {}
-impl ::core::default::Default for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
+impl Eq for NDR64_TYPE_STRICT_CONTEXT_HANDLE {}
+impl Default for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NDR64_UNION_ARM {
     pub CaseValue: i64,
-    pub Type: *mut ::core::ffi::c_void,
+    pub Type: *mut core::ffi::c_void,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for NDR64_UNION_ARM {}
-impl ::core::clone::Clone for NDR64_UNION_ARM {
+impl Copy for NDR64_UNION_ARM {}
+impl Clone for NDR64_UNION_ARM {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_UNION_ARM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_UNION_ARM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_UNION_ARM").field("CaseValue", &self.CaseValue).field("Type", &self.Type).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_UNION_ARM {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_UNION_ARM {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_UNION_ARM {
+impl PartialEq for NDR64_UNION_ARM {
     fn eq(&self, other: &Self) -> bool {
         self.CaseValue == other.CaseValue && self.Type == other.Type && self.Reserved == other.Reserved
     }
 }
-impl ::core::cmp::Eq for NDR64_UNION_ARM {}
-impl ::core::default::Default for NDR64_UNION_ARM {
+impl Eq for NDR64_UNION_ARM {}
+impl Default for NDR64_UNION_ARM {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6647,58 +6647,58 @@ pub struct NDR64_UNION_ARM_SELECTOR {
     pub Reserved2: u16,
     pub Arms: u32,
 }
-impl ::core::marker::Copy for NDR64_UNION_ARM_SELECTOR {}
-impl ::core::clone::Clone for NDR64_UNION_ARM_SELECTOR {
+impl Copy for NDR64_UNION_ARM_SELECTOR {}
+impl Clone for NDR64_UNION_ARM_SELECTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_UNION_ARM_SELECTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_UNION_ARM_SELECTOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_UNION_ARM_SELECTOR").field("Reserved1", &self.Reserved1).field("Alignment", &self.Alignment).field("Reserved2", &self.Reserved2).field("Arms", &self.Arms).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_UNION_ARM_SELECTOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_UNION_ARM_SELECTOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_UNION_ARM_SELECTOR {
+impl PartialEq for NDR64_UNION_ARM_SELECTOR {
     fn eq(&self, other: &Self) -> bool {
         self.Reserved1 == other.Reserved1 && self.Alignment == other.Alignment && self.Reserved2 == other.Reserved2 && self.Arms == other.Arms
     }
 }
-impl ::core::cmp::Eq for NDR64_UNION_ARM_SELECTOR {}
-impl ::core::default::Default for NDR64_UNION_ARM_SELECTOR {
+impl Eq for NDR64_UNION_ARM_SELECTOR {}
+impl Default for NDR64_UNION_ARM_SELECTOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct NDR64_USER_MARSHAL_FLAGS {
     pub _bitfield: u8,
 }
-impl ::core::marker::Copy for NDR64_USER_MARSHAL_FLAGS {}
-impl ::core::clone::Clone for NDR64_USER_MARSHAL_FLAGS {
+impl Copy for NDR64_USER_MARSHAL_FLAGS {}
+impl Clone for NDR64_USER_MARSHAL_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_USER_MARSHAL_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_USER_MARSHAL_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_USER_MARSHAL_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_USER_MARSHAL_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_USER_MARSHAL_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_USER_MARSHAL_FLAGS {
+impl PartialEq for NDR64_USER_MARSHAL_FLAGS {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::core::cmp::Eq for NDR64_USER_MARSHAL_FLAGS {}
-impl ::core::default::Default for NDR64_USER_MARSHAL_FLAGS {
+impl Eq for NDR64_USER_MARSHAL_FLAGS {}
+impl Default for NDR64_USER_MARSHAL_FLAGS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6710,31 +6710,31 @@ pub struct NDR64_USER_MARSHAL_FORMAT {
     pub MemoryAlignment: u16,
     pub UserTypeMemorySize: u32,
     pub TransmittedTypeBufferSize: u32,
-    pub TransmittedType: *mut ::core::ffi::c_void,
+    pub TransmittedType: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDR64_USER_MARSHAL_FORMAT {}
-impl ::core::clone::Clone for NDR64_USER_MARSHAL_FORMAT {
+impl Copy for NDR64_USER_MARSHAL_FORMAT {}
+impl Clone for NDR64_USER_MARSHAL_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_USER_MARSHAL_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_USER_MARSHAL_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_USER_MARSHAL_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("RoutineIndex", &self.RoutineIndex).field("TransmittedTypeWireAlignment", &self.TransmittedTypeWireAlignment).field("MemoryAlignment", &self.MemoryAlignment).field("UserTypeMemorySize", &self.UserTypeMemorySize).field("TransmittedTypeBufferSize", &self.TransmittedTypeBufferSize).field("TransmittedType", &self.TransmittedType).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_USER_MARSHAL_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_USER_MARSHAL_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_USER_MARSHAL_FORMAT {
+impl PartialEq for NDR64_USER_MARSHAL_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.RoutineIndex == other.RoutineIndex && self.TransmittedTypeWireAlignment == other.TransmittedTypeWireAlignment && self.MemoryAlignment == other.MemoryAlignment && self.UserTypeMemorySize == other.UserTypeMemorySize && self.TransmittedTypeBufferSize == other.TransmittedTypeBufferSize && self.TransmittedType == other.TransmittedType
     }
 }
-impl ::core::cmp::Eq for NDR64_USER_MARSHAL_FORMAT {}
-impl ::core::default::Default for NDR64_USER_MARSHAL_FORMAT {
+impl Eq for NDR64_USER_MARSHAL_FORMAT {}
+impl Default for NDR64_USER_MARSHAL_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6745,83 +6745,83 @@ pub struct NDR64_VAR_ARRAY_HEADER_FORMAT {
     pub Reserved: u8,
     pub TotalSize: u32,
     pub ElementSize: u32,
-    pub VarDescriptor: *mut ::core::ffi::c_void,
+    pub VarDescriptor: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDR64_VAR_ARRAY_HEADER_FORMAT {}
-impl ::core::clone::Clone for NDR64_VAR_ARRAY_HEADER_FORMAT {
+impl Copy for NDR64_VAR_ARRAY_HEADER_FORMAT {}
+impl Clone for NDR64_VAR_ARRAY_HEADER_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR64_VAR_ARRAY_HEADER_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR64_VAR_ARRAY_HEADER_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR64_VAR_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("TotalSize", &self.TotalSize).field("ElementSize", &self.ElementSize).field("VarDescriptor", &self.VarDescriptor).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR64_VAR_ARRAY_HEADER_FORMAT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR64_VAR_ARRAY_HEADER_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR64_VAR_ARRAY_HEADER_FORMAT {
+impl PartialEq for NDR64_VAR_ARRAY_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserved == other.Reserved && self.TotalSize == other.TotalSize && self.ElementSize == other.ElementSize && self.VarDescriptor == other.VarDescriptor
     }
 }
-impl ::core::cmp::Eq for NDR64_VAR_ARRAY_HEADER_FORMAT {}
-impl ::core::default::Default for NDR64_VAR_ARRAY_HEADER_FORMAT {
+impl Eq for NDR64_VAR_ARRAY_HEADER_FORMAT {}
+impl Default for NDR64_VAR_ARRAY_HEADER_FORMAT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct NDR_ALLOC_ALL_NODES_CONTEXT(pub isize);
-impl ::core::default::Default for NDR_ALLOC_ALL_NODES_CONTEXT {
+impl Default for NDR_ALLOC_ALL_NODES_CONTEXT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for NDR_ALLOC_ALL_NODES_CONTEXT {
+impl Clone for NDR_ALLOC_ALL_NODES_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for NDR_ALLOC_ALL_NODES_CONTEXT {}
-impl ::core::fmt::Debug for NDR_ALLOC_ALL_NODES_CONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for NDR_ALLOC_ALL_NODES_CONTEXT {}
+impl core::fmt::Debug for NDR_ALLOC_ALL_NODES_CONTEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("NDR_ALLOC_ALL_NODES_CONTEXT").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR_ALLOC_ALL_NODES_CONTEXT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR_ALLOC_ALL_NODES_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 pub struct NDR_CS_ROUTINES {
     pub pSizeConvertRoutines: *mut NDR_CS_SIZE_CONVERT_ROUTINES,
     pub pTagGettingRoutines: *mut CS_TAG_GETTING_ROUTINE,
 }
-impl ::core::marker::Copy for NDR_CS_ROUTINES {}
-impl ::core::clone::Clone for NDR_CS_ROUTINES {
+impl Copy for NDR_CS_ROUTINES {}
+impl Clone for NDR_CS_ROUTINES {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR_CS_ROUTINES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR_CS_ROUTINES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR_CS_ROUTINES").field("pSizeConvertRoutines", &self.pSizeConvertRoutines).field("pTagGettingRoutines", &self.pTagGettingRoutines).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR_CS_ROUTINES {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR_CS_ROUTINES {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR_CS_ROUTINES {
+impl PartialEq for NDR_CS_ROUTINES {
     fn eq(&self, other: &Self) -> bool {
         self.pSizeConvertRoutines == other.pSizeConvertRoutines && self.pTagGettingRoutines == other.pTagGettingRoutines
     }
 }
-impl ::core::cmp::Eq for NDR_CS_ROUTINES {}
-impl ::core::default::Default for NDR_CS_ROUTINES {
+impl Eq for NDR_CS_ROUTINES {}
+impl Default for NDR_CS_ROUTINES {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6831,23 +6831,23 @@ pub struct NDR_CS_SIZE_CONVERT_ROUTINES {
     pub pfnLocalSize: CS_TYPE_LOCAL_SIZE_ROUTINE,
     pub pfnFromNetCs: CS_TYPE_FROM_NETCS_ROUTINE,
 }
-impl ::core::marker::Copy for NDR_CS_SIZE_CONVERT_ROUTINES {}
-impl ::core::clone::Clone for NDR_CS_SIZE_CONVERT_ROUTINES {
+impl Copy for NDR_CS_SIZE_CONVERT_ROUTINES {}
+impl Clone for NDR_CS_SIZE_CONVERT_ROUTINES {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR_CS_SIZE_CONVERT_ROUTINES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR_CS_SIZE_CONVERT_ROUTINES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR_CS_SIZE_CONVERT_ROUTINES").finish()
     }
 }
-impl ::windows_core::TypeKind for NDR_CS_SIZE_CONVERT_ROUTINES {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR_CS_SIZE_CONVERT_ROUTINES {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for NDR_CS_SIZE_CONVERT_ROUTINES {
+impl Default for NDR_CS_SIZE_CONVERT_ROUTINES {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6855,81 +6855,81 @@ pub struct NDR_EXPR_DESC {
     pub pOffset: *const u16,
     pub pFormatExpr: *mut u8,
 }
-impl ::core::marker::Copy for NDR_EXPR_DESC {}
-impl ::core::clone::Clone for NDR_EXPR_DESC {
+impl Copy for NDR_EXPR_DESC {}
+impl Clone for NDR_EXPR_DESC {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR_EXPR_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR_EXPR_DESC {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR_EXPR_DESC").field("pOffset", &self.pOffset).field("pFormatExpr", &self.pFormatExpr).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR_EXPR_DESC {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR_EXPR_DESC {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR_EXPR_DESC {
+impl PartialEq for NDR_EXPR_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.pOffset == other.pOffset && self.pFormatExpr == other.pFormatExpr
     }
 }
-impl ::core::cmp::Eq for NDR_EXPR_DESC {}
-impl ::core::default::Default for NDR_EXPR_DESC {
+impl Eq for NDR_EXPR_DESC {}
+impl Default for NDR_EXPR_DESC {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct NDR_POINTER_QUEUE_STATE(pub isize);
-impl ::core::default::Default for NDR_POINTER_QUEUE_STATE {
+impl Default for NDR_POINTER_QUEUE_STATE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for NDR_POINTER_QUEUE_STATE {
+impl Clone for NDR_POINTER_QUEUE_STATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for NDR_POINTER_QUEUE_STATE {}
-impl ::core::fmt::Debug for NDR_POINTER_QUEUE_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for NDR_POINTER_QUEUE_STATE {}
+impl core::fmt::Debug for NDR_POINTER_QUEUE_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("NDR_POINTER_QUEUE_STATE").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR_POINTER_QUEUE_STATE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR_POINTER_QUEUE_STATE {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 pub struct NDR_SCONTEXT {
-    pub pad: [*mut ::core::ffi::c_void; 2],
-    pub userContext: *mut ::core::ffi::c_void,
+    pub pad: [*mut core::ffi::c_void; 2],
+    pub userContext: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDR_SCONTEXT {}
-impl ::core::clone::Clone for NDR_SCONTEXT {
+impl Copy for NDR_SCONTEXT {}
+impl Clone for NDR_SCONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for NDR_SCONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR_SCONTEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR_SCONTEXT").field("pad", &self.pad).field("userContext", &self.userContext).finish()
     }
 }
-impl ::windows_core::TypeKind for NDR_SCONTEXT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR_SCONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for NDR_SCONTEXT {
+impl PartialEq for NDR_SCONTEXT {
     fn eq(&self, other: &Self) -> bool {
         self.pad == other.pad && self.userContext == other.userContext
     }
 }
-impl ::core::cmp::Eq for NDR_SCONTEXT {}
-impl ::core::default::Default for NDR_SCONTEXT {
+impl Eq for NDR_SCONTEXT {}
+impl Default for NDR_SCONTEXT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -6939,130 +6939,130 @@ pub struct NDR_USER_MARSHAL_INFO {
     pub Anonymous: NDR_USER_MARSHAL_INFO_0,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for NDR_USER_MARSHAL_INFO {
+impl Clone for NDR_USER_MARSHAL_INFO {
     fn clone(&self) -> Self {
-        unsafe { ::core::mem::transmute_copy(self) }
+        unsafe { core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for NDR_USER_MARSHAL_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR_USER_MARSHAL_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for NDR_USER_MARSHAL_INFO {
+impl Default for NDR_USER_MARSHAL_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub union NDR_USER_MARSHAL_INFO_0 {
-    pub Level1: ::std::mem::ManuallyDrop<NDR_USER_MARSHAL_INFO_LEVEL1>,
+    pub Level1: std::mem::ManuallyDrop<NDR_USER_MARSHAL_INFO_LEVEL1>,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for NDR_USER_MARSHAL_INFO_0 {
+impl Clone for NDR_USER_MARSHAL_INFO_0 {
     fn clone(&self) -> Self {
-        unsafe { ::core::mem::transmute_copy(self) }
+        unsafe { core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for NDR_USER_MARSHAL_INFO_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR_USER_MARSHAL_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for NDR_USER_MARSHAL_INFO_0 {
+impl Default for NDR_USER_MARSHAL_INFO_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct NDR_USER_MARSHAL_INFO_LEVEL1 {
-    pub Buffer: *mut ::core::ffi::c_void,
+    pub Buffer: *mut core::ffi::c_void,
     pub BufferSize: u32,
     pub pfnAllocate: isize,
     pub pfnFree: isize,
-    pub pRpcChannelBuffer: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::IRpcChannelBuffer>>,
+    pub pRpcChannelBuffer: std::mem::ManuallyDrop<Option<super::Com::IRpcChannelBuffer>>,
     pub Reserved: [usize; 5],
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for NDR_USER_MARSHAL_INFO_LEVEL1 {
+impl Clone for NDR_USER_MARSHAL_INFO_LEVEL1 {
     fn clone(&self) -> Self {
-        unsafe { ::core::mem::transmute_copy(self) }
+        unsafe { core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for NDR_USER_MARSHAL_INFO_LEVEL1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for NDR_USER_MARSHAL_INFO_LEVEL1 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("NDR_USER_MARSHAL_INFO_LEVEL1").field("Buffer", &self.Buffer).field("BufferSize", &self.BufferSize).field("pfnAllocate", &self.pfnAllocate).field("pfnFree", &self.pfnFree).field("pRpcChannelBuffer", &self.pRpcChannelBuffer).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for NDR_USER_MARSHAL_INFO_LEVEL1 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for NDR_USER_MARSHAL_INFO_LEVEL1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for NDR_USER_MARSHAL_INFO_LEVEL1 {
+impl PartialEq for NDR_USER_MARSHAL_INFO_LEVEL1 {
     fn eq(&self, other: &Self) -> bool {
         self.Buffer == other.Buffer && self.BufferSize == other.BufferSize && self.pfnAllocate == other.pfnAllocate && self.pfnFree == other.pfnFree && self.pRpcChannelBuffer == other.pRpcChannelBuffer && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for NDR_USER_MARSHAL_INFO_LEVEL1 {}
+impl Eq for NDR_USER_MARSHAL_INFO_LEVEL1 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for NDR_USER_MARSHAL_INFO_LEVEL1 {
+impl Default for NDR_USER_MARSHAL_INFO_LEVEL1 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct PNDR_ASYNC_MESSAGE(pub isize);
-impl ::core::default::Default for PNDR_ASYNC_MESSAGE {
+impl Default for PNDR_ASYNC_MESSAGE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for PNDR_ASYNC_MESSAGE {
+impl Clone for PNDR_ASYNC_MESSAGE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for PNDR_ASYNC_MESSAGE {}
-impl ::core::fmt::Debug for PNDR_ASYNC_MESSAGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for PNDR_ASYNC_MESSAGE {}
+impl core::fmt::Debug for PNDR_ASYNC_MESSAGE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PNDR_ASYNC_MESSAGE").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for PNDR_ASYNC_MESSAGE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PNDR_ASYNC_MESSAGE {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct PNDR_CORRELATION_INFO(pub isize);
-impl ::core::default::Default for PNDR_CORRELATION_INFO {
+impl Default for PNDR_CORRELATION_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for PNDR_CORRELATION_INFO {
+impl Clone for PNDR_CORRELATION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for PNDR_CORRELATION_INFO {}
-impl ::core::fmt::Debug for PNDR_CORRELATION_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for PNDR_CORRELATION_INFO {}
+impl core::fmt::Debug for PNDR_CORRELATION_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PNDR_CORRELATION_INFO").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for PNDR_CORRELATION_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for PNDR_CORRELATION_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 pub struct RDR_CALLOUT_STATE {
     pub LastError: RPC_STATUS,
-    pub LastEEInfo: *mut ::core::ffi::c_void,
+    pub LastEEInfo: *mut core::ffi::c_void,
     pub LastCalledStage: RPC_HTTP_REDIRECTOR_STAGE,
     pub ServerName: *mut u16,
     pub ServerPort: *mut u16,
@@ -7071,19 +7071,19 @@ pub struct RDR_CALLOUT_STATE {
     pub ResourceTypePresent: u8,
     pub SessionIdPresent: u8,
     pub InterfacePresent: u8,
-    pub ResourceType: ::windows_core::GUID,
-    pub SessionId: ::windows_core::GUID,
+    pub ResourceType: windows_core::GUID,
+    pub SessionId: windows_core::GUID,
     pub Interface: RPC_SYNTAX_IDENTIFIER,
-    pub CertContext: *mut ::core::ffi::c_void,
+    pub CertContext: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for RDR_CALLOUT_STATE {}
-impl ::core::clone::Clone for RDR_CALLOUT_STATE {
+impl Copy for RDR_CALLOUT_STATE {}
+impl Clone for RDR_CALLOUT_STATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RDR_CALLOUT_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RDR_CALLOUT_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RDR_CALLOUT_STATE")
             .field("LastError", &self.LastError)
             .field("LastEEInfo", &self.LastEEInfo)
@@ -7102,18 +7102,18 @@ impl ::core::fmt::Debug for RDR_CALLOUT_STATE {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for RDR_CALLOUT_STATE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RDR_CALLOUT_STATE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RDR_CALLOUT_STATE {
+impl PartialEq for RDR_CALLOUT_STATE {
     fn eq(&self, other: &Self) -> bool {
         self.LastError == other.LastError && self.LastEEInfo == other.LastEEInfo && self.LastCalledStage == other.LastCalledStage && self.ServerName == other.ServerName && self.ServerPort == other.ServerPort && self.RemoteUser == other.RemoteUser && self.AuthType == other.AuthType && self.ResourceTypePresent == other.ResourceTypePresent && self.SessionIdPresent == other.SessionIdPresent && self.InterfacePresent == other.InterfacePresent && self.ResourceType == other.ResourceType && self.SessionId == other.SessionId && self.Interface == other.Interface && self.CertContext == other.CertContext
     }
 }
-impl ::core::cmp::Eq for RDR_CALLOUT_STATE {}
-impl ::core::default::Default for RDR_CALLOUT_STATE {
+impl Eq for RDR_CALLOUT_STATE {}
+impl Default for RDR_CALLOUT_STATE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -7126,21 +7126,21 @@ pub union RPC_ASYNC_NOTIFICATION_INFO {
     pub NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::marker::Copy for RPC_ASYNC_NOTIFICATION_INFO {}
+impl Copy for RPC_ASYNC_NOTIFICATION_INFO {}
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO {
+impl Clone for RPC_ASYNC_NOTIFICATION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::windows_core::TypeKind for RPC_ASYNC_NOTIFICATION_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_ASYNC_NOTIFICATION_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::default::Default for RPC_ASYNC_NOTIFICATION_INFO {
+impl Default for RPC_ASYNC_NOTIFICATION_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -7150,27 +7150,27 @@ pub struct RPC_ASYNC_NOTIFICATION_INFO_0 {
     pub hThread: super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::marker::Copy for RPC_ASYNC_NOTIFICATION_INFO_0 {}
+impl Copy for RPC_ASYNC_NOTIFICATION_INFO_0 {}
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO_0 {
+impl Clone for RPC_ASYNC_NOTIFICATION_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_0 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_ASYNC_NOTIFICATION_INFO_0").field("hThread", &self.hThread).finish()
     }
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::windows_core::TypeKind for RPC_ASYNC_NOTIFICATION_INFO_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_ASYNC_NOTIFICATION_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::default::Default for RPC_ASYNC_NOTIFICATION_INFO_0 {
+impl Default for RPC_ASYNC_NOTIFICATION_INFO_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -7182,35 +7182,35 @@ pub struct RPC_ASYNC_NOTIFICATION_INFO_1 {
     pub lpOverlapped: *mut super::IO::OVERLAPPED,
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::marker::Copy for RPC_ASYNC_NOTIFICATION_INFO_1 {}
+impl Copy for RPC_ASYNC_NOTIFICATION_INFO_1 {}
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO_1 {
+impl Clone for RPC_ASYNC_NOTIFICATION_INFO_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_1 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_ASYNC_NOTIFICATION_INFO_1").field("hIOPort", &self.hIOPort).field("dwNumberOfBytesTransferred", &self.dwNumberOfBytesTransferred).field("dwCompletionKey", &self.dwCompletionKey).field("lpOverlapped", &self.lpOverlapped).finish()
     }
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::windows_core::TypeKind for RPC_ASYNC_NOTIFICATION_INFO_1 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_ASYNC_NOTIFICATION_INFO_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_1 {
+impl PartialEq for RPC_ASYNC_NOTIFICATION_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.hIOPort == other.hIOPort && self.dwNumberOfBytesTransferred == other.dwNumberOfBytesTransferred && self.dwCompletionKey == other.dwCompletionKey && self.lpOverlapped == other.lpOverlapped
     }
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_1 {}
+impl Eq for RPC_ASYNC_NOTIFICATION_INFO_1 {}
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::default::Default for RPC_ASYNC_NOTIFICATION_INFO_1 {
+impl Default for RPC_ASYNC_NOTIFICATION_INFO_1 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -7220,35 +7220,35 @@ pub struct RPC_ASYNC_NOTIFICATION_INFO_2 {
     pub Msg: u32,
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::marker::Copy for RPC_ASYNC_NOTIFICATION_INFO_2 {}
+impl Copy for RPC_ASYNC_NOTIFICATION_INFO_2 {}
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO_2 {
+impl Clone for RPC_ASYNC_NOTIFICATION_INFO_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_2 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_ASYNC_NOTIFICATION_INFO_2").field("hWnd", &self.hWnd).field("Msg", &self.Msg).finish()
     }
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::windows_core::TypeKind for RPC_ASYNC_NOTIFICATION_INFO_2 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_ASYNC_NOTIFICATION_INFO_2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_2 {
+impl PartialEq for RPC_ASYNC_NOTIFICATION_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
         self.hWnd == other.hWnd && self.Msg == other.Msg
     }
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_2 {}
+impl Eq for RPC_ASYNC_NOTIFICATION_INFO_2 {}
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::default::Default for RPC_ASYNC_NOTIFICATION_INFO_2 {
+impl Default for RPC_ASYNC_NOTIFICATION_INFO_2 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -7258,30 +7258,30 @@ pub struct RPC_ASYNC_STATE {
     pub Signature: u32,
     pub Lock: i32,
     pub Flags: u32,
-    pub StubInfo: *mut ::core::ffi::c_void,
-    pub UserInfo: *mut ::core::ffi::c_void,
-    pub RuntimeInfo: *mut ::core::ffi::c_void,
+    pub StubInfo: *mut core::ffi::c_void,
+    pub UserInfo: *mut core::ffi::c_void,
+    pub RuntimeInfo: *mut core::ffi::c_void,
     pub Event: RPC_ASYNC_EVENT,
     pub NotificationType: RPC_NOTIFICATION_TYPES,
     pub u: RPC_ASYNC_NOTIFICATION_INFO,
     pub Reserved: [isize; 4],
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::marker::Copy for RPC_ASYNC_STATE {}
+impl Copy for RPC_ASYNC_STATE {}
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::clone::Clone for RPC_ASYNC_STATE {
+impl Clone for RPC_ASYNC_STATE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::windows_core::TypeKind for RPC_ASYNC_STATE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_ASYNC_STATE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_IO")]
-impl ::core::default::Default for RPC_ASYNC_STATE {
+impl Default for RPC_ASYNC_STATE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -7291,29 +7291,29 @@ pub struct RPC_BINDING_HANDLE_OPTIONS_V1 {
     pub ComTimeout: u32,
     pub CallTimeout: u32,
 }
-impl ::core::marker::Copy for RPC_BINDING_HANDLE_OPTIONS_V1 {}
-impl ::core::clone::Clone for RPC_BINDING_HANDLE_OPTIONS_V1 {
+impl Copy for RPC_BINDING_HANDLE_OPTIONS_V1 {}
+impl Clone for RPC_BINDING_HANDLE_OPTIONS_V1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_BINDING_HANDLE_OPTIONS_V1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_BINDING_HANDLE_OPTIONS_V1 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_BINDING_HANDLE_OPTIONS_V1").field("Version", &self.Version).field("Flags", &self.Flags).field("ComTimeout", &self.ComTimeout).field("CallTimeout", &self.CallTimeout).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_BINDING_HANDLE_OPTIONS_V1 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_BINDING_HANDLE_OPTIONS_V1 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_OPTIONS_V1 {
+impl PartialEq for RPC_BINDING_HANDLE_OPTIONS_V1 {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Flags == other.Flags && self.ComTimeout == other.ComTimeout && self.CallTimeout == other.CallTimeout
     }
 }
-impl ::core::cmp::Eq for RPC_BINDING_HANDLE_OPTIONS_V1 {}
-impl ::core::default::Default for RPC_BINDING_HANDLE_OPTIONS_V1 {
+impl Eq for RPC_BINDING_HANDLE_OPTIONS_V1 {}
+impl Default for RPC_BINDING_HANDLE_OPTIONS_V1 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -7327,35 +7327,35 @@ pub struct RPC_BINDING_HANDLE_SECURITY_V1_A {
     pub SecurityQos: *mut RPC_SECURITY_QOS,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_BINDING_HANDLE_SECURITY_V1_A {}
+impl Copy for RPC_BINDING_HANDLE_SECURITY_V1_A {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_BINDING_HANDLE_SECURITY_V1_A {
+impl Clone for RPC_BINDING_HANDLE_SECURITY_V1_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for RPC_BINDING_HANDLE_SECURITY_V1_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_BINDING_HANDLE_SECURITY_V1_A {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_BINDING_HANDLE_SECURITY_V1_A").field("Version", &self.Version).field("ServerPrincName", &self.ServerPrincName).field("AuthnLevel", &self.AuthnLevel).field("AuthnSvc", &self.AuthnSvc).field("AuthIdentity", &self.AuthIdentity).field("SecurityQos", &self.SecurityQos).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_BINDING_HANDLE_SECURITY_V1_A {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_BINDING_HANDLE_SECURITY_V1_A {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_SECURITY_V1_A {
+impl PartialEq for RPC_BINDING_HANDLE_SECURITY_V1_A {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.ServerPrincName == other.ServerPrincName && self.AuthnLevel == other.AuthnLevel && self.AuthnSvc == other.AuthnSvc && self.AuthIdentity == other.AuthIdentity && self.SecurityQos == other.SecurityQos
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_BINDING_HANDLE_SECURITY_V1_A {}
+impl Eq for RPC_BINDING_HANDLE_SECURITY_V1_A {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_BINDING_HANDLE_SECURITY_V1_A {
+impl Default for RPC_BINDING_HANDLE_SECURITY_V1_A {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -7369,35 +7369,35 @@ pub struct RPC_BINDING_HANDLE_SECURITY_V1_W {
     pub SecurityQos: *mut RPC_SECURITY_QOS,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_BINDING_HANDLE_SECURITY_V1_W {}
+impl Copy for RPC_BINDING_HANDLE_SECURITY_V1_W {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_BINDING_HANDLE_SECURITY_V1_W {
+impl Clone for RPC_BINDING_HANDLE_SECURITY_V1_W {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for RPC_BINDING_HANDLE_SECURITY_V1_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_BINDING_HANDLE_SECURITY_V1_W {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_BINDING_HANDLE_SECURITY_V1_W").field("Version", &self.Version).field("ServerPrincName", &self.ServerPrincName).field("AuthnLevel", &self.AuthnLevel).field("AuthnSvc", &self.AuthnSvc).field("AuthIdentity", &self.AuthIdentity).field("SecurityQos", &self.SecurityQos).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_BINDING_HANDLE_SECURITY_V1_W {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_BINDING_HANDLE_SECURITY_V1_W {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_BINDING_HANDLE_SECURITY_V1_W {
+impl PartialEq for RPC_BINDING_HANDLE_SECURITY_V1_W {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.ServerPrincName == other.ServerPrincName && self.AuthnLevel == other.AuthnLevel && self.AuthnSvc == other.AuthnSvc && self.AuthIdentity == other.AuthIdentity && self.SecurityQos == other.SecurityQos
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_BINDING_HANDLE_SECURITY_V1_W {}
+impl Eq for RPC_BINDING_HANDLE_SECURITY_V1_W {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_BINDING_HANDLE_SECURITY_V1_W {
+impl Default for RPC_BINDING_HANDLE_SECURITY_V1_W {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -7408,38 +7408,38 @@ pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     pub NetworkAddress: *mut u8,
     pub StringEndpoint: *mut u8,
     pub u1: RPC_BINDING_HANDLE_TEMPLATE_V1_A_0,
-    pub ObjectUuid: ::windows_core::GUID,
+    pub ObjectUuid: windows_core::GUID,
 }
-impl ::core::marker::Copy for RPC_BINDING_HANDLE_TEMPLATE_V1_A {}
-impl ::core::clone::Clone for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
+impl Copy for RPC_BINDING_HANDLE_TEMPLATE_V1_A {}
+impl Clone for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
+impl Default for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub union RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
     pub Reserved: *mut u8,
 }
-impl ::core::marker::Copy for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {}
-impl ::core::clone::Clone for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
+impl Copy for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {}
+impl Clone for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
+impl Default for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -7450,68 +7450,68 @@ pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     pub NetworkAddress: *mut u16,
     pub StringEndpoint: *mut u16,
     pub u1: RPC_BINDING_HANDLE_TEMPLATE_V1_W_0,
-    pub ObjectUuid: ::windows_core::GUID,
+    pub ObjectUuid: windows_core::GUID,
 }
-impl ::core::marker::Copy for RPC_BINDING_HANDLE_TEMPLATE_V1_W {}
-impl ::core::clone::Clone for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
+impl Copy for RPC_BINDING_HANDLE_TEMPLATE_V1_W {}
+impl Clone for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
+impl Default for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub union RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
     pub Reserved: *mut u16,
 }
-impl ::core::marker::Copy for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {}
-impl ::core::clone::Clone for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
+impl Copy for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {}
+impl Clone for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
+impl Default for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct RPC_BINDING_VECTOR {
     pub Count: u32,
-    pub BindingH: [*mut ::core::ffi::c_void; 1],
+    pub BindingH: [*mut core::ffi::c_void; 1],
 }
-impl ::core::marker::Copy for RPC_BINDING_VECTOR {}
-impl ::core::clone::Clone for RPC_BINDING_VECTOR {
+impl Copy for RPC_BINDING_VECTOR {}
+impl Clone for RPC_BINDING_VECTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_BINDING_VECTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_BINDING_VECTOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_BINDING_VECTOR").field("Count", &self.Count).field("BindingH", &self.BindingH).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_BINDING_VECTOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_BINDING_VECTOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_BINDING_VECTOR {
+impl PartialEq for RPC_BINDING_VECTOR {
     fn eq(&self, other: &Self) -> bool {
         self.Count == other.Count && self.BindingH == other.BindingH
     }
 }
-impl ::core::cmp::Eq for RPC_BINDING_VECTOR {}
-impl ::core::default::Default for RPC_BINDING_VECTOR {
+impl Eq for RPC_BINDING_VECTOR {}
+impl Default for RPC_BINDING_VECTOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -7526,14 +7526,14 @@ pub struct RPC_CALL_ATTRIBUTES_V1_A {
     pub AuthenticationService: u32,
     pub NullSession: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V1_A {}
-impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V1_A {
+impl Copy for RPC_CALL_ATTRIBUTES_V1_A {}
+impl Clone for RPC_CALL_ATTRIBUTES_V1_A {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V1_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_CALL_ATTRIBUTES_V1_A {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_CALL_ATTRIBUTES_V1_A")
             .field("Version", &self.Version)
             .field("Flags", &self.Flags)
@@ -7547,18 +7547,18 @@ impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V1_A {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_CALL_ATTRIBUTES_V1_A {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_CALL_ATTRIBUTES_V1_A {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V1_A {
+impl PartialEq for RPC_CALL_ATTRIBUTES_V1_A {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Flags == other.Flags && self.ServerPrincipalNameBufferLength == other.ServerPrincipalNameBufferLength && self.ServerPrincipalName == other.ServerPrincipalName && self.ClientPrincipalNameBufferLength == other.ClientPrincipalNameBufferLength && self.ClientPrincipalName == other.ClientPrincipalName && self.AuthenticationLevel == other.AuthenticationLevel && self.AuthenticationService == other.AuthenticationService && self.NullSession == other.NullSession
     }
 }
-impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V1_A {}
-impl ::core::default::Default for RPC_CALL_ATTRIBUTES_V1_A {
+impl Eq for RPC_CALL_ATTRIBUTES_V1_A {}
+impl Default for RPC_CALL_ATTRIBUTES_V1_A {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -7573,14 +7573,14 @@ pub struct RPC_CALL_ATTRIBUTES_V1_W {
     pub AuthenticationService: u32,
     pub NullSession: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V1_W {}
-impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V1_W {
+impl Copy for RPC_CALL_ATTRIBUTES_V1_W {}
+impl Clone for RPC_CALL_ATTRIBUTES_V1_W {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V1_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_CALL_ATTRIBUTES_V1_W {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_CALL_ATTRIBUTES_V1_W")
             .field("Version", &self.Version)
             .field("Flags", &self.Flags)
@@ -7594,18 +7594,18 @@ impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V1_W {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_CALL_ATTRIBUTES_V1_W {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_CALL_ATTRIBUTES_V1_W {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V1_W {
+impl PartialEq for RPC_CALL_ATTRIBUTES_V1_W {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Flags == other.Flags && self.ServerPrincipalNameBufferLength == other.ServerPrincipalNameBufferLength && self.ServerPrincipalName == other.ServerPrincipalName && self.ClientPrincipalNameBufferLength == other.ClientPrincipalNameBufferLength && self.ClientPrincipalName == other.ClientPrincipalName && self.AuthenticationLevel == other.AuthenticationLevel && self.AuthenticationService == other.AuthenticationService && self.NullSession == other.NullSession
     }
 }
-impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V1_W {}
-impl ::core::default::Default for RPC_CALL_ATTRIBUTES_V1_W {
+impl Eq for RPC_CALL_ATTRIBUTES_V1_W {}
+impl Default for RPC_CALL_ATTRIBUTES_V1_W {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -7627,16 +7627,16 @@ pub struct RPC_CALL_ATTRIBUTES_V2_A {
     pub CallType: RpcCallType,
     pub CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
     pub OpNum: u16,
-    pub InterfaceUuid: ::windows_core::GUID,
+    pub InterfaceUuid: windows_core::GUID,
 }
-impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V2_A {}
-impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V2_A {
+impl Copy for RPC_CALL_ATTRIBUTES_V2_A {}
+impl Clone for RPC_CALL_ATTRIBUTES_V2_A {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V2_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_CALL_ATTRIBUTES_V2_A {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_CALL_ATTRIBUTES_V2_A")
             .field("Version", &self.Version)
             .field("Flags", &self.Flags)
@@ -7659,10 +7659,10 @@ impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V2_A {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_CALL_ATTRIBUTES_V2_A {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_CALL_ATTRIBUTES_V2_A {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V2_A {
+impl PartialEq for RPC_CALL_ATTRIBUTES_V2_A {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version
             && self.Flags == other.Flags
@@ -7684,10 +7684,10 @@ impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V2_A {
             && self.InterfaceUuid == other.InterfaceUuid
     }
 }
-impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V2_A {}
-impl ::core::default::Default for RPC_CALL_ATTRIBUTES_V2_A {
+impl Eq for RPC_CALL_ATTRIBUTES_V2_A {}
+impl Default for RPC_CALL_ATTRIBUTES_V2_A {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -7709,16 +7709,16 @@ pub struct RPC_CALL_ATTRIBUTES_V2_W {
     pub CallType: RpcCallType,
     pub CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
     pub OpNum: u16,
-    pub InterfaceUuid: ::windows_core::GUID,
+    pub InterfaceUuid: windows_core::GUID,
 }
-impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V2_W {}
-impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V2_W {
+impl Copy for RPC_CALL_ATTRIBUTES_V2_W {}
+impl Clone for RPC_CALL_ATTRIBUTES_V2_W {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V2_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_CALL_ATTRIBUTES_V2_W {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_CALL_ATTRIBUTES_V2_W")
             .field("Version", &self.Version)
             .field("Flags", &self.Flags)
@@ -7741,10 +7741,10 @@ impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V2_W {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_CALL_ATTRIBUTES_V2_W {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_CALL_ATTRIBUTES_V2_W {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V2_W {
+impl PartialEq for RPC_CALL_ATTRIBUTES_V2_W {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version
             && self.Flags == other.Flags
@@ -7766,10 +7766,10 @@ impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V2_W {
             && self.InterfaceUuid == other.InterfaceUuid
     }
 }
-impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V2_W {}
-impl ::core::default::Default for RPC_CALL_ATTRIBUTES_V2_W {
+impl Eq for RPC_CALL_ATTRIBUTES_V2_W {}
+impl Default for RPC_CALL_ATTRIBUTES_V2_W {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -7791,18 +7791,18 @@ pub struct RPC_CALL_ATTRIBUTES_V3_A {
     pub CallType: RpcCallType,
     pub CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
     pub OpNum: u16,
-    pub InterfaceUuid: ::windows_core::GUID,
+    pub InterfaceUuid: windows_core::GUID,
     pub ClientIdentifierBufferLength: u32,
     pub ClientIdentifier: *mut u8,
 }
-impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V3_A {}
-impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V3_A {
+impl Copy for RPC_CALL_ATTRIBUTES_V3_A {}
+impl Clone for RPC_CALL_ATTRIBUTES_V3_A {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V3_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_CALL_ATTRIBUTES_V3_A {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_CALL_ATTRIBUTES_V3_A")
             .field("Version", &self.Version)
             .field("Flags", &self.Flags)
@@ -7827,10 +7827,10 @@ impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V3_A {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_CALL_ATTRIBUTES_V3_A {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_CALL_ATTRIBUTES_V3_A {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V3_A {
+impl PartialEq for RPC_CALL_ATTRIBUTES_V3_A {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version
             && self.Flags == other.Flags
@@ -7854,10 +7854,10 @@ impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V3_A {
             && self.ClientIdentifier == other.ClientIdentifier
     }
 }
-impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V3_A {}
-impl ::core::default::Default for RPC_CALL_ATTRIBUTES_V3_A {
+impl Eq for RPC_CALL_ATTRIBUTES_V3_A {}
+impl Default for RPC_CALL_ATTRIBUTES_V3_A {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -7879,18 +7879,18 @@ pub struct RPC_CALL_ATTRIBUTES_V3_W {
     pub CallType: RpcCallType,
     pub CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
     pub OpNum: u16,
-    pub InterfaceUuid: ::windows_core::GUID,
+    pub InterfaceUuid: windows_core::GUID,
     pub ClientIdentifierBufferLength: u32,
     pub ClientIdentifier: *mut u8,
 }
-impl ::core::marker::Copy for RPC_CALL_ATTRIBUTES_V3_W {}
-impl ::core::clone::Clone for RPC_CALL_ATTRIBUTES_V3_W {
+impl Copy for RPC_CALL_ATTRIBUTES_V3_W {}
+impl Clone for RPC_CALL_ATTRIBUTES_V3_W {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V3_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_CALL_ATTRIBUTES_V3_W {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_CALL_ATTRIBUTES_V3_W")
             .field("Version", &self.Version)
             .field("Flags", &self.Flags)
@@ -7915,10 +7915,10 @@ impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V3_W {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_CALL_ATTRIBUTES_V3_W {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_CALL_ATTRIBUTES_V3_W {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V3_W {
+impl PartialEq for RPC_CALL_ATTRIBUTES_V3_W {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version
             && self.Flags == other.Flags
@@ -7942,42 +7942,42 @@ impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V3_W {
             && self.ClientIdentifier == other.ClientIdentifier
     }
 }
-impl ::core::cmp::Eq for RPC_CALL_ATTRIBUTES_V3_W {}
-impl ::core::default::Default for RPC_CALL_ATTRIBUTES_V3_W {
+impl Eq for RPC_CALL_ATTRIBUTES_V3_W {}
+impl Default for RPC_CALL_ATTRIBUTES_V3_W {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct RPC_CALL_LOCAL_ADDRESS_V1 {
     pub Version: u32,
-    pub Buffer: *mut ::core::ffi::c_void,
+    pub Buffer: *mut core::ffi::c_void,
     pub BufferSize: u32,
     pub AddressFormat: RpcLocalAddressFormat,
 }
-impl ::core::marker::Copy for RPC_CALL_LOCAL_ADDRESS_V1 {}
-impl ::core::clone::Clone for RPC_CALL_LOCAL_ADDRESS_V1 {
+impl Copy for RPC_CALL_LOCAL_ADDRESS_V1 {}
+impl Clone for RPC_CALL_LOCAL_ADDRESS_V1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_CALL_LOCAL_ADDRESS_V1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_CALL_LOCAL_ADDRESS_V1 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_CALL_LOCAL_ADDRESS_V1").field("Version", &self.Version).field("Buffer", &self.Buffer).field("BufferSize", &self.BufferSize).field("AddressFormat", &self.AddressFormat).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_CALL_LOCAL_ADDRESS_V1 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_CALL_LOCAL_ADDRESS_V1 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_CALL_LOCAL_ADDRESS_V1 {
+impl PartialEq for RPC_CALL_LOCAL_ADDRESS_V1 {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Buffer == other.Buffer && self.BufferSize == other.BufferSize && self.AddressFormat == other.AddressFormat
     }
 }
-impl ::core::cmp::Eq for RPC_CALL_LOCAL_ADDRESS_V1 {}
-impl ::core::default::Default for RPC_CALL_LOCAL_ADDRESS_V1 {
+impl Eq for RPC_CALL_LOCAL_ADDRESS_V1 {}
+impl Default for RPC_CALL_LOCAL_ADDRESS_V1 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -7987,29 +7987,29 @@ pub struct RPC_CLIENT_INFORMATION1 {
     pub Privilege: u16,
     pub AuthFlags: u32,
 }
-impl ::core::marker::Copy for RPC_CLIENT_INFORMATION1 {}
-impl ::core::clone::Clone for RPC_CLIENT_INFORMATION1 {
+impl Copy for RPC_CLIENT_INFORMATION1 {}
+impl Clone for RPC_CLIENT_INFORMATION1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_CLIENT_INFORMATION1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_CLIENT_INFORMATION1 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_CLIENT_INFORMATION1").field("UserName", &self.UserName).field("ComputerName", &self.ComputerName).field("Privilege", &self.Privilege).field("AuthFlags", &self.AuthFlags).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_CLIENT_INFORMATION1 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_CLIENT_INFORMATION1 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_CLIENT_INFORMATION1 {
+impl PartialEq for RPC_CLIENT_INFORMATION1 {
     fn eq(&self, other: &Self) -> bool {
         self.UserName == other.UserName && self.ComputerName == other.ComputerName && self.Privilege == other.Privilege && self.AuthFlags == other.AuthFlags
     }
 }
-impl ::core::cmp::Eq for RPC_CLIENT_INFORMATION1 {}
-impl ::core::default::Default for RPC_CLIENT_INFORMATION1 {
+impl Eq for RPC_CLIENT_INFORMATION1 {}
+impl Default for RPC_CLIENT_INFORMATION1 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -8021,62 +8021,62 @@ pub struct RPC_CLIENT_INTERFACE {
     pub RpcProtseqEndpointCount: u32,
     pub RpcProtseqEndpoint: *mut RPC_PROTSEQ_ENDPOINT,
     pub Reserved: usize,
-    pub InterpreterInfo: *const ::core::ffi::c_void,
+    pub InterpreterInfo: *const core::ffi::c_void,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for RPC_CLIENT_INTERFACE {}
-impl ::core::clone::Clone for RPC_CLIENT_INTERFACE {
+impl Copy for RPC_CLIENT_INTERFACE {}
+impl Clone for RPC_CLIENT_INTERFACE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_CLIENT_INTERFACE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_CLIENT_INTERFACE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_CLIENT_INTERFACE").field("Length", &self.Length).field("InterfaceId", &self.InterfaceId).field("TransferSyntax", &self.TransferSyntax).field("DispatchTable", &self.DispatchTable).field("RpcProtseqEndpointCount", &self.RpcProtseqEndpointCount).field("RpcProtseqEndpoint", &self.RpcProtseqEndpoint).field("Reserved", &self.Reserved).field("InterpreterInfo", &self.InterpreterInfo).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_CLIENT_INTERFACE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_CLIENT_INTERFACE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_CLIENT_INTERFACE {
+impl PartialEq for RPC_CLIENT_INTERFACE {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.InterfaceId == other.InterfaceId && self.TransferSyntax == other.TransferSyntax && self.DispatchTable == other.DispatchTable && self.RpcProtseqEndpointCount == other.RpcProtseqEndpointCount && self.RpcProtseqEndpoint == other.RpcProtseqEndpoint && self.Reserved == other.Reserved && self.InterpreterInfo == other.InterpreterInfo && self.Flags == other.Flags
     }
 }
-impl ::core::cmp::Eq for RPC_CLIENT_INTERFACE {}
-impl ::core::default::Default for RPC_CLIENT_INTERFACE {
+impl Eq for RPC_CLIENT_INTERFACE {}
+impl Default for RPC_CLIENT_INTERFACE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     pub BufferSize: u32,
-    pub Buffer: ::windows_core::PSTR,
+    pub Buffer: windows_core::PSTR,
 }
-impl ::core::marker::Copy for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {}
-impl ::core::clone::Clone for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
+impl Copy for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {}
+impl Clone for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR").field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
+impl PartialEq for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.BufferSize == other.BufferSize && self.Buffer == other.Buffer
     }
 }
-impl ::core::cmp::Eq for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {}
-impl ::core::default::Default for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
+impl Eq for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {}
+impl Default for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -8085,23 +8085,23 @@ pub struct RPC_DISPATCH_TABLE {
     pub DispatchTable: RPC_DISPATCH_FUNCTION,
     pub Reserved: isize,
 }
-impl ::core::marker::Copy for RPC_DISPATCH_TABLE {}
-impl ::core::clone::Clone for RPC_DISPATCH_TABLE {
+impl Copy for RPC_DISPATCH_TABLE {}
+impl Clone for RPC_DISPATCH_TABLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_DISPATCH_TABLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_DISPATCH_TABLE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_DISPATCH_TABLE").field("DispatchTableCount", &self.DispatchTableCount).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_DISPATCH_TABLE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_DISPATCH_TABLE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for RPC_DISPATCH_TABLE {
+impl Default for RPC_DISPATCH_TABLE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -8109,144 +8109,144 @@ pub struct RPC_EE_INFO_PARAM {
     pub ParameterType: ExtendedErrorParamTypes,
     pub u: RPC_EE_INFO_PARAM_0,
 }
-impl ::core::marker::Copy for RPC_EE_INFO_PARAM {}
-impl ::core::clone::Clone for RPC_EE_INFO_PARAM {
+impl Copy for RPC_EE_INFO_PARAM {}
+impl Clone for RPC_EE_INFO_PARAM {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for RPC_EE_INFO_PARAM {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_EE_INFO_PARAM {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for RPC_EE_INFO_PARAM {
+impl Default for RPC_EE_INFO_PARAM {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub union RPC_EE_INFO_PARAM_0 {
-    pub AnsiString: ::windows_core::PSTR,
-    pub UnicodeString: ::windows_core::PWSTR,
+    pub AnsiString: windows_core::PSTR,
+    pub UnicodeString: windows_core::PWSTR,
     pub LVal: i32,
     pub SVal: i16,
     pub PVal: u64,
     pub BVal: BinaryParam,
 }
-impl ::core::marker::Copy for RPC_EE_INFO_PARAM_0 {}
-impl ::core::clone::Clone for RPC_EE_INFO_PARAM_0 {
+impl Copy for RPC_EE_INFO_PARAM_0 {}
+impl Clone for RPC_EE_INFO_PARAM_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for RPC_EE_INFO_PARAM_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_EE_INFO_PARAM_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for RPC_EE_INFO_PARAM_0 {
+impl Default for RPC_EE_INFO_PARAM_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct RPC_ENDPOINT_TEMPLATEA {
     pub Version: u32,
-    pub ProtSeq: ::windows_core::PSTR,
-    pub Endpoint: ::windows_core::PSTR,
-    pub SecurityDescriptor: *mut ::core::ffi::c_void,
+    pub ProtSeq: windows_core::PSTR,
+    pub Endpoint: windows_core::PSTR,
+    pub SecurityDescriptor: *mut core::ffi::c_void,
     pub Backlog: u32,
 }
-impl ::core::marker::Copy for RPC_ENDPOINT_TEMPLATEA {}
-impl ::core::clone::Clone for RPC_ENDPOINT_TEMPLATEA {
+impl Copy for RPC_ENDPOINT_TEMPLATEA {}
+impl Clone for RPC_ENDPOINT_TEMPLATEA {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_ENDPOINT_TEMPLATEA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_ENDPOINT_TEMPLATEA {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_ENDPOINT_TEMPLATEA").field("Version", &self.Version).field("ProtSeq", &self.ProtSeq).field("Endpoint", &self.Endpoint).field("SecurityDescriptor", &self.SecurityDescriptor).field("Backlog", &self.Backlog).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_ENDPOINT_TEMPLATEA {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_ENDPOINT_TEMPLATEA {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_ENDPOINT_TEMPLATEA {
+impl PartialEq for RPC_ENDPOINT_TEMPLATEA {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.ProtSeq == other.ProtSeq && self.Endpoint == other.Endpoint && self.SecurityDescriptor == other.SecurityDescriptor && self.Backlog == other.Backlog
     }
 }
-impl ::core::cmp::Eq for RPC_ENDPOINT_TEMPLATEA {}
-impl ::core::default::Default for RPC_ENDPOINT_TEMPLATEA {
+impl Eq for RPC_ENDPOINT_TEMPLATEA {}
+impl Default for RPC_ENDPOINT_TEMPLATEA {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct RPC_ENDPOINT_TEMPLATEW {
     pub Version: u32,
-    pub ProtSeq: ::windows_core::PWSTR,
-    pub Endpoint: ::windows_core::PWSTR,
-    pub SecurityDescriptor: *mut ::core::ffi::c_void,
+    pub ProtSeq: windows_core::PWSTR,
+    pub Endpoint: windows_core::PWSTR,
+    pub SecurityDescriptor: *mut core::ffi::c_void,
     pub Backlog: u32,
 }
-impl ::core::marker::Copy for RPC_ENDPOINT_TEMPLATEW {}
-impl ::core::clone::Clone for RPC_ENDPOINT_TEMPLATEW {
+impl Copy for RPC_ENDPOINT_TEMPLATEW {}
+impl Clone for RPC_ENDPOINT_TEMPLATEW {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_ENDPOINT_TEMPLATEW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_ENDPOINT_TEMPLATEW {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_ENDPOINT_TEMPLATEW").field("Version", &self.Version).field("ProtSeq", &self.ProtSeq).field("Endpoint", &self.Endpoint).field("SecurityDescriptor", &self.SecurityDescriptor).field("Backlog", &self.Backlog).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_ENDPOINT_TEMPLATEW {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_ENDPOINT_TEMPLATEW {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_ENDPOINT_TEMPLATEW {
+impl PartialEq for RPC_ENDPOINT_TEMPLATEW {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.ProtSeq == other.ProtSeq && self.Endpoint == other.Endpoint && self.SecurityDescriptor == other.SecurityDescriptor && self.Backlog == other.Backlog
     }
 }
-impl ::core::cmp::Eq for RPC_ENDPOINT_TEMPLATEW {}
-impl ::core::default::Default for RPC_ENDPOINT_TEMPLATEW {
+impl Eq for RPC_ENDPOINT_TEMPLATEW {}
+impl Default for RPC_ENDPOINT_TEMPLATEW {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct RPC_ERROR_ENUM_HANDLE {
     pub Signature: u32,
-    pub CurrentPos: *mut ::core::ffi::c_void,
-    pub Head: *mut ::core::ffi::c_void,
+    pub CurrentPos: *mut core::ffi::c_void,
+    pub Head: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for RPC_ERROR_ENUM_HANDLE {}
-impl ::core::clone::Clone for RPC_ERROR_ENUM_HANDLE {
+impl Copy for RPC_ERROR_ENUM_HANDLE {}
+impl Clone for RPC_ERROR_ENUM_HANDLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_ERROR_ENUM_HANDLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_ERROR_ENUM_HANDLE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_ERROR_ENUM_HANDLE").field("Signature", &self.Signature).field("CurrentPos", &self.CurrentPos).field("Head", &self.Head).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_ERROR_ENUM_HANDLE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_ERROR_ENUM_HANDLE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_ERROR_ENUM_HANDLE {
+impl PartialEq for RPC_ERROR_ENUM_HANDLE {
     fn eq(&self, other: &Self) -> bool {
         self.Signature == other.Signature && self.CurrentPos == other.CurrentPos && self.Head == other.Head
     }
 }
-impl ::core::cmp::Eq for RPC_ERROR_ENUM_HANDLE {}
-impl ::core::default::Default for RPC_ERROR_ENUM_HANDLE {
+impl Eq for RPC_ERROR_ENUM_HANDLE {}
+impl Default for RPC_ERROR_ENUM_HANDLE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct RPC_EXTENDED_ERROR_INFO {
     pub Version: u32,
-    pub ComputerName: ::windows_core::PWSTR,
+    pub ComputerName: windows_core::PWSTR,
     pub ProcessID: u32,
     pub u: RPC_EXTENDED_ERROR_INFO_0,
     pub GeneratingComponent: u32,
@@ -8256,18 +8256,18 @@ pub struct RPC_EXTENDED_ERROR_INFO {
     pub NumberOfParameters: i32,
     pub Parameters: [RPC_EE_INFO_PARAM; 4],
 }
-impl ::core::marker::Copy for RPC_EXTENDED_ERROR_INFO {}
-impl ::core::clone::Clone for RPC_EXTENDED_ERROR_INFO {
+impl Copy for RPC_EXTENDED_ERROR_INFO {}
+impl Clone for RPC_EXTENDED_ERROR_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for RPC_EXTENDED_ERROR_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_EXTENDED_ERROR_INFO {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for RPC_EXTENDED_ERROR_INFO {
+impl Default for RPC_EXTENDED_ERROR_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -8275,18 +8275,18 @@ pub union RPC_EXTENDED_ERROR_INFO_0 {
     pub SystemTime: super::super::Foundation::SYSTEMTIME,
     pub FileTime: super::super::Foundation::FILETIME,
 }
-impl ::core::marker::Copy for RPC_EXTENDED_ERROR_INFO_0 {}
-impl ::core::clone::Clone for RPC_EXTENDED_ERROR_INFO_0 {
+impl Copy for RPC_EXTENDED_ERROR_INFO_0 {}
+impl Clone for RPC_EXTENDED_ERROR_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for RPC_EXTENDED_ERROR_INFO_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_EXTENDED_ERROR_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for RPC_EXTENDED_ERROR_INFO_0 {
+impl Default for RPC_EXTENDED_ERROR_INFO_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -8298,29 +8298,29 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     pub AuthnSchemes: *mut u32,
     pub ServerCertificateSubject: *mut u8,
 }
-impl ::core::marker::Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_A {}
-impl ::core::clone::Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
+impl Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_A {}
+impl Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_A").field("TransportCredentials", &self.TransportCredentials).field("Flags", &self.Flags).field("AuthenticationTarget", &self.AuthenticationTarget).field("NumberOfAuthnSchemes", &self.NumberOfAuthnSchemes).field("AuthnSchemes", &self.AuthnSchemes).field("ServerCertificateSubject", &self.ServerCertificateSubject).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
+impl PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     fn eq(&self, other: &Self) -> bool {
         self.TransportCredentials == other.TransportCredentials && self.Flags == other.Flags && self.AuthenticationTarget == other.AuthenticationTarget && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes && self.AuthnSchemes == other.AuthnSchemes && self.ServerCertificateSubject == other.ServerCertificateSubject
     }
 }
-impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_A {}
-impl ::core::default::Default for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
+impl Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_A {}
+impl Default for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -8335,14 +8335,14 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     pub NumberOfProxyAuthnSchemes: u32,
     pub ProxyAuthnSchemes: *mut u32,
 }
-impl ::core::marker::Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {}
-impl ::core::clone::Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
+impl Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {}
+impl Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A")
             .field("TransportCredentials", &self.TransportCredentials)
             .field("Flags", &self.Flags)
@@ -8356,18 +8356,18 @@ impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
+impl PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     fn eq(&self, other: &Self) -> bool {
         self.TransportCredentials == other.TransportCredentials && self.Flags == other.Flags && self.AuthenticationTarget == other.AuthenticationTarget && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes && self.AuthnSchemes == other.AuthnSchemes && self.ServerCertificateSubject == other.ServerCertificateSubject && self.ProxyCredentials == other.ProxyCredentials && self.NumberOfProxyAuthnSchemes == other.NumberOfProxyAuthnSchemes && self.ProxyAuthnSchemes == other.ProxyAuthnSchemes
     }
 }
-impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {}
-impl ::core::default::Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
+impl Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {}
+impl Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -8382,14 +8382,14 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     pub NumberOfProxyAuthnSchemes: u32,
     pub ProxyAuthnSchemes: *mut u32,
 }
-impl ::core::marker::Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {}
-impl ::core::clone::Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
+impl Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {}
+impl Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W")
             .field("TransportCredentials", &self.TransportCredentials)
             .field("Flags", &self.Flags)
@@ -8403,40 +8403,40 @@ impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
+impl PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     fn eq(&self, other: &Self) -> bool {
         self.TransportCredentials == other.TransportCredentials && self.Flags == other.Flags && self.AuthenticationTarget == other.AuthenticationTarget && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes && self.AuthnSchemes == other.AuthnSchemes && self.ServerCertificateSubject == other.ServerCertificateSubject && self.ProxyCredentials == other.ProxyCredentials && self.NumberOfProxyAuthnSchemes == other.NumberOfProxyAuthnSchemes && self.ProxyAuthnSchemes == other.ProxyAuthnSchemes
     }
 }
-impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {}
-impl ::core::default::Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
+impl Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {}
+impl Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
-    pub TransportCredentials: *mut ::core::ffi::c_void,
+    pub TransportCredentials: *mut core::ffi::c_void,
     pub Flags: RPC_C_HTTP_FLAGS,
     pub AuthenticationTarget: RPC_C_HTTP_AUTHN_TARGET,
     pub NumberOfAuthnSchemes: u32,
     pub AuthnSchemes: *mut u32,
     pub ServerCertificateSubject: *mut u8,
-    pub ProxyCredentials: *mut ::core::ffi::c_void,
+    pub ProxyCredentials: *mut core::ffi::c_void,
     pub NumberOfProxyAuthnSchemes: u32,
     pub ProxyAuthnSchemes: *mut u32,
 }
-impl ::core::marker::Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {}
-impl ::core::clone::Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
+impl Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {}
+impl Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A")
             .field("TransportCredentials", &self.TransportCredentials)
             .field("Flags", &self.Flags)
@@ -8450,40 +8450,40 @@ impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
+impl PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     fn eq(&self, other: &Self) -> bool {
         self.TransportCredentials == other.TransportCredentials && self.Flags == other.Flags && self.AuthenticationTarget == other.AuthenticationTarget && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes && self.AuthnSchemes == other.AuthnSchemes && self.ServerCertificateSubject == other.ServerCertificateSubject && self.ProxyCredentials == other.ProxyCredentials && self.NumberOfProxyAuthnSchemes == other.NumberOfProxyAuthnSchemes && self.ProxyAuthnSchemes == other.ProxyAuthnSchemes
     }
 }
-impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {}
-impl ::core::default::Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
+impl Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {}
+impl Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
-    pub TransportCredentials: *mut ::core::ffi::c_void,
+    pub TransportCredentials: *mut core::ffi::c_void,
     pub Flags: RPC_C_HTTP_FLAGS,
     pub AuthenticationTarget: RPC_C_HTTP_AUTHN_TARGET,
     pub NumberOfAuthnSchemes: u32,
     pub AuthnSchemes: *mut u32,
     pub ServerCertificateSubject: *mut u16,
-    pub ProxyCredentials: *mut ::core::ffi::c_void,
+    pub ProxyCredentials: *mut core::ffi::c_void,
     pub NumberOfProxyAuthnSchemes: u32,
     pub ProxyAuthnSchemes: *mut u32,
 }
-impl ::core::marker::Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {}
-impl ::core::clone::Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
+impl Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {}
+impl Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W")
             .field("TransportCredentials", &self.TransportCredentials)
             .field("Flags", &self.Flags)
@@ -8497,18 +8497,18 @@ impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
+impl PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     fn eq(&self, other: &Self) -> bool {
         self.TransportCredentials == other.TransportCredentials && self.Flags == other.Flags && self.AuthenticationTarget == other.AuthenticationTarget && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes && self.AuthnSchemes == other.AuthnSchemes && self.ServerCertificateSubject == other.ServerCertificateSubject && self.ProxyCredentials == other.ProxyCredentials && self.NumberOfProxyAuthnSchemes == other.NumberOfProxyAuthnSchemes && self.ProxyAuthnSchemes == other.ProxyAuthnSchemes
     }
 }
-impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {}
-impl ::core::default::Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
+impl Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {}
+impl Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -8520,60 +8520,60 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     pub AuthnSchemes: *mut u32,
     pub ServerCertificateSubject: *mut u16,
 }
-impl ::core::marker::Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_W {}
-impl ::core::clone::Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
+impl Copy for RPC_HTTP_TRANSPORT_CREDENTIALS_W {}
+impl Clone for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_W").field("TransportCredentials", &self.TransportCredentials).field("Flags", &self.Flags).field("AuthenticationTarget", &self.AuthenticationTarget).field("NumberOfAuthnSchemes", &self.NumberOfAuthnSchemes).field("AuthnSchemes", &self.AuthnSchemes).field("ServerCertificateSubject", &self.ServerCertificateSubject).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
+impl PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     fn eq(&self, other: &Self) -> bool {
         self.TransportCredentials == other.TransportCredentials && self.Flags == other.Flags && self.AuthenticationTarget == other.AuthenticationTarget && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes && self.AuthnSchemes == other.AuthnSchemes && self.ServerCertificateSubject == other.ServerCertificateSubject
     }
 }
-impl ::core::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_W {}
-impl ::core::default::Default for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
+impl Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_W {}
+impl Default for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct RPC_IF_ID {
-    pub Uuid: ::windows_core::GUID,
+    pub Uuid: windows_core::GUID,
     pub VersMajor: u16,
     pub VersMinor: u16,
 }
-impl ::core::marker::Copy for RPC_IF_ID {}
-impl ::core::clone::Clone for RPC_IF_ID {
+impl Copy for RPC_IF_ID {}
+impl Clone for RPC_IF_ID {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_IF_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_IF_ID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_IF_ID").field("Uuid", &self.Uuid).field("VersMajor", &self.VersMajor).field("VersMinor", &self.VersMinor).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_IF_ID {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_IF_ID {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_IF_ID {
+impl PartialEq for RPC_IF_ID {
     fn eq(&self, other: &Self) -> bool {
         self.Uuid == other.Uuid && self.VersMajor == other.VersMajor && self.VersMinor == other.VersMinor
     }
 }
-impl ::core::cmp::Eq for RPC_IF_ID {}
-impl ::core::default::Default for RPC_IF_ID {
+impl Eq for RPC_IF_ID {}
+impl Default for RPC_IF_ID {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -8581,150 +8581,150 @@ pub struct RPC_IF_ID_VECTOR {
     pub Count: u32,
     pub IfId: [*mut RPC_IF_ID; 1],
 }
-impl ::core::marker::Copy for RPC_IF_ID_VECTOR {}
-impl ::core::clone::Clone for RPC_IF_ID_VECTOR {
+impl Copy for RPC_IF_ID_VECTOR {}
+impl Clone for RPC_IF_ID_VECTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_IF_ID_VECTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_IF_ID_VECTOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_IF_ID_VECTOR").field("Count", &self.Count).field("IfId", &self.IfId).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_IF_ID_VECTOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_IF_ID_VECTOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_IF_ID_VECTOR {
+impl PartialEq for RPC_IF_ID_VECTOR {
     fn eq(&self, other: &Self) -> bool {
         self.Count == other.Count && self.IfId == other.IfId
     }
 }
-impl ::core::cmp::Eq for RPC_IF_ID_VECTOR {}
-impl ::core::default::Default for RPC_IF_ID_VECTOR {
+impl Eq for RPC_IF_ID_VECTOR {}
+impl Default for RPC_IF_ID_VECTOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct RPC_IMPORT_CONTEXT_P {
-    pub LookupContext: *mut ::core::ffi::c_void,
-    pub ProposedHandle: *mut ::core::ffi::c_void,
+    pub LookupContext: *mut core::ffi::c_void,
+    pub ProposedHandle: *mut core::ffi::c_void,
     pub Bindings: *mut RPC_BINDING_VECTOR,
 }
-impl ::core::marker::Copy for RPC_IMPORT_CONTEXT_P {}
-impl ::core::clone::Clone for RPC_IMPORT_CONTEXT_P {
+impl Copy for RPC_IMPORT_CONTEXT_P {}
+impl Clone for RPC_IMPORT_CONTEXT_P {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_IMPORT_CONTEXT_P {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_IMPORT_CONTEXT_P {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_IMPORT_CONTEXT_P").field("LookupContext", &self.LookupContext).field("ProposedHandle", &self.ProposedHandle).field("Bindings", &self.Bindings).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_IMPORT_CONTEXT_P {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_IMPORT_CONTEXT_P {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_IMPORT_CONTEXT_P {
+impl PartialEq for RPC_IMPORT_CONTEXT_P {
     fn eq(&self, other: &Self) -> bool {
         self.LookupContext == other.LookupContext && self.ProposedHandle == other.ProposedHandle && self.Bindings == other.Bindings
     }
 }
-impl ::core::cmp::Eq for RPC_IMPORT_CONTEXT_P {}
-impl ::core::default::Default for RPC_IMPORT_CONTEXT_P {
+impl Eq for RPC_IMPORT_CONTEXT_P {}
+impl Default for RPC_IMPORT_CONTEXT_P {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct RPC_INTERFACE_TEMPLATEA {
     pub Version: u32,
-    pub IfSpec: *mut ::core::ffi::c_void,
-    pub MgrTypeUuid: *mut ::windows_core::GUID,
-    pub MgrEpv: *mut ::core::ffi::c_void,
+    pub IfSpec: *mut core::ffi::c_void,
+    pub MgrTypeUuid: *mut windows_core::GUID,
+    pub MgrEpv: *mut core::ffi::c_void,
     pub Flags: u32,
     pub MaxCalls: u32,
     pub MaxRpcSize: u32,
     pub IfCallback: RPC_IF_CALLBACK_FN,
     pub UuidVector: *mut UUID_VECTOR,
-    pub Annotation: ::windows_core::PSTR,
-    pub SecurityDescriptor: *mut ::core::ffi::c_void,
+    pub Annotation: windows_core::PSTR,
+    pub SecurityDescriptor: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for RPC_INTERFACE_TEMPLATEA {}
-impl ::core::clone::Clone for RPC_INTERFACE_TEMPLATEA {
+impl Copy for RPC_INTERFACE_TEMPLATEA {}
+impl Clone for RPC_INTERFACE_TEMPLATEA {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_INTERFACE_TEMPLATEA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_INTERFACE_TEMPLATEA {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_INTERFACE_TEMPLATEA").field("Version", &self.Version).field("IfSpec", &self.IfSpec).field("MgrTypeUuid", &self.MgrTypeUuid).field("MgrEpv", &self.MgrEpv).field("Flags", &self.Flags).field("MaxCalls", &self.MaxCalls).field("MaxRpcSize", &self.MaxRpcSize).field("UuidVector", &self.UuidVector).field("Annotation", &self.Annotation).field("SecurityDescriptor", &self.SecurityDescriptor).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_INTERFACE_TEMPLATEA {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_INTERFACE_TEMPLATEA {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for RPC_INTERFACE_TEMPLATEA {
+impl Default for RPC_INTERFACE_TEMPLATEA {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct RPC_INTERFACE_TEMPLATEW {
     pub Version: u32,
-    pub IfSpec: *mut ::core::ffi::c_void,
-    pub MgrTypeUuid: *mut ::windows_core::GUID,
-    pub MgrEpv: *mut ::core::ffi::c_void,
+    pub IfSpec: *mut core::ffi::c_void,
+    pub MgrTypeUuid: *mut windows_core::GUID,
+    pub MgrEpv: *mut core::ffi::c_void,
     pub Flags: u32,
     pub MaxCalls: u32,
     pub MaxRpcSize: u32,
     pub IfCallback: RPC_IF_CALLBACK_FN,
     pub UuidVector: *mut UUID_VECTOR,
-    pub Annotation: ::windows_core::PWSTR,
-    pub SecurityDescriptor: *mut ::core::ffi::c_void,
+    pub Annotation: windows_core::PWSTR,
+    pub SecurityDescriptor: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for RPC_INTERFACE_TEMPLATEW {}
-impl ::core::clone::Clone for RPC_INTERFACE_TEMPLATEW {
+impl Copy for RPC_INTERFACE_TEMPLATEW {}
+impl Clone for RPC_INTERFACE_TEMPLATEW {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_INTERFACE_TEMPLATEW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_INTERFACE_TEMPLATEW {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_INTERFACE_TEMPLATEW").field("Version", &self.Version).field("IfSpec", &self.IfSpec).field("MgrTypeUuid", &self.MgrTypeUuid).field("MgrEpv", &self.MgrEpv).field("Flags", &self.Flags).field("MaxCalls", &self.MaxCalls).field("MaxRpcSize", &self.MaxRpcSize).field("UuidVector", &self.UuidVector).field("Annotation", &self.Annotation).field("SecurityDescriptor", &self.SecurityDescriptor).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_INTERFACE_TEMPLATEW {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_INTERFACE_TEMPLATEW {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for RPC_INTERFACE_TEMPLATEW {
+impl Default for RPC_INTERFACE_TEMPLATEW {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct RPC_MESSAGE {
-    pub Handle: *mut ::core::ffi::c_void,
+    pub Handle: *mut core::ffi::c_void,
     pub DataRepresentation: u32,
-    pub Buffer: *mut ::core::ffi::c_void,
+    pub Buffer: *mut core::ffi::c_void,
     pub BufferLength: u32,
     pub ProcNum: u32,
     pub TransferSyntax: *mut RPC_SYNTAX_IDENTIFIER,
-    pub RpcInterfaceInformation: *mut ::core::ffi::c_void,
-    pub ReservedForRuntime: *mut ::core::ffi::c_void,
-    pub ManagerEpv: *mut ::core::ffi::c_void,
-    pub ImportContext: *mut ::core::ffi::c_void,
+    pub RpcInterfaceInformation: *mut core::ffi::c_void,
+    pub ReservedForRuntime: *mut core::ffi::c_void,
+    pub ManagerEpv: *mut core::ffi::c_void,
+    pub ImportContext: *mut core::ffi::c_void,
     pub RpcFlags: u32,
 }
-impl ::core::marker::Copy for RPC_MESSAGE {}
-impl ::core::clone::Clone for RPC_MESSAGE {
+impl Copy for RPC_MESSAGE {}
+impl Clone for RPC_MESSAGE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_MESSAGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_MESSAGE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_MESSAGE")
             .field("Handle", &self.Handle)
             .field("DataRepresentation", &self.DataRepresentation)
@@ -8740,18 +8740,18 @@ impl ::core::fmt::Debug for RPC_MESSAGE {
             .finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_MESSAGE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_MESSAGE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_MESSAGE {
+impl PartialEq for RPC_MESSAGE {
     fn eq(&self, other: &Self) -> bool {
         self.Handle == other.Handle && self.DataRepresentation == other.DataRepresentation && self.Buffer == other.Buffer && self.BufferLength == other.BufferLength && self.ProcNum == other.ProcNum && self.TransferSyntax == other.TransferSyntax && self.RpcInterfaceInformation == other.RpcInterfaceInformation && self.ReservedForRuntime == other.ReservedForRuntime && self.ManagerEpv == other.ManagerEpv && self.ImportContext == other.ImportContext && self.RpcFlags == other.RpcFlags
     }
 }
-impl ::core::cmp::Eq for RPC_MESSAGE {}
-impl ::core::default::Default for RPC_MESSAGE {
+impl Eq for RPC_MESSAGE {}
+impl Default for RPC_MESSAGE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -8760,29 +8760,29 @@ pub struct RPC_POLICY {
     pub EndpointFlags: u32,
     pub NICFlags: u32,
 }
-impl ::core::marker::Copy for RPC_POLICY {}
-impl ::core::clone::Clone for RPC_POLICY {
+impl Copy for RPC_POLICY {}
+impl Clone for RPC_POLICY {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_POLICY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_POLICY").field("Length", &self.Length).field("EndpointFlags", &self.EndpointFlags).field("NICFlags", &self.NICFlags).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_POLICY {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_POLICY {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_POLICY {
+impl PartialEq for RPC_POLICY {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.EndpointFlags == other.EndpointFlags && self.NICFlags == other.NICFlags
     }
 }
-impl ::core::cmp::Eq for RPC_POLICY {}
-impl ::core::default::Default for RPC_POLICY {
+impl Eq for RPC_POLICY {}
+impl Default for RPC_POLICY {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -8790,29 +8790,29 @@ pub struct RPC_PROTSEQ_ENDPOINT {
     pub RpcProtocolSequence: *mut u8,
     pub Endpoint: *mut u8,
 }
-impl ::core::marker::Copy for RPC_PROTSEQ_ENDPOINT {}
-impl ::core::clone::Clone for RPC_PROTSEQ_ENDPOINT {
+impl Copy for RPC_PROTSEQ_ENDPOINT {}
+impl Clone for RPC_PROTSEQ_ENDPOINT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_PROTSEQ_ENDPOINT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_PROTSEQ_ENDPOINT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_PROTSEQ_ENDPOINT").field("RpcProtocolSequence", &self.RpcProtocolSequence).field("Endpoint", &self.Endpoint).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_PROTSEQ_ENDPOINT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_PROTSEQ_ENDPOINT {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_PROTSEQ_ENDPOINT {
+impl PartialEq for RPC_PROTSEQ_ENDPOINT {
     fn eq(&self, other: &Self) -> bool {
         self.RpcProtocolSequence == other.RpcProtocolSequence && self.Endpoint == other.Endpoint
     }
 }
-impl ::core::cmp::Eq for RPC_PROTSEQ_ENDPOINT {}
-impl ::core::default::Default for RPC_PROTSEQ_ENDPOINT {
+impl Eq for RPC_PROTSEQ_ENDPOINT {}
+impl Default for RPC_PROTSEQ_ENDPOINT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -8820,29 +8820,29 @@ pub struct RPC_PROTSEQ_VECTORA {
     pub Count: u32,
     pub Protseq: [*mut u8; 1],
 }
-impl ::core::marker::Copy for RPC_PROTSEQ_VECTORA {}
-impl ::core::clone::Clone for RPC_PROTSEQ_VECTORA {
+impl Copy for RPC_PROTSEQ_VECTORA {}
+impl Clone for RPC_PROTSEQ_VECTORA {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_PROTSEQ_VECTORA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_PROTSEQ_VECTORA {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_PROTSEQ_VECTORA").field("Count", &self.Count).field("Protseq", &self.Protseq).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_PROTSEQ_VECTORA {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_PROTSEQ_VECTORA {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_PROTSEQ_VECTORA {
+impl PartialEq for RPC_PROTSEQ_VECTORA {
     fn eq(&self, other: &Self) -> bool {
         self.Count == other.Count && self.Protseq == other.Protseq
     }
 }
-impl ::core::cmp::Eq for RPC_PROTSEQ_VECTORA {}
-impl ::core::default::Default for RPC_PROTSEQ_VECTORA {
+impl Eq for RPC_PROTSEQ_VECTORA {}
+impl Default for RPC_PROTSEQ_VECTORA {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -8850,29 +8850,29 @@ pub struct RPC_PROTSEQ_VECTORW {
     pub Count: u32,
     pub Protseq: [*mut u16; 1],
 }
-impl ::core::marker::Copy for RPC_PROTSEQ_VECTORW {}
-impl ::core::clone::Clone for RPC_PROTSEQ_VECTORW {
+impl Copy for RPC_PROTSEQ_VECTORW {}
+impl Clone for RPC_PROTSEQ_VECTORW {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_PROTSEQ_VECTORW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_PROTSEQ_VECTORW {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_PROTSEQ_VECTORW").field("Count", &self.Count).field("Protseq", &self.Protseq).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_PROTSEQ_VECTORW {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_PROTSEQ_VECTORW {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_PROTSEQ_VECTORW {
+impl PartialEq for RPC_PROTSEQ_VECTORW {
     fn eq(&self, other: &Self) -> bool {
         self.Count == other.Count && self.Protseq == other.Protseq
     }
 }
-impl ::core::cmp::Eq for RPC_PROTSEQ_VECTORW {}
-impl ::core::default::Default for RPC_PROTSEQ_VECTORW {
+impl Eq for RPC_PROTSEQ_VECTORW {}
+impl Default for RPC_PROTSEQ_VECTORW {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -8884,35 +8884,35 @@ pub struct RPC_SECURITY_QOS {
     pub ImpersonationType: super::Com::RPC_C_IMP_LEVEL,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS {}
+impl Copy for RPC_SECURITY_QOS {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_SECURITY_QOS {
+impl Clone for RPC_SECURITY_QOS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for RPC_SECURITY_QOS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_SECURITY_QOS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_SECURITY_QOS").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_SECURITY_QOS {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SECURITY_QOS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for RPC_SECURITY_QOS {
+impl PartialEq for RPC_SECURITY_QOS {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Capabilities == other.Capabilities && self.IdentityTracking == other.IdentityTracking && self.ImpersonationType == other.ImpersonationType
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for RPC_SECURITY_QOS {}
+impl Eq for RPC_SECURITY_QOS {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_SECURITY_QOS {
+impl Default for RPC_SECURITY_QOS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -8926,21 +8926,21 @@ pub struct RPC_SECURITY_QOS_V2_A {
     pub u: RPC_SECURITY_QOS_V2_A_0,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V2_A {}
+impl Copy for RPC_SECURITY_QOS_V2_A {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_SECURITY_QOS_V2_A {
+impl Clone for RPC_SECURITY_QOS_V2_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_SECURITY_QOS_V2_A {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SECURITY_QOS_V2_A {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_SECURITY_QOS_V2_A {
+impl Default for RPC_SECURITY_QOS_V2_A {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -8949,21 +8949,21 @@ pub union RPC_SECURITY_QOS_V2_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V2_A_0 {}
+impl Copy for RPC_SECURITY_QOS_V2_A_0 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_SECURITY_QOS_V2_A_0 {
+impl Clone for RPC_SECURITY_QOS_V2_A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_SECURITY_QOS_V2_A_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SECURITY_QOS_V2_A_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_SECURITY_QOS_V2_A_0 {
+impl Default for RPC_SECURITY_QOS_V2_A_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -8977,21 +8977,21 @@ pub struct RPC_SECURITY_QOS_V2_W {
     pub u: RPC_SECURITY_QOS_V2_W_0,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V2_W {}
+impl Copy for RPC_SECURITY_QOS_V2_W {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_SECURITY_QOS_V2_W {
+impl Clone for RPC_SECURITY_QOS_V2_W {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_SECURITY_QOS_V2_W {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SECURITY_QOS_V2_W {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_SECURITY_QOS_V2_W {
+impl Default for RPC_SECURITY_QOS_V2_W {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9000,21 +9000,21 @@ pub union RPC_SECURITY_QOS_V2_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V2_W_0 {}
+impl Copy for RPC_SECURITY_QOS_V2_W_0 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_SECURITY_QOS_V2_W_0 {
+impl Clone for RPC_SECURITY_QOS_V2_W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_SECURITY_QOS_V2_W_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SECURITY_QOS_V2_W_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_SECURITY_QOS_V2_W_0 {
+impl Default for RPC_SECURITY_QOS_V2_W_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9026,24 +9026,24 @@ pub struct RPC_SECURITY_QOS_V3_A {
     pub ImpersonationType: super::Com::RPC_C_IMP_LEVEL,
     pub AdditionalSecurityInfoType: RPC_C_AUTHN_INFO_TYPE,
     pub u: RPC_SECURITY_QOS_V3_A_0,
-    pub Sid: *mut ::core::ffi::c_void,
+    pub Sid: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V3_A {}
+impl Copy for RPC_SECURITY_QOS_V3_A {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_SECURITY_QOS_V3_A {
+impl Clone for RPC_SECURITY_QOS_V3_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_SECURITY_QOS_V3_A {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SECURITY_QOS_V3_A {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_SECURITY_QOS_V3_A {
+impl Default for RPC_SECURITY_QOS_V3_A {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9052,21 +9052,21 @@ pub union RPC_SECURITY_QOS_V3_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V3_A_0 {}
+impl Copy for RPC_SECURITY_QOS_V3_A_0 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_SECURITY_QOS_V3_A_0 {
+impl Clone for RPC_SECURITY_QOS_V3_A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_SECURITY_QOS_V3_A_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SECURITY_QOS_V3_A_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_SECURITY_QOS_V3_A_0 {
+impl Default for RPC_SECURITY_QOS_V3_A_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9078,24 +9078,24 @@ pub struct RPC_SECURITY_QOS_V3_W {
     pub ImpersonationType: super::Com::RPC_C_IMP_LEVEL,
     pub AdditionalSecurityInfoType: RPC_C_AUTHN_INFO_TYPE,
     pub u: RPC_SECURITY_QOS_V3_W_0,
-    pub Sid: *mut ::core::ffi::c_void,
+    pub Sid: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V3_W {}
+impl Copy for RPC_SECURITY_QOS_V3_W {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_SECURITY_QOS_V3_W {
+impl Clone for RPC_SECURITY_QOS_V3_W {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_SECURITY_QOS_V3_W {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SECURITY_QOS_V3_W {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_SECURITY_QOS_V3_W {
+impl Default for RPC_SECURITY_QOS_V3_W {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9104,21 +9104,21 @@ pub union RPC_SECURITY_QOS_V3_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V3_W_0 {}
+impl Copy for RPC_SECURITY_QOS_V3_W_0 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_SECURITY_QOS_V3_W_0 {
+impl Clone for RPC_SECURITY_QOS_V3_W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_SECURITY_QOS_V3_W_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SECURITY_QOS_V3_W_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_SECURITY_QOS_V3_W_0 {
+impl Default for RPC_SECURITY_QOS_V3_W_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9130,25 +9130,25 @@ pub struct RPC_SECURITY_QOS_V4_A {
     pub ImpersonationType: super::Com::RPC_C_IMP_LEVEL,
     pub AdditionalSecurityInfoType: RPC_C_AUTHN_INFO_TYPE,
     pub u: RPC_SECURITY_QOS_V4_A_0,
-    pub Sid: *mut ::core::ffi::c_void,
+    pub Sid: *mut core::ffi::c_void,
     pub EffectiveOnly: u32,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V4_A {}
+impl Copy for RPC_SECURITY_QOS_V4_A {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_SECURITY_QOS_V4_A {
+impl Clone for RPC_SECURITY_QOS_V4_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_SECURITY_QOS_V4_A {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SECURITY_QOS_V4_A {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_SECURITY_QOS_V4_A {
+impl Default for RPC_SECURITY_QOS_V4_A {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9157,21 +9157,21 @@ pub union RPC_SECURITY_QOS_V4_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V4_A_0 {}
+impl Copy for RPC_SECURITY_QOS_V4_A_0 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_SECURITY_QOS_V4_A_0 {
+impl Clone for RPC_SECURITY_QOS_V4_A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_SECURITY_QOS_V4_A_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SECURITY_QOS_V4_A_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_SECURITY_QOS_V4_A_0 {
+impl Default for RPC_SECURITY_QOS_V4_A_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9183,25 +9183,25 @@ pub struct RPC_SECURITY_QOS_V4_W {
     pub ImpersonationType: super::Com::RPC_C_IMP_LEVEL,
     pub AdditionalSecurityInfoType: RPC_C_AUTHN_INFO_TYPE,
     pub u: RPC_SECURITY_QOS_V4_W_0,
-    pub Sid: *mut ::core::ffi::c_void,
+    pub Sid: *mut core::ffi::c_void,
     pub EffectiveOnly: u32,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V4_W {}
+impl Copy for RPC_SECURITY_QOS_V4_W {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_SECURITY_QOS_V4_W {
+impl Clone for RPC_SECURITY_QOS_V4_W {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_SECURITY_QOS_V4_W {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SECURITY_QOS_V4_W {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_SECURITY_QOS_V4_W {
+impl Default for RPC_SECURITY_QOS_V4_W {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9210,21 +9210,21 @@ pub union RPC_SECURITY_QOS_V4_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V4_W_0 {}
+impl Copy for RPC_SECURITY_QOS_V4_W_0 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_SECURITY_QOS_V4_W_0 {
+impl Clone for RPC_SECURITY_QOS_V4_W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_SECURITY_QOS_V4_W_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SECURITY_QOS_V4_W_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_SECURITY_QOS_V4_W_0 {
+impl Default for RPC_SECURITY_QOS_V4_W_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9236,26 +9236,26 @@ pub struct RPC_SECURITY_QOS_V5_A {
     pub ImpersonationType: super::Com::RPC_C_IMP_LEVEL,
     pub AdditionalSecurityInfoType: RPC_C_AUTHN_INFO_TYPE,
     pub u: RPC_SECURITY_QOS_V5_A_0,
-    pub Sid: *mut ::core::ffi::c_void,
+    pub Sid: *mut core::ffi::c_void,
     pub EffectiveOnly: u32,
-    pub ServerSecurityDescriptor: *mut ::core::ffi::c_void,
+    pub ServerSecurityDescriptor: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V5_A {}
+impl Copy for RPC_SECURITY_QOS_V5_A {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_SECURITY_QOS_V5_A {
+impl Clone for RPC_SECURITY_QOS_V5_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_SECURITY_QOS_V5_A {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SECURITY_QOS_V5_A {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_SECURITY_QOS_V5_A {
+impl Default for RPC_SECURITY_QOS_V5_A {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9264,21 +9264,21 @@ pub union RPC_SECURITY_QOS_V5_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V5_A_0 {}
+impl Copy for RPC_SECURITY_QOS_V5_A_0 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_SECURITY_QOS_V5_A_0 {
+impl Clone for RPC_SECURITY_QOS_V5_A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_SECURITY_QOS_V5_A_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SECURITY_QOS_V5_A_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_SECURITY_QOS_V5_A_0 {
+impl Default for RPC_SECURITY_QOS_V5_A_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9290,26 +9290,26 @@ pub struct RPC_SECURITY_QOS_V5_W {
     pub ImpersonationType: super::Com::RPC_C_IMP_LEVEL,
     pub AdditionalSecurityInfoType: RPC_C_AUTHN_INFO_TYPE,
     pub u: RPC_SECURITY_QOS_V5_W_0,
-    pub Sid: *mut ::core::ffi::c_void,
+    pub Sid: *mut core::ffi::c_void,
     pub EffectiveOnly: u32,
-    pub ServerSecurityDescriptor: *mut ::core::ffi::c_void,
+    pub ServerSecurityDescriptor: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V5_W {}
+impl Copy for RPC_SECURITY_QOS_V5_W {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_SECURITY_QOS_V5_W {
+impl Clone for RPC_SECURITY_QOS_V5_W {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_SECURITY_QOS_V5_W {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SECURITY_QOS_V5_W {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_SECURITY_QOS_V5_W {
+impl Default for RPC_SECURITY_QOS_V5_W {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9318,21 +9318,21 @@ pub union RPC_SECURITY_QOS_V5_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for RPC_SECURITY_QOS_V5_W_0 {}
+impl Copy for RPC_SECURITY_QOS_V5_W_0 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for RPC_SECURITY_QOS_V5_W_0 {
+impl Clone for RPC_SECURITY_QOS_V5_W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for RPC_SECURITY_QOS_V5_W_0 {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SECURITY_QOS_V5_W_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for RPC_SECURITY_QOS_V5_W_0 {
+impl Default for RPC_SECURITY_QOS_V5_W_0 {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9341,29 +9341,29 @@ pub struct RPC_SEC_CONTEXT_KEY_INFO {
     pub KeySize: u32,
     pub SignatureAlgorithm: u32,
 }
-impl ::core::marker::Copy for RPC_SEC_CONTEXT_KEY_INFO {}
-impl ::core::clone::Clone for RPC_SEC_CONTEXT_KEY_INFO {
+impl Copy for RPC_SEC_CONTEXT_KEY_INFO {}
+impl Clone for RPC_SEC_CONTEXT_KEY_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_SEC_CONTEXT_KEY_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_SEC_CONTEXT_KEY_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_SEC_CONTEXT_KEY_INFO").field("EncryptAlgorithm", &self.EncryptAlgorithm).field("KeySize", &self.KeySize).field("SignatureAlgorithm", &self.SignatureAlgorithm).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_SEC_CONTEXT_KEY_INFO {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SEC_CONTEXT_KEY_INFO {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_SEC_CONTEXT_KEY_INFO {
+impl PartialEq for RPC_SEC_CONTEXT_KEY_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.EncryptAlgorithm == other.EncryptAlgorithm && self.KeySize == other.KeySize && self.SignatureAlgorithm == other.SignatureAlgorithm
     }
 }
-impl ::core::cmp::Eq for RPC_SEC_CONTEXT_KEY_INFO {}
-impl ::core::default::Default for RPC_SEC_CONTEXT_KEY_INFO {
+impl Eq for RPC_SEC_CONTEXT_KEY_INFO {}
+impl Default for RPC_SEC_CONTEXT_KEY_INFO {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9374,33 +9374,33 @@ pub struct RPC_SERVER_INTERFACE {
     pub DispatchTable: *mut RPC_DISPATCH_TABLE,
     pub RpcProtseqEndpointCount: u32,
     pub RpcProtseqEndpoint: *mut RPC_PROTSEQ_ENDPOINT,
-    pub DefaultManagerEpv: *mut ::core::ffi::c_void,
-    pub InterpreterInfo: *const ::core::ffi::c_void,
+    pub DefaultManagerEpv: *mut core::ffi::c_void,
+    pub InterpreterInfo: *const core::ffi::c_void,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for RPC_SERVER_INTERFACE {}
-impl ::core::clone::Clone for RPC_SERVER_INTERFACE {
+impl Copy for RPC_SERVER_INTERFACE {}
+impl Clone for RPC_SERVER_INTERFACE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_SERVER_INTERFACE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_SERVER_INTERFACE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_SERVER_INTERFACE").field("Length", &self.Length).field("InterfaceId", &self.InterfaceId).field("TransferSyntax", &self.TransferSyntax).field("DispatchTable", &self.DispatchTable).field("RpcProtseqEndpointCount", &self.RpcProtseqEndpointCount).field("RpcProtseqEndpoint", &self.RpcProtseqEndpoint).field("DefaultManagerEpv", &self.DefaultManagerEpv).field("InterpreterInfo", &self.InterpreterInfo).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_SERVER_INTERFACE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SERVER_INTERFACE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_SERVER_INTERFACE {
+impl PartialEq for RPC_SERVER_INTERFACE {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.InterfaceId == other.InterfaceId && self.TransferSyntax == other.TransferSyntax && self.DispatchTable == other.DispatchTable && self.RpcProtseqEndpointCount == other.RpcProtseqEndpointCount && self.RpcProtseqEndpoint == other.RpcProtseqEndpoint && self.DefaultManagerEpv == other.DefaultManagerEpv && self.InterpreterInfo == other.InterpreterInfo && self.Flags == other.Flags
     }
 }
-impl ::core::cmp::Eq for RPC_SERVER_INTERFACE {}
-impl ::core::default::Default for RPC_SERVER_INTERFACE {
+impl Eq for RPC_SERVER_INTERFACE {}
+impl Default for RPC_SERVER_INTERFACE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9408,90 +9408,90 @@ pub struct RPC_STATS_VECTOR {
     pub Count: u32,
     pub Stats: [u32; 1],
 }
-impl ::core::marker::Copy for RPC_STATS_VECTOR {}
-impl ::core::clone::Clone for RPC_STATS_VECTOR {
+impl Copy for RPC_STATS_VECTOR {}
+impl Clone for RPC_STATS_VECTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_STATS_VECTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_STATS_VECTOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_STATS_VECTOR").field("Count", &self.Count).field("Stats", &self.Stats).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_STATS_VECTOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_STATS_VECTOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_STATS_VECTOR {
+impl PartialEq for RPC_STATS_VECTOR {
     fn eq(&self, other: &Self) -> bool {
         self.Count == other.Count && self.Stats == other.Stats
     }
 }
-impl ::core::cmp::Eq for RPC_STATS_VECTOR {}
-impl ::core::default::Default for RPC_STATS_VECTOR {
+impl Eq for RPC_STATS_VECTOR {}
+impl Default for RPC_STATS_VECTOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct RPC_SYNTAX_IDENTIFIER {
-    pub SyntaxGUID: ::windows_core::GUID,
+    pub SyntaxGUID: windows_core::GUID,
     pub SyntaxVersion: RPC_VERSION,
 }
-impl ::core::marker::Copy for RPC_SYNTAX_IDENTIFIER {}
-impl ::core::clone::Clone for RPC_SYNTAX_IDENTIFIER {
+impl Copy for RPC_SYNTAX_IDENTIFIER {}
+impl Clone for RPC_SYNTAX_IDENTIFIER {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_SYNTAX_IDENTIFIER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_SYNTAX_IDENTIFIER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_SYNTAX_IDENTIFIER").field("SyntaxGUID", &self.SyntaxGUID).field("SyntaxVersion", &self.SyntaxVersion).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_SYNTAX_IDENTIFIER {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_SYNTAX_IDENTIFIER {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_SYNTAX_IDENTIFIER {
+impl PartialEq for RPC_SYNTAX_IDENTIFIER {
     fn eq(&self, other: &Self) -> bool {
         self.SyntaxGUID == other.SyntaxGUID && self.SyntaxVersion == other.SyntaxVersion
     }
 }
-impl ::core::cmp::Eq for RPC_SYNTAX_IDENTIFIER {}
-impl ::core::default::Default for RPC_SYNTAX_IDENTIFIER {
+impl Eq for RPC_SYNTAX_IDENTIFIER {}
+impl Default for RPC_SYNTAX_IDENTIFIER {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct RPC_TRANSFER_SYNTAX {
-    pub Uuid: ::windows_core::GUID,
+    pub Uuid: windows_core::GUID,
     pub VersMajor: u16,
     pub VersMinor: u16,
 }
-impl ::core::marker::Copy for RPC_TRANSFER_SYNTAX {}
-impl ::core::clone::Clone for RPC_TRANSFER_SYNTAX {
+impl Copy for RPC_TRANSFER_SYNTAX {}
+impl Clone for RPC_TRANSFER_SYNTAX {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_TRANSFER_SYNTAX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_TRANSFER_SYNTAX {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_TRANSFER_SYNTAX").field("Uuid", &self.Uuid).field("VersMajor", &self.VersMajor).field("VersMinor", &self.VersMinor).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_TRANSFER_SYNTAX {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_TRANSFER_SYNTAX {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_TRANSFER_SYNTAX {
+impl PartialEq for RPC_TRANSFER_SYNTAX {
     fn eq(&self, other: &Self) -> bool {
         self.Uuid == other.Uuid && self.VersMajor == other.VersMajor && self.VersMinor == other.VersMinor
     }
 }
-impl ::core::cmp::Eq for RPC_TRANSFER_SYNTAX {}
-impl ::core::default::Default for RPC_TRANSFER_SYNTAX {
+impl Eq for RPC_TRANSFER_SYNTAX {}
+impl Default for RPC_TRANSFER_SYNTAX {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9499,29 +9499,29 @@ pub struct RPC_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
-impl ::core::marker::Copy for RPC_VERSION {}
-impl ::core::clone::Clone for RPC_VERSION {
+impl Copy for RPC_VERSION {}
+impl Clone for RPC_VERSION {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for RPC_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for RPC_VERSION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("RPC_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
     }
 }
-impl ::windows_core::TypeKind for RPC_VERSION {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for RPC_VERSION {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for RPC_VERSION {
+impl PartialEq for RPC_VERSION {
     fn eq(&self, other: &Self) -> bool {
         self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion
     }
 }
-impl ::core::cmp::Eq for RPC_VERSION {}
-impl ::core::default::Default for RPC_VERSION {
+impl Eq for RPC_VERSION {}
+impl Default for RPC_VERSION {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9529,29 +9529,29 @@ pub struct SCONTEXT_QUEUE {
     pub NumberOfObjects: u32,
     pub ArrayOfObjects: *mut *mut NDR_SCONTEXT,
 }
-impl ::core::marker::Copy for SCONTEXT_QUEUE {}
-impl ::core::clone::Clone for SCONTEXT_QUEUE {
+impl Copy for SCONTEXT_QUEUE {}
+impl Clone for SCONTEXT_QUEUE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for SCONTEXT_QUEUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SCONTEXT_QUEUE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SCONTEXT_QUEUE").field("NumberOfObjects", &self.NumberOfObjects).field("ArrayOfObjects", &self.ArrayOfObjects).finish()
     }
 }
-impl ::windows_core::TypeKind for SCONTEXT_QUEUE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SCONTEXT_QUEUE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for SCONTEXT_QUEUE {
+impl PartialEq for SCONTEXT_QUEUE {
     fn eq(&self, other: &Self) -> bool {
         self.NumberOfObjects == other.NumberOfObjects && self.ArrayOfObjects == other.ArrayOfObjects
     }
 }
-impl ::core::cmp::Eq for SCONTEXT_QUEUE {}
-impl ::core::default::Default for SCONTEXT_QUEUE {
+impl Eq for SCONTEXT_QUEUE {}
+impl Default for SCONTEXT_QUEUE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9564,29 +9564,29 @@ pub struct SEC_WINNT_AUTH_IDENTITY_A {
     pub PasswordLength: u32,
     pub Flags: SEC_WINNT_AUTH_IDENTITY,
 }
-impl ::core::marker::Copy for SEC_WINNT_AUTH_IDENTITY_A {}
-impl ::core::clone::Clone for SEC_WINNT_AUTH_IDENTITY_A {
+impl Copy for SEC_WINNT_AUTH_IDENTITY_A {}
+impl Clone for SEC_WINNT_AUTH_IDENTITY_A {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY_A {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SEC_WINNT_AUTH_IDENTITY_A").field("User", &self.User).field("UserLength", &self.UserLength).field("Domain", &self.Domain).field("DomainLength", &self.DomainLength).field("Password", &self.Password).field("PasswordLength", &self.PasswordLength).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_A {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_A {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_A {
+impl PartialEq for SEC_WINNT_AUTH_IDENTITY_A {
     fn eq(&self, other: &Self) -> bool {
         self.User == other.User && self.UserLength == other.UserLength && self.Domain == other.Domain && self.DomainLength == other.DomainLength && self.Password == other.Password && self.PasswordLength == other.PasswordLength && self.Flags == other.Flags
     }
 }
-impl ::core::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_A {}
-impl ::core::default::Default for SEC_WINNT_AUTH_IDENTITY_A {
+impl Eq for SEC_WINNT_AUTH_IDENTITY_A {}
+impl Default for SEC_WINNT_AUTH_IDENTITY_A {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9599,29 +9599,29 @@ pub struct SEC_WINNT_AUTH_IDENTITY_W {
     pub PasswordLength: u32,
     pub Flags: SEC_WINNT_AUTH_IDENTITY,
 }
-impl ::core::marker::Copy for SEC_WINNT_AUTH_IDENTITY_W {}
-impl ::core::clone::Clone for SEC_WINNT_AUTH_IDENTITY_W {
+impl Copy for SEC_WINNT_AUTH_IDENTITY_W {}
+impl Clone for SEC_WINNT_AUTH_IDENTITY_W {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY_W {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SEC_WINNT_AUTH_IDENTITY_W").field("User", &self.User).field("UserLength", &self.UserLength).field("Domain", &self.Domain).field("DomainLength", &self.DomainLength).field("Password", &self.Password).field("PasswordLength", &self.PasswordLength).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_W {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_W {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_W {
+impl PartialEq for SEC_WINNT_AUTH_IDENTITY_W {
     fn eq(&self, other: &Self) -> bool {
         self.User == other.User && self.UserLength == other.UserLength && self.Domain == other.Domain && self.DomainLength == other.DomainLength && self.Password == other.Password && self.PasswordLength == other.PasswordLength && self.Flags == other.Flags
     }
 }
-impl ::core::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_W {}
-impl ::core::default::Default for SEC_WINNT_AUTH_IDENTITY_W {
+impl Eq for SEC_WINNT_AUTH_IDENTITY_W {}
+impl Default for SEC_WINNT_AUTH_IDENTITY_W {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9636,35 +9636,35 @@ pub struct USER_MARSHAL_CB {
     pub pTypeFormat: *mut u8,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for USER_MARSHAL_CB {}
+impl Copy for USER_MARSHAL_CB {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for USER_MARSHAL_CB {
+impl Clone for USER_MARSHAL_CB {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for USER_MARSHAL_CB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for USER_MARSHAL_CB {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("USER_MARSHAL_CB").field("Flags", &self.Flags).field("pStubMsg", &self.pStubMsg).field("pReserve", &self.pReserve).field("Signature", &self.Signature).field("CBType", &self.CBType).field("pFormat", &self.pFormat).field("pTypeFormat", &self.pTypeFormat).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for USER_MARSHAL_CB {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for USER_MARSHAL_CB {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for USER_MARSHAL_CB {
+impl PartialEq for USER_MARSHAL_CB {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags && self.pStubMsg == other.pStubMsg && self.pReserve == other.pReserve && self.Signature == other.Signature && self.CBType == other.CBType && self.pFormat == other.pFormat && self.pTypeFormat == other.pTypeFormat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for USER_MARSHAL_CB {}
+impl Eq for USER_MARSHAL_CB {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for USER_MARSHAL_CB {
+impl Default for USER_MARSHAL_CB {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9674,53 +9674,53 @@ pub struct USER_MARSHAL_ROUTINE_QUADRUPLE {
     pub pfnUnmarshall: USER_MARSHAL_UNMARSHALLING_ROUTINE,
     pub pfnFree: USER_MARSHAL_FREEING_ROUTINE,
 }
-impl ::core::marker::Copy for USER_MARSHAL_ROUTINE_QUADRUPLE {}
-impl ::core::clone::Clone for USER_MARSHAL_ROUTINE_QUADRUPLE {
+impl Copy for USER_MARSHAL_ROUTINE_QUADRUPLE {}
+impl Clone for USER_MARSHAL_ROUTINE_QUADRUPLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for USER_MARSHAL_ROUTINE_QUADRUPLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for USER_MARSHAL_ROUTINE_QUADRUPLE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("USER_MARSHAL_ROUTINE_QUADRUPLE").finish()
     }
 }
-impl ::windows_core::TypeKind for USER_MARSHAL_ROUTINE_QUADRUPLE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for USER_MARSHAL_ROUTINE_QUADRUPLE {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::default::Default for USER_MARSHAL_ROUTINE_QUADRUPLE {
+impl Default for USER_MARSHAL_ROUTINE_QUADRUPLE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 pub struct UUID_VECTOR {
     pub Count: u32,
-    pub Uuid: [*mut ::windows_core::GUID; 1],
+    pub Uuid: [*mut windows_core::GUID; 1],
 }
-impl ::core::marker::Copy for UUID_VECTOR {}
-impl ::core::clone::Clone for UUID_VECTOR {
+impl Copy for UUID_VECTOR {}
+impl Clone for UUID_VECTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for UUID_VECTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for UUID_VECTOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("UUID_VECTOR").field("Count", &self.Count).field("Uuid", &self.Uuid).finish()
     }
 }
-impl ::windows_core::TypeKind for UUID_VECTOR {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for UUID_VECTOR {
+    type TypeKind = windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for UUID_VECTOR {
+impl PartialEq for UUID_VECTOR {
     fn eq(&self, other: &Self) -> bool {
         self.Count == other.Count && self.Uuid == other.Uuid
     }
 }
-impl ::core::cmp::Eq for UUID_VECTOR {}
-impl ::core::default::Default for UUID_VECTOR {
+impl Eq for UUID_VECTOR {}
+impl Default for UUID_VECTOR {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -9732,105 +9732,105 @@ pub struct XMIT_ROUTINE_QUINTUPLE {
     pub pfnFreeInst: XMIT_HELPER_ROUTINE,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for XMIT_ROUTINE_QUINTUPLE {}
+impl Copy for XMIT_ROUTINE_QUINTUPLE {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for XMIT_ROUTINE_QUINTUPLE {
+impl Clone for XMIT_ROUTINE_QUINTUPLE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for XMIT_ROUTINE_QUINTUPLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl core::fmt::Debug for XMIT_ROUTINE_QUINTUPLE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("XMIT_ROUTINE_QUINTUPLE").finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::windows_core::TypeKind for XMIT_ROUTINE_QUINTUPLE {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for XMIT_ROUTINE_QUINTUPLE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for XMIT_ROUTINE_QUINTUPLE {
+impl Default for XMIT_ROUTINE_QUINTUPLE {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(PartialEq, Eq)]
 pub struct _NDR_PROC_CONTEXT(pub isize);
-impl ::core::default::Default for _NDR_PROC_CONTEXT {
+impl Default for _NDR_PROC_CONTEXT {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        unsafe { core::mem::zeroed() }
     }
 }
-impl ::core::clone::Clone for _NDR_PROC_CONTEXT {
+impl Clone for _NDR_PROC_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for _NDR_PROC_CONTEXT {}
-impl ::core::fmt::Debug for _NDR_PROC_CONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+impl Copy for _NDR_PROC_CONTEXT {}
+impl core::fmt::Debug for _NDR_PROC_CONTEXT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("_NDR_PROC_CONTEXT").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for _NDR_PROC_CONTEXT {
-    type TypeKind = ::windows_core::CopyType;
+impl windows_core::TypeKind for _NDR_PROC_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
-pub type CS_TAG_GETTING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, fserverside: i32, pulsendingtag: *mut u32, puldesiredreceivingtag: *mut u32, pulreceivingtag: *mut u32, pstatus: *mut u32)>;
-pub type CS_TYPE_FROM_NETCS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, pnetworkdata: *mut u8, ulnetworkdatalength: u32, ullocalbuffersize: u32, plocaldata: *mut ::core::ffi::c_void, pullocaldatalength: *mut u32, pstatus: *mut u32)>;
-pub type CS_TYPE_LOCAL_SIZE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, ulnetworkbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pullocalbuffersize: *mut u32, pstatus: *mut u32)>;
-pub type CS_TYPE_NET_SIZE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, ullocalbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pulnetworkbuffersize: *mut u32, pstatus: *mut u32)>;
-pub type CS_TYPE_TO_NETCS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, plocaldata: *mut ::core::ffi::c_void, ullocaldatalength: u32, pnetworkdata: *mut u8, pulnetworkdatalength: *mut u32, pstatus: *mut u32)>;
+pub type CS_TAG_GETTING_ROUTINE = Option<unsafe extern "system" fn(hbinding: *mut core::ffi::c_void, fserverside: i32, pulsendingtag: *mut u32, puldesiredreceivingtag: *mut u32, pulreceivingtag: *mut u32, pstatus: *mut u32)>;
+pub type CS_TYPE_FROM_NETCS_ROUTINE = Option<unsafe extern "system" fn(hbinding: *mut core::ffi::c_void, ulnetworkcodeset: u32, pnetworkdata: *mut u8, ulnetworkdatalength: u32, ullocalbuffersize: u32, plocaldata: *mut core::ffi::c_void, pullocaldatalength: *mut u32, pstatus: *mut u32)>;
+pub type CS_TYPE_LOCAL_SIZE_ROUTINE = Option<unsafe extern "system" fn(hbinding: *mut core::ffi::c_void, ulnetworkcodeset: u32, ulnetworkbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pullocalbuffersize: *mut u32, pstatus: *mut u32)>;
+pub type CS_TYPE_NET_SIZE_ROUTINE = Option<unsafe extern "system" fn(hbinding: *mut core::ffi::c_void, ulnetworkcodeset: u32, ullocalbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pulnetworkbuffersize: *mut u32, pstatus: *mut u32)>;
+pub type CS_TYPE_TO_NETCS_ROUTINE = Option<unsafe extern "system" fn(hbinding: *mut core::ffi::c_void, ulnetworkcodeset: u32, plocaldata: *mut core::ffi::c_void, ullocaldatalength: u32, pnetworkdata: *mut u8, pulnetworkdatalength: *mut u32, pstatus: *mut u32)>;
 #[cfg(feature = "Win32_System_Com")]
-pub type EXPR_EVAL = ::core::option::Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
-pub type GENERIC_BINDING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
-pub type GENERIC_UNBIND_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut u8)>;
-pub type I_RpcFreeCalloutStateFn = ::core::option::Option<unsafe extern "system" fn(calloutstate: *mut RDR_CALLOUT_STATE)>;
-pub type I_RpcPerformCalloutFn = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, calloutstate: *mut RDR_CALLOUT_STATE, stage: RPC_HTTP_REDIRECTOR_STAGE) -> RPC_STATUS>;
-pub type I_RpcProxyFilterIfFn = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, ifuuid: *const ::windows_core::GUID, ifmajorversion: u16, fallow: *mut i32) -> RPC_STATUS>;
-pub type I_RpcProxyGetClientAddressFn = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, buffer: ::windows_core::PCSTR, bufferlength: *mut u32) -> RPC_STATUS>;
-pub type I_RpcProxyGetClientSessionAndResourceUUID = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionidpresent: *mut i32, sessionid: *mut ::windows_core::GUID, resourceidpresent: *mut i32, resourceid: *mut ::windows_core::GUID) -> RPC_STATUS>;
-pub type I_RpcProxyGetConnectionTimeoutFn = ::core::option::Option<unsafe extern "system" fn(connectiontimeout: *mut u32) -> RPC_STATUS>;
-pub type I_RpcProxyIsValidMachineFn = ::core::option::Option<unsafe extern "system" fn(machine: ::windows_core::PCWSTR, dotmachine: ::windows_core::PCWSTR, portnumber: u32) -> RPC_STATUS>;
-pub type I_RpcProxyUpdatePerfCounterBackendServerFn = ::core::option::Option<unsafe extern "system" fn(machinename: *const u16, isconnectevent: i32)>;
-pub type I_RpcProxyUpdatePerfCounterFn = ::core::option::Option<unsafe extern "system" fn(counter: RpcPerfCounters, modifytrend: i32, size: u32)>;
-pub type MIDL_ES_ALLOC = ::core::option::Option<unsafe extern "system" fn(state: *mut ::core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32)>;
-pub type MIDL_ES_READ = ::core::option::Option<unsafe extern "system" fn(state: *mut ::core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32)>;
-pub type MIDL_ES_WRITE = ::core::option::Option<unsafe extern "system" fn(state: *mut ::core::ffi::c_void, buffer: ::windows_core::PCSTR, size: u32)>;
-pub type NDR_NOTIFY2_ROUTINE = ::core::option::Option<unsafe extern "system" fn(flag: u8)>;
-pub type NDR_NOTIFY_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
-pub type NDR_RUNDOWN = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void)>;
+pub type EXPR_EVAL = Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
+pub type GENERIC_BINDING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
+pub type GENERIC_UNBIND_ROUTINE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut u8)>;
+pub type I_RpcFreeCalloutStateFn = Option<unsafe extern "system" fn(calloutstate: *mut RDR_CALLOUT_STATE)>;
+pub type I_RpcPerformCalloutFn = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, calloutstate: *mut RDR_CALLOUT_STATE, stage: RPC_HTTP_REDIRECTOR_STAGE) -> RPC_STATUS>;
+pub type I_RpcProxyFilterIfFn = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, ifuuid: *const windows_core::GUID, ifmajorversion: u16, fallow: *mut i32) -> RPC_STATUS>;
+pub type I_RpcProxyGetClientAddressFn = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, buffer: windows_core::PCSTR, bufferlength: *mut u32) -> RPC_STATUS>;
+pub type I_RpcProxyGetClientSessionAndResourceUUID = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sessionidpresent: *mut i32, sessionid: *mut windows_core::GUID, resourceidpresent: *mut i32, resourceid: *mut windows_core::GUID) -> RPC_STATUS>;
+pub type I_RpcProxyGetConnectionTimeoutFn = Option<unsafe extern "system" fn(connectiontimeout: *mut u32) -> RPC_STATUS>;
+pub type I_RpcProxyIsValidMachineFn = Option<unsafe extern "system" fn(machine: windows_core::PCWSTR, dotmachine: windows_core::PCWSTR, portnumber: u32) -> RPC_STATUS>;
+pub type I_RpcProxyUpdatePerfCounterBackendServerFn = Option<unsafe extern "system" fn(machinename: *const u16, isconnectevent: i32)>;
+pub type I_RpcProxyUpdatePerfCounterFn = Option<unsafe extern "system" fn(counter: RpcPerfCounters, modifytrend: i32, size: u32)>;
+pub type MIDL_ES_ALLOC = Option<unsafe extern "system" fn(state: *mut core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32)>;
+pub type MIDL_ES_READ = Option<unsafe extern "system" fn(state: *mut core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32)>;
+pub type MIDL_ES_WRITE = Option<unsafe extern "system" fn(state: *mut core::ffi::c_void, buffer: windows_core::PCSTR, size: u32)>;
+pub type NDR_NOTIFY2_ROUTINE = Option<unsafe extern "system" fn(flag: u8)>;
+pub type NDR_NOTIFY_ROUTINE = Option<unsafe extern "system" fn()>;
+pub type NDR_RUNDOWN = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
 #[cfg(feature = "Win32_System_IO")]
-pub type PFN_RPCNOTIFICATION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pasync: *mut RPC_ASYNC_STATE, context: *mut ::core::ffi::c_void, event: RPC_ASYNC_EVENT)>;
-pub type PFN_RPC_ALLOCATE = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> *mut ::core::ffi::c_void>;
-pub type PFN_RPC_FREE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
-pub type PRPC_RUNDOWN = ::core::option::Option<unsafe extern "system" fn(associationcontext: *mut ::core::ffi::c_void)>;
-pub type RPCLT_PDU_FILTER_FUNC = ::core::option::Option<unsafe extern "system" fn(buffer: *mut ::core::ffi::c_void, bufferlength: u32, fdatagram: i32)>;
-pub type RPC_ADDRESS_CHANGE_FN = ::core::option::Option<unsafe extern "system" fn(arg: *mut ::core::ffi::c_void)>;
-pub type RPC_AUTH_KEY_RETRIEVAL_FN = ::core::option::Option<unsafe extern "system" fn(arg: *const ::core::ffi::c_void, serverprincname: ::windows_core::PCWSTR, keyver: u32, key: *mut *mut ::core::ffi::c_void, status: *mut RPC_STATUS)>;
-pub type RPC_BLOCKING_FN = ::core::option::Option<unsafe extern "system" fn(hwnd: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, hsyncevent: *mut ::core::ffi::c_void) -> RPC_STATUS>;
-pub type RPC_CLIENT_ALLOC = ::core::option::Option<unsafe extern "system" fn(size: usize) -> *mut ::core::ffi::c_void>;
-pub type RPC_CLIENT_FREE = ::core::option::Option<unsafe extern "system" fn(ptr: *const ::core::ffi::c_void)>;
-pub type RPC_DISPATCH_FUNCTION = ::core::option::Option<unsafe extern "system" fn(message: *mut RPC_MESSAGE)>;
-pub type RPC_FORWARD_FUNCTION = ::core::option::Option<unsafe extern "system" fn(interfaceid: *mut ::windows_core::GUID, interfaceversion: *mut RPC_VERSION, objectid: *mut ::windows_core::GUID, rpcpro: *mut u8, ppdestendpoint: *mut *mut ::core::ffi::c_void) -> RPC_STATUS>;
-pub type RPC_HTTP_PROXY_FREE_STRING = ::core::option::Option<unsafe extern "system" fn(string: ::windows_core::PCWSTR)>;
-pub type RPC_IF_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(interfaceuuid: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void) -> RPC_STATUS>;
-pub type RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(ifgroup: *const ::core::ffi::c_void, idlecallbackcontext: *const ::core::ffi::c_void, isgroupidle: u32)>;
-pub type RPC_MGMT_AUTHORIZATION_FN = ::core::option::Option<unsafe extern "system" fn(clientbinding: *const ::core::ffi::c_void, requestedmgmtoperation: u32, status: *mut RPC_STATUS) -> i32>;
-pub type RPC_NEW_HTTP_PROXY_CHANNEL = ::core::option::Option<unsafe extern "system" fn(redirectorstage: RPC_HTTP_REDIRECTOR_STAGE, servername: ::windows_core::PCWSTR, serverport: ::windows_core::PCWSTR, remoteuser: ::windows_core::PCWSTR, authtype: ::windows_core::PCWSTR, resourceuuid: *mut ::core::ffi::c_void, sessionid: *mut ::core::ffi::c_void, interface: *const ::core::ffi::c_void, reserved: *const ::core::ffi::c_void, flags: u32, newservername: *mut ::windows_core::PWSTR, newserverport: *mut ::windows_core::PWSTR) -> RPC_STATUS>;
-pub type RPC_OBJECT_INQ_FN = ::core::option::Option<unsafe extern "system" fn(objectuuid: *const ::windows_core::GUID, typeuuid: *mut ::windows_core::GUID, status: *mut RPC_STATUS)>;
-pub type RPC_SECURITY_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
-pub type RPC_SETFILTER_FUNC = ::core::option::Option<unsafe extern "system" fn(pfnfilter: RPCLT_PDU_FILTER_FUNC)>;
-pub type SERVER_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> i32>;
+pub type PFN_RPCNOTIFICATION_ROUTINE = Option<unsafe extern "system" fn(pasync: *mut RPC_ASYNC_STATE, context: *mut core::ffi::c_void, event: RPC_ASYNC_EVENT)>;
+pub type PFN_RPC_ALLOCATE = Option<unsafe extern "system" fn(param0: usize) -> *mut core::ffi::c_void>;
+pub type PFN_RPC_FREE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
+pub type PRPC_RUNDOWN = Option<unsafe extern "system" fn(associationcontext: *mut core::ffi::c_void)>;
+pub type RPCLT_PDU_FILTER_FUNC = Option<unsafe extern "system" fn(buffer: *mut core::ffi::c_void, bufferlength: u32, fdatagram: i32)>;
+pub type RPC_ADDRESS_CHANGE_FN = Option<unsafe extern "system" fn(arg: *mut core::ffi::c_void)>;
+pub type RPC_AUTH_KEY_RETRIEVAL_FN = Option<unsafe extern "system" fn(arg: *const core::ffi::c_void, serverprincname: windows_core::PCWSTR, keyver: u32, key: *mut *mut core::ffi::c_void, status: *mut RPC_STATUS)>;
+pub type RPC_BLOCKING_FN = Option<unsafe extern "system" fn(hwnd: *mut core::ffi::c_void, context: *mut core::ffi::c_void, hsyncevent: *mut core::ffi::c_void) -> RPC_STATUS>;
+pub type RPC_CLIENT_ALLOC = Option<unsafe extern "system" fn(size: usize) -> *mut core::ffi::c_void>;
+pub type RPC_CLIENT_FREE = Option<unsafe extern "system" fn(ptr: *const core::ffi::c_void)>;
+pub type RPC_DISPATCH_FUNCTION = Option<unsafe extern "system" fn(message: *mut RPC_MESSAGE)>;
+pub type RPC_FORWARD_FUNCTION = Option<unsafe extern "system" fn(interfaceid: *mut windows_core::GUID, interfaceversion: *mut RPC_VERSION, objectid: *mut windows_core::GUID, rpcpro: *mut u8, ppdestendpoint: *mut *mut core::ffi::c_void) -> RPC_STATUS>;
+pub type RPC_HTTP_PROXY_FREE_STRING = Option<unsafe extern "system" fn(string: windows_core::PCWSTR)>;
+pub type RPC_IF_CALLBACK_FN = Option<unsafe extern "system" fn(interfaceuuid: *const core::ffi::c_void, context: *const core::ffi::c_void) -> RPC_STATUS>;
+pub type RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN = Option<unsafe extern "system" fn(ifgroup: *const core::ffi::c_void, idlecallbackcontext: *const core::ffi::c_void, isgroupidle: u32)>;
+pub type RPC_MGMT_AUTHORIZATION_FN = Option<unsafe extern "system" fn(clientbinding: *const core::ffi::c_void, requestedmgmtoperation: u32, status: *mut RPC_STATUS) -> i32>;
+pub type RPC_NEW_HTTP_PROXY_CHANNEL = Option<unsafe extern "system" fn(redirectorstage: RPC_HTTP_REDIRECTOR_STAGE, servername: windows_core::PCWSTR, serverport: windows_core::PCWSTR, remoteuser: windows_core::PCWSTR, authtype: windows_core::PCWSTR, resourceuuid: *mut core::ffi::c_void, sessionid: *mut core::ffi::c_void, interface: *const core::ffi::c_void, reserved: *const core::ffi::c_void, flags: u32, newservername: *mut windows_core::PWSTR, newserverport: *mut windows_core::PWSTR) -> RPC_STATUS>;
+pub type RPC_OBJECT_INQ_FN = Option<unsafe extern "system" fn(objectuuid: *const windows_core::GUID, typeuuid: *mut windows_core::GUID, status: *mut RPC_STATUS)>;
+pub type RPC_SECURITY_CALLBACK_FN = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+pub type RPC_SETFILTER_FUNC = Option<unsafe extern "system" fn(pfnfilter: RPCLT_PDU_FILTER_FUNC)>;
+pub type SERVER_ROUTINE = Option<unsafe extern "system" fn() -> i32>;
 #[cfg(feature = "Win32_System_Com")]
-pub type STUB_THUNK = ::core::option::Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
-pub type USER_MARSHAL_FREEING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut ::core::ffi::c_void)>;
-pub type USER_MARSHAL_MARSHALLING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut ::core::ffi::c_void) -> *mut u8>;
-pub type USER_MARSHAL_SIZING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: u32, param2: *mut ::core::ffi::c_void) -> u32>;
-pub type USER_MARSHAL_UNMARSHALLING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut ::core::ffi::c_void) -> *mut u8>;
+pub type STUB_THUNK = Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
+pub type USER_MARSHAL_FREEING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut core::ffi::c_void)>;
+pub type USER_MARSHAL_MARSHALLING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut core::ffi::c_void) -> *mut u8>;
+pub type USER_MARSHAL_SIZING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: u32, param2: *mut core::ffi::c_void) -> u32>;
+pub type USER_MARSHAL_UNMARSHALLING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut core::ffi::c_void) -> *mut u8>;
 #[cfg(feature = "Win32_System_Com")]
-pub type XMIT_HELPER_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
+pub type XMIT_HELPER_ROUTINE = Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
 impl RPC_STATUS {
     #[inline]
     pub const fn is_ok(self) -> bool {
@@ -9841,11 +9841,11 @@ impl RPC_STATUS {
         !self.is_ok()
     }
     #[inline]
-    pub const fn to_hresult(self) -> ::windows_core::HRESULT {
-        ::windows_core::HRESULT::from_win32(self.0 as u32)
+    pub const fn to_hresult(self) -> windows_core::HRESULT {
+        windows_core::HRESULT::from_win32(self.0 as u32)
     }
     #[inline]
-    pub fn ok(self) -> ::windows_core::Result<()> {
+    pub fn ok(self) -> windows_core::Result<()> {
         if self.is_ok() {
             Ok(())
         } else {
@@ -9853,12 +9853,12 @@ impl RPC_STATUS {
         }
     }
 }
-impl ::core::convert::From<RPC_STATUS> for ::windows_core::HRESULT {
+impl From<RPC_STATUS> for windows_core::HRESULT {
     fn from(value: RPC_STATUS) -> Self {
         value.to_hresult()
     }
 }
-impl ::core::convert::From<RPC_STATUS> for ::windows_core::Error {
+impl From<RPC_STATUS> for windows_core::Error {
     fn from(value: RPC_STATUS) -> Self {
         value.to_hresult().into()
     }

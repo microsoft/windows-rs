@@ -1,105 +1,105 @@
 ::windows_targets::link!("ndis.sys" "system" fn NdisAcquireReadWriteLock(lock : *mut NDIS_RW_LOCK, fwrite : super::super::super::Win32::Foundation:: BOOLEAN, lockstate : *mut LOCK_STATE));
-::windows_targets::link!("ndis.sys" "system" fn NdisAllocateMemoryWithTag(virtualaddress : *mut *mut ::core::ffi::c_void, length : u32, tag : u32) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisAllocateMemoryWithTag(virtualaddress : *mut *mut core::ffi::c_void, length : u32, tag : u32) -> i32);
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 ::windows_targets::link!("ndis.sys" "system" fn NdisCancelTimer(timer : *const NDIS_TIMER, timercancelled : *mut super::super::super::Win32::Foundation:: BOOLEAN));
-::windows_targets::link!("ndis.sys" "system" fn NdisClAddParty(ndisvchandle : *const ::core::ffi::c_void, protocolpartycontext : *const ::core::ffi::c_void, callparameters : *mut CO_CALL_PARAMETERS, ndispartyhandle : *mut *mut ::core::ffi::c_void) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisClCloseAddressFamily(ndisafhandle : *const ::core::ffi::c_void) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisClCloseCall(ndisvchandle : *const ::core::ffi::c_void, ndispartyhandle : *const ::core::ffi::c_void, buffer : *const ::core::ffi::c_void, size : u32) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisClDeregisterSap(ndissaphandle : *const ::core::ffi::c_void) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisClDropParty(ndispartyhandle : *const ::core::ffi::c_void, buffer : *const ::core::ffi::c_void, size : u32) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisClGetProtocolVcContextFromTapiCallId(tapicallid : super::super::super::Win32::Foundation:: UNICODE_STRING, protocolvccontext : *mut *mut ::core::ffi::c_void) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisClIncomingCallComplete(status : i32, ndisvchandle : *const ::core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
-::windows_targets::link!("ndis.sys" "system" fn NdisClMakeCall(ndisvchandle : *const ::core::ffi::c_void, callparameters : *mut CO_CALL_PARAMETERS, protocolpartycontext : *const ::core::ffi::c_void, ndispartyhandle : *mut *mut ::core::ffi::c_void) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisClModifyCallQoS(ndisvchandle : *const ::core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisClRegisterSap(ndisafhandle : *const ::core::ffi::c_void, protocolsapcontext : *const ::core::ffi::c_void, sap : *const CO_SAP, ndissaphandle : *mut *mut ::core::ffi::c_void) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisCloseConfiguration(configurationhandle : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisCloseFile(filehandle : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisCmActivateVc(ndisvchandle : *const ::core::ffi::c_void, callparameters : *mut CO_CALL_PARAMETERS) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisCmAddPartyComplete(status : i32, ndispartyhandle : *const ::core::ffi::c_void, callmgrpartycontext : *const ::core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
-::windows_targets::link!("ndis.sys" "system" fn NdisCmCloseAddressFamilyComplete(status : i32, ndisafhandle : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisCmCloseCallComplete(status : i32, ndisvchandle : *const ::core::ffi::c_void, ndispartyhandle : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisCmDeactivateVc(ndisvchandle : *const ::core::ffi::c_void) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisCmDeregisterSapComplete(status : i32, ndissaphandle : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisCmDispatchCallConnected(ndisvchandle : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisCmDispatchIncomingCall(ndissaphandle : *const ::core::ffi::c_void, ndisvchandle : *const ::core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisCmDispatchIncomingCallQoSChange(ndisvchandle : *const ::core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
-::windows_targets::link!("ndis.sys" "system" fn NdisCmDispatchIncomingCloseCall(closestatus : i32, ndisvchandle : *const ::core::ffi::c_void, buffer : *const ::core::ffi::c_void, size : u32));
-::windows_targets::link!("ndis.sys" "system" fn NdisCmDispatchIncomingDropParty(dropstatus : i32, ndispartyhandle : *const ::core::ffi::c_void, buffer : *const ::core::ffi::c_void, size : u32));
-::windows_targets::link!("ndis.sys" "system" fn NdisCmDropPartyComplete(status : i32, ndispartyhandle : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisCmMakeCallComplete(status : i32, ndisvchandle : *const ::core::ffi::c_void, ndispartyhandle : *const ::core::ffi::c_void, callmgrpartycontext : *const ::core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
-::windows_targets::link!("ndis.sys" "system" fn NdisCmModifyCallQoSComplete(status : i32, ndisvchandle : *const ::core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
-::windows_targets::link!("ndis.sys" "system" fn NdisCmOpenAddressFamilyComplete(status : i32, ndisafhandle : *const ::core::ffi::c_void, callmgrafcontext : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisCmRegisterSapComplete(status : i32, ndissaphandle : *const ::core::ffi::c_void, callmgrsapcontext : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisCoAssignInstanceName(ndisvchandle : *const ::core::ffi::c_void, baseinstancename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, vcinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisCoCreateVc(ndisbindinghandle : *const ::core::ffi::c_void, ndisafhandle : *const ::core::ffi::c_void, protocolvccontext : *const ::core::ffi::c_void, ndisvchandle : *mut *mut ::core::ffi::c_void) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisCoDeleteVc(ndisvchandle : *const ::core::ffi::c_void) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisCoGetTapiCallId(ndisvchandle : *const ::core::ffi::c_void, tapicallid : *mut VAR_STRING) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisClAddParty(ndisvchandle : *const core::ffi::c_void, protocolpartycontext : *const core::ffi::c_void, callparameters : *mut CO_CALL_PARAMETERS, ndispartyhandle : *mut *mut core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisClCloseAddressFamily(ndisafhandle : *const core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisClCloseCall(ndisvchandle : *const core::ffi::c_void, ndispartyhandle : *const core::ffi::c_void, buffer : *const core::ffi::c_void, size : u32) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisClDeregisterSap(ndissaphandle : *const core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisClDropParty(ndispartyhandle : *const core::ffi::c_void, buffer : *const core::ffi::c_void, size : u32) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisClGetProtocolVcContextFromTapiCallId(tapicallid : super::super::super::Win32::Foundation:: UNICODE_STRING, protocolvccontext : *mut *mut core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisClIncomingCallComplete(status : i32, ndisvchandle : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
+::windows_targets::link!("ndis.sys" "system" fn NdisClMakeCall(ndisvchandle : *const core::ffi::c_void, callparameters : *mut CO_CALL_PARAMETERS, protocolpartycontext : *const core::ffi::c_void, ndispartyhandle : *mut *mut core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisClModifyCallQoS(ndisvchandle : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisClRegisterSap(ndisafhandle : *const core::ffi::c_void, protocolsapcontext : *const core::ffi::c_void, sap : *const CO_SAP, ndissaphandle : *mut *mut core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisCloseConfiguration(configurationhandle : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisCloseFile(filehandle : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisCmActivateVc(ndisvchandle : *const core::ffi::c_void, callparameters : *mut CO_CALL_PARAMETERS) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisCmAddPartyComplete(status : i32, ndispartyhandle : *const core::ffi::c_void, callmgrpartycontext : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
+::windows_targets::link!("ndis.sys" "system" fn NdisCmCloseAddressFamilyComplete(status : i32, ndisafhandle : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisCmCloseCallComplete(status : i32, ndisvchandle : *const core::ffi::c_void, ndispartyhandle : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisCmDeactivateVc(ndisvchandle : *const core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisCmDeregisterSapComplete(status : i32, ndissaphandle : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisCmDispatchCallConnected(ndisvchandle : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisCmDispatchIncomingCall(ndissaphandle : *const core::ffi::c_void, ndisvchandle : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisCmDispatchIncomingCallQoSChange(ndisvchandle : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
+::windows_targets::link!("ndis.sys" "system" fn NdisCmDispatchIncomingCloseCall(closestatus : i32, ndisvchandle : *const core::ffi::c_void, buffer : *const core::ffi::c_void, size : u32));
+::windows_targets::link!("ndis.sys" "system" fn NdisCmDispatchIncomingDropParty(dropstatus : i32, ndispartyhandle : *const core::ffi::c_void, buffer : *const core::ffi::c_void, size : u32));
+::windows_targets::link!("ndis.sys" "system" fn NdisCmDropPartyComplete(status : i32, ndispartyhandle : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisCmMakeCallComplete(status : i32, ndisvchandle : *const core::ffi::c_void, ndispartyhandle : *const core::ffi::c_void, callmgrpartycontext : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
+::windows_targets::link!("ndis.sys" "system" fn NdisCmModifyCallQoSComplete(status : i32, ndisvchandle : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
+::windows_targets::link!("ndis.sys" "system" fn NdisCmOpenAddressFamilyComplete(status : i32, ndisafhandle : *const core::ffi::c_void, callmgrafcontext : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisCmRegisterSapComplete(status : i32, ndissaphandle : *const core::ffi::c_void, callmgrsapcontext : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisCoAssignInstanceName(ndisvchandle : *const core::ffi::c_void, baseinstancename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, vcinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisCoCreateVc(ndisbindinghandle : *const core::ffi::c_void, ndisafhandle : *const core::ffi::c_void, protocolvccontext : *const core::ffi::c_void, ndisvchandle : *mut *mut core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisCoDeleteVc(ndisvchandle : *const core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisCoGetTapiCallId(ndisvchandle : *const core::ffi::c_void, tapicallid : *mut VAR_STRING) -> i32);
 #[cfg(feature = "Wdk_Foundation")]
-::windows_targets::link!("ndis.sys" "system" fn NdisCompleteDmaTransfer(status : *mut i32, ndisdmahandle : *mut ::core::ffi::c_void, buffer : *mut super::super::Foundation:: MDL, offset : u32, length : u32, writetodevice : super::super::super::Win32::Foundation:: BOOLEAN));
+::windows_targets::link!("ndis.sys" "system" fn NdisCompleteDmaTransfer(status : *mut i32, ndisdmahandle : *mut core::ffi::c_void, buffer : *mut super::super::Foundation:: MDL, offset : u32, length : u32, writetodevice : super::super::super::Win32::Foundation:: BOOLEAN));
 #[cfg(feature = "Wdk_Foundation")]
-::windows_targets::link!("ndis.sys" "system" fn NdisCopyBuffer(status : *mut i32, buffer : *mut *mut super::super::Foundation:: MDL, poolhandle : *const ::core::ffi::c_void, memorydescriptor : *const ::core::ffi::c_void, offset : u32, length : u32));
+::windows_targets::link!("ndis.sys" "system" fn NdisCopyBuffer(status : *mut i32, buffer : *mut *mut super::super::Foundation:: MDL, poolhandle : *const core::ffi::c_void, memorydescriptor : *const core::ffi::c_void, offset : u32, length : u32));
 ::windows_targets::link!("ndis.sys" "system" fn NdisDeregisterTdiCallBack());
-::windows_targets::link!("ndis.sys" "system" fn NdisFreeMemory(virtualaddress : *const ::core::ffi::c_void, length : u32, memoryflags : u32));
+::windows_targets::link!("ndis.sys" "system" fn NdisFreeMemory(virtualaddress : *const core::ffi::c_void, length : u32, memoryflags : u32));
 ::windows_targets::link!("ndis.sys" "system" fn NdisGeneratePartialCancelId() -> u8);
 ::windows_targets::link!("ndis.sys" "system" fn NdisGetCurrentProcessorCounts(pidlecount : *mut u32, pkernelanduser : *mut u32, pindex : *mut u32));
 ::windows_targets::link!("ndis.sys" "system" fn NdisGetCurrentProcessorCpuUsage(pcpuusage : *mut u32));
-::windows_targets::link!("ndis.sys" "system" fn NdisGetRoutineAddress(ndisroutinename : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("ndis.sys" "system" fn NdisGetRoutineAddress(ndisroutinename : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> *mut core::ffi::c_void);
 ::windows_targets::link!("ndis.sys" "system" fn NdisGetSharedDataAlignment() -> u32);
 ::windows_targets::link!("ndis.sys" "system" fn NdisGetVersion() -> u32);
-::windows_targets::link!("ndis.sys" "system" fn NdisIMAssociateMiniport(driverhandle : *const ::core::ffi::c_void, protocolhandle : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisIMCancelInitializeDeviceInstance(driverhandle : *const ::core::ffi::c_void, deviceinstance : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisIMDeInitializeDeviceInstance(ndisminiporthandle : *const ::core::ffi::c_void) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisIMGetBindingContext(ndisbindinghandle : *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void);
-::windows_targets::link!("ndis.sys" "system" fn NdisIMInitializeDeviceInstanceEx(driverhandle : *const ::core::ffi::c_void, driverinstance : *const super::super::super::Win32::Foundation:: UNICODE_STRING, devicecontext : *const ::core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisIMAssociateMiniport(driverhandle : *const core::ffi::c_void, protocolhandle : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisIMCancelInitializeDeviceInstance(driverhandle : *const core::ffi::c_void, deviceinstance : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisIMDeInitializeDeviceInstance(ndisminiporthandle : *const core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisIMGetBindingContext(ndisbindinghandle : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+::windows_targets::link!("ndis.sys" "system" fn NdisIMInitializeDeviceInstanceEx(driverhandle : *const core::ffi::c_void, driverinstance : *const super::super::super::Win32::Foundation:: UNICODE_STRING, devicecontext : *const core::ffi::c_void) -> i32);
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 ::windows_targets::link!("ndis.sys" "system" fn NdisInitializeEvent(event : *mut NDIS_EVENT));
 ::windows_targets::link!("ndis.sys" "system" fn NdisInitializeReadWriteLock(lock : *mut NDIS_RW_LOCK));
 ::windows_targets::link!("ndis.sys" "system" fn NdisInitializeString(destination : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, source : *const u8));
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
-::windows_targets::link!("ndis.sys" "system" fn NdisInitializeTimer(timer : *mut NDIS_TIMER, timerfunction : PNDIS_TIMER_FUNCTION, functioncontext : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisMAllocateSharedMemory(miniportadapterhandle : *const ::core::ffi::c_void, length : u32, cached : super::super::super::Win32::Foundation:: BOOLEAN, virtualaddress : *mut *mut ::core::ffi::c_void, physicaladdress : *mut i64));
-::windows_targets::link!("ndis.sys" "system" fn NdisMAllocateSharedMemoryAsync(miniportadapterhandle : *const ::core::ffi::c_void, length : u32, cached : super::super::super::Win32::Foundation:: BOOLEAN, context : *const ::core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisInitializeTimer(timer : *mut NDIS_TIMER, timerfunction : PNDIS_TIMER_FUNCTION, functioncontext : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisMAllocateSharedMemory(miniportadapterhandle : *const core::ffi::c_void, length : u32, cached : super::super::super::Win32::Foundation:: BOOLEAN, virtualaddress : *mut *mut core::ffi::c_void, physicaladdress : *mut i64));
+::windows_targets::link!("ndis.sys" "system" fn NdisMAllocateSharedMemoryAsync(miniportadapterhandle : *const core::ffi::c_void, length : u32, cached : super::super::super::Win32::Foundation:: BOOLEAN, context : *const core::ffi::c_void) -> i32);
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 ::windows_targets::link!("ndis.sys" "system" fn NdisMCancelTimer(timer : *const NDIS_MINIPORT_TIMER, timercancelled : *mut super::super::super::Win32::Foundation:: BOOLEAN));
-::windows_targets::link!("ndis.sys" "system" fn NdisMCloseLog(loghandle : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisMCmActivateVc(ndisvchandle : *const ::core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisMCmCreateVc(miniportadapterhandle : *const ::core::ffi::c_void, ndisafhandle : *const ::core::ffi::c_void, miniportvccontext : *const ::core::ffi::c_void, ndisvchandle : *mut *mut ::core::ffi::c_void) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisMCmDeactivateVc(ndisvchandle : *const ::core::ffi::c_void) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisMCmDeleteVc(ndisvchandle : *const ::core::ffi::c_void) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisMCmRegisterAddressFamily(miniportadapterhandle : *mut ::core::ffi::c_void, addressfamily : *mut CO_ADDRESS_FAMILY, cmcharacteristics : *mut NDIS_CALL_MANAGER_CHARACTERISTICS, sizeofcmcharacteristics : u32) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisMCoActivateVcComplete(status : i32, ndisvchandle : *const ::core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
-::windows_targets::link!("ndis.sys" "system" fn NdisMCoDeactivateVcComplete(status : i32, ndisvchandle : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisMCreateLog(miniportadapterhandle : *const ::core::ffi::c_void, size : u32, loghandle : *mut *mut ::core::ffi::c_void) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisMDeregisterDmaChannel(miniportdmahandle : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisMDeregisterIoPortRange(miniportadapterhandle : *const ::core::ffi::c_void, initialport : u32, numberofports : u32, portoffset : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisMFlushLog(loghandle : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisMFreeSharedMemory(miniportadapterhandle : *const ::core::ffi::c_void, length : u32, cached : super::super::super::Win32::Foundation:: BOOLEAN, virtualaddress : *const ::core::ffi::c_void, physicaladdress : i64));
+::windows_targets::link!("ndis.sys" "system" fn NdisMCloseLog(loghandle : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisMCmActivateVc(ndisvchandle : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisMCmCreateVc(miniportadapterhandle : *const core::ffi::c_void, ndisafhandle : *const core::ffi::c_void, miniportvccontext : *const core::ffi::c_void, ndisvchandle : *mut *mut core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisMCmDeactivateVc(ndisvchandle : *const core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisMCmDeleteVc(ndisvchandle : *const core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisMCmRegisterAddressFamily(miniportadapterhandle : *mut core::ffi::c_void, addressfamily : *mut CO_ADDRESS_FAMILY, cmcharacteristics : *mut NDIS_CALL_MANAGER_CHARACTERISTICS, sizeofcmcharacteristics : u32) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisMCoActivateVcComplete(status : i32, ndisvchandle : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
+::windows_targets::link!("ndis.sys" "system" fn NdisMCoDeactivateVcComplete(status : i32, ndisvchandle : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisMCreateLog(miniportadapterhandle : *const core::ffi::c_void, size : u32, loghandle : *mut *mut core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisMDeregisterDmaChannel(miniportdmahandle : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisMDeregisterIoPortRange(miniportadapterhandle : *const core::ffi::c_void, initialport : u32, numberofports : u32, portoffset : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisMFlushLog(loghandle : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisMFreeSharedMemory(miniportadapterhandle : *const core::ffi::c_void, length : u32, cached : super::super::super::Win32::Foundation:: BOOLEAN, virtualaddress : *const core::ffi::c_void, physicaladdress : i64));
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-::windows_targets::link!("ndis.sys" "system" fn NdisMGetDeviceProperty(miniportadapterhandle : *const ::core::ffi::c_void, physicaldeviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT, functionaldeviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT, nextdeviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT, allocatedresources : *mut *mut super::super::System::SystemServices:: CM_RESOURCE_LIST, allocatedresourcestranslated : *mut *mut super::super::System::SystemServices:: CM_RESOURCE_LIST));
-::windows_targets::link!("ndis.sys" "system" fn NdisMGetDmaAlignment(miniportadapterhandle : *const ::core::ffi::c_void) -> u32);
+::windows_targets::link!("ndis.sys" "system" fn NdisMGetDeviceProperty(miniportadapterhandle : *const core::ffi::c_void, physicaldeviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT, functionaldeviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT, nextdeviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT, allocatedresources : *mut *mut super::super::System::SystemServices:: CM_RESOURCE_LIST, allocatedresourcestranslated : *mut *mut super::super::System::SystemServices:: CM_RESOURCE_LIST));
+::windows_targets::link!("ndis.sys" "system" fn NdisMGetDmaAlignment(miniportadapterhandle : *const core::ffi::c_void) -> u32);
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
-::windows_targets::link!("ndis.sys" "system" fn NdisMInitializeTimer(timer : *const NDIS_MINIPORT_TIMER, miniportadapterhandle : *const ::core::ffi::c_void, timerfunction : PNDIS_TIMER_FUNCTION, functioncontext : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisMMapIoSpace(virtualaddress : *mut *mut ::core::ffi::c_void, miniportadapterhandle : *const ::core::ffi::c_void, physicaladdress : i64, length : u32) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisMQueryAdapterInstanceName(padapterinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, miniporthandle : *const ::core::ffi::c_void) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisMReadDmaCounter(miniportdmahandle : *const ::core::ffi::c_void) -> u32);
+::windows_targets::link!("ndis.sys" "system" fn NdisMInitializeTimer(timer : *const NDIS_MINIPORT_TIMER, miniportadapterhandle : *const core::ffi::c_void, timerfunction : PNDIS_TIMER_FUNCTION, functioncontext : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisMMapIoSpace(virtualaddress : *mut *mut core::ffi::c_void, miniportadapterhandle : *const core::ffi::c_void, physicaladdress : i64, length : u32) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisMQueryAdapterInstanceName(padapterinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, miniporthandle : *const core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisMReadDmaCounter(miniportdmahandle : *const core::ffi::c_void) -> u32);
 #[cfg(feature = "Wdk_System_SystemServices")]
-::windows_targets::link!("ndis.sys" "system" fn NdisMRegisterDmaChannel(miniportdmahandle : *mut *mut ::core::ffi::c_void, miniportadapterhandle : *const ::core::ffi::c_void, dmachannel : u32, dma32bitaddresses : super::super::super::Win32::Foundation:: BOOLEAN, dmadescription : *const NDIS_DMA_DESCRIPTION, maximumlength : u32) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisMRegisterIoPortRange(portoffset : *mut *mut ::core::ffi::c_void, miniportadapterhandle : *const ::core::ffi::c_void, initialport : u32, numberofports : u32) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisMRemoveMiniport(miniporthandle : *const ::core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisMRegisterDmaChannel(miniportdmahandle : *mut *mut core::ffi::c_void, miniportadapterhandle : *const core::ffi::c_void, dmachannel : u32, dma32bitaddresses : super::super::super::Win32::Foundation:: BOOLEAN, dmadescription : *const NDIS_DMA_DESCRIPTION, maximumlength : u32) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisMRegisterIoPortRange(portoffset : *mut *mut core::ffi::c_void, miniportadapterhandle : *const core::ffi::c_void, initialport : u32, numberofports : u32) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisMRemoveMiniport(miniporthandle : *const core::ffi::c_void) -> i32);
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 ::windows_targets::link!("ndis.sys" "system" fn NdisMSetPeriodicTimer(timer : *const NDIS_MINIPORT_TIMER, millisecondperiod : u32));
 ::windows_targets::link!("ndis.sys" "system" fn NdisMSleep(microsecondstosleep : u32));
-::windows_targets::link!("ndis.sys" "system" fn NdisMUnmapIoSpace(miniportadapterhandle : *const ::core::ffi::c_void, virtualaddress : *const ::core::ffi::c_void, length : u32));
-::windows_targets::link!("ndis.sys" "system" fn NdisMWriteLogData(loghandle : *const ::core::ffi::c_void, logbuffer : *const ::core::ffi::c_void, logbuffersize : u32) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisMapFile(status : *mut i32, mappedbuffer : *mut *mut ::core::ffi::c_void, filehandle : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisOpenConfigurationKeyByIndex(status : *mut i32, configurationhandle : *const ::core::ffi::c_void, index : u32, keyname : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, keyhandle : *mut *mut ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisOpenConfigurationKeyByName(status : *mut i32, configurationhandle : *const ::core::ffi::c_void, subkeyname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, subkeyhandle : *mut *mut ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisOpenFile(status : *mut i32, filehandle : *mut *mut ::core::ffi::c_void, filelength : *mut u32, filename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, highestacceptableaddress : i64));
-::windows_targets::link!("ndis.sys" "system" fn NdisQueryAdapterInstanceName(padapterinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, ndisbindinghandle : *const ::core::ffi::c_void) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisQueryBindInstanceName(padapterinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, bindingcontext : *const ::core::ffi::c_void) -> i32);
-::windows_targets::link!("ndis.sys" "system" fn NdisReEnumerateProtocolBindings(ndisprotocolhandle : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisReadConfiguration(status : *mut i32, parametervalue : *mut *mut NDIS_CONFIGURATION_PARAMETER, configurationhandle : *const ::core::ffi::c_void, keyword : *const super::super::super::Win32::Foundation:: UNICODE_STRING, parametertype : NDIS_PARAMETER_TYPE));
-::windows_targets::link!("ndis.sys" "system" fn NdisReadNetworkAddress(status : *mut i32, networkaddress : *mut *mut ::core::ffi::c_void, networkaddresslength : *mut u32, configurationhandle : *const ::core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisMUnmapIoSpace(miniportadapterhandle : *const core::ffi::c_void, virtualaddress : *const core::ffi::c_void, length : u32));
+::windows_targets::link!("ndis.sys" "system" fn NdisMWriteLogData(loghandle : *const core::ffi::c_void, logbuffer : *const core::ffi::c_void, logbuffersize : u32) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisMapFile(status : *mut i32, mappedbuffer : *mut *mut core::ffi::c_void, filehandle : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisOpenConfigurationKeyByIndex(status : *mut i32, configurationhandle : *const core::ffi::c_void, index : u32, keyname : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, keyhandle : *mut *mut core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisOpenConfigurationKeyByName(status : *mut i32, configurationhandle : *const core::ffi::c_void, subkeyname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, subkeyhandle : *mut *mut core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisOpenFile(status : *mut i32, filehandle : *mut *mut core::ffi::c_void, filelength : *mut u32, filename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, highestacceptableaddress : i64));
+::windows_targets::link!("ndis.sys" "system" fn NdisQueryAdapterInstanceName(padapterinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, ndisbindinghandle : *const core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisQueryBindInstanceName(padapterinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, bindingcontext : *const core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisReEnumerateProtocolBindings(ndisprotocolhandle : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisReadConfiguration(status : *mut i32, parametervalue : *mut *mut NDIS_CONFIGURATION_PARAMETER, configurationhandle : *const core::ffi::c_void, keyword : *const super::super::super::Win32::Foundation:: UNICODE_STRING, parametertype : NDIS_PARAMETER_TYPE));
+::windows_targets::link!("ndis.sys" "system" fn NdisReadNetworkAddress(status : *mut i32, networkaddress : *mut *mut core::ffi::c_void, networkaddresslength : *mut u32, configurationhandle : *const core::ffi::c_void));
 ::windows_targets::link!("ndis.sys" "system" fn NdisRegisterTdiCallBack(registercallback : TDI_REGISTER_CALLBACK, pnphandler : TDI_PNP_HANDLER));
 ::windows_targets::link!("ndis.sys" "system" fn NdisReleaseReadWriteLock(lock : *mut NDIS_RW_LOCK, lockstate : *const LOCK_STATE));
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
@@ -111,17 +111,17 @@
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 ::windows_targets::link!("ndis.sys" "system" fn NdisSetTimer(timer : *const NDIS_TIMER, millisecondstodelay : u32));
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
-::windows_targets::link!("ndis.sys" "system" fn NdisSetTimerEx(ndistimer : *const NDIS_TIMER, millisecondstodelay : u32, functioncontext : *const ::core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisSetTimerEx(ndistimer : *const NDIS_TIMER, millisecondstodelay : u32, functioncontext : *const core::ffi::c_void));
 #[cfg(feature = "Wdk_Foundation")]
-::windows_targets::link!("ndis.sys" "system" fn NdisSetupDmaTransfer(status : *mut i32, ndisdmahandle : *mut ::core::ffi::c_void, buffer : *mut super::super::Foundation:: MDL, offset : u32, length : u32, writetodevice : super::super::super::Win32::Foundation:: BOOLEAN));
+::windows_targets::link!("ndis.sys" "system" fn NdisSetupDmaTransfer(status : *mut i32, ndisdmahandle : *mut core::ffi::c_void, buffer : *mut super::super::Foundation:: MDL, offset : u32, length : u32, writetodevice : super::super::super::Win32::Foundation:: BOOLEAN));
 ::windows_targets::link!("ndis.sys" "system" fn NdisSystemProcessorCount() -> i8);
-::windows_targets::link!("ndis.sys" "system" fn NdisUnmapFile(filehandle : *const ::core::ffi::c_void));
-::windows_targets::link!("ndis.sys" "system" fn NdisUpdateSharedMemory(ndisadapterhandle : *mut ::core::ffi::c_void, length : u32, virtualaddress : *mut ::core::ffi::c_void, physicaladdress : i64));
+::windows_targets::link!("ndis.sys" "system" fn NdisUnmapFile(filehandle : *const core::ffi::c_void));
+::windows_targets::link!("ndis.sys" "system" fn NdisUpdateSharedMemory(ndisadapterhandle : *mut core::ffi::c_void, length : u32, virtualaddress : *mut core::ffi::c_void, physicaladdress : i64));
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 ::windows_targets::link!("ndis.sys" "system" fn NdisWaitEvent(event : *const NDIS_EVENT, mstowait : u32) -> super::super::super::Win32::Foundation:: BOOLEAN);
-::windows_targets::link!("ndis.sys" "system" fn NdisWriteConfiguration(status : *mut i32, configurationhandle : *const ::core::ffi::c_void, keyword : *const super::super::super::Win32::Foundation:: UNICODE_STRING, parametervalue : *const NDIS_CONFIGURATION_PARAMETER));
-::windows_targets::link!("ndis.sys" "cdecl" fn NdisWriteErrorLogEntry(ndisadapterhandle : *const ::core::ffi::c_void, errorcode : u32, numberoferrorvalues : u32, ...));
-::windows_targets::link!("ndis.sys" "system" fn NdisWriteEventLogEntry(loghandle : *const ::core::ffi::c_void, eventcode : i32, uniqueeventvalue : u32, numstrings : u16, stringslist : *const ::core::ffi::c_void, datasize : u32, data : *const ::core::ffi::c_void) -> i32);
+::windows_targets::link!("ndis.sys" "system" fn NdisWriteConfiguration(status : *mut i32, configurationhandle : *const core::ffi::c_void, keyword : *const super::super::super::Win32::Foundation:: UNICODE_STRING, parametervalue : *const NDIS_CONFIGURATION_PARAMETER));
+::windows_targets::link!("ndis.sys" "cdecl" fn NdisWriteErrorLogEntry(ndisadapterhandle : *const core::ffi::c_void, errorcode : u32, numberoferrorvalues : u32, ...));
+::windows_targets::link!("ndis.sys" "system" fn NdisWriteEventLogEntry(loghandle : *const core::ffi::c_void, eventcode : i32, uniqueeventvalue : u32, numstrings : u16, stringslist : *const core::ffi::c_void, datasize : u32, data : *const core::ffi::c_void) -> i32);
 pub const AUTHENTICATE: OFFLOAD_OPERATION_E = 1i32;
 pub const BINARY_COMPATIBLE: u32 = 0u32;
 pub const BROADCAST_VC: u32 = 8u32;
@@ -140,7 +140,7 @@ pub const CRYPTO_TUNNEL_AH_AUTH_FAILED: u32 = 4u32;
 pub const CRYPTO_TUNNEL_ESP_AUTH_FAILED: u32 = 5u32;
 pub const CachedNetBufferList: NDIS_PER_PACKET_INFO = 10i32;
 pub const ClassificationHandlePacketInfo: NDIS_PER_PACKET_INFO = 3i32;
-pub const DD_NDIS_DEVICE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\\Device\\NDIS");
+pub const DD_NDIS_DEVICE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Device\\NDIS");
 pub const DOT11_RSN_KCK_LENGTH: u32 = 16u32;
 pub const DOT11_RSN_KEK_LENGTH: u32 = 16u32;
 pub const DOT11_RSN_MAX_CIPHER_KEY_LENGTH: u32 = 32u32;
@@ -148,8 +148,8 @@ pub const EAPOL_REQUEST_ID_WOL_FLAG_MUST_ENCRYPT: u32 = 1u32;
 pub const ENCRYPT: OFFLOAD_OPERATION_E = 2i32;
 pub const ERRED_PACKET_INDICATION: u32 = 1u32;
 pub const ETHERNET_LENGTH_OF_ADDRESS: u32 = 6u32;
-pub const GUID_NDIS_NDK_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7969ba4d_dd80_4bc7_b3e6_68043997e519);
-pub const GUID_NDIS_NDK_STATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x530c69c9_2f51_49de_a1af_088d54ffa474);
+pub const GUID_NDIS_NDK_CAPABILITIES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7969ba4d_dd80_4bc7_b3e6_68043997e519);
+pub const GUID_NDIS_NDK_STATE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x530c69c9_2f51_49de_a1af_088d54ffa474);
 pub const INDICATE_END_OF_TX: u32 = 32u32;
 pub const INDICATE_ERRED_PACKETS: u32 = 16u32;
 pub const IOCTL_NDIS_RESERVED5: u32 = 1507380u32;
@@ -2452,10 +2452,10 @@ pub type UDP_ENCAP_TYPE = i32;
 #[repr(C)]
 pub struct BINARY_DATA {
     pub Length: u16,
-    pub Buffer: *mut ::core::ffi::c_void,
+    pub Buffer: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for BINARY_DATA {}
-impl ::core::clone::Clone for BINARY_DATA {
+impl Copy for BINARY_DATA {}
+impl Clone for BINARY_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2465,8 +2465,8 @@ pub struct BSSID_INFO {
     pub BSSID: [u8; 6],
     pub PMKID: [u8; 16],
 }
-impl ::core::marker::Copy for BSSID_INFO {}
-impl ::core::clone::Clone for BSSID_INFO {
+impl Copy for BSSID_INFO {}
+impl Clone for BSSID_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2476,8 +2476,8 @@ pub struct CO_ADDRESS {
     pub AddressSize: u32,
     pub Address: [u8; 1],
 }
-impl ::core::marker::Copy for CO_ADDRESS {}
-impl ::core::clone::Clone for CO_ADDRESS {
+impl Copy for CO_ADDRESS {}
+impl Clone for CO_ADDRESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2488,8 +2488,8 @@ pub struct CO_ADDRESS_FAMILY {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
 }
-impl ::core::marker::Copy for CO_ADDRESS_FAMILY {}
-impl ::core::clone::Clone for CO_ADDRESS_FAMILY {
+impl Copy for CO_ADDRESS_FAMILY {}
+impl Clone for CO_ADDRESS_FAMILY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2500,8 +2500,8 @@ pub struct CO_ADDRESS_LIST {
     pub NumberOfAddresses: u32,
     pub AddressList: CO_ADDRESS,
 }
-impl ::core::marker::Copy for CO_ADDRESS_LIST {}
-impl ::core::clone::Clone for CO_ADDRESS_LIST {
+impl Copy for CO_ADDRESS_LIST {}
+impl Clone for CO_ADDRESS_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -2514,9 +2514,9 @@ pub struct CO_CALL_MANAGER_PARAMETERS {
     pub CallMgrSpecific: CO_SPECIFIC_PARAMETERS,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for CO_CALL_MANAGER_PARAMETERS {}
+impl Copy for CO_CALL_MANAGER_PARAMETERS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for CO_CALL_MANAGER_PARAMETERS {
+impl Clone for CO_CALL_MANAGER_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2525,11 +2525,11 @@ pub type CO_CALL_PARAMETERS = isize;
 pub type CO_MEDIA_PARAMETERS = isize;
 #[repr(C)]
 pub struct CO_PVC {
-    pub NdisAfHandle: *mut ::core::ffi::c_void,
+    pub NdisAfHandle: *mut core::ffi::c_void,
     pub PvcParameters: CO_SPECIFIC_PARAMETERS,
 }
-impl ::core::marker::Copy for CO_PVC {}
-impl ::core::clone::Clone for CO_PVC {
+impl Copy for CO_PVC {}
+impl Clone for CO_PVC {
     fn clone(&self) -> Self {
         *self
     }
@@ -2540,8 +2540,8 @@ pub struct CO_SAP {
     pub SapLength: u32,
     pub Sap: [u8; 1],
 }
-impl ::core::marker::Copy for CO_SAP {}
-impl ::core::clone::Clone for CO_SAP {
+impl Copy for CO_SAP {}
+impl Clone for CO_SAP {
     fn clone(&self) -> Self {
         *self
     }
@@ -2552,8 +2552,8 @@ pub struct CO_SPECIFIC_PARAMETERS {
     pub Length: u32,
     pub Parameters: [u8; 1],
 }
-impl ::core::marker::Copy for CO_SPECIFIC_PARAMETERS {}
-impl ::core::clone::Clone for CO_SPECIFIC_PARAMETERS {
+impl Copy for CO_SPECIFIC_PARAMETERS {}
+impl Clone for CO_SPECIFIC_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2563,11 +2563,11 @@ pub type ETH_FILTER = isize;
 pub struct FILTERDBS {
     pub Anonymous: FILTERDBS_0,
     pub TrDB: *mut isize,
-    pub YYYDB: *mut ::core::ffi::c_void,
-    pub XXXDB: *mut ::core::ffi::c_void,
+    pub YYYDB: *mut core::ffi::c_void,
+    pub XXXDB: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for FILTERDBS {}
-impl ::core::clone::Clone for FILTERDBS {
+impl Copy for FILTERDBS {}
+impl Clone for FILTERDBS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2577,8 +2577,8 @@ pub union FILTERDBS_0 {
     pub EthDB: *mut ETH_FILTER,
     pub NullDB: *mut isize,
 }
-impl ::core::marker::Copy for FILTERDBS_0 {}
-impl ::core::clone::Clone for FILTERDBS_0 {
+impl Copy for FILTERDBS_0 {}
+impl Clone for FILTERDBS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2587,8 +2587,8 @@ impl ::core::clone::Clone for FILTERDBS_0 {
 pub struct GEN_GET_NETCARD_TIME {
     pub ReadTime: u64,
 }
-impl ::core::marker::Copy for GEN_GET_NETCARD_TIME {}
-impl ::core::clone::Clone for GEN_GET_NETCARD_TIME {
+impl Copy for GEN_GET_NETCARD_TIME {}
+impl Clone for GEN_GET_NETCARD_TIME {
     fn clone(&self) -> Self {
         *self
     }
@@ -2598,8 +2598,8 @@ pub struct GEN_GET_TIME_CAPS {
     pub Flags: u32,
     pub ClockPrecision: u32,
 }
-impl ::core::marker::Copy for GEN_GET_TIME_CAPS {}
-impl ::core::clone::Clone for GEN_GET_TIME_CAPS {
+impl Copy for GEN_GET_TIME_CAPS {}
+impl Clone for GEN_GET_TIME_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2609,8 +2609,8 @@ pub struct LOCK_STATE {
     pub LockState: u16,
     pub OldIrql: u8,
 }
-impl ::core::marker::Copy for LOCK_STATE {}
-impl ::core::clone::Clone for LOCK_STATE {
+impl Copy for LOCK_STATE {}
+impl Clone for LOCK_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2622,8 +2622,8 @@ pub struct MEDIA_SPECIFIC_INFORMATION {
     pub Size: u32,
     pub ClassInformation: [u8; 1],
 }
-impl ::core::marker::Copy for MEDIA_SPECIFIC_INFORMATION {}
-impl ::core::clone::Clone for MEDIA_SPECIFIC_INFORMATION {
+impl Copy for MEDIA_SPECIFIC_INFORMATION {}
+impl Clone for MEDIA_SPECIFIC_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2634,8 +2634,8 @@ pub struct NDIS_802_11_AI_REQFI {
     pub ListenInterval: u16,
     pub CurrentAPAddress: [u8; 6],
 }
-impl ::core::marker::Copy for NDIS_802_11_AI_REQFI {}
-impl ::core::clone::Clone for NDIS_802_11_AI_REQFI {
+impl Copy for NDIS_802_11_AI_REQFI {}
+impl Clone for NDIS_802_11_AI_REQFI {
     fn clone(&self) -> Self {
         *self
     }
@@ -2646,8 +2646,8 @@ pub struct NDIS_802_11_AI_RESFI {
     pub StatusCode: u16,
     pub AssociationId: u16,
 }
-impl ::core::marker::Copy for NDIS_802_11_AI_RESFI {}
-impl ::core::clone::Clone for NDIS_802_11_AI_RESFI {
+impl Copy for NDIS_802_11_AI_RESFI {}
+impl Clone for NDIS_802_11_AI_RESFI {
     fn clone(&self) -> Self {
         *self
     }
@@ -2664,8 +2664,8 @@ pub struct NDIS_802_11_ASSOCIATION_INFORMATION {
     pub ResponseIELength: u32,
     pub OffsetResponseIEs: u32,
 }
-impl ::core::marker::Copy for NDIS_802_11_ASSOCIATION_INFORMATION {}
-impl ::core::clone::Clone for NDIS_802_11_ASSOCIATION_INFORMATION {
+impl Copy for NDIS_802_11_ASSOCIATION_INFORMATION {}
+impl Clone for NDIS_802_11_ASSOCIATION_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2675,8 +2675,8 @@ pub struct NDIS_802_11_AUTHENTICATION_ENCRYPTION {
     pub AuthModeSupported: NDIS_802_11_AUTHENTICATION_MODE,
     pub EncryptStatusSupported: NDIS_802_11_WEP_STATUS,
 }
-impl ::core::marker::Copy for NDIS_802_11_AUTHENTICATION_ENCRYPTION {}
-impl ::core::clone::Clone for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
+impl Copy for NDIS_802_11_AUTHENTICATION_ENCRYPTION {}
+impl Clone for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2686,8 +2686,8 @@ pub struct NDIS_802_11_AUTHENTICATION_EVENT {
     pub Status: NDIS_802_11_STATUS_INDICATION,
     pub Request: [NDIS_802_11_AUTHENTICATION_REQUEST; 1],
 }
-impl ::core::marker::Copy for NDIS_802_11_AUTHENTICATION_EVENT {}
-impl ::core::clone::Clone for NDIS_802_11_AUTHENTICATION_EVENT {
+impl Copy for NDIS_802_11_AUTHENTICATION_EVENT {}
+impl Clone for NDIS_802_11_AUTHENTICATION_EVENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2698,8 +2698,8 @@ pub struct NDIS_802_11_AUTHENTICATION_REQUEST {
     pub Bssid: [u8; 6],
     pub Flags: u32,
 }
-impl ::core::marker::Copy for NDIS_802_11_AUTHENTICATION_REQUEST {}
-impl ::core::clone::Clone for NDIS_802_11_AUTHENTICATION_REQUEST {
+impl Copy for NDIS_802_11_AUTHENTICATION_REQUEST {}
+impl Clone for NDIS_802_11_AUTHENTICATION_REQUEST {
     fn clone(&self) -> Self {
         *self
     }
@@ -2709,8 +2709,8 @@ pub struct NDIS_802_11_BSSID_LIST {
     pub NumberOfItems: u32,
     pub Bssid: [NDIS_WLAN_BSSID; 1],
 }
-impl ::core::marker::Copy for NDIS_802_11_BSSID_LIST {}
-impl ::core::clone::Clone for NDIS_802_11_BSSID_LIST {
+impl Copy for NDIS_802_11_BSSID_LIST {}
+impl Clone for NDIS_802_11_BSSID_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -2720,8 +2720,8 @@ pub struct NDIS_802_11_BSSID_LIST_EX {
     pub NumberOfItems: u32,
     pub Bssid: [NDIS_WLAN_BSSID_EX; 1],
 }
-impl ::core::marker::Copy for NDIS_802_11_BSSID_LIST_EX {}
-impl ::core::clone::Clone for NDIS_802_11_BSSID_LIST_EX {
+impl Copy for NDIS_802_11_BSSID_LIST_EX {}
+impl Clone for NDIS_802_11_BSSID_LIST_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -2734,8 +2734,8 @@ pub struct NDIS_802_11_CAPABILITY {
     pub NoOfAuthEncryptPairsSupported: u32,
     pub AuthenticationEncryptionSupported: [NDIS_802_11_AUTHENTICATION_ENCRYPTION; 1],
 }
-impl ::core::marker::Copy for NDIS_802_11_CAPABILITY {}
-impl ::core::clone::Clone for NDIS_802_11_CAPABILITY {
+impl Copy for NDIS_802_11_CAPABILITY {}
+impl Clone for NDIS_802_11_CAPABILITY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2748,8 +2748,8 @@ pub struct NDIS_802_11_CONFIGURATION {
     pub DSConfig: u32,
     pub FHConfig: NDIS_802_11_CONFIGURATION_FH,
 }
-impl ::core::marker::Copy for NDIS_802_11_CONFIGURATION {}
-impl ::core::clone::Clone for NDIS_802_11_CONFIGURATION {
+impl Copy for NDIS_802_11_CONFIGURATION {}
+impl Clone for NDIS_802_11_CONFIGURATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2761,8 +2761,8 @@ pub struct NDIS_802_11_CONFIGURATION_FH {
     pub HopSet: u32,
     pub DwellTime: u32,
 }
-impl ::core::marker::Copy for NDIS_802_11_CONFIGURATION_FH {}
-impl ::core::clone::Clone for NDIS_802_11_CONFIGURATION_FH {
+impl Copy for NDIS_802_11_CONFIGURATION_FH {}
+impl Clone for NDIS_802_11_CONFIGURATION_FH {
     fn clone(&self) -> Self {
         *self
     }
@@ -2773,8 +2773,8 @@ pub struct NDIS_802_11_FIXED_IEs {
     pub BeaconInterval: u16,
     pub Capabilities: u16,
 }
-impl ::core::marker::Copy for NDIS_802_11_FIXED_IEs {}
-impl ::core::clone::Clone for NDIS_802_11_FIXED_IEs {
+impl Copy for NDIS_802_11_FIXED_IEs {}
+impl Clone for NDIS_802_11_FIXED_IEs {
     fn clone(&self) -> Self {
         *self
     }
@@ -2788,8 +2788,8 @@ pub struct NDIS_802_11_KEY {
     pub KeyRSC: u64,
     pub KeyMaterial: [u8; 1],
 }
-impl ::core::marker::Copy for NDIS_802_11_KEY {}
-impl ::core::clone::Clone for NDIS_802_11_KEY {
+impl Copy for NDIS_802_11_KEY {}
+impl Clone for NDIS_802_11_KEY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2799,8 +2799,8 @@ pub struct NDIS_802_11_NETWORK_TYPE_LIST {
     pub NumberOfItems: u32,
     pub NetworkType: [NDIS_802_11_NETWORK_TYPE; 1],
 }
-impl ::core::marker::Copy for NDIS_802_11_NETWORK_TYPE_LIST {}
-impl ::core::clone::Clone for NDIS_802_11_NETWORK_TYPE_LIST {
+impl Copy for NDIS_802_11_NETWORK_TYPE_LIST {}
+impl Clone for NDIS_802_11_NETWORK_TYPE_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -2810,8 +2810,8 @@ pub struct NDIS_802_11_NON_BCAST_SSID_LIST {
     pub NumberOfItems: u32,
     pub Non_Bcast_Ssid: [NDIS_802_11_SSID; 1],
 }
-impl ::core::marker::Copy for NDIS_802_11_NON_BCAST_SSID_LIST {}
-impl ::core::clone::Clone for NDIS_802_11_NON_BCAST_SSID_LIST {
+impl Copy for NDIS_802_11_NON_BCAST_SSID_LIST {}
+impl Clone for NDIS_802_11_NON_BCAST_SSID_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -2822,8 +2822,8 @@ pub struct NDIS_802_11_PMKID {
     pub BSSIDInfoCount: u32,
     pub BSSIDInfo: [BSSID_INFO; 1],
 }
-impl ::core::marker::Copy for NDIS_802_11_PMKID {}
-impl ::core::clone::Clone for NDIS_802_11_PMKID {
+impl Copy for NDIS_802_11_PMKID {}
+impl Clone for NDIS_802_11_PMKID {
     fn clone(&self) -> Self {
         *self
     }
@@ -2834,8 +2834,8 @@ pub struct NDIS_802_11_PMKID_CANDIDATE_LIST {
     pub NumCandidates: u32,
     pub CandidateList: [PMKID_CANDIDATE; 1],
 }
-impl ::core::marker::Copy for NDIS_802_11_PMKID_CANDIDATE_LIST {}
-impl ::core::clone::Clone for NDIS_802_11_PMKID_CANDIDATE_LIST {
+impl Copy for NDIS_802_11_PMKID_CANDIDATE_LIST {}
+impl Clone for NDIS_802_11_PMKID_CANDIDATE_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -2846,8 +2846,8 @@ pub struct NDIS_802_11_REMOVE_KEY {
     pub KeyIndex: u32,
     pub BSSID: [u8; 6],
 }
-impl ::core::marker::Copy for NDIS_802_11_REMOVE_KEY {}
-impl ::core::clone::Clone for NDIS_802_11_REMOVE_KEY {
+impl Copy for NDIS_802_11_REMOVE_KEY {}
+impl Clone for NDIS_802_11_REMOVE_KEY {
     fn clone(&self) -> Self {
         *self
     }
@@ -2857,8 +2857,8 @@ pub struct NDIS_802_11_SSID {
     pub SsidLength: u32,
     pub Ssid: [u8; 32],
 }
-impl ::core::marker::Copy for NDIS_802_11_SSID {}
-impl ::core::clone::Clone for NDIS_802_11_SSID {
+impl Copy for NDIS_802_11_SSID {}
+impl Clone for NDIS_802_11_SSID {
     fn clone(&self) -> Self {
         *self
     }
@@ -2891,8 +2891,8 @@ pub struct NDIS_802_11_STATISTICS {
     pub DecryptSuccessCount: i64,
     pub DecryptFailureCount: i64,
 }
-impl ::core::marker::Copy for NDIS_802_11_STATISTICS {}
-impl ::core::clone::Clone for NDIS_802_11_STATISTICS {
+impl Copy for NDIS_802_11_STATISTICS {}
+impl Clone for NDIS_802_11_STATISTICS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2901,8 +2901,8 @@ impl ::core::clone::Clone for NDIS_802_11_STATISTICS {
 pub struct NDIS_802_11_STATUS_INDICATION {
     pub StatusType: NDIS_802_11_STATUS_TYPE,
 }
-impl ::core::marker::Copy for NDIS_802_11_STATUS_INDICATION {}
-impl ::core::clone::Clone for NDIS_802_11_STATUS_INDICATION {
+impl Copy for NDIS_802_11_STATUS_INDICATION {}
+impl Clone for NDIS_802_11_STATUS_INDICATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2913,8 +2913,8 @@ pub struct NDIS_802_11_TEST {
     pub Type: u32,
     pub Anonymous: NDIS_802_11_TEST_0,
 }
-impl ::core::marker::Copy for NDIS_802_11_TEST {}
-impl ::core::clone::Clone for NDIS_802_11_TEST {
+impl Copy for NDIS_802_11_TEST {}
+impl Clone for NDIS_802_11_TEST {
     fn clone(&self) -> Self {
         *self
     }
@@ -2924,8 +2924,8 @@ pub union NDIS_802_11_TEST_0 {
     pub AuthenticationEvent: NDIS_802_11_AUTHENTICATION_EVENT,
     pub RssiTrigger: i32,
 }
-impl ::core::marker::Copy for NDIS_802_11_TEST_0 {}
-impl ::core::clone::Clone for NDIS_802_11_TEST_0 {
+impl Copy for NDIS_802_11_TEST_0 {}
+impl Clone for NDIS_802_11_TEST_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2936,8 +2936,8 @@ pub struct NDIS_802_11_VARIABLE_IEs {
     pub Length: u8,
     pub data: [u8; 1],
 }
-impl ::core::marker::Copy for NDIS_802_11_VARIABLE_IEs {}
-impl ::core::clone::Clone for NDIS_802_11_VARIABLE_IEs {
+impl Copy for NDIS_802_11_VARIABLE_IEs {}
+impl Clone for NDIS_802_11_VARIABLE_IEs {
     fn clone(&self) -> Self {
         *self
     }
@@ -2949,8 +2949,8 @@ pub struct NDIS_802_11_WEP {
     pub KeyLength: u32,
     pub KeyMaterial: [u8; 1],
 }
-impl ::core::marker::Copy for NDIS_802_11_WEP {}
-impl ::core::clone::Clone for NDIS_802_11_WEP {
+impl Copy for NDIS_802_11_WEP {}
+impl Clone for NDIS_802_11_WEP {
     fn clone(&self) -> Self {
         *self
     }
@@ -2962,8 +2962,8 @@ pub struct NDIS_CONFIGURATION_PARAMETER {
     pub ParameterType: NDIS_PARAMETER_TYPE,
     pub ParameterData: NDIS_CONFIGURATION_PARAMETER_0,
 }
-impl ::core::marker::Copy for NDIS_CONFIGURATION_PARAMETER {}
-impl ::core::clone::Clone for NDIS_CONFIGURATION_PARAMETER {
+impl Copy for NDIS_CONFIGURATION_PARAMETER {}
+impl Clone for NDIS_CONFIGURATION_PARAMETER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2974,8 +2974,8 @@ pub union NDIS_CONFIGURATION_PARAMETER_0 {
     pub StringData: super::super::super::Win32::Foundation::UNICODE_STRING,
     pub BinaryData: BINARY_DATA,
 }
-impl ::core::marker::Copy for NDIS_CONFIGURATION_PARAMETER_0 {}
-impl ::core::clone::Clone for NDIS_CONFIGURATION_PARAMETER_0 {
+impl Copy for NDIS_CONFIGURATION_PARAMETER_0 {}
+impl Clone for NDIS_CONFIGURATION_PARAMETER_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3011,8 +3011,8 @@ pub struct NDIS_CO_DEVICE_PROFILE {
     pub ulUUISendUserUserInfoSize: u32,
     pub ulUUICallInfoSize: u32,
 }
-impl ::core::marker::Copy for NDIS_CO_DEVICE_PROFILE {}
-impl ::core::clone::Clone for NDIS_CO_DEVICE_PROFILE {
+impl Copy for NDIS_CO_DEVICE_PROFILE {}
+impl Clone for NDIS_CO_DEVICE_PROFILE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3022,8 +3022,8 @@ pub struct NDIS_CO_LINK_SPEED {
     pub Outbound: u32,
     pub Inbound: u32,
 }
-impl ::core::marker::Copy for NDIS_CO_LINK_SPEED {}
-impl ::core::clone::Clone for NDIS_CO_LINK_SPEED {
+impl Copy for NDIS_CO_LINK_SPEED {}
+impl Clone for NDIS_CO_LINK_SPEED {
     fn clone(&self) -> Self {
         *self
     }
@@ -3031,16 +3031,16 @@ impl ::core::clone::Clone for NDIS_CO_LINK_SPEED {
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 pub struct NDIS_DMA_BLOCK {
-    pub MapRegisterBase: *mut ::core::ffi::c_void,
+    pub MapRegisterBase: *mut core::ffi::c_void,
     pub AllocationEvent: super::super::Foundation::KEVENT,
-    pub SystemAdapterObject: *mut ::core::ffi::c_void,
-    pub Miniport: *mut ::core::ffi::c_void,
+    pub SystemAdapterObject: *mut core::ffi::c_void,
+    pub Miniport: *mut core::ffi::c_void,
     pub InProgress: super::super::super::Win32::Foundation::BOOLEAN,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::marker::Copy for NDIS_DMA_BLOCK {}
+impl Copy for NDIS_DMA_BLOCK {}
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::clone::Clone for NDIS_DMA_BLOCK {
+impl Clone for NDIS_DMA_BLOCK {
     fn clone(&self) -> Self {
         *self
     }
@@ -3057,9 +3057,9 @@ pub struct NDIS_DMA_DESCRIPTION {
     pub DmaChannel: u32,
 }
 #[cfg(feature = "Wdk_System_SystemServices")]
-impl ::core::marker::Copy for NDIS_DMA_DESCRIPTION {}
+impl Copy for NDIS_DMA_DESCRIPTION {}
 #[cfg(feature = "Wdk_System_SystemServices")]
-impl ::core::clone::Clone for NDIS_DMA_DESCRIPTION {
+impl Clone for NDIS_DMA_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3070,22 +3070,22 @@ pub struct NDIS_EVENT {
     pub Event: super::super::Foundation::KEVENT,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::marker::Copy for NDIS_EVENT {}
+impl Copy for NDIS_EVENT {}
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::clone::Clone for NDIS_EVENT {
+impl Clone for NDIS_EVENT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct NDIS_GUID {
-    pub Guid: ::windows_sys::core::GUID,
+    pub Guid: windows_sys::core::GUID,
     pub Anonymous: NDIS_GUID_0,
     pub Size: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for NDIS_GUID {}
-impl ::core::clone::Clone for NDIS_GUID {
+impl Copy for NDIS_GUID {}
+impl Clone for NDIS_GUID {
     fn clone(&self) -> Self {
         *self
     }
@@ -3095,8 +3095,8 @@ pub union NDIS_GUID_0 {
     pub Oid: u32,
     pub Status: i32,
 }
-impl ::core::marker::Copy for NDIS_GUID_0 {}
-impl ::core::clone::Clone for NDIS_GUID_0 {
+impl Copy for NDIS_GUID_0 {}
+impl Clone for NDIS_GUID_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3109,8 +3109,8 @@ pub struct NDIS_HARDWARE_CROSSTIMESTAMP {
     pub HardwareClockTimestamp: u64,
     pub SystemTimestamp2: u64,
 }
-impl ::core::marker::Copy for NDIS_HARDWARE_CROSSTIMESTAMP {}
-impl ::core::clone::Clone for NDIS_HARDWARE_CROSSTIMESTAMP {
+impl Copy for NDIS_HARDWARE_CROSSTIMESTAMP {}
+impl Clone for NDIS_HARDWARE_CROSSTIMESTAMP {
     fn clone(&self) -> Self {
         *self
     }
@@ -3121,8 +3121,8 @@ pub struct NDIS_INTERRUPT_MODERATION_PARAMETERS {
     pub Flags: u32,
     pub InterruptModeration: NDIS_INTERRUPT_MODERATION,
 }
-impl ::core::marker::Copy for NDIS_INTERRUPT_MODERATION_PARAMETERS {}
-impl ::core::clone::Clone for NDIS_INTERRUPT_MODERATION_PARAMETERS {
+impl Copy for NDIS_INTERRUPT_MODERATION_PARAMETERS {}
+impl Clone for NDIS_INTERRUPT_MODERATION_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3133,8 +3133,8 @@ pub struct NDIS_IPSEC_OFFLOAD_V1 {
     pub IPv4AH: NDIS_IPSEC_OFFLOAD_V1_0,
     pub IPv4ESP: NDIS_IPSEC_OFFLOAD_V1_1,
 }
-impl ::core::marker::Copy for NDIS_IPSEC_OFFLOAD_V1 {}
-impl ::core::clone::Clone for NDIS_IPSEC_OFFLOAD_V1 {
+impl Copy for NDIS_IPSEC_OFFLOAD_V1 {}
+impl Clone for NDIS_IPSEC_OFFLOAD_V1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3143,8 +3143,8 @@ impl ::core::clone::Clone for NDIS_IPSEC_OFFLOAD_V1 {
 pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for NDIS_IPSEC_OFFLOAD_V1_0 {}
-impl ::core::clone::Clone for NDIS_IPSEC_OFFLOAD_V1_0 {
+impl Copy for NDIS_IPSEC_OFFLOAD_V1_0 {}
+impl Clone for NDIS_IPSEC_OFFLOAD_V1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3153,8 +3153,8 @@ impl ::core::clone::Clone for NDIS_IPSEC_OFFLOAD_V1_0 {
 pub struct NDIS_IPSEC_OFFLOAD_V1_1 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for NDIS_IPSEC_OFFLOAD_V1_1 {}
-impl ::core::clone::Clone for NDIS_IPSEC_OFFLOAD_V1_1 {
+impl Copy for NDIS_IPSEC_OFFLOAD_V1_1 {}
+impl Clone for NDIS_IPSEC_OFFLOAD_V1_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3167,8 +3167,8 @@ pub struct NDIS_IPSEC_OFFLOAD_V1_2 {
     pub IPv4Options: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for NDIS_IPSEC_OFFLOAD_V1_2 {}
-impl ::core::clone::Clone for NDIS_IPSEC_OFFLOAD_V1_2 {
+impl Copy for NDIS_IPSEC_OFFLOAD_V1_2 {}
+impl Clone for NDIS_IPSEC_OFFLOAD_V1_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3181,9 +3181,9 @@ pub struct NDIS_IP_OPER_STATE {
     pub IpOperationalStatus: NDIS_IP_OPER_STATUS,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for NDIS_IP_OPER_STATE {}
+impl Copy for NDIS_IP_OPER_STATE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for NDIS_IP_OPER_STATE {
+impl Clone for NDIS_IP_OPER_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3196,9 +3196,9 @@ pub struct NDIS_IP_OPER_STATUS {
     pub OperationalStatusFlags: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for NDIS_IP_OPER_STATUS {}
+impl Copy for NDIS_IP_OPER_STATUS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for NDIS_IP_OPER_STATUS {
+impl Clone for NDIS_IP_OPER_STATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3212,9 +3212,9 @@ pub struct NDIS_IP_OPER_STATUS_INFO {
     pub IpOperationalStatus: [NDIS_IP_OPER_STATUS; 32],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for NDIS_IP_OPER_STATUS_INFO {}
+impl Copy for NDIS_IP_OPER_STATUS_INFO {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for NDIS_IP_OPER_STATUS_INFO {
+impl Clone for NDIS_IP_OPER_STATUS_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3224,8 +3224,8 @@ pub struct NDIS_IRDA_PACKET_INFO {
     pub ExtraBOFs: u32,
     pub MinTurnAroundTime: u32,
 }
-impl ::core::marker::Copy for NDIS_IRDA_PACKET_INFO {}
-impl ::core::clone::Clone for NDIS_IRDA_PACKET_INFO {
+impl Copy for NDIS_IRDA_PACKET_INFO {}
+impl Clone for NDIS_IRDA_PACKET_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3241,9 +3241,9 @@ pub struct NDIS_LINK_PARAMETERS {
     pub AutoNegotiationFlags: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for NDIS_LINK_PARAMETERS {}
+impl Copy for NDIS_LINK_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for NDIS_LINK_PARAMETERS {
+impl Clone for NDIS_LINK_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3253,8 +3253,8 @@ pub struct NDIS_LINK_SPEED {
     pub XmitLinkSpeed: u64,
     pub RcvLinkSpeed: u64,
 }
-impl ::core::marker::Copy for NDIS_LINK_SPEED {}
-impl ::core::clone::Clone for NDIS_LINK_SPEED {
+impl Copy for NDIS_LINK_SPEED {}
+impl Clone for NDIS_LINK_SPEED {
     fn clone(&self) -> Self {
         *self
     }
@@ -3271,9 +3271,9 @@ pub struct NDIS_LINK_STATE {
     pub AutoNegotiationFlags: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for NDIS_LINK_STATE {}
+impl Copy for NDIS_LINK_STATE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for NDIS_LINK_STATE {
+impl Clone for NDIS_LINK_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3285,14 +3285,14 @@ pub struct NDIS_MINIPORT_TIMER {
     pub Timer: super::super::System::SystemServices::KTIMER,
     pub Dpc: super::super::Foundation::KDPC,
     pub MiniportTimerFunction: PNDIS_TIMER_FUNCTION,
-    pub MiniportTimerContext: *mut ::core::ffi::c_void,
+    pub MiniportTimerContext: *mut core::ffi::c_void,
     pub Miniport: *mut NDIS_MINIPORT_BLOCK,
     pub NextTimer: *mut NDIS_MINIPORT_TIMER,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
-impl ::core::marker::Copy for NDIS_MINIPORT_TIMER {}
+impl Copy for NDIS_MINIPORT_TIMER {}
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
-impl ::core::clone::Clone for NDIS_MINIPORT_TIMER {
+impl Clone for NDIS_MINIPORT_TIMER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3304,8 +3304,8 @@ pub struct NDIS_OBJECT_HEADER {
     pub Revision: u8,
     pub Size: u16,
 }
-impl ::core::marker::Copy for NDIS_OBJECT_HEADER {}
-impl ::core::clone::Clone for NDIS_OBJECT_HEADER {
+impl Copy for NDIS_OBJECT_HEADER {}
+impl Clone for NDIS_OBJECT_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3319,8 +3319,8 @@ pub struct NDIS_OFFLOAD {
     pub LsoV2: NDIS_TCP_LARGE_SEND_OFFLOAD_V2,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for NDIS_OFFLOAD {}
-impl ::core::clone::Clone for NDIS_OFFLOAD {
+impl Copy for NDIS_OFFLOAD {}
+impl Clone for NDIS_OFFLOAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -3341,8 +3341,8 @@ pub struct NDIS_OFFLOAD_PARAMETERS {
     pub TcpConnectionIPv6: u8,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for NDIS_OFFLOAD_PARAMETERS {}
-impl ::core::clone::Clone for NDIS_OFFLOAD_PARAMETERS {
+impl Copy for NDIS_OFFLOAD_PARAMETERS {}
+impl Clone for NDIS_OFFLOAD_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3356,9 +3356,9 @@ pub struct NDIS_OPER_STATE {
     pub OperationalStatusFlags: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for NDIS_OPER_STATE {}
+impl Copy for NDIS_OPER_STATE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for NDIS_OPER_STATE {
+impl Clone for NDIS_OPER_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3367,8 +3367,8 @@ impl ::core::clone::Clone for NDIS_OPER_STATE {
 pub struct NDIS_PACKET_8021Q_INFO {
     pub Anonymous: NDIS_PACKET_8021Q_INFO_0,
 }
-impl ::core::marker::Copy for NDIS_PACKET_8021Q_INFO {}
-impl ::core::clone::Clone for NDIS_PACKET_8021Q_INFO {
+impl Copy for NDIS_PACKET_8021Q_INFO {}
+impl Clone for NDIS_PACKET_8021Q_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3376,10 +3376,10 @@ impl ::core::clone::Clone for NDIS_PACKET_8021Q_INFO {
 #[repr(C)]
 pub union NDIS_PACKET_8021Q_INFO_0 {
     pub TagHeader: NDIS_PACKET_8021Q_INFO_0_0,
-    pub Value: *mut ::core::ffi::c_void,
+    pub Value: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDIS_PACKET_8021Q_INFO_0 {}
-impl ::core::clone::Clone for NDIS_PACKET_8021Q_INFO_0 {
+impl Copy for NDIS_PACKET_8021Q_INFO_0 {}
+impl Clone for NDIS_PACKET_8021Q_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3388,8 +3388,8 @@ impl ::core::clone::Clone for NDIS_PACKET_8021Q_INFO_0 {
 pub struct NDIS_PACKET_8021Q_INFO_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for NDIS_PACKET_8021Q_INFO_0_0 {}
-impl ::core::clone::Clone for NDIS_PACKET_8021Q_INFO_0_0 {
+impl Copy for NDIS_PACKET_8021Q_INFO_0_0 {}
+impl Clone for NDIS_PACKET_8021Q_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3410,8 +3410,8 @@ pub struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     pub InterruptType: u32,
     pub MaxInterruptMessages: u32,
 }
-impl ::core::marker::Copy for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {}
-impl ::core::clone::Clone for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
+impl Copy for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {}
+impl Clone for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3424,8 +3424,8 @@ pub struct NDIS_PHYSICAL_ADDRESS_UNIT {
     pub PhysicalAddress: i64,
     pub Length: u32,
 }
-impl ::core::marker::Copy for NDIS_PHYSICAL_ADDRESS_UNIT {}
-impl ::core::clone::Clone for NDIS_PHYSICAL_ADDRESS_UNIT {
+impl Copy for NDIS_PHYSICAL_ADDRESS_UNIT {}
+impl Clone for NDIS_PHYSICAL_ADDRESS_UNIT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3439,8 +3439,8 @@ pub struct NDIS_PM_PACKET_PATTERN {
     pub PatternSize: u32,
     pub PatternFlags: u32,
 }
-impl ::core::marker::Copy for NDIS_PM_PACKET_PATTERN {}
-impl ::core::clone::Clone for NDIS_PM_PACKET_PATTERN {
+impl Copy for NDIS_PM_PACKET_PATTERN {}
+impl Clone for NDIS_PM_PACKET_PATTERN {
     fn clone(&self) -> Self {
         *self
     }
@@ -3451,8 +3451,8 @@ pub struct NDIS_PM_WAKE_UP_CAPABILITIES {
     pub MinPatternWakeUp: NDIS_DEVICE_POWER_STATE,
     pub MinLinkChangeWakeUp: NDIS_DEVICE_POWER_STATE,
 }
-impl ::core::marker::Copy for NDIS_PM_WAKE_UP_CAPABILITIES {}
-impl ::core::clone::Clone for NDIS_PM_WAKE_UP_CAPABILITIES {
+impl Copy for NDIS_PM_WAKE_UP_CAPABILITIES {}
+impl Clone for NDIS_PM_WAKE_UP_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3462,8 +3462,8 @@ pub struct NDIS_PNP_CAPABILITIES {
     pub Flags: u32,
     pub WakeUpCapabilities: NDIS_PM_WAKE_UP_CAPABILITIES,
 }
-impl ::core::marker::Copy for NDIS_PNP_CAPABILITIES {}
-impl ::core::clone::Clone for NDIS_PNP_CAPABILITIES {
+impl Copy for NDIS_PNP_CAPABILITIES {}
+impl Clone for NDIS_PNP_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3473,15 +3473,15 @@ pub type NDIS_POLL_HANDLE = isize;
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct NDIS_PORT {
     pub Next: *mut NDIS_PORT,
-    pub NdisReserved: *mut ::core::ffi::c_void,
-    pub MiniportReserved: *mut ::core::ffi::c_void,
-    pub ProtocolReserved: *mut ::core::ffi::c_void,
+    pub NdisReserved: *mut core::ffi::c_void,
+    pub MiniportReserved: *mut core::ffi::c_void,
+    pub ProtocolReserved: *mut core::ffi::c_void,
     pub PortCharacteristics: NDIS_PORT_CHARACTERISTICS,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for NDIS_PORT {}
+impl Copy for NDIS_PORT {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for NDIS_PORT {
+impl Clone for NDIS_PORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3496,9 +3496,9 @@ pub struct NDIS_PORT_ARRAY {
     pub Ports: [NDIS_PORT_CHARACTERISTICS; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for NDIS_PORT_ARRAY {}
+impl Copy for NDIS_PORT_ARRAY {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for NDIS_PORT_ARRAY {
+impl Clone for NDIS_PORT_ARRAY {
     fn clone(&self) -> Self {
         *self
     }
@@ -3511,8 +3511,8 @@ pub struct NDIS_PORT_AUTHENTICATION_PARAMETERS {
     pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
     pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
 }
-impl ::core::marker::Copy for NDIS_PORT_AUTHENTICATION_PARAMETERS {}
-impl ::core::clone::Clone for NDIS_PORT_AUTHENTICATION_PARAMETERS {
+impl Copy for NDIS_PORT_AUTHENTICATION_PARAMETERS {}
+impl Clone for NDIS_PORT_AUTHENTICATION_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3534,9 +3534,9 @@ pub struct NDIS_PORT_CHARACTERISTICS {
     pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for NDIS_PORT_CHARACTERISTICS {}
+impl Copy for NDIS_PORT_CHARACTERISTICS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for NDIS_PORT_CHARACTERISTICS {
+impl Clone for NDIS_PORT_CHARACTERISTICS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3556,9 +3556,9 @@ pub struct NDIS_PORT_STATE {
     pub Flags: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for NDIS_PORT_STATE {}
+impl Copy for NDIS_PORT_STATE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for NDIS_PORT_STATE {
+impl Clone for NDIS_PORT_STATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3572,8 +3572,8 @@ pub struct NDIS_RECEIVE_HASH_PARAMETERS {
     pub HashSecretKeySize: u16,
     pub HashSecretKeyOffset: u32,
 }
-impl ::core::marker::Copy for NDIS_RECEIVE_HASH_PARAMETERS {}
-impl ::core::clone::Clone for NDIS_RECEIVE_HASH_PARAMETERS {
+impl Copy for NDIS_RECEIVE_HASH_PARAMETERS {}
+impl Clone for NDIS_RECEIVE_HASH_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3585,8 +3585,8 @@ pub struct NDIS_RECEIVE_SCALE_CAPABILITIES {
     pub NumberOfInterruptMessages: u32,
     pub NumberOfReceiveQueues: u32,
 }
-impl ::core::marker::Copy for NDIS_RECEIVE_SCALE_CAPABILITIES {}
-impl ::core::clone::Clone for NDIS_RECEIVE_SCALE_CAPABILITIES {
+impl Copy for NDIS_RECEIVE_SCALE_CAPABILITIES {}
+impl Clone for NDIS_RECEIVE_SCALE_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3602,8 +3602,8 @@ pub struct NDIS_RECEIVE_SCALE_PARAMETERS {
     pub HashSecretKeySize: u16,
     pub HashSecretKeyOffset: u32,
 }
-impl ::core::marker::Copy for NDIS_RECEIVE_SCALE_PARAMETERS {}
-impl ::core::clone::Clone for NDIS_RECEIVE_SCALE_PARAMETERS {
+impl Copy for NDIS_RECEIVE_SCALE_PARAMETERS {}
+impl Clone for NDIS_RECEIVE_SCALE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3613,8 +3613,8 @@ pub struct NDIS_RW_LOCK {
     pub Anonymous1: NDIS_RW_LOCK_0,
     pub Anonymous2: NDIS_RW_LOCK_1,
 }
-impl ::core::marker::Copy for NDIS_RW_LOCK {}
-impl ::core::clone::Clone for NDIS_RW_LOCK {
+impl Copy for NDIS_RW_LOCK {}
+impl Clone for NDIS_RW_LOCK {
     fn clone(&self) -> Self {
         *self
     }
@@ -3624,8 +3624,8 @@ pub union NDIS_RW_LOCK_0 {
     pub Anonymous: NDIS_RW_LOCK_0_0,
     pub Reserved: [u8; 16],
 }
-impl ::core::marker::Copy for NDIS_RW_LOCK_0 {}
-impl ::core::clone::Clone for NDIS_RW_LOCK_0 {
+impl Copy for NDIS_RW_LOCK_0 {}
+impl Clone for NDIS_RW_LOCK_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3633,10 +3633,10 @@ impl ::core::clone::Clone for NDIS_RW_LOCK_0 {
 #[repr(C)]
 pub struct NDIS_RW_LOCK_0_0 {
     pub SpinLock: usize,
-    pub Context: *mut ::core::ffi::c_void,
+    pub Context: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for NDIS_RW_LOCK_0_0 {}
-impl ::core::clone::Clone for NDIS_RW_LOCK_0_0 {
+impl Copy for NDIS_RW_LOCK_0_0 {}
+impl Clone for NDIS_RW_LOCK_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3647,8 +3647,8 @@ pub union NDIS_RW_LOCK_1 {
     pub RefCountEx: [u32; 128],
     pub Anonymous: NDIS_RW_LOCK_1_0,
 }
-impl ::core::marker::Copy for NDIS_RW_LOCK_1 {}
-impl ::core::clone::Clone for NDIS_RW_LOCK_1 {
+impl Copy for NDIS_RW_LOCK_1 {}
+impl Clone for NDIS_RW_LOCK_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3659,8 +3659,8 @@ pub struct NDIS_RW_LOCK_1_0 {
     pub SharedRefCount: u32,
     pub WriterWaiting: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for NDIS_RW_LOCK_1_0 {}
-impl ::core::clone::Clone for NDIS_RW_LOCK_1_0 {
+impl Copy for NDIS_RW_LOCK_1_0 {}
+impl Clone for NDIS_RW_LOCK_1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3670,8 +3670,8 @@ pub union NDIS_RW_LOCK_REFCOUNT {
     pub RefCount: u32,
     pub cacheLine: [u8; 16],
 }
-impl ::core::marker::Copy for NDIS_RW_LOCK_REFCOUNT {}
-impl ::core::clone::Clone for NDIS_RW_LOCK_REFCOUNT {
+impl Copy for NDIS_RW_LOCK_REFCOUNT {}
+impl Clone for NDIS_RW_LOCK_REFCOUNT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3681,8 +3681,8 @@ pub struct NDIS_SPIN_LOCK {
     pub SpinLock: usize,
     pub OldIrql: u8,
 }
-impl ::core::marker::Copy for NDIS_SPIN_LOCK {}
-impl ::core::clone::Clone for NDIS_SPIN_LOCK {
+impl Copy for NDIS_SPIN_LOCK {}
+impl Clone for NDIS_SPIN_LOCK {
     fn clone(&self) -> Self {
         *self
     }
@@ -3710,8 +3710,8 @@ pub struct NDIS_STATISTICS_INFO {
     pub ifHCOutMulticastOctets: u64,
     pub ifHCOutBroadcastOctets: u64,
 }
-impl ::core::marker::Copy for NDIS_STATISTICS_INFO {}
-impl ::core::clone::Clone for NDIS_STATISTICS_INFO {
+impl Copy for NDIS_STATISTICS_INFO {}
+impl Clone for NDIS_STATISTICS_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3722,8 +3722,8 @@ pub struct NDIS_STATISTICS_VALUE {
     pub DataLength: u32,
     pub Data: [u8; 1],
 }
-impl ::core::marker::Copy for NDIS_STATISTICS_VALUE {}
-impl ::core::clone::Clone for NDIS_STATISTICS_VALUE {
+impl Copy for NDIS_STATISTICS_VALUE {}
+impl Clone for NDIS_STATISTICS_VALUE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3735,8 +3735,8 @@ pub struct NDIS_STATISTICS_VALUE_EX {
     pub Length: u32,
     pub Data: [u8; 1],
 }
-impl ::core::marker::Copy for NDIS_STATISTICS_VALUE_EX {}
-impl ::core::clone::Clone for NDIS_STATISTICS_VALUE_EX {
+impl Copy for NDIS_STATISTICS_VALUE_EX {}
+impl Clone for NDIS_STATISTICS_VALUE_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -3749,8 +3749,8 @@ pub struct NDIS_TCP_CONNECTION_OFFLOAD {
     pub TcpConnectionOffloadCapacity: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for NDIS_TCP_CONNECTION_OFFLOAD {}
-impl ::core::clone::Clone for NDIS_TCP_CONNECTION_OFFLOAD {
+impl Copy for NDIS_TCP_CONNECTION_OFFLOAD {}
+impl Clone for NDIS_TCP_CONNECTION_OFFLOAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -3762,8 +3762,8 @@ pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     pub IPv6Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_3,
     pub IPv6Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_2,
 }
-impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD {}
-impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
+impl Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD {}
+impl Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -3773,8 +3773,8 @@ pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {}
-impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
+impl Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {}
+impl Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3784,8 +3784,8 @@ pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {}
-impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
+impl Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {}
+impl Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3795,8 +3795,8 @@ pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {}
-impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+impl Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {}
+impl Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3806,8 +3806,8 @@ pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {}
-impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
+impl Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {}
+impl Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3816,8 +3816,8 @@ impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
 pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO {
     pub Anonymous: NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0,
 }
-impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_PACKET_INFO {}
-impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_PACKET_INFO {
+impl Copy for NDIS_TCP_IP_CHECKSUM_PACKET_INFO {}
+impl Clone for NDIS_TCP_IP_CHECKSUM_PACKET_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3828,8 +3828,8 @@ pub union NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {
     pub Receive: NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0,
     pub Value: u32,
 }
-impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {}
-impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {
+impl Copy for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {}
+impl Clone for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3838,8 +3838,8 @@ impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {
 pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {}
-impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
+impl Copy for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {}
+impl Clone for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3848,8 +3848,8 @@ impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
 pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {}
-impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
+impl Copy for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {}
+impl Clone for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3858,8 +3858,8 @@ impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
     pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0,
 }
-impl ::core::marker::Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {}
-impl ::core::clone::Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
+impl Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {}
+impl Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3871,8 +3871,8 @@ pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     pub MinSegmentCount: u32,
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
-impl ::core::clone::Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+impl Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
+impl Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3882,8 +3882,8 @@ pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
     pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0,
     pub IPv6: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1,
 }
-impl ::core::marker::Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {}
-impl ::core::clone::Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
+impl Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {}
+impl Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3894,8 +3894,8 @@ pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     pub MaxOffLoadSize: u32,
     pub MinSegmentCount: u32,
 }
-impl ::core::marker::Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
-impl ::core::clone::Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+impl Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
+impl Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3907,8 +3907,8 @@ pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     pub MinSegmentCount: u32,
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
-impl ::core::clone::Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+impl Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
+impl Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3920,8 +3920,8 @@ pub struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     pub TimeoutArrayLength: u32,
     pub TimeoutArray: [u32; 1],
 }
-impl ::core::marker::Copy for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {}
-impl ::core::clone::Clone for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
+impl Copy for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {}
+impl Clone for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3933,9 +3933,9 @@ pub struct NDIS_TIMER {
     pub Dpc: super::super::Foundation::KDPC,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
-impl ::core::marker::Copy for NDIS_TIMER {}
+impl Copy for NDIS_TIMER {}
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
-impl ::core::clone::Clone for NDIS_TIMER {
+impl Clone for NDIS_TIMER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3949,8 +3949,8 @@ pub struct NDIS_TIMESTAMP_CAPABILITIES {
     pub Reserved2: u64,
     pub TimestampFlags: NDIS_TIMESTAMP_CAPABILITY_FLAGS,
 }
-impl ::core::marker::Copy for NDIS_TIMESTAMP_CAPABILITIES {}
-impl ::core::clone::Clone for NDIS_TIMESTAMP_CAPABILITIES {
+impl Copy for NDIS_TIMESTAMP_CAPABILITIES {}
+impl Clone for NDIS_TIMESTAMP_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3972,8 +3972,8 @@ pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     pub AllTransmitSw: super::super::super::Win32::Foundation::BOOLEAN,
     pub TaggedTransmitSw: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for NDIS_TIMESTAMP_CAPABILITY_FLAGS {}
-impl ::core::clone::Clone for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
+impl Copy for NDIS_TIMESTAMP_CAPABILITY_FLAGS {}
+impl Clone for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3984,8 +3984,8 @@ pub struct NDIS_VAR_DATA_DESC {
     pub MaximumLength: u16,
     pub Offset: usize,
 }
-impl ::core::marker::Copy for NDIS_VAR_DATA_DESC {}
-impl ::core::clone::Clone for NDIS_VAR_DATA_DESC {
+impl Copy for NDIS_VAR_DATA_DESC {}
+impl Clone for NDIS_VAR_DATA_DESC {
     fn clone(&self) -> Self {
         *self
     }
@@ -3995,8 +3995,8 @@ pub struct NDIS_WAN_FRAGMENT {
     pub RemoteAddress: [u8; 6],
     pub LocalAddress: [u8; 6],
 }
-impl ::core::marker::Copy for NDIS_WAN_FRAGMENT {}
-impl ::core::clone::Clone for NDIS_WAN_FRAGMENT {
+impl Copy for NDIS_WAN_FRAGMENT {}
+impl Clone for NDIS_WAN_FRAGMENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4019,8 +4019,8 @@ pub struct NDIS_WAN_GET_STATS {
     pub BytesTransmittedCompressed: u32,
     pub BytesReceivedCompressed: u32,
 }
-impl ::core::marker::Copy for NDIS_WAN_GET_STATS {}
-impl ::core::clone::Clone for NDIS_WAN_GET_STATS {
+impl Copy for NDIS_WAN_GET_STATS {}
+impl Clone for NDIS_WAN_GET_STATS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4030,8 +4030,8 @@ pub struct NDIS_WAN_LINE_DOWN {
     pub RemoteAddress: [u8; 6],
     pub LocalAddress: [u8; 6],
 }
-impl ::core::marker::Copy for NDIS_WAN_LINE_DOWN {}
-impl ::core::clone::Clone for NDIS_WAN_LINE_DOWN {
+impl Copy for NDIS_WAN_LINE_DOWN {}
+impl Clone for NDIS_WAN_LINE_DOWN {
     fn clone(&self) -> Self {
         *self
     }
@@ -4049,8 +4049,8 @@ pub struct NDIS_WAN_LINE_UP {
     pub ProtocolType: u16,
     pub DeviceName: super::super::super::Win32::Foundation::UNICODE_STRING,
 }
-impl ::core::marker::Copy for NDIS_WAN_LINE_UP {}
-impl ::core::clone::Clone for NDIS_WAN_LINE_UP {
+impl Copy for NDIS_WAN_LINE_UP {}
+impl Clone for NDIS_WAN_LINE_UP {
     fn clone(&self) -> Self {
         *self
     }
@@ -4060,8 +4060,8 @@ pub struct NDIS_WAN_PROTOCOL_CAPS {
     pub Flags: u32,
     pub Reserved: u32,
 }
-impl ::core::marker::Copy for NDIS_WAN_PROTOCOL_CAPS {}
-impl ::core::clone::Clone for NDIS_WAN_PROTOCOL_CAPS {
+impl Copy for NDIS_WAN_PROTOCOL_CAPS {}
+impl Clone for NDIS_WAN_PROTOCOL_CAPS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4079,8 +4079,8 @@ pub struct NDIS_WLAN_BSSID {
     pub InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE,
     pub SupportedRates: [u8; 8],
 }
-impl ::core::marker::Copy for NDIS_WLAN_BSSID {}
-impl ::core::clone::Clone for NDIS_WLAN_BSSID {
+impl Copy for NDIS_WLAN_BSSID {}
+impl Clone for NDIS_WLAN_BSSID {
     fn clone(&self) -> Self {
         *self
     }
@@ -4100,8 +4100,8 @@ pub struct NDIS_WLAN_BSSID_EX {
     pub IELength: u32,
     pub IEs: [u8; 1],
 }
-impl ::core::marker::Copy for NDIS_WLAN_BSSID_EX {}
-impl ::core::clone::Clone for NDIS_WLAN_BSSID_EX {
+impl Copy for NDIS_WLAN_BSSID_EX {}
+impl Clone for NDIS_WLAN_BSSID_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -4116,9 +4116,9 @@ pub struct NDIS_WMI_ENUM_ADAPTER {
     pub DeviceName: [i8; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for NDIS_WMI_ENUM_ADAPTER {}
+impl Copy for NDIS_WMI_ENUM_ADAPTER {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for NDIS_WMI_ENUM_ADAPTER {
+impl Clone for NDIS_WMI_ENUM_ADAPTER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4136,9 +4136,9 @@ pub struct NDIS_WMI_EVENT_HEADER {
     pub Padding: [u8; 4],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for NDIS_WMI_EVENT_HEADER {}
+impl Copy for NDIS_WMI_EVENT_HEADER {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for NDIS_WMI_EVENT_HEADER {
+impl Clone for NDIS_WMI_EVENT_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4149,8 +4149,8 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1 {
     pub IPv4AH: NDIS_WMI_IPSEC_OFFLOAD_V1_0,
     pub IPv4ESP: NDIS_WMI_IPSEC_OFFLOAD_V1_1,
 }
-impl ::core::marker::Copy for NDIS_WMI_IPSEC_OFFLOAD_V1 {}
-impl ::core::clone::Clone for NDIS_WMI_IPSEC_OFFLOAD_V1 {
+impl Copy for NDIS_WMI_IPSEC_OFFLOAD_V1 {}
+impl Clone for NDIS_WMI_IPSEC_OFFLOAD_V1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4164,8 +4164,8 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     pub Send: u32,
     pub Receive: u32,
 }
-impl ::core::marker::Copy for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {}
-impl ::core::clone::Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
+impl Copy for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {}
+impl Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4181,8 +4181,8 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     pub Send: u32,
     pub Receive: u32,
 }
-impl ::core::marker::Copy for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {}
-impl ::core::clone::Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
+impl Copy for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {}
+impl Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4195,8 +4195,8 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     pub IPv4Options: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {}
-impl ::core::clone::Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+impl Copy for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {}
+impl Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4212,9 +4212,9 @@ pub struct NDIS_WMI_METHOD_HEADER {
     pub Padding: [u8; 4],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for NDIS_WMI_METHOD_HEADER {}
+impl Copy for NDIS_WMI_METHOD_HEADER {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for NDIS_WMI_METHOD_HEADER {
+impl Clone for NDIS_WMI_METHOD_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4228,8 +4228,8 @@ pub struct NDIS_WMI_OFFLOAD {
     pub LsoV2: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for NDIS_WMI_OFFLOAD {}
-impl ::core::clone::Clone for NDIS_WMI_OFFLOAD {
+impl Copy for NDIS_WMI_OFFLOAD {}
+impl Clone for NDIS_WMI_OFFLOAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -4241,8 +4241,8 @@ pub struct NDIS_WMI_OUTPUT_INFO {
     pub SupportedRevision: u8,
     pub DataOffset: u32,
 }
-impl ::core::marker::Copy for NDIS_WMI_OUTPUT_INFO {}
-impl ::core::clone::Clone for NDIS_WMI_OUTPUT_INFO {
+impl Copy for NDIS_WMI_OUTPUT_INFO {}
+impl Clone for NDIS_WMI_OUTPUT_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4258,9 +4258,9 @@ pub struct NDIS_WMI_SET_HEADER {
     pub Padding: [u8; 4],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::marker::Copy for NDIS_WMI_SET_HEADER {}
+impl Copy for NDIS_WMI_SET_HEADER {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::core::clone::Clone for NDIS_WMI_SET_HEADER {
+impl Clone for NDIS_WMI_SET_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4276,8 +4276,8 @@ pub struct NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     pub TcpConnectionOffloadCapacity: u32,
     pub Flags: u32,
 }
-impl ::core::marker::Copy for NDIS_WMI_TCP_CONNECTION_OFFLOAD {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
+impl Copy for NDIS_WMI_TCP_CONNECTION_OFFLOAD {}
+impl Clone for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -4289,8 +4289,8 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     pub IPv6Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3,
     pub IPv6Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2,
 }
-impl ::core::marker::Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
+impl Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {}
+impl Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -4304,8 +4304,8 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub UdpChecksum: u32,
     pub IpChecksum: u32,
 }
-impl ::core::marker::Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
+impl Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {}
+impl Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4319,8 +4319,8 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     pub UdpChecksum: u32,
     pub IpChecksum: u32,
 }
-impl ::core::marker::Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
+impl Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {}
+impl Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4333,8 +4333,8 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     pub TcpChecksum: u32,
     pub UdpChecksum: u32,
 }
-impl ::core::marker::Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+impl Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {}
+impl Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4347,8 +4347,8 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     pub TcpChecksum: u32,
     pub UdpChecksum: u32,
 }
-impl ::core::marker::Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
+impl Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {}
+impl Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4357,8 +4357,8 @@ impl ::core::clone::Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
     pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0,
 }
-impl ::core::marker::Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
+impl Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {}
+impl Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4371,8 +4371,8 @@ pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     pub TcpOptions: u32,
     pub IpOptions: u32,
 }
-impl ::core::marker::Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+impl Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
+impl Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4382,8 +4382,8 @@ pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
     pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0,
     pub IPv6: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1,
 }
-impl ::core::marker::Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
+impl Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {}
+impl Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4394,8 +4394,8 @@ pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     pub MaxOffLoadSize: u32,
     pub MinSegmentCount: u32,
 }
-impl ::core::marker::Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+impl Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
+impl Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4408,20 +4408,20 @@ pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     pub IpExtensionHeadersSupported: u32,
     pub TcpOptionsSupported: u32,
 }
-impl ::core::marker::Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+impl Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
+impl Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct NDIS_WORK_ITEM {
-    pub Context: *mut ::core::ffi::c_void,
+    pub Context: *mut core::ffi::c_void,
     pub Routine: NDIS_PROC,
     pub WrapperReserved: [u8; 32],
 }
-impl ::core::marker::Copy for NDIS_WORK_ITEM {}
-impl ::core::clone::Clone for NDIS_WORK_ITEM {
+impl Copy for NDIS_WORK_ITEM {}
+impl Clone for NDIS_WORK_ITEM {
     fn clone(&self) -> Self {
         *self
     }
@@ -4433,8 +4433,8 @@ pub struct NETWORK_ADDRESS {
     pub AddressType: u16,
     pub Address: [u8; 1],
 }
-impl ::core::marker::Copy for NETWORK_ADDRESS {}
-impl ::core::clone::Clone for NETWORK_ADDRESS {
+impl Copy for NETWORK_ADDRESS {}
+impl Clone for NETWORK_ADDRESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4445,8 +4445,8 @@ pub struct NETWORK_ADDRESS_IP {
     pub IN_ADDR: u32,
     pub sin_zero: [u8; 8],
 }
-impl ::core::marker::Copy for NETWORK_ADDRESS_IP {}
-impl ::core::clone::Clone for NETWORK_ADDRESS_IP {
+impl Copy for NETWORK_ADDRESS_IP {}
+impl Clone for NETWORK_ADDRESS_IP {
     fn clone(&self) -> Self {
         *self
     }
@@ -4458,8 +4458,8 @@ pub struct NETWORK_ADDRESS_IP6 {
     pub sin6_addr: [u16; 8],
     pub sin6_scope_id: u32,
 }
-impl ::core::marker::Copy for NETWORK_ADDRESS_IP6 {}
-impl ::core::clone::Clone for NETWORK_ADDRESS_IP6 {
+impl Copy for NETWORK_ADDRESS_IP6 {}
+impl Clone for NETWORK_ADDRESS_IP6 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4470,8 +4470,8 @@ pub struct NETWORK_ADDRESS_IPX {
     pub NodeAddress: [u8; 6],
     pub Socket: u16,
 }
-impl ::core::marker::Copy for NETWORK_ADDRESS_IPX {}
-impl ::core::clone::Clone for NETWORK_ADDRESS_IPX {
+impl Copy for NETWORK_ADDRESS_IPX {}
+impl Clone for NETWORK_ADDRESS_IPX {
     fn clone(&self) -> Self {
         *self
     }
@@ -4482,8 +4482,8 @@ pub struct NETWORK_ADDRESS_LIST {
     pub AddressType: u16,
     pub Address: [NETWORK_ADDRESS; 1],
 }
-impl ::core::marker::Copy for NETWORK_ADDRESS_LIST {}
-impl ::core::clone::Clone for NETWORK_ADDRESS_LIST {
+impl Copy for NETWORK_ADDRESS_LIST {}
+impl Clone for NETWORK_ADDRESS_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -4495,8 +4495,8 @@ pub struct OFFLOAD_ALGO_INFO {
     pub algoKeylen: u32,
     pub algoRounds: u32,
 }
-impl ::core::marker::Copy for OFFLOAD_ALGO_INFO {}
-impl ::core::clone::Clone for OFFLOAD_ALGO_INFO {
+impl Copy for OFFLOAD_ALGO_INFO {}
+impl Clone for OFFLOAD_ALGO_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4519,8 +4519,8 @@ pub struct OFFLOAD_IPSEC_ADD_SA {
     pub KeyLen: u32,
     pub KeyMat: [u8; 1],
 }
-impl ::core::marker::Copy for OFFLOAD_IPSEC_ADD_SA {}
-impl ::core::clone::Clone for OFFLOAD_IPSEC_ADD_SA {
+impl Copy for OFFLOAD_IPSEC_ADD_SA {}
+impl Clone for OFFLOAD_IPSEC_ADD_SA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4545,8 +4545,8 @@ pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
     pub KeyLen: u32,
     pub KeyMat: [u8; 1],
 }
-impl ::core::marker::Copy for OFFLOAD_IPSEC_ADD_UDPESP_SA {}
-impl ::core::clone::Clone for OFFLOAD_IPSEC_ADD_UDPESP_SA {
+impl Copy for OFFLOAD_IPSEC_ADD_UDPESP_SA {}
+impl Clone for OFFLOAD_IPSEC_ADD_UDPESP_SA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4555,8 +4555,8 @@ impl ::core::clone::Clone for OFFLOAD_IPSEC_ADD_UDPESP_SA {
 pub struct OFFLOAD_IPSEC_DELETE_SA {
     pub OffloadHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for OFFLOAD_IPSEC_DELETE_SA {}
-impl ::core::clone::Clone for OFFLOAD_IPSEC_DELETE_SA {
+impl Copy for OFFLOAD_IPSEC_DELETE_SA {}
+impl Clone for OFFLOAD_IPSEC_DELETE_SA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4566,8 +4566,8 @@ pub struct OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     pub OffloadHandle: super::super::super::Win32::Foundation::HANDLE,
     pub EncapTypeEntryOffldHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-impl ::core::marker::Copy for OFFLOAD_IPSEC_DELETE_UDPESP_SA {}
-impl ::core::clone::Clone for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
+impl Copy for OFFLOAD_IPSEC_DELETE_UDPESP_SA {}
+impl Clone for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4577,8 +4577,8 @@ pub struct OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
     pub UdpEncapType: UDP_ENCAP_TYPE,
     pub DstEncapPort: u16,
 }
-impl ::core::marker::Copy for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {}
-impl ::core::clone::Clone for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
+impl Copy for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {}
+impl Clone for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4591,8 +4591,8 @@ pub struct OFFLOAD_SECURITY_ASSOCIATION {
     pub ConfAlgo: OFFLOAD_ALGO_INFO,
     pub Reserved: OFFLOAD_ALGO_INFO,
 }
-impl ::core::marker::Copy for OFFLOAD_SECURITY_ASSOCIATION {}
-impl ::core::clone::Clone for OFFLOAD_SECURITY_ASSOCIATION {
+impl Copy for OFFLOAD_SECURITY_ASSOCIATION {}
+impl Clone for OFFLOAD_SECURITY_ASSOCIATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -4602,8 +4602,8 @@ pub struct PMKID_CANDIDATE {
     pub BSSID: [u8; 6],
     pub Flags: u32,
 }
-impl ::core::marker::Copy for PMKID_CANDIDATE {}
-impl ::core::clone::Clone for PMKID_CANDIDATE {
+impl Copy for PMKID_CANDIDATE {}
+impl Clone for PMKID_CANDIDATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4614,8 +4614,8 @@ pub struct REFERENCE {
     pub ReferenceCount: u16,
     pub Closing: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for REFERENCE {}
-impl ::core::clone::Clone for REFERENCE {
+impl Copy for REFERENCE {}
+impl Clone for REFERENCE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4625,8 +4625,8 @@ pub struct TRANSPORT_HEADER_OFFSET {
     pub ProtocolType: u16,
     pub HeaderOffset: u16,
 }
-impl ::core::marker::Copy for TRANSPORT_HEADER_OFFSET {}
-impl ::core::clone::Clone for TRANSPORT_HEADER_OFFSET {
+impl Copy for TRANSPORT_HEADER_OFFSET {}
+impl Clone for TRANSPORT_HEADER_OFFSET {
     fn clone(&self) -> Self {
         *self
     }
@@ -4641,82 +4641,82 @@ pub struct VAR_STRING {
     pub ulStringSize: u32,
     pub ulStringOffset: u32,
 }
-impl ::core::marker::Copy for VAR_STRING {}
-impl ::core::clone::Clone for VAR_STRING {
+impl Copy for VAR_STRING {}
+impl Clone for VAR_STRING {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type CL_ADD_PARTY_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn()>;
-pub type CL_CALL_CONNECTED_HANDLER = ::core::option::Option<unsafe extern "system" fn()>;
-pub type CL_CLOSE_AF_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn()>;
-pub type CL_CLOSE_CALL_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn()>;
-pub type CL_DEREG_SAP_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn()>;
-pub type CL_DROP_PARTY_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn()>;
-pub type CL_INCOMING_CALL_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> i32>;
-pub type CL_INCOMING_CALL_QOS_CHANGE_HANDLER = ::core::option::Option<unsafe extern "system" fn()>;
-pub type CL_INCOMING_CLOSE_CALL_HANDLER = ::core::option::Option<unsafe extern "system" fn()>;
-pub type CL_INCOMING_DROP_PARTY_HANDLER = ::core::option::Option<unsafe extern "system" fn()>;
-pub type CL_MAKE_CALL_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn()>;
-pub type CL_MODIFY_CALL_QOS_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn()>;
-pub type CL_OPEN_AF_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn()>;
-pub type CL_REG_SAP_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn()>;
-pub type CM_ACTIVATE_VC_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn()>;
-pub type CM_ADD_PARTY_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> i32>;
-pub type CM_CLOSE_AF_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> i32>;
-pub type CM_CLOSE_CALL_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> i32>;
-pub type CM_DEACTIVATE_VC_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn()>;
-pub type CM_DEREG_SAP_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> i32>;
-pub type CM_DROP_PARTY_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> i32>;
-pub type CM_INCOMING_CALL_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn()>;
-pub type CM_MAKE_CALL_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> i32>;
-pub type CM_MODIFY_CALL_QOS_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> i32>;
-pub type CM_OPEN_AF_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> i32>;
-pub type CM_REG_SAP_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> i32>;
-pub type CO_AF_REGISTER_NOTIFY_HANDLER = ::core::option::Option<unsafe extern "system" fn()>;
-pub type CO_CREATE_VC_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> i32>;
-pub type CO_DELETE_VC_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> i32>;
-pub type MINIPORT_CO_ACTIVATE_VC = ::core::option::Option<unsafe extern "system" fn(miniportvccontext: *const ::core::ffi::c_void, callparameters: *mut CO_CALL_PARAMETERS) -> i32>;
-pub type MINIPORT_CO_CREATE_VC = ::core::option::Option<unsafe extern "system" fn(miniportadaptercontext: *const ::core::ffi::c_void, ndisvchandle: *const ::core::ffi::c_void, miniportvccontext: *mut *mut ::core::ffi::c_void) -> i32>;
-pub type MINIPORT_CO_DEACTIVATE_VC = ::core::option::Option<unsafe extern "system" fn(miniportvccontext: *const ::core::ffi::c_void) -> i32>;
-pub type MINIPORT_CO_DELETE_VC = ::core::option::Option<unsafe extern "system" fn(miniportvccontext: *const ::core::ffi::c_void) -> i32>;
-pub type NDIS_PROC = ::core::option::Option<unsafe extern "system" fn()>;
-pub type NDIS_PROC_CALLBACK = ::core::option::Option<unsafe extern "system" fn(workitem: *const NDIS_WORK_ITEM, context: *const ::core::ffi::c_void)>;
-pub type NDIS_TIMER_FUNCTION = ::core::option::Option<unsafe extern "system" fn(systemspecific1: *const ::core::ffi::c_void, functioncontext: *const ::core::ffi::c_void, systemspecific2: *const ::core::ffi::c_void, systemspecific3: *const ::core::ffi::c_void)>;
-pub type PNDIS_TIMER_FUNCTION = ::core::option::Option<unsafe extern "system" fn()>;
-pub type PROTCOL_CO_AF_REGISTER_NOTIFY = ::core::option::Option<unsafe extern "system" fn()>;
-pub type PROTOCOL_CL_ADD_PARTY_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: i32, protocolpartycontext: *const ::core::ffi::c_void, ndispartyhandle: *const ::core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS)>;
-pub type PROTOCOL_CL_CALL_CONNECTED = ::core::option::Option<unsafe extern "system" fn(protocolvccontext: *const ::core::ffi::c_void)>;
-pub type PROTOCOL_CL_CLOSE_AF_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: i32, protocolafcontext: *const ::core::ffi::c_void)>;
-pub type PROTOCOL_CL_CLOSE_CALL_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: i32, protocolvccontext: *const ::core::ffi::c_void, protocolpartycontext: *const ::core::ffi::c_void)>;
-pub type PROTOCOL_CL_DEREGISTER_SAP_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: i32, protocolsapcontext: *const ::core::ffi::c_void)>;
-pub type PROTOCOL_CL_DROP_PARTY_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: i32, protocolpartycontext: *const ::core::ffi::c_void)>;
-pub type PROTOCOL_CL_INCOMING_CALL = ::core::option::Option<unsafe extern "system" fn(protocolsapcontext: *const ::core::ffi::c_void, protocolvccontext: *const ::core::ffi::c_void, callparameters: *mut CO_CALL_PARAMETERS) -> i32>;
-pub type PROTOCOL_CL_INCOMING_CALL_QOS_CHANGE = ::core::option::Option<unsafe extern "system" fn(protocolvccontext: *const ::core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS)>;
-pub type PROTOCOL_CL_INCOMING_CLOSE_CALL = ::core::option::Option<unsafe extern "system" fn(closestatus: i32, protocolvccontext: *const ::core::ffi::c_void, closedata: *const ::core::ffi::c_void, size: u32)>;
-pub type PROTOCOL_CL_INCOMING_DROP_PARTY = ::core::option::Option<unsafe extern "system" fn(dropstatus: i32, protocolpartycontext: *const ::core::ffi::c_void, closedata: *const ::core::ffi::c_void, size: u32)>;
-pub type PROTOCOL_CL_MAKE_CALL_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: i32, protocolvccontext: *const ::core::ffi::c_void, ndispartyhandle: *const ::core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS)>;
-pub type PROTOCOL_CL_MODIFY_CALL_QOS_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: i32, protocolvccontext: *const ::core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS)>;
-pub type PROTOCOL_CL_OPEN_AF_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: i32, protocolafcontext: *const ::core::ffi::c_void, ndisafhandle: *const ::core::ffi::c_void)>;
-pub type PROTOCOL_CL_REGISTER_SAP_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: i32, protocolsapcontext: *const ::core::ffi::c_void, sap: *const CO_SAP, ndissaphandle: *const ::core::ffi::c_void)>;
-pub type PROTOCOL_CM_ACTIVATE_VC_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: i32, callmgrvccontext: *const ::core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS)>;
-pub type PROTOCOL_CM_ADD_PARTY = ::core::option::Option<unsafe extern "system" fn(callmgrvccontext: *const ::core::ffi::c_void, callparameters: *mut CO_CALL_PARAMETERS, ndispartyhandle: *const ::core::ffi::c_void, callmgrpartycontext: *mut *mut ::core::ffi::c_void) -> i32>;
-pub type PROTOCOL_CM_CLOSE_AF = ::core::option::Option<unsafe extern "system" fn(callmgrafcontext: *const ::core::ffi::c_void) -> i32>;
-pub type PROTOCOL_CM_CLOSE_CALL = ::core::option::Option<unsafe extern "system" fn(callmgrvccontext: *const ::core::ffi::c_void, callmgrpartycontext: *const ::core::ffi::c_void, closedata: *const ::core::ffi::c_void, size: u32) -> i32>;
-pub type PROTOCOL_CM_DEACTIVATE_VC_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: i32, callmgrvccontext: *const ::core::ffi::c_void)>;
-pub type PROTOCOL_CM_DEREGISTER_SAP = ::core::option::Option<unsafe extern "system" fn(callmgrsapcontext: *const ::core::ffi::c_void) -> i32>;
-pub type PROTOCOL_CM_DROP_PARTY = ::core::option::Option<unsafe extern "system" fn(callmgrpartycontext: *const ::core::ffi::c_void, closedata: *const ::core::ffi::c_void, size: u32) -> i32>;
-pub type PROTOCOL_CM_INCOMING_CALL_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: i32, callmgrvccontext: *const ::core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS)>;
-pub type PROTOCOL_CM_MAKE_CALL = ::core::option::Option<unsafe extern "system" fn(callmgrvccontext: *const ::core::ffi::c_void, callparameters: *mut CO_CALL_PARAMETERS, ndispartyhandle: *const ::core::ffi::c_void, callmgrpartycontext: *mut *mut ::core::ffi::c_void) -> i32>;
-pub type PROTOCOL_CM_MODIFY_QOS_CALL = ::core::option::Option<unsafe extern "system" fn(callmgrvccontext: *const ::core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS) -> i32>;
-pub type PROTOCOL_CM_OPEN_AF = ::core::option::Option<unsafe extern "system" fn(callmgrbindingcontext: *const ::core::ffi::c_void, addressfamily: *const CO_ADDRESS_FAMILY, ndisafhandle: *const ::core::ffi::c_void, callmgrafcontext: *mut *mut ::core::ffi::c_void) -> i32>;
-pub type PROTOCOL_CM_REG_SAP = ::core::option::Option<unsafe extern "system" fn(callmgrafcontext: *const ::core::ffi::c_void, sap: *const CO_SAP, ndissaphandle: *const ::core::ffi::c_void, callmgrsapcontext: *mut *mut ::core::ffi::c_void) -> i32>;
-pub type PROTOCOL_CO_AF_REGISTER_NOTIFY = ::core::option::Option<unsafe extern "system" fn(protocolbindingcontext: *const ::core::ffi::c_void, addressfamily: *const CO_ADDRESS_FAMILY)>;
-pub type PROTOCOL_CO_CREATE_VC = ::core::option::Option<unsafe extern "system" fn(protocolafcontext: *const ::core::ffi::c_void, ndisvchandle: *const ::core::ffi::c_void, protocolvccontext: *mut *mut ::core::ffi::c_void) -> i32>;
-pub type PROTOCOL_CO_DELETE_VC = ::core::option::Option<unsafe extern "system" fn(protocolvccontext: *const ::core::ffi::c_void) -> i32>;
-pub type TDI_PNP_HANDLER = ::core::option::Option<unsafe extern "system" fn(uppercomponent: *const super::super::super::Win32::Foundation::UNICODE_STRING, lowercomponent: *const super::super::super::Win32::Foundation::UNICODE_STRING, bindlist: *const super::super::super::Win32::Foundation::UNICODE_STRING, reconfigbuffer: *const ::core::ffi::c_void, reconfigbuffersize: u32, operation: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type TDI_REGISTER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(devicename: *const super::super::super::Win32::Foundation::UNICODE_STRING, tdihandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-pub type W_CO_ACTIVATE_VC_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> i32>;
-pub type W_CO_CREATE_VC_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> i32>;
-pub type W_CO_DEACTIVATE_VC_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> i32>;
-pub type W_CO_DELETE_VC_HANDLER = ::core::option::Option<unsafe extern "system" fn() -> i32>;
+pub type CL_ADD_PARTY_COMPLETE_HANDLER = Option<unsafe extern "system" fn()>;
+pub type CL_CALL_CONNECTED_HANDLER = Option<unsafe extern "system" fn()>;
+pub type CL_CLOSE_AF_COMPLETE_HANDLER = Option<unsafe extern "system" fn()>;
+pub type CL_CLOSE_CALL_COMPLETE_HANDLER = Option<unsafe extern "system" fn()>;
+pub type CL_DEREG_SAP_COMPLETE_HANDLER = Option<unsafe extern "system" fn()>;
+pub type CL_DROP_PARTY_COMPLETE_HANDLER = Option<unsafe extern "system" fn()>;
+pub type CL_INCOMING_CALL_HANDLER = Option<unsafe extern "system" fn() -> i32>;
+pub type CL_INCOMING_CALL_QOS_CHANGE_HANDLER = Option<unsafe extern "system" fn()>;
+pub type CL_INCOMING_CLOSE_CALL_HANDLER = Option<unsafe extern "system" fn()>;
+pub type CL_INCOMING_DROP_PARTY_HANDLER = Option<unsafe extern "system" fn()>;
+pub type CL_MAKE_CALL_COMPLETE_HANDLER = Option<unsafe extern "system" fn()>;
+pub type CL_MODIFY_CALL_QOS_COMPLETE_HANDLER = Option<unsafe extern "system" fn()>;
+pub type CL_OPEN_AF_COMPLETE_HANDLER = Option<unsafe extern "system" fn()>;
+pub type CL_REG_SAP_COMPLETE_HANDLER = Option<unsafe extern "system" fn()>;
+pub type CM_ACTIVATE_VC_COMPLETE_HANDLER = Option<unsafe extern "system" fn()>;
+pub type CM_ADD_PARTY_HANDLER = Option<unsafe extern "system" fn() -> i32>;
+pub type CM_CLOSE_AF_HANDLER = Option<unsafe extern "system" fn() -> i32>;
+pub type CM_CLOSE_CALL_HANDLER = Option<unsafe extern "system" fn() -> i32>;
+pub type CM_DEACTIVATE_VC_COMPLETE_HANDLER = Option<unsafe extern "system" fn()>;
+pub type CM_DEREG_SAP_HANDLER = Option<unsafe extern "system" fn() -> i32>;
+pub type CM_DROP_PARTY_HANDLER = Option<unsafe extern "system" fn() -> i32>;
+pub type CM_INCOMING_CALL_COMPLETE_HANDLER = Option<unsafe extern "system" fn()>;
+pub type CM_MAKE_CALL_HANDLER = Option<unsafe extern "system" fn() -> i32>;
+pub type CM_MODIFY_CALL_QOS_HANDLER = Option<unsafe extern "system" fn() -> i32>;
+pub type CM_OPEN_AF_HANDLER = Option<unsafe extern "system" fn() -> i32>;
+pub type CM_REG_SAP_HANDLER = Option<unsafe extern "system" fn() -> i32>;
+pub type CO_AF_REGISTER_NOTIFY_HANDLER = Option<unsafe extern "system" fn()>;
+pub type CO_CREATE_VC_HANDLER = Option<unsafe extern "system" fn() -> i32>;
+pub type CO_DELETE_VC_HANDLER = Option<unsafe extern "system" fn() -> i32>;
+pub type MINIPORT_CO_ACTIVATE_VC = Option<unsafe extern "system" fn(miniportvccontext: *const core::ffi::c_void, callparameters: *mut CO_CALL_PARAMETERS) -> i32>;
+pub type MINIPORT_CO_CREATE_VC = Option<unsafe extern "system" fn(miniportadaptercontext: *const core::ffi::c_void, ndisvchandle: *const core::ffi::c_void, miniportvccontext: *mut *mut core::ffi::c_void) -> i32>;
+pub type MINIPORT_CO_DEACTIVATE_VC = Option<unsafe extern "system" fn(miniportvccontext: *const core::ffi::c_void) -> i32>;
+pub type MINIPORT_CO_DELETE_VC = Option<unsafe extern "system" fn(miniportvccontext: *const core::ffi::c_void) -> i32>;
+pub type NDIS_PROC = Option<unsafe extern "system" fn()>;
+pub type NDIS_PROC_CALLBACK = Option<unsafe extern "system" fn(workitem: *const NDIS_WORK_ITEM, context: *const core::ffi::c_void)>;
+pub type NDIS_TIMER_FUNCTION = Option<unsafe extern "system" fn(systemspecific1: *const core::ffi::c_void, functioncontext: *const core::ffi::c_void, systemspecific2: *const core::ffi::c_void, systemspecific3: *const core::ffi::c_void)>;
+pub type PNDIS_TIMER_FUNCTION = Option<unsafe extern "system" fn()>;
+pub type PROTCOL_CO_AF_REGISTER_NOTIFY = Option<unsafe extern "system" fn()>;
+pub type PROTOCOL_CL_ADD_PARTY_COMPLETE = Option<unsafe extern "system" fn(status: i32, protocolpartycontext: *const core::ffi::c_void, ndispartyhandle: *const core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS)>;
+pub type PROTOCOL_CL_CALL_CONNECTED = Option<unsafe extern "system" fn(protocolvccontext: *const core::ffi::c_void)>;
+pub type PROTOCOL_CL_CLOSE_AF_COMPLETE = Option<unsafe extern "system" fn(status: i32, protocolafcontext: *const core::ffi::c_void)>;
+pub type PROTOCOL_CL_CLOSE_CALL_COMPLETE = Option<unsafe extern "system" fn(status: i32, protocolvccontext: *const core::ffi::c_void, protocolpartycontext: *const core::ffi::c_void)>;
+pub type PROTOCOL_CL_DEREGISTER_SAP_COMPLETE = Option<unsafe extern "system" fn(status: i32, protocolsapcontext: *const core::ffi::c_void)>;
+pub type PROTOCOL_CL_DROP_PARTY_COMPLETE = Option<unsafe extern "system" fn(status: i32, protocolpartycontext: *const core::ffi::c_void)>;
+pub type PROTOCOL_CL_INCOMING_CALL = Option<unsafe extern "system" fn(protocolsapcontext: *const core::ffi::c_void, protocolvccontext: *const core::ffi::c_void, callparameters: *mut CO_CALL_PARAMETERS) -> i32>;
+pub type PROTOCOL_CL_INCOMING_CALL_QOS_CHANGE = Option<unsafe extern "system" fn(protocolvccontext: *const core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS)>;
+pub type PROTOCOL_CL_INCOMING_CLOSE_CALL = Option<unsafe extern "system" fn(closestatus: i32, protocolvccontext: *const core::ffi::c_void, closedata: *const core::ffi::c_void, size: u32)>;
+pub type PROTOCOL_CL_INCOMING_DROP_PARTY = Option<unsafe extern "system" fn(dropstatus: i32, protocolpartycontext: *const core::ffi::c_void, closedata: *const core::ffi::c_void, size: u32)>;
+pub type PROTOCOL_CL_MAKE_CALL_COMPLETE = Option<unsafe extern "system" fn(status: i32, protocolvccontext: *const core::ffi::c_void, ndispartyhandle: *const core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS)>;
+pub type PROTOCOL_CL_MODIFY_CALL_QOS_COMPLETE = Option<unsafe extern "system" fn(status: i32, protocolvccontext: *const core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS)>;
+pub type PROTOCOL_CL_OPEN_AF_COMPLETE = Option<unsafe extern "system" fn(status: i32, protocolafcontext: *const core::ffi::c_void, ndisafhandle: *const core::ffi::c_void)>;
+pub type PROTOCOL_CL_REGISTER_SAP_COMPLETE = Option<unsafe extern "system" fn(status: i32, protocolsapcontext: *const core::ffi::c_void, sap: *const CO_SAP, ndissaphandle: *const core::ffi::c_void)>;
+pub type PROTOCOL_CM_ACTIVATE_VC_COMPLETE = Option<unsafe extern "system" fn(status: i32, callmgrvccontext: *const core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS)>;
+pub type PROTOCOL_CM_ADD_PARTY = Option<unsafe extern "system" fn(callmgrvccontext: *const core::ffi::c_void, callparameters: *mut CO_CALL_PARAMETERS, ndispartyhandle: *const core::ffi::c_void, callmgrpartycontext: *mut *mut core::ffi::c_void) -> i32>;
+pub type PROTOCOL_CM_CLOSE_AF = Option<unsafe extern "system" fn(callmgrafcontext: *const core::ffi::c_void) -> i32>;
+pub type PROTOCOL_CM_CLOSE_CALL = Option<unsafe extern "system" fn(callmgrvccontext: *const core::ffi::c_void, callmgrpartycontext: *const core::ffi::c_void, closedata: *const core::ffi::c_void, size: u32) -> i32>;
+pub type PROTOCOL_CM_DEACTIVATE_VC_COMPLETE = Option<unsafe extern "system" fn(status: i32, callmgrvccontext: *const core::ffi::c_void)>;
+pub type PROTOCOL_CM_DEREGISTER_SAP = Option<unsafe extern "system" fn(callmgrsapcontext: *const core::ffi::c_void) -> i32>;
+pub type PROTOCOL_CM_DROP_PARTY = Option<unsafe extern "system" fn(callmgrpartycontext: *const core::ffi::c_void, closedata: *const core::ffi::c_void, size: u32) -> i32>;
+pub type PROTOCOL_CM_INCOMING_CALL_COMPLETE = Option<unsafe extern "system" fn(status: i32, callmgrvccontext: *const core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS)>;
+pub type PROTOCOL_CM_MAKE_CALL = Option<unsafe extern "system" fn(callmgrvccontext: *const core::ffi::c_void, callparameters: *mut CO_CALL_PARAMETERS, ndispartyhandle: *const core::ffi::c_void, callmgrpartycontext: *mut *mut core::ffi::c_void) -> i32>;
+pub type PROTOCOL_CM_MODIFY_QOS_CALL = Option<unsafe extern "system" fn(callmgrvccontext: *const core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS) -> i32>;
+pub type PROTOCOL_CM_OPEN_AF = Option<unsafe extern "system" fn(callmgrbindingcontext: *const core::ffi::c_void, addressfamily: *const CO_ADDRESS_FAMILY, ndisafhandle: *const core::ffi::c_void, callmgrafcontext: *mut *mut core::ffi::c_void) -> i32>;
+pub type PROTOCOL_CM_REG_SAP = Option<unsafe extern "system" fn(callmgrafcontext: *const core::ffi::c_void, sap: *const CO_SAP, ndissaphandle: *const core::ffi::c_void, callmgrsapcontext: *mut *mut core::ffi::c_void) -> i32>;
+pub type PROTOCOL_CO_AF_REGISTER_NOTIFY = Option<unsafe extern "system" fn(protocolbindingcontext: *const core::ffi::c_void, addressfamily: *const CO_ADDRESS_FAMILY)>;
+pub type PROTOCOL_CO_CREATE_VC = Option<unsafe extern "system" fn(protocolafcontext: *const core::ffi::c_void, ndisvchandle: *const core::ffi::c_void, protocolvccontext: *mut *mut core::ffi::c_void) -> i32>;
+pub type PROTOCOL_CO_DELETE_VC = Option<unsafe extern "system" fn(protocolvccontext: *const core::ffi::c_void) -> i32>;
+pub type TDI_PNP_HANDLER = Option<unsafe extern "system" fn(uppercomponent: *const super::super::super::Win32::Foundation::UNICODE_STRING, lowercomponent: *const super::super::super::Win32::Foundation::UNICODE_STRING, bindlist: *const super::super::super::Win32::Foundation::UNICODE_STRING, reconfigbuffer: *const core::ffi::c_void, reconfigbuffersize: u32, operation: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type TDI_REGISTER_CALLBACK = Option<unsafe extern "system" fn(devicename: *const super::super::super::Win32::Foundation::UNICODE_STRING, tdihandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type W_CO_ACTIVATE_VC_HANDLER = Option<unsafe extern "system" fn() -> i32>;
+pub type W_CO_CREATE_VC_HANDLER = Option<unsafe extern "system" fn() -> i32>;
+pub type W_CO_DEACTIVATE_VC_HANDLER = Option<unsafe extern "system" fn() -> i32>;
+pub type W_CO_DELETE_VC_HANDLER = Option<unsafe extern "system" fn() -> i32>;

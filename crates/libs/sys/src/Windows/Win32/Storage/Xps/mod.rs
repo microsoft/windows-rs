@@ -1,17 +1,17 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" fn AbortDoc(hdc : super::super::Graphics::Gdi:: HDC) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("winspool.drv" "system" fn DeviceCapabilitiesA(pdevice : ::windows_sys::core::PCSTR, pport : ::windows_sys::core::PCSTR, fwcapability : PRINTER_DEVICE_CAPABILITIES, poutput : ::windows_sys::core::PSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA) -> i32);
+::windows_targets::link!("winspool.drv" "system" fn DeviceCapabilitiesA(pdevice : windows_sys::core::PCSTR, pport : windows_sys::core::PCSTR, fwcapability : PRINTER_DEVICE_CAPABILITIES, poutput : windows_sys::core::PSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("winspool.drv" "system" fn DeviceCapabilitiesW(pdevice : ::windows_sys::core::PCWSTR, pport : ::windows_sys::core::PCWSTR, fwcapability : PRINTER_DEVICE_CAPABILITIES, poutput : ::windows_sys::core::PWSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW) -> i32);
+::windows_targets::link!("winspool.drv" "system" fn DeviceCapabilitiesW(pdevice : windows_sys::core::PCWSTR, pport : windows_sys::core::PCWSTR, fwcapability : PRINTER_DEVICE_CAPABILITIES, poutput : windows_sys::core::PWSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" fn EndDoc(hdc : super::super::Graphics::Gdi:: HDC) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" fn EndPage(hdc : super::super::Graphics::Gdi:: HDC) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdi32.dll" "system" fn Escape(hdc : super::super::Graphics::Gdi:: HDC, iescape : i32, cjin : i32, pvin : ::windows_sys::core::PCSTR, pvout : *mut ::core::ffi::c_void) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn Escape(hdc : super::super::Graphics::Gdi:: HDC, iescape : i32, cjin : i32, pvin : windows_sys::core::PCSTR, pvout : *mut core::ffi::c_void) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdi32.dll" "system" fn ExtEscape(hdc : super::super::Graphics::Gdi:: HDC, iescape : i32, cjinput : i32, lpindata : ::windows_sys::core::PCSTR, cjoutput : i32, lpoutdata : ::windows_sys::core::PSTR) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn ExtEscape(hdc : super::super::Graphics::Gdi:: HDC, iescape : i32, cjinput : i32, lpindata : windows_sys::core::PCSTR, cjoutput : i32, lpoutdata : windows_sys::core::PSTR) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("user32.dll" "system" fn PrintWindow(hwnd : super::super::Foundation:: HWND, hdcblt : super::super::Graphics::Gdi:: HDC, nflags : PRINT_WINDOW_FLAGS) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -96,91 +96,91 @@ pub const XPS_DASH_CAP_TRIANGLE: XPS_DASH_CAP = 4i32;
 pub const XPS_DOCUMENT_TYPE_OPENXPS: XPS_DOCUMENT_TYPE = 3i32;
 pub const XPS_DOCUMENT_TYPE_UNSPECIFIED: XPS_DOCUMENT_TYPE = 1i32;
 pub const XPS_DOCUMENT_TYPE_XPS: XPS_DOCUMENT_TYPE = 2i32;
-pub const XPS_E_ABSOLUTE_REFERENCE: ::windows_sys::core::HRESULT = 0x80520601_u32 as _;
-pub const XPS_E_ALREADY_OWNED: ::windows_sys::core::HRESULT = 0x80520503_u32 as _;
-pub const XPS_E_BLEED_BOX_PAGE_DIMENSIONS_NOT_IN_SYNC: ::windows_sys::core::HRESULT = 0x80520509_u32 as _;
-pub const XPS_E_BOTH_PATHFIGURE_AND_ABBR_SYNTAX_PRESENT: ::windows_sys::core::HRESULT = 0x80520507_u32 as _;
-pub const XPS_E_BOTH_RESOURCE_AND_SOURCEATTR_PRESENT: ::windows_sys::core::HRESULT = 0x80520508_u32 as _;
-pub const XPS_E_CARET_OUTSIDE_STRING: ::windows_sys::core::HRESULT = 0x80520305_u32 as _;
-pub const XPS_E_CARET_OUT_OF_ORDER: ::windows_sys::core::HRESULT = 0x80520306_u32 as _;
-pub const XPS_E_COLOR_COMPONENT_OUT_OF_RANGE: ::windows_sys::core::HRESULT = 0x80520506_u32 as _;
-pub const XPS_E_DICTIONARY_ITEM_NAMED: ::windows_sys::core::HRESULT = 0x80520401_u32 as _;
-pub const XPS_E_DUPLICATE_NAMES: ::windows_sys::core::HRESULT = 0x80520209_u32 as _;
-pub const XPS_E_DUPLICATE_RESOURCE_KEYS: ::windows_sys::core::HRESULT = 0x80520200_u32 as _;
-pub const XPS_E_INDEX_OUT_OF_RANGE: ::windows_sys::core::HRESULT = 0x80520500_u32 as _;
-pub const XPS_E_INVALID_BLEED_BOX: ::windows_sys::core::HRESULT = 0x80520004_u32 as _;
-pub const XPS_E_INVALID_CONTENT_BOX: ::windows_sys::core::HRESULT = 0x8052000B_u32 as _;
-pub const XPS_E_INVALID_CONTENT_TYPE: ::windows_sys::core::HRESULT = 0x8052000E_u32 as _;
-pub const XPS_E_INVALID_FLOAT: ::windows_sys::core::HRESULT = 0x80520007_u32 as _;
-pub const XPS_E_INVALID_FONT_URI: ::windows_sys::core::HRESULT = 0x8052000A_u32 as _;
-pub const XPS_E_INVALID_LANGUAGE: ::windows_sys::core::HRESULT = 0x80520000_u32 as _;
-pub const XPS_E_INVALID_LOOKUP_TYPE: ::windows_sys::core::HRESULT = 0x80520006_u32 as _;
-pub const XPS_E_INVALID_MARKUP: ::windows_sys::core::HRESULT = 0x8052000C_u32 as _;
-pub const XPS_E_INVALID_NAME: ::windows_sys::core::HRESULT = 0x80520001_u32 as _;
-pub const XPS_E_INVALID_NUMBER_OF_COLOR_CHANNELS: ::windows_sys::core::HRESULT = 0x80520602_u32 as _;
-pub const XPS_E_INVALID_NUMBER_OF_POINTS_IN_CURVE_SEGMENTS: ::windows_sys::core::HRESULT = 0x80520600_u32 as _;
-pub const XPS_E_INVALID_OBFUSCATED_FONT_URI: ::windows_sys::core::HRESULT = 0x8052000F_u32 as _;
-pub const XPS_E_INVALID_PAGE_SIZE: ::windows_sys::core::HRESULT = 0x80520003_u32 as _;
-pub const XPS_E_INVALID_RESOURCE_KEY: ::windows_sys::core::HRESULT = 0x80520002_u32 as _;
-pub const XPS_E_INVALID_SIGNATUREBLOCK_MARKUP: ::windows_sys::core::HRESULT = 0x8052038B_u32 as _;
-pub const XPS_E_INVALID_THUMBNAIL_IMAGE_TYPE: ::windows_sys::core::HRESULT = 0x80520005_u32 as _;
-pub const XPS_E_INVALID_XML_ENCODING: ::windows_sys::core::HRESULT = 0x8052000D_u32 as _;
-pub const XPS_E_MAPPING_OUTSIDE_INDICES: ::windows_sys::core::HRESULT = 0x80520304_u32 as _;
-pub const XPS_E_MAPPING_OUTSIDE_STRING: ::windows_sys::core::HRESULT = 0x80520303_u32 as _;
-pub const XPS_E_MAPPING_OUT_OF_ORDER: ::windows_sys::core::HRESULT = 0x80520302_u32 as _;
-pub const XPS_E_MARKUP_COMPATIBILITY_ELEMENTS: ::windows_sys::core::HRESULT = 0x80520389_u32 as _;
-pub const XPS_E_MISSING_COLORPROFILE: ::windows_sys::core::HRESULT = 0x80520104_u32 as _;
-pub const XPS_E_MISSING_DISCARDCONTROL: ::windows_sys::core::HRESULT = 0x80520112_u32 as _;
-pub const XPS_E_MISSING_DOCUMENT: ::windows_sys::core::HRESULT = 0x80520109_u32 as _;
-pub const XPS_E_MISSING_DOCUMENTSEQUENCE_RELATIONSHIP: ::windows_sys::core::HRESULT = 0x80520108_u32 as _;
-pub const XPS_E_MISSING_FONTURI: ::windows_sys::core::HRESULT = 0x80520107_u32 as _;
-pub const XPS_E_MISSING_GLYPHS: ::windows_sys::core::HRESULT = 0x80520102_u32 as _;
-pub const XPS_E_MISSING_IMAGE_IN_IMAGEBRUSH: ::windows_sys::core::HRESULT = 0x8052010E_u32 as _;
-pub const XPS_E_MISSING_LOOKUP: ::windows_sys::core::HRESULT = 0x80520101_u32 as _;
-pub const XPS_E_MISSING_NAME: ::windows_sys::core::HRESULT = 0x80520100_u32 as _;
-pub const XPS_E_MISSING_PAGE_IN_DOCUMENT: ::windows_sys::core::HRESULT = 0x8052010C_u32 as _;
-pub const XPS_E_MISSING_PAGE_IN_PAGEREFERENCE: ::windows_sys::core::HRESULT = 0x8052010D_u32 as _;
-pub const XPS_E_MISSING_PART_REFERENCE: ::windows_sys::core::HRESULT = 0x80520110_u32 as _;
-pub const XPS_E_MISSING_PART_STREAM: ::windows_sys::core::HRESULT = 0x80520113_u32 as _;
-pub const XPS_E_MISSING_REFERRED_DOCUMENT: ::windows_sys::core::HRESULT = 0x8052010A_u32 as _;
-pub const XPS_E_MISSING_REFERRED_PAGE: ::windows_sys::core::HRESULT = 0x8052010B_u32 as _;
-pub const XPS_E_MISSING_RELATIONSHIP_TARGET: ::windows_sys::core::HRESULT = 0x80520105_u32 as _;
-pub const XPS_E_MISSING_RESOURCE_KEY: ::windows_sys::core::HRESULT = 0x8052010F_u32 as _;
-pub const XPS_E_MISSING_RESOURCE_RELATIONSHIP: ::windows_sys::core::HRESULT = 0x80520106_u32 as _;
-pub const XPS_E_MISSING_RESTRICTED_FONT_RELATIONSHIP: ::windows_sys::core::HRESULT = 0x80520111_u32 as _;
-pub const XPS_E_MISSING_SEGMENT_DATA: ::windows_sys::core::HRESULT = 0x80520103_u32 as _;
-pub const XPS_E_MULTIPLE_DOCUMENTSEQUENCE_RELATIONSHIPS: ::windows_sys::core::HRESULT = 0x80520202_u32 as _;
-pub const XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENT: ::windows_sys::core::HRESULT = 0x80520206_u32 as _;
-pub const XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENTSEQUENCE: ::windows_sys::core::HRESULT = 0x80520207_u32 as _;
-pub const XPS_E_MULTIPLE_PRINTTICKETS_ON_PAGE: ::windows_sys::core::HRESULT = 0x80520205_u32 as _;
-pub const XPS_E_MULTIPLE_REFERENCES_TO_PART: ::windows_sys::core::HRESULT = 0x80520208_u32 as _;
-pub const XPS_E_MULTIPLE_RESOURCES: ::windows_sys::core::HRESULT = 0x80520201_u32 as _;
-pub const XPS_E_MULTIPLE_THUMBNAILS_ON_PACKAGE: ::windows_sys::core::HRESULT = 0x80520204_u32 as _;
-pub const XPS_E_MULTIPLE_THUMBNAILS_ON_PAGE: ::windows_sys::core::HRESULT = 0x80520203_u32 as _;
-pub const XPS_E_NEGATIVE_FLOAT: ::windows_sys::core::HRESULT = 0x8052030A_u32 as _;
-pub const XPS_E_NESTED_REMOTE_DICTIONARY: ::windows_sys::core::HRESULT = 0x80520402_u32 as _;
-pub const XPS_E_NOT_ENOUGH_GRADIENT_STOPS: ::windows_sys::core::HRESULT = 0x8052050B_u32 as _;
-pub const XPS_E_NO_CUSTOM_OBJECTS: ::windows_sys::core::HRESULT = 0x80520502_u32 as _;
-pub const XPS_E_OBJECT_DETACHED: ::windows_sys::core::HRESULT = 0x8052038A_u32 as _;
-pub const XPS_E_ODD_BIDILEVEL: ::windows_sys::core::HRESULT = 0x80520307_u32 as _;
-pub const XPS_E_ONE_TO_ONE_MAPPING_EXPECTED: ::windows_sys::core::HRESULT = 0x80520308_u32 as _;
-pub const XPS_E_PACKAGE_ALREADY_OPENED: ::windows_sys::core::HRESULT = 0x80520387_u32 as _;
-pub const XPS_E_PACKAGE_NOT_OPENED: ::windows_sys::core::HRESULT = 0x80520386_u32 as _;
-pub const XPS_E_PACKAGE_WRITER_NOT_CLOSED: ::windows_sys::core::HRESULT = 0x8052050C_u32 as _;
-pub const XPS_E_RELATIONSHIP_EXTERNAL: ::windows_sys::core::HRESULT = 0x8052050A_u32 as _;
-pub const XPS_E_RESOURCE_NOT_OWNED: ::windows_sys::core::HRESULT = 0x80520504_u32 as _;
-pub const XPS_E_RESTRICTED_FONT_NOT_OBFUSCATED: ::windows_sys::core::HRESULT = 0x80520309_u32 as _;
-pub const XPS_E_SIGNATUREID_DUP: ::windows_sys::core::HRESULT = 0x80520388_u32 as _;
-pub const XPS_E_SIGREQUESTID_DUP: ::windows_sys::core::HRESULT = 0x80520385_u32 as _;
-pub const XPS_E_STRING_TOO_LONG: ::windows_sys::core::HRESULT = 0x80520300_u32 as _;
-pub const XPS_E_TOO_MANY_INDICES: ::windows_sys::core::HRESULT = 0x80520301_u32 as _;
-pub const XPS_E_UNAVAILABLE_PACKAGE: ::windows_sys::core::HRESULT = 0x80520114_u32 as _;
-pub const XPS_E_UNEXPECTED_COLORPROFILE: ::windows_sys::core::HRESULT = 0x80520505_u32 as _;
-pub const XPS_E_UNEXPECTED_CONTENT_TYPE: ::windows_sys::core::HRESULT = 0x80520008_u32 as _;
-pub const XPS_E_UNEXPECTED_RELATIONSHIP_TYPE: ::windows_sys::core::HRESULT = 0x80520010_u32 as _;
-pub const XPS_E_UNEXPECTED_RESTRICTED_FONT_RELATIONSHIP: ::windows_sys::core::HRESULT = 0x80520011_u32 as _;
-pub const XPS_E_VISUAL_CIRCULAR_REF: ::windows_sys::core::HRESULT = 0x80520501_u32 as _;
-pub const XPS_E_XKEY_ATTR_PRESENT_OUTSIDE_RES_DICT: ::windows_sys::core::HRESULT = 0x80520400_u32 as _;
+pub const XPS_E_ABSOLUTE_REFERENCE: windows_sys::core::HRESULT = 0x80520601_u32 as _;
+pub const XPS_E_ALREADY_OWNED: windows_sys::core::HRESULT = 0x80520503_u32 as _;
+pub const XPS_E_BLEED_BOX_PAGE_DIMENSIONS_NOT_IN_SYNC: windows_sys::core::HRESULT = 0x80520509_u32 as _;
+pub const XPS_E_BOTH_PATHFIGURE_AND_ABBR_SYNTAX_PRESENT: windows_sys::core::HRESULT = 0x80520507_u32 as _;
+pub const XPS_E_BOTH_RESOURCE_AND_SOURCEATTR_PRESENT: windows_sys::core::HRESULT = 0x80520508_u32 as _;
+pub const XPS_E_CARET_OUTSIDE_STRING: windows_sys::core::HRESULT = 0x80520305_u32 as _;
+pub const XPS_E_CARET_OUT_OF_ORDER: windows_sys::core::HRESULT = 0x80520306_u32 as _;
+pub const XPS_E_COLOR_COMPONENT_OUT_OF_RANGE: windows_sys::core::HRESULT = 0x80520506_u32 as _;
+pub const XPS_E_DICTIONARY_ITEM_NAMED: windows_sys::core::HRESULT = 0x80520401_u32 as _;
+pub const XPS_E_DUPLICATE_NAMES: windows_sys::core::HRESULT = 0x80520209_u32 as _;
+pub const XPS_E_DUPLICATE_RESOURCE_KEYS: windows_sys::core::HRESULT = 0x80520200_u32 as _;
+pub const XPS_E_INDEX_OUT_OF_RANGE: windows_sys::core::HRESULT = 0x80520500_u32 as _;
+pub const XPS_E_INVALID_BLEED_BOX: windows_sys::core::HRESULT = 0x80520004_u32 as _;
+pub const XPS_E_INVALID_CONTENT_BOX: windows_sys::core::HRESULT = 0x8052000B_u32 as _;
+pub const XPS_E_INVALID_CONTENT_TYPE: windows_sys::core::HRESULT = 0x8052000E_u32 as _;
+pub const XPS_E_INVALID_FLOAT: windows_sys::core::HRESULT = 0x80520007_u32 as _;
+pub const XPS_E_INVALID_FONT_URI: windows_sys::core::HRESULT = 0x8052000A_u32 as _;
+pub const XPS_E_INVALID_LANGUAGE: windows_sys::core::HRESULT = 0x80520000_u32 as _;
+pub const XPS_E_INVALID_LOOKUP_TYPE: windows_sys::core::HRESULT = 0x80520006_u32 as _;
+pub const XPS_E_INVALID_MARKUP: windows_sys::core::HRESULT = 0x8052000C_u32 as _;
+pub const XPS_E_INVALID_NAME: windows_sys::core::HRESULT = 0x80520001_u32 as _;
+pub const XPS_E_INVALID_NUMBER_OF_COLOR_CHANNELS: windows_sys::core::HRESULT = 0x80520602_u32 as _;
+pub const XPS_E_INVALID_NUMBER_OF_POINTS_IN_CURVE_SEGMENTS: windows_sys::core::HRESULT = 0x80520600_u32 as _;
+pub const XPS_E_INVALID_OBFUSCATED_FONT_URI: windows_sys::core::HRESULT = 0x8052000F_u32 as _;
+pub const XPS_E_INVALID_PAGE_SIZE: windows_sys::core::HRESULT = 0x80520003_u32 as _;
+pub const XPS_E_INVALID_RESOURCE_KEY: windows_sys::core::HRESULT = 0x80520002_u32 as _;
+pub const XPS_E_INVALID_SIGNATUREBLOCK_MARKUP: windows_sys::core::HRESULT = 0x8052038B_u32 as _;
+pub const XPS_E_INVALID_THUMBNAIL_IMAGE_TYPE: windows_sys::core::HRESULT = 0x80520005_u32 as _;
+pub const XPS_E_INVALID_XML_ENCODING: windows_sys::core::HRESULT = 0x8052000D_u32 as _;
+pub const XPS_E_MAPPING_OUTSIDE_INDICES: windows_sys::core::HRESULT = 0x80520304_u32 as _;
+pub const XPS_E_MAPPING_OUTSIDE_STRING: windows_sys::core::HRESULT = 0x80520303_u32 as _;
+pub const XPS_E_MAPPING_OUT_OF_ORDER: windows_sys::core::HRESULT = 0x80520302_u32 as _;
+pub const XPS_E_MARKUP_COMPATIBILITY_ELEMENTS: windows_sys::core::HRESULT = 0x80520389_u32 as _;
+pub const XPS_E_MISSING_COLORPROFILE: windows_sys::core::HRESULT = 0x80520104_u32 as _;
+pub const XPS_E_MISSING_DISCARDCONTROL: windows_sys::core::HRESULT = 0x80520112_u32 as _;
+pub const XPS_E_MISSING_DOCUMENT: windows_sys::core::HRESULT = 0x80520109_u32 as _;
+pub const XPS_E_MISSING_DOCUMENTSEQUENCE_RELATIONSHIP: windows_sys::core::HRESULT = 0x80520108_u32 as _;
+pub const XPS_E_MISSING_FONTURI: windows_sys::core::HRESULT = 0x80520107_u32 as _;
+pub const XPS_E_MISSING_GLYPHS: windows_sys::core::HRESULT = 0x80520102_u32 as _;
+pub const XPS_E_MISSING_IMAGE_IN_IMAGEBRUSH: windows_sys::core::HRESULT = 0x8052010E_u32 as _;
+pub const XPS_E_MISSING_LOOKUP: windows_sys::core::HRESULT = 0x80520101_u32 as _;
+pub const XPS_E_MISSING_NAME: windows_sys::core::HRESULT = 0x80520100_u32 as _;
+pub const XPS_E_MISSING_PAGE_IN_DOCUMENT: windows_sys::core::HRESULT = 0x8052010C_u32 as _;
+pub const XPS_E_MISSING_PAGE_IN_PAGEREFERENCE: windows_sys::core::HRESULT = 0x8052010D_u32 as _;
+pub const XPS_E_MISSING_PART_REFERENCE: windows_sys::core::HRESULT = 0x80520110_u32 as _;
+pub const XPS_E_MISSING_PART_STREAM: windows_sys::core::HRESULT = 0x80520113_u32 as _;
+pub const XPS_E_MISSING_REFERRED_DOCUMENT: windows_sys::core::HRESULT = 0x8052010A_u32 as _;
+pub const XPS_E_MISSING_REFERRED_PAGE: windows_sys::core::HRESULT = 0x8052010B_u32 as _;
+pub const XPS_E_MISSING_RELATIONSHIP_TARGET: windows_sys::core::HRESULT = 0x80520105_u32 as _;
+pub const XPS_E_MISSING_RESOURCE_KEY: windows_sys::core::HRESULT = 0x8052010F_u32 as _;
+pub const XPS_E_MISSING_RESOURCE_RELATIONSHIP: windows_sys::core::HRESULT = 0x80520106_u32 as _;
+pub const XPS_E_MISSING_RESTRICTED_FONT_RELATIONSHIP: windows_sys::core::HRESULT = 0x80520111_u32 as _;
+pub const XPS_E_MISSING_SEGMENT_DATA: windows_sys::core::HRESULT = 0x80520103_u32 as _;
+pub const XPS_E_MULTIPLE_DOCUMENTSEQUENCE_RELATIONSHIPS: windows_sys::core::HRESULT = 0x80520202_u32 as _;
+pub const XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENT: windows_sys::core::HRESULT = 0x80520206_u32 as _;
+pub const XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENTSEQUENCE: windows_sys::core::HRESULT = 0x80520207_u32 as _;
+pub const XPS_E_MULTIPLE_PRINTTICKETS_ON_PAGE: windows_sys::core::HRESULT = 0x80520205_u32 as _;
+pub const XPS_E_MULTIPLE_REFERENCES_TO_PART: windows_sys::core::HRESULT = 0x80520208_u32 as _;
+pub const XPS_E_MULTIPLE_RESOURCES: windows_sys::core::HRESULT = 0x80520201_u32 as _;
+pub const XPS_E_MULTIPLE_THUMBNAILS_ON_PACKAGE: windows_sys::core::HRESULT = 0x80520204_u32 as _;
+pub const XPS_E_MULTIPLE_THUMBNAILS_ON_PAGE: windows_sys::core::HRESULT = 0x80520203_u32 as _;
+pub const XPS_E_NEGATIVE_FLOAT: windows_sys::core::HRESULT = 0x8052030A_u32 as _;
+pub const XPS_E_NESTED_REMOTE_DICTIONARY: windows_sys::core::HRESULT = 0x80520402_u32 as _;
+pub const XPS_E_NOT_ENOUGH_GRADIENT_STOPS: windows_sys::core::HRESULT = 0x8052050B_u32 as _;
+pub const XPS_E_NO_CUSTOM_OBJECTS: windows_sys::core::HRESULT = 0x80520502_u32 as _;
+pub const XPS_E_OBJECT_DETACHED: windows_sys::core::HRESULT = 0x8052038A_u32 as _;
+pub const XPS_E_ODD_BIDILEVEL: windows_sys::core::HRESULT = 0x80520307_u32 as _;
+pub const XPS_E_ONE_TO_ONE_MAPPING_EXPECTED: windows_sys::core::HRESULT = 0x80520308_u32 as _;
+pub const XPS_E_PACKAGE_ALREADY_OPENED: windows_sys::core::HRESULT = 0x80520387_u32 as _;
+pub const XPS_E_PACKAGE_NOT_OPENED: windows_sys::core::HRESULT = 0x80520386_u32 as _;
+pub const XPS_E_PACKAGE_WRITER_NOT_CLOSED: windows_sys::core::HRESULT = 0x8052050C_u32 as _;
+pub const XPS_E_RELATIONSHIP_EXTERNAL: windows_sys::core::HRESULT = 0x8052050A_u32 as _;
+pub const XPS_E_RESOURCE_NOT_OWNED: windows_sys::core::HRESULT = 0x80520504_u32 as _;
+pub const XPS_E_RESTRICTED_FONT_NOT_OBFUSCATED: windows_sys::core::HRESULT = 0x80520309_u32 as _;
+pub const XPS_E_SIGNATUREID_DUP: windows_sys::core::HRESULT = 0x80520388_u32 as _;
+pub const XPS_E_SIGREQUESTID_DUP: windows_sys::core::HRESULT = 0x80520385_u32 as _;
+pub const XPS_E_STRING_TOO_LONG: windows_sys::core::HRESULT = 0x80520300_u32 as _;
+pub const XPS_E_TOO_MANY_INDICES: windows_sys::core::HRESULT = 0x80520301_u32 as _;
+pub const XPS_E_UNAVAILABLE_PACKAGE: windows_sys::core::HRESULT = 0x80520114_u32 as _;
+pub const XPS_E_UNEXPECTED_COLORPROFILE: windows_sys::core::HRESULT = 0x80520505_u32 as _;
+pub const XPS_E_UNEXPECTED_CONTENT_TYPE: windows_sys::core::HRESULT = 0x80520008_u32 as _;
+pub const XPS_E_UNEXPECTED_RELATIONSHIP_TYPE: windows_sys::core::HRESULT = 0x80520010_u32 as _;
+pub const XPS_E_UNEXPECTED_RESTRICTED_FONT_RELATIONSHIP: windows_sys::core::HRESULT = 0x80520011_u32 as _;
+pub const XPS_E_VISUAL_CIRCULAR_REF: windows_sys::core::HRESULT = 0x80520501_u32 as _;
+pub const XPS_E_XKEY_ATTR_PRESENT_OUTSIDE_RES_DICT: windows_sys::core::HRESULT = 0x80520400_u32 as _;
 pub const XPS_FILL_RULE_EVENODD: XPS_FILL_RULE = 1i32;
 pub const XPS_FILL_RULE_NONZERO: XPS_FILL_RULE = 2i32;
 pub const XPS_FONT_EMBEDDING_NORMAL: XPS_FONT_EMBEDDING = 1i32;
@@ -276,13 +276,13 @@ pub type XPS_TILE_MODE = i32;
 #[repr(C)]
 pub struct DOCINFOA {
     pub cbSize: i32,
-    pub lpszDocName: ::windows_sys::core::PCSTR,
-    pub lpszOutput: ::windows_sys::core::PCSTR,
-    pub lpszDatatype: ::windows_sys::core::PCSTR,
+    pub lpszDocName: windows_sys::core::PCSTR,
+    pub lpszOutput: windows_sys::core::PCSTR,
+    pub lpszDatatype: windows_sys::core::PCSTR,
     pub fwType: u32,
 }
-impl ::core::marker::Copy for DOCINFOA {}
-impl ::core::clone::Clone for DOCINFOA {
+impl Copy for DOCINFOA {}
+impl Clone for DOCINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -290,13 +290,13 @@ impl ::core::clone::Clone for DOCINFOA {
 #[repr(C)]
 pub struct DOCINFOW {
     pub cbSize: i32,
-    pub lpszDocName: ::windows_sys::core::PCWSTR,
-    pub lpszOutput: ::windows_sys::core::PCWSTR,
-    pub lpszDatatype: ::windows_sys::core::PCWSTR,
+    pub lpszDocName: windows_sys::core::PCWSTR,
+    pub lpszOutput: windows_sys::core::PCWSTR,
+    pub lpszDatatype: windows_sys::core::PCWSTR,
     pub fwType: u32,
 }
-impl ::core::marker::Copy for DOCINFOW {}
-impl ::core::clone::Clone for DOCINFOW {
+impl Copy for DOCINFOW {}
+impl Clone for DOCINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -308,8 +308,8 @@ pub struct DRAWPATRECT {
     pub wStyle: u16,
     pub wPattern: u16,
 }
-impl ::core::marker::Copy for DRAWPATRECT {}
-impl ::core::clone::Clone for DRAWPATRECT {
+impl Copy for DRAWPATRECT {}
+impl Clone for DRAWPATRECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -323,8 +323,8 @@ pub struct PSFEATURE_CUSTPAPER {
     pub lWidthOffset: i32,
     pub lHeightOffset: i32,
 }
-impl ::core::marker::Copy for PSFEATURE_CUSTPAPER {}
-impl ::core::clone::Clone for PSFEATURE_CUSTPAPER {
+impl Copy for PSFEATURE_CUSTPAPER {}
+impl Clone for PSFEATURE_CUSTPAPER {
     fn clone(&self) -> Self {
         *self
     }
@@ -334,8 +334,8 @@ pub struct PSFEATURE_OUTPUT {
     pub bPageIndependent: super::super::Foundation::BOOL,
     pub bSetPageDevice: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for PSFEATURE_OUTPUT {}
-impl ::core::clone::Clone for PSFEATURE_OUTPUT {
+impl Copy for PSFEATURE_OUTPUT {}
+impl Clone for PSFEATURE_OUTPUT {
     fn clone(&self) -> Self {
         *self
     }
@@ -346,8 +346,8 @@ pub struct PSINJECTDATA {
     pub InjectionPoint: PSINJECT_POINT,
     pub PageNumber: u16,
 }
-impl ::core::marker::Copy for PSINJECTDATA {}
-impl ::core::clone::Clone for PSINJECTDATA {
+impl Copy for PSINJECTDATA {}
+impl Clone for PSINJECTDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -357,8 +357,8 @@ pub struct XPS_COLOR {
     pub colorType: XPS_COLOR_TYPE,
     pub value: XPS_COLOR_0,
 }
-impl ::core::marker::Copy for XPS_COLOR {}
-impl ::core::clone::Clone for XPS_COLOR {
+impl Copy for XPS_COLOR {}
+impl Clone for XPS_COLOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -369,8 +369,8 @@ pub union XPS_COLOR_0 {
     pub scRGB: XPS_COLOR_0_2,
     pub context: XPS_COLOR_0_0,
 }
-impl ::core::marker::Copy for XPS_COLOR_0 {}
-impl ::core::clone::Clone for XPS_COLOR_0 {
+impl Copy for XPS_COLOR_0 {}
+impl Clone for XPS_COLOR_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -380,8 +380,8 @@ pub struct XPS_COLOR_0_0 {
     pub channelCount: u8,
     pub channels: [f32; 9],
 }
-impl ::core::marker::Copy for XPS_COLOR_0_0 {}
-impl ::core::clone::Clone for XPS_COLOR_0_0 {
+impl Copy for XPS_COLOR_0_0 {}
+impl Clone for XPS_COLOR_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -393,8 +393,8 @@ pub struct XPS_COLOR_0_1 {
     pub green: u8,
     pub blue: u8,
 }
-impl ::core::marker::Copy for XPS_COLOR_0_1 {}
-impl ::core::clone::Clone for XPS_COLOR_0_1 {
+impl Copy for XPS_COLOR_0_1 {}
+impl Clone for XPS_COLOR_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -406,8 +406,8 @@ pub struct XPS_COLOR_0_2 {
     pub green: f32,
     pub blue: f32,
 }
-impl ::core::marker::Copy for XPS_COLOR_0_2 {}
-impl ::core::clone::Clone for XPS_COLOR_0_2 {
+impl Copy for XPS_COLOR_0_2 {}
+impl Clone for XPS_COLOR_0_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -417,8 +417,8 @@ pub struct XPS_DASH {
     pub length: f32,
     pub gap: f32,
 }
-impl ::core::marker::Copy for XPS_DASH {}
-impl ::core::clone::Clone for XPS_DASH {
+impl Copy for XPS_DASH {}
+impl Clone for XPS_DASH {
     fn clone(&self) -> Self {
         *self
     }
@@ -430,8 +430,8 @@ pub struct XPS_GLYPH_INDEX {
     pub horizontalOffset: f32,
     pub verticalOffset: f32,
 }
-impl ::core::marker::Copy for XPS_GLYPH_INDEX {}
-impl ::core::clone::Clone for XPS_GLYPH_INDEX {
+impl Copy for XPS_GLYPH_INDEX {}
+impl Clone for XPS_GLYPH_INDEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -443,8 +443,8 @@ pub struct XPS_GLYPH_MAPPING {
     pub glyphIndicesStart: u32,
     pub glyphIndicesLength: u16,
 }
-impl ::core::marker::Copy for XPS_GLYPH_MAPPING {}
-impl ::core::clone::Clone for XPS_GLYPH_MAPPING {
+impl Copy for XPS_GLYPH_MAPPING {}
+impl Clone for XPS_GLYPH_MAPPING {
     fn clone(&self) -> Self {
         *self
     }
@@ -458,8 +458,8 @@ pub struct XPS_MATRIX {
     pub m31: f32,
     pub m32: f32,
 }
-impl ::core::marker::Copy for XPS_MATRIX {}
-impl ::core::clone::Clone for XPS_MATRIX {
+impl Copy for XPS_MATRIX {}
+impl Clone for XPS_MATRIX {
     fn clone(&self) -> Self {
         *self
     }
@@ -469,8 +469,8 @@ pub struct XPS_POINT {
     pub x: f32,
     pub y: f32,
 }
-impl ::core::marker::Copy for XPS_POINT {}
-impl ::core::clone::Clone for XPS_POINT {
+impl Copy for XPS_POINT {}
+impl Clone for XPS_POINT {
     fn clone(&self) -> Self {
         *self
     }
@@ -482,8 +482,8 @@ pub struct XPS_RECT {
     pub width: f32,
     pub height: f32,
 }
-impl ::core::marker::Copy for XPS_RECT {}
-impl ::core::clone::Clone for XPS_RECT {
+impl Copy for XPS_RECT {}
+impl Clone for XPS_RECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -493,14 +493,14 @@ pub struct XPS_SIZE {
     pub width: f32,
     pub height: f32,
 }
-impl ::core::marker::Copy for XPS_SIZE {}
-impl ::core::clone::Clone for XPS_SIZE {
+impl Copy for XPS_SIZE {}
+impl Clone for XPS_SIZE {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const XpsOMObjectFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe974d26d_3d9b_4d47_88cc_3872f2dc3585);
-pub const XpsOMThumbnailGenerator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7e4a23e2_b969_4761_be35_1a8ced58e323);
-pub const XpsSignatureManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb0c43320_2315_44a2_b70a_0943a140a8ee);
+pub const XpsOMObjectFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe974d26d_3d9b_4d47_88cc_3872f2dc3585);
+pub const XpsOMThumbnailGenerator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7e4a23e2_b969_4761_be35_1a8ced58e323);
+pub const XpsSignatureManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0c43320_2315_44a2_b70a_0943a140a8ee);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type ABORTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Graphics::Gdi::HDC, param1: i32) -> super::super::Foundation::BOOL>;
+pub type ABORTPROC = Option<unsafe extern "system" fn(param0: super::super::Graphics::Gdi::HDC, param1: i32) -> super::super::Foundation::BOOL>;

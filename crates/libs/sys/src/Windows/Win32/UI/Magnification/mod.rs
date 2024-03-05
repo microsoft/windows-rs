@@ -24,16 +24,16 @@ pub const MS_INVERTCOLORS: i32 = 4i32;
 pub const MS_SHOWMAGNIFIEDCURSOR: i32 = 1i32;
 pub const MW_FILTERMODE_EXCLUDE: MW_FILTERMODE = 0u32;
 pub const MW_FILTERMODE_INCLUDE: MW_FILTERMODE = 1u32;
-pub const WC_MAGNIFIER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Magnifier");
-pub const WC_MAGNIFIERA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Magnifier");
-pub const WC_MAGNIFIERW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Magnifier");
+pub const WC_MAGNIFIER: windows_sys::core::PCWSTR = windows_sys::core::w!("Magnifier");
+pub const WC_MAGNIFIERA: windows_sys::core::PCSTR = windows_sys::core::s!("Magnifier");
+pub const WC_MAGNIFIERW: windows_sys::core::PCWSTR = windows_sys::core::w!("Magnifier");
 pub type MW_FILTERMODE = u32;
 #[repr(C)]
 pub struct MAGCOLOREFFECT {
     pub transform: [f32; 25],
 }
-impl ::core::marker::Copy for MAGCOLOREFFECT {}
-impl ::core::clone::Clone for MAGCOLOREFFECT {
+impl Copy for MAGCOLOREFFECT {}
+impl Clone for MAGCOLOREFFECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -42,13 +42,13 @@ impl ::core::clone::Clone for MAGCOLOREFFECT {
 pub struct MAGIMAGEHEADER {
     pub width: u32,
     pub height: u32,
-    pub format: ::windows_sys::core::GUID,
+    pub format: windows_sys::core::GUID,
     pub stride: u32,
     pub offset: u32,
     pub cbSize: usize,
 }
-impl ::core::marker::Copy for MAGIMAGEHEADER {}
-impl ::core::clone::Clone for MAGIMAGEHEADER {
+impl Copy for MAGIMAGEHEADER {}
+impl Clone for MAGIMAGEHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -57,11 +57,11 @@ impl ::core::clone::Clone for MAGIMAGEHEADER {
 pub struct MAGTRANSFORM {
     pub v: [f32; 9],
 }
-impl ::core::marker::Copy for MAGTRANSFORM {}
-impl ::core::clone::Clone for MAGTRANSFORM {
+impl Copy for MAGTRANSFORM {}
+impl Clone for MAGTRANSFORM {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type MagImageScalingCallback = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, srcdata: *mut ::core::ffi::c_void, srcheader: MAGIMAGEHEADER, destdata: *mut ::core::ffi::c_void, destheader: MAGIMAGEHEADER, unclipped: super::super::Foundation::RECT, clipped: super::super::Foundation::RECT, dirty: super::super::Graphics::Gdi::HRGN) -> super::super::Foundation::BOOL>;
+pub type MagImageScalingCallback = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, srcdata: *mut core::ffi::c_void, srcheader: MAGIMAGEHEADER, destdata: *mut core::ffi::c_void, destheader: MAGIMAGEHEADER, unclipped: super::super::Foundation::RECT, clipped: super::super::Foundation::RECT, dirty: super::super::Graphics::Gdi::HRGN) -> super::super::Foundation::BOOL>;

@@ -1,48 +1,48 @@
-::windows_targets::link!("mscms.dll" "system" fn AssociateColorProfileWithDeviceA(pmachinename : ::windows_sys::core::PCSTR, pprofilename : ::windows_sys::core::PCSTR, pdevicename : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn AssociateColorProfileWithDeviceW(pmachinename : ::windows_sys::core::PCWSTR, pprofilename : ::windows_sys::core::PCWSTR, pdevicename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn AssociateColorProfileWithDeviceA(pmachinename : windows_sys::core::PCSTR, pprofilename : windows_sys::core::PCSTR, pdevicename : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn AssociateColorProfileWithDeviceW(pmachinename : windows_sys::core::PCWSTR, pprofilename : windows_sys::core::PCWSTR, pdevicename : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("icm32.dll" "system" fn CMCheckColors(hcmtransform : isize, lpainputcolors : *const COLOR, ncolors : u32, ctinput : COLORTYPE, lparesult : *mut u8) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("icm32.dll" "system" fn CMCheckColorsInGamut(hcmtransform : isize, lpargbtriple : *const super::super::Graphics::Gdi:: RGBTRIPLE, lparesult : *mut u8, ncount : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("icm32.dll" "system" fn CMCheckRGBs(hcmtransform : isize, lpsrcbits : *const ::core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwstride : u32, lparesult : *mut u8, pfncallback : LPBMCALLBACKFN, ulcallbackdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("icm32.dll" "system" fn CMCheckRGBs(hcmtransform : isize, lpsrcbits : *const core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwstride : u32, lparesult : *mut u8, pfncallback : LPBMCALLBACKFN, ulcallbackdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("icm32.dll" "system" fn CMConvertColorNameToIndex(hprofile : isize, pacolorname : *const *const i8, paindex : *mut u32, dwcount : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("icm32.dll" "system" fn CMConvertIndexToColorName(hprofile : isize, paindex : *const u32, pacolorname : *mut *mut i8, dwcount : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("icm32.dll" "system" fn CMCreateDeviceLinkProfile(pahprofiles : *const isize, nprofiles : u32, padwintents : *const u32, nintents : u32, dwflags : u32, lpprofiledata : *mut *mut u8) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("icm32.dll" "system" fn CMCreateMultiProfileTransform(pahprofiles : *const isize, nprofiles : u32, padwintents : *const u32, nintents : u32, dwflags : u32) -> isize);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("icm32.dll" "system" fn CMCreateProfile(lpcolorspace : *mut LOGCOLORSPACEA, lpprofiledata : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("icm32.dll" "system" fn CMCreateProfile(lpcolorspace : *mut LOGCOLORSPACEA, lpprofiledata : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("icm32.dll" "system" fn CMCreateProfileW(lpcolorspace : *mut LOGCOLORSPACEW, lpprofiledata : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("icm32.dll" "system" fn CMCreateProfileW(lpcolorspace : *mut LOGCOLORSPACEW, lpprofiledata : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("icm32.dll" "system" fn CMCreateTransform(lpcolorspace : *const LOGCOLORSPACEA, lpdevcharacter : *const ::core::ffi::c_void, lptargetdevcharacter : *const ::core::ffi::c_void) -> isize);
+::windows_targets::link!("icm32.dll" "system" fn CMCreateTransform(lpcolorspace : *const LOGCOLORSPACEA, lpdevcharacter : *const core::ffi::c_void, lptargetdevcharacter : *const core::ffi::c_void) -> isize);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("icm32.dll" "system" fn CMCreateTransformExt(lpcolorspace : *const LOGCOLORSPACEA, lpdevcharacter : *const ::core::ffi::c_void, lptargetdevcharacter : *const ::core::ffi::c_void, dwflags : u32) -> isize);
+::windows_targets::link!("icm32.dll" "system" fn CMCreateTransformExt(lpcolorspace : *const LOGCOLORSPACEA, lpdevcharacter : *const core::ffi::c_void, lptargetdevcharacter : *const core::ffi::c_void, dwflags : u32) -> isize);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("icm32.dll" "system" fn CMCreateTransformExtW(lpcolorspace : *const LOGCOLORSPACEW, lpdevcharacter : *const ::core::ffi::c_void, lptargetdevcharacter : *const ::core::ffi::c_void, dwflags : u32) -> isize);
+::windows_targets::link!("icm32.dll" "system" fn CMCreateTransformExtW(lpcolorspace : *const LOGCOLORSPACEW, lpdevcharacter : *const core::ffi::c_void, lptargetdevcharacter : *const core::ffi::c_void, dwflags : u32) -> isize);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("icm32.dll" "system" fn CMCreateTransformW(lpcolorspace : *const LOGCOLORSPACEW, lpdevcharacter : *const ::core::ffi::c_void, lptargetdevcharacter : *const ::core::ffi::c_void) -> isize);
+::windows_targets::link!("icm32.dll" "system" fn CMCreateTransformW(lpcolorspace : *const LOGCOLORSPACEW, lpdevcharacter : *const core::ffi::c_void, lptargetdevcharacter : *const core::ffi::c_void) -> isize);
 ::windows_targets::link!("icm32.dll" "system" fn CMDeleteTransform(hcmtransform : isize) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("icm32.dll" "system" fn CMGetInfo(dwinfo : u32) -> u32);
 ::windows_targets::link!("icm32.dll" "system" fn CMGetNamedProfileInfo(hprofile : isize, pnamedprofileinfo : *mut NAMED_PROFILE_INFO) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("icm32.dll" "system" fn CMIsProfileValid(hprofile : isize, lpbvalid : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("icm32.dll" "system" fn CMTranslateColors(hcmtransform : isize, lpainputcolors : *const COLOR, ncolors : u32, ctinput : COLORTYPE, lpaoutputcolors : *mut COLOR, ctoutput : COLORTYPE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("icm32.dll" "system" fn CMTranslateRGB(hcmtransform : isize, colorref : super::super::Foundation:: COLORREF, lpcolorref : *mut u32, dwflags : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("icm32.dll" "system" fn CMTranslateRGBs(hcmtransform : isize, lpsrcbits : *const ::core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwstride : u32, lpdestbits : *mut ::core::ffi::c_void, bmoutput : BMFORMAT, dwtranslatedirection : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("icm32.dll" "system" fn CMTranslateRGBsExt(hcmtransform : isize, lpsrcbits : *const ::core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwinputstride : u32, lpdestbits : *mut ::core::ffi::c_void, bmoutput : BMFORMAT, dwoutputstride : u32, lpfncallback : LPBMCALLBACKFN, ulcallbackdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn CheckBitmapBits(hcolortransform : isize, psrcbits : *const ::core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwstride : u32, paresult : *mut u8, pfncallback : LPBMCALLBACKFN, lpcallbackdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("icm32.dll" "system" fn CMTranslateRGBs(hcmtransform : isize, lpsrcbits : *const core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwstride : u32, lpdestbits : *mut core::ffi::c_void, bmoutput : BMFORMAT, dwtranslatedirection : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("icm32.dll" "system" fn CMTranslateRGBsExt(hcmtransform : isize, lpsrcbits : *const core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwinputstride : u32, lpdestbits : *mut core::ffi::c_void, bmoutput : BMFORMAT, dwoutputstride : u32, lpfncallback : LPBMCALLBACKFN, ulcallbackdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn CheckBitmapBits(hcolortransform : isize, psrcbits : *const core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwstride : u32, paresult : *mut u8, pfncallback : LPBMCALLBACKFN, lpcallbackdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn CheckColors(hcolortransform : isize, painputcolors : *const COLOR, ncolors : u32, ctinput : COLORTYPE, paresult : *mut u8) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdi32.dll" "system" fn CheckColorsInGamut(hdc : super::super::Graphics::Gdi:: HDC, lprgbtriple : *const super::super::Graphics::Gdi:: RGBTRIPLE, dlpbuffer : *mut ::core::ffi::c_void, ncount : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn CheckColorsInGamut(hdc : super::super::Graphics::Gdi:: HDC, lprgbtriple : *const super::super::Graphics::Gdi:: RGBTRIPLE, dlpbuffer : *mut core::ffi::c_void, ncount : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn CloseColorProfile(hprofile : isize) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" fn ColorCorrectPalette(hdc : super::super::Graphics::Gdi:: HDC, hpal : super::super::Graphics::Gdi:: HPALETTE, defirst : u32, num : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" fn ColorMatchToTarget(hdc : super::super::Graphics::Gdi:: HDC, hdctarget : super::super::Graphics::Gdi:: HDC, action : COLOR_MATCH_TO_TARGET_ACTION) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn ColorProfileAddDisplayAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : ::windows_sys::core::PCWSTR, targetadapterid : super::super::Foundation:: LUID, sourceid : u32, setasdefault : super::super::Foundation:: BOOL, associateasadvancedcolor : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscms.dll" "system" fn ColorProfileGetDisplayDefault(scope : WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid : super::super::Foundation:: LUID, sourceid : u32, profiletype : COLORPROFILETYPE, profilesubtype : COLORPROFILESUBTYPE, profilename : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscms.dll" "system" fn ColorProfileGetDisplayList(scope : WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid : super::super::Foundation:: LUID, sourceid : u32, profilelist : *mut *mut ::windows_sys::core::PWSTR, profilecount : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscms.dll" "system" fn ColorProfileGetDisplayUserScope(targetadapterid : super::super::Foundation:: LUID, sourceid : u32, scope : *mut WCS_PROFILE_MANAGEMENT_SCOPE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscms.dll" "system" fn ColorProfileRemoveDisplayAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : ::windows_sys::core::PCWSTR, targetadapterid : super::super::Foundation:: LUID, sourceid : u32, dissociateadvancedcolor : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mscms.dll" "system" fn ColorProfileSetDisplayDefaultAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : ::windows_sys::core::PCWSTR, profiletype : COLORPROFILETYPE, profilesubtype : COLORPROFILESUBTYPE, targetadapterid : super::super::Foundation:: LUID, sourceid : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mscms.dll" "system" fn ColorProfileAddDisplayAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : windows_sys::core::PCWSTR, targetadapterid : super::super::Foundation:: LUID, sourceid : u32, setasdefault : super::super::Foundation:: BOOL, associateasadvancedcolor : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscms.dll" "system" fn ColorProfileGetDisplayDefault(scope : WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid : super::super::Foundation:: LUID, sourceid : u32, profiletype : COLORPROFILETYPE, profilesubtype : COLORPROFILESUBTYPE, profilename : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscms.dll" "system" fn ColorProfileGetDisplayList(scope : WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid : super::super::Foundation:: LUID, sourceid : u32, profilelist : *mut *mut windows_sys::core::PWSTR, profilecount : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscms.dll" "system" fn ColorProfileGetDisplayUserScope(targetadapterid : super::super::Foundation:: LUID, sourceid : u32, scope : *mut WCS_PROFILE_MANAGEMENT_SCOPE) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscms.dll" "system" fn ColorProfileRemoveDisplayAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : windows_sys::core::PCWSTR, targetadapterid : super::super::Foundation:: LUID, sourceid : u32, dissociateadvancedcolor : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+::windows_targets::link!("mscms.dll" "system" fn ColorProfileSetDisplayDefaultAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : windows_sys::core::PCWSTR, profiletype : COLORPROFILETYPE, profilesubtype : COLORPROFILESUBTYPE, targetadapterid : super::super::Foundation:: LUID, sourceid : u32) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("mscms.dll" "system" fn ConvertColorNameToIndex(hprofile : isize, pacolorname : *const *const i8, paindex : *mut u32, dwcount : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn ConvertIndexToColorName(hprofile : isize, paindex : *const u32, pacolorname : *mut *mut i8, dwcount : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -61,18 +61,18 @@
 ::windows_targets::link!("mscms.dll" "system" fn CreateProfileFromLogColorSpaceW(plogcolorspace : *const LOGCOLORSPACEW, pprofile : *mut *mut u8) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn DeleteColorSpace(hcs : HCOLORSPACE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn DeleteColorTransform(hxform : isize) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn DisassociateColorProfileFromDeviceA(pmachinename : ::windows_sys::core::PCSTR, pprofilename : ::windows_sys::core::PCSTR, pdevicename : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn DisassociateColorProfileFromDeviceW(pmachinename : ::windows_sys::core::PCWSTR, pprofilename : ::windows_sys::core::PCWSTR, pdevicename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn EnumColorProfilesA(pmachinename : ::windows_sys::core::PCSTR, penumrecord : *const ENUMTYPEA, penumerationbuffer : *mut u8, pdwsizeofenumerationbuffer : *mut u32, pnprofiles : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn EnumColorProfilesW(pmachinename : ::windows_sys::core::PCWSTR, penumrecord : *const ENUMTYPEW, penumerationbuffer : *mut u8, pdwsizeofenumerationbuffer : *mut u32, pnprofiles : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn DisassociateColorProfileFromDeviceA(pmachinename : windows_sys::core::PCSTR, pprofilename : windows_sys::core::PCSTR, pdevicename : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn DisassociateColorProfileFromDeviceW(pmachinename : windows_sys::core::PCWSTR, pprofilename : windows_sys::core::PCWSTR, pdevicename : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn EnumColorProfilesA(pmachinename : windows_sys::core::PCSTR, penumrecord : *const ENUMTYPEA, penumerationbuffer : *mut u8, pdwsizeofenumerationbuffer : *mut u32, pnprofiles : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn EnumColorProfilesW(pmachinename : windows_sys::core::PCWSTR, penumrecord : *const ENUMTYPEW, penumerationbuffer : *mut u8, pdwsizeofenumerationbuffer : *mut u32, pnprofiles : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" fn EnumICMProfilesA(hdc : super::super::Graphics::Gdi:: HDC, proc : ICMENUMPROCA, param2 : super::super::Foundation:: LPARAM) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" fn EnumICMProfilesW(hdc : super::super::Graphics::Gdi:: HDC, proc : ICMENUMPROCW, param2 : super::super::Foundation:: LPARAM) -> i32);
 ::windows_targets::link!("mscms.dll" "system" fn GetCMMInfo(hcolortransform : isize, param1 : u32) -> u32);
-::windows_targets::link!("mscms.dll" "system" fn GetColorDirectoryA(pmachinename : ::windows_sys::core::PCSTR, pbuffer : ::windows_sys::core::PSTR, pdwsize : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn GetColorDirectoryW(pmachinename : ::windows_sys::core::PCWSTR, pbuffer : ::windows_sys::core::PWSTR, pdwsize : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn GetColorProfileElement(hprofile : isize, tag : u32, dwoffset : u32, pcbelement : *mut u32, pelement : *mut ::core::ffi::c_void, pbreference : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn GetColorDirectoryA(pmachinename : windows_sys::core::PCSTR, pbuffer : windows_sys::core::PSTR, pdwsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn GetColorDirectoryW(pmachinename : windows_sys::core::PCWSTR, pbuffer : windows_sys::core::PWSTR, pdwsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn GetColorProfileElement(hprofile : isize, tag : u32, dwoffset : u32, pcbelement : *mut u32, pelement : *mut core::ffi::c_void, pbreference : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn GetColorProfileElementTag(hprofile : isize, dwindex : u32, ptag : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn GetColorProfileFromHandle(hprofile : isize, pprofile : *mut u8, pcbprofile : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -81,11 +81,11 @@
 ::windows_targets::link!("gdi32.dll" "system" fn GetColorSpace(hdc : super::super::Graphics::Gdi:: HDC) -> HCOLORSPACE);
 ::windows_targets::link!("mscms.dll" "system" fn GetCountColorProfileElements(hprofile : isize, pnelementcount : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdi32.dll" "system" fn GetDeviceGammaRamp(hdc : super::super::Graphics::Gdi:: HDC, lpramp : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn GetDeviceGammaRamp(hdc : super::super::Graphics::Gdi:: HDC, lpramp : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdi32.dll" "system" fn GetICMProfileA(hdc : super::super::Graphics::Gdi:: HDC, pbufsize : *mut u32, pszfilename : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn GetICMProfileA(hdc : super::super::Graphics::Gdi:: HDC, pbufsize : *mut u32, pszfilename : windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdi32.dll" "system" fn GetICMProfileW(hdc : super::super::Graphics::Gdi:: HDC, pbufsize : *mut u32, pszfilename : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn GetICMProfileW(hdc : super::super::Graphics::Gdi:: HDC, pbufsize : *mut u32, pszfilename : windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" fn GetLogColorSpaceA(hcolorspace : HCOLORSPACE, lpbuffer : *mut LOGCOLORSPACEA, nsize : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -94,18 +94,18 @@
 ::windows_targets::link!("mscms.dll" "system" fn GetPS2ColorRenderingDictionary(hprofile : isize, dwintent : u32, pps2colorrenderingdictionary : *mut u8, pcbps2colorrenderingdictionary : *mut u32, pbbinary : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn GetPS2ColorRenderingIntent(hprofile : isize, dwintent : u32, pbuffer : *mut u8, pcbps2colorrenderingintent : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn GetPS2ColorSpaceArray(hprofile : isize, dwintent : u32, dwcsatype : u32, pps2colorspacearray : *mut u8, pcbps2colorspacearray : *mut u32, pbbinary : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn GetStandardColorSpaceProfileA(pmachinename : ::windows_sys::core::PCSTR, dwscs : u32, pbuffer : ::windows_sys::core::PSTR, pcbsize : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn GetStandardColorSpaceProfileW(pmachinename : ::windows_sys::core::PCWSTR, dwscs : u32, pbuffer : ::windows_sys::core::PWSTR, pcbsize : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn InstallColorProfileA(pmachinename : ::windows_sys::core::PCSTR, pprofilename : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn InstallColorProfileW(pmachinename : ::windows_sys::core::PCWSTR, pprofilename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn GetStandardColorSpaceProfileA(pmachinename : windows_sys::core::PCSTR, dwscs : u32, pbuffer : windows_sys::core::PSTR, pcbsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn GetStandardColorSpaceProfileW(pmachinename : windows_sys::core::PCWSTR, dwscs : u32, pbuffer : windows_sys::core::PWSTR, pcbsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn InstallColorProfileA(pmachinename : windows_sys::core::PCSTR, pprofilename : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn InstallColorProfileW(pmachinename : windows_sys::core::PCWSTR, pprofilename : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn IsColorProfileTagPresent(hprofile : isize, tag : u32, pbpresent : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn IsColorProfileValid(hprofile : isize, pbvalid : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn OpenColorProfileA(pprofile : *const PROFILE, dwdesiredaccess : u32, dwsharemode : u32, dwcreationmode : u32) -> isize);
 ::windows_targets::link!("mscms.dll" "system" fn OpenColorProfileW(pprofile : *const PROFILE, dwdesiredaccess : u32, dwsharemode : u32, dwcreationmode : u32) -> isize);
-::windows_targets::link!("mscms.dll" "system" fn RegisterCMMA(pmachinename : ::windows_sys::core::PCSTR, cmmid : u32, pcmmdll : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn RegisterCMMW(pmachinename : ::windows_sys::core::PCWSTR, cmmid : u32, pcmmdll : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn RegisterCMMA(pmachinename : windows_sys::core::PCSTR, cmmid : u32, pcmmdll : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn RegisterCMMW(pmachinename : windows_sys::core::PCWSTR, cmmid : u32, pcmmdll : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn SelectCMM(dwcmmtype : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn SetColorProfileElement(hprofile : isize, tag : u32, dwoffset : u32, pcbelement : *const u32, pelement : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn SetColorProfileElement(hprofile : isize, tag : u32, dwoffset : u32, pcbelement : *const u32, pelement : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn SetColorProfileElementReference(hprofile : isize, newtag : u32, reftag : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn SetColorProfileElementSize(hprofile : isize, tagtype : u32, pcbelement : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -113,45 +113,45 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" fn SetColorSpace(hdc : super::super::Graphics::Gdi:: HDC, hcs : HCOLORSPACE) -> HCOLORSPACE);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdi32.dll" "system" fn SetDeviceGammaRamp(hdc : super::super::Graphics::Gdi:: HDC, lpramp : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn SetDeviceGammaRamp(hdc : super::super::Graphics::Gdi:: HDC, lpramp : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdi32.dll" "system" fn SetICMMode(hdc : super::super::Graphics::Gdi:: HDC, mode : ICM_MODE) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdi32.dll" "system" fn SetICMProfileA(hdc : super::super::Graphics::Gdi:: HDC, lpfilename : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn SetICMProfileA(hdc : super::super::Graphics::Gdi:: HDC, lpfilename : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("gdi32.dll" "system" fn SetICMProfileW(hdc : super::super::Graphics::Gdi:: HDC, lpfilename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn SetStandardColorSpaceProfileA(pmachinename : ::windows_sys::core::PCSTR, dwprofileid : u32, pprofilename : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn SetStandardColorSpaceProfileW(pmachinename : ::windows_sys::core::PCWSTR, dwprofileid : u32, pprofilename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn SetICMProfileW(hdc : super::super::Graphics::Gdi:: HDC, lpfilename : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn SetStandardColorSpaceProfileA(pmachinename : windows_sys::core::PCSTR, dwprofileid : u32, pprofilename : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn SetStandardColorSpaceProfileW(pmachinename : windows_sys::core::PCWSTR, dwprofileid : u32, pprofilename : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("icmui.dll" "system" fn SetupColorMatchingA(pcms : *mut COLORMATCHSETUPA) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("icmui.dll" "system" fn SetupColorMatchingW(pcms : *mut COLORMATCHSETUPW) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn TranslateBitmapBits(hcolortransform : isize, psrcbits : *const ::core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwinputstride : u32, pdestbits : *mut ::core::ffi::c_void, bmoutput : BMFORMAT, dwoutputstride : u32, pfncallback : LPBMCALLBACKFN, ulcallbackdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn TranslateBitmapBits(hcolortransform : isize, psrcbits : *const core::ffi::c_void, bminput : BMFORMAT, dwwidth : u32, dwheight : u32, dwinputstride : u32, pdestbits : *mut core::ffi::c_void, bmoutput : BMFORMAT, dwoutputstride : u32, pfncallback : LPBMCALLBACKFN, ulcallbackdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn TranslateColors(hcolortransform : isize, painputcolors : *const COLOR, ncolors : u32, ctinput : COLORTYPE, paoutputcolors : *mut COLOR, ctoutput : COLORTYPE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn UninstallColorProfileA(pmachinename : ::windows_sys::core::PCSTR, pprofilename : ::windows_sys::core::PCSTR, bdelete : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn UninstallColorProfileW(pmachinename : ::windows_sys::core::PCWSTR, pprofilename : ::windows_sys::core::PCWSTR, bdelete : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn UnregisterCMMA(pmachinename : ::windows_sys::core::PCSTR, cmmid : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn UnregisterCMMW(pmachinename : ::windows_sys::core::PCWSTR, cmmid : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn UpdateICMRegKeyA(reserved : u32, lpszcmid : ::windows_sys::core::PCSTR, lpszfilename : ::windows_sys::core::PCSTR, command : ICM_COMMAND) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn UpdateICMRegKeyW(reserved : u32, lpszcmid : ::windows_sys::core::PCWSTR, lpszfilename : ::windows_sys::core::PCWSTR, command : ICM_COMMAND) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn WcsAssociateColorProfileWithDevice(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename : ::windows_sys::core::PCWSTR, pdevicename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn WcsCheckColors(hcolortransform : isize, ncolors : u32, ninputchannels : u32, cdtinput : COLORDATATYPE, cbinput : u32, pinputdata : *const ::core::ffi::c_void, paresult : *mut u8) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn UninstallColorProfileA(pmachinename : windows_sys::core::PCSTR, pprofilename : windows_sys::core::PCSTR, bdelete : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn UninstallColorProfileW(pmachinename : windows_sys::core::PCWSTR, pprofilename : windows_sys::core::PCWSTR, bdelete : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn UnregisterCMMA(pmachinename : windows_sys::core::PCSTR, cmmid : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn UnregisterCMMW(pmachinename : windows_sys::core::PCWSTR, cmmid : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn UpdateICMRegKeyA(reserved : u32, lpszcmid : windows_sys::core::PCSTR, lpszfilename : windows_sys::core::PCSTR, command : ICM_COMMAND) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn UpdateICMRegKeyW(reserved : u32, lpszcmid : windows_sys::core::PCWSTR, lpszfilename : windows_sys::core::PCWSTR, command : ICM_COMMAND) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn WcsAssociateColorProfileWithDevice(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename : windows_sys::core::PCWSTR, pdevicename : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn WcsCheckColors(hcolortransform : isize, ncolors : u32, ninputchannels : u32, cdtinput : COLORDATATYPE, cbinput : u32, pinputdata : *const core::ffi::c_void, paresult : *mut u8) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn WcsCreateIccProfile(hwcsprofile : isize, dwoptions : u32) -> isize);
-::windows_targets::link!("mscms.dll" "system" fn WcsDisassociateColorProfileFromDevice(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename : ::windows_sys::core::PCWSTR, pdevicename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn WcsDisassociateColorProfileFromDevice(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename : windows_sys::core::PCWSTR, pdevicename : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn WcsEnumColorProfiles(scope : WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord : *const ENUMTYPEW, pbuffer : *mut u8, dwsize : u32, pnprofiles : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn WcsEnumColorProfilesSize(scope : WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord : *const ENUMTYPEW, pdwsize : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn WcsGetCalibrationManagementState(pbisenabled : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn WcsGetDefaultColorProfile(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename : ::windows_sys::core::PCWSTR, cptcolorprofiletype : COLORPROFILETYPE, cpstcolorprofilesubtype : COLORPROFILESUBTYPE, dwprofileid : u32, cbprofilename : u32, pprofilename : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn WcsGetDefaultColorProfileSize(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename : ::windows_sys::core::PCWSTR, cptcolorprofiletype : COLORPROFILETYPE, cpstcolorprofilesubtype : COLORPROFILESUBTYPE, dwprofileid : u32, pcbprofilename : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn WcsGetDefaultColorProfile(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename : windows_sys::core::PCWSTR, cptcolorprofiletype : COLORPROFILETYPE, cpstcolorprofilesubtype : COLORPROFILESUBTYPE, dwprofileid : u32, cbprofilename : u32, pprofilename : windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn WcsGetDefaultColorProfileSize(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename : windows_sys::core::PCWSTR, cptcolorprofiletype : COLORPROFILETYPE, cpstcolorprofilesubtype : COLORPROFILESUBTYPE, dwprofileid : u32, pcbprofilename : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn WcsGetDefaultRenderingIntent(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pdwrenderingintent : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn WcsGetUsePerUserProfiles(pdevicename : ::windows_sys::core::PCWSTR, dwdeviceclass : u32, puseperuserprofiles : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn WcsGetUsePerUserProfiles(pdevicename : windows_sys::core::PCWSTR, dwdeviceclass : u32, puseperuserprofiles : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn WcsOpenColorProfileA(pcdmpprofile : *const PROFILE, pcampprofile : *const PROFILE, pgmmpprofile : *const PROFILE, dwdesireaccess : u32, dwsharemode : u32, dwcreationmode : u32, dwflags : u32) -> isize);
 ::windows_targets::link!("mscms.dll" "system" fn WcsOpenColorProfileW(pcdmpprofile : *const PROFILE, pcampprofile : *const PROFILE, pgmmpprofile : *const PROFILE, dwdesireaccess : u32, dwsharemode : u32, dwcreationmode : u32, dwflags : u32) -> isize);
 ::windows_targets::link!("mscms.dll" "system" fn WcsSetCalibrationManagementState(bisenabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn WcsSetDefaultColorProfile(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename : ::windows_sys::core::PCWSTR, cptcolorprofiletype : COLORPROFILETYPE, cpstcolorprofilesubtype : COLORPROFILESUBTYPE, dwprofileid : u32, pprofilename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn WcsSetDefaultColorProfile(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename : windows_sys::core::PCWSTR, cptcolorprofiletype : COLORPROFILETYPE, cpstcolorprofilesubtype : COLORPROFILESUBTYPE, dwprofileid : u32, pprofilename : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn WcsSetDefaultRenderingIntent(scope : WCS_PROFILE_MANAGEMENT_SCOPE, dwrenderingintent : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn WcsSetUsePerUserProfiles(pdevicename : ::windows_sys::core::PCWSTR, dwdeviceclass : u32, useperuserprofiles : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mscms.dll" "system" fn WcsTranslateColors(hcolortransform : isize, ncolors : u32, ninputchannels : u32, cdtinput : COLORDATATYPE, cbinput : u32, pinputdata : *const ::core::ffi::c_void, noutputchannels : u32, cdtoutput : COLORDATATYPE, cboutput : u32, poutputdata : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn WcsSetUsePerUserProfiles(pdevicename : windows_sys::core::PCWSTR, dwdeviceclass : u32, useperuserprofiles : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mscms.dll" "system" fn WcsTranslateColors(hcolortransform : isize, ncolors : u32, ninputchannels : u32, cdtinput : COLORDATATYPE, cbinput : u32, pinputdata : *const core::ffi::c_void, noutputchannels : u32, cdtoutput : COLORDATATYPE, cboutput : u32, poutputdata : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
 pub const ATTRIB_MATTE: u32 = 2u32;
 pub const ATTRIB_TRANSPARENCY: u32 = 1u32;
 pub const BEST_MODE: u32 = 3u32;
@@ -196,7 +196,7 @@ pub const BM_x555Yxy: BMFORMAT = 258i32;
 pub const BM_xBGRQUADS: BMFORMAT = 16i32;
 pub const BM_xG3CHQUADS: BMFORMAT = 772i32;
 pub const BM_xRGBQUADS: BMFORMAT = 8i32;
-pub const CATID_WcsPlugin: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa0b402e0_8240_405f_8a16_8a5b4df2f0dd);
+pub const CATID_WcsPlugin: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa0b402e0_8240_405f_8a16_8a5b4df2f0dd);
 pub const CMM_DESCRIPTION: u32 = 5u32;
 pub const CMM_DLL_VERSION: u32 = 3u32;
 pub const CMM_DRIVER_VERSION: u32 = 2u32;
@@ -345,8 +345,8 @@ pub struct BlackInformation {
     pub fBlackOnly: super::super::Foundation::BOOL,
     pub blackWeight: f32,
 }
-impl ::core::marker::Copy for BlackInformation {}
-impl ::core::clone::Clone for BlackInformation {
+impl Copy for BlackInformation {}
+impl Clone for BlackInformation {
     fn clone(&self) -> Self {
         *self
     }
@@ -358,8 +358,8 @@ pub struct CMYKCOLOR {
     pub yellow: u16,
     pub black: u16,
 }
-impl ::core::marker::Copy for CMYKCOLOR {}
-impl ::core::clone::Clone for CMYKCOLOR {
+impl Copy for CMYKCOLOR {}
+impl Clone for CMYKCOLOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -377,8 +377,8 @@ pub union COLOR {
     pub hifi: HiFiCOLOR,
     pub Anonymous: COLOR_0,
 }
-impl ::core::marker::Copy for COLOR {}
-impl ::core::clone::Clone for COLOR {
+impl Copy for COLOR {}
+impl Clone for COLOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -386,10 +386,10 @@ impl ::core::clone::Clone for COLOR {
 #[repr(C)]
 pub struct COLOR_0 {
     pub reserved1: u32,
-    pub reserved2: *mut ::core::ffi::c_void,
+    pub reserved2: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for COLOR_0 {}
-impl ::core::clone::Clone for COLOR_0 {
+impl Copy for COLOR_0 {}
+impl Clone for COLOR_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -401,16 +401,16 @@ pub struct COLORMATCHSETUPA {
     pub dwVersion: u32,
     pub dwFlags: u32,
     pub hwndOwner: super::super::Foundation::HWND,
-    pub pSourceName: ::windows_sys::core::PCSTR,
-    pub pDisplayName: ::windows_sys::core::PCSTR,
-    pub pPrinterName: ::windows_sys::core::PCSTR,
+    pub pSourceName: windows_sys::core::PCSTR,
+    pub pDisplayName: windows_sys::core::PCSTR,
+    pub pPrinterName: windows_sys::core::PCSTR,
     pub dwRenderIntent: u32,
     pub dwProofingIntent: u32,
-    pub pMonitorProfile: ::windows_sys::core::PSTR,
+    pub pMonitorProfile: windows_sys::core::PSTR,
     pub ccMonitorProfile: u32,
-    pub pPrinterProfile: ::windows_sys::core::PSTR,
+    pub pPrinterProfile: windows_sys::core::PSTR,
     pub ccPrinterProfile: u32,
-    pub pTargetProfile: ::windows_sys::core::PSTR,
+    pub pTargetProfile: windows_sys::core::PSTR,
     pub ccTargetProfile: u32,
     pub lpfnHook: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
@@ -418,9 +418,9 @@ pub struct COLORMATCHSETUPA {
     pub lParamApplyCallback: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for COLORMATCHSETUPA {}
+impl Copy for COLORMATCHSETUPA {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for COLORMATCHSETUPA {
+impl Clone for COLORMATCHSETUPA {
     fn clone(&self) -> Self {
         *self
     }
@@ -432,16 +432,16 @@ pub struct COLORMATCHSETUPW {
     pub dwVersion: u32,
     pub dwFlags: u32,
     pub hwndOwner: super::super::Foundation::HWND,
-    pub pSourceName: ::windows_sys::core::PCWSTR,
-    pub pDisplayName: ::windows_sys::core::PCWSTR,
-    pub pPrinterName: ::windows_sys::core::PCWSTR,
+    pub pSourceName: windows_sys::core::PCWSTR,
+    pub pDisplayName: windows_sys::core::PCWSTR,
+    pub pPrinterName: windows_sys::core::PCWSTR,
     pub dwRenderIntent: u32,
     pub dwProofingIntent: u32,
-    pub pMonitorProfile: ::windows_sys::core::PWSTR,
+    pub pMonitorProfile: windows_sys::core::PWSTR,
     pub ccMonitorProfile: u32,
-    pub pPrinterProfile: ::windows_sys::core::PWSTR,
+    pub pPrinterProfile: windows_sys::core::PWSTR,
     pub ccPrinterProfile: u32,
-    pub pTargetProfile: ::windows_sys::core::PWSTR,
+    pub pTargetProfile: windows_sys::core::PWSTR,
     pub ccTargetProfile: u32,
     pub lpfnHook: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
@@ -449,9 +449,9 @@ pub struct COLORMATCHSETUPW {
     pub lParamApplyCallback: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for COLORMATCHSETUPW {}
+impl Copy for COLORMATCHSETUPW {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for COLORMATCHSETUPW {
+impl Clone for COLORMATCHSETUPW {
     fn clone(&self) -> Self {
         *self
     }
@@ -464,9 +464,9 @@ pub struct EMRCREATECOLORSPACE {
     pub lcs: LOGCOLORSPACEA,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for EMRCREATECOLORSPACE {}
+impl Copy for EMRCREATECOLORSPACE {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for EMRCREATECOLORSPACE {
+impl Clone for EMRCREATECOLORSPACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -482,9 +482,9 @@ pub struct EMRCREATECOLORSPACEW {
     pub Data: [u8; 1],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for EMRCREATECOLORSPACEW {}
+impl Copy for EMRCREATECOLORSPACEW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for EMRCREATECOLORSPACEW {
+impl Clone for EMRCREATECOLORSPACEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -494,7 +494,7 @@ pub struct ENUMTYPEA {
     pub dwSize: u32,
     pub dwVersion: u32,
     pub dwFields: u32,
-    pub pDeviceName: ::windows_sys::core::PCSTR,
+    pub pDeviceName: windows_sys::core::PCSTR,
     pub dwMediaType: u32,
     pub dwDitheringMode: u32,
     pub dwResolution: [u32; 2],
@@ -512,8 +512,8 @@ pub struct ENUMTYPEA {
     pub dwCreator: u32,
     pub dwDeviceClass: u32,
 }
-impl ::core::marker::Copy for ENUMTYPEA {}
-impl ::core::clone::Clone for ENUMTYPEA {
+impl Copy for ENUMTYPEA {}
+impl Clone for ENUMTYPEA {
     fn clone(&self) -> Self {
         *self
     }
@@ -523,7 +523,7 @@ pub struct ENUMTYPEW {
     pub dwSize: u32,
     pub dwVersion: u32,
     pub dwFields: u32,
-    pub pDeviceName: ::windows_sys::core::PCWSTR,
+    pub pDeviceName: windows_sys::core::PCWSTR,
     pub dwMediaType: u32,
     pub dwDitheringMode: u32,
     pub dwResolution: [u32; 2],
@@ -541,8 +541,8 @@ pub struct ENUMTYPEW {
     pub dwCreator: u32,
     pub dwDeviceClass: u32,
 }
-impl ::core::marker::Copy for ENUMTYPEW {}
-impl ::core::clone::Clone for ENUMTYPEW {
+impl Copy for ENUMTYPEW {}
+impl Clone for ENUMTYPEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -553,8 +553,8 @@ pub struct GENERIC3CHANNEL {
     pub ch2: u16,
     pub ch3: u16,
 }
-impl ::core::marker::Copy for GENERIC3CHANNEL {}
-impl ::core::clone::Clone for GENERIC3CHANNEL {
+impl Copy for GENERIC3CHANNEL {}
+impl Clone for GENERIC3CHANNEL {
     fn clone(&self) -> Self {
         *self
     }
@@ -563,8 +563,8 @@ impl ::core::clone::Clone for GENERIC3CHANNEL {
 pub struct GRAYCOLOR {
     pub gray: u16,
 }
-impl ::core::marker::Copy for GRAYCOLOR {}
-impl ::core::clone::Clone for GRAYCOLOR {
+impl Copy for GRAYCOLOR {}
+impl Clone for GRAYCOLOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -578,8 +578,8 @@ pub struct GamutBoundaryDescription {
     pub pPlausibleShell: *mut GamutShell,
     pub pPossibleShell: *mut GamutShell,
 }
-impl ::core::marker::Copy for GamutBoundaryDescription {}
-impl ::core::clone::Clone for GamutBoundaryDescription {
+impl Copy for GamutBoundaryDescription {}
+impl Clone for GamutBoundaryDescription {
     fn clone(&self) -> Self {
         *self
     }
@@ -593,8 +593,8 @@ pub struct GamutShell {
     pub pVertices: *mut JabColorF,
     pub pTriangles: *mut GamutShellTriangle,
 }
-impl ::core::marker::Copy for GamutShell {}
-impl ::core::clone::Clone for GamutShell {
+impl Copy for GamutShell {}
+impl Clone for GamutShell {
     fn clone(&self) -> Self {
         *self
     }
@@ -603,8 +603,8 @@ impl ::core::clone::Clone for GamutShell {
 pub struct GamutShellTriangle {
     pub aVertexIndex: [u32; 3],
 }
-impl ::core::marker::Copy for GamutShellTriangle {}
-impl ::core::clone::Clone for GamutShellTriangle {
+impl Copy for GamutShellTriangle {}
+impl Clone for GamutShellTriangle {
     fn clone(&self) -> Self {
         *self
     }
@@ -614,8 +614,8 @@ pub type HCOLORSPACE = isize;
 pub struct HiFiCOLOR {
     pub channel: [u8; 8],
 }
-impl ::core::marker::Copy for HiFiCOLOR {}
-impl ::core::clone::Clone for HiFiCOLOR {
+impl Copy for HiFiCOLOR {}
+impl Clone for HiFiCOLOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -626,8 +626,8 @@ pub struct JChColorF {
     pub C: f32,
     pub h: f32,
 }
-impl ::core::marker::Copy for JChColorF {}
-impl ::core::clone::Clone for JChColorF {
+impl Copy for JChColorF {}
+impl Clone for JChColorF {
     fn clone(&self) -> Self {
         *self
     }
@@ -638,8 +638,8 @@ pub struct JabColorF {
     pub a: f32,
     pub b: f32,
 }
-impl ::core::marker::Copy for JabColorF {}
-impl ::core::clone::Clone for JabColorF {
+impl Copy for JabColorF {}
+impl Clone for JabColorF {
     fn clone(&self) -> Self {
         *self
     }
@@ -659,9 +659,9 @@ pub struct LOGCOLORSPACEA {
     pub lcsFilename: [i8; 260],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for LOGCOLORSPACEA {}
+impl Copy for LOGCOLORSPACEA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for LOGCOLORSPACEA {
+impl Clone for LOGCOLORSPACEA {
     fn clone(&self) -> Self {
         *self
     }
@@ -681,9 +681,9 @@ pub struct LOGCOLORSPACEW {
     pub lcsFilename: [u16; 260],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for LOGCOLORSPACEW {}
+impl Copy for LOGCOLORSPACEW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for LOGCOLORSPACEW {
+impl Clone for LOGCOLORSPACEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -694,8 +694,8 @@ pub struct LabCOLOR {
     pub a: u16,
     pub b: u16,
 }
-impl ::core::marker::Copy for LabCOLOR {}
-impl ::core::clone::Clone for LabCOLOR {
+impl Copy for LabCOLOR {}
+impl Clone for LabCOLOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -704,8 +704,8 @@ impl ::core::clone::Clone for LabCOLOR {
 pub struct NAMEDCOLOR {
     pub dwIndex: u32,
 }
-impl ::core::marker::Copy for NAMEDCOLOR {}
-impl ::core::clone::Clone for NAMEDCOLOR {
+impl Copy for NAMEDCOLOR {}
+impl Clone for NAMEDCOLOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -718,8 +718,8 @@ pub struct NAMED_PROFILE_INFO {
     pub szPrefix: [i8; 32],
     pub szSuffix: [i8; 32],
 }
-impl ::core::marker::Copy for NAMED_PROFILE_INFO {}
-impl ::core::clone::Clone for NAMED_PROFILE_INFO {
+impl Copy for NAMED_PROFILE_INFO {}
+impl Clone for NAMED_PROFILE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -727,11 +727,11 @@ impl ::core::clone::Clone for NAMED_PROFILE_INFO {
 #[repr(C)]
 pub struct PROFILE {
     pub dwType: u32,
-    pub pProfileData: *mut ::core::ffi::c_void,
+    pub pProfileData: *mut core::ffi::c_void,
     pub cbDataSize: u32,
 }
-impl ::core::marker::Copy for PROFILE {}
-impl ::core::clone::Clone for PROFILE {
+impl Copy for PROFILE {}
+impl Clone for PROFILE {
     fn clone(&self) -> Self {
         *self
     }
@@ -758,9 +758,9 @@ pub struct PROFILEHEADER {
     pub phReserved: [u8; 44],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::marker::Copy for PROFILEHEADER {}
+impl Copy for PROFILEHEADER {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::clone::Clone for PROFILEHEADER {
+impl Clone for PROFILEHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -776,8 +776,8 @@ pub struct PrimaryJabColors {
     pub black: JabColorF,
     pub white: JabColorF,
 }
-impl ::core::marker::Copy for PrimaryJabColors {}
-impl ::core::clone::Clone for PrimaryJabColors {
+impl Copy for PrimaryJabColors {}
+impl Clone for PrimaryJabColors {
     fn clone(&self) -> Self {
         *self
     }
@@ -793,8 +793,8 @@ pub struct PrimaryXYZColors {
     pub black: XYZColorF,
     pub white: XYZColorF,
 }
-impl ::core::marker::Copy for PrimaryXYZColors {}
-impl ::core::clone::Clone for PrimaryXYZColors {
+impl Copy for PrimaryXYZColors {}
+impl Clone for PrimaryXYZColors {
     fn clone(&self) -> Self {
         *self
     }
@@ -805,8 +805,8 @@ pub struct RGBCOLOR {
     pub green: u16,
     pub blue: u16,
 }
-impl ::core::marker::Copy for RGBCOLOR {}
-impl ::core::clone::Clone for RGBCOLOR {
+impl Copy for RGBCOLOR {}
+impl Clone for RGBCOLOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -819,8 +819,8 @@ pub struct WCS_DEVICE_MHC2_CAPABILITIES {
     pub CscXyzMatrixRows: u32,
     pub CscXyzMatrixColumns: u32,
 }
-impl ::core::marker::Copy for WCS_DEVICE_MHC2_CAPABILITIES {}
-impl ::core::clone::Clone for WCS_DEVICE_MHC2_CAPABILITIES {
+impl Copy for WCS_DEVICE_MHC2_CAPABILITIES {}
+impl Clone for WCS_DEVICE_MHC2_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -830,8 +830,8 @@ pub struct WCS_DEVICE_VCGT_CAPABILITIES {
     pub Size: u32,
     pub SupportsVcgt: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for WCS_DEVICE_VCGT_CAPABILITIES {}
-impl ::core::clone::Clone for WCS_DEVICE_VCGT_CAPABILITIES {
+impl Copy for WCS_DEVICE_VCGT_CAPABILITIES {}
+impl Clone for WCS_DEVICE_VCGT_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -842,8 +842,8 @@ pub struct XYZCOLOR {
     pub Y: u16,
     pub Z: u16,
 }
-impl ::core::marker::Copy for XYZCOLOR {}
-impl ::core::clone::Clone for XYZCOLOR {
+impl Copy for XYZCOLOR {}
+impl Clone for XYZCOLOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -854,8 +854,8 @@ pub struct XYZColorF {
     pub Y: f32,
     pub Z: f32,
 }
-impl ::core::marker::Copy for XYZColorF {}
-impl ::core::clone::Clone for XYZColorF {
+impl Copy for XYZColorF {}
+impl Clone for XYZColorF {
     fn clone(&self) -> Self {
         *self
     }
@@ -866,16 +866,16 @@ pub struct YxyCOLOR {
     pub x: u16,
     pub y: u16,
 }
-impl ::core::marker::Copy for YxyCOLOR {}
-impl ::core::clone::Clone for YxyCOLOR {
+impl Copy for YxyCOLOR {}
+impl Clone for YxyCOLOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type ICMENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> i32>;
-pub type ICMENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> i32>;
-pub type LPBMCALLBACKFN = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type ICMENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> i32>;
+pub type ICMENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> i32>;
+pub type LPBMCALLBACKFN = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type PCMSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPA, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type PCMSCALLBACKA = Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPA, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type PCMSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPW, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type PCMSCALLBACKW = Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPW, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;

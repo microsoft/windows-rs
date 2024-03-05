@@ -105,9 +105,9 @@ impl Writer {
             let kind = self.type_name(ty);
 
             if ty.is_generic() {
-                quote! { <#kind as ::windows_core::Type<#kind>>::Default }
+                quote! { <#kind as windows_core::Type<#kind>>::Default }
             } else if metadata::type_is_nullable(ty) && !self.sys {
-                quote! { ::core::option::Option<#kind> }
+                quote! { Option<#kind> }
             } else {
                 kind
             }
@@ -116,7 +116,7 @@ impl Writer {
 
     pub(crate) fn type_name(&self, ty: &metadata::Type) -> TokenStream {
         match ty {
-            metadata::Type::Void => quote! { ::core::ffi::c_void },
+            metadata::Type::Void => quote! { core::ffi::c_void },
             metadata::Type::Bool => quote! { bool },
             metadata::Type::Char => quote! { u16 },
             metadata::Type::I8 => quote! { i8 },
@@ -133,7 +133,7 @@ impl Writer {
             metadata::Type::USize => quote! { usize },
             metadata::Type::String => {
                 if self.sys {
-                    quote! { *mut ::core::ffi::c_void }
+                    quote! { *mut core::ffi::c_void }
                 } else {
                     let crate_name = self.crate_name();
                     quote! { #crate_name HSTRING }
@@ -153,7 +153,7 @@ impl Writer {
             }
             metadata::Type::IInspectable => {
                 if self.sys {
-                    quote! { *mut ::core::ffi::c_void }
+                    quote! { *mut core::ffi::c_void }
                 } else {
                     let crate_name = self.crate_name();
                     quote! { #crate_name IInspectable }
@@ -165,7 +165,7 @@ impl Writer {
             }
             metadata::Type::IUnknown => {
                 if self.sys {
-                    quote! { *mut ::core::ffi::c_void }
+                    quote! { *mut core::ffi::c_void }
                 } else {
                     let crate_name = self.crate_name();
                     quote! { #crate_name IUnknown }
@@ -200,8 +200,8 @@ impl Writer {
             metadata::Type::TypeDef(def, generics) => {
                 if self.sys {
                     match def.kind() {
-                        metadata::TypeKind::Interface => quote! { *mut ::core::ffi::c_void },
-                        metadata::TypeKind::Delegate if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) => quote! { *mut ::core::ffi::c_void },
+                        metadata::TypeKind::Interface => quote! { *mut core::ffi::c_void },
+                        metadata::TypeKind::Delegate if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) => quote! { *mut core::ffi::c_void },
                         _ => self.type_def_name(*def, generics),
                     }
                 } else {
@@ -241,19 +241,19 @@ impl Writer {
 
         match ty {
             metadata::Type::IUnknown | metadata::Type::IInspectable => {
-                quote! { *mut ::core::ffi::c_void }
+                quote! { *mut core::ffi::c_void }
             }
             metadata::Type::String => {
-                quote! { ::std::mem::MaybeUninit<::windows_core::HSTRING> }
+                quote! { std::mem::MaybeUninit<windows_core::HSTRING> }
             }
             metadata::Type::BSTR => {
-                quote! { ::std::mem::MaybeUninit<::windows_core::BSTR> }
+                quote! { std::mem::MaybeUninit<windows_core::BSTR> }
             }
             metadata::Type::VARIANT => {
-                quote! { ::std::mem::MaybeUninit<::windows_core::VARIANT> }
+                quote! { std::mem::MaybeUninit<windows_core::VARIANT> }
             }
             metadata::Type::PROPVARIANT => {
-                quote! { ::std::mem::MaybeUninit<::windows_core::PROPVARIANT> }
+                quote! { std::mem::MaybeUninit<windows_core::PROPVARIANT> }
             }
             metadata::Type::Win32Array(kind, len) => {
                 let name = self.type_abi_name(kind);
@@ -262,7 +262,7 @@ impl Writer {
             }
             metadata::Type::GenericParam(generic) => {
                 let name = to_ident(generic.name());
-                quote! { ::windows_core::AbiType<#name> }
+                quote! { windows_core::AbiType<#name> }
             }
             metadata::Type::TypeDef(def, _) => match def.kind() {
                 metadata::TypeKind::Enum => self.type_def_name(*def, &[]),
@@ -271,17 +271,17 @@ impl Writer {
                     if metadata::type_def_is_blittable(*def) {
                         tokens
                     } else {
-                        quote! { ::std::mem::MaybeUninit<#tokens> }
+                        quote! { std::mem::MaybeUninit<#tokens> }
                     }
                 }
                 metadata::TypeKind::Delegate => {
                     if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
-                        quote! { *mut ::core::ffi::c_void }
+                        quote! { *mut core::ffi::c_void }
                     } else {
                         self.type_def_name(*def, &[])
                     }
                 }
-                _ => quote! { *mut ::core::ffi::c_void },
+                _ => quote! { *mut core::ffi::c_void },
             },
             metadata::Type::MutPtr(kind, pointers) => {
                 let pointers_tokens = gen_mut_ptrs(*pointers);
@@ -308,7 +308,7 @@ impl Writer {
         let mut tokens = TokenStream::new();
         for generic in generics {
             let generic = self.type_name(generic);
-            tokens.combine(&quote! { ::core::marker::PhantomData::<#generic>, });
+            tokens.combine(&quote! { core::marker::PhantomData::<#generic>, });
         }
         tokens
     }
@@ -317,7 +317,7 @@ impl Writer {
             .iter()
             .map(|generic| {
                 let generic = self.type_name(generic);
-                quote! { #generic: ::core::marker::PhantomData::<#generic>, }
+                quote! { #generic: core::marker::PhantomData::<#generic>, }
             })
             .collect()
     }
@@ -325,7 +325,7 @@ impl Writer {
         let mut tokens = TokenStream::new();
         for generic in generics {
             let generic = self.type_name(generic);
-            tokens.combine(&quote! { #generic: ::windows_core::RuntimeType + 'static, });
+            tokens.combine(&quote! { #generic: windows_core::RuntimeType + 'static, });
         }
         tokens
     }
@@ -371,7 +371,7 @@ impl Writer {
             if param.kind == metadata::SignatureParamKind::IntoParam {
                 let name: TokenStream = gen_name(position);
                 let into = self.type_name(&param.ty);
-                tokens.combine(&quote! { #name: ::windows_core::IntoParam<#into>, });
+                tokens.combine(&quote! { #name: windows_core::IntoParam<#into>, });
             }
         }
         tokens
@@ -491,10 +491,10 @@ impl Writer {
             if self.flatten {
                 TokenStream::new()
             } else {
-                "::windows_sys::core::".into()
+                "windows_sys::core::".into()
             }
         } else {
-            "::windows_core::".into()
+            "windows_core::".into()
         }
     }
     fn scoped_name(&self, def: metadata::TypeDef) -> String {
@@ -570,9 +570,9 @@ impl Writer {
         if type_def_is_agile(def) {
             quote! {
                 #features
-                unsafe impl<#constraints> ::core::marker::Send for #ident {}
+                unsafe impl<#constraints> Send for #ident {}
                 #features
-                unsafe impl<#constraints> ::core::marker::Sync for #ident {}
+                unsafe impl<#constraints> Sync for #ident {}
             }
         } else {
             quote! {}
@@ -617,9 +617,9 @@ impl Writer {
             quote! {
                 #features
                 impl<#constraints> #ident {
-                    pub fn get(&self) -> ::windows_core::Result<#return_type> {
+                    pub fn get(&self) -> windows_core::Result<#return_type> {
                         if self.Status()? == #namespace AsyncStatus::Started {
-                            let (_waiter, signaler) = ::windows_core::imp::Waiter::new()?;
+                            let (_waiter, signaler) = windows_core::imp::Waiter::new()?;
                             self.SetCompleted(&#namespace  #handler::new(move |_sender, _args| {
                                 // Safe because the waiter will only be dropped after being signaled.
                                 unsafe { signaler.signal(); }
@@ -630,10 +630,10 @@ impl Writer {
                     }
                 }
                 #features
-                impl<#constraints> ::std::future::Future for #ident {
-                    type Output = ::windows_core::Result<#return_type>;
+                impl<#constraints> std::future::Future for #ident {
+                    type Output = windows_core::Result<#return_type>;
 
-                    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context<'_>) -> ::std::task::Poll<Self::Output> {
+                    fn poll(self: std::pin::Pin<&mut Self>, context: &mut std::task::Context<'_>) -> std::task::Poll<Self::Output> {
                         if self.Status()? == #namespace AsyncStatus::Started {
                             let waker = context.waker().clone();
 
@@ -642,9 +642,9 @@ impl Writer {
                                 Ok(())
                             }));
 
-                            ::std::task::Poll::Pending
+                            std::task::Poll::Pending
                         } else {
-                            ::std::task::Poll::Ready(self.GetResults())
+                            std::task::Poll::Ready(self.GetResults())
                         }
                     }
                 }
@@ -654,9 +654,9 @@ impl Writer {
     pub fn interface_winrt_trait(&self, def: metadata::TypeDef, generics: &[metadata::Type], ident: &TokenStream, constraints: &TokenStream, _phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
         if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
             let type_signature = if def.kind() == metadata::TypeKind::Class {
-                quote! { ::windows_core::imp::ConstBuffer::for_class::<Self>() }
+                quote! { windows_core::imp::ConstBuffer::for_class::<Self>() }
             } else if generics.is_empty() {
-                quote! { ::windows_core::imp::ConstBuffer::for_interface::<Self>() }
+                quote! { windows_core::imp::ConstBuffer::for_interface::<Self>() }
             } else {
                 let signature = Literal::byte_string(
                     // TODO: workaround for riddle winmd generation (no attribute support)
@@ -681,7 +681,7 @@ impl Writer {
 
                 quote! {
                     {
-                        ::windows_core::imp::ConstBuffer::new()
+                        windows_core::imp::ConstBuffer::new()
                         .push_slice(b"pinterface(")
                         .push_slice(#signature)
                         .push_slice(b";")
@@ -693,8 +693,8 @@ impl Writer {
 
             quote! {
                 #features
-                impl<#constraints> ::windows_core::RuntimeType for #ident {
-                    const SIGNATURE: ::windows_core::imp::ConstBuffer = #type_signature;
+                impl<#constraints> windows_core::RuntimeType for #ident {
+                    const SIGNATURE: windows_core::imp::ConstBuffer = #type_signature;
                 }
             }
         } else {
@@ -708,14 +708,14 @@ impl Writer {
 
             quote! {
                 #features
-                impl<#constraints> ::windows_core::RuntimeName for #name {
+                impl<#constraints> windows_core::RuntimeName for #name {
                     const NAME: &'static str = #runtime_name;
                 }
             }
         } else {
             quote! {
                 #features
-                impl ::windows_core::RuntimeName for #name {}
+                impl windows_core::RuntimeName for #name {}
             }
         }
     }
@@ -726,9 +726,9 @@ impl Writer {
             let vtbl = self.type_vtbl_name(&default);
             quote! {
                 #features
-                unsafe impl ::windows_core::Interface for #ident {
+                unsafe impl windows_core::Interface for #ident {
                     type Vtable = #vtbl;
-                    const IID: ::windows_core::GUID = <#default_name as ::windows_core::Interface>::IID;
+                    const IID: windows_core::GUID = <#default_name as windows_core::Interface>::IID;
                 }
             }
         } else {
@@ -738,13 +738,13 @@ impl Writer {
                     Some(guid) => self.guid(&guid),
                     None => {
                         quote! {
-                            ::windows_core::GUID::zeroed()
+                            windows_core::GUID::zeroed()
                         }
                     }
                 }
             } else {
                 quote! {
-                    ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE)
+                    windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE)
                 }
             };
 
@@ -754,9 +754,9 @@ impl Writer {
                 } else {
                     quote! {
                         #features
-                        unsafe impl<#constraints> ::windows_core::Interface for #ident {
+                        unsafe impl<#constraints> windows_core::Interface for #ident {
                             type Vtable = #vtbl;
-                            const IID: ::windows_core::GUID = #guid;
+                            const IID: windows_core::GUID = #guid;
                         }
                     }
                 }
@@ -919,9 +919,9 @@ impl Writer {
         });
 
         if named_params {
-            quote! { (this: *mut ::core::ffi::c_void, #udt_return_type #(#params)* #trailing_return_type) #return_type }
+            quote! { (this: *mut core::ffi::c_void, #udt_return_type #(#params)* #trailing_return_type) #return_type }
         } else {
-            quote! { (*mut ::core::ffi::c_void, #udt_return_type #(#params)* #trailing_return_type) #return_type }
+            quote! { (*mut core::ffi::c_void, #udt_return_type #(#params)* #trailing_return_type) #return_type }
         }
     }
     pub fn param_name(&self, param: metadata::Param) -> TokenStream {
@@ -962,11 +962,11 @@ impl Writer {
                     match param.kind {
                         metadata::SignatureParamKind::ArrayFixed(_) | metadata::SignatureParamKind::ArrayRelativeLen(_) | metadata::SignatureParamKind::ArrayRelativeByteLen(_) => {
                             let map = if flags.contains(metadata::ParamAttributes::Optional) {
-                                quote! { #name.as_deref().map_or(::core::ptr::null(), |slice|slice.as_ptr()) }
+                                quote! { #name.as_deref().map_or(core::ptr::null(), |slice|slice.as_ptr()) }
                             } else {
                                 quote! { #name.as_ptr() }
                             };
-                            quote! { ::core::mem::transmute(#map), }
+                            quote! { core::mem::transmute(#map), }
                         }
                         metadata::SignatureParamKind::ArrayRelativePtr(relative) => {
                             let name = self.param_name(params[relative].def);
@@ -982,9 +982,9 @@ impl Writer {
                         }
                         metadata::SignatureParamKind::OptionalPointer => {
                             if flags.contains(metadata::ParamAttributes::Out) {
-                                quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null_mut())), }
+                                quote! { core::mem::transmute(#name.unwrap_or(std::ptr::null_mut())), }
                             } else {
-                                quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null())), }
+                                quote! { core::mem::transmute(#name.unwrap_or(std::ptr::null())), }
                             }
                         }
                         metadata::SignatureParamKind::ValueType => {
@@ -994,11 +994,11 @@ impl Writer {
                             if matches!(param.ty, metadata::Type::PrimitiveOrEnum(_, _)) {
                                 quote! { #name.0 as _, }
                             } else {
-                                quote! { ::core::mem::transmute(#name), }
+                                quote! { core::mem::transmute(#name), }
                             }
                         }
                         metadata::SignatureParamKind::Other => {
-                            quote! { ::core::mem::transmute_copy(#name), }
+                            quote! { core::mem::transmute_copy(#name), }
                         }
                     }
                 }
@@ -1038,7 +1038,7 @@ impl Writer {
                         quote! { &[#ty; #len] }
                     };
                     if param.def.flags().contains(metadata::ParamAttributes::Optional) {
-                        tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
+                        tokens.combine(&quote! { #name: Option<#ty>, });
                     } else {
                         tokens.combine(&quote! { #name: #ty, });
                     }
@@ -1052,7 +1052,7 @@ impl Writer {
                         quote! { &[#ty] }
                     };
                     if param.def.flags().contains(metadata::ParamAttributes::Optional) {
-                        tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
+                        tokens.combine(&quote! { #name: Option<#ty>, });
                     } else {
                         tokens.combine(&quote! { #name: #ty, });
                     }
@@ -1064,7 +1064,7 @@ impl Writer {
                         quote! { &[u8] }
                     };
                     if param.def.flags().contains(metadata::ParamAttributes::Optional) {
-                        tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
+                        tokens.combine(&quote! { #name: Option<#ty>, });
                     } else {
                         tokens.combine(&quote! { #name: #ty, });
                     }
@@ -1077,7 +1077,7 @@ impl Writer {
                 }
                 metadata::SignatureParamKind::OptionalPointer => {
                     let kind = self.type_default_name(&param.ty);
-                    tokens.combine(&quote! { #name: ::core::option::Option<#kind>, });
+                    tokens.combine(&quote! { #name: Option<#kind>, });
                 }
                 metadata::SignatureParamKind::ValueType | metadata::SignatureParamKind::Blittable => {
                     let kind = self.type_default_name(&param.ty);
@@ -1104,7 +1104,7 @@ impl Writer {
                     let tokens = self.type_name(&signature.return_type);
 
                     if signature.return_type.is_winrt_array() {
-                        quote! { ::windows_core::Array<#tokens> }
+                        quote! { windows_core::Array<#tokens> }
                     } else {
                         tokens
                     }
@@ -1117,7 +1117,7 @@ impl Writer {
                 quote! { &self, }
             };
 
-            quote! { (#this #(#params),*) -> ::windows_core::Result<#return_type> }
+            quote! { (#this #(#params),*) -> windows_core::Result<#return_type> }
         } else {
             let signature_kind = signature.kind();
             let mut params = quote! {};
@@ -1134,12 +1134,12 @@ impl Writer {
 
             let return_type = match signature_kind {
                 metadata::SignatureKind::ReturnVoid => quote! {},
-                metadata::SignatureKind::Query(_) | metadata::SignatureKind::QueryOptional(_) | metadata::SignatureKind::ResultVoid => quote! { -> ::windows_core::Result<()> },
+                metadata::SignatureKind::Query(_) | metadata::SignatureKind::QueryOptional(_) | metadata::SignatureKind::ResultVoid => quote! { -> windows_core::Result<()> },
                 metadata::SignatureKind::ResultValue => {
                     let return_type = signature.params[signature.params.len() - 1].ty.deref();
                     let return_type = self.type_name(&return_type);
 
-                    quote! { -> ::windows_core::Result<#return_type> }
+                    quote! { -> windows_core::Result<#return_type> }
                 }
                 _ => self.return_sig(signature),
             };
@@ -1157,7 +1157,7 @@ impl Writer {
                 quote! { #default_type }
             } else if metadata::type_is_nullable(&param.ty) {
                 let type_name = self.type_name(&param.ty);
-                quote! { ::core::option::Option<&#type_name> }
+                quote! { Option<&#type_name> }
             } else {
                 quote! { &#default_type }
             }
@@ -1165,7 +1165,7 @@ impl Writer {
             quote! { &mut [#default_type] }
         } else if param.ty.is_winrt_array_ref() {
             let kind = self.type_name(&param.ty);
-            quote! { &mut ::windows_core::Array<#kind> }
+            quote! { &mut windows_core::Array<#kind> }
         } else {
             quote! { &mut #default_type }
         };
@@ -1186,7 +1186,7 @@ impl Writer {
                 quote! { #name: #kind, }
             } else if metadata::type_is_nullable(&param.ty) {
                 let kind = self.type_name(&param.ty);
-                quote! { #name: ::core::option::Option<&#kind>, }
+                quote! { #name: Option<&#kind>, }
             } else {
                 quote! { #name: &#kind, }
             }

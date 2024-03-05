@@ -1,15 +1,15 @@
 ::windows_targets::link!("wecapi.dll" "system" fn EcClose(object : isize) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wecapi.dll" "system" fn EcDeleteSubscription(subscriptionname : ::windows_sys::core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wecapi.dll" "system" fn EcEnumNextSubscription(subscriptionenum : isize, subscriptionnamebuffersize : u32, subscriptionnamebuffer : ::windows_sys::core::PWSTR, subscriptionnamebufferused : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wecapi.dll" "system" fn EcDeleteSubscription(subscriptionname : windows_sys::core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wecapi.dll" "system" fn EcEnumNextSubscription(subscriptionenum : isize, subscriptionnamebuffersize : u32, subscriptionnamebuffer : windows_sys::core::PWSTR, subscriptionnamebufferused : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wecapi.dll" "system" fn EcGetObjectArrayProperty(objectarray : isize, propertyid : EC_SUBSCRIPTION_PROPERTY_ID, arrayindex : u32, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EC_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wecapi.dll" "system" fn EcGetObjectArraySize(objectarray : isize, objectarraysize : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wecapi.dll" "system" fn EcGetSubscriptionProperty(subscription : isize, propertyid : EC_SUBSCRIPTION_PROPERTY_ID, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EC_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wecapi.dll" "system" fn EcGetSubscriptionRunTimeStatus(subscriptionname : ::windows_sys::core::PCWSTR, statusinfoid : EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename : ::windows_sys::core::PCWSTR, flags : u32, statusvaluebuffersize : u32, statusvaluebuffer : *mut EC_VARIANT, statusvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wecapi.dll" "system" fn EcGetSubscriptionRunTimeStatus(subscriptionname : windows_sys::core::PCWSTR, statusinfoid : EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename : windows_sys::core::PCWSTR, flags : u32, statusvaluebuffersize : u32, statusvaluebuffer : *mut EC_VARIANT, statusvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wecapi.dll" "system" fn EcInsertObjectArrayElement(objectarray : isize, arrayindex : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wecapi.dll" "system" fn EcOpenSubscription(subscriptionname : ::windows_sys::core::PCWSTR, accessmask : u32, flags : u32) -> isize);
+::windows_targets::link!("wecapi.dll" "system" fn EcOpenSubscription(subscriptionname : windows_sys::core::PCWSTR, accessmask : u32, flags : u32) -> isize);
 ::windows_targets::link!("wecapi.dll" "system" fn EcOpenSubscriptionEnum(flags : u32) -> isize);
 ::windows_targets::link!("wecapi.dll" "system" fn EcRemoveObjectArrayElement(objectarray : isize, arrayindex : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("wecapi.dll" "system" fn EcRetrySubscription(subscriptionname : ::windows_sys::core::PCWSTR, eventsourcename : ::windows_sys::core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wecapi.dll" "system" fn EcRetrySubscription(subscriptionname : windows_sys::core::PCWSTR, eventsourcename : windows_sys::core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wecapi.dll" "system" fn EcSaveSubscription(subscription : isize, flags : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wecapi.dll" "system" fn EcSetObjectArrayProperty(objectarray : isize, propertyid : EC_SUBSCRIPTION_PROPERTY_ID, arrayindex : u32, flags : u32, propertyvalue : *mut EC_VARIANT) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wecapi.dll" "system" fn EcSetSubscriptionProperty(subscription : isize, propertyid : EC_SUBSCRIPTION_PROPERTY_ID, flags : u32, propertyvalue : *mut EC_VARIANT) -> super::super::Foundation:: BOOL);
@@ -101,8 +101,8 @@ pub struct EC_VARIANT {
     pub Count: u32,
     pub Type: u32,
 }
-impl ::core::marker::Copy for EC_VARIANT {}
-impl ::core::clone::Clone for EC_VARIANT {
+impl Copy for EC_VARIANT {}
+impl Clone for EC_VARIANT {
     fn clone(&self) -> Self {
         *self
     }
@@ -112,15 +112,15 @@ pub union EC_VARIANT_0 {
     pub BooleanVal: super::super::Foundation::BOOL,
     pub UInt32Val: u32,
     pub DateTimeVal: u64,
-    pub StringVal: ::windows_sys::core::PCWSTR,
+    pub StringVal: windows_sys::core::PCWSTR,
     pub BinaryVal: *mut u8,
     pub BooleanArr: *mut super::super::Foundation::BOOL,
     pub Int32Arr: *mut i32,
-    pub StringArr: *mut ::windows_sys::core::PWSTR,
+    pub StringArr: *mut windows_sys::core::PWSTR,
     pub PropertyHandleVal: isize,
 }
-impl ::core::marker::Copy for EC_VARIANT_0 {}
-impl ::core::clone::Clone for EC_VARIANT_0 {
+impl Copy for EC_VARIANT_0 {}
+impl Clone for EC_VARIANT_0 {
     fn clone(&self) -> Self {
         *self
     }

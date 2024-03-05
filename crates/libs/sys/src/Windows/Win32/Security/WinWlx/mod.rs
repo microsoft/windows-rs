@@ -64,13 +64,13 @@ pub type WLX_SHUTDOWN_TYPE = u32;
 #[repr(C)]
 pub struct WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     pub dwType: u32,
-    pub pszUserName: ::windows_sys::core::PWSTR,
-    pub pszDomain: ::windows_sys::core::PWSTR,
-    pub pszPassword: ::windows_sys::core::PWSTR,
+    pub pszUserName: windows_sys::core::PWSTR,
+    pub pszDomain: windows_sys::core::PWSTR,
+    pub pszPassword: windows_sys::core::PWSTR,
     pub fPromptForPassword: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {}
-impl ::core::clone::Clone for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
+impl Copy for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {}
+impl Clone for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -78,14 +78,14 @@ impl ::core::clone::Clone for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
 #[repr(C)]
 pub struct WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     pub dwType: u32,
-    pub pszUserName: ::windows_sys::core::PWSTR,
-    pub pszDomain: ::windows_sys::core::PWSTR,
-    pub pszPassword: ::windows_sys::core::PWSTR,
+    pub pszUserName: windows_sys::core::PWSTR,
+    pub pszDomain: windows_sys::core::PWSTR,
+    pub pszPassword: windows_sys::core::PWSTR,
     pub fPromptForPassword: super::super::Foundation::BOOL,
     pub fDisconnectOnLogonFailure: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {}
-impl ::core::clone::Clone for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
+impl Copy for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {}
+impl Clone for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -96,8 +96,8 @@ pub struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     pub UserToken: super::super::Foundation::HANDLE,
     pub LogonId: super::super::Foundation::LUID,
     pub Quotas: super::QUOTA_LIMITS,
-    pub UserName: ::windows_sys::core::PWSTR,
-    pub Domain: ::windows_sys::core::PWSTR,
+    pub UserName: windows_sys::core::PWSTR,
+    pub Domain: windows_sys::core::PWSTR,
     pub LogonTime: i64,
     pub SmartCardLogon: super::super::Foundation::BOOL,
     pub ProfileLength: u32,
@@ -110,18 +110,18 @@ pub struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     pub PasswordLastSet: i64,
     pub PasswordCanChange: i64,
     pub PasswordMustChange: i64,
-    pub LogonScript: ::windows_sys::core::PWSTR,
-    pub HomeDirectory: ::windows_sys::core::PWSTR,
-    pub FullName: ::windows_sys::core::PWSTR,
-    pub ProfilePath: ::windows_sys::core::PWSTR,
-    pub HomeDirectoryDrive: ::windows_sys::core::PWSTR,
-    pub LogonServer: ::windows_sys::core::PWSTR,
+    pub LogonScript: windows_sys::core::PWSTR,
+    pub HomeDirectory: windows_sys::core::PWSTR,
+    pub FullName: windows_sys::core::PWSTR,
+    pub ProfilePath: windows_sys::core::PWSTR,
+    pub HomeDirectoryDrive: windows_sys::core::PWSTR,
+    pub LogonServer: windows_sys::core::PWSTR,
     pub UserFlags: u32,
     pub PrivateDataLen: u32,
     pub PrivateData: *mut u8,
 }
-impl ::core::marker::Copy for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {}
-impl ::core::clone::Clone for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
+impl Copy for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {}
+impl Clone for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -132,12 +132,12 @@ pub struct WLX_DESKTOP {
     pub Size: u32,
     pub Flags: u32,
     pub hDesktop: super::super::System::StationsAndDesktops::HDESK,
-    pub pszDesktopName: ::windows_sys::core::PWSTR,
+    pub pszDesktopName: windows_sys::core::PWSTR,
 }
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
-impl ::core::marker::Copy for WLX_DESKTOP {}
+impl Copy for WLX_DESKTOP {}
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
-impl ::core::clone::Clone for WLX_DESKTOP {
+impl Clone for WLX_DESKTOP {
     fn clone(&self) -> Self {
         *self
     }
@@ -160,9 +160,9 @@ pub struct WLX_DISPATCH_VERSION_1_0 {
     pub WlxChangePasswordNotify: PWLX_CHANGE_PASSWORD_NOTIFY,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for WLX_DISPATCH_VERSION_1_0 {}
+impl Copy for WLX_DISPATCH_VERSION_1_0 {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for WLX_DISPATCH_VERSION_1_0 {
+impl Clone for WLX_DISPATCH_VERSION_1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -189,9 +189,9 @@ pub struct WLX_DISPATCH_VERSION_1_1 {
     pub WlxChangePasswordNotifyEx: PWLX_CHANGE_PASSWORD_NOTIFY_EX,
 }
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for WLX_DISPATCH_VERSION_1_1 {}
+impl Copy for WLX_DISPATCH_VERSION_1_1 {}
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for WLX_DISPATCH_VERSION_1_1 {
+impl Clone for WLX_DISPATCH_VERSION_1_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -219,9 +219,9 @@ pub struct WLX_DISPATCH_VERSION_1_2 {
     pub WlxCloseUserDesktop: PWLX_CLOSE_USER_DESKTOP,
 }
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for WLX_DISPATCH_VERSION_1_2 {}
+impl Copy for WLX_DISPATCH_VERSION_1_2 {}
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for WLX_DISPATCH_VERSION_1_2 {
+impl Clone for WLX_DISPATCH_VERSION_1_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -256,9 +256,9 @@ pub struct WLX_DISPATCH_VERSION_1_3 {
     pub WlxQueryTerminalServicesData: PWLX_QUERY_TERMINAL_SERVICES_DATA,
 }
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for WLX_DISPATCH_VERSION_1_3 {}
+impl Copy for WLX_DISPATCH_VERSION_1_3 {}
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for WLX_DISPATCH_VERSION_1_3 {
+impl Clone for WLX_DISPATCH_VERSION_1_3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -295,22 +295,22 @@ pub struct WLX_DISPATCH_VERSION_1_4 {
     pub WlxQueryTsLogonCredentials: PWLX_QUERY_TS_LOGON_CREDENTIALS,
 }
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for WLX_DISPATCH_VERSION_1_4 {}
+impl Copy for WLX_DISPATCH_VERSION_1_4 {}
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for WLX_DISPATCH_VERSION_1_4 {
+impl Clone for WLX_DISPATCH_VERSION_1_4 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct WLX_MPR_NOTIFY_INFO {
-    pub pszUserName: ::windows_sys::core::PWSTR,
-    pub pszDomain: ::windows_sys::core::PWSTR,
-    pub pszPassword: ::windows_sys::core::PWSTR,
-    pub pszOldPassword: ::windows_sys::core::PWSTR,
+    pub pszUserName: windows_sys::core::PWSTR,
+    pub pszDomain: windows_sys::core::PWSTR,
+    pub pszPassword: windows_sys::core::PWSTR,
+    pub pszOldPassword: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for WLX_MPR_NOTIFY_INFO {}
-impl ::core::clone::Clone for WLX_MPR_NOTIFY_INFO {
+impl Copy for WLX_MPR_NOTIFY_INFO {}
+impl Clone for WLX_MPR_NOTIFY_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -320,17 +320,17 @@ impl ::core::clone::Clone for WLX_MPR_NOTIFY_INFO {
 pub struct WLX_NOTIFICATION_INFO {
     pub Size: u32,
     pub Flags: u32,
-    pub UserName: ::windows_sys::core::PWSTR,
-    pub Domain: ::windows_sys::core::PWSTR,
-    pub WindowStation: ::windows_sys::core::PWSTR,
+    pub UserName: windows_sys::core::PWSTR,
+    pub Domain: windows_sys::core::PWSTR,
+    pub WindowStation: windows_sys::core::PWSTR,
     pub hToken: super::super::Foundation::HANDLE,
     pub hDesktop: super::super::System::StationsAndDesktops::HDESK,
     pub pStatusCallback: PFNMSGECALLBACK,
 }
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
-impl ::core::marker::Copy for WLX_NOTIFICATION_INFO {}
+impl Copy for WLX_NOTIFICATION_INFO {}
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
-impl ::core::clone::Clone for WLX_NOTIFICATION_INFO {
+impl Clone for WLX_NOTIFICATION_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -338,10 +338,10 @@ impl ::core::clone::Clone for WLX_NOTIFICATION_INFO {
 #[repr(C)]
 pub struct WLX_PROFILE_V1_0 {
     pub dwType: u32,
-    pub pszProfile: ::windows_sys::core::PWSTR,
+    pub pszProfile: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for WLX_PROFILE_V1_0 {}
-impl ::core::clone::Clone for WLX_PROFILE_V1_0 {
+impl Copy for WLX_PROFILE_V1_0 {}
+impl Clone for WLX_PROFILE_V1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -349,27 +349,27 @@ impl ::core::clone::Clone for WLX_PROFILE_V1_0 {
 #[repr(C)]
 pub struct WLX_PROFILE_V2_0 {
     pub dwType: u32,
-    pub pszProfile: ::windows_sys::core::PWSTR,
-    pub pszPolicy: ::windows_sys::core::PWSTR,
-    pub pszNetworkDefaultUserProfile: ::windows_sys::core::PWSTR,
-    pub pszServerName: ::windows_sys::core::PWSTR,
-    pub pszEnvironment: ::windows_sys::core::PWSTR,
+    pub pszProfile: windows_sys::core::PWSTR,
+    pub pszPolicy: windows_sys::core::PWSTR,
+    pub pszNetworkDefaultUserProfile: windows_sys::core::PWSTR,
+    pub pszServerName: windows_sys::core::PWSTR,
+    pub pszEnvironment: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for WLX_PROFILE_V2_0 {}
-impl ::core::clone::Clone for WLX_PROFILE_V2_0 {
+impl Copy for WLX_PROFILE_V2_0 {}
+impl Clone for WLX_PROFILE_V2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct WLX_SC_NOTIFICATION_INFO {
-    pub pszCard: ::windows_sys::core::PWSTR,
-    pub pszReader: ::windows_sys::core::PWSTR,
-    pub pszContainer: ::windows_sys::core::PWSTR,
-    pub pszCryptoProvider: ::windows_sys::core::PWSTR,
+    pub pszCard: windows_sys::core::PWSTR,
+    pub pszReader: windows_sys::core::PWSTR,
+    pub pszContainer: windows_sys::core::PWSTR,
+    pub pszCryptoProvider: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for WLX_SC_NOTIFICATION_INFO {}
-impl ::core::clone::Clone for WLX_SC_NOTIFICATION_INFO {
+impl Copy for WLX_SC_NOTIFICATION_INFO {}
+impl Clone for WLX_SC_NOTIFICATION_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -380,45 +380,45 @@ pub struct WLX_TERMINAL_SERVICES_DATA {
     pub HomeDir: [u16; 257],
     pub HomeDirDrive: [u16; 4],
 }
-impl ::core::marker::Copy for WLX_TERMINAL_SERVICES_DATA {}
-impl ::core::clone::Clone for WLX_TERMINAL_SERVICES_DATA {
+impl Copy for WLX_TERMINAL_SERVICES_DATA {}
+impl Clone for WLX_TERMINAL_SERVICES_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type PFNMSGECALLBACK = ::core::option::Option<unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: ::windows_sys::core::PCWSTR) -> u32>;
-pub type PWLX_ASSIGN_SHELL_PROTECTION = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, htoken: super::super::Foundation::HANDLE, hprocess: super::super::Foundation::HANDLE, hthread: super::super::Foundation::HANDLE) -> i32>;
-pub type PWLX_CHANGE_PASSWORD_NOTIFY = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pmprinfo: *mut WLX_MPR_NOTIFY_INFO, dwchangeinfo: u32) -> i32>;
-pub type PWLX_CHANGE_PASSWORD_NOTIFY_EX = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pmprinfo: *mut WLX_MPR_NOTIFY_INFO, dwchangeinfo: u32, providername: ::windows_sys::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> i32>;
+pub type PFNMSGECALLBACK = Option<unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: windows_sys::core::PCWSTR) -> u32>;
+pub type PWLX_ASSIGN_SHELL_PROTECTION = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, htoken: super::super::Foundation::HANDLE, hprocess: super::super::Foundation::HANDLE, hthread: super::super::Foundation::HANDLE) -> i32>;
+pub type PWLX_CHANGE_PASSWORD_NOTIFY = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pmprinfo: *mut WLX_MPR_NOTIFY_INFO, dwchangeinfo: u32) -> i32>;
+pub type PWLX_CHANGE_PASSWORD_NOTIFY_EX = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pmprinfo: *mut WLX_MPR_NOTIFY_INFO, dwchangeinfo: u32, providername: windows_sys::core::PCWSTR, reserved: *mut core::ffi::c_void) -> i32>;
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
-pub type PWLX_CLOSE_USER_DESKTOP = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pdesktop: *mut WLX_DESKTOP, htoken: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PWLX_CLOSE_USER_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pdesktop: *mut WLX_DESKTOP, htoken: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
-pub type PWLX_CREATE_USER_DESKTOP = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, htoken: super::super::Foundation::HANDLE, flags: u32, pszdesktopname: ::windows_sys::core::PCWSTR, ppdesktop: *mut *mut WLX_DESKTOP) -> super::super::Foundation::BOOL>;
+pub type PWLX_CREATE_USER_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, htoken: super::super::Foundation::HANDLE, flags: u32, pszdesktopname: windows_sys::core::PCWSTR, ppdesktop: *mut *mut WLX_DESKTOP) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type PWLX_DIALOG_BOX = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: ::windows_sys::core::PCWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC) -> i32>;
+pub type PWLX_DIALOG_BOX = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: windows_sys::core::PCWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC) -> i32>;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type PWLX_DIALOG_BOX_INDIRECT = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, hdialogtemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC) -> i32>;
+pub type PWLX_DIALOG_BOX_INDIRECT = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, hdialogtemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC) -> i32>;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type PWLX_DIALOG_BOX_INDIRECT_PARAM = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, hdialogtemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> i32>;
+pub type PWLX_DIALOG_BOX_INDIRECT_PARAM = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, hdialogtemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> i32>;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type PWLX_DIALOG_BOX_PARAM = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: ::windows_sys::core::PCWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> i32>;
-pub type PWLX_DISCONNECT = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
-pub type PWLX_GET_OPTION = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, option: u32, value: *mut usize) -> super::super::Foundation::BOOL>;
+pub type PWLX_DIALOG_BOX_PARAM = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: windows_sys::core::PCWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> i32>;
+pub type PWLX_DISCONNECT = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
+pub type PWLX_GET_OPTION = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, option: u32, value: *mut usize) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
-pub type PWLX_GET_SOURCE_DESKTOP = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, ppdesktop: *mut *mut WLX_DESKTOP) -> super::super::Foundation::BOOL>;
-pub type PWLX_MESSAGE_BOX = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hwndowner: super::super::Foundation::HWND, lpsztext: ::windows_sys::core::PCWSTR, lpsztitle: ::windows_sys::core::PCWSTR, fustyle: u32) -> i32>;
-pub type PWLX_QUERY_CLIENT_CREDENTIALS = ::core::option::Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V1_0) -> super::super::Foundation::BOOL>;
-pub type PWLX_QUERY_CONSOLESWITCH_CREDENTIALS = ::core::option::Option<unsafe extern "system" fn(pcred: *mut WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0) -> u32>;
-pub type PWLX_QUERY_IC_CREDENTIALS = ::core::option::Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V1_0) -> super::super::Foundation::BOOL>;
-pub type PWLX_QUERY_TERMINAL_SERVICES_DATA = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, ptsdata: *mut WLX_TERMINAL_SERVICES_DATA, username: ::windows_sys::core::PCWSTR, domain: ::windows_sys::core::PCWSTR) -> u32>;
-pub type PWLX_QUERY_TS_LOGON_CREDENTIALS = ::core::option::Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V2_0) -> super::super::Foundation::BOOL>;
-pub type PWLX_SAS_NOTIFY = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, dwsastype: u32)>;
-pub type PWLX_SET_CONTEXT_POINTER = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pwlxcontext: *mut ::core::ffi::c_void)>;
-pub type PWLX_SET_OPTION = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, option: u32, value: usize, oldvalue: *mut usize) -> super::super::Foundation::BOOL>;
+pub type PWLX_GET_SOURCE_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, ppdesktop: *mut *mut WLX_DESKTOP) -> super::super::Foundation::BOOL>;
+pub type PWLX_MESSAGE_BOX = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hwndowner: super::super::Foundation::HWND, lpsztext: windows_sys::core::PCWSTR, lpsztitle: windows_sys::core::PCWSTR, fustyle: u32) -> i32>;
+pub type PWLX_QUERY_CLIENT_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V1_0) -> super::super::Foundation::BOOL>;
+pub type PWLX_QUERY_CONSOLESWITCH_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0) -> u32>;
+pub type PWLX_QUERY_IC_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V1_0) -> super::super::Foundation::BOOL>;
+pub type PWLX_QUERY_TERMINAL_SERVICES_DATA = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, ptsdata: *mut WLX_TERMINAL_SERVICES_DATA, username: windows_sys::core::PCWSTR, domain: windows_sys::core::PCWSTR) -> u32>;
+pub type PWLX_QUERY_TS_LOGON_CREDENTIALS = Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V2_0) -> super::super::Foundation::BOOL>;
+pub type PWLX_SAS_NOTIFY = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, dwsastype: u32)>;
+pub type PWLX_SET_CONTEXT_POINTER = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pwlxcontext: *mut core::ffi::c_void)>;
+pub type PWLX_SET_OPTION = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, option: u32, value: usize, oldvalue: *mut usize) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
-pub type PWLX_SET_RETURN_DESKTOP = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pdesktop: *mut WLX_DESKTOP) -> super::super::Foundation::BOOL>;
-pub type PWLX_SET_TIMEOUT = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, timeout: u32) -> super::super::Foundation::BOOL>;
-pub type PWLX_SWITCH_DESKTOP_TO_USER = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE) -> i32>;
-pub type PWLX_SWITCH_DESKTOP_TO_WINLOGON = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE) -> i32>;
-pub type PWLX_USE_CTRL_ALT_DEL = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE)>;
-pub type PWLX_WIN31_MIGRATE = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE)>;
+pub type PWLX_SET_RETURN_DESKTOP = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pdesktop: *mut WLX_DESKTOP) -> super::super::Foundation::BOOL>;
+pub type PWLX_SET_TIMEOUT = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, timeout: u32) -> super::super::Foundation::BOOL>;
+pub type PWLX_SWITCH_DESKTOP_TO_USER = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE) -> i32>;
+pub type PWLX_SWITCH_DESKTOP_TO_WINLOGON = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE) -> i32>;
+pub type PWLX_USE_CTRL_ALT_DEL = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE)>;
+pub type PWLX_WIN31_MIGRATE = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE)>;

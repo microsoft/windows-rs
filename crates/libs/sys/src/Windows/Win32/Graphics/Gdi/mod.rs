@@ -1,9 +1,9 @@
 ::windows_targets::link!("gdi32.dll" "system" fn AbortPath(hdc : HDC) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn AddFontMemResourceEx(pfileview : *const ::core::ffi::c_void, cjsize : u32, pvresrved : *const ::core::ffi::c_void, pnumfonts : *const u32) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("gdi32.dll" "system" fn AddFontResourceA(param0 : ::windows_sys::core::PCSTR) -> i32);
-::windows_targets::link!("gdi32.dll" "system" fn AddFontResourceExA(name : ::windows_sys::core::PCSTR, fl : FONT_RESOURCE_CHARACTERISTICS, res : *const ::core::ffi::c_void) -> i32);
-::windows_targets::link!("gdi32.dll" "system" fn AddFontResourceExW(name : ::windows_sys::core::PCWSTR, fl : FONT_RESOURCE_CHARACTERISTICS, res : *const ::core::ffi::c_void) -> i32);
-::windows_targets::link!("gdi32.dll" "system" fn AddFontResourceW(param0 : ::windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn AddFontMemResourceEx(pfileview : *const core::ffi::c_void, cjsize : u32, pvresrved : *const core::ffi::c_void, pnumfonts : *const u32) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("gdi32.dll" "system" fn AddFontResourceA(param0 : windows_sys::core::PCSTR) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn AddFontResourceExA(name : windows_sys::core::PCSTR, fl : FONT_RESOURCE_CHARACTERISTICS, res : *const core::ffi::c_void) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn AddFontResourceExW(name : windows_sys::core::PCWSTR, fl : FONT_RESOURCE_CHARACTERISTICS, res : *const core::ffi::c_void) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn AddFontResourceW(param0 : windows_sys::core::PCWSTR) -> i32);
 ::windows_targets::link!("msimg32.dll" "system" fn AlphaBlend(hdcdest : HDC, xorigindest : i32, yorigindest : i32, wdest : i32, hdest : i32, hdcsrc : HDC, xoriginsrc : i32, yoriginsrc : i32, wsrc : i32, hsrc : i32, ftn : BLENDFUNCTION) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn AngleArc(hdc : HDC, x : i32, y : i32, r : u32, startangle : f32, sweepangle : f32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn AnimatePalette(hpal : HPALETTE, istartindex : u32, centries : u32, ppe : *const PALETTEENTRY) -> super::super::Foundation:: BOOL);
@@ -14,8 +14,8 @@
 ::windows_targets::link!("gdi32.dll" "system" fn BitBlt(hdc : HDC, x : i32, y : i32, cx : i32, cy : i32, hdcsrc : HDC, x1 : i32, y1 : i32, rop : ROP_CODE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn CancelDC(hdc : HDC) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn ChangeDisplaySettingsA(lpdevmode : *const DEVMODEA, dwflags : CDS_TYPE) -> DISP_CHANGE);
-::windows_targets::link!("user32.dll" "system" fn ChangeDisplaySettingsExA(lpszdevicename : ::windows_sys::core::PCSTR, lpdevmode : *const DEVMODEA, hwnd : super::super::Foundation:: HWND, dwflags : CDS_TYPE, lparam : *const ::core::ffi::c_void) -> DISP_CHANGE);
-::windows_targets::link!("user32.dll" "system" fn ChangeDisplaySettingsExW(lpszdevicename : ::windows_sys::core::PCWSTR, lpdevmode : *const DEVMODEW, hwnd : super::super::Foundation:: HWND, dwflags : CDS_TYPE, lparam : *const ::core::ffi::c_void) -> DISP_CHANGE);
+::windows_targets::link!("user32.dll" "system" fn ChangeDisplaySettingsExA(lpszdevicename : windows_sys::core::PCSTR, lpdevmode : *const DEVMODEA, hwnd : super::super::Foundation:: HWND, dwflags : CDS_TYPE, lparam : *const core::ffi::c_void) -> DISP_CHANGE);
+::windows_targets::link!("user32.dll" "system" fn ChangeDisplaySettingsExW(lpszdevicename : windows_sys::core::PCWSTR, lpdevmode : *const DEVMODEW, hwnd : super::super::Foundation:: HWND, dwflags : CDS_TYPE, lparam : *const core::ffi::c_void) -> DISP_CHANGE);
 ::windows_targets::link!("user32.dll" "system" fn ChangeDisplaySettingsW(lpdevmode : *const DEVMODEW, dwflags : CDS_TYPE) -> DISP_CHANGE);
 ::windows_targets::link!("gdi32.dll" "system" fn Chord(hdc : HDC, x1 : i32, y1 : i32, x2 : i32, y2 : i32, x3 : i32, y3 : i32, x4 : i32, y4 : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn ClientToScreen(hwnd : super::super::Foundation:: HWND, lppoint : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
@@ -24,40 +24,40 @@
 ::windows_targets::link!("gdi32.dll" "system" fn CloseMetaFile(hdc : HDC) -> HMETAFILE);
 ::windows_targets::link!("gdi32.dll" "system" fn CombineRgn(hrgndst : HRGN, hrgnsrc1 : HRGN, hrgnsrc2 : HRGN, imode : RGN_COMBINE_MODE) -> GDI_REGION_TYPE);
 ::windows_targets::link!("gdi32.dll" "system" fn CombineTransform(lpxfout : *mut XFORM, lpxf1 : *const XFORM, lpxf2 : *const XFORM) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn CopyEnhMetaFileA(henh : HENHMETAFILE, lpfilename : ::windows_sys::core::PCSTR) -> HENHMETAFILE);
-::windows_targets::link!("gdi32.dll" "system" fn CopyEnhMetaFileW(henh : HENHMETAFILE, lpfilename : ::windows_sys::core::PCWSTR) -> HENHMETAFILE);
-::windows_targets::link!("gdi32.dll" "system" fn CopyMetaFileA(param0 : HMETAFILE, param1 : ::windows_sys::core::PCSTR) -> HMETAFILE);
-::windows_targets::link!("gdi32.dll" "system" fn CopyMetaFileW(param0 : HMETAFILE, param1 : ::windows_sys::core::PCWSTR) -> HMETAFILE);
+::windows_targets::link!("gdi32.dll" "system" fn CopyEnhMetaFileA(henh : HENHMETAFILE, lpfilename : windows_sys::core::PCSTR) -> HENHMETAFILE);
+::windows_targets::link!("gdi32.dll" "system" fn CopyEnhMetaFileW(henh : HENHMETAFILE, lpfilename : windows_sys::core::PCWSTR) -> HENHMETAFILE);
+::windows_targets::link!("gdi32.dll" "system" fn CopyMetaFileA(param0 : HMETAFILE, param1 : windows_sys::core::PCSTR) -> HMETAFILE);
+::windows_targets::link!("gdi32.dll" "system" fn CopyMetaFileW(param0 : HMETAFILE, param1 : windows_sys::core::PCWSTR) -> HMETAFILE);
 ::windows_targets::link!("user32.dll" "system" fn CopyRect(lprcdst : *mut super::super::Foundation:: RECT, lprcsrc : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn CreateBitmap(nwidth : i32, nheight : i32, nplanes : u32, nbitcount : u32, lpbits : *const ::core::ffi::c_void) -> HBITMAP);
+::windows_targets::link!("gdi32.dll" "system" fn CreateBitmap(nwidth : i32, nheight : i32, nplanes : u32, nbitcount : u32, lpbits : *const core::ffi::c_void) -> HBITMAP);
 ::windows_targets::link!("gdi32.dll" "system" fn CreateBitmapIndirect(pbm : *const BITMAP) -> HBITMAP);
 ::windows_targets::link!("gdi32.dll" "system" fn CreateBrushIndirect(plbrush : *const LOGBRUSH) -> HBRUSH);
 ::windows_targets::link!("gdi32.dll" "system" fn CreateCompatibleBitmap(hdc : HDC, cx : i32, cy : i32) -> HBITMAP);
 ::windows_targets::link!("gdi32.dll" "system" fn CreateCompatibleDC(hdc : HDC) -> HDC);
-::windows_targets::link!("gdi32.dll" "system" fn CreateDCA(pwszdriver : ::windows_sys::core::PCSTR, pwszdevice : ::windows_sys::core::PCSTR, pszport : ::windows_sys::core::PCSTR, pdm : *const DEVMODEA) -> HDC);
-::windows_targets::link!("gdi32.dll" "system" fn CreateDCW(pwszdriver : ::windows_sys::core::PCWSTR, pwszdevice : ::windows_sys::core::PCWSTR, pszport : ::windows_sys::core::PCWSTR, pdm : *const DEVMODEW) -> HDC);
+::windows_targets::link!("gdi32.dll" "system" fn CreateDCA(pwszdriver : windows_sys::core::PCSTR, pwszdevice : windows_sys::core::PCSTR, pszport : windows_sys::core::PCSTR, pdm : *const DEVMODEA) -> HDC);
+::windows_targets::link!("gdi32.dll" "system" fn CreateDCW(pwszdriver : windows_sys::core::PCWSTR, pwszdevice : windows_sys::core::PCWSTR, pszport : windows_sys::core::PCWSTR, pdm : *const DEVMODEW) -> HDC);
 ::windows_targets::link!("gdi32.dll" "system" fn CreateDIBPatternBrush(h : super::super::Foundation:: HGLOBAL, iusage : DIB_USAGE) -> HBRUSH);
-::windows_targets::link!("gdi32.dll" "system" fn CreateDIBPatternBrushPt(lppackeddib : *const ::core::ffi::c_void, iusage : DIB_USAGE) -> HBRUSH);
-::windows_targets::link!("gdi32.dll" "system" fn CreateDIBSection(hdc : HDC, pbmi : *const BITMAPINFO, usage : DIB_USAGE, ppvbits : *mut *mut ::core::ffi::c_void, hsection : super::super::Foundation:: HANDLE, offset : u32) -> HBITMAP);
-::windows_targets::link!("gdi32.dll" "system" fn CreateDIBitmap(hdc : HDC, pbmih : *const BITMAPINFOHEADER, flinit : u32, pjbits : *const ::core::ffi::c_void, pbmi : *const BITMAPINFO, iusage : DIB_USAGE) -> HBITMAP);
+::windows_targets::link!("gdi32.dll" "system" fn CreateDIBPatternBrushPt(lppackeddib : *const core::ffi::c_void, iusage : DIB_USAGE) -> HBRUSH);
+::windows_targets::link!("gdi32.dll" "system" fn CreateDIBSection(hdc : HDC, pbmi : *const BITMAPINFO, usage : DIB_USAGE, ppvbits : *mut *mut core::ffi::c_void, hsection : super::super::Foundation:: HANDLE, offset : u32) -> HBITMAP);
+::windows_targets::link!("gdi32.dll" "system" fn CreateDIBitmap(hdc : HDC, pbmih : *const BITMAPINFOHEADER, flinit : u32, pjbits : *const core::ffi::c_void, pbmi : *const BITMAPINFO, iusage : DIB_USAGE) -> HBITMAP);
 ::windows_targets::link!("gdi32.dll" "system" fn CreateDiscardableBitmap(hdc : HDC, cx : i32, cy : i32) -> HBITMAP);
 ::windows_targets::link!("gdi32.dll" "system" fn CreateEllipticRgn(x1 : i32, y1 : i32, x2 : i32, y2 : i32) -> HRGN);
 ::windows_targets::link!("gdi32.dll" "system" fn CreateEllipticRgnIndirect(lprect : *const super::super::Foundation:: RECT) -> HRGN);
-::windows_targets::link!("gdi32.dll" "system" fn CreateEnhMetaFileA(hdc : HDC, lpfilename : ::windows_sys::core::PCSTR, lprc : *const super::super::Foundation:: RECT, lpdesc : ::windows_sys::core::PCSTR) -> HDC);
-::windows_targets::link!("gdi32.dll" "system" fn CreateEnhMetaFileW(hdc : HDC, lpfilename : ::windows_sys::core::PCWSTR, lprc : *const super::super::Foundation:: RECT, lpdesc : ::windows_sys::core::PCWSTR) -> HDC);
-::windows_targets::link!("gdi32.dll" "system" fn CreateFontA(cheight : i32, cwidth : i32, cescapement : i32, corientation : i32, cweight : i32, bitalic : u32, bunderline : u32, bstrikeout : u32, icharset : u32, ioutprecision : u32, iclipprecision : u32, iquality : u32, ipitchandfamily : u32, pszfacename : ::windows_sys::core::PCSTR) -> HFONT);
+::windows_targets::link!("gdi32.dll" "system" fn CreateEnhMetaFileA(hdc : HDC, lpfilename : windows_sys::core::PCSTR, lprc : *const super::super::Foundation:: RECT, lpdesc : windows_sys::core::PCSTR) -> HDC);
+::windows_targets::link!("gdi32.dll" "system" fn CreateEnhMetaFileW(hdc : HDC, lpfilename : windows_sys::core::PCWSTR, lprc : *const super::super::Foundation:: RECT, lpdesc : windows_sys::core::PCWSTR) -> HDC);
+::windows_targets::link!("gdi32.dll" "system" fn CreateFontA(cheight : i32, cwidth : i32, cescapement : i32, corientation : i32, cweight : i32, bitalic : u32, bunderline : u32, bstrikeout : u32, icharset : u32, ioutprecision : u32, iclipprecision : u32, iquality : u32, ipitchandfamily : u32, pszfacename : windows_sys::core::PCSTR) -> HFONT);
 ::windows_targets::link!("gdi32.dll" "system" fn CreateFontIndirectA(lplf : *const LOGFONTA) -> HFONT);
 ::windows_targets::link!("gdi32.dll" "system" fn CreateFontIndirectExA(param0 : *const ENUMLOGFONTEXDVA) -> HFONT);
 ::windows_targets::link!("gdi32.dll" "system" fn CreateFontIndirectExW(param0 : *const ENUMLOGFONTEXDVW) -> HFONT);
 ::windows_targets::link!("gdi32.dll" "system" fn CreateFontIndirectW(lplf : *const LOGFONTW) -> HFONT);
-::windows_targets::link!("fontsub.dll" "cdecl" fn CreateFontPackage(puchsrcbuffer : *const u8, ulsrcbuffersize : u32, ppuchfontpackagebuffer : *mut *mut u8, pulfontpackagebuffersize : *mut u32, pulbyteswritten : *mut u32, usflag : u16, usttcindex : u16, ussubsetformat : u16, ussubsetlanguage : u16, ussubsetplatform : CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding : CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist : *const u16, ussubsetlistcount : u16, lpfnallocate : CFP_ALLOCPROC, lpfnreallocate : CFP_REALLOCPROC, lpfnfree : CFP_FREEPROC, lpvreserved : *mut ::core::ffi::c_void) -> u32);
-::windows_targets::link!("gdi32.dll" "system" fn CreateFontW(cheight : i32, cwidth : i32, cescapement : i32, corientation : i32, cweight : i32, bitalic : u32, bunderline : u32, bstrikeout : u32, icharset : u32, ioutprecision : u32, iclipprecision : u32, iquality : u32, ipitchandfamily : u32, pszfacename : ::windows_sys::core::PCWSTR) -> HFONT);
+::windows_targets::link!("fontsub.dll" "cdecl" fn CreateFontPackage(puchsrcbuffer : *const u8, ulsrcbuffersize : u32, ppuchfontpackagebuffer : *mut *mut u8, pulfontpackagebuffersize : *mut u32, pulbyteswritten : *mut u32, usflag : u16, usttcindex : u16, ussubsetformat : u16, ussubsetlanguage : u16, ussubsetplatform : CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding : CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist : *const u16, ussubsetlistcount : u16, lpfnallocate : CFP_ALLOCPROC, lpfnreallocate : CFP_REALLOCPROC, lpfnfree : CFP_FREEPROC, lpvreserved : *mut core::ffi::c_void) -> u32);
+::windows_targets::link!("gdi32.dll" "system" fn CreateFontW(cheight : i32, cwidth : i32, cescapement : i32, corientation : i32, cweight : i32, bitalic : u32, bunderline : u32, bstrikeout : u32, icharset : u32, ioutprecision : u32, iclipprecision : u32, iquality : u32, ipitchandfamily : u32, pszfacename : windows_sys::core::PCWSTR) -> HFONT);
 ::windows_targets::link!("gdi32.dll" "system" fn CreateHalftonePalette(hdc : HDC) -> HPALETTE);
 ::windows_targets::link!("gdi32.dll" "system" fn CreateHatchBrush(ihatch : HATCH_BRUSH_STYLE, color : super::super::Foundation:: COLORREF) -> HBRUSH);
-::windows_targets::link!("gdi32.dll" "system" fn CreateICA(pszdriver : ::windows_sys::core::PCSTR, pszdevice : ::windows_sys::core::PCSTR, pszport : ::windows_sys::core::PCSTR, pdm : *const DEVMODEA) -> HDC);
-::windows_targets::link!("gdi32.dll" "system" fn CreateICW(pszdriver : ::windows_sys::core::PCWSTR, pszdevice : ::windows_sys::core::PCWSTR, pszport : ::windows_sys::core::PCWSTR, pdm : *const DEVMODEW) -> HDC);
-::windows_targets::link!("gdi32.dll" "system" fn CreateMetaFileA(pszfile : ::windows_sys::core::PCSTR) -> HDC);
-::windows_targets::link!("gdi32.dll" "system" fn CreateMetaFileW(pszfile : ::windows_sys::core::PCWSTR) -> HDC);
+::windows_targets::link!("gdi32.dll" "system" fn CreateICA(pszdriver : windows_sys::core::PCSTR, pszdevice : windows_sys::core::PCSTR, pszport : windows_sys::core::PCSTR, pdm : *const DEVMODEA) -> HDC);
+::windows_targets::link!("gdi32.dll" "system" fn CreateICW(pszdriver : windows_sys::core::PCWSTR, pszdevice : windows_sys::core::PCWSTR, pszport : windows_sys::core::PCWSTR, pdm : *const DEVMODEW) -> HDC);
+::windows_targets::link!("gdi32.dll" "system" fn CreateMetaFileA(pszfile : windows_sys::core::PCSTR) -> HDC);
+::windows_targets::link!("gdi32.dll" "system" fn CreateMetaFileW(pszfile : windows_sys::core::PCWSTR) -> HDC);
 ::windows_targets::link!("gdi32.dll" "system" fn CreatePalette(plpal : *const LOGPALETTE) -> HPALETTE);
 ::windows_targets::link!("gdi32.dll" "system" fn CreatePatternBrush(hbm : HBITMAP) -> HBRUSH);
 ::windows_targets::link!("gdi32.dll" "system" fn CreatePen(istyle : PEN_STYLE, cwidth : i32, color : super::super::Foundation:: COLORREF) -> HPEN);
@@ -67,8 +67,8 @@
 ::windows_targets::link!("gdi32.dll" "system" fn CreateRectRgn(x1 : i32, y1 : i32, x2 : i32, y2 : i32) -> HRGN);
 ::windows_targets::link!("gdi32.dll" "system" fn CreateRectRgnIndirect(lprect : *const super::super::Foundation:: RECT) -> HRGN);
 ::windows_targets::link!("gdi32.dll" "system" fn CreateRoundRectRgn(x1 : i32, y1 : i32, x2 : i32, y2 : i32, w : i32, h : i32) -> HRGN);
-::windows_targets::link!("gdi32.dll" "system" fn CreateScalableFontResourceA(fdwhidden : u32, lpszfont : ::windows_sys::core::PCSTR, lpszfile : ::windows_sys::core::PCSTR, lpszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn CreateScalableFontResourceW(fdwhidden : u32, lpszfont : ::windows_sys::core::PCWSTR, lpszfile : ::windows_sys::core::PCWSTR, lpszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn CreateScalableFontResourceA(fdwhidden : u32, lpszfont : windows_sys::core::PCSTR, lpszfile : windows_sys::core::PCSTR, lpszpath : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn CreateScalableFontResourceW(fdwhidden : u32, lpszfont : windows_sys::core::PCWSTR, lpszfile : windows_sys::core::PCWSTR, lpszpath : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn CreateSolidBrush(color : super::super::Foundation:: COLORREF) -> HBRUSH);
 ::windows_targets::link!("gdi32.dll" "system" fn DPtoLP(hdc : HDC, lppt : *mut super::super::Foundation:: POINT, c : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn DeleteDC(hdc : HDC) -> super::super::Foundation:: BOOL);
@@ -78,32 +78,32 @@
 ::windows_targets::link!("user32.dll" "system" fn DrawAnimatedRects(hwnd : super::super::Foundation:: HWND, idani : i32, lprcfrom : *const super::super::Foundation:: RECT, lprcto : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn DrawCaption(hwnd : super::super::Foundation:: HWND, hdc : HDC, lprect : *const super::super::Foundation:: RECT, flags : DRAW_CAPTION_FLAGS) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn DrawEdge(hdc : HDC, qrc : *mut super::super::Foundation:: RECT, edge : DRAWEDGE_FLAGS, grfflags : DRAW_EDGE_FLAGS) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn DrawEscape(hdc : HDC, iescape : i32, cjin : i32, lpin : ::windows_sys::core::PCSTR) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn DrawEscape(hdc : HDC, iescape : i32, cjin : i32, lpin : windows_sys::core::PCSTR) -> i32);
 ::windows_targets::link!("user32.dll" "system" fn DrawFocusRect(hdc : HDC, lprc : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn DrawFrameControl(param0 : HDC, param1 : *mut super::super::Foundation:: RECT, param2 : DFC_TYPE, param3 : DFCS_STATE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn DrawStateA(hdc : HDC, hbrfore : HBRUSH, qfncallback : DRAWSTATEPROC, ldata : super::super::Foundation:: LPARAM, wdata : super::super::Foundation:: WPARAM, x : i32, y : i32, cx : i32, cy : i32, uflags : DRAWSTATE_FLAGS) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn DrawStateW(hdc : HDC, hbrfore : HBRUSH, qfncallback : DRAWSTATEPROC, ldata : super::super::Foundation:: LPARAM, wdata : super::super::Foundation:: WPARAM, x : i32, y : i32, cx : i32, cy : i32, uflags : DRAWSTATE_FLAGS) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn DrawTextA(hdc : HDC, lpchtext : ::windows_sys::core::PCSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT) -> i32);
-::windows_targets::link!("user32.dll" "system" fn DrawTextExA(hdc : HDC, lpchtext : ::windows_sys::core::PSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT, lpdtp : *const DRAWTEXTPARAMS) -> i32);
-::windows_targets::link!("user32.dll" "system" fn DrawTextExW(hdc : HDC, lpchtext : ::windows_sys::core::PWSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT, lpdtp : *const DRAWTEXTPARAMS) -> i32);
-::windows_targets::link!("user32.dll" "system" fn DrawTextW(hdc : HDC, lpchtext : ::windows_sys::core::PCWSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT) -> i32);
+::windows_targets::link!("user32.dll" "system" fn DrawTextA(hdc : HDC, lpchtext : windows_sys::core::PCSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT) -> i32);
+::windows_targets::link!("user32.dll" "system" fn DrawTextExA(hdc : HDC, lpchtext : windows_sys::core::PSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT, lpdtp : *const DRAWTEXTPARAMS) -> i32);
+::windows_targets::link!("user32.dll" "system" fn DrawTextExW(hdc : HDC, lpchtext : windows_sys::core::PWSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT, lpdtp : *const DRAWTEXTPARAMS) -> i32);
+::windows_targets::link!("user32.dll" "system" fn DrawTextW(hdc : HDC, lpchtext : windows_sys::core::PCWSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn Ellipse(hdc : HDC, left : i32, top : i32, right : i32, bottom : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn EndPaint(hwnd : super::super::Foundation:: HWND, lppaint : *const PAINTSTRUCT) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn EndPath(hdc : HDC) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn EnumDisplayDevicesA(lpdevice : ::windows_sys::core::PCSTR, idevnum : u32, lpdisplaydevice : *mut DISPLAY_DEVICEA, dwflags : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn EnumDisplayDevicesW(lpdevice : ::windows_sys::core::PCWSTR, idevnum : u32, lpdisplaydevice : *mut DISPLAY_DEVICEW, dwflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn EnumDisplayDevicesA(lpdevice : windows_sys::core::PCSTR, idevnum : u32, lpdisplaydevice : *mut DISPLAY_DEVICEA, dwflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn EnumDisplayDevicesW(lpdevice : windows_sys::core::PCWSTR, idevnum : u32, lpdisplaydevice : *mut DISPLAY_DEVICEW, dwflags : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn EnumDisplayMonitors(hdc : HDC, lprcclip : *const super::super::Foundation:: RECT, lpfnenum : MONITORENUMPROC, dwdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn EnumDisplaySettingsA(lpszdevicename : ::windows_sys::core::PCSTR, imodenum : ENUM_DISPLAY_SETTINGS_MODE, lpdevmode : *mut DEVMODEA) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn EnumDisplaySettingsExA(lpszdevicename : ::windows_sys::core::PCSTR, imodenum : ENUM_DISPLAY_SETTINGS_MODE, lpdevmode : *mut DEVMODEA, dwflags : ENUM_DISPLAY_SETTINGS_FLAGS) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn EnumDisplaySettingsExW(lpszdevicename : ::windows_sys::core::PCWSTR, imodenum : ENUM_DISPLAY_SETTINGS_MODE, lpdevmode : *mut DEVMODEW, dwflags : ENUM_DISPLAY_SETTINGS_FLAGS) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn EnumDisplaySettingsW(lpszdevicename : ::windows_sys::core::PCWSTR, imodenum : ENUM_DISPLAY_SETTINGS_MODE, lpdevmode : *mut DEVMODEW) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn EnumEnhMetaFile(hdc : HDC, hmf : HENHMETAFILE, proc : ENHMFENUMPROC, param3 : *const ::core::ffi::c_void, lprect : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn EnumFontFamiliesA(hdc : HDC, lplogfont : ::windows_sys::core::PCSTR, lpproc : FONTENUMPROCA, lparam : super::super::Foundation:: LPARAM) -> i32);
+::windows_targets::link!("user32.dll" "system" fn EnumDisplaySettingsA(lpszdevicename : windows_sys::core::PCSTR, imodenum : ENUM_DISPLAY_SETTINGS_MODE, lpdevmode : *mut DEVMODEA) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn EnumDisplaySettingsExA(lpszdevicename : windows_sys::core::PCSTR, imodenum : ENUM_DISPLAY_SETTINGS_MODE, lpdevmode : *mut DEVMODEA, dwflags : ENUM_DISPLAY_SETTINGS_FLAGS) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn EnumDisplaySettingsExW(lpszdevicename : windows_sys::core::PCWSTR, imodenum : ENUM_DISPLAY_SETTINGS_MODE, lpdevmode : *mut DEVMODEW, dwflags : ENUM_DISPLAY_SETTINGS_FLAGS) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn EnumDisplaySettingsW(lpszdevicename : windows_sys::core::PCWSTR, imodenum : ENUM_DISPLAY_SETTINGS_MODE, lpdevmode : *mut DEVMODEW) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn EnumEnhMetaFile(hdc : HDC, hmf : HENHMETAFILE, proc : ENHMFENUMPROC, param3 : *const core::ffi::c_void, lprect : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn EnumFontFamiliesA(hdc : HDC, lplogfont : windows_sys::core::PCSTR, lpproc : FONTENUMPROCA, lparam : super::super::Foundation:: LPARAM) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn EnumFontFamiliesExA(hdc : HDC, lplogfont : *const LOGFONTA, lpproc : FONTENUMPROCA, lparam : super::super::Foundation:: LPARAM, dwflags : u32) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn EnumFontFamiliesExW(hdc : HDC, lplogfont : *const LOGFONTW, lpproc : FONTENUMPROCW, lparam : super::super::Foundation:: LPARAM, dwflags : u32) -> i32);
-::windows_targets::link!("gdi32.dll" "system" fn EnumFontFamiliesW(hdc : HDC, lplogfont : ::windows_sys::core::PCWSTR, lpproc : FONTENUMPROCW, lparam : super::super::Foundation:: LPARAM) -> i32);
-::windows_targets::link!("gdi32.dll" "system" fn EnumFontsA(hdc : HDC, lplogfont : ::windows_sys::core::PCSTR, lpproc : FONTENUMPROCA, lparam : super::super::Foundation:: LPARAM) -> i32);
-::windows_targets::link!("gdi32.dll" "system" fn EnumFontsW(hdc : HDC, lplogfont : ::windows_sys::core::PCWSTR, lpproc : FONTENUMPROCW, lparam : super::super::Foundation:: LPARAM) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn EnumFontFamiliesW(hdc : HDC, lplogfont : windows_sys::core::PCWSTR, lpproc : FONTENUMPROCW, lparam : super::super::Foundation:: LPARAM) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn EnumFontsA(hdc : HDC, lplogfont : windows_sys::core::PCSTR, lpproc : FONTENUMPROCA, lparam : super::super::Foundation:: LPARAM) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn EnumFontsW(hdc : HDC, lplogfont : windows_sys::core::PCWSTR, lpproc : FONTENUMPROCW, lparam : super::super::Foundation:: LPARAM) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn EnumMetaFile(hdc : HDC, hmf : HMETAFILE, proc : MFENUMPROC, param3 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn EnumObjects(hdc : HDC, ntype : OBJ_TYPE, lpfunc : GOBJENUMPROC, lparam : super::super::Foundation:: LPARAM) -> i32);
 ::windows_targets::link!("user32.dll" "system" fn EqualRect(lprc1 : *const super::super::Foundation:: RECT, lprc2 : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
@@ -114,8 +114,8 @@
 ::windows_targets::link!("gdi32.dll" "system" fn ExtCreateRegion(lpx : *const XFORM, ncount : u32, lpdata : *const RGNDATA) -> HRGN);
 ::windows_targets::link!("gdi32.dll" "system" fn ExtFloodFill(hdc : HDC, x : i32, y : i32, color : super::super::Foundation:: COLORREF, r#type : EXT_FLOOD_FILL_TYPE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn ExtSelectClipRgn(hdc : HDC, hrgn : HRGN, mode : RGN_COMBINE_MODE) -> GDI_REGION_TYPE);
-::windows_targets::link!("gdi32.dll" "system" fn ExtTextOutA(hdc : HDC, x : i32, y : i32, options : ETO_OPTIONS, lprect : *const super::super::Foundation:: RECT, lpstring : ::windows_sys::core::PCSTR, c : u32, lpdx : *const i32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn ExtTextOutW(hdc : HDC, x : i32, y : i32, options : ETO_OPTIONS, lprect : *const super::super::Foundation:: RECT, lpstring : ::windows_sys::core::PCWSTR, c : u32, lpdx : *const i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn ExtTextOutA(hdc : HDC, x : i32, y : i32, options : ETO_OPTIONS, lprect : *const super::super::Foundation:: RECT, lpstring : windows_sys::core::PCSTR, c : u32, lpdx : *const i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn ExtTextOutW(hdc : HDC, x : i32, y : i32, options : ETO_OPTIONS, lprect : *const super::super::Foundation:: RECT, lpstring : windows_sys::core::PCWSTR, c : u32, lpdx : *const i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn FillPath(hdc : HDC) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn FillRect(hdc : HDC, lprc : *const super::super::Foundation:: RECT, hbr : HBRUSH) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn FillRgn(hdc : HDC, hrgn : HRGN, hbr : HBRUSH) -> super::super::Foundation:: BOOL);
@@ -128,12 +128,12 @@
 ::windows_targets::link!("gdi32.dll" "system" fn GdiComment(hdc : HDC, nsize : u32, lpdata : *const u8) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn GdiFlush() -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn GdiGetBatchLimit() -> u32);
-::windows_targets::link!("gdi32.dll" "system" fn GdiGradientFill(hdc : HDC, pvertex : *const TRIVERTEX, nvertex : u32, pmesh : *const ::core::ffi::c_void, ncount : u32, ulmode : GRADIENT_FILL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn GdiGradientFill(hdc : HDC, pvertex : *const TRIVERTEX, nvertex : u32, pmesh : *const core::ffi::c_void, ncount : u32, ulmode : GRADIENT_FILL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn GdiSetBatchLimit(dw : u32) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn GdiTransparentBlt(hdcdest : HDC, xorigindest : i32, yorigindest : i32, wdest : i32, hdest : i32, hdcsrc : HDC, xoriginsrc : i32, yoriginsrc : i32, wsrc : i32, hsrc : i32, crtransparent : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn GetArcDirection(hdc : HDC) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetAspectRatioFilterEx(hdc : HDC, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn GetBitmapBits(hbit : HBITMAP, cb : i32, lpvbits : *mut ::core::ffi::c_void) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn GetBitmapBits(hbit : HBITMAP, cb : i32, lpvbits : *mut core::ffi::c_void) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetBitmapDimensionEx(hbit : HBITMAP, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn GetBkColor(hdc : HDC) -> super::super::Foundation:: COLORREF);
 ::windows_targets::link!("gdi32.dll" "system" fn GetBkMode(hdc : HDC) -> i32);
@@ -151,8 +151,8 @@
 ::windows_targets::link!("gdi32.dll" "system" fn GetCharWidthFloatW(hdc : HDC, ifirst : u32, ilast : u32, lpbuffer : *mut f32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn GetCharWidthI(hdc : HDC, gifirst : u32, cgi : u32, pgi : *const u16, piwidths : *mut i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn GetCharWidthW(hdc : HDC, ifirst : u32, ilast : u32, lpbuffer : *mut i32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn GetCharacterPlacementA(hdc : HDC, lpstring : ::windows_sys::core::PCSTR, ncount : i32, nmexextent : i32, lpresults : *mut GCP_RESULTSA, dwflags : GET_CHARACTER_PLACEMENT_FLAGS) -> u32);
-::windows_targets::link!("gdi32.dll" "system" fn GetCharacterPlacementW(hdc : HDC, lpstring : ::windows_sys::core::PCWSTR, ncount : i32, nmexextent : i32, lpresults : *mut GCP_RESULTSW, dwflags : GET_CHARACTER_PLACEMENT_FLAGS) -> u32);
+::windows_targets::link!("gdi32.dll" "system" fn GetCharacterPlacementA(hdc : HDC, lpstring : windows_sys::core::PCSTR, ncount : i32, nmexextent : i32, lpresults : *mut GCP_RESULTSA, dwflags : GET_CHARACTER_PLACEMENT_FLAGS) -> u32);
+::windows_targets::link!("gdi32.dll" "system" fn GetCharacterPlacementW(hdc : HDC, lpstring : windows_sys::core::PCWSTR, ncount : i32, nmexextent : i32, lpresults : *mut GCP_RESULTSW, dwflags : GET_CHARACTER_PLACEMENT_FLAGS) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetClipBox(hdc : HDC, lprect : *mut super::super::Foundation:: RECT) -> GDI_REGION_TYPE);
 ::windows_targets::link!("gdi32.dll" "system" fn GetClipRgn(hdc : HDC, hrgn : HRGN) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetColorAdjustment(hdc : HDC, lpca : *mut COLORADJUSTMENT) -> super::super::Foundation:: BOOL);
@@ -164,39 +164,39 @@
 ::windows_targets::link!("gdi32.dll" "system" fn GetDCOrgEx(hdc : HDC, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn GetDCPenColor(hdc : HDC) -> super::super::Foundation:: COLORREF);
 ::windows_targets::link!("gdi32.dll" "system" fn GetDIBColorTable(hdc : HDC, istart : u32, centries : u32, prgbq : *mut RGBQUAD) -> u32);
-::windows_targets::link!("gdi32.dll" "system" fn GetDIBits(hdc : HDC, hbm : HBITMAP, start : u32, clines : u32, lpvbits : *mut ::core::ffi::c_void, lpbmi : *mut BITMAPINFO, usage : DIB_USAGE) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn GetDIBits(hdc : HDC, hbm : HBITMAP, start : u32, clines : u32, lpvbits : *mut core::ffi::c_void, lpbmi : *mut BITMAPINFO, usage : DIB_USAGE) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetDeviceCaps(hdc : HDC, index : i32) -> i32);
-::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileA(lpname : ::windows_sys::core::PCSTR) -> HENHMETAFILE);
+::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileA(lpname : windows_sys::core::PCSTR) -> HENHMETAFILE);
 ::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileBits(hemf : HENHMETAFILE, nsize : u32, lpdata : *mut u8) -> u32);
-::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileDescriptionA(hemf : HENHMETAFILE, cchbuffer : u32, lpdescription : ::windows_sys::core::PSTR) -> u32);
-::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileDescriptionW(hemf : HENHMETAFILE, cchbuffer : u32, lpdescription : ::windows_sys::core::PWSTR) -> u32);
+::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileDescriptionA(hemf : HENHMETAFILE, cchbuffer : u32, lpdescription : windows_sys::core::PSTR) -> u32);
+::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileDescriptionW(hemf : HENHMETAFILE, cchbuffer : u32, lpdescription : windows_sys::core::PWSTR) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileHeader(hemf : HENHMETAFILE, nsize : u32, lpenhmetaheader : *mut ENHMETAHEADER) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFilePaletteEntries(hemf : HENHMETAFILE, nnumentries : u32, lppaletteentries : *mut PALETTEENTRY) -> u32);
-::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileW(lpname : ::windows_sys::core::PCWSTR) -> HENHMETAFILE);
-::windows_targets::link!("gdi32.dll" "system" fn GetFontData(hdc : HDC, dwtable : u32, dwoffset : u32, pvbuffer : *mut ::core::ffi::c_void, cjbuffer : u32) -> u32);
+::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileW(lpname : windows_sys::core::PCWSTR) -> HENHMETAFILE);
+::windows_targets::link!("gdi32.dll" "system" fn GetFontData(hdc : HDC, dwtable : u32, dwoffset : u32, pvbuffer : *mut core::ffi::c_void, cjbuffer : u32) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetFontLanguageInfo(hdc : HDC) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetFontUnicodeRanges(hdc : HDC, lpgs : *mut GLYPHSET) -> u32);
-::windows_targets::link!("gdi32.dll" "system" fn GetGlyphIndicesA(hdc : HDC, lpstr : ::windows_sys::core::PCSTR, c : i32, pgi : *mut u16, fl : u32) -> u32);
-::windows_targets::link!("gdi32.dll" "system" fn GetGlyphIndicesW(hdc : HDC, lpstr : ::windows_sys::core::PCWSTR, c : i32, pgi : *mut u16, fl : u32) -> u32);
-::windows_targets::link!("gdi32.dll" "system" fn GetGlyphOutlineA(hdc : HDC, uchar : u32, fuformat : GET_GLYPH_OUTLINE_FORMAT, lpgm : *mut GLYPHMETRICS, cjbuffer : u32, pvbuffer : *mut ::core::ffi::c_void, lpmat2 : *const MAT2) -> u32);
-::windows_targets::link!("gdi32.dll" "system" fn GetGlyphOutlineW(hdc : HDC, uchar : u32, fuformat : GET_GLYPH_OUTLINE_FORMAT, lpgm : *mut GLYPHMETRICS, cjbuffer : u32, pvbuffer : *mut ::core::ffi::c_void, lpmat2 : *const MAT2) -> u32);
+::windows_targets::link!("gdi32.dll" "system" fn GetGlyphIndicesA(hdc : HDC, lpstr : windows_sys::core::PCSTR, c : i32, pgi : *mut u16, fl : u32) -> u32);
+::windows_targets::link!("gdi32.dll" "system" fn GetGlyphIndicesW(hdc : HDC, lpstr : windows_sys::core::PCWSTR, c : i32, pgi : *mut u16, fl : u32) -> u32);
+::windows_targets::link!("gdi32.dll" "system" fn GetGlyphOutlineA(hdc : HDC, uchar : u32, fuformat : GET_GLYPH_OUTLINE_FORMAT, lpgm : *mut GLYPHMETRICS, cjbuffer : u32, pvbuffer : *mut core::ffi::c_void, lpmat2 : *const MAT2) -> u32);
+::windows_targets::link!("gdi32.dll" "system" fn GetGlyphOutlineW(hdc : HDC, uchar : u32, fuformat : GET_GLYPH_OUTLINE_FORMAT, lpgm : *mut GLYPHMETRICS, cjbuffer : u32, pvbuffer : *mut core::ffi::c_void, lpmat2 : *const MAT2) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetGraphicsMode(hdc : HDC) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetKerningPairsA(hdc : HDC, npairs : u32, lpkernpair : *mut KERNINGPAIR) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetKerningPairsW(hdc : HDC, npairs : u32, lpkernpair : *mut KERNINGPAIR) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetLayout(hdc : HDC) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetMapMode(hdc : HDC) -> HDC_MAP_MODE);
-::windows_targets::link!("gdi32.dll" "system" fn GetMetaFileA(lpname : ::windows_sys::core::PCSTR) -> HMETAFILE);
-::windows_targets::link!("gdi32.dll" "system" fn GetMetaFileBitsEx(hmf : HMETAFILE, cbbuffer : u32, lpdata : *mut ::core::ffi::c_void) -> u32);
-::windows_targets::link!("gdi32.dll" "system" fn GetMetaFileW(lpname : ::windows_sys::core::PCWSTR) -> HMETAFILE);
+::windows_targets::link!("gdi32.dll" "system" fn GetMetaFileA(lpname : windows_sys::core::PCSTR) -> HMETAFILE);
+::windows_targets::link!("gdi32.dll" "system" fn GetMetaFileBitsEx(hmf : HMETAFILE, cbbuffer : u32, lpdata : *mut core::ffi::c_void) -> u32);
+::windows_targets::link!("gdi32.dll" "system" fn GetMetaFileW(lpname : windows_sys::core::PCWSTR) -> HMETAFILE);
 ::windows_targets::link!("gdi32.dll" "system" fn GetMetaRgn(hdc : HDC, hrgn : HRGN) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetMiterLimit(hdc : HDC, plimit : *mut f32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn GetMonitorInfoA(hmonitor : HMONITOR, lpmi : *mut MONITORINFO) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn GetMonitorInfoW(hmonitor : HMONITOR, lpmi : *mut MONITORINFO) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn GetNearestColor(hdc : HDC, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: COLORREF);
 ::windows_targets::link!("gdi32.dll" "system" fn GetNearestPaletteIndex(h : HPALETTE, color : super::super::Foundation:: COLORREF) -> u32);
-::windows_targets::link!("gdi32.dll" "system" fn GetObjectA(h : HGDIOBJ, c : i32, pv : *mut ::core::ffi::c_void) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn GetObjectA(h : HGDIOBJ, c : i32, pv : *mut core::ffi::c_void) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetObjectType(h : HGDIOBJ) -> u32);
-::windows_targets::link!("gdi32.dll" "system" fn GetObjectW(h : HGDIOBJ, c : i32, pv : *mut ::core::ffi::c_void) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn GetObjectW(h : HGDIOBJ, c : i32, pv : *mut core::ffi::c_void) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetOutlineTextMetricsA(hdc : HDC, cjcopy : u32, potm : *mut OUTLINETEXTMETRICA) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetOutlineTextMetricsW(hdc : HDC, cjcopy : u32, potm : *mut OUTLINETEXTMETRICW) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetPaletteEntries(hpal : HPALETTE, istart : u32, centries : u32, ppalentries : *mut PALETTEENTRY) -> u32);
@@ -214,21 +214,21 @@
 ::windows_targets::link!("user32.dll" "system" fn GetSysColorBrush(nindex : SYS_COLOR_INDEX) -> HBRUSH);
 ::windows_targets::link!("gdi32.dll" "system" fn GetSystemPaletteEntries(hdc : HDC, istart : u32, centries : u32, ppalentries : *mut PALETTEENTRY) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetSystemPaletteUse(hdc : HDC) -> u32);
-::windows_targets::link!("user32.dll" "system" fn GetTabbedTextExtentA(hdc : HDC, lpstring : ::windows_sys::core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32) -> u32);
-::windows_targets::link!("user32.dll" "system" fn GetTabbedTextExtentW(hdc : HDC, lpstring : ::windows_sys::core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32) -> u32);
+::windows_targets::link!("user32.dll" "system" fn GetTabbedTextExtentA(hdc : HDC, lpstring : windows_sys::core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32) -> u32);
+::windows_targets::link!("user32.dll" "system" fn GetTabbedTextExtentW(hdc : HDC, lpstring : windows_sys::core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetTextAlign(hdc : HDC) -> TEXT_ALIGN_OPTIONS);
 ::windows_targets::link!("gdi32.dll" "system" fn GetTextCharacterExtra(hdc : HDC) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetTextColor(hdc : HDC) -> super::super::Foundation:: COLORREF);
-::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentExPointA(hdc : HDC, lpszstring : ::windows_sys::core::PCSTR, cchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentExPointA(hdc : HDC, lpszstring : windows_sys::core::PCSTR, cchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentExPointI(hdc : HDC, lpwszstring : *const u16, cwchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentExPointW(hdc : HDC, lpszstring : ::windows_sys::core::PCWSTR, cchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPoint32A(hdc : HDC, lpstring : ::windows_sys::core::PCSTR, c : i32, psizl : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPoint32W(hdc : HDC, lpstring : ::windows_sys::core::PCWSTR, c : i32, psizl : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPointA(hdc : HDC, lpstring : ::windows_sys::core::PCSTR, c : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentExPointW(hdc : HDC, lpszstring : windows_sys::core::PCWSTR, cchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPoint32A(hdc : HDC, lpstring : windows_sys::core::PCSTR, c : i32, psizl : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPoint32W(hdc : HDC, lpstring : windows_sys::core::PCWSTR, c : i32, psizl : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPointA(hdc : HDC, lpstring : windows_sys::core::PCSTR, c : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPointI(hdc : HDC, pgiin : *const u16, cgi : i32, psize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPointW(hdc : HDC, lpstring : ::windows_sys::core::PCWSTR, c : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn GetTextFaceA(hdc : HDC, c : i32, lpname : ::windows_sys::core::PSTR) -> i32);
-::windows_targets::link!("gdi32.dll" "system" fn GetTextFaceW(hdc : HDC, c : i32, lpname : ::windows_sys::core::PWSTR) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPointW(hdc : HDC, lpstring : windows_sys::core::PCWSTR, c : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn GetTextFaceA(hdc : HDC, c : i32, lpname : windows_sys::core::PSTR) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn GetTextFaceW(hdc : HDC, c : i32, lpname : windows_sys::core::PWSTR) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn GetTextMetricsA(hdc : HDC, lptm : *mut TEXTMETRICA) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn GetTextMetricsW(hdc : HDC, lptm : *mut TEXTMETRICW) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn GetUpdateRect(hwnd : super::super::Foundation:: HWND, lprect : *mut super::super::Foundation:: RECT, berase : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
@@ -242,7 +242,7 @@
 ::windows_targets::link!("user32.dll" "system" fn GetWindowRgn(hwnd : super::super::Foundation:: HWND, hrgn : HRGN) -> GDI_REGION_TYPE);
 ::windows_targets::link!("user32.dll" "system" fn GetWindowRgnBox(hwnd : super::super::Foundation:: HWND, lprc : *mut super::super::Foundation:: RECT) -> GDI_REGION_TYPE);
 ::windows_targets::link!("gdi32.dll" "system" fn GetWorldTransform(hdc : HDC, lpxf : *mut XFORM) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("msimg32.dll" "system" fn GradientFill(hdc : HDC, pvertex : *const TRIVERTEX, nvertex : u32, pmesh : *const ::core::ffi::c_void, nmesh : u32, ulmode : GRADIENT_FILL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msimg32.dll" "system" fn GradientFill(hdc : HDC, pvertex : *const TRIVERTEX, nvertex : u32, pmesh : *const core::ffi::c_void, nmesh : u32, ulmode : GRADIENT_FILL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn GrayStringA(hdc : HDC, hbrush : HBRUSH, lpoutputfunc : GRAYSTRINGPROC, lpdata : super::super::Foundation:: LPARAM, ncount : i32, x : i32, y : i32, nwidth : i32, nheight : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn GrayStringW(hdc : HDC, hbrush : HBRUSH, lpoutputfunc : GRAYSTRINGPROC, lpdata : super::super::Foundation:: LPARAM, ncount : i32, x : i32, y : i32, nwidth : i32, nheight : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn InflateRect(lprc : *mut super::super::Foundation:: RECT, dx : i32, dy : i32) -> super::super::Foundation:: BOOL);
@@ -256,12 +256,12 @@
 ::windows_targets::link!("gdi32.dll" "system" fn LPtoDP(hdc : HDC, lppt : *mut super::super::Foundation:: POINT, c : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn LineDDA(xstart : i32, ystart : i32, xend : i32, yend : i32, lpproc : LINEDDAPROC, data : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn LineTo(hdc : HDC, x : i32, y : i32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn LoadBitmapA(hinstance : super::super::Foundation:: HINSTANCE, lpbitmapname : ::windows_sys::core::PCSTR) -> HBITMAP);
-::windows_targets::link!("user32.dll" "system" fn LoadBitmapW(hinstance : super::super::Foundation:: HINSTANCE, lpbitmapname : ::windows_sys::core::PCWSTR) -> HBITMAP);
+::windows_targets::link!("user32.dll" "system" fn LoadBitmapA(hinstance : super::super::Foundation:: HINSTANCE, lpbitmapname : windows_sys::core::PCSTR) -> HBITMAP);
+::windows_targets::link!("user32.dll" "system" fn LoadBitmapW(hinstance : super::super::Foundation:: HINSTANCE, lpbitmapname : windows_sys::core::PCWSTR) -> HBITMAP);
 ::windows_targets::link!("user32.dll" "system" fn LockWindowUpdate(hwndlock : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn MapWindowPoints(hwndfrom : super::super::Foundation:: HWND, hwndto : super::super::Foundation:: HWND, lppoints : *mut super::super::Foundation:: POINT, cpoints : u32) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn MaskBlt(hdcdest : HDC, xdest : i32, ydest : i32, width : i32, height : i32, hdcsrc : HDC, xsrc : i32, ysrc : i32, hbmmask : HBITMAP, xmask : i32, ymask : i32, rop : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("fontsub.dll" "cdecl" fn MergeFontPackage(puchmergefontbuffer : *const u8, ulmergefontbuffersize : u32, puchfontpackagebuffer : *const u8, ulfontpackagebuffersize : u32, ppuchdestbuffer : *mut *mut u8, puldestbuffersize : *mut u32, pulbyteswritten : *mut u32, usmode : u16, lpfnallocate : CFP_ALLOCPROC, lpfnreallocate : CFP_REALLOCPROC, lpfnfree : CFP_FREEPROC, lpvreserved : *mut ::core::ffi::c_void) -> u32);
+::windows_targets::link!("fontsub.dll" "cdecl" fn MergeFontPackage(puchmergefontbuffer : *const u8, ulmergefontbuffersize : u32, puchfontpackagebuffer : *const u8, ulfontpackagebuffersize : u32, ppuchdestbuffer : *mut *mut u8, puldestbuffersize : *mut u32, pulbyteswritten : *mut u32, usmode : u16, lpfnallocate : CFP_ALLOCPROC, lpfnreallocate : CFP_REALLOCPROC, lpfnfree : CFP_FREEPROC, lpvreserved : *mut core::ffi::c_void) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn ModifyWorldTransform(hdc : HDC, lpxf : *const XFORM, mode : MODIFY_WORLD_TRANSFORM_MODE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn MonitorFromPoint(pt : super::super::Foundation:: POINT, dwflags : MONITOR_FROM_FLAGS) -> HMONITOR);
 ::windows_targets::link!("user32.dll" "system" fn MonitorFromRect(lprc : *const super::super::Foundation:: RECT, dwflags : MONITOR_FROM_FLAGS) -> HMONITOR);
@@ -302,10 +302,10 @@
 ::windows_targets::link!("user32.dll" "system" fn RedrawWindow(hwnd : super::super::Foundation:: HWND, lprcupdate : *const super::super::Foundation:: RECT, hrgnupdate : HRGN, flags : REDRAW_WINDOW_FLAGS) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn ReleaseDC(hwnd : super::super::Foundation:: HWND, hdc : HDC) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn RemoveFontMemResourceEx(h : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn RemoveFontResourceA(lpfilename : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn RemoveFontResourceExA(name : ::windows_sys::core::PCSTR, fl : u32, pdv : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn RemoveFontResourceExW(name : ::windows_sys::core::PCWSTR, fl : u32, pdv : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn RemoveFontResourceW(lpfilename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn RemoveFontResourceA(lpfilename : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn RemoveFontResourceExA(name : windows_sys::core::PCSTR, fl : u32, pdv : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn RemoveFontResourceExW(name : windows_sys::core::PCWSTR, fl : u32, pdv : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn RemoveFontResourceW(lpfilename : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn ResetDCA(hdc : HDC, lpdm : *const DEVMODEA) -> HDC);
 ::windows_targets::link!("gdi32.dll" "system" fn ResetDCW(hdc : HDC, lpdm : *const DEVMODEW) -> HDC);
 ::windows_targets::link!("gdi32.dll" "system" fn ResizePalette(hpal : HPALETTE, n : u32) -> super::super::Foundation:: BOOL);
@@ -320,7 +320,7 @@
 ::windows_targets::link!("gdi32.dll" "system" fn SelectObject(hdc : HDC, h : HGDIOBJ) -> HGDIOBJ);
 ::windows_targets::link!("gdi32.dll" "system" fn SelectPalette(hdc : HDC, hpal : HPALETTE, bforcebkgd : super::super::Foundation:: BOOL) -> HPALETTE);
 ::windows_targets::link!("gdi32.dll" "system" fn SetArcDirection(hdc : HDC, dir : ARC_DIRECTION) -> i32);
-::windows_targets::link!("gdi32.dll" "system" fn SetBitmapBits(hbm : HBITMAP, cb : u32, pvbits : *const ::core::ffi::c_void) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn SetBitmapBits(hbm : HBITMAP, cb : u32, pvbits : *const core::ffi::c_void) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn SetBitmapDimensionEx(hbm : HBITMAP, w : i32, h : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn SetBkColor(hdc : HDC, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: COLORREF);
 ::windows_targets::link!("gdi32.dll" "system" fn SetBkMode(hdc : HDC, mode : i32) -> i32);
@@ -330,8 +330,8 @@
 ::windows_targets::link!("gdi32.dll" "system" fn SetDCBrushColor(hdc : HDC, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: COLORREF);
 ::windows_targets::link!("gdi32.dll" "system" fn SetDCPenColor(hdc : HDC, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: COLORREF);
 ::windows_targets::link!("gdi32.dll" "system" fn SetDIBColorTable(hdc : HDC, istart : u32, centries : u32, prgbq : *const RGBQUAD) -> u32);
-::windows_targets::link!("gdi32.dll" "system" fn SetDIBits(hdc : HDC, hbm : HBITMAP, start : u32, clines : u32, lpbits : *const ::core::ffi::c_void, lpbmi : *const BITMAPINFO, coloruse : DIB_USAGE) -> i32);
-::windows_targets::link!("gdi32.dll" "system" fn SetDIBitsToDevice(hdc : HDC, xdest : i32, ydest : i32, w : u32, h : u32, xsrc : i32, ysrc : i32, startscan : u32, clines : u32, lpvbits : *const ::core::ffi::c_void, lpbmi : *const BITMAPINFO, coloruse : DIB_USAGE) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn SetDIBits(hdc : HDC, hbm : HBITMAP, start : u32, clines : u32, lpbits : *const core::ffi::c_void, lpbmi : *const BITMAPINFO, coloruse : DIB_USAGE) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn SetDIBitsToDevice(hdc : HDC, xdest : i32, ydest : i32, w : u32, h : u32, xsrc : i32, ysrc : i32, startscan : u32, clines : u32, lpvbits : *const core::ffi::c_void, lpbmi : *const BITMAPINFO, coloruse : DIB_USAGE) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn SetEnhMetaFileBits(nsize : u32, pb : *const u8) -> HENHMETAFILE);
 ::windows_targets::link!("gdi32.dll" "system" fn SetGraphicsMode(hdc : HDC, imode : GRAPHICS_MODE) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn SetLayout(hdc : HDC, l : DC_LAYOUT) -> u32);
@@ -362,28 +362,28 @@
 ::windows_targets::link!("user32.dll" "system" fn SetWindowRgn(hwnd : super::super::Foundation:: HWND, hrgn : HRGN, bredraw : super::super::Foundation:: BOOL) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn SetWorldTransform(hdc : HDC, lpxf : *const XFORM) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn StretchBlt(hdcdest : HDC, xdest : i32, ydest : i32, wdest : i32, hdest : i32, hdcsrc : HDC, xsrc : i32, ysrc : i32, wsrc : i32, hsrc : i32, rop : ROP_CODE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn StretchDIBits(hdc : HDC, xdest : i32, ydest : i32, destwidth : i32, destheight : i32, xsrc : i32, ysrc : i32, srcwidth : i32, srcheight : i32, lpbits : *const ::core::ffi::c_void, lpbmi : *const BITMAPINFO, iusage : DIB_USAGE, rop : ROP_CODE) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn StretchDIBits(hdc : HDC, xdest : i32, ydest : i32, destwidth : i32, destheight : i32, xsrc : i32, ysrc : i32, srcwidth : i32, srcheight : i32, lpbits : *const core::ffi::c_void, lpbmi : *const BITMAPINFO, iusage : DIB_USAGE, rop : ROP_CODE) -> i32);
 ::windows_targets::link!("gdi32.dll" "system" fn StrokeAndFillPath(hdc : HDC) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn StrokePath(hdc : HDC) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn SubtractRect(lprcdst : *mut super::super::Foundation:: RECT, lprcsrc1 : *const super::super::Foundation:: RECT, lprcsrc2 : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("t2embed.dll" "system" fn TTCharToUnicode(hdc : HDC, puccharcodes : *const u8, ulcharcodesize : u32, pusshortcodes : *mut u16, ulshortcodesize : u32, ulflags : u32) -> i32);
 ::windows_targets::link!("t2embed.dll" "system" fn TTDeleteEmbeddedFont(hfontreference : super::super::Foundation:: HANDLE, ulflags : u32, pulstatus : *mut u32) -> i32);
-::windows_targets::link!("t2embed.dll" "system" fn TTEmbedFont(hdc : HDC, ulflags : TTEMBED_FLAGS, ulcharset : EMBED_FONT_CHARSET, pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus : *mut u32, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : *const ::core::ffi::c_void, puscharcodeset : *const u16, uscharcodecount : u16, uslanguage : u16, pttembedinfo : *const TTEMBEDINFO) -> i32);
-::windows_targets::link!("t2embed.dll" "system" fn TTEmbedFontEx(hdc : HDC, ulflags : TTEMBED_FLAGS, ulcharset : EMBED_FONT_CHARSET, pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus : *mut u32, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : *const ::core::ffi::c_void, pulcharcodeset : *const u32, uscharcodecount : u16, uslanguage : u16, pttembedinfo : *const TTEMBEDINFO) -> i32);
-::windows_targets::link!("t2embed.dll" "system" fn TTEmbedFontFromFileA(hdc : HDC, szfontfilename : ::windows_sys::core::PCSTR, usttcindex : u16, ulflags : TTEMBED_FLAGS, ulcharset : EMBED_FONT_CHARSET, pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus : *mut u32, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : *const ::core::ffi::c_void, puscharcodeset : *const u16, uscharcodecount : u16, uslanguage : u16, pttembedinfo : *const TTEMBEDINFO) -> i32);
-::windows_targets::link!("t2embed.dll" "system" fn TTEnableEmbeddingForFacename(lpszfacename : ::windows_sys::core::PCSTR, benable : super::super::Foundation:: BOOL) -> i32);
-::windows_targets::link!("t2embed.dll" "system" fn TTGetEmbeddedFontInfo(ulflags : TTEMBED_FLAGS, pulprivstatus : *mut u32, ulprivs : FONT_LICENSE_PRIVS, pulstatus : *mut u32, lpfnreadfromstream : READEMBEDPROC, lpvreadstream : *const ::core::ffi::c_void, pttloadinfo : *const TTLOADINFO) -> i32);
+::windows_targets::link!("t2embed.dll" "system" fn TTEmbedFont(hdc : HDC, ulflags : TTEMBED_FLAGS, ulcharset : EMBED_FONT_CHARSET, pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus : *mut u32, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : *const core::ffi::c_void, puscharcodeset : *const u16, uscharcodecount : u16, uslanguage : u16, pttembedinfo : *const TTEMBEDINFO) -> i32);
+::windows_targets::link!("t2embed.dll" "system" fn TTEmbedFontEx(hdc : HDC, ulflags : TTEMBED_FLAGS, ulcharset : EMBED_FONT_CHARSET, pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus : *mut u32, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : *const core::ffi::c_void, pulcharcodeset : *const u32, uscharcodecount : u16, uslanguage : u16, pttembedinfo : *const TTEMBEDINFO) -> i32);
+::windows_targets::link!("t2embed.dll" "system" fn TTEmbedFontFromFileA(hdc : HDC, szfontfilename : windows_sys::core::PCSTR, usttcindex : u16, ulflags : TTEMBED_FLAGS, ulcharset : EMBED_FONT_CHARSET, pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus : *mut u32, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : *const core::ffi::c_void, puscharcodeset : *const u16, uscharcodecount : u16, uslanguage : u16, pttembedinfo : *const TTEMBEDINFO) -> i32);
+::windows_targets::link!("t2embed.dll" "system" fn TTEnableEmbeddingForFacename(lpszfacename : windows_sys::core::PCSTR, benable : super::super::Foundation:: BOOL) -> i32);
+::windows_targets::link!("t2embed.dll" "system" fn TTGetEmbeddedFontInfo(ulflags : TTEMBED_FLAGS, pulprivstatus : *mut u32, ulprivs : FONT_LICENSE_PRIVS, pulstatus : *mut u32, lpfnreadfromstream : READEMBEDPROC, lpvreadstream : *const core::ffi::c_void, pttloadinfo : *const TTLOADINFO) -> i32);
 ::windows_targets::link!("t2embed.dll" "system" fn TTGetEmbeddingType(hdc : HDC, pulembedtype : *mut EMBEDDED_FONT_PRIV_STATUS) -> i32);
-::windows_targets::link!("t2embed.dll" "system" fn TTGetNewFontName(phfontreference : *const super::super::Foundation:: HANDLE, wzwinfamilyname : ::windows_sys::core::PWSTR, cchmaxwinname : i32, szmacfamilyname : ::windows_sys::core::PSTR, cchmaxmacname : i32) -> i32);
+::windows_targets::link!("t2embed.dll" "system" fn TTGetNewFontName(phfontreference : *const super::super::Foundation:: HANDLE, wzwinfamilyname : windows_sys::core::PWSTR, cchmaxwinname : i32, szmacfamilyname : windows_sys::core::PSTR, cchmaxmacname : i32) -> i32);
 ::windows_targets::link!("t2embed.dll" "system" fn TTIsEmbeddingEnabled(hdc : HDC, pbenabled : *mut super::super::Foundation:: BOOL) -> i32);
-::windows_targets::link!("t2embed.dll" "system" fn TTIsEmbeddingEnabledForFacename(lpszfacename : ::windows_sys::core::PCSTR, pbenabled : *mut super::super::Foundation:: BOOL) -> i32);
-::windows_targets::link!("t2embed.dll" "system" fn TTLoadEmbeddedFont(phfontreference : *mut super::super::Foundation:: HANDLE, ulflags : u32, pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS, ulprivs : FONT_LICENSE_PRIVS, pulstatus : *mut TTLOAD_EMBEDDED_FONT_STATUS, lpfnreadfromstream : READEMBEDPROC, lpvreadstream : *const ::core::ffi::c_void, szwinfamilyname : ::windows_sys::core::PCWSTR, szmacfamilyname : ::windows_sys::core::PCSTR, pttloadinfo : *const TTLOADINFO) -> i32);
+::windows_targets::link!("t2embed.dll" "system" fn TTIsEmbeddingEnabledForFacename(lpszfacename : windows_sys::core::PCSTR, pbenabled : *mut super::super::Foundation:: BOOL) -> i32);
+::windows_targets::link!("t2embed.dll" "system" fn TTLoadEmbeddedFont(phfontreference : *mut super::super::Foundation:: HANDLE, ulflags : u32, pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS, ulprivs : FONT_LICENSE_PRIVS, pulstatus : *mut TTLOAD_EMBEDDED_FONT_STATUS, lpfnreadfromstream : READEMBEDPROC, lpvreadstream : *const core::ffi::c_void, szwinfamilyname : windows_sys::core::PCWSTR, szmacfamilyname : windows_sys::core::PCSTR, pttloadinfo : *const TTLOADINFO) -> i32);
 ::windows_targets::link!("t2embed.dll" "system" fn TTRunValidationTests(hdc : HDC, ptestparam : *const TTVALIDATIONTESTSPARAMS) -> i32);
 ::windows_targets::link!("t2embed.dll" "system" fn TTRunValidationTestsEx(hdc : HDC, ptestparam : *const TTVALIDATIONTESTSPARAMSEX) -> i32);
-::windows_targets::link!("user32.dll" "system" fn TabbedTextOutA(hdc : HDC, x : i32, y : i32, lpstring : ::windows_sys::core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32, ntaborigin : i32) -> i32);
-::windows_targets::link!("user32.dll" "system" fn TabbedTextOutW(hdc : HDC, x : i32, y : i32, lpstring : ::windows_sys::core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32, ntaborigin : i32) -> i32);
-::windows_targets::link!("gdi32.dll" "system" fn TextOutA(hdc : HDC, x : i32, y : i32, lpstring : ::windows_sys::core::PCSTR, c : i32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("gdi32.dll" "system" fn TextOutW(hdc : HDC, x : i32, y : i32, lpstring : ::windows_sys::core::PCWSTR, c : i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn TabbedTextOutA(hdc : HDC, x : i32, y : i32, lpstring : windows_sys::core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32, ntaborigin : i32) -> i32);
+::windows_targets::link!("user32.dll" "system" fn TabbedTextOutW(hdc : HDC, x : i32, y : i32, lpstring : windows_sys::core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32, ntaborigin : i32) -> i32);
+::windows_targets::link!("gdi32.dll" "system" fn TextOutA(hdc : HDC, x : i32, y : i32, lpstring : windows_sys::core::PCSTR, c : i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("gdi32.dll" "system" fn TextOutW(hdc : HDC, x : i32, y : i32, lpstring : windows_sys::core::PCWSTR, c : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("msimg32.dll" "system" fn TransparentBlt(hdcdest : HDC, xorigindest : i32, yorigindest : i32, wdest : i32, hdest : i32, hdcsrc : HDC, xoriginsrc : i32, yoriginsrc : i32, wsrc : i32, hsrc : i32, crtransparent : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn UnionRect(lprcdst : *mut super::super::Foundation:: RECT, lprcsrc1 : *const super::super::Foundation:: RECT, lprcsrc2 : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("gdi32.dll" "system" fn UnrealizeObject(h : HGDIOBJ) -> super::super::Foundation:: BOOL);
@@ -2165,8 +2165,8 @@ pub struct ABC {
     pub abcB: u32,
     pub abcC: i32,
 }
-impl ::core::marker::Copy for ABC {}
-impl ::core::clone::Clone for ABC {
+impl Copy for ABC {}
+impl Clone for ABC {
     fn clone(&self) -> Self {
         *self
     }
@@ -2177,8 +2177,8 @@ pub struct ABCFLOAT {
     pub abcfB: f32,
     pub abcfC: f32,
 }
-impl ::core::marker::Copy for ABCFLOAT {}
-impl ::core::clone::Clone for ABCFLOAT {
+impl Copy for ABCFLOAT {}
+impl Clone for ABCFLOAT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2187,8 +2187,8 @@ impl ::core::clone::Clone for ABCFLOAT {
 pub struct ABORTPATH {
     pub emr: EMR,
 }
-impl ::core::marker::Copy for ABORTPATH {}
-impl ::core::clone::Clone for ABORTPATH {
+impl Copy for ABORTPATH {}
+impl Clone for ABORTPATH {
     fn clone(&self) -> Self {
         *self
     }
@@ -2199,8 +2199,8 @@ pub struct AXESLISTA {
     pub axlNumAxes: u32,
     pub axlAxisInfo: [AXISINFOA; 16],
 }
-impl ::core::marker::Copy for AXESLISTA {}
-impl ::core::clone::Clone for AXESLISTA {
+impl Copy for AXESLISTA {}
+impl Clone for AXESLISTA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2211,8 +2211,8 @@ pub struct AXESLISTW {
     pub axlNumAxes: u32,
     pub axlAxisInfo: [AXISINFOW; 16],
 }
-impl ::core::marker::Copy for AXESLISTW {}
-impl ::core::clone::Clone for AXESLISTW {
+impl Copy for AXESLISTW {}
+impl Clone for AXESLISTW {
     fn clone(&self) -> Self {
         *self
     }
@@ -2223,8 +2223,8 @@ pub struct AXISINFOA {
     pub axMaxValue: i32,
     pub axAxisName: [u8; 16],
 }
-impl ::core::marker::Copy for AXISINFOA {}
-impl ::core::clone::Clone for AXISINFOA {
+impl Copy for AXISINFOA {}
+impl Clone for AXISINFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2235,8 +2235,8 @@ pub struct AXISINFOW {
     pub axMaxValue: i32,
     pub axAxisName: [u16; 16],
 }
-impl ::core::marker::Copy for AXISINFOW {}
-impl ::core::clone::Clone for AXISINFOW {
+impl Copy for AXISINFOW {}
+impl Clone for AXISINFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -2249,10 +2249,10 @@ pub struct BITMAP {
     pub bmWidthBytes: i32,
     pub bmPlanes: u16,
     pub bmBitsPixel: u16,
-    pub bmBits: *mut ::core::ffi::c_void,
+    pub bmBits: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for BITMAP {}
-impl ::core::clone::Clone for BITMAP {
+impl Copy for BITMAP {}
+impl Clone for BITMAP {
     fn clone(&self) -> Self {
         *self
     }
@@ -2265,8 +2265,8 @@ pub struct BITMAPCOREHEADER {
     pub bcPlanes: u16,
     pub bcBitCount: u16,
 }
-impl ::core::marker::Copy for BITMAPCOREHEADER {}
-impl ::core::clone::Clone for BITMAPCOREHEADER {
+impl Copy for BITMAPCOREHEADER {}
+impl Clone for BITMAPCOREHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2276,8 +2276,8 @@ pub struct BITMAPCOREINFO {
     pub bmciHeader: BITMAPCOREHEADER,
     pub bmciColors: [RGBTRIPLE; 1],
 }
-impl ::core::marker::Copy for BITMAPCOREINFO {}
-impl ::core::clone::Clone for BITMAPCOREINFO {
+impl Copy for BITMAPCOREINFO {}
+impl Clone for BITMAPCOREINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2290,8 +2290,8 @@ pub struct BITMAPFILEHEADER {
     pub bfReserved2: u16,
     pub bfOffBits: u32,
 }
-impl ::core::marker::Copy for BITMAPFILEHEADER {}
-impl ::core::clone::Clone for BITMAPFILEHEADER {
+impl Copy for BITMAPFILEHEADER {}
+impl Clone for BITMAPFILEHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2301,8 +2301,8 @@ pub struct BITMAPINFO {
     pub bmiHeader: BITMAPINFOHEADER,
     pub bmiColors: [RGBQUAD; 1],
 }
-impl ::core::marker::Copy for BITMAPINFO {}
-impl ::core::clone::Clone for BITMAPINFO {
+impl Copy for BITMAPINFO {}
+impl Clone for BITMAPINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -2321,8 +2321,8 @@ pub struct BITMAPINFOHEADER {
     pub biClrUsed: u32,
     pub biClrImportant: u32,
 }
-impl ::core::marker::Copy for BITMAPINFOHEADER {}
-impl ::core::clone::Clone for BITMAPINFOHEADER {
+impl Copy for BITMAPINFOHEADER {}
+impl Clone for BITMAPINFOHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2350,8 +2350,8 @@ pub struct BITMAPV4HEADER {
     pub bV4GammaGreen: u32,
     pub bV4GammaBlue: u32,
 }
-impl ::core::marker::Copy for BITMAPV4HEADER {}
-impl ::core::clone::Clone for BITMAPV4HEADER {
+impl Copy for BITMAPV4HEADER {}
+impl Clone for BITMAPV4HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2383,8 +2383,8 @@ pub struct BITMAPV5HEADER {
     pub bV5ProfileSize: u32,
     pub bV5Reserved: u32,
 }
-impl ::core::marker::Copy for BITMAPV5HEADER {}
-impl ::core::clone::Clone for BITMAPV5HEADER {
+impl Copy for BITMAPV5HEADER {}
+impl Clone for BITMAPV5HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -2396,8 +2396,8 @@ pub struct BLENDFUNCTION {
     pub SourceConstantAlpha: u8,
     pub AlphaFormat: u8,
 }
-impl ::core::marker::Copy for BLENDFUNCTION {}
-impl ::core::clone::Clone for BLENDFUNCTION {
+impl Copy for BLENDFUNCTION {}
+impl Clone for BLENDFUNCTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2408,8 +2408,8 @@ pub struct CIEXYZ {
     pub ciexyzY: i32,
     pub ciexyzZ: i32,
 }
-impl ::core::marker::Copy for CIEXYZ {}
-impl ::core::clone::Clone for CIEXYZ {
+impl Copy for CIEXYZ {}
+impl Clone for CIEXYZ {
     fn clone(&self) -> Self {
         *self
     }
@@ -2420,8 +2420,8 @@ pub struct CIEXYZTRIPLE {
     pub ciexyzGreen: CIEXYZ,
     pub ciexyzBlue: CIEXYZ,
 }
-impl ::core::marker::Copy for CIEXYZTRIPLE {}
-impl ::core::clone::Clone for CIEXYZTRIPLE {
+impl Copy for CIEXYZTRIPLE {}
+impl Clone for CIEXYZTRIPLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2441,8 +2441,8 @@ pub struct COLORADJUSTMENT {
     pub caColorfulness: i16,
     pub caRedGreenTint: i16,
 }
-impl ::core::marker::Copy for COLORADJUSTMENT {}
-impl ::core::clone::Clone for COLORADJUSTMENT {
+impl Copy for COLORADJUSTMENT {}
+impl Clone for COLORADJUSTMENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2453,8 +2453,8 @@ pub struct DESIGNVECTOR {
     pub dvNumAxes: u32,
     pub dvValues: [i32; 16],
 }
-impl ::core::marker::Copy for DESIGNVECTOR {}
-impl ::core::clone::Clone for DESIGNVECTOR {
+impl Copy for DESIGNVECTOR {}
+impl Clone for DESIGNVECTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -2489,8 +2489,8 @@ pub struct DEVMODEA {
     pub dmPanningWidth: u32,
     pub dmPanningHeight: u32,
 }
-impl ::core::marker::Copy for DEVMODEA {}
-impl ::core::clone::Clone for DEVMODEA {
+impl Copy for DEVMODEA {}
+impl Clone for DEVMODEA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2500,8 +2500,8 @@ pub union DEVMODEA_0 {
     pub Anonymous1: DEVMODEA_0_0,
     pub Anonymous2: DEVMODEA_0_1,
 }
-impl ::core::marker::Copy for DEVMODEA_0 {}
-impl ::core::clone::Clone for DEVMODEA_0 {
+impl Copy for DEVMODEA_0 {}
+impl Clone for DEVMODEA_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2517,8 +2517,8 @@ pub struct DEVMODEA_0_0 {
     pub dmDefaultSource: i16,
     pub dmPrintQuality: i16,
 }
-impl ::core::marker::Copy for DEVMODEA_0_0 {}
-impl ::core::clone::Clone for DEVMODEA_0_0 {
+impl Copy for DEVMODEA_0_0 {}
+impl Clone for DEVMODEA_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2529,8 +2529,8 @@ pub struct DEVMODEA_0_1 {
     pub dmDisplayOrientation: DEVMODE_DISPLAY_ORIENTATION,
     pub dmDisplayFixedOutput: DEVMODE_DISPLAY_FIXED_OUTPUT,
 }
-impl ::core::marker::Copy for DEVMODEA_0_1 {}
-impl ::core::clone::Clone for DEVMODEA_0_1 {
+impl Copy for DEVMODEA_0_1 {}
+impl Clone for DEVMODEA_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2540,8 +2540,8 @@ pub union DEVMODEA_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
 }
-impl ::core::marker::Copy for DEVMODEA_1 {}
-impl ::core::clone::Clone for DEVMODEA_1 {
+impl Copy for DEVMODEA_1 {}
+impl Clone for DEVMODEA_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2576,8 +2576,8 @@ pub struct DEVMODEW {
     pub dmPanningWidth: u32,
     pub dmPanningHeight: u32,
 }
-impl ::core::marker::Copy for DEVMODEW {}
-impl ::core::clone::Clone for DEVMODEW {
+impl Copy for DEVMODEW {}
+impl Clone for DEVMODEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -2587,8 +2587,8 @@ pub union DEVMODEW_0 {
     pub Anonymous1: DEVMODEW_0_0,
     pub Anonymous2: DEVMODEW_0_1,
 }
-impl ::core::marker::Copy for DEVMODEW_0 {}
-impl ::core::clone::Clone for DEVMODEW_0 {
+impl Copy for DEVMODEW_0 {}
+impl Clone for DEVMODEW_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2604,8 +2604,8 @@ pub struct DEVMODEW_0_0 {
     pub dmDefaultSource: i16,
     pub dmPrintQuality: i16,
 }
-impl ::core::marker::Copy for DEVMODEW_0_0 {}
-impl ::core::clone::Clone for DEVMODEW_0_0 {
+impl Copy for DEVMODEW_0_0 {}
+impl Clone for DEVMODEW_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2616,8 +2616,8 @@ pub struct DEVMODEW_0_1 {
     pub dmDisplayOrientation: DEVMODE_DISPLAY_ORIENTATION,
     pub dmDisplayFixedOutput: DEVMODE_DISPLAY_FIXED_OUTPUT,
 }
-impl ::core::marker::Copy for DEVMODEW_0_1 {}
-impl ::core::clone::Clone for DEVMODEW_0_1 {
+impl Copy for DEVMODEW_0_1 {}
+impl Clone for DEVMODEW_0_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2627,8 +2627,8 @@ pub union DEVMODEW_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
 }
-impl ::core::marker::Copy for DEVMODEW_1 {}
-impl ::core::clone::Clone for DEVMODEW_1 {
+impl Copy for DEVMODEW_1 {}
+impl Clone for DEVMODEW_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -2641,8 +2641,8 @@ pub struct DIBSECTION {
     pub dshSection: super::super::Foundation::HANDLE,
     pub dsOffset: u32,
 }
-impl ::core::marker::Copy for DIBSECTION {}
-impl ::core::clone::Clone for DIBSECTION {
+impl Copy for DIBSECTION {}
+impl Clone for DIBSECTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -2656,8 +2656,8 @@ pub struct DISPLAY_DEVICEA {
     pub DeviceID: [i8; 128],
     pub DeviceKey: [i8; 128],
 }
-impl ::core::marker::Copy for DISPLAY_DEVICEA {}
-impl ::core::clone::Clone for DISPLAY_DEVICEA {
+impl Copy for DISPLAY_DEVICEA {}
+impl Clone for DISPLAY_DEVICEA {
     fn clone(&self) -> Self {
         *self
     }
@@ -2671,8 +2671,8 @@ pub struct DISPLAY_DEVICEW {
     pub DeviceID: [u16; 128],
     pub DeviceKey: [u16; 128],
 }
-impl ::core::marker::Copy for DISPLAY_DEVICEW {}
-impl ::core::clone::Clone for DISPLAY_DEVICEW {
+impl Copy for DISPLAY_DEVICEW {}
+impl Clone for DISPLAY_DEVICEW {
     fn clone(&self) -> Self {
         *self
     }
@@ -2685,8 +2685,8 @@ pub struct DRAWTEXTPARAMS {
     pub iRightMargin: i32,
     pub uiLengthDrawn: u32,
 }
-impl ::core::marker::Copy for DRAWTEXTPARAMS {}
-impl ::core::clone::Clone for DRAWTEXTPARAMS {
+impl Copy for DRAWTEXTPARAMS {}
+impl Clone for DRAWTEXTPARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -2696,8 +2696,8 @@ pub struct EMR {
     pub iType: ENHANCED_METAFILE_RECORD_TYPE,
     pub nSize: u32,
 }
-impl ::core::marker::Copy for EMR {}
-impl ::core::clone::Clone for EMR {
+impl Copy for EMR {}
+impl Clone for EMR {
     fn clone(&self) -> Self {
         *self
     }
@@ -2723,8 +2723,8 @@ pub struct EMRALPHABLEND {
     pub cxSrc: i32,
     pub cySrc: i32,
 }
-impl ::core::marker::Copy for EMRALPHABLEND {}
-impl ::core::clone::Clone for EMRALPHABLEND {
+impl Copy for EMRALPHABLEND {}
+impl Clone for EMRALPHABLEND {
     fn clone(&self) -> Self {
         *self
     }
@@ -2737,8 +2737,8 @@ pub struct EMRANGLEARC {
     pub eStartAngle: f32,
     pub eSweepAngle: f32,
 }
-impl ::core::marker::Copy for EMRANGLEARC {}
-impl ::core::clone::Clone for EMRANGLEARC {
+impl Copy for EMRANGLEARC {}
+impl Clone for EMRANGLEARC {
     fn clone(&self) -> Self {
         *self
     }
@@ -2750,8 +2750,8 @@ pub struct EMRARC {
     pub ptlStart: super::super::Foundation::POINTL,
     pub ptlEnd: super::super::Foundation::POINTL,
 }
-impl ::core::marker::Copy for EMRARC {}
-impl ::core::clone::Clone for EMRARC {
+impl Copy for EMRARC {}
+impl Clone for EMRARC {
     fn clone(&self) -> Self {
         *self
     }
@@ -2775,8 +2775,8 @@ pub struct EMRBITBLT {
     pub offBitsSrc: u32,
     pub cbBitsSrc: u32,
 }
-impl ::core::marker::Copy for EMRBITBLT {}
-impl ::core::clone::Clone for EMRBITBLT {
+impl Copy for EMRBITBLT {}
+impl Clone for EMRBITBLT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2789,8 +2789,8 @@ pub struct EMRCOLORCORRECTPALETTE {
     pub nPalEntries: u32,
     pub nReserved: u32,
 }
-impl ::core::marker::Copy for EMRCOLORCORRECTPALETTE {}
-impl ::core::clone::Clone for EMRCOLORCORRECTPALETTE {
+impl Copy for EMRCOLORCORRECTPALETTE {}
+impl Clone for EMRCOLORCORRECTPALETTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2804,8 +2804,8 @@ pub struct EMRCOLORMATCHTOTARGET {
     pub cbData: u32,
     pub Data: [u8; 1],
 }
-impl ::core::marker::Copy for EMRCOLORMATCHTOTARGET {}
-impl ::core::clone::Clone for EMRCOLORMATCHTOTARGET {
+impl Copy for EMRCOLORMATCHTOTARGET {}
+impl Clone for EMRCOLORMATCHTOTARGET {
     fn clone(&self) -> Self {
         *self
     }
@@ -2816,8 +2816,8 @@ pub struct EMRCREATEBRUSHINDIRECT {
     pub ihBrush: u32,
     pub lb: LOGBRUSH32,
 }
-impl ::core::marker::Copy for EMRCREATEBRUSHINDIRECT {}
-impl ::core::clone::Clone for EMRCREATEBRUSHINDIRECT {
+impl Copy for EMRCREATEBRUSHINDIRECT {}
+impl Clone for EMRCREATEBRUSHINDIRECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2832,8 +2832,8 @@ pub struct EMRCREATEDIBPATTERNBRUSHPT {
     pub offBits: u32,
     pub cbBits: u32,
 }
-impl ::core::marker::Copy for EMRCREATEDIBPATTERNBRUSHPT {}
-impl ::core::clone::Clone for EMRCREATEDIBPATTERNBRUSHPT {
+impl Copy for EMRCREATEDIBPATTERNBRUSHPT {}
+impl Clone for EMRCREATEDIBPATTERNBRUSHPT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2848,8 +2848,8 @@ pub struct EMRCREATEMONOBRUSH {
     pub offBits: u32,
     pub cbBits: u32,
 }
-impl ::core::marker::Copy for EMRCREATEMONOBRUSH {}
-impl ::core::clone::Clone for EMRCREATEMONOBRUSH {
+impl Copy for EMRCREATEMONOBRUSH {}
+impl Clone for EMRCREATEMONOBRUSH {
     fn clone(&self) -> Self {
         *self
     }
@@ -2860,8 +2860,8 @@ pub struct EMRCREATEPALETTE {
     pub ihPal: u32,
     pub lgpl: LOGPALETTE,
 }
-impl ::core::marker::Copy for EMRCREATEPALETTE {}
-impl ::core::clone::Clone for EMRCREATEPALETTE {
+impl Copy for EMRCREATEPALETTE {}
+impl Clone for EMRCREATEPALETTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2872,8 +2872,8 @@ pub struct EMRCREATEPEN {
     pub ihPen: u32,
     pub lopn: LOGPEN,
 }
-impl ::core::marker::Copy for EMRCREATEPEN {}
-impl ::core::clone::Clone for EMRCREATEPEN {
+impl Copy for EMRCREATEPEN {}
+impl Clone for EMRCREATEPEN {
     fn clone(&self) -> Self {
         *self
     }
@@ -2883,8 +2883,8 @@ pub struct EMRELLIPSE {
     pub emr: EMR,
     pub rclBox: super::super::Foundation::RECTL,
 }
-impl ::core::marker::Copy for EMRELLIPSE {}
-impl ::core::clone::Clone for EMRELLIPSE {
+impl Copy for EMRELLIPSE {}
+impl Clone for EMRELLIPSE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2896,8 +2896,8 @@ pub struct EMREOF {
     pub offPalEntries: u32,
     pub nSizeLast: u32,
 }
-impl ::core::marker::Copy for EMREOF {}
-impl ::core::clone::Clone for EMREOF {
+impl Copy for EMREOF {}
+impl Clone for EMREOF {
     fn clone(&self) -> Self {
         *self
     }
@@ -2907,8 +2907,8 @@ pub struct EMREXCLUDECLIPRECT {
     pub emr: EMR,
     pub rclClip: super::super::Foundation::RECTL,
 }
-impl ::core::marker::Copy for EMREXCLUDECLIPRECT {}
-impl ::core::clone::Clone for EMREXCLUDECLIPRECT {
+impl Copy for EMREXCLUDECLIPRECT {}
+impl Clone for EMREXCLUDECLIPRECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -2919,8 +2919,8 @@ pub struct EMREXTCREATEFONTINDIRECTW {
     pub ihFont: u32,
     pub elfw: EXTLOGFONTW,
 }
-impl ::core::marker::Copy for EMREXTCREATEFONTINDIRECTW {}
-impl ::core::clone::Clone for EMREXTCREATEFONTINDIRECTW {
+impl Copy for EMREXTCREATEFONTINDIRECTW {}
+impl Clone for EMREXTCREATEFONTINDIRECTW {
     fn clone(&self) -> Self {
         *self
     }
@@ -2935,8 +2935,8 @@ pub struct EMREXTCREATEPEN {
     pub cbBits: u32,
     pub elp: EXTLOGPEN32,
 }
-impl ::core::marker::Copy for EMREXTCREATEPEN {}
-impl ::core::clone::Clone for EMREXTCREATEPEN {
+impl Copy for EMREXTCREATEPEN {}
+impl Clone for EMREXTCREATEPEN {
     fn clone(&self) -> Self {
         *self
     }
@@ -2948,8 +2948,8 @@ pub struct EMREXTESCAPE {
     pub cbEscData: i32,
     pub EscData: [u8; 1],
 }
-impl ::core::marker::Copy for EMREXTESCAPE {}
-impl ::core::clone::Clone for EMREXTESCAPE {
+impl Copy for EMREXTESCAPE {}
+impl Clone for EMREXTESCAPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2961,8 +2961,8 @@ pub struct EMREXTFLOODFILL {
     pub crColor: super::super::Foundation::COLORREF,
     pub iMode: u32,
 }
-impl ::core::marker::Copy for EMREXTFLOODFILL {}
-impl ::core::clone::Clone for EMREXTFLOODFILL {
+impl Copy for EMREXTFLOODFILL {}
+impl Clone for EMREXTFLOODFILL {
     fn clone(&self) -> Self {
         *self
     }
@@ -2974,8 +2974,8 @@ pub struct EMREXTSELECTCLIPRGN {
     pub iMode: u32,
     pub RgnData: [u8; 1],
 }
-impl ::core::marker::Copy for EMREXTSELECTCLIPRGN {}
-impl ::core::clone::Clone for EMREXTSELECTCLIPRGN {
+impl Copy for EMREXTSELECTCLIPRGN {}
+impl Clone for EMREXTSELECTCLIPRGN {
     fn clone(&self) -> Self {
         *self
     }
@@ -2989,8 +2989,8 @@ pub struct EMREXTTEXTOUTA {
     pub eyScale: f32,
     pub emrtext: EMRTEXT,
 }
-impl ::core::marker::Copy for EMREXTTEXTOUTA {}
-impl ::core::clone::Clone for EMREXTTEXTOUTA {
+impl Copy for EMREXTTEXTOUTA {}
+impl Clone for EMREXTTEXTOUTA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3000,8 +3000,8 @@ pub struct EMRFILLPATH {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
 }
-impl ::core::marker::Copy for EMRFILLPATH {}
-impl ::core::clone::Clone for EMRFILLPATH {
+impl Copy for EMRFILLPATH {}
+impl Clone for EMRFILLPATH {
     fn clone(&self) -> Self {
         *self
     }
@@ -3014,8 +3014,8 @@ pub struct EMRFILLRGN {
     pub ihBrush: u32,
     pub RgnData: [u8; 1],
 }
-impl ::core::marker::Copy for EMRFILLRGN {}
-impl ::core::clone::Clone for EMRFILLRGN {
+impl Copy for EMRFILLRGN {}
+impl Clone for EMRFILLRGN {
     fn clone(&self) -> Self {
         *self
     }
@@ -3027,8 +3027,8 @@ pub struct EMRFORMAT {
     pub cbData: u32,
     pub offData: u32,
 }
-impl ::core::marker::Copy for EMRFORMAT {}
-impl ::core::clone::Clone for EMRFORMAT {
+impl Copy for EMRFORMAT {}
+impl Clone for EMRFORMAT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3042,8 +3042,8 @@ pub struct EMRFRAMERGN {
     pub szlStroke: super::super::Foundation::SIZE,
     pub RgnData: [u8; 1],
 }
-impl ::core::marker::Copy for EMRFRAMERGN {}
-impl ::core::clone::Clone for EMRFRAMERGN {
+impl Copy for EMRFRAMERGN {}
+impl Clone for EMRFRAMERGN {
     fn clone(&self) -> Self {
         *self
     }
@@ -3054,8 +3054,8 @@ pub struct EMRGDICOMMENT {
     pub cbData: u32,
     pub Data: [u8; 1],
 }
-impl ::core::marker::Copy for EMRGDICOMMENT {}
-impl ::core::clone::Clone for EMRGDICOMMENT {
+impl Copy for EMRGDICOMMENT {}
+impl Clone for EMRGDICOMMENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3067,8 +3067,8 @@ pub struct EMRGLSBOUNDEDRECORD {
     pub cbData: u32,
     pub Data: [u8; 1],
 }
-impl ::core::marker::Copy for EMRGLSBOUNDEDRECORD {}
-impl ::core::clone::Clone for EMRGLSBOUNDEDRECORD {
+impl Copy for EMRGLSBOUNDEDRECORD {}
+impl Clone for EMRGLSBOUNDEDRECORD {
     fn clone(&self) -> Self {
         *self
     }
@@ -3079,8 +3079,8 @@ pub struct EMRGLSRECORD {
     pub cbData: u32,
     pub Data: [u8; 1],
 }
-impl ::core::marker::Copy for EMRGLSRECORD {}
-impl ::core::clone::Clone for EMRGLSRECORD {
+impl Copy for EMRGLSRECORD {}
+impl Clone for EMRGLSRECORD {
     fn clone(&self) -> Self {
         *self
     }
@@ -3094,8 +3094,8 @@ pub struct EMRGRADIENTFILL {
     pub ulMode: GRADIENT_FILL,
     pub Ver: [TRIVERTEX; 1],
 }
-impl ::core::marker::Copy for EMRGRADIENTFILL {}
-impl ::core::clone::Clone for EMRGRADIENTFILL {
+impl Copy for EMRGRADIENTFILL {}
+impl Clone for EMRGRADIENTFILL {
     fn clone(&self) -> Self {
         *self
     }
@@ -3107,8 +3107,8 @@ pub struct EMRINVERTRGN {
     pub cbRgnData: u32,
     pub RgnData: [u8; 1],
 }
-impl ::core::marker::Copy for EMRINVERTRGN {}
-impl ::core::clone::Clone for EMRINVERTRGN {
+impl Copy for EMRINVERTRGN {}
+impl Clone for EMRINVERTRGN {
     fn clone(&self) -> Self {
         *self
     }
@@ -3118,8 +3118,8 @@ pub struct EMRLINETO {
     pub emr: EMR,
     pub ptl: super::super::Foundation::POINTL,
 }
-impl ::core::marker::Copy for EMRLINETO {}
-impl ::core::clone::Clone for EMRLINETO {
+impl Copy for EMRLINETO {}
+impl Clone for EMRLINETO {
     fn clone(&self) -> Self {
         *self
     }
@@ -3150,8 +3150,8 @@ pub struct EMRMASKBLT {
     pub offBitsMask: u32,
     pub cbBitsMask: u32,
 }
-impl ::core::marker::Copy for EMRMASKBLT {}
-impl ::core::clone::Clone for EMRMASKBLT {
+impl Copy for EMRMASKBLT {}
+impl Clone for EMRMASKBLT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3162,8 +3162,8 @@ pub struct EMRMODIFYWORLDTRANSFORM {
     pub xform: XFORM,
     pub iMode: MODIFY_WORLD_TRANSFORM_MODE,
 }
-impl ::core::marker::Copy for EMRMODIFYWORLDTRANSFORM {}
-impl ::core::clone::Clone for EMRMODIFYWORLDTRANSFORM {
+impl Copy for EMRMODIFYWORLDTRANSFORM {}
+impl Clone for EMRMODIFYWORLDTRANSFORM {
     fn clone(&self) -> Self {
         *self
     }
@@ -3176,8 +3176,8 @@ pub struct EMRNAMEDESCAPE {
     pub cbEscData: i32,
     pub EscData: [u8; 1],
 }
-impl ::core::marker::Copy for EMRNAMEDESCAPE {}
-impl ::core::clone::Clone for EMRNAMEDESCAPE {
+impl Copy for EMRNAMEDESCAPE {}
+impl Clone for EMRNAMEDESCAPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3187,8 +3187,8 @@ pub struct EMROFFSETCLIPRGN {
     pub emr: EMR,
     pub ptlOffset: super::super::Foundation::POINTL,
 }
-impl ::core::marker::Copy for EMROFFSETCLIPRGN {}
-impl ::core::clone::Clone for EMROFFSETCLIPRGN {
+impl Copy for EMROFFSETCLIPRGN {}
+impl Clone for EMROFFSETCLIPRGN {
     fn clone(&self) -> Self {
         *self
     }
@@ -3217,8 +3217,8 @@ pub struct EMRPLGBLT {
     pub offBitsMask: u32,
     pub cbBitsMask: u32,
 }
-impl ::core::marker::Copy for EMRPLGBLT {}
-impl ::core::clone::Clone for EMRPLGBLT {
+impl Copy for EMRPLGBLT {}
+impl Clone for EMRPLGBLT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3231,8 +3231,8 @@ pub struct EMRPOLYDRAW {
     pub aptl: [super::super::Foundation::POINTL; 1],
     pub abTypes: [u8; 1],
 }
-impl ::core::marker::Copy for EMRPOLYDRAW {}
-impl ::core::clone::Clone for EMRPOLYDRAW {
+impl Copy for EMRPOLYDRAW {}
+impl Clone for EMRPOLYDRAW {
     fn clone(&self) -> Self {
         *self
     }
@@ -3245,8 +3245,8 @@ pub struct EMRPOLYDRAW16 {
     pub apts: [super::super::Foundation::POINTS; 1],
     pub abTypes: [u8; 1],
 }
-impl ::core::marker::Copy for EMRPOLYDRAW16 {}
-impl ::core::clone::Clone for EMRPOLYDRAW16 {
+impl Copy for EMRPOLYDRAW16 {}
+impl Clone for EMRPOLYDRAW16 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3258,8 +3258,8 @@ pub struct EMRPOLYLINE {
     pub cptl: u32,
     pub aptl: [super::super::Foundation::POINTL; 1],
 }
-impl ::core::marker::Copy for EMRPOLYLINE {}
-impl ::core::clone::Clone for EMRPOLYLINE {
+impl Copy for EMRPOLYLINE {}
+impl Clone for EMRPOLYLINE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3271,8 +3271,8 @@ pub struct EMRPOLYLINE16 {
     pub cpts: u32,
     pub apts: [super::super::Foundation::POINTS; 1],
 }
-impl ::core::marker::Copy for EMRPOLYLINE16 {}
-impl ::core::clone::Clone for EMRPOLYLINE16 {
+impl Copy for EMRPOLYLINE16 {}
+impl Clone for EMRPOLYLINE16 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3286,8 +3286,8 @@ pub struct EMRPOLYPOLYLINE {
     pub aPolyCounts: [u32; 1],
     pub aptl: [super::super::Foundation::POINTL; 1],
 }
-impl ::core::marker::Copy for EMRPOLYPOLYLINE {}
-impl ::core::clone::Clone for EMRPOLYPOLYLINE {
+impl Copy for EMRPOLYPOLYLINE {}
+impl Clone for EMRPOLYPOLYLINE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3301,8 +3301,8 @@ pub struct EMRPOLYPOLYLINE16 {
     pub aPolyCounts: [u32; 1],
     pub apts: [super::super::Foundation::POINTS; 1],
 }
-impl ::core::marker::Copy for EMRPOLYPOLYLINE16 {}
-impl ::core::clone::Clone for EMRPOLYPOLYLINE16 {
+impl Copy for EMRPOLYPOLYLINE16 {}
+impl Clone for EMRPOLYPOLYLINE16 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3317,8 +3317,8 @@ pub struct EMRPOLYTEXTOUTA {
     pub cStrings: i32,
     pub aemrtext: [EMRTEXT; 1],
 }
-impl ::core::marker::Copy for EMRPOLYTEXTOUTA {}
-impl ::core::clone::Clone for EMRPOLYTEXTOUTA {
+impl Copy for EMRPOLYTEXTOUTA {}
+impl Clone for EMRPOLYTEXTOUTA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3329,8 +3329,8 @@ pub struct EMRRESIZEPALETTE {
     pub ihPal: u32,
     pub cEntries: u32,
 }
-impl ::core::marker::Copy for EMRRESIZEPALETTE {}
-impl ::core::clone::Clone for EMRRESIZEPALETTE {
+impl Copy for EMRRESIZEPALETTE {}
+impl Clone for EMRRESIZEPALETTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3340,8 +3340,8 @@ pub struct EMRRESTOREDC {
     pub emr: EMR,
     pub iRelative: i32,
 }
-impl ::core::marker::Copy for EMRRESTOREDC {}
-impl ::core::clone::Clone for EMRRESTOREDC {
+impl Copy for EMRRESTOREDC {}
+impl Clone for EMRRESTOREDC {
     fn clone(&self) -> Self {
         *self
     }
@@ -3352,8 +3352,8 @@ pub struct EMRROUNDRECT {
     pub rclBox: super::super::Foundation::RECTL,
     pub szlCorner: super::super::Foundation::SIZE,
 }
-impl ::core::marker::Copy for EMRROUNDRECT {}
-impl ::core::clone::Clone for EMRROUNDRECT {
+impl Copy for EMRROUNDRECT {}
+impl Clone for EMRROUNDRECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3366,8 +3366,8 @@ pub struct EMRSCALEVIEWPORTEXTEX {
     pub yNum: i32,
     pub yDenom: i32,
 }
-impl ::core::marker::Copy for EMRSCALEVIEWPORTEXTEX {}
-impl ::core::clone::Clone for EMRSCALEVIEWPORTEXTEX {
+impl Copy for EMRSCALEVIEWPORTEXTEX {}
+impl Clone for EMRSCALEVIEWPORTEXTEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -3377,8 +3377,8 @@ pub struct EMRSELECTCLIPPATH {
     pub emr: EMR,
     pub iMode: u32,
 }
-impl ::core::marker::Copy for EMRSELECTCLIPPATH {}
-impl ::core::clone::Clone for EMRSELECTCLIPPATH {
+impl Copy for EMRSELECTCLIPPATH {}
+impl Clone for EMRSELECTCLIPPATH {
     fn clone(&self) -> Self {
         *self
     }
@@ -3388,8 +3388,8 @@ pub struct EMRSELECTOBJECT {
     pub emr: EMR,
     pub ihObject: u32,
 }
-impl ::core::marker::Copy for EMRSELECTOBJECT {}
-impl ::core::clone::Clone for EMRSELECTOBJECT {
+impl Copy for EMRSELECTOBJECT {}
+impl Clone for EMRSELECTOBJECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3399,8 +3399,8 @@ pub struct EMRSELECTPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
 }
-impl ::core::marker::Copy for EMRSELECTPALETTE {}
-impl ::core::clone::Clone for EMRSELECTPALETTE {
+impl Copy for EMRSELECTPALETTE {}
+impl Clone for EMRSELECTPALETTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3410,8 +3410,8 @@ pub struct EMRSETARCDIRECTION {
     pub emr: EMR,
     pub iArcDirection: u32,
 }
-impl ::core::marker::Copy for EMRSETARCDIRECTION {}
-impl ::core::clone::Clone for EMRSETARCDIRECTION {
+impl Copy for EMRSETARCDIRECTION {}
+impl Clone for EMRSETARCDIRECTION {
     fn clone(&self) -> Self {
         *self
     }
@@ -3421,8 +3421,8 @@ pub struct EMRSETCOLORADJUSTMENT {
     pub emr: EMR,
     pub ColorAdjustment: COLORADJUSTMENT,
 }
-impl ::core::marker::Copy for EMRSETCOLORADJUSTMENT {}
-impl ::core::clone::Clone for EMRSETCOLORADJUSTMENT {
+impl Copy for EMRSETCOLORADJUSTMENT {}
+impl Clone for EMRSETCOLORADJUSTMENT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3432,8 +3432,8 @@ pub struct EMRSETCOLORSPACE {
     pub emr: EMR,
     pub ihCS: u32,
 }
-impl ::core::marker::Copy for EMRSETCOLORSPACE {}
-impl ::core::clone::Clone for EMRSETCOLORSPACE {
+impl Copy for EMRSETCOLORSPACE {}
+impl Clone for EMRSETCOLORSPACE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3456,8 +3456,8 @@ pub struct EMRSETDIBITSTODEVICE {
     pub iStartScan: u32,
     pub cScans: u32,
 }
-impl ::core::marker::Copy for EMRSETDIBITSTODEVICE {}
-impl ::core::clone::Clone for EMRSETDIBITSTODEVICE {
+impl Copy for EMRSETDIBITSTODEVICE {}
+impl Clone for EMRSETDIBITSTODEVICE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3470,8 +3470,8 @@ pub struct EMRSETICMPROFILE {
     pub cbData: u32,
     pub Data: [u8; 1],
 }
-impl ::core::marker::Copy for EMRSETICMPROFILE {}
-impl ::core::clone::Clone for EMRSETICMPROFILE {
+impl Copy for EMRSETICMPROFILE {}
+impl Clone for EMRSETICMPROFILE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3481,8 +3481,8 @@ pub struct EMRSETMAPPERFLAGS {
     pub emr: EMR,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for EMRSETMAPPERFLAGS {}
-impl ::core::clone::Clone for EMRSETMAPPERFLAGS {
+impl Copy for EMRSETMAPPERFLAGS {}
+impl Clone for EMRSETMAPPERFLAGS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3492,8 +3492,8 @@ pub struct EMRSETMITERLIMIT {
     pub emr: EMR,
     pub eMiterLimit: f32,
 }
-impl ::core::marker::Copy for EMRSETMITERLIMIT {}
-impl ::core::clone::Clone for EMRSETMITERLIMIT {
+impl Copy for EMRSETMITERLIMIT {}
+impl Clone for EMRSETMITERLIMIT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3506,8 +3506,8 @@ pub struct EMRSETPALETTEENTRIES {
     pub cEntries: u32,
     pub aPalEntries: [PALETTEENTRY; 1],
 }
-impl ::core::marker::Copy for EMRSETPALETTEENTRIES {}
-impl ::core::clone::Clone for EMRSETPALETTEENTRIES {
+impl Copy for EMRSETPALETTEENTRIES {}
+impl Clone for EMRSETPALETTEENTRIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3518,8 +3518,8 @@ pub struct EMRSETPIXELV {
     pub ptlPixel: super::super::Foundation::POINTL,
     pub crColor: super::super::Foundation::COLORREF,
 }
-impl ::core::marker::Copy for EMRSETPIXELV {}
-impl ::core::clone::Clone for EMRSETPIXELV {
+impl Copy for EMRSETPIXELV {}
+impl Clone for EMRSETPIXELV {
     fn clone(&self) -> Self {
         *self
     }
@@ -3529,8 +3529,8 @@ pub struct EMRSETTEXTCOLOR {
     pub emr: EMR,
     pub crColor: super::super::Foundation::COLORREF,
 }
-impl ::core::marker::Copy for EMRSETTEXTCOLOR {}
-impl ::core::clone::Clone for EMRSETTEXTCOLOR {
+impl Copy for EMRSETTEXTCOLOR {}
+impl Clone for EMRSETTEXTCOLOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -3540,8 +3540,8 @@ pub struct EMRSETVIEWPORTEXTEX {
     pub emr: EMR,
     pub szlExtent: super::super::Foundation::SIZE,
 }
-impl ::core::marker::Copy for EMRSETVIEWPORTEXTEX {}
-impl ::core::clone::Clone for EMRSETVIEWPORTEXTEX {
+impl Copy for EMRSETVIEWPORTEXTEX {}
+impl Clone for EMRSETVIEWPORTEXTEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -3551,8 +3551,8 @@ pub struct EMRSETVIEWPORTORGEX {
     pub emr: EMR,
     pub ptlOrigin: super::super::Foundation::POINTL,
 }
-impl ::core::marker::Copy for EMRSETVIEWPORTORGEX {}
-impl ::core::clone::Clone for EMRSETVIEWPORTORGEX {
+impl Copy for EMRSETVIEWPORTORGEX {}
+impl Clone for EMRSETVIEWPORTORGEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -3562,8 +3562,8 @@ pub struct EMRSETWORLDTRANSFORM {
     pub emr: EMR,
     pub xform: XFORM,
 }
-impl ::core::marker::Copy for EMRSETWORLDTRANSFORM {}
-impl ::core::clone::Clone for EMRSETWORLDTRANSFORM {
+impl Copy for EMRSETWORLDTRANSFORM {}
+impl Clone for EMRSETWORLDTRANSFORM {
     fn clone(&self) -> Self {
         *self
     }
@@ -3589,8 +3589,8 @@ pub struct EMRSTRETCHBLT {
     pub cxSrc: i32,
     pub cySrc: i32,
 }
-impl ::core::marker::Copy for EMRSTRETCHBLT {}
-impl ::core::clone::Clone for EMRSTRETCHBLT {
+impl Copy for EMRSTRETCHBLT {}
+impl Clone for EMRSTRETCHBLT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3614,8 +3614,8 @@ pub struct EMRSTRETCHDIBITS {
     pub cxDest: i32,
     pub cyDest: i32,
 }
-impl ::core::marker::Copy for EMRSTRETCHDIBITS {}
-impl ::core::clone::Clone for EMRSTRETCHDIBITS {
+impl Copy for EMRSTRETCHDIBITS {}
+impl Clone for EMRSTRETCHDIBITS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3629,8 +3629,8 @@ pub struct EMRTEXT {
     pub rcl: super::super::Foundation::RECTL,
     pub offDx: u32,
 }
-impl ::core::marker::Copy for EMRTEXT {}
-impl ::core::clone::Clone for EMRTEXT {
+impl Copy for EMRTEXT {}
+impl Clone for EMRTEXT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3656,8 +3656,8 @@ pub struct EMRTRANSPARENTBLT {
     pub cxSrc: i32,
     pub cySrc: i32,
 }
-impl ::core::marker::Copy for EMRTRANSPARENTBLT {}
-impl ::core::clone::Clone for EMRTRANSPARENTBLT {
+impl Copy for EMRTRANSPARENTBLT {}
+impl Clone for EMRTRANSPARENTBLT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3684,8 +3684,8 @@ pub struct ENHMETAHEADER {
     pub bOpenGL: u32,
     pub szlMicrometers: super::super::Foundation::SIZE,
 }
-impl ::core::marker::Copy for ENHMETAHEADER {}
-impl ::core::clone::Clone for ENHMETAHEADER {
+impl Copy for ENHMETAHEADER {}
+impl Clone for ENHMETAHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -3696,8 +3696,8 @@ pub struct ENHMETARECORD {
     pub nSize: u32,
     pub dParm: [u32; 1],
 }
-impl ::core::marker::Copy for ENHMETARECORD {}
-impl ::core::clone::Clone for ENHMETARECORD {
+impl Copy for ENHMETARECORD {}
+impl Clone for ENHMETARECORD {
     fn clone(&self) -> Self {
         *self
     }
@@ -3708,8 +3708,8 @@ pub struct ENUMLOGFONTA {
     pub elfFullName: [u8; 64],
     pub elfStyle: [u8; 32],
 }
-impl ::core::marker::Copy for ENUMLOGFONTA {}
-impl ::core::clone::Clone for ENUMLOGFONTA {
+impl Copy for ENUMLOGFONTA {}
+impl Clone for ENUMLOGFONTA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3721,8 +3721,8 @@ pub struct ENUMLOGFONTEXA {
     pub elfStyle: [u8; 32],
     pub elfScript: [u8; 32],
 }
-impl ::core::marker::Copy for ENUMLOGFONTEXA {}
-impl ::core::clone::Clone for ENUMLOGFONTEXA {
+impl Copy for ENUMLOGFONTEXA {}
+impl Clone for ENUMLOGFONTEXA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3732,8 +3732,8 @@ pub struct ENUMLOGFONTEXDVA {
     pub elfEnumLogfontEx: ENUMLOGFONTEXA,
     pub elfDesignVector: DESIGNVECTOR,
 }
-impl ::core::marker::Copy for ENUMLOGFONTEXDVA {}
-impl ::core::clone::Clone for ENUMLOGFONTEXDVA {
+impl Copy for ENUMLOGFONTEXDVA {}
+impl Clone for ENUMLOGFONTEXDVA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3743,8 +3743,8 @@ pub struct ENUMLOGFONTEXDVW {
     pub elfEnumLogfontEx: ENUMLOGFONTEXW,
     pub elfDesignVector: DESIGNVECTOR,
 }
-impl ::core::marker::Copy for ENUMLOGFONTEXDVW {}
-impl ::core::clone::Clone for ENUMLOGFONTEXDVW {
+impl Copy for ENUMLOGFONTEXDVW {}
+impl Clone for ENUMLOGFONTEXDVW {
     fn clone(&self) -> Self {
         *self
     }
@@ -3756,8 +3756,8 @@ pub struct ENUMLOGFONTEXW {
     pub elfStyle: [u16; 32],
     pub elfScript: [u16; 32],
 }
-impl ::core::marker::Copy for ENUMLOGFONTEXW {}
-impl ::core::clone::Clone for ENUMLOGFONTEXW {
+impl Copy for ENUMLOGFONTEXW {}
+impl Clone for ENUMLOGFONTEXW {
     fn clone(&self) -> Self {
         *self
     }
@@ -3768,8 +3768,8 @@ pub struct ENUMLOGFONTW {
     pub elfFullName: [u16; 64],
     pub elfStyle: [u16; 32],
 }
-impl ::core::marker::Copy for ENUMLOGFONTW {}
-impl ::core::clone::Clone for ENUMLOGFONTW {
+impl Copy for ENUMLOGFONTW {}
+impl Clone for ENUMLOGFONTW {
     fn clone(&self) -> Self {
         *self
     }
@@ -3787,8 +3787,8 @@ pub struct EXTLOGFONTA {
     pub elfCulture: u32,
     pub elfPanose: PANOSE,
 }
-impl ::core::marker::Copy for EXTLOGFONTA {}
-impl ::core::clone::Clone for EXTLOGFONTA {
+impl Copy for EXTLOGFONTA {}
+impl Clone for EXTLOGFONTA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3806,8 +3806,8 @@ pub struct EXTLOGFONTW {
     pub elfCulture: u32,
     pub elfPanose: PANOSE,
 }
-impl ::core::marker::Copy for EXTLOGFONTW {}
-impl ::core::clone::Clone for EXTLOGFONTW {
+impl Copy for EXTLOGFONTW {}
+impl Clone for EXTLOGFONTW {
     fn clone(&self) -> Self {
         *self
     }
@@ -3822,8 +3822,8 @@ pub struct EXTLOGPEN {
     pub elpNumEntries: u32,
     pub elpStyleEntry: [u32; 1],
 }
-impl ::core::marker::Copy for EXTLOGPEN {}
-impl ::core::clone::Clone for EXTLOGPEN {
+impl Copy for EXTLOGPEN {}
+impl Clone for EXTLOGPEN {
     fn clone(&self) -> Self {
         *self
     }
@@ -3838,8 +3838,8 @@ pub struct EXTLOGPEN32 {
     pub elpNumEntries: u32,
     pub elpStyleEntry: [u32; 1],
 }
-impl ::core::marker::Copy for EXTLOGPEN32 {}
-impl ::core::clone::Clone for EXTLOGPEN32 {
+impl Copy for EXTLOGPEN32 {}
+impl Clone for EXTLOGPEN32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3849,8 +3849,8 @@ pub struct FIXED {
     pub fract: u16,
     pub value: i16,
 }
-impl ::core::marker::Copy for FIXED {}
-impl ::core::clone::Clone for FIXED {
+impl Copy for FIXED {}
+impl Clone for FIXED {
     fn clone(&self) -> Self {
         *self
     }
@@ -3858,17 +3858,17 @@ impl ::core::clone::Clone for FIXED {
 #[repr(C)]
 pub struct GCP_RESULTSA {
     pub lStructSize: u32,
-    pub lpOutString: ::windows_sys::core::PSTR,
+    pub lpOutString: windows_sys::core::PSTR,
     pub lpOrder: *mut u32,
     pub lpDx: *mut i32,
     pub lpCaretPos: *mut i32,
-    pub lpClass: ::windows_sys::core::PSTR,
-    pub lpGlyphs: ::windows_sys::core::PWSTR,
+    pub lpClass: windows_sys::core::PSTR,
+    pub lpGlyphs: windows_sys::core::PWSTR,
     pub nGlyphs: u32,
     pub nMaxFit: i32,
 }
-impl ::core::marker::Copy for GCP_RESULTSA {}
-impl ::core::clone::Clone for GCP_RESULTSA {
+impl Copy for GCP_RESULTSA {}
+impl Clone for GCP_RESULTSA {
     fn clone(&self) -> Self {
         *self
     }
@@ -3876,17 +3876,17 @@ impl ::core::clone::Clone for GCP_RESULTSA {
 #[repr(C)]
 pub struct GCP_RESULTSW {
     pub lStructSize: u32,
-    pub lpOutString: ::windows_sys::core::PWSTR,
+    pub lpOutString: windows_sys::core::PWSTR,
     pub lpOrder: *mut u32,
     pub lpDx: *mut i32,
     pub lpCaretPos: *mut i32,
-    pub lpClass: ::windows_sys::core::PSTR,
-    pub lpGlyphs: ::windows_sys::core::PWSTR,
+    pub lpClass: windows_sys::core::PSTR,
+    pub lpGlyphs: windows_sys::core::PWSTR,
     pub nGlyphs: u32,
     pub nMaxFit: i32,
 }
-impl ::core::marker::Copy for GCP_RESULTSW {}
-impl ::core::clone::Clone for GCP_RESULTSW {
+impl Copy for GCP_RESULTSW {}
+impl Clone for GCP_RESULTSW {
     fn clone(&self) -> Self {
         *self
     }
@@ -3899,8 +3899,8 @@ pub struct GLYPHMETRICS {
     pub gmCellIncX: i16,
     pub gmCellIncY: i16,
 }
-impl ::core::marker::Copy for GLYPHMETRICS {}
-impl ::core::clone::Clone for GLYPHMETRICS {
+impl Copy for GLYPHMETRICS {}
+impl Clone for GLYPHMETRICS {
     fn clone(&self) -> Self {
         *self
     }
@@ -3913,8 +3913,8 @@ pub struct GLYPHSET {
     pub cRanges: u32,
     pub ranges: [WCRANGE; 1],
 }
-impl ::core::marker::Copy for GLYPHSET {}
-impl ::core::clone::Clone for GLYPHSET {
+impl Copy for GLYPHSET {}
+impl Clone for GLYPHSET {
     fn clone(&self) -> Self {
         *self
     }
@@ -3924,8 +3924,8 @@ pub struct GRADIENT_RECT {
     pub UpperLeft: u32,
     pub LowerRight: u32,
 }
-impl ::core::marker::Copy for GRADIENT_RECT {}
-impl ::core::clone::Clone for GRADIENT_RECT {
+impl Copy for GRADIENT_RECT {}
+impl Clone for GRADIENT_RECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -3936,8 +3936,8 @@ pub struct GRADIENT_TRIANGLE {
     pub Vertex2: u32,
     pub Vertex3: u32,
 }
-impl ::core::marker::Copy for GRADIENT_TRIANGLE {}
-impl ::core::clone::Clone for GRADIENT_TRIANGLE {
+impl Copy for GRADIENT_TRIANGLE {}
+impl Clone for GRADIENT_TRIANGLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3946,8 +3946,8 @@ impl ::core::clone::Clone for GRADIENT_TRIANGLE {
 pub struct HANDLETABLE {
     pub objectHandle: [HGDIOBJ; 1],
 }
-impl ::core::marker::Copy for HANDLETABLE {}
-impl ::core::clone::Clone for HANDLETABLE {
+impl Copy for HANDLETABLE {}
+impl Clone for HANDLETABLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -3969,8 +3969,8 @@ pub struct KERNINGPAIR {
     pub wSecond: u16,
     pub iKernAmount: i32,
 }
-impl ::core::marker::Copy for KERNINGPAIR {}
-impl ::core::clone::Clone for KERNINGPAIR {
+impl Copy for KERNINGPAIR {}
+impl Clone for KERNINGPAIR {
     fn clone(&self) -> Self {
         *self
     }
@@ -3981,8 +3981,8 @@ pub struct LOGBRUSH {
     pub lbColor: super::super::Foundation::COLORREF,
     pub lbHatch: usize,
 }
-impl ::core::marker::Copy for LOGBRUSH {}
-impl ::core::clone::Clone for LOGBRUSH {
+impl Copy for LOGBRUSH {}
+impl Clone for LOGBRUSH {
     fn clone(&self) -> Self {
         *self
     }
@@ -3993,8 +3993,8 @@ pub struct LOGBRUSH32 {
     pub lbColor: super::super::Foundation::COLORREF,
     pub lbHatch: u32,
 }
-impl ::core::marker::Copy for LOGBRUSH32 {}
-impl ::core::clone::Clone for LOGBRUSH32 {
+impl Copy for LOGBRUSH32 {}
+impl Clone for LOGBRUSH32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4016,8 +4016,8 @@ pub struct LOGFONTA {
     pub lfPitchAndFamily: u8,
     pub lfFaceName: [i8; 32],
 }
-impl ::core::marker::Copy for LOGFONTA {}
-impl ::core::clone::Clone for LOGFONTA {
+impl Copy for LOGFONTA {}
+impl Clone for LOGFONTA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4039,8 +4039,8 @@ pub struct LOGFONTW {
     pub lfPitchAndFamily: u8,
     pub lfFaceName: [u16; 32],
 }
-impl ::core::marker::Copy for LOGFONTW {}
-impl ::core::clone::Clone for LOGFONTW {
+impl Copy for LOGFONTW {}
+impl Clone for LOGFONTW {
     fn clone(&self) -> Self {
         *self
     }
@@ -4051,8 +4051,8 @@ pub struct LOGPALETTE {
     pub palNumEntries: u16,
     pub palPalEntry: [PALETTEENTRY; 1],
 }
-impl ::core::marker::Copy for LOGPALETTE {}
-impl ::core::clone::Clone for LOGPALETTE {
+impl Copy for LOGPALETTE {}
+impl Clone for LOGPALETTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4063,8 +4063,8 @@ pub struct LOGPEN {
     pub lopnWidth: super::super::Foundation::POINT,
     pub lopnColor: super::super::Foundation::COLORREF,
 }
-impl ::core::marker::Copy for LOGPEN {}
-impl ::core::clone::Clone for LOGPEN {
+impl Copy for LOGPEN {}
+impl Clone for LOGPEN {
     fn clone(&self) -> Self {
         *self
     }
@@ -4076,8 +4076,8 @@ pub struct MAT2 {
     pub eM21: FIXED,
     pub eM22: FIXED,
 }
-impl ::core::marker::Copy for MAT2 {}
-impl ::core::clone::Clone for MAT2 {
+impl Copy for MAT2 {}
+impl Clone for MAT2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4092,8 +4092,8 @@ pub struct METAHEADER {
     pub mtMaxRecord: u32,
     pub mtNoParameters: u16,
 }
-impl ::core::marker::Copy for METAHEADER {}
-impl ::core::clone::Clone for METAHEADER {
+impl Copy for METAHEADER {}
+impl Clone for METAHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4104,8 +4104,8 @@ pub struct METARECORD {
     pub rdFunction: u16,
     pub rdParm: [u16; 1],
 }
-impl ::core::marker::Copy for METARECORD {}
-impl ::core::clone::Clone for METARECORD {
+impl Copy for METARECORD {}
+impl Clone for METARECORD {
     fn clone(&self) -> Self {
         *self
     }
@@ -4117,8 +4117,8 @@ pub struct MONITORINFO {
     pub rcWork: super::super::Foundation::RECT,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for MONITORINFO {}
-impl ::core::clone::Clone for MONITORINFO {
+impl Copy for MONITORINFO {}
+impl Clone for MONITORINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4128,8 +4128,8 @@ pub struct MONITORINFOEXA {
     pub monitorInfo: MONITORINFO,
     pub szDevice: [i8; 32],
 }
-impl ::core::marker::Copy for MONITORINFOEXA {}
-impl ::core::clone::Clone for MONITORINFOEXA {
+impl Copy for MONITORINFOEXA {}
+impl Clone for MONITORINFOEXA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4139,8 +4139,8 @@ pub struct MONITORINFOEXW {
     pub monitorInfo: MONITORINFO,
     pub szDevice: [u16; 32],
 }
-impl ::core::marker::Copy for MONITORINFOEXW {}
-impl ::core::clone::Clone for MONITORINFOEXW {
+impl Copy for MONITORINFOEXW {}
+impl Clone for MONITORINFOEXW {
     fn clone(&self) -> Self {
         *self
     }
@@ -4172,8 +4172,8 @@ pub struct NEWTEXTMETRICA {
     pub ntmCellHeight: u32,
     pub ntmAvgWidth: u32,
 }
-impl ::core::marker::Copy for NEWTEXTMETRICA {}
-impl ::core::clone::Clone for NEWTEXTMETRICA {
+impl Copy for NEWTEXTMETRICA {}
+impl Clone for NEWTEXTMETRICA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4205,8 +4205,8 @@ pub struct NEWTEXTMETRICW {
     pub ntmCellHeight: u32,
     pub ntmAvgWidth: u32,
 }
-impl ::core::marker::Copy for NEWTEXTMETRICW {}
-impl ::core::clone::Clone for NEWTEXTMETRICW {
+impl Copy for NEWTEXTMETRICW {}
+impl Clone for NEWTEXTMETRICW {
     fn clone(&self) -> Self {
         *self
     }
@@ -4241,13 +4241,13 @@ pub struct OUTLINETEXTMETRICA {
     pub otmsStrikeoutPosition: i32,
     pub otmsUnderscoreSize: i32,
     pub otmsUnderscorePosition: i32,
-    pub otmpFamilyName: ::windows_sys::core::PSTR,
-    pub otmpFaceName: ::windows_sys::core::PSTR,
-    pub otmpStyleName: ::windows_sys::core::PSTR,
-    pub otmpFullName: ::windows_sys::core::PSTR,
+    pub otmpFamilyName: windows_sys::core::PSTR,
+    pub otmpFaceName: windows_sys::core::PSTR,
+    pub otmpStyleName: windows_sys::core::PSTR,
+    pub otmpFullName: windows_sys::core::PSTR,
 }
-impl ::core::marker::Copy for OUTLINETEXTMETRICA {}
-impl ::core::clone::Clone for OUTLINETEXTMETRICA {
+impl Copy for OUTLINETEXTMETRICA {}
+impl Clone for OUTLINETEXTMETRICA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4282,13 +4282,13 @@ pub struct OUTLINETEXTMETRICW {
     pub otmsStrikeoutPosition: i32,
     pub otmsUnderscoreSize: i32,
     pub otmsUnderscorePosition: i32,
-    pub otmpFamilyName: ::windows_sys::core::PSTR,
-    pub otmpFaceName: ::windows_sys::core::PSTR,
-    pub otmpStyleName: ::windows_sys::core::PSTR,
-    pub otmpFullName: ::windows_sys::core::PSTR,
+    pub otmpFamilyName: windows_sys::core::PSTR,
+    pub otmpFaceName: windows_sys::core::PSTR,
+    pub otmpStyleName: windows_sys::core::PSTR,
+    pub otmpFullName: windows_sys::core::PSTR,
 }
-impl ::core::marker::Copy for OUTLINETEXTMETRICW {}
-impl ::core::clone::Clone for OUTLINETEXTMETRICW {
+impl Copy for OUTLINETEXTMETRICW {}
+impl Clone for OUTLINETEXTMETRICW {
     fn clone(&self) -> Self {
         *self
     }
@@ -4302,8 +4302,8 @@ pub struct PAINTSTRUCT {
     pub fIncUpdate: super::super::Foundation::BOOL,
     pub rgbReserved: [u8; 32],
 }
-impl ::core::marker::Copy for PAINTSTRUCT {}
-impl ::core::clone::Clone for PAINTSTRUCT {
+impl Copy for PAINTSTRUCT {}
+impl Clone for PAINTSTRUCT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4315,8 +4315,8 @@ pub struct PALETTEENTRY {
     pub peBlue: u8,
     pub peFlags: u8,
 }
-impl ::core::marker::Copy for PALETTEENTRY {}
-impl ::core::clone::Clone for PALETTEENTRY {
+impl Copy for PALETTEENTRY {}
+impl Clone for PALETTEENTRY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4334,8 +4334,8 @@ pub struct PANOSE {
     pub bMidline: PAN_MIDLINE,
     pub bXHeight: PAN_XHEIGHT,
 }
-impl ::core::marker::Copy for PANOSE {}
-impl ::core::clone::Clone for PANOSE {
+impl Copy for PANOSE {}
+impl Clone for PANOSE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4348,8 +4348,8 @@ pub struct PELARRAY {
     pub paYExt: i32,
     pub paRGBs: u8,
 }
-impl ::core::marker::Copy for PELARRAY {}
-impl ::core::clone::Clone for PELARRAY {
+impl Copy for PELARRAY {}
+impl Clone for PELARRAY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4359,8 +4359,8 @@ pub struct POINTFX {
     pub x: FIXED,
     pub y: FIXED,
 }
-impl ::core::marker::Copy for POINTFX {}
-impl ::core::clone::Clone for POINTFX {
+impl Copy for POINTFX {}
+impl Clone for POINTFX {
     fn clone(&self) -> Self {
         *self
     }
@@ -4370,13 +4370,13 @@ pub struct POLYTEXTA {
     pub x: i32,
     pub y: i32,
     pub n: u32,
-    pub lpstr: ::windows_sys::core::PCSTR,
+    pub lpstr: windows_sys::core::PCSTR,
     pub uiFlags: u32,
     pub rcl: super::super::Foundation::RECT,
     pub pdx: *mut i32,
 }
-impl ::core::marker::Copy for POLYTEXTA {}
-impl ::core::clone::Clone for POLYTEXTA {
+impl Copy for POLYTEXTA {}
+impl Clone for POLYTEXTA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4386,13 +4386,13 @@ pub struct POLYTEXTW {
     pub x: i32,
     pub y: i32,
     pub n: u32,
-    pub lpstr: ::windows_sys::core::PCWSTR,
+    pub lpstr: windows_sys::core::PCWSTR,
     pub uiFlags: u32,
     pub rcl: super::super::Foundation::RECT,
     pub pdx: *mut i32,
 }
-impl ::core::marker::Copy for POLYTEXTW {}
-impl ::core::clone::Clone for POLYTEXTW {
+impl Copy for POLYTEXTW {}
+impl Clone for POLYTEXTW {
     fn clone(&self) -> Self {
         *self
     }
@@ -4403,8 +4403,8 @@ pub struct RASTERIZER_STATUS {
     pub wFlags: i16,
     pub nLanguageID: i16,
 }
-impl ::core::marker::Copy for RASTERIZER_STATUS {}
-impl ::core::clone::Clone for RASTERIZER_STATUS {
+impl Copy for RASTERIZER_STATUS {}
+impl Clone for RASTERIZER_STATUS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4416,8 +4416,8 @@ pub struct RGBQUAD {
     pub rgbRed: u8,
     pub rgbReserved: u8,
 }
-impl ::core::marker::Copy for RGBQUAD {}
-impl ::core::clone::Clone for RGBQUAD {
+impl Copy for RGBQUAD {}
+impl Clone for RGBQUAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -4428,8 +4428,8 @@ pub struct RGBTRIPLE {
     pub rgbtGreen: u8,
     pub rgbtRed: u8,
 }
-impl ::core::marker::Copy for RGBTRIPLE {}
-impl ::core::clone::Clone for RGBTRIPLE {
+impl Copy for RGBTRIPLE {}
+impl Clone for RGBTRIPLE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4439,8 +4439,8 @@ pub struct RGNDATA {
     pub rdh: RGNDATAHEADER,
     pub Buffer: [i8; 1],
 }
-impl ::core::marker::Copy for RGNDATA {}
-impl ::core::clone::Clone for RGNDATA {
+impl Copy for RGNDATA {}
+impl Clone for RGNDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4453,8 +4453,8 @@ pub struct RGNDATAHEADER {
     pub nRgnSize: u32,
     pub rcBound: super::super::Foundation::RECT,
 }
-impl ::core::marker::Copy for RGNDATAHEADER {}
-impl ::core::clone::Clone for RGNDATAHEADER {
+impl Copy for RGNDATAHEADER {}
+impl Clone for RGNDATAHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4482,8 +4482,8 @@ pub struct TEXTMETRICA {
     pub tmPitchAndFamily: TMPF_FLAGS,
     pub tmCharSet: u8,
 }
-impl ::core::marker::Copy for TEXTMETRICA {}
-impl ::core::clone::Clone for TEXTMETRICA {
+impl Copy for TEXTMETRICA {}
+impl Clone for TEXTMETRICA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4511,8 +4511,8 @@ pub struct TEXTMETRICW {
     pub tmPitchAndFamily: TMPF_FLAGS,
     pub tmCharSet: u8,
 }
-impl ::core::marker::Copy for TEXTMETRICW {}
-impl ::core::clone::Clone for TEXTMETRICW {
+impl Copy for TEXTMETRICW {}
+impl Clone for TEXTMETRICW {
     fn clone(&self) -> Self {
         *self
     }
@@ -4526,8 +4526,8 @@ pub struct TRIVERTEX {
     pub Blue: u16,
     pub Alpha: u16,
 }
-impl ::core::marker::Copy for TRIVERTEX {}
-impl ::core::clone::Clone for TRIVERTEX {
+impl Copy for TRIVERTEX {}
+impl Clone for TRIVERTEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -4538,8 +4538,8 @@ pub struct TTEMBEDINFO {
     pub usRootStrSize: u16,
     pub pusRootStr: *mut u16,
 }
-impl ::core::marker::Copy for TTEMBEDINFO {}
-impl ::core::clone::Clone for TTEMBEDINFO {
+impl Copy for TTEMBEDINFO {}
+impl Clone for TTEMBEDINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4550,8 +4550,8 @@ pub struct TTLOADINFO {
     pub usRefStrSize: u16,
     pub pusRefStr: *mut u16,
 }
-impl ::core::marker::Copy for TTLOADINFO {}
-impl ::core::clone::Clone for TTLOADINFO {
+impl Copy for TTLOADINFO {}
+impl Clone for TTLOADINFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -4562,8 +4562,8 @@ pub struct TTPOLYCURVE {
     pub cpfx: u16,
     pub apfx: [POINTFX; 1],
 }
-impl ::core::marker::Copy for TTPOLYCURVE {}
-impl ::core::clone::Clone for TTPOLYCURVE {
+impl Copy for TTPOLYCURVE {}
+impl Clone for TTPOLYCURVE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4574,8 +4574,8 @@ pub struct TTPOLYGONHEADER {
     pub dwType: u32,
     pub pfxStart: POINTFX,
 }
-impl ::core::marker::Copy for TTPOLYGONHEADER {}
-impl ::core::clone::Clone for TTPOLYGONHEADER {
+impl Copy for TTPOLYGONHEADER {}
+impl Clone for TTPOLYGONHEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -4590,8 +4590,8 @@ pub struct TTVALIDATIONTESTSPARAMS {
     pub usCharCodeCount: u16,
     pub pusCharCodeSet: *mut u16,
 }
-impl ::core::marker::Copy for TTVALIDATIONTESTSPARAMS {}
-impl ::core::clone::Clone for TTVALIDATIONTESTSPARAMS {
+impl Copy for TTVALIDATIONTESTSPARAMS {}
+impl Clone for TTVALIDATIONTESTSPARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4606,8 +4606,8 @@ pub struct TTVALIDATIONTESTSPARAMSEX {
     pub usCharCodeCount: u16,
     pub pulCharCodeSet: *mut u32,
 }
-impl ::core::marker::Copy for TTVALIDATIONTESTSPARAMSEX {}
-impl ::core::clone::Clone for TTVALIDATIONTESTSPARAMSEX {
+impl Copy for TTVALIDATIONTESTSPARAMSEX {}
+impl Clone for TTVALIDATIONTESTSPARAMSEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -4617,8 +4617,8 @@ pub struct WCRANGE {
     pub wcLow: u16,
     pub cGlyphs: u16,
 }
-impl ::core::marker::Copy for WCRANGE {}
-impl ::core::clone::Clone for WCRANGE {
+impl Copy for WCRANGE {}
+impl Clone for WCRANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -4628,8 +4628,8 @@ pub struct WGLSWAP {
     pub hdc: HDC,
     pub uiFlags: u32,
 }
-impl ::core::marker::Copy for WGLSWAP {}
-impl ::core::clone::Clone for WGLSWAP {
+impl Copy for WGLSWAP {}
+impl Clone for WGLSWAP {
     fn clone(&self) -> Self {
         *self
     }
@@ -4643,25 +4643,25 @@ pub struct XFORM {
     pub eDx: f32,
     pub eDy: f32,
 }
-impl ::core::marker::Copy for XFORM {}
-impl ::core::clone::Clone for XFORM {
+impl Copy for XFORM {}
+impl Clone for XFORM {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type CFP_ALLOCPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> *mut ::core::ffi::c_void>;
-pub type CFP_FREEPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
-pub type CFP_REALLOCPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: usize) -> *mut ::core::ffi::c_void>;
-pub type DRAWSTATEPROC = ::core::option::Option<unsafe extern "system" fn(hdc: HDC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, cx: i32, cy: i32) -> super::super::Foundation::BOOL>;
-pub type ENHMFENUMPROC = ::core::option::Option<unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const ENHMETARECORD, nhandles: i32, data: super::super::Foundation::LPARAM) -> i32>;
-pub type FONTENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: *const LOGFONTA, param1: *const TEXTMETRICA, param2: u32, param3: super::super::Foundation::LPARAM) -> i32>;
-pub type FONTENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: *const LOGFONTW, param1: *const TEXTMETRICW, param2: u32, param3: super::super::Foundation::LPARAM) -> i32>;
-pub type GOBJENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::LPARAM) -> i32>;
-pub type GRAYSTRINGPROC = ::core::option::Option<unsafe extern "system" fn(param0: HDC, param1: super::super::Foundation::LPARAM, param2: i32) -> super::super::Foundation::BOOL>;
-pub type LINEDDAPROC = ::core::option::Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: super::super::Foundation::LPARAM)>;
-pub type LPFNDEVCAPS = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCSTR, param1: ::windows_sys::core::PCSTR, param2: u32, param3: ::windows_sys::core::PCSTR, param4: *mut DEVMODEA) -> u32>;
-pub type LPFNDEVMODE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::HMODULE, param2: *mut DEVMODEA, param3: ::windows_sys::core::PCSTR, param4: ::windows_sys::core::PCSTR, param5: *mut DEVMODEA, param6: ::windows_sys::core::PCSTR, param7: u32) -> u32>;
-pub type MFENUMPROC = ::core::option::Option<unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const METARECORD, nobj: i32, param4: super::super::Foundation::LPARAM) -> i32>;
-pub type MONITORENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: HMONITOR, param1: HDC, param2: *mut super::super::Foundation::RECT, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-pub type READEMBEDPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void, param2: u32) -> u32>;
-pub type WRITEEMBEDPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *const ::core::ffi::c_void, param2: u32) -> u32>;
+pub type CFP_ALLOCPROC = Option<unsafe extern "system" fn(param0: usize) -> *mut core::ffi::c_void>;
+pub type CFP_FREEPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
+pub type CFP_REALLOCPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: usize) -> *mut core::ffi::c_void>;
+pub type DRAWSTATEPROC = Option<unsafe extern "system" fn(hdc: HDC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, cx: i32, cy: i32) -> super::super::Foundation::BOOL>;
+pub type ENHMFENUMPROC = Option<unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const ENHMETARECORD, nhandles: i32, data: super::super::Foundation::LPARAM) -> i32>;
+pub type FONTENUMPROCA = Option<unsafe extern "system" fn(param0: *const LOGFONTA, param1: *const TEXTMETRICA, param2: u32, param3: super::super::Foundation::LPARAM) -> i32>;
+pub type FONTENUMPROCW = Option<unsafe extern "system" fn(param0: *const LOGFONTW, param1: *const TEXTMETRICW, param2: u32, param3: super::super::Foundation::LPARAM) -> i32>;
+pub type GOBJENUMPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: super::super::Foundation::LPARAM) -> i32>;
+pub type GRAYSTRINGPROC = Option<unsafe extern "system" fn(param0: HDC, param1: super::super::Foundation::LPARAM, param2: i32) -> super::super::Foundation::BOOL>;
+pub type LINEDDAPROC = Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: super::super::Foundation::LPARAM)>;
+pub type LPFNDEVCAPS = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: u32, param3: windows_sys::core::PCSTR, param4: *mut DEVMODEA) -> u32>;
+pub type LPFNDEVMODE = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::HMODULE, param2: *mut DEVMODEA, param3: windows_sys::core::PCSTR, param4: windows_sys::core::PCSTR, param5: *mut DEVMODEA, param6: windows_sys::core::PCSTR, param7: u32) -> u32>;
+pub type MFENUMPROC = Option<unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const METARECORD, nobj: i32, param4: super::super::Foundation::LPARAM) -> i32>;
+pub type MONITORENUMPROC = Option<unsafe extern "system" fn(param0: HMONITOR, param1: HDC, param2: *mut super::super::Foundation::RECT, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type READEMBEDPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void, param2: u32) -> u32>;
+pub type WRITEEMBEDPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *const core::ffi::c_void, param2: u32) -> u32>;

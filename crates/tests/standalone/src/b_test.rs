@@ -11,7 +11,7 @@
 ::windows_targets::link!("kernel32.dll" "system" fn CreateEventW(lpeventattributes : *const SECURITY_ATTRIBUTES, bmanualreset : BOOL, binitialstate : BOOL, lpname : PCWSTR) -> HANDLE);
 ::windows_targets::link!("kernel32.dll" "system" fn SetEvent(hevent : HANDLE) -> BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : HANDLE, dwmilliseconds : u32) -> WAIT_EVENT);
-::windows_targets::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const GUID, punkouter : * mut::core::ffi::c_void, dwclscontext : CLSCTX, riid : *const GUID, ppv : *mut *mut ::core::ffi::c_void) -> HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const GUID, punkouter : * mut core::ffi::c_void, dwclscontext : CLSCTX, riid : *const GUID, ppv : *mut *mut core::ffi::c_void) -> HRESULT);
 ::windows_targets::link!("user32.dll" "cdecl" fn wsprintfA(param0 : PSTR, param1 : PCSTR, ...) -> i32);
 pub type BOOL = i32;
 pub type CLSCTX = u32;
@@ -23,8 +23,8 @@ pub struct GUID {
     pub data3: u16,
     pub data4: [u8; 8],
 }
-impl ::core::marker::Copy for GUID {}
-impl ::core::clone::Clone for GUID {
+impl Copy for GUID {}
+impl Clone for GUID {
     fn clone(&self) -> Self {
         *self
     }
@@ -47,11 +47,11 @@ pub type PSTR = *mut u8;
 #[repr(C)]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: u32,
-    pub lpSecurityDescriptor: *mut ::core::ffi::c_void,
+    pub lpSecurityDescriptor: *mut core::ffi::c_void,
     pub bInheritHandle: BOOL,
 }
-impl ::core::marker::Copy for SECURITY_ATTRIBUTES {}
-impl ::core::clone::Clone for SECURITY_ATTRIBUTES {
+impl Copy for SECURITY_ATTRIBUTES {}
+impl Clone for SECURITY_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }

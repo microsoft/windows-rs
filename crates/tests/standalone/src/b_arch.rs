@@ -24,9 +24,9 @@ pub struct WSADATA {
     pub szSystemStatus: [i8; 129],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for WSADATA {}
+impl Copy for WSADATA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for WSADATA {
+impl Clone for WSADATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -43,9 +43,9 @@ pub struct WSADATA {
     pub lpVendorInfo: PSTR,
 }
 #[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for WSADATA {}
+impl Copy for WSADATA {}
 #[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for WSADATA {
+impl Clone for WSADATA {
     fn clone(&self) -> Self {
         *self
     }

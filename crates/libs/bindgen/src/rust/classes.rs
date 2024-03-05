@@ -10,7 +10,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         if def.interface_impls().next().is_some() {
             let name = to_ident(def.name());
             quote! {
-                pub type #name = *mut ::core::ffi::c_void;
+                pub type #name = *mut core::ffi::c_void;
             }
         } else {
             quote! {}
@@ -53,11 +53,11 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
                     return Some(quote! {
                         #[doc(hidden)]
                         #features
-                        pub fn #interface_type<R, F: FnOnce(&#interface_type) -> ::windows_core::Result<R>>(
+                        pub fn #interface_type<R, F: FnOnce(&#interface_type) -> windows_core::Result<R>>(
                             callback: F,
-                        ) -> ::windows_core::Result<R> {
-                            static SHARED: ::windows_core::imp::FactoryCache<#name, #interface_type> =
-                                ::windows_core::imp::FactoryCache::new();
+                        ) -> windows_core::Result<R> {
+                            static SHARED: windows_core::imp::FactoryCache<#name, #interface_type> =
+                                windows_core::imp::FactoryCache::new();
                             SHARED.call(callback)
                         }
                     });
@@ -71,14 +71,14 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     if def.interface_impls().next().is_some() {
         let new = if type_def_has_default_constructor(def) {
             quote! {
-                pub fn new() -> ::windows_core::Result<Self> {
+                pub fn new() -> windows_core::Result<Self> {
                     Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
                 }
-                fn IActivationFactory<R, F: FnOnce(&::windows_core::imp::IGenericFactory) -> ::windows_core::Result<R>>(
+                fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(
                     callback: F,
-                ) -> ::windows_core::Result<R> {
-                    static SHARED: ::windows_core::imp::FactoryCache<#name, ::windows_core::imp::IGenericFactory> =
-                        ::windows_core::imp::FactoryCache::new();
+                ) -> windows_core::Result<R> {
+                    static SHARED: windows_core::imp::FactoryCache<#name, windows_core::imp::IGenericFactory> =
+                        windows_core::imp::FactoryCache::new();
                     SHARED.call(callback)
                 }
             }
@@ -89,8 +89,8 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         let mut tokens = quote! {
             #features
             #[repr(transparent)]
-            #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-            pub struct #name(::windows_core::IUnknown);
+            #[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+            pub struct #name(windows_core::IUnknown);
         };
 
         tokens.combine(&gen_conversions(writer, def, &name, &interfaces, &cfg));
@@ -131,10 +131,10 @@ fn gen_conversions(writer: &Writer, def: metadata::TypeDef, ident: &TokenStream,
     let features = writer.cfg_features(cfg);
     let mut tokens = quote! {
         #features
-        ::windows_core::imp::interface_hierarchy!(#ident, ::windows_core::IUnknown, ::windows_core::IInspectable);
+        windows_core::imp::interface_hierarchy!(#ident, windows_core::IUnknown, windows_core::IInspectable);
     };
 
-    let mut hierarchy = format!("::windows_core::imp::required_hierarchy!({ident}");
+    let mut hierarchy = format!("windows_core::imp::required_hierarchy!({ident}");
     let mut hierarchy_cfg = cfg.clone();
     let mut hierarchy_added = false;
 

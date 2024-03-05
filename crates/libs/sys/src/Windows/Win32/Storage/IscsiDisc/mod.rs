@@ -1,82 +1,82 @@
-::windows_targets::link!("iscsidsc.dll" "system" fn AddISNSServerA(address : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn AddISNSServerW(address : ::windows_sys::core::PCWSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiConnectionA(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, reserved : *mut ::core::ffi::c_void, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALA, securityflags : u64, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : ::windows_sys::core::PCSTR, connectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiConnectionW(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, reserved : *mut ::core::ffi::c_void, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALW, securityflags : u64, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : ::windows_sys::core::PCSTR, connectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiSendTargetPortalA(initiatorinstance : ::windows_sys::core::PCSTR, initiatorportnumber : u32, loginoptions : *mut ISCSI_LOGIN_OPTIONS, securityflags : u64, portal : *mut ISCSI_TARGET_PORTALA) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiSendTargetPortalW(initiatorinstance : ::windows_sys::core::PCWSTR, initiatorportnumber : u32, loginoptions : *mut ISCSI_LOGIN_OPTIONS, securityflags : u64, portal : *mut ISCSI_TARGET_PORTALW) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiStaticTargetA(targetname : ::windows_sys::core::PCSTR, targetalias : ::windows_sys::core::PCSTR, targetflags : u32, persist : super::super::Foundation:: BOOLEAN, mappings : *mut ISCSI_TARGET_MAPPINGA, loginoptions : *mut ISCSI_LOGIN_OPTIONS, portalgroup : *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiStaticTargetW(targetname : ::windows_sys::core::PCWSTR, targetalias : ::windows_sys::core::PCWSTR, targetflags : u32, persist : super::super::Foundation:: BOOLEAN, mappings : *mut ISCSI_TARGET_MAPPINGW, loginoptions : *mut ISCSI_LOGIN_OPTIONS, portalgroup : *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn AddPersistentIScsiDeviceA(devicepath : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn AddPersistentIScsiDeviceW(devicepath : ::windows_sys::core::PCWSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn AddRadiusServerA(address : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn AddRadiusServerW(address : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn AddISNSServerA(address : windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn AddISNSServerW(address : windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiConnectionA(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, reserved : *mut core::ffi::c_void, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALA, securityflags : u64, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : windows_sys::core::PCSTR, connectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiConnectionW(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, reserved : *mut core::ffi::c_void, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALW, securityflags : u64, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : windows_sys::core::PCSTR, connectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiSendTargetPortalA(initiatorinstance : windows_sys::core::PCSTR, initiatorportnumber : u32, loginoptions : *mut ISCSI_LOGIN_OPTIONS, securityflags : u64, portal : *mut ISCSI_TARGET_PORTALA) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiSendTargetPortalW(initiatorinstance : windows_sys::core::PCWSTR, initiatorportnumber : u32, loginoptions : *mut ISCSI_LOGIN_OPTIONS, securityflags : u64, portal : *mut ISCSI_TARGET_PORTALW) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiStaticTargetA(targetname : windows_sys::core::PCSTR, targetalias : windows_sys::core::PCSTR, targetflags : u32, persist : super::super::Foundation:: BOOLEAN, mappings : *mut ISCSI_TARGET_MAPPINGA, loginoptions : *mut ISCSI_LOGIN_OPTIONS, portalgroup : *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiStaticTargetW(targetname : windows_sys::core::PCWSTR, targetalias : windows_sys::core::PCWSTR, targetflags : u32, persist : super::super::Foundation:: BOOLEAN, mappings : *mut ISCSI_TARGET_MAPPINGW, loginoptions : *mut ISCSI_LOGIN_OPTIONS, portalgroup : *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn AddPersistentIScsiDeviceA(devicepath : windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn AddPersistentIScsiDeviceW(devicepath : windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn AddRadiusServerA(address : windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn AddRadiusServerW(address : windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn ClearPersistentIScsiDevices() -> u32);
 #[cfg(feature = "Win32_System_Ioctl")]
 ::windows_targets::link!("iscsidsc.dll" "system" fn GetDevicesForIScsiSessionA(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, devicecount : *mut u32, devices : *mut ISCSI_DEVICE_ON_SESSIONA) -> u32);
 #[cfg(feature = "Win32_System_Ioctl")]
 ::windows_targets::link!("iscsidsc.dll" "system" fn GetDevicesForIScsiSessionW(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, devicecount : *mut u32, devices : *mut ISCSI_DEVICE_ON_SESSIONW) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiIKEInfoA(initiatorname : ::windows_sys::core::PCSTR, initiatorportnumber : u32, reserved : *mut u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiIKEInfoW(initiatorname : ::windows_sys::core::PCWSTR, initiatorportnumber : u32, reserved : *mut u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiInitiatorNodeNameA(initiatornodename : ::windows_sys::core::PSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiInitiatorNodeNameW(initiatornodename : ::windows_sys::core::PWSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiIKEInfoA(initiatorname : windows_sys::core::PCSTR, initiatorportnumber : u32, reserved : *mut u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiIKEInfoW(initiatorname : windows_sys::core::PCWSTR, initiatorportnumber : u32, reserved : *mut u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiInitiatorNodeNameA(initiatornodename : windows_sys::core::PSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiInitiatorNodeNameW(initiatornodename : windows_sys::core::PWSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiSessionListA(buffersize : *mut u32, sessioncount : *mut u32, sessioninfo : *mut ISCSI_SESSION_INFOA) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiSessionListEx(buffersize : *mut u32, sessioncountptr : *mut u32, sessioninfo : *mut ISCSI_SESSION_INFO_EX) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiSessionListW(buffersize : *mut u32, sessioncount : *mut u32, sessioninfo : *mut ISCSI_SESSION_INFOW) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiTargetInformationA(targetname : ::windows_sys::core::PCSTR, discoverymechanism : ::windows_sys::core::PCSTR, infoclass : TARGET_INFORMATION_CLASS, buffersize : *mut u32, buffer : *mut ::core::ffi::c_void) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiTargetInformationW(targetname : ::windows_sys::core::PCWSTR, discoverymechanism : ::windows_sys::core::PCWSTR, infoclass : TARGET_INFORMATION_CLASS, buffersize : *mut u32, buffer : *mut ::core::ffi::c_void) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiTargetInformationA(targetname : windows_sys::core::PCSTR, discoverymechanism : windows_sys::core::PCSTR, infoclass : TARGET_INFORMATION_CLASS, buffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiTargetInformationW(targetname : windows_sys::core::PCWSTR, discoverymechanism : windows_sys::core::PCWSTR, infoclass : TARGET_INFORMATION_CLASS, buffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiVersionInformation(versioninfo : *mut ISCSI_VERSION_INFO) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn LoginIScsiTargetA(targetname : ::windows_sys::core::PCSTR, isinformationalsession : super::super::Foundation:: BOOLEAN, initiatorinstance : ::windows_sys::core::PCSTR, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALA, securityflags : u64, mappings : *mut ISCSI_TARGET_MAPPINGA, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : ::windows_sys::core::PCSTR, ispersistent : super::super::Foundation:: BOOLEAN, uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn LoginIScsiTargetW(targetname : ::windows_sys::core::PCWSTR, isinformationalsession : super::super::Foundation:: BOOLEAN, initiatorinstance : ::windows_sys::core::PCWSTR, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALW, securityflags : u64, mappings : *mut ISCSI_TARGET_MAPPINGW, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : ::windows_sys::core::PCSTR, ispersistent : super::super::Foundation:: BOOLEAN, uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn LoginIScsiTargetA(targetname : windows_sys::core::PCSTR, isinformationalsession : super::super::Foundation:: BOOLEAN, initiatorinstance : windows_sys::core::PCSTR, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALA, securityflags : u64, mappings : *mut ISCSI_TARGET_MAPPINGA, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : windows_sys::core::PCSTR, ispersistent : super::super::Foundation:: BOOLEAN, uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn LoginIScsiTargetW(targetname : windows_sys::core::PCWSTR, isinformationalsession : super::super::Foundation:: BOOLEAN, initiatorinstance : windows_sys::core::PCWSTR, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALW, securityflags : u64, mappings : *mut ISCSI_TARGET_MAPPINGW, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : windows_sys::core::PCSTR, ispersistent : super::super::Foundation:: BOOLEAN, uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn LogoutIScsiTarget(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn RefreshISNSServerA(address : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn RefreshISNSServerW(address : ::windows_sys::core::PCWSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn RefreshIScsiSendTargetPortalA(initiatorinstance : ::windows_sys::core::PCSTR, initiatorportnumber : u32, portal : *mut ISCSI_TARGET_PORTALA) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn RefreshIScsiSendTargetPortalW(initiatorinstance : ::windows_sys::core::PCWSTR, initiatorportnumber : u32, portal : *mut ISCSI_TARGET_PORTALW) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn RemoveISNSServerA(address : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn RemoveISNSServerW(address : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn RefreshISNSServerA(address : windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn RefreshISNSServerW(address : windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn RefreshIScsiSendTargetPortalA(initiatorinstance : windows_sys::core::PCSTR, initiatorportnumber : u32, portal : *mut ISCSI_TARGET_PORTALA) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn RefreshIScsiSendTargetPortalW(initiatorinstance : windows_sys::core::PCWSTR, initiatorportnumber : u32, portal : *mut ISCSI_TARGET_PORTALW) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn RemoveISNSServerA(address : windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn RemoveISNSServerW(address : windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn RemoveIScsiConnection(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, connectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn RemoveIScsiPersistentTargetA(initiatorinstance : ::windows_sys::core::PCSTR, initiatorportnumber : u32, targetname : ::windows_sys::core::PCSTR, portal : *mut ISCSI_TARGET_PORTALA) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn RemoveIScsiPersistentTargetW(initiatorinstance : ::windows_sys::core::PCWSTR, initiatorportnumber : u32, targetname : ::windows_sys::core::PCWSTR, portal : *mut ISCSI_TARGET_PORTALW) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn RemoveIScsiSendTargetPortalA(initiatorinstance : ::windows_sys::core::PCSTR, initiatorportnumber : u32, portal : *mut ISCSI_TARGET_PORTALA) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn RemoveIScsiSendTargetPortalW(initiatorinstance : ::windows_sys::core::PCWSTR, initiatorportnumber : u32, portal : *mut ISCSI_TARGET_PORTALW) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn RemoveIScsiStaticTargetA(targetname : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn RemoveIScsiStaticTargetW(targetname : ::windows_sys::core::PCWSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn RemovePersistentIScsiDeviceA(devicepath : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn RemovePersistentIScsiDeviceW(devicepath : ::windows_sys::core::PCWSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn RemoveRadiusServerA(address : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn RemoveRadiusServerW(address : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn RemoveIScsiPersistentTargetA(initiatorinstance : windows_sys::core::PCSTR, initiatorportnumber : u32, targetname : windows_sys::core::PCSTR, portal : *mut ISCSI_TARGET_PORTALA) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn RemoveIScsiPersistentTargetW(initiatorinstance : windows_sys::core::PCWSTR, initiatorportnumber : u32, targetname : windows_sys::core::PCWSTR, portal : *mut ISCSI_TARGET_PORTALW) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn RemoveIScsiSendTargetPortalA(initiatorinstance : windows_sys::core::PCSTR, initiatorportnumber : u32, portal : *mut ISCSI_TARGET_PORTALA) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn RemoveIScsiSendTargetPortalW(initiatorinstance : windows_sys::core::PCWSTR, initiatorportnumber : u32, portal : *mut ISCSI_TARGET_PORTALW) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn RemoveIScsiStaticTargetA(targetname : windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn RemoveIScsiStaticTargetW(targetname : windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn RemovePersistentIScsiDeviceA(devicepath : windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn RemovePersistentIScsiDeviceW(devicepath : windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn RemoveRadiusServerA(address : windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn RemoveRadiusServerW(address : windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn ReportActiveIScsiTargetMappingsA(buffersize : *mut u32, mappingcount : *mut u32, mappings : *mut ISCSI_TARGET_MAPPINGA) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn ReportActiveIScsiTargetMappingsW(buffersize : *mut u32, mappingcount : *mut u32, mappings : *mut ISCSI_TARGET_MAPPINGW) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn ReportISNSServerListA(buffersizeinchar : *mut u32, buffer : ::windows_sys::core::PSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn ReportISNSServerListW(buffersizeinchar : *mut u32, buffer : ::windows_sys::core::PWSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiInitiatorListA(buffersize : *mut u32, buffer : ::windows_sys::core::PSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiInitiatorListW(buffersize : *mut u32, buffer : ::windows_sys::core::PWSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn ReportISNSServerListA(buffersizeinchar : *mut u32, buffer : windows_sys::core::PSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn ReportISNSServerListW(buffersizeinchar : *mut u32, buffer : windows_sys::core::PWSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiInitiatorListA(buffersize : *mut u32, buffer : windows_sys::core::PSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiInitiatorListW(buffersize : *mut u32, buffer : windows_sys::core::PWSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiPersistentLoginsA(count : *mut u32, persistentlogininfo : *mut PERSISTENT_ISCSI_LOGIN_INFOA, buffersizeinbytes : *mut u32) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiPersistentLoginsW(count : *mut u32, persistentlogininfo : *mut PERSISTENT_ISCSI_LOGIN_INFOW, buffersizeinbytes : *mut u32) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiSendTargetPortalsA(portalcount : *mut u32, portalinfo : *mut ISCSI_TARGET_PORTAL_INFOA) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiSendTargetPortalsExA(portalcount : *mut u32, portalinfosize : *mut u32, portalinfo : *mut ISCSI_TARGET_PORTAL_INFO_EXA) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiSendTargetPortalsExW(portalcount : *mut u32, portalinfosize : *mut u32, portalinfo : *mut ISCSI_TARGET_PORTAL_INFO_EXW) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiSendTargetPortalsW(portalcount : *mut u32, portalinfo : *mut ISCSI_TARGET_PORTAL_INFOW) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiTargetPortalsA(initiatorname : ::windows_sys::core::PCSTR, targetname : ::windows_sys::core::PCSTR, targetportaltag : *mut u16, elementcount : *mut u32, portals : *mut ISCSI_TARGET_PORTALA) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiTargetPortalsW(initiatorname : ::windows_sys::core::PCWSTR, targetname : ::windows_sys::core::PCWSTR, targetportaltag : *mut u16, elementcount : *mut u32, portals : *mut ISCSI_TARGET_PORTALW) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiTargetsA(forceupdate : super::super::Foundation:: BOOLEAN, buffersize : *mut u32, buffer : ::windows_sys::core::PSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiTargetsW(forceupdate : super::super::Foundation:: BOOLEAN, buffersize : *mut u32, buffer : ::windows_sys::core::PWSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn ReportPersistentIScsiDevicesA(buffersizeinchar : *mut u32, buffer : ::windows_sys::core::PSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn ReportPersistentIScsiDevicesW(buffersizeinchar : *mut u32, buffer : ::windows_sys::core::PWSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn ReportRadiusServerListA(buffersizeinchar : *mut u32, buffer : ::windows_sys::core::PSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn ReportRadiusServerListW(buffersizeinchar : *mut u32, buffer : ::windows_sys::core::PWSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiTargetPortalsA(initiatorname : windows_sys::core::PCSTR, targetname : windows_sys::core::PCSTR, targetportaltag : *mut u16, elementcount : *mut u32, portals : *mut ISCSI_TARGET_PORTALA) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiTargetPortalsW(initiatorname : windows_sys::core::PCWSTR, targetname : windows_sys::core::PCWSTR, targetportaltag : *mut u16, elementcount : *mut u32, portals : *mut ISCSI_TARGET_PORTALW) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiTargetsA(forceupdate : super::super::Foundation:: BOOLEAN, buffersize : *mut u32, buffer : windows_sys::core::PSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiTargetsW(forceupdate : super::super::Foundation:: BOOLEAN, buffersize : *mut u32, buffer : windows_sys::core::PWSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn ReportPersistentIScsiDevicesA(buffersizeinchar : *mut u32, buffer : windows_sys::core::PSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn ReportPersistentIScsiDevicesW(buffersizeinchar : *mut u32, buffer : windows_sys::core::PWSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn ReportRadiusServerListA(buffersizeinchar : *mut u32, buffer : windows_sys::core::PSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn ReportRadiusServerListW(buffersizeinchar : *mut u32, buffer : windows_sys::core::PWSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn SendScsiInquiry(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, lun : u64, evpdcmddt : u8, pagecode : u8, scsistatus : *mut u8, responsesize : *mut u32, responsebuffer : *mut u8, sensesize : *mut u32, sensebuffer : *mut u8) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn SendScsiReadCapacity(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, lun : u64, scsistatus : *mut u8, responsesize : *mut u32, responsebuffer : *mut u8, sensesize : *mut u32, sensebuffer : *mut u8) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn SendScsiReportLuns(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, scsistatus : *mut u8, responsesize : *mut u32, responsebuffer : *mut u8, sensesize : *mut u32, sensebuffer : *mut u8) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiGroupPresharedKey(keylength : u32, key : *mut u8, persist : super::super::Foundation:: BOOLEAN) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiIKEInfoA(initiatorname : ::windows_sys::core::PCSTR, initiatorportnumber : u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION, persist : super::super::Foundation:: BOOLEAN) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiIKEInfoW(initiatorname : ::windows_sys::core::PCWSTR, initiatorportnumber : u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION, persist : super::super::Foundation:: BOOLEAN) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiIKEInfoA(initiatorname : windows_sys::core::PCSTR, initiatorportnumber : u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION, persist : super::super::Foundation:: BOOLEAN) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiIKEInfoW(initiatorname : windows_sys::core::PCWSTR, initiatorportnumber : u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION, persist : super::super::Foundation:: BOOLEAN) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiInitiatorCHAPSharedSecret(sharedsecretlength : u32, sharedsecret : *mut u8) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiInitiatorNodeNameA(initiatornodename : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiInitiatorNodeNameW(initiatornodename : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiInitiatorNodeNameA(initiatornodename : windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiInitiatorNodeNameW(initiatornodename : windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength : u32, sharedsecret : *mut u8) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiTunnelModeOuterAddressA(initiatorname : ::windows_sys::core::PCSTR, initiatorportnumber : u32, destinationaddress : ::windows_sys::core::PCSTR, outermodeaddress : ::windows_sys::core::PCSTR, persist : super::super::Foundation:: BOOLEAN) -> u32);
-::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiTunnelModeOuterAddressW(initiatorname : ::windows_sys::core::PCWSTR, initiatorportnumber : u32, destinationaddress : ::windows_sys::core::PCWSTR, outermodeaddress : ::windows_sys::core::PCWSTR, persist : super::super::Foundation:: BOOLEAN) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiTunnelModeOuterAddressA(initiatorname : windows_sys::core::PCSTR, initiatorportnumber : u32, destinationaddress : windows_sys::core::PCSTR, outermodeaddress : windows_sys::core::PCSTR, persist : super::super::Foundation:: BOOLEAN) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiTunnelModeOuterAddressW(initiatorname : windows_sys::core::PCWSTR, initiatorportnumber : u32, destinationaddress : windows_sys::core::PCWSTR, outermodeaddress : windows_sys::core::PCWSTR, persist : super::super::Foundation:: BOOLEAN) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn SetupPersistentIScsiDevices() -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn SetupPersistentIScsiVolumes() -> u32);
 pub const ATA_FLAGS_48BIT_COMMAND: u32 = 8u32;
@@ -85,7 +85,7 @@ pub const ATA_FLAGS_DATA_OUT: u32 = 4u32;
 pub const ATA_FLAGS_DRDY_REQUIRED: u32 = 1u32;
 pub const ATA_FLAGS_NO_MULTIPLE: u32 = 32u32;
 pub const ATA_FLAGS_USE_DMA: u32 = 16u32;
-pub const DD_SCSI_DEVICE_NAME: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("\\Device\\ScsiPort");
+pub const DD_SCSI_DEVICE_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("\\Device\\ScsiPort");
 pub const DUMP_DRIVER_NAME_LENGTH: u32 = 15u32;
 pub const DUMP_EX_FLAG_DRIVER_FULL_PATH_SUPPORT: u32 = 8u32;
 pub const DUMP_EX_FLAG_RESUME_SUPPORT: u32 = 4u32;
@@ -137,27 +137,27 @@ pub const HYBRID_STATUS_ILLEGAL_REQUEST: u32 = 1u32;
 pub const HYBRID_STATUS_INVALID_PARAMETER: u32 = 2u32;
 pub const HYBRID_STATUS_OUTPUT_BUFFER_TOO_SMALL: u32 = 3u32;
 pub const HYBRID_STATUS_SUCCESS: u32 = 0u32;
-pub const ID_FQDN: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("2");
-pub const ID_IPV4_ADDR: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("1");
-pub const ID_IPV6_ADDR: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("5");
-pub const ID_USER_FQDN: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("3");
+pub const ID_FQDN: windows_sys::core::PCSTR = windows_sys::core::s!("2");
+pub const ID_IPV4_ADDR: windows_sys::core::PCSTR = windows_sys::core::s!("1");
+pub const ID_IPV6_ADDR: windows_sys::core::PCSTR = windows_sys::core::s!("5");
+pub const ID_USER_FQDN: windows_sys::core::PCSTR = windows_sys::core::s!("3");
 pub const IKE_AUTHENTICATION_PRESHARED_KEY_METHOD: IKE_AUTHENTICATION_METHOD = 1i32;
 pub const IOCTL_ATA_MINIPORT: u32 = 315444u32;
 pub const IOCTL_ATA_PASS_THROUGH: u32 = 315436u32;
 pub const IOCTL_ATA_PASS_THROUGH_DIRECT: u32 = 315440u32;
 pub const IOCTL_IDE_PASS_THROUGH: u32 = 315432u32;
 pub const IOCTL_MINIPORT_PROCESS_SERVICE_IRP: u32 = 315448u32;
-pub const IOCTL_MINIPORT_SIGNATURE_DSM_GENERAL: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("MPDSMGEN");
-pub const IOCTL_MINIPORT_SIGNATURE_DSM_NOTIFICATION: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("MPDSM   ");
-pub const IOCTL_MINIPORT_SIGNATURE_ENDURANCE_INFO: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ENDURINF");
-pub const IOCTL_MINIPORT_SIGNATURE_FIRMWARE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("FIRMWARE");
-pub const IOCTL_MINIPORT_SIGNATURE_HYBRDISK: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("HYBRDISK");
-pub const IOCTL_MINIPORT_SIGNATURE_QUERY_PHYSICAL_TOPOLOGY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("TOPOLOGY");
-pub const IOCTL_MINIPORT_SIGNATURE_QUERY_PROTOCOL: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("PROTOCOL");
-pub const IOCTL_MINIPORT_SIGNATURE_QUERY_TEMPERATURE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("TEMPERAT");
-pub const IOCTL_MINIPORT_SIGNATURE_SCSIDISK: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SCSIDISK");
-pub const IOCTL_MINIPORT_SIGNATURE_SET_PROTOCOL: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SETPROTO");
-pub const IOCTL_MINIPORT_SIGNATURE_SET_TEMPERATURE_THRESHOLD: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("SETTEMPT");
+pub const IOCTL_MINIPORT_SIGNATURE_DSM_GENERAL: windows_sys::core::PCSTR = windows_sys::core::s!("MPDSMGEN");
+pub const IOCTL_MINIPORT_SIGNATURE_DSM_NOTIFICATION: windows_sys::core::PCSTR = windows_sys::core::s!("MPDSM   ");
+pub const IOCTL_MINIPORT_SIGNATURE_ENDURANCE_INFO: windows_sys::core::PCSTR = windows_sys::core::s!("ENDURINF");
+pub const IOCTL_MINIPORT_SIGNATURE_FIRMWARE: windows_sys::core::PCSTR = windows_sys::core::s!("FIRMWARE");
+pub const IOCTL_MINIPORT_SIGNATURE_HYBRDISK: windows_sys::core::PCSTR = windows_sys::core::s!("HYBRDISK");
+pub const IOCTL_MINIPORT_SIGNATURE_QUERY_PHYSICAL_TOPOLOGY: windows_sys::core::PCSTR = windows_sys::core::s!("TOPOLOGY");
+pub const IOCTL_MINIPORT_SIGNATURE_QUERY_PROTOCOL: windows_sys::core::PCSTR = windows_sys::core::s!("PROTOCOL");
+pub const IOCTL_MINIPORT_SIGNATURE_QUERY_TEMPERATURE: windows_sys::core::PCSTR = windows_sys::core::s!("TEMPERAT");
+pub const IOCTL_MINIPORT_SIGNATURE_SCSIDISK: windows_sys::core::PCSTR = windows_sys::core::s!("SCSIDISK");
+pub const IOCTL_MINIPORT_SIGNATURE_SET_PROTOCOL: windows_sys::core::PCSTR = windows_sys::core::s!("SETPROTO");
+pub const IOCTL_MINIPORT_SIGNATURE_SET_TEMPERATURE_THRESHOLD: windows_sys::core::PCSTR = windows_sys::core::s!("SETTEMPT");
 pub const IOCTL_MPIO_PASS_THROUGH_PATH: u32 = 315452u32;
 pub const IOCTL_MPIO_PASS_THROUGH_PATH_DIRECT: u32 = 315456u32;
 pub const IOCTL_MPIO_PASS_THROUGH_PATH_DIRECT_EX: u32 = 315472u32;
@@ -183,24 +183,24 @@ pub const ISCSI_LOGIN_FLAG_REQUIRE_IPSEC: u32 = 1u32;
 pub const ISCSI_LOGIN_FLAG_RESERVED1: u32 = 4u32;
 pub const ISCSI_LOGIN_FLAG_USE_RADIUS_RESPONSE: u32 = 16u32;
 pub const ISCSI_LOGIN_FLAG_USE_RADIUS_VERIFICATION: u32 = 32u32;
-pub const ISCSI_LOGIN_OPTIONS_AUTH_TYPE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("0x00000080");
-pub const ISCSI_LOGIN_OPTIONS_DATA_DIGEST: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("0x00000002");
-pub const ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_RETAIN: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("0x00000010");
-pub const ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_WAIT: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("0x00000008");
-pub const ISCSI_LOGIN_OPTIONS_HEADER_DIGEST: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("0x00000001");
-pub const ISCSI_LOGIN_OPTIONS_MAXIMUM_CONNECTIONS: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("0x00000004");
-pub const ISCSI_LOGIN_OPTIONS_PASSWORD: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("0x00000040");
-pub const ISCSI_LOGIN_OPTIONS_USERNAME: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("0x00000020");
+pub const ISCSI_LOGIN_OPTIONS_AUTH_TYPE: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000080");
+pub const ISCSI_LOGIN_OPTIONS_DATA_DIGEST: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000002");
+pub const ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_RETAIN: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000010");
+pub const ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_WAIT: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000008");
+pub const ISCSI_LOGIN_OPTIONS_HEADER_DIGEST: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000001");
+pub const ISCSI_LOGIN_OPTIONS_MAXIMUM_CONNECTIONS: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000004");
+pub const ISCSI_LOGIN_OPTIONS_PASSWORD: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000040");
+pub const ISCSI_LOGIN_OPTIONS_USERNAME: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000020");
 pub const ISCSI_LOGIN_OPTIONS_VERSION: u32 = 0u32;
 pub const ISCSI_MUTUAL_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = 2i32;
 pub const ISCSI_NO_AUTH_TYPE: ISCSI_AUTH_TYPES = 0i32;
-pub const ISCSI_SECURITY_FLAG_AGGRESSIVE_MODE_ENABLED: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("0x00000008");
-pub const ISCSI_SECURITY_FLAG_IKE_IPSEC_ENABLED: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("0x00000002");
-pub const ISCSI_SECURITY_FLAG_MAIN_MODE_ENABLED: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("0x00000004");
-pub const ISCSI_SECURITY_FLAG_PFS_ENABLED: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("0x00000010");
-pub const ISCSI_SECURITY_FLAG_TRANSPORT_MODE_PREFERRED: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("0x00000020");
-pub const ISCSI_SECURITY_FLAG_TUNNEL_MODE_PREFERRED: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("0x00000040");
-pub const ISCSI_SECURITY_FLAG_VALID: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("0x00000001");
+pub const ISCSI_SECURITY_FLAG_AGGRESSIVE_MODE_ENABLED: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000008");
+pub const ISCSI_SECURITY_FLAG_IKE_IPSEC_ENABLED: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000002");
+pub const ISCSI_SECURITY_FLAG_MAIN_MODE_ENABLED: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000004");
+pub const ISCSI_SECURITY_FLAG_PFS_ENABLED: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000010");
+pub const ISCSI_SECURITY_FLAG_TRANSPORT_MODE_PREFERRED: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000020");
+pub const ISCSI_SECURITY_FLAG_TUNNEL_MODE_PREFERRED: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000040");
+pub const ISCSI_SECURITY_FLAG_VALID: windows_sys::core::PCSTR = windows_sys::core::s!("0x00000001");
 pub const ISCSI_TARGET_FLAG_HIDE_STATIC_TARGET: u32 = 2u32;
 pub const ISCSI_TARGET_FLAG_MERGE_TARGET_INFORMATION: u32 = 4u32;
 pub const ISCSI_TCP_PROTOCOL_TYPE: TARGETPROTOCOLTYPE = 0i32;
@@ -290,10 +290,10 @@ pub const STORAGE_FIRMWARE_INFO_INVALID_SLOT: u32 = 255u32;
 pub const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION: u32 = 1u32;
 pub const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION_V2: u32 = 2u32;
 pub const STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: u32 = 16u32;
-pub const ScsiRawInterfaceGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x53f56309_b6bf_11d0_94f2_00a0c91efb8b);
+pub const ScsiRawInterfaceGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53f56309_b6bf_11d0_94f2_00a0c91efb8b);
 pub const TargetAlias: TARGET_INFORMATION_CLASS = 1i32;
 pub const TargetFlags: TARGET_INFORMATION_CLASS = 6i32;
-pub const WmiScsiAddressGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x53f5630f_b6bf_11d0_94f2_00a0c91efb8b);
+pub const WmiScsiAddressGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53f5630f_b6bf_11d0_94f2_00a0c91efb8b);
 pub type IKE_AUTHENTICATION_METHOD = i32;
 pub type ISCSI_AUTH_TYPES = i32;
 pub type ISCSI_DIGEST_TYPES = i32;
@@ -315,12 +315,12 @@ pub struct ATA_PASS_THROUGH_DIRECT {
     pub DataTransferLength: u32,
     pub TimeOutValue: u32,
     pub ReservedAsUlong: u32,
-    pub DataBuffer: *mut ::core::ffi::c_void,
+    pub DataBuffer: *mut core::ffi::c_void,
     pub PreviousTaskFile: [u8; 8],
     pub CurrentTaskFile: [u8; 8],
 }
-impl ::core::marker::Copy for ATA_PASS_THROUGH_DIRECT {}
-impl ::core::clone::Clone for ATA_PASS_THROUGH_DIRECT {
+impl Copy for ATA_PASS_THROUGH_DIRECT {}
+impl Clone for ATA_PASS_THROUGH_DIRECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -337,14 +337,14 @@ pub struct ATA_PASS_THROUGH_DIRECT32 {
     pub DataTransferLength: u32,
     pub TimeOutValue: u32,
     pub ReservedAsUlong: u32,
-    pub DataBuffer: *mut ::core::ffi::c_void,
+    pub DataBuffer: *mut core::ffi::c_void,
     pub PreviousTaskFile: [u8; 8],
     pub CurrentTaskFile: [u8; 8],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for ATA_PASS_THROUGH_DIRECT32 {}
+impl Copy for ATA_PASS_THROUGH_DIRECT32 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for ATA_PASS_THROUGH_DIRECT32 {
+impl Clone for ATA_PASS_THROUGH_DIRECT32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -364,8 +364,8 @@ pub struct ATA_PASS_THROUGH_EX {
     pub PreviousTaskFile: [u8; 8],
     pub CurrentTaskFile: [u8; 8],
 }
-impl ::core::marker::Copy for ATA_PASS_THROUGH_EX {}
-impl ::core::clone::Clone for ATA_PASS_THROUGH_EX {
+impl Copy for ATA_PASS_THROUGH_EX {}
+impl Clone for ATA_PASS_THROUGH_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -387,9 +387,9 @@ pub struct ATA_PASS_THROUGH_EX32 {
     pub CurrentTaskFile: [u8; 8],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for ATA_PASS_THROUGH_EX32 {}
+impl Copy for ATA_PASS_THROUGH_EX32 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for ATA_PASS_THROUGH_EX32 {
+impl Clone for ATA_PASS_THROUGH_EX32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -404,33 +404,33 @@ pub struct DSM_NOTIFICATION_REQUEST_BLOCK {
     pub DataSetRangesCount: u32,
     pub DataSetRanges: [MP_DEVICE_DATA_SET_RANGE; 1],
 }
-impl ::core::marker::Copy for DSM_NOTIFICATION_REQUEST_BLOCK {}
-impl ::core::clone::Clone for DSM_NOTIFICATION_REQUEST_BLOCK {
+impl Copy for DSM_NOTIFICATION_REQUEST_BLOCK {}
+impl Clone for DSM_NOTIFICATION_REQUEST_BLOCK {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct DUMP_DRIVER {
-    pub DumpDriverList: *mut ::core::ffi::c_void,
+    pub DumpDriverList: *mut core::ffi::c_void,
     pub DriverName: [u16; 15],
     pub BaseName: [u16; 15],
 }
-impl ::core::marker::Copy for DUMP_DRIVER {}
-impl ::core::clone::Clone for DUMP_DRIVER {
+impl Copy for DUMP_DRIVER {}
+impl Clone for DUMP_DRIVER {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct DUMP_DRIVER_EX {
-    pub DumpDriverList: *mut ::core::ffi::c_void,
+    pub DumpDriverList: *mut core::ffi::c_void,
     pub DriverName: [u16; 15],
     pub BaseName: [u16; 15],
     pub DriverFullPath: NTSCSI_UNICODE_STRING,
 }
-impl ::core::marker::Copy for DUMP_DRIVER_EX {}
-impl ::core::clone::Clone for DUMP_DRIVER_EX {
+impl Copy for DUMP_DRIVER_EX {}
+impl Clone for DUMP_DRIVER_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -438,18 +438,18 @@ impl ::core::clone::Clone for DUMP_DRIVER_EX {
 #[repr(C)]
 pub struct DUMP_POINTERS {
     pub AdapterObject: *mut _ADAPTER_OBJECT,
-    pub MappedRegisterBase: *mut ::core::ffi::c_void,
-    pub DumpData: *mut ::core::ffi::c_void,
-    pub CommonBufferVa: *mut ::core::ffi::c_void,
+    pub MappedRegisterBase: *mut core::ffi::c_void,
+    pub DumpData: *mut core::ffi::c_void,
+    pub CommonBufferVa: *mut core::ffi::c_void,
     pub CommonBufferPa: i64,
     pub CommonBufferSize: u32,
     pub AllocateCommonBuffers: super::super::Foundation::BOOLEAN,
     pub UseDiskDump: super::super::Foundation::BOOLEAN,
     pub Spare1: [u8; 2],
-    pub DeviceObject: *mut ::core::ffi::c_void,
+    pub DeviceObject: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for DUMP_POINTERS {}
-impl ::core::clone::Clone for DUMP_POINTERS {
+impl Copy for DUMP_POINTERS {}
+impl Clone for DUMP_POINTERS {
     fn clone(&self) -> Self {
         *self
     }
@@ -457,24 +457,24 @@ impl ::core::clone::Clone for DUMP_POINTERS {
 #[repr(C)]
 pub struct DUMP_POINTERS_EX {
     pub Header: DUMP_POINTERS_VERSION,
-    pub DumpData: *mut ::core::ffi::c_void,
-    pub CommonBufferVa: *mut ::core::ffi::c_void,
+    pub DumpData: *mut core::ffi::c_void,
+    pub CommonBufferVa: *mut core::ffi::c_void,
     pub CommonBufferSize: u32,
     pub AllocateCommonBuffers: super::super::Foundation::BOOLEAN,
-    pub DeviceObject: *mut ::core::ffi::c_void,
-    pub DriverList: *mut ::core::ffi::c_void,
+    pub DeviceObject: *mut core::ffi::c_void,
+    pub DriverList: *mut core::ffi::c_void,
     pub dwPortFlags: u32,
     pub MaxDeviceDumpSectionSize: u32,
     pub MaxDeviceDumpLevel: u32,
     pub MaxTransferSize: u32,
-    pub AdapterObject: *mut ::core::ffi::c_void,
-    pub MappedRegisterBase: *mut ::core::ffi::c_void,
+    pub AdapterObject: *mut core::ffi::c_void,
+    pub MappedRegisterBase: *mut core::ffi::c_void,
     pub DeviceReady: *mut super::super::Foundation::BOOLEAN,
     pub DumpDevicePowerOn: PDUMP_DEVICE_POWERON_ROUTINE,
-    pub DumpDevicePowerOnContext: *mut ::core::ffi::c_void,
+    pub DumpDevicePowerOnContext: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for DUMP_POINTERS_EX {}
-impl ::core::clone::Clone for DUMP_POINTERS_EX {
+impl Copy for DUMP_POINTERS_EX {}
+impl Clone for DUMP_POINTERS_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -484,8 +484,8 @@ pub struct DUMP_POINTERS_VERSION {
     pub Version: u32,
     pub Size: u32,
 }
-impl ::core::marker::Copy for DUMP_POINTERS_VERSION {}
-impl ::core::clone::Clone for DUMP_POINTERS_VERSION {
+impl Copy for DUMP_POINTERS_VERSION {}
+impl Clone for DUMP_POINTERS_VERSION {
     fn clone(&self) -> Self {
         *self
     }
@@ -499,8 +499,8 @@ pub struct FIRMWARE_REQUEST_BLOCK {
     pub DataBufferOffset: u32,
     pub DataBufferLength: u32,
 }
-impl ::core::marker::Copy for FIRMWARE_REQUEST_BLOCK {}
-impl ::core::clone::Clone for FIRMWARE_REQUEST_BLOCK {
+impl Copy for FIRMWARE_REQUEST_BLOCK {}
+impl Clone for FIRMWARE_REQUEST_BLOCK {
     fn clone(&self) -> Self {
         *self
     }
@@ -515,8 +515,8 @@ pub struct HYBRID_DEMOTE_BY_SIZE {
     pub Reserved1: u32,
     pub LbaCount: u64,
 }
-impl ::core::marker::Copy for HYBRID_DEMOTE_BY_SIZE {}
-impl ::core::clone::Clone for HYBRID_DEMOTE_BY_SIZE {
+impl Copy for HYBRID_DEMOTE_BY_SIZE {}
+impl Clone for HYBRID_DEMOTE_BY_SIZE {
     fn clone(&self) -> Self {
         *self
     }
@@ -528,8 +528,8 @@ pub struct HYBRID_DIRTY_THRESHOLDS {
     pub DirtyLowThreshold: u32,
     pub DirtyHighThreshold: u32,
 }
-impl ::core::marker::Copy for HYBRID_DIRTY_THRESHOLDS {}
-impl ::core::clone::Clone for HYBRID_DIRTY_THRESHOLDS {
+impl Copy for HYBRID_DIRTY_THRESHOLDS {}
+impl Clone for HYBRID_DIRTY_THRESHOLDS {
     fn clone(&self) -> Self {
         *self
     }
@@ -547,8 +547,8 @@ pub struct HYBRID_INFORMATION {
     pub Attributes: HYBRID_INFORMATION_0,
     pub Priorities: HYBRID_INFORMATION_1,
 }
-impl ::core::marker::Copy for HYBRID_INFORMATION {}
-impl ::core::clone::Clone for HYBRID_INFORMATION {
+impl Copy for HYBRID_INFORMATION {}
+impl Clone for HYBRID_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -557,8 +557,8 @@ impl ::core::clone::Clone for HYBRID_INFORMATION {
 pub struct HYBRID_INFORMATION_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for HYBRID_INFORMATION_0 {}
-impl ::core::clone::Clone for HYBRID_INFORMATION_0 {
+impl Copy for HYBRID_INFORMATION_0 {}
+impl Clone for HYBRID_INFORMATION_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -574,8 +574,8 @@ pub struct HYBRID_INFORMATION_1 {
     pub SupportedCommands: HYBRID_INFORMATION_1_0,
     pub Priority: [NVCACHE_PRIORITY_LEVEL_DESCRIPTOR; 1],
 }
-impl ::core::marker::Copy for HYBRID_INFORMATION_1 {}
-impl ::core::clone::Clone for HYBRID_INFORMATION_1 {
+impl Copy for HYBRID_INFORMATION_1 {}
+impl Clone for HYBRID_INFORMATION_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -587,8 +587,8 @@ pub struct HYBRID_INFORMATION_1_0 {
     pub MaxLbaRangeCountForEvict: u32,
     pub MaxLbaRangeCountForChangeLba: u32,
 }
-impl ::core::marker::Copy for HYBRID_INFORMATION_1_0 {}
-impl ::core::clone::Clone for HYBRID_INFORMATION_1_0 {
+impl Copy for HYBRID_INFORMATION_1_0 {}
+impl Clone for HYBRID_INFORMATION_1_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -602,8 +602,8 @@ pub struct HYBRID_REQUEST_BLOCK {
     pub DataBufferOffset: u32,
     pub DataBufferLength: u32,
 }
-impl ::core::marker::Copy for HYBRID_REQUEST_BLOCK {}
-impl ::core::clone::Clone for HYBRID_REQUEST_BLOCK {
+impl Copy for HYBRID_REQUEST_BLOCK {}
+impl Clone for HYBRID_REQUEST_BLOCK {
     fn clone(&self) -> Self {
         *self
     }
@@ -617,8 +617,8 @@ pub struct IDE_IO_CONTROL {
     pub ReturnStatus: u32,
     pub DataLength: u32,
 }
-impl ::core::marker::Copy for IDE_IO_CONTROL {}
-impl ::core::clone::Clone for IDE_IO_CONTROL {
+impl Copy for IDE_IO_CONTROL {}
+impl Clone for IDE_IO_CONTROL {
     fn clone(&self) -> Self {
         *self
     }
@@ -628,8 +628,8 @@ pub struct IKE_AUTHENTICATION_INFORMATION {
     pub AuthMethod: IKE_AUTHENTICATION_METHOD,
     pub Anonymous: IKE_AUTHENTICATION_INFORMATION_0,
 }
-impl ::core::marker::Copy for IKE_AUTHENTICATION_INFORMATION {}
-impl ::core::clone::Clone for IKE_AUTHENTICATION_INFORMATION {
+impl Copy for IKE_AUTHENTICATION_INFORMATION {}
+impl Clone for IKE_AUTHENTICATION_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -638,8 +638,8 @@ impl ::core::clone::Clone for IKE_AUTHENTICATION_INFORMATION {
 pub union IKE_AUTHENTICATION_INFORMATION_0 {
     pub PsKey: IKE_AUTHENTICATION_PRESHARED_KEY,
 }
-impl ::core::marker::Copy for IKE_AUTHENTICATION_INFORMATION_0 {}
-impl ::core::clone::Clone for IKE_AUTHENTICATION_INFORMATION_0 {
+impl Copy for IKE_AUTHENTICATION_INFORMATION_0 {}
+impl Clone for IKE_AUTHENTICATION_INFORMATION_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -653,8 +653,8 @@ pub struct IKE_AUTHENTICATION_PRESHARED_KEY {
     pub KeyLengthInBytes: u32,
     pub Key: *mut u8,
 }
-impl ::core::marker::Copy for IKE_AUTHENTICATION_PRESHARED_KEY {}
-impl ::core::clone::Clone for IKE_AUTHENTICATION_PRESHARED_KEY {
+impl Copy for IKE_AUTHENTICATION_PRESHARED_KEY {}
+impl Clone for IKE_AUTHENTICATION_PRESHARED_KEY {
     fn clone(&self) -> Self {
         *self
     }
@@ -670,8 +670,8 @@ pub struct IO_SCSI_CAPABILITIES {
     pub AdapterScansDown: super::super::Foundation::BOOLEAN,
     pub AdapterUsesPio: super::super::Foundation::BOOLEAN,
 }
-impl ::core::marker::Copy for IO_SCSI_CAPABILITIES {}
-impl ::core::clone::Clone for IO_SCSI_CAPABILITIES {
+impl Copy for IO_SCSI_CAPABILITIES {}
+impl Clone for IO_SCSI_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }
@@ -679,14 +679,14 @@ impl ::core::clone::Clone for IO_SCSI_CAPABILITIES {
 #[repr(C)]
 pub struct ISCSI_CONNECTION_INFOA {
     pub ConnectionId: ISCSI_UNIQUE_SESSION_ID,
-    pub InitiatorAddress: ::windows_sys::core::PSTR,
-    pub TargetAddress: ::windows_sys::core::PSTR,
+    pub InitiatorAddress: windows_sys::core::PSTR,
+    pub TargetAddress: windows_sys::core::PSTR,
     pub InitiatorSocket: u16,
     pub TargetSocket: u16,
     pub CID: [u8; 2],
 }
-impl ::core::marker::Copy for ISCSI_CONNECTION_INFOA {}
-impl ::core::clone::Clone for ISCSI_CONNECTION_INFOA {
+impl Copy for ISCSI_CONNECTION_INFOA {}
+impl Clone for ISCSI_CONNECTION_INFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -694,14 +694,14 @@ impl ::core::clone::Clone for ISCSI_CONNECTION_INFOA {
 #[repr(C)]
 pub struct ISCSI_CONNECTION_INFOW {
     pub ConnectionId: ISCSI_UNIQUE_SESSION_ID,
-    pub InitiatorAddress: ::windows_sys::core::PWSTR,
-    pub TargetAddress: ::windows_sys::core::PWSTR,
+    pub InitiatorAddress: windows_sys::core::PWSTR,
+    pub TargetAddress: windows_sys::core::PWSTR,
     pub InitiatorSocket: u16,
     pub TargetSocket: u16,
     pub CID: [u8; 2],
 }
-impl ::core::marker::Copy for ISCSI_CONNECTION_INFOW {}
-impl ::core::clone::Clone for ISCSI_CONNECTION_INFOW {
+impl Copy for ISCSI_CONNECTION_INFOW {}
+impl Clone for ISCSI_CONNECTION_INFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -718,8 +718,8 @@ pub struct ISCSI_CONNECTION_INFO_EX {
     pub EstimatedThroughput: u64,
     pub MaxDatagramSize: u32,
 }
-impl ::core::marker::Copy for ISCSI_CONNECTION_INFO_EX {}
-impl ::core::clone::Clone for ISCSI_CONNECTION_INFO_EX {
+impl Copy for ISCSI_CONNECTION_INFO_EX {}
+impl Clone for ISCSI_CONNECTION_INFO_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -730,16 +730,16 @@ pub struct ISCSI_DEVICE_ON_SESSIONA {
     pub InitiatorName: [i8; 256],
     pub TargetName: [i8; 224],
     pub ScsiAddress: SCSI_ADDRESS,
-    pub DeviceInterfaceType: ::windows_sys::core::GUID,
+    pub DeviceInterfaceType: windows_sys::core::GUID,
     pub DeviceInterfaceName: [i8; 260],
     pub LegacyName: [i8; 260],
     pub StorageDeviceNumber: super::super::System::Ioctl::STORAGE_DEVICE_NUMBER,
     pub DeviceInstance: u32,
 }
 #[cfg(feature = "Win32_System_Ioctl")]
-impl ::core::marker::Copy for ISCSI_DEVICE_ON_SESSIONA {}
+impl Copy for ISCSI_DEVICE_ON_SESSIONA {}
 #[cfg(feature = "Win32_System_Ioctl")]
-impl ::core::clone::Clone for ISCSI_DEVICE_ON_SESSIONA {
+impl Clone for ISCSI_DEVICE_ON_SESSIONA {
     fn clone(&self) -> Self {
         *self
     }
@@ -750,16 +750,16 @@ pub struct ISCSI_DEVICE_ON_SESSIONW {
     pub InitiatorName: [u16; 256],
     pub TargetName: [u16; 224],
     pub ScsiAddress: SCSI_ADDRESS,
-    pub DeviceInterfaceType: ::windows_sys::core::GUID,
+    pub DeviceInterfaceType: windows_sys::core::GUID,
     pub DeviceInterfaceName: [u16; 260],
     pub LegacyName: [u16; 260],
     pub StorageDeviceNumber: super::super::System::Ioctl::STORAGE_DEVICE_NUMBER,
     pub DeviceInstance: u32,
 }
 #[cfg(feature = "Win32_System_Ioctl")]
-impl ::core::marker::Copy for ISCSI_DEVICE_ON_SESSIONW {}
+impl Copy for ISCSI_DEVICE_ON_SESSIONW {}
 #[cfg(feature = "Win32_System_Ioctl")]
-impl ::core::clone::Clone for ISCSI_DEVICE_ON_SESSIONW {
+impl Clone for ISCSI_DEVICE_ON_SESSIONW {
     fn clone(&self) -> Self {
         *self
     }
@@ -780,8 +780,8 @@ pub struct ISCSI_LOGIN_OPTIONS {
     pub Username: *mut u8,
     pub Password: *mut u8,
 }
-impl ::core::marker::Copy for ISCSI_LOGIN_OPTIONS {}
-impl ::core::clone::Clone for ISCSI_LOGIN_OPTIONS {
+impl Copy for ISCSI_LOGIN_OPTIONS {}
+impl Clone for ISCSI_LOGIN_OPTIONS {
     fn clone(&self) -> Self {
         *self
     }
@@ -789,16 +789,16 @@ impl ::core::clone::Clone for ISCSI_LOGIN_OPTIONS {
 #[repr(C)]
 pub struct ISCSI_SESSION_INFOA {
     pub SessionId: ISCSI_UNIQUE_SESSION_ID,
-    pub InitiatorName: ::windows_sys::core::PSTR,
-    pub TargetNodeName: ::windows_sys::core::PSTR,
-    pub TargetName: ::windows_sys::core::PSTR,
+    pub InitiatorName: windows_sys::core::PSTR,
+    pub TargetNodeName: windows_sys::core::PSTR,
+    pub TargetName: windows_sys::core::PSTR,
     pub ISID: [u8; 6],
     pub TSID: [u8; 2],
     pub ConnectionCount: u32,
     pub Connections: *mut ISCSI_CONNECTION_INFOA,
 }
-impl ::core::marker::Copy for ISCSI_SESSION_INFOA {}
-impl ::core::clone::Clone for ISCSI_SESSION_INFOA {
+impl Copy for ISCSI_SESSION_INFOA {}
+impl Clone for ISCSI_SESSION_INFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -806,16 +806,16 @@ impl ::core::clone::Clone for ISCSI_SESSION_INFOA {
 #[repr(C)]
 pub struct ISCSI_SESSION_INFOW {
     pub SessionId: ISCSI_UNIQUE_SESSION_ID,
-    pub InitiatorName: ::windows_sys::core::PWSTR,
-    pub TargetNodeName: ::windows_sys::core::PWSTR,
-    pub TargetName: ::windows_sys::core::PWSTR,
+    pub InitiatorName: windows_sys::core::PWSTR,
+    pub TargetNodeName: windows_sys::core::PWSTR,
+    pub TargetName: windows_sys::core::PWSTR,
     pub ISID: [u8; 6],
     pub TSID: [u8; 2],
     pub ConnectionCount: u32,
     pub Connections: *mut ISCSI_CONNECTION_INFOW,
 }
-impl ::core::marker::Copy for ISCSI_SESSION_INFOW {}
-impl ::core::clone::Clone for ISCSI_SESSION_INFOW {
+impl Copy for ISCSI_SESSION_INFOW {}
+impl Clone for ISCSI_SESSION_INFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -836,8 +836,8 @@ pub struct ISCSI_SESSION_INFO_EX {
     pub ConnectionCount: u32,
     pub Connections: *mut ISCSI_CONNECTION_INFO_EX,
 }
-impl ::core::marker::Copy for ISCSI_SESSION_INFO_EX {}
-impl ::core::clone::Clone for ISCSI_SESSION_INFO_EX {
+impl Copy for ISCSI_SESSION_INFO_EX {}
+impl Clone for ISCSI_SESSION_INFO_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -853,8 +853,8 @@ pub struct ISCSI_TARGET_MAPPINGA {
     pub LUNCount: u32,
     pub LUNList: *mut SCSI_LUN_LIST,
 }
-impl ::core::marker::Copy for ISCSI_TARGET_MAPPINGA {}
-impl ::core::clone::Clone for ISCSI_TARGET_MAPPINGA {
+impl Copy for ISCSI_TARGET_MAPPINGA {}
+impl Clone for ISCSI_TARGET_MAPPINGA {
     fn clone(&self) -> Self {
         *self
     }
@@ -870,8 +870,8 @@ pub struct ISCSI_TARGET_MAPPINGW {
     pub LUNCount: u32,
     pub LUNList: *mut SCSI_LUN_LIST,
 }
-impl ::core::marker::Copy for ISCSI_TARGET_MAPPINGW {}
-impl ::core::clone::Clone for ISCSI_TARGET_MAPPINGW {
+impl Copy for ISCSI_TARGET_MAPPINGW {}
+impl Clone for ISCSI_TARGET_MAPPINGW {
     fn clone(&self) -> Self {
         *self
     }
@@ -882,8 +882,8 @@ pub struct ISCSI_TARGET_PORTALA {
     pub Address: [i8; 256],
     pub Socket: u16,
 }
-impl ::core::marker::Copy for ISCSI_TARGET_PORTALA {}
-impl ::core::clone::Clone for ISCSI_TARGET_PORTALA {
+impl Copy for ISCSI_TARGET_PORTALA {}
+impl Clone for ISCSI_TARGET_PORTALA {
     fn clone(&self) -> Self {
         *self
     }
@@ -894,8 +894,8 @@ pub struct ISCSI_TARGET_PORTALW {
     pub Address: [u16; 256],
     pub Socket: u16,
 }
-impl ::core::marker::Copy for ISCSI_TARGET_PORTALW {}
-impl ::core::clone::Clone for ISCSI_TARGET_PORTALW {
+impl Copy for ISCSI_TARGET_PORTALW {}
+impl Clone for ISCSI_TARGET_PORTALW {
     fn clone(&self) -> Self {
         *self
     }
@@ -905,8 +905,8 @@ pub struct ISCSI_TARGET_PORTAL_GROUPA {
     pub Count: u32,
     pub Portals: [ISCSI_TARGET_PORTALA; 1],
 }
-impl ::core::marker::Copy for ISCSI_TARGET_PORTAL_GROUPA {}
-impl ::core::clone::Clone for ISCSI_TARGET_PORTAL_GROUPA {
+impl Copy for ISCSI_TARGET_PORTAL_GROUPA {}
+impl Clone for ISCSI_TARGET_PORTAL_GROUPA {
     fn clone(&self) -> Self {
         *self
     }
@@ -916,8 +916,8 @@ pub struct ISCSI_TARGET_PORTAL_GROUPW {
     pub Count: u32,
     pub Portals: [ISCSI_TARGET_PORTALW; 1],
 }
-impl ::core::marker::Copy for ISCSI_TARGET_PORTAL_GROUPW {}
-impl ::core::clone::Clone for ISCSI_TARGET_PORTAL_GROUPW {
+impl Copy for ISCSI_TARGET_PORTAL_GROUPW {}
+impl Clone for ISCSI_TARGET_PORTAL_GROUPW {
     fn clone(&self) -> Self {
         *self
     }
@@ -930,8 +930,8 @@ pub struct ISCSI_TARGET_PORTAL_INFOA {
     pub Address: [i8; 256],
     pub Socket: u16,
 }
-impl ::core::marker::Copy for ISCSI_TARGET_PORTAL_INFOA {}
-impl ::core::clone::Clone for ISCSI_TARGET_PORTAL_INFOA {
+impl Copy for ISCSI_TARGET_PORTAL_INFOA {}
+impl Clone for ISCSI_TARGET_PORTAL_INFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -944,8 +944,8 @@ pub struct ISCSI_TARGET_PORTAL_INFOW {
     pub Address: [u16; 256],
     pub Socket: u16,
 }
-impl ::core::marker::Copy for ISCSI_TARGET_PORTAL_INFOW {}
-impl ::core::clone::Clone for ISCSI_TARGET_PORTAL_INFOW {
+impl Copy for ISCSI_TARGET_PORTAL_INFOW {}
+impl Clone for ISCSI_TARGET_PORTAL_INFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -960,8 +960,8 @@ pub struct ISCSI_TARGET_PORTAL_INFO_EXA {
     pub SecurityFlags: u64,
     pub LoginOptions: ISCSI_LOGIN_OPTIONS,
 }
-impl ::core::marker::Copy for ISCSI_TARGET_PORTAL_INFO_EXA {}
-impl ::core::clone::Clone for ISCSI_TARGET_PORTAL_INFO_EXA {
+impl Copy for ISCSI_TARGET_PORTAL_INFO_EXA {}
+impl Clone for ISCSI_TARGET_PORTAL_INFO_EXA {
     fn clone(&self) -> Self {
         *self
     }
@@ -976,8 +976,8 @@ pub struct ISCSI_TARGET_PORTAL_INFO_EXW {
     pub SecurityFlags: u64,
     pub LoginOptions: ISCSI_LOGIN_OPTIONS,
 }
-impl ::core::marker::Copy for ISCSI_TARGET_PORTAL_INFO_EXW {}
-impl ::core::clone::Clone for ISCSI_TARGET_PORTAL_INFO_EXW {
+impl Copy for ISCSI_TARGET_PORTAL_INFO_EXW {}
+impl Clone for ISCSI_TARGET_PORTAL_INFO_EXW {
     fn clone(&self) -> Self {
         *self
     }
@@ -987,8 +987,8 @@ pub struct ISCSI_UNIQUE_SESSION_ID {
     pub AdapterUnique: u64,
     pub AdapterSpecific: u64,
 }
-impl ::core::marker::Copy for ISCSI_UNIQUE_SESSION_ID {}
-impl ::core::clone::Clone for ISCSI_UNIQUE_SESSION_ID {
+impl Copy for ISCSI_UNIQUE_SESSION_ID {}
+impl Clone for ISCSI_UNIQUE_SESSION_ID {
     fn clone(&self) -> Self {
         *self
     }
@@ -999,8 +999,8 @@ pub struct ISCSI_VERSION_INFO {
     pub MinorVersion: u32,
     pub BuildNumber: u32,
 }
-impl ::core::marker::Copy for ISCSI_VERSION_INFO {}
-impl ::core::clone::Clone for ISCSI_VERSION_INFO {
+impl Copy for ISCSI_VERSION_INFO {}
+impl Clone for ISCSI_VERSION_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1014,8 +1014,8 @@ pub struct MPIO_PASS_THROUGH_PATH {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
-impl ::core::marker::Copy for MPIO_PASS_THROUGH_PATH {}
-impl ::core::clone::Clone for MPIO_PASS_THROUGH_PATH {
+impl Copy for MPIO_PASS_THROUGH_PATH {}
+impl Clone for MPIO_PASS_THROUGH_PATH {
     fn clone(&self) -> Self {
         *self
     }
@@ -1031,9 +1031,9 @@ pub struct MPIO_PASS_THROUGH_PATH32 {
     pub MpioPathId: u64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for MPIO_PASS_THROUGH_PATH32 {}
+impl Copy for MPIO_PASS_THROUGH_PATH32 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for MPIO_PASS_THROUGH_PATH32 {
+impl Clone for MPIO_PASS_THROUGH_PATH32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1049,9 +1049,9 @@ pub struct MPIO_PASS_THROUGH_PATH32_EX {
     pub MpioPathId: u64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for MPIO_PASS_THROUGH_PATH32_EX {}
+impl Copy for MPIO_PASS_THROUGH_PATH32_EX {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for MPIO_PASS_THROUGH_PATH32_EX {
+impl Clone for MPIO_PASS_THROUGH_PATH32_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -1065,8 +1065,8 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
-impl ::core::marker::Copy for MPIO_PASS_THROUGH_PATH_DIRECT {}
-impl ::core::clone::Clone for MPIO_PASS_THROUGH_PATH_DIRECT {
+impl Copy for MPIO_PASS_THROUGH_PATH_DIRECT {}
+impl Clone for MPIO_PASS_THROUGH_PATH_DIRECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1082,9 +1082,9 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT32 {
     pub MpioPathId: u64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for MPIO_PASS_THROUGH_PATH_DIRECT32 {}
+impl Copy for MPIO_PASS_THROUGH_PATH_DIRECT32 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for MPIO_PASS_THROUGH_PATH_DIRECT32 {
+impl Clone for MPIO_PASS_THROUGH_PATH_DIRECT32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1100,9 +1100,9 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     pub MpioPathId: u64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {}
+impl Copy for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
+impl Clone for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -1116,8 +1116,8 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT_EX {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
-impl ::core::marker::Copy for MPIO_PASS_THROUGH_PATH_DIRECT_EX {}
-impl ::core::clone::Clone for MPIO_PASS_THROUGH_PATH_DIRECT_EX {
+impl Copy for MPIO_PASS_THROUGH_PATH_DIRECT_EX {}
+impl Clone for MPIO_PASS_THROUGH_PATH_DIRECT_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -1131,8 +1131,8 @@ pub struct MPIO_PASS_THROUGH_PATH_EX {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
-impl ::core::marker::Copy for MPIO_PASS_THROUGH_PATH_EX {}
-impl ::core::clone::Clone for MPIO_PASS_THROUGH_PATH_EX {
+impl Copy for MPIO_PASS_THROUGH_PATH_EX {}
+impl Clone for MPIO_PASS_THROUGH_PATH_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -1142,8 +1142,8 @@ pub struct MP_DEVICE_DATA_SET_RANGE {
     pub StartingOffset: i64,
     pub LengthInBytes: u64,
 }
-impl ::core::marker::Copy for MP_DEVICE_DATA_SET_RANGE {}
-impl ::core::clone::Clone for MP_DEVICE_DATA_SET_RANGE {
+impl Copy for MP_DEVICE_DATA_SET_RANGE {}
+impl Clone for MP_DEVICE_DATA_SET_RANGE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1152,10 +1152,10 @@ impl ::core::clone::Clone for MP_DEVICE_DATA_SET_RANGE {
 pub struct NTSCSI_UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
-    pub Buffer: ::windows_sys::core::PWSTR,
+    pub Buffer: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for NTSCSI_UNICODE_STRING {}
-impl ::core::clone::Clone for NTSCSI_UNICODE_STRING {
+impl Copy for NTSCSI_UNICODE_STRING {}
+impl Clone for NTSCSI_UNICODE_STRING {
     fn clone(&self) -> Self {
         *self
     }
@@ -1176,8 +1176,8 @@ pub struct NVCACHE_HINT_PAYLOAD {
     pub Auxiliary23_16: u8,
     pub Reserved: [u8; 4],
 }
-impl ::core::marker::Copy for NVCACHE_HINT_PAYLOAD {}
-impl ::core::clone::Clone for NVCACHE_HINT_PAYLOAD {
+impl Copy for NVCACHE_HINT_PAYLOAD {}
+impl Clone for NVCACHE_HINT_PAYLOAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -1192,8 +1192,8 @@ pub struct NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
     pub ConsumedMappingResourcesForDirtyDataFraction: u32,
     pub Reserved1: u32,
 }
-impl ::core::marker::Copy for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {}
-impl ::core::clone::Clone for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
+impl Copy for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {}
+impl Clone for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -1210,8 +1210,8 @@ pub struct NVCACHE_REQUEST_BLOCK {
     pub NVCacheStatus: u32,
     pub NVCacheSubStatus: u32,
 }
-impl ::core::marker::Copy for NVCACHE_REQUEST_BLOCK {}
-impl ::core::clone::Clone for NVCACHE_REQUEST_BLOCK {
+impl Copy for NVCACHE_REQUEST_BLOCK {}
+impl Clone for NVCACHE_REQUEST_BLOCK {
     fn clone(&self) -> Self {
         *self
     }
@@ -1229,8 +1229,8 @@ pub struct NV_FEATURE_PARAMETER {
     pub NVWrtSpeed: u16,
     pub DeviceSpinUpTime: u32,
 }
-impl ::core::marker::Copy for NV_FEATURE_PARAMETER {}
-impl ::core::clone::Clone for NV_FEATURE_PARAMETER {
+impl Copy for NV_FEATURE_PARAMETER {}
+impl Clone for NV_FEATURE_PARAMETER {
     fn clone(&self) -> Self {
         *self
     }
@@ -1244,8 +1244,8 @@ pub struct NV_SEP_CACHE_PARAMETER {
     pub WriteCacheTypeEffective: u8,
     pub ParameterReserve1: [u8; 3],
 }
-impl ::core::marker::Copy for NV_SEP_CACHE_PARAMETER {}
-impl ::core::clone::Clone for NV_SEP_CACHE_PARAMETER {
+impl Copy for NV_SEP_CACHE_PARAMETER {}
+impl Clone for NV_SEP_CACHE_PARAMETER {
     fn clone(&self) -> Self {
         *self
     }
@@ -1255,8 +1255,8 @@ pub union NV_SEP_CACHE_PARAMETER_0 {
     pub CacheFlags: NV_SEP_CACHE_PARAMETER_0_0,
     pub CacheFlagsSet: u8,
 }
-impl ::core::marker::Copy for NV_SEP_CACHE_PARAMETER_0 {}
-impl ::core::clone::Clone for NV_SEP_CACHE_PARAMETER_0 {
+impl Copy for NV_SEP_CACHE_PARAMETER_0 {}
+impl Clone for NV_SEP_CACHE_PARAMETER_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1265,8 +1265,8 @@ impl ::core::clone::Clone for NV_SEP_CACHE_PARAMETER_0 {
 pub struct NV_SEP_CACHE_PARAMETER_0_0 {
     pub _bitfield: u8,
 }
-impl ::core::marker::Copy for NV_SEP_CACHE_PARAMETER_0_0 {}
-impl ::core::clone::Clone for NV_SEP_CACHE_PARAMETER_0_0 {
+impl Copy for NV_SEP_CACHE_PARAMETER_0_0 {}
+impl Clone for NV_SEP_CACHE_PARAMETER_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1282,8 +1282,8 @@ pub struct PERSISTENT_ISCSI_LOGIN_INFOA {
     pub Mappings: *mut ISCSI_TARGET_MAPPINGA,
     pub LoginOptions: ISCSI_LOGIN_OPTIONS,
 }
-impl ::core::marker::Copy for PERSISTENT_ISCSI_LOGIN_INFOA {}
-impl ::core::clone::Clone for PERSISTENT_ISCSI_LOGIN_INFOA {
+impl Copy for PERSISTENT_ISCSI_LOGIN_INFOA {}
+impl Clone for PERSISTENT_ISCSI_LOGIN_INFOA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1299,8 +1299,8 @@ pub struct PERSISTENT_ISCSI_LOGIN_INFOW {
     pub Mappings: *mut ISCSI_TARGET_MAPPINGW,
     pub LoginOptions: ISCSI_LOGIN_OPTIONS,
 }
-impl ::core::marker::Copy for PERSISTENT_ISCSI_LOGIN_INFOW {}
-impl ::core::clone::Clone for PERSISTENT_ISCSI_LOGIN_INFOW {
+impl Copy for PERSISTENT_ISCSI_LOGIN_INFOW {}
+impl Clone for PERSISTENT_ISCSI_LOGIN_INFOW {
     fn clone(&self) -> Self {
         *self
     }
@@ -1310,8 +1310,8 @@ pub struct SCSI_ADAPTER_BUS_INFO {
     pub NumberOfBuses: u8,
     pub BusData: [SCSI_BUS_DATA; 1],
 }
-impl ::core::marker::Copy for SCSI_ADAPTER_BUS_INFO {}
-impl ::core::clone::Clone for SCSI_ADAPTER_BUS_INFO {
+impl Copy for SCSI_ADAPTER_BUS_INFO {}
+impl Clone for SCSI_ADAPTER_BUS_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1324,8 +1324,8 @@ pub struct SCSI_ADDRESS {
     pub TargetId: u8,
     pub Lun: u8,
 }
-impl ::core::marker::Copy for SCSI_ADDRESS {}
-impl ::core::clone::Clone for SCSI_ADDRESS {
+impl Copy for SCSI_ADDRESS {}
+impl Clone for SCSI_ADDRESS {
     fn clone(&self) -> Self {
         *self
     }
@@ -1336,8 +1336,8 @@ pub struct SCSI_BUS_DATA {
     pub InitiatorBusId: u8,
     pub InquiryDataOffset: u32,
 }
-impl ::core::marker::Copy for SCSI_BUS_DATA {}
-impl ::core::clone::Clone for SCSI_BUS_DATA {
+impl Copy for SCSI_BUS_DATA {}
+impl Clone for SCSI_BUS_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1352,8 +1352,8 @@ pub struct SCSI_INQUIRY_DATA {
     pub NextInquiryDataOffset: u32,
     pub InquiryData: [u8; 1],
 }
-impl ::core::marker::Copy for SCSI_INQUIRY_DATA {}
-impl ::core::clone::Clone for SCSI_INQUIRY_DATA {
+impl Copy for SCSI_INQUIRY_DATA {}
+impl Clone for SCSI_INQUIRY_DATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -1363,8 +1363,8 @@ pub struct SCSI_LUN_LIST {
     pub OSLUN: u32,
     pub TargetLUN: u64,
 }
-impl ::core::marker::Copy for SCSI_LUN_LIST {}
-impl ::core::clone::Clone for SCSI_LUN_LIST {
+impl Copy for SCSI_LUN_LIST {}
+impl Clone for SCSI_LUN_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -1385,8 +1385,8 @@ pub struct SCSI_PASS_THROUGH {
     pub SenseInfoOffset: u32,
     pub Cdb: [u8; 16],
 }
-impl ::core::marker::Copy for SCSI_PASS_THROUGH {}
-impl ::core::clone::Clone for SCSI_PASS_THROUGH {
+impl Copy for SCSI_PASS_THROUGH {}
+impl Clone for SCSI_PASS_THROUGH {
     fn clone(&self) -> Self {
         *self
     }
@@ -1409,9 +1409,9 @@ pub struct SCSI_PASS_THROUGH32 {
     pub Cdb: [u8; 16],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for SCSI_PASS_THROUGH32 {}
+impl Copy for SCSI_PASS_THROUGH32 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for SCSI_PASS_THROUGH32 {
+impl Clone for SCSI_PASS_THROUGH32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1437,9 +1437,9 @@ pub struct SCSI_PASS_THROUGH32_EX {
     pub Cdb: [u8; 1],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for SCSI_PASS_THROUGH32_EX {}
+impl Copy for SCSI_PASS_THROUGH32_EX {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for SCSI_PASS_THROUGH32_EX {
+impl Clone for SCSI_PASS_THROUGH32_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -1456,12 +1456,12 @@ pub struct SCSI_PASS_THROUGH_DIRECT {
     pub DataIn: u8,
     pub DataTransferLength: u32,
     pub TimeOutValue: u32,
-    pub DataBuffer: *mut ::core::ffi::c_void,
+    pub DataBuffer: *mut core::ffi::c_void,
     pub SenseInfoOffset: u32,
     pub Cdb: [u8; 16],
 }
-impl ::core::marker::Copy for SCSI_PASS_THROUGH_DIRECT {}
-impl ::core::clone::Clone for SCSI_PASS_THROUGH_DIRECT {
+impl Copy for SCSI_PASS_THROUGH_DIRECT {}
+impl Clone for SCSI_PASS_THROUGH_DIRECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1479,14 +1479,14 @@ pub struct SCSI_PASS_THROUGH_DIRECT32 {
     pub DataIn: u8,
     pub DataTransferLength: u32,
     pub TimeOutValue: u32,
-    pub DataBuffer: *mut ::core::ffi::c_void,
+    pub DataBuffer: *mut core::ffi::c_void,
     pub SenseInfoOffset: u32,
     pub Cdb: [u8; 16],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for SCSI_PASS_THROUGH_DIRECT32 {}
+impl Copy for SCSI_PASS_THROUGH_DIRECT32 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for SCSI_PASS_THROUGH_DIRECT32 {
+impl Clone for SCSI_PASS_THROUGH_DIRECT32 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1507,14 +1507,14 @@ pub struct SCSI_PASS_THROUGH_DIRECT32_EX {
     pub SenseInfoOffset: u32,
     pub DataOutTransferLength: u32,
     pub DataInTransferLength: u32,
-    pub DataOutBuffer: *mut ::core::ffi::c_void,
-    pub DataInBuffer: *mut ::core::ffi::c_void,
+    pub DataOutBuffer: *mut core::ffi::c_void,
+    pub DataInBuffer: *mut core::ffi::c_void,
     pub Cdb: [u8; 1],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for SCSI_PASS_THROUGH_DIRECT32_EX {}
+impl Copy for SCSI_PASS_THROUGH_DIRECT32_EX {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for SCSI_PASS_THROUGH_DIRECT32_EX {
+impl Clone for SCSI_PASS_THROUGH_DIRECT32_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -1534,12 +1534,12 @@ pub struct SCSI_PASS_THROUGH_DIRECT_EX {
     pub SenseInfoOffset: u32,
     pub DataOutTransferLength: u32,
     pub DataInTransferLength: u32,
-    pub DataOutBuffer: *mut ::core::ffi::c_void,
-    pub DataInBuffer: *mut ::core::ffi::c_void,
+    pub DataOutBuffer: *mut core::ffi::c_void,
+    pub DataInBuffer: *mut core::ffi::c_void,
     pub Cdb: [u8; 1],
 }
-impl ::core::marker::Copy for SCSI_PASS_THROUGH_DIRECT_EX {}
-impl ::core::clone::Clone for SCSI_PASS_THROUGH_DIRECT_EX {
+impl Copy for SCSI_PASS_THROUGH_DIRECT_EX {}
+impl Clone for SCSI_PASS_THROUGH_DIRECT_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -1563,8 +1563,8 @@ pub struct SCSI_PASS_THROUGH_EX {
     pub DataInBufferOffset: usize,
     pub Cdb: [u8; 1],
 }
-impl ::core::marker::Copy for SCSI_PASS_THROUGH_EX {}
-impl ::core::clone::Clone for SCSI_PASS_THROUGH_EX {
+impl Copy for SCSI_PASS_THROUGH_EX {}
+impl Clone for SCSI_PASS_THROUGH_EX {
     fn clone(&self) -> Self {
         *self
     }
@@ -1578,8 +1578,8 @@ pub struct SRB_IO_CONTROL {
     pub ReturnCode: u32,
     pub Length: u32,
 }
-impl ::core::marker::Copy for SRB_IO_CONTROL {}
-impl ::core::clone::Clone for SRB_IO_CONTROL {
+impl Copy for SRB_IO_CONTROL {}
+impl Clone for SRB_IO_CONTROL {
     fn clone(&self) -> Self {
         *self
     }
@@ -1590,13 +1590,13 @@ pub struct STORAGE_DIAGNOSTIC_MP_REQUEST {
     pub Size: u32,
     pub TargetType: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE,
     pub Level: MP_STORAGE_DIAGNOSTIC_LEVEL,
-    pub ProviderId: ::windows_sys::core::GUID,
+    pub ProviderId: windows_sys::core::GUID,
     pub BufferSize: u32,
     pub Reserved: u32,
     pub DataBuffer: [u8; 1],
 }
-impl ::core::marker::Copy for STORAGE_DIAGNOSTIC_MP_REQUEST {}
-impl ::core::clone::Clone for STORAGE_DIAGNOSTIC_MP_REQUEST {
+impl Copy for STORAGE_DIAGNOSTIC_MP_REQUEST {}
+impl Clone for STORAGE_DIAGNOSTIC_MP_REQUEST {
     fn clone(&self) -> Self {
         *self
     }
@@ -1607,8 +1607,8 @@ pub struct STORAGE_ENDURANCE_DATA_DESCRIPTOR {
     pub Size: u32,
     pub EnduranceInfo: STORAGE_ENDURANCE_INFO,
 }
-impl ::core::marker::Copy for STORAGE_ENDURANCE_DATA_DESCRIPTOR {}
-impl ::core::clone::Clone for STORAGE_ENDURANCE_DATA_DESCRIPTOR {
+impl Copy for STORAGE_ENDURANCE_DATA_DESCRIPTOR {}
+impl Clone for STORAGE_ENDURANCE_DATA_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
@@ -1622,8 +1622,8 @@ pub struct STORAGE_ENDURANCE_INFO {
     pub BytesReadCount: [u8; 16],
     pub ByteWriteCount: [u8; 16],
 }
-impl ::core::marker::Copy for STORAGE_ENDURANCE_INFO {}
-impl ::core::clone::Clone for STORAGE_ENDURANCE_INFO {
+impl Copy for STORAGE_ENDURANCE_INFO {}
+impl Clone for STORAGE_ENDURANCE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1632,8 +1632,8 @@ impl ::core::clone::Clone for STORAGE_ENDURANCE_INFO {
 pub struct STORAGE_ENDURANCE_INFO_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for STORAGE_ENDURANCE_INFO_0 {}
-impl ::core::clone::Clone for STORAGE_ENDURANCE_INFO_0 {
+impl Copy for STORAGE_ENDURANCE_INFO_0 {}
+impl Clone for STORAGE_ENDURANCE_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1645,8 +1645,8 @@ pub struct STORAGE_FIRMWARE_ACTIVATE {
     pub SlotToActivate: u8,
     pub Reserved0: [u8; 3],
 }
-impl ::core::marker::Copy for STORAGE_FIRMWARE_ACTIVATE {}
-impl ::core::clone::Clone for STORAGE_FIRMWARE_ACTIVATE {
+impl Copy for STORAGE_FIRMWARE_ACTIVATE {}
+impl Clone for STORAGE_FIRMWARE_ACTIVATE {
     fn clone(&self) -> Self {
         *self
     }
@@ -1659,8 +1659,8 @@ pub struct STORAGE_FIRMWARE_DOWNLOAD {
     pub BufferSize: u64,
     pub ImageBuffer: [u8; 1],
 }
-impl ::core::marker::Copy for STORAGE_FIRMWARE_DOWNLOAD {}
-impl ::core::clone::Clone for STORAGE_FIRMWARE_DOWNLOAD {
+impl Copy for STORAGE_FIRMWARE_DOWNLOAD {}
+impl Clone for STORAGE_FIRMWARE_DOWNLOAD {
     fn clone(&self) -> Self {
         *self
     }
@@ -1676,8 +1676,8 @@ pub struct STORAGE_FIRMWARE_DOWNLOAD_V2 {
     pub ImageSize: u32,
     pub ImageBuffer: [u8; 1],
 }
-impl ::core::marker::Copy for STORAGE_FIRMWARE_DOWNLOAD_V2 {}
-impl ::core::clone::Clone for STORAGE_FIRMWARE_DOWNLOAD_V2 {
+impl Copy for STORAGE_FIRMWARE_DOWNLOAD_V2 {}
+impl Clone for STORAGE_FIRMWARE_DOWNLOAD_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1693,8 +1693,8 @@ pub struct STORAGE_FIRMWARE_INFO {
     pub Reserved: u32,
     pub Slot: [STORAGE_FIRMWARE_SLOT_INFO; 1],
 }
-impl ::core::marker::Copy for STORAGE_FIRMWARE_INFO {}
-impl ::core::clone::Clone for STORAGE_FIRMWARE_INFO {
+impl Copy for STORAGE_FIRMWARE_INFO {}
+impl Clone for STORAGE_FIRMWARE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1713,8 +1713,8 @@ pub struct STORAGE_FIRMWARE_INFO_V2 {
     pub ImagePayloadMaxSize: u32,
     pub Slot: [STORAGE_FIRMWARE_SLOT_INFO_V2; 1],
 }
-impl ::core::marker::Copy for STORAGE_FIRMWARE_INFO_V2 {}
-impl ::core::clone::Clone for STORAGE_FIRMWARE_INFO_V2 {
+impl Copy for STORAGE_FIRMWARE_INFO_V2 {}
+impl Clone for STORAGE_FIRMWARE_INFO_V2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1726,8 +1726,8 @@ pub struct STORAGE_FIRMWARE_SLOT_INFO {
     pub Reserved: [u8; 6],
     pub Revision: STORAGE_FIRMWARE_SLOT_INFO_0,
 }
-impl ::core::marker::Copy for STORAGE_FIRMWARE_SLOT_INFO {}
-impl ::core::clone::Clone for STORAGE_FIRMWARE_SLOT_INFO {
+impl Copy for STORAGE_FIRMWARE_SLOT_INFO {}
+impl Clone for STORAGE_FIRMWARE_SLOT_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -1737,8 +1737,8 @@ pub union STORAGE_FIRMWARE_SLOT_INFO_0 {
     pub Info: [u8; 8],
     pub AsUlonglong: u64,
 }
-impl ::core::marker::Copy for STORAGE_FIRMWARE_SLOT_INFO_0 {}
-impl ::core::clone::Clone for STORAGE_FIRMWARE_SLOT_INFO_0 {
+impl Copy for STORAGE_FIRMWARE_SLOT_INFO_0 {}
+impl Clone for STORAGE_FIRMWARE_SLOT_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -1750,11 +1750,11 @@ pub struct STORAGE_FIRMWARE_SLOT_INFO_V2 {
     pub Reserved: [u8; 6],
     pub Revision: [u8; 16],
 }
-impl ::core::marker::Copy for STORAGE_FIRMWARE_SLOT_INFO_V2 {}
-impl ::core::clone::Clone for STORAGE_FIRMWARE_SLOT_INFO_V2 {
+impl Copy for STORAGE_FIRMWARE_SLOT_INFO_V2 {}
+impl Clone for STORAGE_FIRMWARE_SLOT_INFO_V2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 pub type _ADAPTER_OBJECT = isize;
-pub type PDUMP_DEVICE_POWERON_ROUTINE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> i32>;
+pub type PDUMP_DEVICE_POWERON_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> i32>;

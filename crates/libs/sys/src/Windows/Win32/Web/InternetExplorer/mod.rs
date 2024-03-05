@@ -1,70 +1,70 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("imgutil.dll" "system" fn ComputeInvCMAP(prgbcolors : *const super::super::Graphics::Gdi:: RGBQUAD, ncolors : u32, pinvtable : *mut u8, cbtable : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("imgutil.dll" "system" fn ComputeInvCMAP(prgbcolors : *const super::super::Graphics::Gdi:: RGBQUAD, ncolors : u32, pinvtable : *mut u8, cbtable : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("imgutil.dll" "system" fn CreateDDrawSurfaceOnDIB(hbmdib : super::super::Graphics::Gdi:: HBITMAP, ppsurface : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("imgutil.dll" "system" fn CreateMIMEMap(ppmap : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("imgutil.dll" "system" fn DecodeImage(pstream : * mut::core::ffi::c_void, pmap : * mut::core::ffi::c_void, peventsink : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("imgutil.dll" "system" fn DecodeImageEx(pstream : * mut::core::ffi::c_void, pmap : * mut::core::ffi::c_void, peventsink : * mut::core::ffi::c_void, pszmimetypeparam : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("imgutil.dll" "system" fn CreateDDrawSurfaceOnDIB(hbmdib : super::super::Graphics::Gdi:: HBITMAP, ppsurface : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("imgutil.dll" "system" fn CreateMIMEMap(ppmap : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("imgutil.dll" "system" fn DecodeImage(pstream : * mut core::ffi::c_void, pmap : * mut core::ffi::c_void, peventsink : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("imgutil.dll" "system" fn DecodeImageEx(pstream : * mut core::ffi::c_void, pmap : * mut core::ffi::c_void, peventsink : * mut core::ffi::c_void, pszmimetypeparam : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("imgutil.dll" "system" fn DitherTo8(pdestbits : *mut u8, ndestpitch : i32, psrcbits : *mut u8, nsrcpitch : i32, bfidsrc : *const ::windows_sys::core::GUID, prgbdestcolors : *mut super::super::Graphics::Gdi:: RGBQUAD, prgbsrccolors : *mut super::super::Graphics::Gdi:: RGBQUAD, pbdestinvmap : *mut u8, x : i32, y : i32, cx : i32, cy : i32, ldesttrans : i32, lsrctrans : i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("imgutil.dll" "system" fn GetMaxMIMEIDBytes(pnmaxbytes : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ieframe.dll" "system" fn IEAssociateThreadWithTab(dwtabthreadid : u32, dwassociatedthreadid : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ieframe.dll" "system" fn IECancelSaveFile(hstate : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("imgutil.dll" "system" fn DitherTo8(pdestbits : *mut u8, ndestpitch : i32, psrcbits : *mut u8, nsrcpitch : i32, bfidsrc : *const windows_sys::core::GUID, prgbdestcolors : *mut super::super::Graphics::Gdi:: RGBQUAD, prgbsrccolors : *mut super::super::Graphics::Gdi:: RGBQUAD, pbdestinvmap : *mut u8, x : i32, y : i32, cx : i32, cy : i32, ldesttrans : i32, lsrctrans : i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("imgutil.dll" "system" fn GetMaxMIMEIDBytes(pnmaxbytes : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IEAssociateThreadWithTab(dwtabthreadid : u32, dwassociatedthreadid : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IECancelSaveFile(hstate : super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security")]
-::windows_targets::link!("ieframe.dll" "system" fn IECreateDirectory(lppathname : ::windows_sys::core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("ieframe.dll" "system" fn IECreateDirectory(lppathname : windows_sys::core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security")]
-::windows_targets::link!("ieframe.dll" "system" fn IECreateFile(lpfilename : ::windows_sys::core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwcreationdisposition : u32, dwflagsandattributes : u32, htemplatefile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("ieframe.dll" "system" fn IEDeleteFile(lpfilename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("ieframe.dll" "system" fn IEDisassociateThreadWithTab(dwtabthreadid : u32, dwassociatedthreadid : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IECreateFile(lpfilename : windows_sys::core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwcreationdisposition : u32, dwflagsandattributes : u32, htemplatefile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("ieframe.dll" "system" fn IEDeleteFile(lpfilename : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("ieframe.dll" "system" fn IEDisassociateThreadWithTab(dwtabthreadid : u32, dwassociatedthreadid : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Storage_FileSystem")]
-::windows_targets::link!("ieframe.dll" "system" fn IEFindFirstFile(lpfilename : ::windows_sys::core::PCWSTR, lpfindfiledata : *const super::super::Storage::FileSystem:: WIN32_FIND_DATAA) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("ieframe.dll" "system" fn IEFindFirstFile(lpfilename : windows_sys::core::PCWSTR, lpfindfiledata : *const super::super::Storage::FileSystem:: WIN32_FIND_DATAA) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Storage_FileSystem")]
-::windows_targets::link!("ieframe.dll" "system" fn IEGetFileAttributesEx(lpfilename : ::windows_sys::core::PCWSTR, finfolevelid : super::super::Storage::FileSystem:: GET_FILEEX_INFO_LEVELS, lpfileinformation : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("ieframe.dll" "system" fn IEGetProtectedModeCookie(lpszurl : ::windows_sys::core::PCWSTR, lpszcookiename : ::windows_sys::core::PCWSTR, lpszcookiedata : ::windows_sys::core::PWSTR, pcchcookiedata : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ieframe.dll" "system" fn IEGetWriteableFolderPath(clsidfolderid : *const ::windows_sys::core::GUID, lppwstrpath : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IEGetFileAttributesEx(lpfilename : windows_sys::core::PCWSTR, finfolevelid : super::super::Storage::FileSystem:: GET_FILEEX_INFO_LEVELS, lpfileinformation : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("ieframe.dll" "system" fn IEGetProtectedModeCookie(lpszurl : windows_sys::core::PCWSTR, lpszcookiename : windows_sys::core::PCWSTR, lpszcookiedata : windows_sys::core::PWSTR, pcchcookiedata : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IEGetWriteableFolderPath(clsidfolderid : *const windows_sys::core::GUID, lppwstrpath : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("ieframe.dll" "system" fn IEGetWriteableLowHKCU(phkey : *mut super::super::System::Registry:: HKEY) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IEGetWriteableLowHKCU(phkey : *mut super::super::System::Registry:: HKEY) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("ieframe.dll" "system" fn IEInPrivateFilteringEnabled() -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("ieframe.dll" "system" fn IEIsInPrivateBrowsing() -> super::super::Foundation:: BOOL);
-::windows_targets::link!("ieframe.dll" "system" fn IEIsProtectedModeProcess(pbresult : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ieframe.dll" "system" fn IEIsProtectedModeURL(lpwstrurl : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IEIsProtectedModeProcess(pbresult : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IEIsProtectedModeURL(lpwstrurl : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Threading")]
-::windows_targets::link!("ieframe.dll" "system" fn IELaunchURL(lpwstrurl : ::windows_sys::core::PCWSTR, lpprocinfo : *mut super::super::System::Threading:: PROCESS_INFORMATION, lpinfo : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ieframe.dll" "system" fn IEMoveFileEx(lpexistingfilename : ::windows_sys::core::PCWSTR, lpnewfilename : ::windows_sys::core::PCWSTR, dwflags : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("ieframe.dll" "system" fn IERefreshElevationPolicy() -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IELaunchURL(lpwstrurl : windows_sys::core::PCWSTR, lpprocinfo : *mut super::super::System::Threading:: PROCESS_INFORMATION, lpinfo : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IEMoveFileEx(lpexistingfilename : windows_sys::core::PCWSTR, lpnewfilename : windows_sys::core::PCWSTR, dwflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("ieframe.dll" "system" fn IERefreshElevationPolicy() -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
-::windows_targets::link!("ieframe.dll" "system" fn IERegCreateKeyEx(lpsubkey : ::windows_sys::core::PCWSTR, reserved : u32, lpclass : ::windows_sys::core::PCWSTR, dwoptions : u32, samdesired : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut super::super::System::Registry:: HKEY, lpdwdisposition : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ieframe.dll" "system" fn IERegSetValueEx(lpsubkey : ::windows_sys::core::PCWSTR, lpvaluename : ::windows_sys::core::PCWSTR, reserved : u32, dwtype : u32, lpdata : *const u8, cbdata : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ieframe.dll" "system" fn IERegisterWritableRegistryKey(guid : ::windows_sys::core::GUID, lpsubkey : ::windows_sys::core::PCWSTR, fsubkeyallowed : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ieframe.dll" "system" fn IERegisterWritableRegistryValue(guid : ::windows_sys::core::GUID, lppath : ::windows_sys::core::PCWSTR, lpvaluename : ::windows_sys::core::PCWSTR, dwtype : u32, lpdata : *const u8, cbmaxdata : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ieframe.dll" "system" fn IERemoveDirectory(lppathname : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("ieframe.dll" "system" fn IESaveFile(hstate : super::super::Foundation:: HANDLE, lpwstrsourcefile : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ieframe.dll" "system" fn IESetProtectedModeCookie(lpszurl : ::windows_sys::core::PCWSTR, lpszcookiename : ::windows_sys::core::PCWSTR, lpszcookiedata : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ieframe.dll" "system" fn IEShowOpenFileDialog(hwnd : super::super::Foundation:: HWND, lpwstrfilename : ::windows_sys::core::PWSTR, cchmaxfilename : u32, lpwstrinitialdir : ::windows_sys::core::PCWSTR, lpwstrfilter : ::windows_sys::core::PCWSTR, lpwstrdefext : ::windows_sys::core::PCWSTR, dwfilterindex : u32, dwflags : u32, phfile : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ieframe.dll" "system" fn IEShowSaveFileDialog(hwnd : super::super::Foundation:: HWND, lpwstrinitialfilename : ::windows_sys::core::PCWSTR, lpwstrinitialdir : ::windows_sys::core::PCWSTR, lpwstrfilter : ::windows_sys::core::PCWSTR, lpwstrdefext : ::windows_sys::core::PCWSTR, dwfilterindex : u32, dwflags : u32, lppwstrdestinationfilepath : *mut ::windows_sys::core::PWSTR, phstate : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IERegCreateKeyEx(lpsubkey : windows_sys::core::PCWSTR, reserved : u32, lpclass : windows_sys::core::PCWSTR, dwoptions : u32, samdesired : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut super::super::System::Registry:: HKEY, lpdwdisposition : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IERegSetValueEx(lpsubkey : windows_sys::core::PCWSTR, lpvaluename : windows_sys::core::PCWSTR, reserved : u32, dwtype : u32, lpdata : *const u8, cbdata : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IERegisterWritableRegistryKey(guid : windows_sys::core::GUID, lpsubkey : windows_sys::core::PCWSTR, fsubkeyallowed : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IERegisterWritableRegistryValue(guid : windows_sys::core::GUID, lppath : windows_sys::core::PCWSTR, lpvaluename : windows_sys::core::PCWSTR, dwtype : u32, lpdata : *const u8, cbmaxdata : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IERemoveDirectory(lppathname : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("ieframe.dll" "system" fn IESaveFile(hstate : super::super::Foundation:: HANDLE, lpwstrsourcefile : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IESetProtectedModeCookie(lpszurl : windows_sys::core::PCWSTR, lpszcookiename : windows_sys::core::PCWSTR, lpszcookiedata : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IEShowOpenFileDialog(hwnd : super::super::Foundation:: HWND, lpwstrfilename : windows_sys::core::PWSTR, cchmaxfilename : u32, lpwstrinitialdir : windows_sys::core::PCWSTR, lpwstrfilter : windows_sys::core::PCWSTR, lpwstrdefext : windows_sys::core::PCWSTR, dwfilterindex : u32, dwflags : u32, phfile : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IEShowSaveFileDialog(hwnd : super::super::Foundation:: HWND, lpwstrinitialfilename : windows_sys::core::PCWSTR, lpwstrinitialdir : windows_sys::core::PCWSTR, lpwstrfilter : windows_sys::core::PCWSTR, lpwstrdefext : windows_sys::core::PCWSTR, dwfilterindex : u32, dwflags : u32, lppwstrdestinationfilepath : *mut windows_sys::core::PWSTR, phstate : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("ieframe.dll" "system" fn IETrackingProtectionEnabled() -> super::super::Foundation:: BOOL);
-::windows_targets::link!("ieframe.dll" "system" fn IEUnregisterWritableRegistry(guid : ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("imgutil.dll" "system" fn IdentifyMIMEType(pbbytes : *const u8, nbytes : u32, pnformat : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog(hdlg : super::super::Foundation:: HWND, pszusername : ::windows_sys::core::PCSTR, pszcontentdescription : ::windows_sys::core::PCSTR, pratingdetails : *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog2(hdlg : super::super::Foundation:: HWND, pszusername : ::windows_sys::core::PCSTR, pratingdetails : *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog2W(hdlg : super::super::Foundation:: HWND, pszusername : ::windows_sys::core::PCWSTR, pratingdetails : *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialogW(hdlg : super::super::Foundation:: HWND, pszusername : ::windows_sys::core::PCWSTR, pszcontentdescription : ::windows_sys::core::PCWSTR, pratingdetails : *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingAddToApprovedSites(hdlg : super::super::Foundation:: HWND, cbpasswordblob : u32, pbpasswordblob : *mut u8, lpszurl : ::windows_sys::core::PCWSTR, falwaysnever : super::super::Foundation:: BOOL, fsitepage : super::super::Foundation:: BOOL, fapprovedsitesenforced : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingCheckUserAccess(pszusername : ::windows_sys::core::PCSTR, pszurl : ::windows_sys::core::PCSTR, pszratinginfo : ::windows_sys::core::PCSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingCheckUserAccessW(pszusername : ::windows_sys::core::PCWSTR, pszurl : ::windows_sys::core::PCWSTR, pszratinginfo : ::windows_sys::core::PCWSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingClickedOnPRFInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HINSTANCE, lpszfilename : ::windows_sys::core::PCSTR, nshow : i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingClickedOnRATInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HINSTANCE, lpszfilename : ::windows_sys::core::PCSTR, nshow : i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingEnable(hwndparent : super::super::Foundation:: HWND, pszusername : ::windows_sys::core::PCSTR, fenable : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingEnableW(hwndparent : super::super::Foundation:: HWND, pszusername : ::windows_sys::core::PCWSTR, fenable : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingEnabledQuery() -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingFreeDetails(pratingdetails : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingInit() -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingObtainCancel(hratingobtainquery : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingObtainQuery(psztargeturl : ::windows_sys::core::PCSTR, dwuserdata : u32, fcallback : isize, phratingobtainquery : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingObtainQueryW(psztargeturl : ::windows_sys::core::PCWSTR, dwuserdata : u32, fcallback : isize, phratingobtainquery : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingSetupUI(hdlg : super::super::Foundation:: HWND, pszusername : ::windows_sys::core::PCSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("msrating.dll" "system" fn RatingSetupUIW(hdlg : super::super::Foundation:: HWND, pszusername : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("imgutil.dll" "system" fn SniffStream(pinstream : * mut::core::ffi::c_void, pnformat : *mut u32, ppoutstream : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ieframe.dll" "system" fn IEUnregisterWritableRegistry(guid : windows_sys::core::GUID) -> windows_sys::core::HRESULT);
+::windows_targets::link!("imgutil.dll" "system" fn IdentifyMIMEType(pbbytes : *const u8, nbytes : u32, pnformat : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog(hdlg : super::super::Foundation:: HWND, pszusername : windows_sys::core::PCSTR, pszcontentdescription : windows_sys::core::PCSTR, pratingdetails : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog2(hdlg : super::super::Foundation:: HWND, pszusername : windows_sys::core::PCSTR, pratingdetails : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialog2W(hdlg : super::super::Foundation:: HWND, pszusername : windows_sys::core::PCWSTR, pratingdetails : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingAccessDeniedDialogW(hdlg : super::super::Foundation:: HWND, pszusername : windows_sys::core::PCWSTR, pszcontentdescription : windows_sys::core::PCWSTR, pratingdetails : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingAddToApprovedSites(hdlg : super::super::Foundation:: HWND, cbpasswordblob : u32, pbpasswordblob : *mut u8, lpszurl : windows_sys::core::PCWSTR, falwaysnever : super::super::Foundation:: BOOL, fsitepage : super::super::Foundation:: BOOL, fapprovedsitesenforced : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingCheckUserAccess(pszusername : windows_sys::core::PCSTR, pszurl : windows_sys::core::PCSTR, pszratinginfo : windows_sys::core::PCSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingCheckUserAccessW(pszusername : windows_sys::core::PCWSTR, pszurl : windows_sys::core::PCWSTR, pszratinginfo : windows_sys::core::PCWSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingClickedOnPRFInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HINSTANCE, lpszfilename : windows_sys::core::PCSTR, nshow : i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingClickedOnRATInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HINSTANCE, lpszfilename : windows_sys::core::PCSTR, nshow : i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingEnable(hwndparent : super::super::Foundation:: HWND, pszusername : windows_sys::core::PCSTR, fenable : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingEnableW(hwndparent : super::super::Foundation:: HWND, pszusername : windows_sys::core::PCWSTR, fenable : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingEnabledQuery() -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingFreeDetails(pratingdetails : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingInit() -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingObtainCancel(hratingobtainquery : super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingObtainQuery(psztargeturl : windows_sys::core::PCSTR, dwuserdata : u32, fcallback : isize, phratingobtainquery : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingObtainQueryW(psztargeturl : windows_sys::core::PCWSTR, dwuserdata : u32, fcallback : isize, phratingobtainquery : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingSetupUI(hdlg : super::super::Foundation:: HWND, pszusername : windows_sys::core::PCSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" fn RatingSetupUIW(hdlg : super::super::Foundation:: HWND, pszusername : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("imgutil.dll" "system" fn SniffStream(pinstream : * mut core::ffi::c_void, pnformat : *mut u32, ppoutstream : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const ADDRESSBAND: u32 = 2u32;
 pub const ADDURL_ADDTOCACHE: ADDURL_FLAG = 1i32;
 pub const ADDURL_ADDTOHISTORYANDCACHE: ADDURL_FLAG = 0i32;
@@ -75,7 +75,7 @@ pub const ActivityContentDocument: OpenServiceActivityContentType = 0i32;
 pub const ActivityContentLink: OpenServiceActivityContentType = 2i32;
 pub const ActivityContentNone: OpenServiceActivityContentType = -1i32;
 pub const ActivityContentSelection: OpenServiceActivityContentType = 1i32;
-pub const CATID_MSOfficeAntiVirus: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x56ffcc30_d398_11d0_b2ae_00a0c908fa49);
+pub const CATID_MSOfficeAntiVirus: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x56ffcc30_d398_11d0_b2ae_00a0c908fa49);
 pub const COLOR_NO_TRANSPARENT: u32 = 4294967295u32;
 pub const DISPID_ACTIVEXFILTERINGENABLED: u32 = 61u32;
 pub const DISPID_ADDCHANNEL: u32 = 5u32;
@@ -316,21 +316,21 @@ pub const IECMDID_CLEAR_AUTOCOMPLETE_FOR_FORMS: u32 = 0u32;
 pub const IECMDID_GET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 6u32;
 pub const IECMDID_SETID_AUTOCOMPLETE_FOR_FORMS: u32 = 1u32;
 pub const IECMDID_SET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 5u32;
-pub const IEGetProcessModule_PROC_NAME: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IEGetProcessModule");
-pub const IEGetTabWindowExports_PROC_NAME: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("IEGetTabWindowExports");
+pub const IEGetProcessModule_PROC_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("IEGetProcessModule");
+pub const IEGetTabWindowExports_PROC_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("IEGetTabWindowExports");
 pub const IELAUNCHOPTION_FORCE_COMPAT: IELAUNCHOPTION_FLAGS = 2i32;
 pub const IELAUNCHOPTION_FORCE_EDGE: IELAUNCHOPTION_FLAGS = 4i32;
 pub const IELAUNCHOPTION_LOCK_ENGINE: IELAUNCHOPTION_FLAGS = 8i32;
 pub const IELAUNCHOPTION_SCRIPTDEBUG: IELAUNCHOPTION_FLAGS = 1i32;
-pub const IEPROCESS_MODULE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IERtUtil.dll");
+pub const IEPROCESS_MODULE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("IERtUtil.dll");
 pub const IE_USE_OE_MAIL_HKEY: i32 = -2147483647i32;
-pub const IE_USE_OE_MAIL_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Software\\Microsoft\\Internet Explorer\\Mail");
-pub const IE_USE_OE_MAIL_VALUE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Use Outlook Express");
+pub const IE_USE_OE_MAIL_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("Software\\Microsoft\\Internet Explorer\\Mail");
+pub const IE_USE_OE_MAIL_VALUE: windows_sys::core::PCWSTR = windows_sys::core::w!("Use Outlook Express");
 pub const IE_USE_OE_NEWS_HKEY: i32 = -2147483647i32;
-pub const IE_USE_OE_NEWS_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Software\\Microsoft\\Internet Explorer\\News");
-pub const IE_USE_OE_NEWS_VALUE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Use Outlook Express");
+pub const IE_USE_OE_NEWS_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("Software\\Microsoft\\Internet Explorer\\News");
+pub const IE_USE_OE_NEWS_VALUE: windows_sys::core::PCWSTR = windows_sys::core::w!("Use Outlook Express");
 pub const IE_USE_OE_PRESENT_HKEY: i32 = -2147483646i32;
-pub const IE_USE_OE_PRESENT_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\app.paths\\msimn.exe");
+pub const IE_USE_OE_PRESENT_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\app.paths\\msimn.exe");
 pub const IMGDECODE_EVENT_BEGINBITS: u32 = 4u32;
 pub const IMGDECODE_EVENT_BITSCOMPLETE: u32 = 8u32;
 pub const IMGDECODE_EVENT_PALETTE: u32 = 2u32;
@@ -362,152 +362,152 @@ pub const OS_E_CANCELLED: OpenServiceErrors = -2147471631i32;
 pub const OS_E_GPDISABLED: OpenServiceErrors = -1072886820i32;
 pub const OS_E_NOTFOUND: OpenServiceErrors = -2147287038i32;
 pub const OS_E_NOTSUPPORTED: OpenServiceErrors = -2147467231i32;
-pub const REGSTRA_VAL_STARTPAGE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Start Page");
-pub const REGSTR_PATH_CURRENT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("current");
-pub const REGSTR_PATH_DEFAULT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("default");
-pub const REGSTR_PATH_INETCPL_RESTRICTIONS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Software\\Policies\\Microsoft\\Internet Explorer\\Control Panel");
-pub const REGSTR_PATH_MIME_DATABASE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MIME\\Database");
-pub const REGSTR_PATH_REMOTEACCESS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("RemoteAccess");
-pub const REGSTR_PATH_REMOTEACESS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("RemoteAccess");
-pub const REGSTR_SHIFTQUICKSUFFIX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ShiftQuickCompleteSuffix");
-pub const REGSTR_VAL_ACCEPT_LANGUAGE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("AcceptLanguage");
-pub const REGSTR_VAL_ACCESSMEDIUM: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("AccessMedium");
-pub const REGSTR_VAL_ACCESSTYPE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("AccessType");
-pub const REGSTR_VAL_ALIASTO: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("AliasForCharset");
-pub const REGSTR_VAL_ANCHORCOLOR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Anchor Color");
-pub const REGSTR_VAL_ANCHORCOLORHOVER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Anchor Color Hover");
-pub const REGSTR_VAL_ANCHORCOLORVISITED: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Anchor Color Visited");
-pub const REGSTR_VAL_ANCHORUNDERLINE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Anchor Underline");
-pub const REGSTR_VAL_AUTODETECT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("AutoDetect");
-pub const REGSTR_VAL_AUTODIALDLLNAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("AutodialDllName");
-pub const REGSTR_VAL_AUTODIALFCNNAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("AutodialFcnName");
-pub const REGSTR_VAL_AUTODIAL_MONITORCLASSNAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MS_AutodialMonitor");
-pub const REGSTR_VAL_AUTODIAL_TRYONLYONCE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TryAutodialOnce");
-pub const REGSTR_VAL_AUTONAVIGATE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SearchForExtensions");
-pub const REGSTR_VAL_AUTOSEARCH: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Do404Search");
-pub const REGSTR_VAL_BACKBITMAP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("BackBitmap");
-pub const REGSTR_VAL_BACKGROUNDCOLOR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Background Color");
-pub const REGSTR_VAL_BODYCHARSET: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("BodyCharset");
-pub const REGSTR_VAL_BYPASSAUTOCONFIG: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("BypassAutoconfig");
-pub const REGSTR_VAL_CACHEPREFIX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("CachePrefix");
-pub const REGSTR_VAL_CHECKASSOC: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Check_Associations");
-pub const REGSTR_VAL_CODEDOWNLOAD: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Code Download");
-pub const REGSTR_VAL_CODEDOWNLOAD_DEF: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("yes");
-pub const REGSTR_VAL_CODEPAGE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("CodePage");
-pub const REGSTR_VAL_COVEREXCLUDE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("CoverExclude");
-pub const REGSTR_VAL_DAYSTOKEEP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DaysToKeep");
-pub const REGSTR_VAL_DEFAULT_CODEPAGE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Default_CodePage");
-pub const REGSTR_VAL_DEFAULT_SCRIPT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Default_Script");
-pub const REGSTR_VAL_DEF_ENCODING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Default_Encoding");
-pub const REGSTR_VAL_DEF_INETENCODING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Default_InternetEncoding");
-pub const REGSTR_VAL_DESCRIPTION: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Description");
-pub const REGSTR_VAL_DIRECTORY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Directory");
-pub const REGSTR_VAL_DISCONNECTIDLETIME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DisconnectIdleTime");
-pub const REGSTR_VAL_ENABLEAUTODIAL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EnableAutodial");
-pub const REGSTR_VAL_ENABLEAUTODIALDISCONNECT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EnableAutodisconnect");
-pub const REGSTR_VAL_ENABLEAUTODISCONNECT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EnableAutodisconnect");
-pub const REGSTR_VAL_ENABLEEXITDISCONNECT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EnableExitDisconnect");
-pub const REGSTR_VAL_ENABLESECURITYCHECK: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EnableSecurityCheck");
-pub const REGSTR_VAL_ENABLEUNATTENDED: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EnableUnattended");
-pub const REGSTR_VAL_ENCODENAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EncodingName");
-pub const REGSTR_VAL_FAMILY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Family");
-pub const REGSTR_VAL_FIXEDWIDTHFONT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("FixedWidthFont");
-pub const REGSTR_VAL_FIXED_FONT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IEFixedFontName");
-pub const REGSTR_VAL_FONT_SCRIPT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Script");
-pub const REGSTR_VAL_FONT_SCRIPTS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Scripts");
-pub const REGSTR_VAL_FONT_SCRIPT_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Script");
-pub const REGSTR_VAL_FONT_SIZE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IEFontSize");
+pub const REGSTRA_VAL_STARTPAGE: windows_sys::core::PCSTR = windows_sys::core::s!("Start Page");
+pub const REGSTR_PATH_CURRENT: windows_sys::core::PCWSTR = windows_sys::core::w!("current");
+pub const REGSTR_PATH_DEFAULT: windows_sys::core::PCWSTR = windows_sys::core::w!("default");
+pub const REGSTR_PATH_INETCPL_RESTRICTIONS: windows_sys::core::PCWSTR = windows_sys::core::w!("Software\\Policies\\Microsoft\\Internet Explorer\\Control Panel");
+pub const REGSTR_PATH_MIME_DATABASE: windows_sys::core::PCWSTR = windows_sys::core::w!("MIME\\Database");
+pub const REGSTR_PATH_REMOTEACCESS: windows_sys::core::PCWSTR = windows_sys::core::w!("RemoteAccess");
+pub const REGSTR_PATH_REMOTEACESS: windows_sys::core::PCWSTR = windows_sys::core::w!("RemoteAccess");
+pub const REGSTR_SHIFTQUICKSUFFIX: windows_sys::core::PCWSTR = windows_sys::core::w!("ShiftQuickCompleteSuffix");
+pub const REGSTR_VAL_ACCEPT_LANGUAGE: windows_sys::core::PCWSTR = windows_sys::core::w!("AcceptLanguage");
+pub const REGSTR_VAL_ACCESSMEDIUM: windows_sys::core::PCWSTR = windows_sys::core::w!("AccessMedium");
+pub const REGSTR_VAL_ACCESSTYPE: windows_sys::core::PCWSTR = windows_sys::core::w!("AccessType");
+pub const REGSTR_VAL_ALIASTO: windows_sys::core::PCWSTR = windows_sys::core::w!("AliasForCharset");
+pub const REGSTR_VAL_ANCHORCOLOR: windows_sys::core::PCWSTR = windows_sys::core::w!("Anchor Color");
+pub const REGSTR_VAL_ANCHORCOLORHOVER: windows_sys::core::PCWSTR = windows_sys::core::w!("Anchor Color Hover");
+pub const REGSTR_VAL_ANCHORCOLORVISITED: windows_sys::core::PCWSTR = windows_sys::core::w!("Anchor Color Visited");
+pub const REGSTR_VAL_ANCHORUNDERLINE: windows_sys::core::PCWSTR = windows_sys::core::w!("Anchor Underline");
+pub const REGSTR_VAL_AUTODETECT: windows_sys::core::PCWSTR = windows_sys::core::w!("AutoDetect");
+pub const REGSTR_VAL_AUTODIALDLLNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("AutodialDllName");
+pub const REGSTR_VAL_AUTODIALFCNNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("AutodialFcnName");
+pub const REGSTR_VAL_AUTODIAL_MONITORCLASSNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("MS_AutodialMonitor");
+pub const REGSTR_VAL_AUTODIAL_TRYONLYONCE: windows_sys::core::PCWSTR = windows_sys::core::w!("TryAutodialOnce");
+pub const REGSTR_VAL_AUTONAVIGATE: windows_sys::core::PCWSTR = windows_sys::core::w!("SearchForExtensions");
+pub const REGSTR_VAL_AUTOSEARCH: windows_sys::core::PCWSTR = windows_sys::core::w!("Do404Search");
+pub const REGSTR_VAL_BACKBITMAP: windows_sys::core::PCWSTR = windows_sys::core::w!("BackBitmap");
+pub const REGSTR_VAL_BACKGROUNDCOLOR: windows_sys::core::PCWSTR = windows_sys::core::w!("Background Color");
+pub const REGSTR_VAL_BODYCHARSET: windows_sys::core::PCWSTR = windows_sys::core::w!("BodyCharset");
+pub const REGSTR_VAL_BYPASSAUTOCONFIG: windows_sys::core::PCWSTR = windows_sys::core::w!("BypassAutoconfig");
+pub const REGSTR_VAL_CACHEPREFIX: windows_sys::core::PCWSTR = windows_sys::core::w!("CachePrefix");
+pub const REGSTR_VAL_CHECKASSOC: windows_sys::core::PCWSTR = windows_sys::core::w!("Check_Associations");
+pub const REGSTR_VAL_CODEDOWNLOAD: windows_sys::core::PCWSTR = windows_sys::core::w!("Code Download");
+pub const REGSTR_VAL_CODEDOWNLOAD_DEF: windows_sys::core::PCWSTR = windows_sys::core::w!("yes");
+pub const REGSTR_VAL_CODEPAGE: windows_sys::core::PCWSTR = windows_sys::core::w!("CodePage");
+pub const REGSTR_VAL_COVEREXCLUDE: windows_sys::core::PCWSTR = windows_sys::core::w!("CoverExclude");
+pub const REGSTR_VAL_DAYSTOKEEP: windows_sys::core::PCWSTR = windows_sys::core::w!("DaysToKeep");
+pub const REGSTR_VAL_DEFAULT_CODEPAGE: windows_sys::core::PCWSTR = windows_sys::core::w!("Default_CodePage");
+pub const REGSTR_VAL_DEFAULT_SCRIPT: windows_sys::core::PCWSTR = windows_sys::core::w!("Default_Script");
+pub const REGSTR_VAL_DEF_ENCODING: windows_sys::core::PCWSTR = windows_sys::core::w!("Default_Encoding");
+pub const REGSTR_VAL_DEF_INETENCODING: windows_sys::core::PCWSTR = windows_sys::core::w!("Default_InternetEncoding");
+pub const REGSTR_VAL_DESCRIPTION: windows_sys::core::PCWSTR = windows_sys::core::w!("Description");
+pub const REGSTR_VAL_DIRECTORY: windows_sys::core::PCWSTR = windows_sys::core::w!("Directory");
+pub const REGSTR_VAL_DISCONNECTIDLETIME: windows_sys::core::PCWSTR = windows_sys::core::w!("DisconnectIdleTime");
+pub const REGSTR_VAL_ENABLEAUTODIAL: windows_sys::core::PCWSTR = windows_sys::core::w!("EnableAutodial");
+pub const REGSTR_VAL_ENABLEAUTODIALDISCONNECT: windows_sys::core::PCWSTR = windows_sys::core::w!("EnableAutodisconnect");
+pub const REGSTR_VAL_ENABLEAUTODISCONNECT: windows_sys::core::PCWSTR = windows_sys::core::w!("EnableAutodisconnect");
+pub const REGSTR_VAL_ENABLEEXITDISCONNECT: windows_sys::core::PCWSTR = windows_sys::core::w!("EnableExitDisconnect");
+pub const REGSTR_VAL_ENABLESECURITYCHECK: windows_sys::core::PCWSTR = windows_sys::core::w!("EnableSecurityCheck");
+pub const REGSTR_VAL_ENABLEUNATTENDED: windows_sys::core::PCWSTR = windows_sys::core::w!("EnableUnattended");
+pub const REGSTR_VAL_ENCODENAME: windows_sys::core::PCWSTR = windows_sys::core::w!("EncodingName");
+pub const REGSTR_VAL_FAMILY: windows_sys::core::PCWSTR = windows_sys::core::w!("Family");
+pub const REGSTR_VAL_FIXEDWIDTHFONT: windows_sys::core::PCWSTR = windows_sys::core::w!("FixedWidthFont");
+pub const REGSTR_VAL_FIXED_FONT: windows_sys::core::PCWSTR = windows_sys::core::w!("IEFixedFontName");
+pub const REGSTR_VAL_FONT_SCRIPT: windows_sys::core::PCWSTR = windows_sys::core::w!("Script");
+pub const REGSTR_VAL_FONT_SCRIPTS: windows_sys::core::PCWSTR = windows_sys::core::w!("Scripts");
+pub const REGSTR_VAL_FONT_SCRIPT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("Script");
+pub const REGSTR_VAL_FONT_SIZE: windows_sys::core::PCWSTR = windows_sys::core::w!("IEFontSize");
 pub const REGSTR_VAL_FONT_SIZE_DEF: u32 = 2u32;
-pub const REGSTR_VAL_HEADERCHARSET: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("HeaderCharset");
-pub const REGSTR_VAL_HTTP_ERRORS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Friendly http errors");
-pub const REGSTR_VAL_IE_CUSTOMCOLORS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Custom Colors");
-pub const REGSTR_VAL_INETCPL_ADVANCEDTAB: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("AdvancedTab");
-pub const REGSTR_VAL_INETCPL_CONNECTIONSTAB: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ConnectionsTab");
-pub const REGSTR_VAL_INETCPL_CONTENTTAB: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ContentTab");
-pub const REGSTR_VAL_INETCPL_GENERALTAB: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("GeneralTab");
-pub const REGSTR_VAL_INETCPL_IEAK: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IEAKContext");
-pub const REGSTR_VAL_INETCPL_PRIVACYTAB: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PrivacyTab");
-pub const REGSTR_VAL_INETCPL_PROGRAMSTAB: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ProgramsTab");
-pub const REGSTR_VAL_INETCPL_SECURITYTAB: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SecurityTab");
-pub const REGSTR_VAL_INETENCODING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("InternetEncoding");
-pub const REGSTR_VAL_INTERNETENTRY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("InternetProfile");
-pub const REGSTR_VAL_INTERNETENTRYBKUP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("BackupInternetProfile");
-pub const REGSTR_VAL_INTERNETPROFILE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("InternetProfile");
-pub const REGSTR_VAL_JAVAJIT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EnableJIT");
+pub const REGSTR_VAL_HEADERCHARSET: windows_sys::core::PCWSTR = windows_sys::core::w!("HeaderCharset");
+pub const REGSTR_VAL_HTTP_ERRORS: windows_sys::core::PCWSTR = windows_sys::core::w!("Friendly http errors");
+pub const REGSTR_VAL_IE_CUSTOMCOLORS: windows_sys::core::PCWSTR = windows_sys::core::w!("Custom Colors");
+pub const REGSTR_VAL_INETCPL_ADVANCEDTAB: windows_sys::core::PCWSTR = windows_sys::core::w!("AdvancedTab");
+pub const REGSTR_VAL_INETCPL_CONNECTIONSTAB: windows_sys::core::PCWSTR = windows_sys::core::w!("ConnectionsTab");
+pub const REGSTR_VAL_INETCPL_CONTENTTAB: windows_sys::core::PCWSTR = windows_sys::core::w!("ContentTab");
+pub const REGSTR_VAL_INETCPL_GENERALTAB: windows_sys::core::PCWSTR = windows_sys::core::w!("GeneralTab");
+pub const REGSTR_VAL_INETCPL_IEAK: windows_sys::core::PCWSTR = windows_sys::core::w!("IEAKContext");
+pub const REGSTR_VAL_INETCPL_PRIVACYTAB: windows_sys::core::PCWSTR = windows_sys::core::w!("PrivacyTab");
+pub const REGSTR_VAL_INETCPL_PROGRAMSTAB: windows_sys::core::PCWSTR = windows_sys::core::w!("ProgramsTab");
+pub const REGSTR_VAL_INETCPL_SECURITYTAB: windows_sys::core::PCWSTR = windows_sys::core::w!("SecurityTab");
+pub const REGSTR_VAL_INETENCODING: windows_sys::core::PCWSTR = windows_sys::core::w!("InternetEncoding");
+pub const REGSTR_VAL_INTERNETENTRY: windows_sys::core::PCWSTR = windows_sys::core::w!("InternetProfile");
+pub const REGSTR_VAL_INTERNETENTRYBKUP: windows_sys::core::PCWSTR = windows_sys::core::w!("BackupInternetProfile");
+pub const REGSTR_VAL_INTERNETPROFILE: windows_sys::core::PCWSTR = windows_sys::core::w!("InternetProfile");
+pub const REGSTR_VAL_JAVAJIT: windows_sys::core::PCWSTR = windows_sys::core::w!("EnableJIT");
 pub const REGSTR_VAL_JAVAJIT_DEF: u32 = 0u32;
-pub const REGSTR_VAL_JAVALOGGING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EnableLogging");
+pub const REGSTR_VAL_JAVALOGGING: windows_sys::core::PCWSTR = windows_sys::core::w!("EnableLogging");
 pub const REGSTR_VAL_JAVALOGGING_DEF: u32 = 0u32;
-pub const REGSTR_VAL_LEVEL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Level");
-pub const REGSTR_VAL_LOADIMAGES: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Display Inline Images");
-pub const REGSTR_VAL_LOCALPAGE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Local Page");
-pub const REGSTR_VAL_MOSDISCONNECT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DisconnectTimeout");
-pub const REGSTR_VAL_NEWDIRECTORY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NewDirectory");
-pub const REGSTR_VAL_NONETAUTODIAL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("NoNetAutodial");
-pub const REGSTR_VAL_PLAYSOUNDS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Play_Background_Sounds");
-pub const REGSTR_VAL_PLAYVIDEOS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Display Inline Videos");
-pub const REGSTR_VAL_PRIVCONVERTER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("PrivConverter");
-pub const REGSTR_VAL_PROPORTIONALFONT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ProportionalFont");
-pub const REGSTR_VAL_PROP_FONT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IEPropFontName");
-pub const REGSTR_VAL_PROXYENABLE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ProxyEnable");
-pub const REGSTR_VAL_PROXYOVERRIDE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ProxyOverride");
-pub const REGSTR_VAL_PROXYSERVER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ProxyServer");
-pub const REGSTR_VAL_REDIALATTEMPTS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("RedialAttempts");
-pub const REGSTR_VAL_REDIALINTERVAL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("RedialWait");
-pub const REGSTR_VAL_RNAINSTALLED: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Installed");
-pub const REGSTR_VAL_SAFETYWARNINGLEVEL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Safety Warning Level");
-pub const REGSTR_VAL_SCHANNELENABLEPROTOCOL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Enabled");
+pub const REGSTR_VAL_LEVEL: windows_sys::core::PCWSTR = windows_sys::core::w!("Level");
+pub const REGSTR_VAL_LOADIMAGES: windows_sys::core::PCWSTR = windows_sys::core::w!("Display Inline Images");
+pub const REGSTR_VAL_LOCALPAGE: windows_sys::core::PCWSTR = windows_sys::core::w!("Local Page");
+pub const REGSTR_VAL_MOSDISCONNECT: windows_sys::core::PCWSTR = windows_sys::core::w!("DisconnectTimeout");
+pub const REGSTR_VAL_NEWDIRECTORY: windows_sys::core::PCWSTR = windows_sys::core::w!("NewDirectory");
+pub const REGSTR_VAL_NONETAUTODIAL: windows_sys::core::PCWSTR = windows_sys::core::w!("NoNetAutodial");
+pub const REGSTR_VAL_PLAYSOUNDS: windows_sys::core::PCWSTR = windows_sys::core::w!("Play_Background_Sounds");
+pub const REGSTR_VAL_PLAYVIDEOS: windows_sys::core::PCWSTR = windows_sys::core::w!("Display Inline Videos");
+pub const REGSTR_VAL_PRIVCONVERTER: windows_sys::core::PCWSTR = windows_sys::core::w!("PrivConverter");
+pub const REGSTR_VAL_PROPORTIONALFONT: windows_sys::core::PCWSTR = windows_sys::core::w!("ProportionalFont");
+pub const REGSTR_VAL_PROP_FONT: windows_sys::core::PCWSTR = windows_sys::core::w!("IEPropFontName");
+pub const REGSTR_VAL_PROXYENABLE: windows_sys::core::PCWSTR = windows_sys::core::w!("ProxyEnable");
+pub const REGSTR_VAL_PROXYOVERRIDE: windows_sys::core::PCWSTR = windows_sys::core::w!("ProxyOverride");
+pub const REGSTR_VAL_PROXYSERVER: windows_sys::core::PCWSTR = windows_sys::core::w!("ProxyServer");
+pub const REGSTR_VAL_REDIALATTEMPTS: windows_sys::core::PCWSTR = windows_sys::core::w!("RedialAttempts");
+pub const REGSTR_VAL_REDIALINTERVAL: windows_sys::core::PCWSTR = windows_sys::core::w!("RedialWait");
+pub const REGSTR_VAL_RNAINSTALLED: windows_sys::core::PCWSTR = windows_sys::core::w!("Installed");
+pub const REGSTR_VAL_SAFETYWARNINGLEVEL: windows_sys::core::PCWSTR = windows_sys::core::w!("Safety Warning Level");
+pub const REGSTR_VAL_SCHANNELENABLEPROTOCOL: windows_sys::core::PCWSTR = windows_sys::core::w!("Enabled");
 pub const REGSTR_VAL_SCHANNELENABLEPROTOCOL_DEF: u32 = 1u32;
-pub const REGSTR_VAL_SCRIPT_FIXED_FONT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IEFixedFontName");
-pub const REGSTR_VAL_SCRIPT_PROP_FONT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("IEPropFontName");
-pub const REGSTR_VAL_SEARCHPAGE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Search Page");
-pub const REGSTR_VAL_SECURITYACTICEXSCRIPTS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Security_RunScripts");
+pub const REGSTR_VAL_SCRIPT_FIXED_FONT: windows_sys::core::PCWSTR = windows_sys::core::w!("IEFixedFontName");
+pub const REGSTR_VAL_SCRIPT_PROP_FONT: windows_sys::core::PCWSTR = windows_sys::core::w!("IEPropFontName");
+pub const REGSTR_VAL_SEARCHPAGE: windows_sys::core::PCWSTR = windows_sys::core::w!("Search Page");
+pub const REGSTR_VAL_SECURITYACTICEXSCRIPTS: windows_sys::core::PCWSTR = windows_sys::core::w!("Security_RunScripts");
 pub const REGSTR_VAL_SECURITYACTICEXSCRIPTS_DEF: u32 = 1u32;
-pub const REGSTR_VAL_SECURITYACTIVEX: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Security_RunActiveXControls");
+pub const REGSTR_VAL_SECURITYACTIVEX: windows_sys::core::PCWSTR = windows_sys::core::w!("Security_RunActiveXControls");
 pub const REGSTR_VAL_SECURITYACTIVEX_DEF: u32 = 1u32;
-pub const REGSTR_VAL_SECURITYALLOWCOOKIES: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("AllowCookies");
+pub const REGSTR_VAL_SECURITYALLOWCOOKIES: windows_sys::core::PCWSTR = windows_sys::core::w!("AllowCookies");
 pub const REGSTR_VAL_SECURITYALLOWCOOKIES_DEF: u32 = 1u32;
-pub const REGSTR_VAL_SECURITYDISABLECACHINGOFSSLPAGES: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DisableCachingOfSSLPages");
+pub const REGSTR_VAL_SECURITYDISABLECACHINGOFSSLPAGES: windows_sys::core::PCWSTR = windows_sys::core::w!("DisableCachingOfSSLPages");
 pub const REGSTR_VAL_SECURITYDISABLECACHINGOFSSLPAGES_DEF: u32 = 0u32;
-pub const REGSTR_VAL_SECURITYJAVA: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Security_RunJavaApplets");
+pub const REGSTR_VAL_SECURITYJAVA: windows_sys::core::PCWSTR = windows_sys::core::w!("Security_RunJavaApplets");
 pub const REGSTR_VAL_SECURITYJAVA_DEF: u32 = 1u32;
-pub const REGSTR_VAL_SECURITYWARNONBADCERTSENDING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("WarnOnBadCertSending");
+pub const REGSTR_VAL_SECURITYWARNONBADCERTSENDING: windows_sys::core::PCWSTR = windows_sys::core::w!("WarnOnBadCertSending");
 pub const REGSTR_VAL_SECURITYWARNONBADCERTSENDING_DEF: u32 = 1u32;
-pub const REGSTR_VAL_SECURITYWARNONBADCERTVIEWING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("WarnOnBadCertRecving");
+pub const REGSTR_VAL_SECURITYWARNONBADCERTVIEWING: windows_sys::core::PCWSTR = windows_sys::core::w!("WarnOnBadCertRecving");
 pub const REGSTR_VAL_SECURITYWARNONBADCERTVIEWING_DEF: u32 = 1u32;
-pub const REGSTR_VAL_SECURITYWARNONSEND: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("WarnOnPost");
-pub const REGSTR_VAL_SECURITYWARNONSENDALWAYS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("WarnAlwaysOnPost");
+pub const REGSTR_VAL_SECURITYWARNONSEND: windows_sys::core::PCWSTR = windows_sys::core::w!("WarnOnPost");
+pub const REGSTR_VAL_SECURITYWARNONSENDALWAYS: windows_sys::core::PCWSTR = windows_sys::core::w!("WarnAlwaysOnPost");
 pub const REGSTR_VAL_SECURITYWARNONSENDALWAYS_DEF: u32 = 1u32;
 pub const REGSTR_VAL_SECURITYWARNONSEND_DEF: u32 = 1u32;
-pub const REGSTR_VAL_SECURITYWARNONVIEW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("WarnOnView");
+pub const REGSTR_VAL_SECURITYWARNONVIEW: windows_sys::core::PCWSTR = windows_sys::core::w!("WarnOnView");
 pub const REGSTR_VAL_SECURITYWARNONVIEW_DEF: u32 = 1u32;
-pub const REGSTR_VAL_SECURITYWARNONZONECROSSING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("WarnOnZoneCrossing");
+pub const REGSTR_VAL_SECURITYWARNONZONECROSSING: windows_sys::core::PCWSTR = windows_sys::core::w!("WarnOnZoneCrossing");
 pub const REGSTR_VAL_SECURITYWARNONZONECROSSING_DEF: u32 = 1u32;
-pub const REGSTR_VAL_SHOWADDRESSBAR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Show_URLToolBar");
-pub const REGSTR_VAL_SHOWFOCUS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Tabstop - MouseDown");
-pub const REGSTR_VAL_SHOWFOCUS_DEF: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("no");
-pub const REGSTR_VAL_SHOWFULLURLS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Show_FullURL");
-pub const REGSTR_VAL_SHOWTOOLBAR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Show_ToolBar");
-pub const REGSTR_VAL_SMOOTHSCROLL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SmoothScroll");
+pub const REGSTR_VAL_SHOWADDRESSBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("Show_URLToolBar");
+pub const REGSTR_VAL_SHOWFOCUS: windows_sys::core::PCWSTR = windows_sys::core::w!("Tabstop - MouseDown");
+pub const REGSTR_VAL_SHOWFOCUS_DEF: windows_sys::core::PCWSTR = windows_sys::core::w!("no");
+pub const REGSTR_VAL_SHOWFULLURLS: windows_sys::core::PCWSTR = windows_sys::core::w!("Show_FullURL");
+pub const REGSTR_VAL_SHOWTOOLBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("Show_ToolBar");
+pub const REGSTR_VAL_SMOOTHSCROLL: windows_sys::core::PCWSTR = windows_sys::core::w!("SmoothScroll");
 pub const REGSTR_VAL_SMOOTHSCROLL_DEF: u32 = 1u32;
-pub const REGSTR_VAL_STARTPAGE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Start Page");
-pub const REGSTR_VAL_TEXTCOLOR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Text Color");
-pub const REGSTR_VAL_TRUSTWARNINGLEVEL_HIGH: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("High");
-pub const REGSTR_VAL_TRUSTWARNINGLEVEL_LOW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("No Security");
-pub const REGSTR_VAL_TRUSTWARNINGLEVEL_MED: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Medium");
-pub const REGSTR_VAL_USEAUTOAPPEND: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Append Completion");
-pub const REGSTR_VAL_USEAUTOCOMPLETE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Use AutoComplete");
-pub const REGSTR_VAL_USEAUTOSUGGEST: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("AutoSuggest");
-pub const REGSTR_VAL_USEDLGCOLORS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Use_DlgBox_Colors");
-pub const REGSTR_VAL_USEHOVERCOLOR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Use Anchor Hover Color");
-pub const REGSTR_VAL_USEIBAR: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("UseBar");
-pub const REGSTR_VAL_USEICM: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("UseICM");
+pub const REGSTR_VAL_STARTPAGE: windows_sys::core::PCWSTR = windows_sys::core::w!("Start Page");
+pub const REGSTR_VAL_TEXTCOLOR: windows_sys::core::PCWSTR = windows_sys::core::w!("Text Color");
+pub const REGSTR_VAL_TRUSTWARNINGLEVEL_HIGH: windows_sys::core::PCWSTR = windows_sys::core::w!("High");
+pub const REGSTR_VAL_TRUSTWARNINGLEVEL_LOW: windows_sys::core::PCWSTR = windows_sys::core::w!("No Security");
+pub const REGSTR_VAL_TRUSTWARNINGLEVEL_MED: windows_sys::core::PCWSTR = windows_sys::core::w!("Medium");
+pub const REGSTR_VAL_USEAUTOAPPEND: windows_sys::core::PCWSTR = windows_sys::core::w!("Append Completion");
+pub const REGSTR_VAL_USEAUTOCOMPLETE: windows_sys::core::PCWSTR = windows_sys::core::w!("Use AutoComplete");
+pub const REGSTR_VAL_USEAUTOSUGGEST: windows_sys::core::PCWSTR = windows_sys::core::w!("AutoSuggest");
+pub const REGSTR_VAL_USEDLGCOLORS: windows_sys::core::PCWSTR = windows_sys::core::w!("Use_DlgBox_Colors");
+pub const REGSTR_VAL_USEHOVERCOLOR: windows_sys::core::PCWSTR = windows_sys::core::w!("Use Anchor Hover Color");
+pub const REGSTR_VAL_USEIBAR: windows_sys::core::PCWSTR = windows_sys::core::w!("UseBar");
+pub const REGSTR_VAL_USEICM: windows_sys::core::PCWSTR = windows_sys::core::w!("UseICM");
 pub const REGSTR_VAL_USEICM_DEF: u32 = 0u32;
-pub const REGSTR_VAL_USERAGENT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("User Agent");
-pub const REGSTR_VAL_USESTYLESHEETS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Use Stylesheets");
-pub const REGSTR_VAL_USESTYLESHEETS_DEF: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("yes");
-pub const REGSTR_VAL_VISIBLEBANDS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("VisibleBands");
+pub const REGSTR_VAL_USERAGENT: windows_sys::core::PCWSTR = windows_sys::core::w!("User Agent");
+pub const REGSTR_VAL_USESTYLESHEETS: windows_sys::core::PCWSTR = windows_sys::core::w!("Use Stylesheets");
+pub const REGSTR_VAL_USESTYLESHEETS_DEF: windows_sys::core::PCWSTR = windows_sys::core::w!("yes");
+pub const REGSTR_VAL_VISIBLEBANDS: windows_sys::core::PCWSTR = windows_sys::core::w!("VisibleBands");
 pub const REGSTR_VAL_VISIBLEBANDS_DEF: u32 = 7u32;
-pub const REGSTR_VAL_WEBCHARSET: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("WebCharset");
+pub const REGSTR_VAL_WEBCHARSET: windows_sys::core::PCWSTR = windows_sys::core::w!("WebCharset");
 pub const SCMP_BOTTOM: SCROLLABLECONTEXTMENU_PLACEMENT = 1i32;
 pub const SCMP_FULL: SCROLLABLECONTEXTMENU_PLACEMENT = 4i32;
 pub const SCMP_LEFT: SCROLLABLECONTEXTMENU_PLACEMENT = 2i32;
@@ -522,36 +522,36 @@ pub const STATURL_QUERYFLAG_TOPLEVEL: u32 = 524288u32;
 pub const SURFACE_LOCK_ALLOW_DISCARD: u32 = 2u32;
 pub const SURFACE_LOCK_EXCLUSIVE: u32 = 1u32;
 pub const SURFACE_LOCK_WAIT: u32 = 4u32;
-pub const SZBACKBITMAP: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("BackBitmap");
-pub const SZJAVAVMPATH: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("\\Java VM");
-pub const SZNOTEXT: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("NoText");
-pub const SZTOOLBAR: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("\\Toolbar");
-pub const SZTRUSTWARNLEVEL: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Trust Warning Level");
-pub const SZVISIBLE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("VisibleBands");
-pub const SZ_IE_DEFAULT_HTML_EDITOR: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Default HTML Editor");
-pub const SZ_IE_IBAR: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Bar");
-pub const SZ_IE_IBAR_BANDS: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Bands");
-pub const SZ_IE_MAIN: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Main");
-pub const SZ_IE_SEARCHSTRINGS: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("UrlTemplate");
-pub const SZ_IE_SECURITY: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Security");
-pub const SZ_IE_SETTINGS: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Settings");
-pub const SZ_IE_THRESHOLDS: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ErrorThresholds");
+pub const SZBACKBITMAP: windows_sys::core::PCSTR = windows_sys::core::s!("BackBitmap");
+pub const SZJAVAVMPATH: windows_sys::core::PCSTR = windows_sys::core::s!("\\Java VM");
+pub const SZNOTEXT: windows_sys::core::PCSTR = windows_sys::core::s!("NoText");
+pub const SZTOOLBAR: windows_sys::core::PCSTR = windows_sys::core::s!("\\Toolbar");
+pub const SZTRUSTWARNLEVEL: windows_sys::core::PCSTR = windows_sys::core::s!("Trust Warning Level");
+pub const SZVISIBLE: windows_sys::core::PCSTR = windows_sys::core::s!("VisibleBands");
+pub const SZ_IE_DEFAULT_HTML_EDITOR: windows_sys::core::PCSTR = windows_sys::core::s!("Default HTML Editor");
+pub const SZ_IE_IBAR: windows_sys::core::PCSTR = windows_sys::core::s!("Bar");
+pub const SZ_IE_IBAR_BANDS: windows_sys::core::PCSTR = windows_sys::core::s!("Bands");
+pub const SZ_IE_MAIN: windows_sys::core::PCSTR = windows_sys::core::s!("Main");
+pub const SZ_IE_SEARCHSTRINGS: windows_sys::core::PCSTR = windows_sys::core::s!("UrlTemplate");
+pub const SZ_IE_SECURITY: windows_sys::core::PCSTR = windows_sys::core::s!("Security");
+pub const SZ_IE_SETTINGS: windows_sys::core::PCSTR = windows_sys::core::s!("Settings");
+pub const SZ_IE_THRESHOLDS: windows_sys::core::PCSTR = windows_sys::core::s!("ErrorThresholds");
 pub const S_SURFACE_DISCARDED: i32 = 49155i32;
-pub const TARGET_NOTIFY_OBJECT_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("863a99a0-21bc-11d0-82b4-00a0c90c29c5");
+pub const TARGET_NOTIFY_OBJECT_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("863a99a0-21bc-11d0-82b4-00a0c90c29c5");
 pub const TF_NAVIGATE: u32 = 2142153644u32;
 pub const TIMERMODE_NORMAL: u32 = 0u32;
 pub const TIMERMODE_VISIBILITYAWARE: u32 = 1u32;
 pub const TOOLSBAND: u32 = 1u32;
-pub const TSZCALENDARPROTOCOL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("unk");
-pub const TSZCALLTOPROTOCOL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("callto");
-pub const TSZINTERNETCLIENTSPATH: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Software\\Microsoft\\Internet Explorer\\Unix");
-pub const TSZLDAPPROTOCOL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ldap");
-pub const TSZMAILTOPROTOCOL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("mailto");
-pub const TSZMICROSOFTPATH: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Software\\Microsoft");
-pub const TSZNEWSPROTOCOL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("news");
-pub const TSZPROTOCOLSPATH: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Protocols\\");
-pub const TSZSCHANNELPATH: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\SCHANNEL");
-pub const TSZVSOURCEPROTOCOL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("view source");
+pub const TSZCALENDARPROTOCOL: windows_sys::core::PCWSTR = windows_sys::core::w!("unk");
+pub const TSZCALLTOPROTOCOL: windows_sys::core::PCWSTR = windows_sys::core::w!("callto");
+pub const TSZINTERNETCLIENTSPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("Software\\Microsoft\\Internet Explorer\\Unix");
+pub const TSZLDAPPROTOCOL: windows_sys::core::PCWSTR = windows_sys::core::w!("ldap");
+pub const TSZMAILTOPROTOCOL: windows_sys::core::PCWSTR = windows_sys::core::w!("mailto");
+pub const TSZMICROSOFTPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("Software\\Microsoft");
+pub const TSZNEWSPROTOCOL: windows_sys::core::PCWSTR = windows_sys::core::w!("news");
+pub const TSZPROTOCOLSPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("Protocols\\");
+pub const TSZSCHANNELPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\SCHANNEL");
+pub const TSZVSOURCEPROTOCOL: windows_sys::core::PCWSTR = windows_sys::core::w!("view source");
 pub const msodsvFailed: u32 = 3u32;
 pub const msodsvLowSecurityLevel: u32 = 4u32;
 pub const msodsvNoMacros: u32 = 0u32;
@@ -577,36 +577,36 @@ pub type NAVIGATEFRAME_FLAGS = i32;
 pub type OpenServiceActivityContentType = i32;
 pub type OpenServiceErrors = i32;
 pub type SCROLLABLECONTEXTMENU_PLACEMENT = i32;
-pub const AnchorClick: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13d5413c_33b9_11d2_95a7_00c04f8ecb02);
-pub const CDeviceRect: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3050f6d4_98b5_11cf_bb82_00aa00bdce0b);
-pub const CDownloadBehavior: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3050f5be_98b5_11cf_bb82_00aa00bdce0b);
-pub const CHeaderFooter: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3050f6cd_98b5_11cf_bb82_00aa00bdce0b);
-pub const CLayoutRect: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3050f664_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistDataPeer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3050f487_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistHistory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3050f4c8_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistShortcut: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3050f4c6_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistSnapshot: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3050f4c9_98b5_11cf_bb82_00aa00bdce0b);
-pub const CPersistUserData: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3050f48e_98b5_11cf_bb82_00aa00bdce0b);
-pub const CoDitherToRGB8: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa860ce50_3910_11d0_86fc_00a0c913f750);
-pub const CoMapMIMEToCLSID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x30c3b080_30fb_11d0_b724_00aa006c1a01);
-pub const CoSniffStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6a01fda0_30df_11d0_b724_00aa006c1a01);
-pub const HomePage: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x766bf2ae_d650_11d1_9811_00c04fc31d2e);
-pub const HomePageSetting: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x374cede0_873a_4c4f_bc86_bcc8cf5116a3);
+pub const AnchorClick: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13d5413c_33b9_11d2_95a7_00c04f8ecb02);
+pub const CDeviceRect: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f6d4_98b5_11cf_bb82_00aa00bdce0b);
+pub const CDownloadBehavior: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f5be_98b5_11cf_bb82_00aa00bdce0b);
+pub const CHeaderFooter: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f6cd_98b5_11cf_bb82_00aa00bdce0b);
+pub const CLayoutRect: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f664_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistDataPeer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f487_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistHistory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f4c8_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistShortcut: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f4c6_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistSnapshot: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f4c9_98b5_11cf_bb82_00aa00bdce0b);
+pub const CPersistUserData: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f48e_98b5_11cf_bb82_00aa00bdce0b);
+pub const CoDitherToRGB8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa860ce50_3910_11d0_86fc_00a0c913f750);
+pub const CoMapMIMEToCLSID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x30c3b080_30fb_11d0_b724_00aa006c1a01);
+pub const CoSniffStream: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a01fda0_30df_11d0_b724_00aa006c1a01);
+pub const HomePage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x766bf2ae_d650_11d1_9811_00c04fc31d2e);
+pub const HomePageSetting: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x374cede0_873a_4c4f_bc86_bcc8cf5116a3);
 #[repr(C)]
 pub struct IELAUNCHURLINFO {
     pub cbSize: u32,
     pub dwCreationFlags: u32,
     pub dwLaunchOptionFlags: u32,
 }
-impl ::core::marker::Copy for IELAUNCHURLINFO {}
-impl ::core::clone::Clone for IELAUNCHURLINFO {
+impl Copy for IELAUNCHURLINFO {}
+impl Clone for IELAUNCHURLINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const IEWebDriverManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x90314af2_5250_47b3_89d8_6295fc23bc22);
-pub const IntelliForms: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x613ab92e_16bf_11d2_bca5_00c04fd929db);
-pub const InternetExplorerManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdf4fcc34_067a_4e0a_8352_4a1a5095346e);
+pub const IEWebDriverManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x90314af2_5250_47b3_89d8_6295fc23bc22);
+pub const IntelliForms: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x613ab92e_16bf_11d2_bca5_00c04fd929db);
+pub const InternetExplorerManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdf4fcc34_067a_4e0a_8352_4a1a5095346e);
 #[repr(C)]
 pub struct NAVIGATEDATA {
     pub ulTarget: u32,
@@ -615,29 +615,29 @@ pub struct NAVIGATEDATA {
     pub ulPostData: u32,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for NAVIGATEDATA {}
-impl ::core::clone::Clone for NAVIGATEDATA {
+impl Copy for NAVIGATEDATA {}
+impl Clone for NAVIGATEDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const OpenServiceActivityManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc5efd803_50f8_43cd_9ab8_aafc1394c9e0);
-pub const OpenServiceManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x098870b6_39ea_480b_b8b5_dd0167c4db59);
-pub const PeerFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3050f4cf_98b5_11cf_bb82_00aa00bdce0b);
+pub const OpenServiceActivityManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc5efd803_50f8_43cd_9ab8_aafc1394c9e0);
+pub const OpenServiceManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x098870b6_39ea_480b_b8b5_dd0167c4db59);
+pub const PeerFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f4cf_98b5_11cf_bb82_00aa00bdce0b);
 #[repr(C)]
 pub struct STATURL {
     pub cbSize: u32,
-    pub pwcsUrl: ::windows_sys::core::PWSTR,
-    pub pwcsTitle: ::windows_sys::core::PWSTR,
+    pub pwcsUrl: windows_sys::core::PWSTR,
+    pub pwcsTitle: windows_sys::core::PWSTR,
     pub ftLastVisited: super::super::Foundation::FILETIME,
     pub ftLastUpdated: super::super::Foundation::FILETIME,
     pub ftExpires: super::super::Foundation::FILETIME,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for STATURL {}
-impl ::core::clone::Clone for STATURL {
+impl Copy for STATURL {}
+impl Clone for STATURL {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const wfolders: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbae31f9a_1b81_11d2_a97a_00c04f8ecb02);
+pub const wfolders: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbae31f9a_1b81_11d2_a97a_00c04f8ecb02);

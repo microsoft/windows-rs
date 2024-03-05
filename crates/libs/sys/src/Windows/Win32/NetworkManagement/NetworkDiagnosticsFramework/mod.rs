@@ -1,21 +1,21 @@
-::windows_targets::link!("ndfapi.dll" "system" fn NdfCancelIncident(handle : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ndfapi.dll" "system" fn NdfCloseIncident(handle : *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateConnectivityIncident(handle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateDNSIncident(hostname : ::windows_sys::core::PCWSTR, querytype : u16, handle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ndfapi.dll" "system" fn NdfCancelIncident(handle : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ndfapi.dll" "system" fn NdfCloseIncident(handle : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateConnectivityIncident(handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateDNSIncident(hostname : windows_sys::core::PCWSTR, querytype : u16, handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Networking_WinSock")]
-::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateGroupingIncident(cloudname : ::windows_sys::core::PCWSTR, groupname : ::windows_sys::core::PCWSTR, identity : ::windows_sys::core::PCWSTR, invitation : ::windows_sys::core::PCWSTR, addresses : *const super::super::Networking::WinSock:: SOCKET_ADDRESS_LIST, appid : ::windows_sys::core::PCWSTR, handle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateIncident(helperclassname : ::windows_sys::core::PCWSTR, celt : u32, attributes : *const HELPER_ATTRIBUTE, handle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateNetConnectionIncident(handle : *mut *mut ::core::ffi::c_void, id : ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ndfapi.dll" "system" fn NdfCreatePnrpIncident(cloudname : ::windows_sys::core::PCWSTR, peername : ::windows_sys::core::PCWSTR, diagnosepublish : super::super::Foundation:: BOOL, appid : ::windows_sys::core::PCWSTR, handle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateSharingIncident(uncpath : ::windows_sys::core::PCWSTR, handle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWebIncident(url : ::windows_sys::core::PCWSTR, handle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWebIncidentEx(url : ::windows_sys::core::PCWSTR, usewinhttp : super::super::Foundation:: BOOL, modulename : ::windows_sys::core::PCWSTR, handle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateGroupingIncident(cloudname : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, identity : windows_sys::core::PCWSTR, invitation : windows_sys::core::PCWSTR, addresses : *const super::super::Networking::WinSock:: SOCKET_ADDRESS_LIST, appid : windows_sys::core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateIncident(helperclassname : windows_sys::core::PCWSTR, celt : u32, attributes : *const HELPER_ATTRIBUTE, handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateNetConnectionIncident(handle : *mut *mut core::ffi::c_void, id : windows_sys::core::GUID) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ndfapi.dll" "system" fn NdfCreatePnrpIncident(cloudname : windows_sys::core::PCWSTR, peername : windows_sys::core::PCWSTR, diagnosepublish : super::super::Foundation:: BOOL, appid : windows_sys::core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateSharingIncident(uncpath : windows_sys::core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWebIncident(url : windows_sys::core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWebIncidentEx(url : windows_sys::core::PCWSTR, usewinhttp : super::super::Foundation:: BOOL, modulename : windows_sys::core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security"))]
-::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWinSockIncident(sock : super::super::Networking::WinSock:: SOCKET, host : ::windows_sys::core::PCWSTR, port : u16, appid : ::windows_sys::core::PCWSTR, userid : *const super::super::Security:: SID, handle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ndfapi.dll" "system" fn NdfDiagnoseIncident(handle : *const ::core::ffi::c_void, rootcausecount : *mut u32, rootcauses : *mut *mut RootCauseInfo, dwwait : u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ndfapi.dll" "system" fn NdfExecuteDiagnosis(handle : *const ::core::ffi::c_void, hwnd : super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ndfapi.dll" "system" fn NdfGetTraceFile(handle : *const ::core::ffi::c_void, tracefilelocation : *mut ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ndfapi.dll" "system" fn NdfRepairIncident(handle : *const ::core::ffi::c_void, repairex : *const RepairInfoEx, dwwait : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWinSockIncident(sock : super::super::Networking::WinSock:: SOCKET, host : windows_sys::core::PCWSTR, port : u16, appid : windows_sys::core::PCWSTR, userid : *const super::super::Security:: SID, handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ndfapi.dll" "system" fn NdfDiagnoseIncident(handle : *const core::ffi::c_void, rootcausecount : *mut u32, rootcauses : *mut *mut RootCauseInfo, dwwait : u32, dwflags : u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ndfapi.dll" "system" fn NdfExecuteDiagnosis(handle : *const core::ffi::c_void, hwnd : super::super::Foundation:: HWND) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ndfapi.dll" "system" fn NdfGetTraceFile(handle : *const core::ffi::c_void, tracefilelocation : *mut windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+::windows_targets::link!("ndfapi.dll" "system" fn NdfRepairIncident(handle : *const core::ffi::c_void, repairex : *const RepairInfoEx, dwwait : u32) -> windows_sys::core::HRESULT);
 pub const AT_BOOLEAN: ATTRIBUTE_TYPE = 1i32;
 pub const AT_GUID: ATTRIBUTE_TYPE = 11i32;
 pub const AT_INT16: ATTRIBUTE_TYPE = 4i32;
@@ -42,14 +42,14 @@ pub const DS_REJECTED: DIAGNOSIS_STATUS = 2i32;
 pub const NDF_ADD_CAPTURE_TRACE: u32 = 1u32;
 pub const NDF_APPLY_INCLUSION_LIST_FILTER: u32 = 2u32;
 pub const NDF_ERROR_START: u32 = 63744u32;
-pub const NDF_E_BAD_PARAM: ::windows_sys::core::HRESULT = 0x8008F905_u32 as _;
-pub const NDF_E_CANCELLED: ::windows_sys::core::HRESULT = 0x8008F902_u32 as _;
-pub const NDF_E_DISABLED: ::windows_sys::core::HRESULT = 0x8008F904_u32 as _;
-pub const NDF_E_LENGTH_EXCEEDED: ::windows_sys::core::HRESULT = 0x8008F900_u32 as _;
-pub const NDF_E_NOHELPERCLASS: ::windows_sys::core::HRESULT = 0x8008F901_u32 as _;
-pub const NDF_E_PROBLEM_PRESENT: ::windows_sys::core::HRESULT = 0x8008F908_u32 as _;
-pub const NDF_E_UNKNOWN: ::windows_sys::core::HRESULT = 0x8008F907_u32 as _;
-pub const NDF_E_VALIDATION: ::windows_sys::core::HRESULT = 0x8008F906_u32 as _;
+pub const NDF_E_BAD_PARAM: windows_sys::core::HRESULT = 0x8008F905_u32 as _;
+pub const NDF_E_CANCELLED: windows_sys::core::HRESULT = 0x8008F902_u32 as _;
+pub const NDF_E_DISABLED: windows_sys::core::HRESULT = 0x8008F904_u32 as _;
+pub const NDF_E_LENGTH_EXCEEDED: windows_sys::core::HRESULT = 0x8008F900_u32 as _;
+pub const NDF_E_NOHELPERCLASS: windows_sys::core::HRESULT = 0x8008F901_u32 as _;
+pub const NDF_E_PROBLEM_PRESENT: windows_sys::core::HRESULT = 0x8008F908_u32 as _;
+pub const NDF_E_UNKNOWN: windows_sys::core::HRESULT = 0x8008F907_u32 as _;
+pub const NDF_E_VALIDATION: windows_sys::core::HRESULT = 0x8008F906_u32 as _;
 pub const NDF_INBOUND_FLAG_EDGETRAVERSAL: u32 = 1u32;
 pub const NDF_INBOUND_FLAG_HEALTHCHECK: u32 = 2u32;
 pub const PT_DOWN_STREAM_HEALTH: PROBLEM_TYPE = 4i32;
@@ -103,8 +103,8 @@ pub struct DIAG_SOCKADDR {
     pub family: u16,
     pub data: [i8; 126],
 }
-impl ::core::marker::Copy for DIAG_SOCKADDR {}
-impl ::core::clone::Clone for DIAG_SOCKADDR {
+impl Copy for DIAG_SOCKADDR {}
+impl Clone for DIAG_SOCKADDR {
     fn clone(&self) -> Self {
         *self
     }
@@ -114,20 +114,20 @@ pub struct DiagnosticsInfo {
     pub cost: i32,
     pub flags: u32,
 }
-impl ::core::marker::Copy for DiagnosticsInfo {}
-impl ::core::clone::Clone for DiagnosticsInfo {
+impl Copy for DiagnosticsInfo {}
+impl Clone for DiagnosticsInfo {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct HELPER_ATTRIBUTE {
-    pub pwszName: ::windows_sys::core::PWSTR,
+    pub pwszName: windows_sys::core::PWSTR,
     pub r#type: ATTRIBUTE_TYPE,
     pub Anonymous: HELPER_ATTRIBUTE_0,
 }
-impl ::core::marker::Copy for HELPER_ATTRIBUTE {}
-impl ::core::clone::Clone for HELPER_ATTRIBUTE {
+impl Copy for HELPER_ATTRIBUTE {}
+impl Clone for HELPER_ATTRIBUTE {
     fn clone(&self) -> Self {
         *self
     }
@@ -143,38 +143,38 @@ pub union HELPER_ATTRIBUTE_0 {
     pub DWord: u32,
     pub Int64: i64,
     pub UInt64: u64,
-    pub PWStr: ::windows_sys::core::PWSTR,
-    pub Guid: ::windows_sys::core::GUID,
+    pub PWStr: windows_sys::core::PWSTR,
+    pub Guid: windows_sys::core::GUID,
     pub LifeTime: LIFE_TIME,
     pub Address: DIAG_SOCKADDR,
     pub OctetString: OCTET_STRING,
 }
-impl ::core::marker::Copy for HELPER_ATTRIBUTE_0 {}
-impl ::core::clone::Clone for HELPER_ATTRIBUTE_0 {
+impl Copy for HELPER_ATTRIBUTE_0 {}
+impl Clone for HELPER_ATTRIBUTE_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct HYPOTHESIS {
-    pub pwszClassName: ::windows_sys::core::PWSTR,
-    pub pwszDescription: ::windows_sys::core::PWSTR,
+    pub pwszClassName: windows_sys::core::PWSTR,
+    pub pwszDescription: windows_sys::core::PWSTR,
     pub celt: u32,
     pub rgAttributes: *mut HELPER_ATTRIBUTE,
 }
-impl ::core::marker::Copy for HYPOTHESIS {}
-impl ::core::clone::Clone for HYPOTHESIS {
+impl Copy for HYPOTHESIS {}
+impl Clone for HYPOTHESIS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct HelperAttributeInfo {
-    pub pwszName: ::windows_sys::core::PWSTR,
+    pub pwszName: windows_sys::core::PWSTR,
     pub r#type: ATTRIBUTE_TYPE,
 }
-impl ::core::marker::Copy for HelperAttributeInfo {}
-impl ::core::clone::Clone for HelperAttributeInfo {
+impl Copy for HelperAttributeInfo {}
+impl Clone for HelperAttributeInfo {
     fn clone(&self) -> Self {
         *self
     }
@@ -184,8 +184,8 @@ pub struct HypothesisResult {
     pub hypothesis: HYPOTHESIS,
     pub pathStatus: DIAGNOSIS_STATUS,
 }
-impl ::core::marker::Copy for HypothesisResult {}
-impl ::core::clone::Clone for HypothesisResult {
+impl Copy for HypothesisResult {}
+impl Clone for HypothesisResult {
     fn clone(&self) -> Self {
         *self
     }
@@ -195,8 +195,8 @@ pub struct LIFE_TIME {
     pub startTime: super::super::Foundation::FILETIME,
     pub endTime: super::super::Foundation::FILETIME,
 }
-impl ::core::marker::Copy for LIFE_TIME {}
-impl ::core::clone::Clone for LIFE_TIME {
+impl Copy for LIFE_TIME {}
+impl Clone for LIFE_TIME {
     fn clone(&self) -> Self {
         *self
     }
@@ -206,17 +206,17 @@ pub struct OCTET_STRING {
     pub dwLength: u32,
     pub lpValue: *mut u8,
 }
-impl ::core::marker::Copy for OCTET_STRING {}
-impl ::core::clone::Clone for OCTET_STRING {
+impl Copy for OCTET_STRING {}
+impl Clone for OCTET_STRING {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct RepairInfo {
-    pub guid: ::windows_sys::core::GUID,
-    pub pwszClassName: ::windows_sys::core::PWSTR,
-    pub pwszDescription: ::windows_sys::core::PWSTR,
+    pub guid: windows_sys::core::GUID,
+    pub pwszClassName: windows_sys::core::PWSTR,
+    pub pwszDescription: windows_sys::core::PWSTR,
     pub sidType: u32,
     pub cost: i32,
     pub flags: u32,
@@ -225,8 +225,8 @@ pub struct RepairInfo {
     pub UiInfo: UiInfo,
     pub rootCauseIndex: i32,
 }
-impl ::core::marker::Copy for RepairInfo {}
-impl ::core::clone::Clone for RepairInfo {
+impl Copy for RepairInfo {}
+impl Clone for RepairInfo {
     fn clone(&self) -> Self {
         *self
     }
@@ -236,37 +236,37 @@ pub struct RepairInfoEx {
     pub repair: RepairInfo,
     pub repairRank: u16,
 }
-impl ::core::marker::Copy for RepairInfoEx {}
-impl ::core::clone::Clone for RepairInfoEx {
+impl Copy for RepairInfoEx {}
+impl Clone for RepairInfoEx {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct RootCauseInfo {
-    pub pwszDescription: ::windows_sys::core::PWSTR,
-    pub rootCauseID: ::windows_sys::core::GUID,
+    pub pwszDescription: windows_sys::core::PWSTR,
+    pub rootCauseID: windows_sys::core::GUID,
     pub rootCauseFlags: u32,
-    pub networkInterfaceID: ::windows_sys::core::GUID,
+    pub networkInterfaceID: windows_sys::core::GUID,
     pub pRepairs: *mut RepairInfoEx,
     pub repairCount: u16,
 }
-impl ::core::marker::Copy for RootCauseInfo {}
-impl ::core::clone::Clone for RootCauseInfo {
+impl Copy for RootCauseInfo {}
+impl Clone for RootCauseInfo {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct ShellCommandInfo {
-    pub pwszOperation: ::windows_sys::core::PWSTR,
-    pub pwszFile: ::windows_sys::core::PWSTR,
-    pub pwszParameters: ::windows_sys::core::PWSTR,
-    pub pwszDirectory: ::windows_sys::core::PWSTR,
+    pub pwszOperation: windows_sys::core::PWSTR,
+    pub pwszFile: windows_sys::core::PWSTR,
+    pub pwszParameters: windows_sys::core::PWSTR,
+    pub pwszDirectory: windows_sys::core::PWSTR,
     pub nShowCmd: u32,
 }
-impl ::core::marker::Copy for ShellCommandInfo {}
-impl ::core::clone::Clone for ShellCommandInfo {
+impl Copy for ShellCommandInfo {}
+impl Clone for ShellCommandInfo {
     fn clone(&self) -> Self {
         *self
     }
@@ -276,21 +276,21 @@ pub struct UiInfo {
     pub r#type: UI_INFO_TYPE,
     pub Anonymous: UiInfo_0,
 }
-impl ::core::marker::Copy for UiInfo {}
-impl ::core::clone::Clone for UiInfo {
+impl Copy for UiInfo {}
+impl Clone for UiInfo {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub union UiInfo_0 {
-    pub pwzNull: ::windows_sys::core::PWSTR,
+    pub pwzNull: windows_sys::core::PWSTR,
     pub ShellInfo: ShellCommandInfo,
-    pub pwzHelpUrl: ::windows_sys::core::PWSTR,
-    pub pwzDui: ::windows_sys::core::PWSTR,
+    pub pwzHelpUrl: windows_sys::core::PWSTR,
+    pub pwzDui: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for UiInfo_0 {}
-impl ::core::clone::Clone for UiInfo_0 {
+impl Copy for UiInfo_0 {}
+impl Clone for UiInfo_0 {
     fn clone(&self) -> Self {
         *self
     }

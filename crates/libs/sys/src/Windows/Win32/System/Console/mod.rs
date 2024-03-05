@@ -1,49 +1,49 @@
-::windows_targets::link!("kernel32.dll" "system" fn AddConsoleAliasA(source : ::windows_sys::core::PCSTR, target : ::windows_sys::core::PCSTR, exename : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn AddConsoleAliasW(source : ::windows_sys::core::PCWSTR, target : ::windows_sys::core::PCWSTR, exename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn AddConsoleAliasA(source : windows_sys::core::PCSTR, target : windows_sys::core::PCSTR, exename : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn AddConsoleAliasW(source : windows_sys::core::PCWSTR, target : windows_sys::core::PCWSTR, exename : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn AllocConsole() -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn AttachConsole(dwprocessid : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn ClosePseudoConsole(hpc : HPCON));
-::windows_targets::link!("user32.dll" "system" fn ConsoleControl(command : CONSOLECONTROL, consoleinformation : *const ::core::ffi::c_void, consoleinformationlength : u32) -> super::super::Foundation:: NTSTATUS);
+::windows_targets::link!("user32.dll" "system" fn ConsoleControl(command : CONSOLECONTROL, consoleinformation : *const core::ffi::c_void, consoleinformationlength : u32) -> super::super::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Security")]
-::windows_targets::link!("kernel32.dll" "system" fn CreateConsoleScreenBuffer(dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwflags : u32, lpscreenbufferdata : *const ::core::ffi::c_void) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("kernel32.dll" "system" fn CreatePseudoConsole(size : COORD, hinput : super::super::Foundation:: HANDLE, houtput : super::super::Foundation:: HANDLE, dwflags : u32, phpc : *mut HPCON) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("kernel32.dll" "system" fn ExpungeConsoleCommandHistoryA(exename : ::windows_sys::core::PCSTR));
-::windows_targets::link!("kernel32.dll" "system" fn ExpungeConsoleCommandHistoryW(exename : ::windows_sys::core::PCWSTR));
+::windows_targets::link!("kernel32.dll" "system" fn CreateConsoleScreenBuffer(dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwflags : u32, lpscreenbufferdata : *const core::ffi::c_void) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("kernel32.dll" "system" fn CreatePseudoConsole(size : COORD, hinput : super::super::Foundation:: HANDLE, houtput : super::super::Foundation:: HANDLE, dwflags : u32, phpc : *mut HPCON) -> windows_sys::core::HRESULT);
+::windows_targets::link!("kernel32.dll" "system" fn ExpungeConsoleCommandHistoryA(exename : windows_sys::core::PCSTR));
+::windows_targets::link!("kernel32.dll" "system" fn ExpungeConsoleCommandHistoryW(exename : windows_sys::core::PCWSTR));
 ::windows_targets::link!("kernel32.dll" "system" fn FillConsoleOutputAttribute(hconsoleoutput : super::super::Foundation:: HANDLE, wattribute : u16, nlength : u32, dwwritecoord : COORD, lpnumberofattrswritten : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn FillConsoleOutputCharacterA(hconsoleoutput : super::super::Foundation:: HANDLE, ccharacter : i8, nlength : u32, dwwritecoord : COORD, lpnumberofcharswritten : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn FillConsoleOutputCharacterW(hconsoleoutput : super::super::Foundation:: HANDLE, ccharacter : u16, nlength : u32, dwwritecoord : COORD, lpnumberofcharswritten : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn FlushConsoleInputBuffer(hconsoleinput : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn FreeConsole() -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn GenerateConsoleCtrlEvent(dwctrlevent : u32, dwprocessgroupid : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasA(source : ::windows_sys::core::PCSTR, targetbuffer : ::windows_sys::core::PSTR, targetbufferlength : u32, exename : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasExesA(exenamebuffer : ::windows_sys::core::PSTR, exenamebufferlength : u32) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasA(source : windows_sys::core::PCSTR, targetbuffer : windows_sys::core::PSTR, targetbufferlength : u32, exename : windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasExesA(exenamebuffer : windows_sys::core::PSTR, exenamebufferlength : u32) -> u32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasExesLengthA() -> u32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasExesLengthW() -> u32);
-::windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasExesW(exenamebuffer : ::windows_sys::core::PWSTR, exenamebufferlength : u32) -> u32);
-::windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasW(source : ::windows_sys::core::PCWSTR, targetbuffer : ::windows_sys::core::PWSTR, targetbufferlength : u32, exename : ::windows_sys::core::PCWSTR) -> u32);
-::windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasesA(aliasbuffer : ::windows_sys::core::PSTR, aliasbufferlength : u32, exename : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasesLengthA(exename : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasesLengthW(exename : ::windows_sys::core::PCWSTR) -> u32);
-::windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasesW(aliasbuffer : ::windows_sys::core::PWSTR, aliasbufferlength : u32, exename : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasExesW(exenamebuffer : windows_sys::core::PWSTR, exenamebufferlength : u32) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasW(source : windows_sys::core::PCWSTR, targetbuffer : windows_sys::core::PWSTR, targetbufferlength : u32, exename : windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasesA(aliasbuffer : windows_sys::core::PSTR, aliasbufferlength : u32, exename : windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasesLengthA(exename : windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasesLengthW(exename : windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasesW(aliasbuffer : windows_sys::core::PWSTR, aliasbufferlength : u32, exename : windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetConsoleCP() -> u32);
-::windows_targets::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryA(commands : ::windows_sys::core::PSTR, commandbufferlength : u32, exename : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryLengthA(exename : ::windows_sys::core::PCSTR) -> u32);
-::windows_targets::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryLengthW(exename : ::windows_sys::core::PCWSTR) -> u32);
-::windows_targets::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryW(commands : ::windows_sys::core::PWSTR, commandbufferlength : u32, exename : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryA(commands : windows_sys::core::PSTR, commandbufferlength : u32, exename : windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryLengthA(exename : windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryLengthW(exename : windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryW(commands : windows_sys::core::PWSTR, commandbufferlength : u32, exename : windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetConsoleCursorInfo(hconsoleoutput : super::super::Foundation:: HANDLE, lpconsolecursorinfo : *mut CONSOLE_CURSOR_INFO) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn GetConsoleDisplayMode(lpmodeflags : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn GetConsoleFontSize(hconsoleoutput : super::super::Foundation:: HANDLE, nfont : u32) -> COORD);
 ::windows_targets::link!("kernel32.dll" "system" fn GetConsoleHistoryInfo(lpconsolehistoryinfo : *mut CONSOLE_HISTORY_INFO) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn GetConsoleMode(hconsolehandle : super::super::Foundation:: HANDLE, lpmode : *mut CONSOLE_MODE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GetConsoleOriginalTitleA(lpconsoletitle : ::windows_sys::core::PSTR, nsize : u32) -> u32);
-::windows_targets::link!("kernel32.dll" "system" fn GetConsoleOriginalTitleW(lpconsoletitle : ::windows_sys::core::PWSTR, nsize : u32) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GetConsoleOriginalTitleA(lpconsoletitle : windows_sys::core::PSTR, nsize : u32) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GetConsoleOriginalTitleW(lpconsoletitle : windows_sys::core::PWSTR, nsize : u32) -> u32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetConsoleOutputCP() -> u32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetConsoleProcessList(lpdwprocesslist : *mut u32, dwprocesscount : u32) -> u32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetConsoleScreenBufferInfo(hconsoleoutput : super::super::Foundation:: HANDLE, lpconsolescreenbufferinfo : *mut CONSOLE_SCREEN_BUFFER_INFO) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn GetConsoleScreenBufferInfoEx(hconsoleoutput : super::super::Foundation:: HANDLE, lpconsolescreenbufferinfoex : *mut CONSOLE_SCREEN_BUFFER_INFOEX) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn GetConsoleSelectionInfo(lpconsoleselectioninfo : *mut CONSOLE_SELECTION_INFO) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn GetConsoleTitleA(lpconsoletitle : ::windows_sys::core::PSTR, nsize : u32) -> u32);
-::windows_targets::link!("kernel32.dll" "system" fn GetConsoleTitleW(lpconsoletitle : ::windows_sys::core::PWSTR, nsize : u32) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GetConsoleTitleA(lpconsoletitle : windows_sys::core::PSTR, nsize : u32) -> u32);
+::windows_targets::link!("kernel32.dll" "system" fn GetConsoleTitleW(lpconsoletitle : windows_sys::core::PWSTR, nsize : u32) -> u32);
 ::windows_targets::link!("kernel32.dll" "system" fn GetConsoleWindow() -> super::super::Foundation:: HWND);
 ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentConsoleFont(hconsoleoutput : super::super::Foundation:: HANDLE, bmaximumwindow : super::super::Foundation:: BOOL, lpconsolecurrentfont : *mut CONSOLE_FONT_INFO) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentConsoleFontEx(hconsoleoutput : super::super::Foundation:: HANDLE, bmaximumwindow : super::super::Foundation:: BOOL, lpconsolecurrentfontex : *mut CONSOLE_FONT_INFOEX) -> super::super::Foundation:: BOOL);
@@ -53,16 +53,16 @@
 ::windows_targets::link!("kernel32.dll" "system" fn GetStdHandle(nstdhandle : STD_HANDLE) -> super::super::Foundation:: HANDLE);
 ::windows_targets::link!("kernel32.dll" "system" fn PeekConsoleInputA(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *mut INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn PeekConsoleInputW(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *mut INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn ReadConsoleA(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *mut ::core::ffi::c_void, nnumberofcharstoread : u32, lpnumberofcharsread : *mut u32, pinputcontrol : *const CONSOLE_READCONSOLE_CONTROL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn ReadConsoleA(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *mut core::ffi::c_void, nnumberofcharstoread : u32, lpnumberofcharsread : *mut u32, pinputcontrol : *const CONSOLE_READCONSOLE_CONTROL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn ReadConsoleInputA(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *mut INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn ReadConsoleInputW(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *mut INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn ReadConsoleOutputA(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : *mut CHAR_INFO, dwbuffersize : COORD, dwbuffercoord : COORD, lpreadregion : *mut SMALL_RECT) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn ReadConsoleOutputAttribute(hconsoleoutput : super::super::Foundation:: HANDLE, lpattribute : *mut u16, nlength : u32, dwreadcoord : COORD, lpnumberofattrsread : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn ReadConsoleOutputCharacterA(hconsoleoutput : super::super::Foundation:: HANDLE, lpcharacter : ::windows_sys::core::PSTR, nlength : u32, dwreadcoord : COORD, lpnumberofcharsread : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn ReadConsoleOutputCharacterW(hconsoleoutput : super::super::Foundation:: HANDLE, lpcharacter : ::windows_sys::core::PWSTR, nlength : u32, dwreadcoord : COORD, lpnumberofcharsread : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn ReadConsoleOutputCharacterA(hconsoleoutput : super::super::Foundation:: HANDLE, lpcharacter : windows_sys::core::PSTR, nlength : u32, dwreadcoord : COORD, lpnumberofcharsread : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn ReadConsoleOutputCharacterW(hconsoleoutput : super::super::Foundation:: HANDLE, lpcharacter : windows_sys::core::PWSTR, nlength : u32, dwreadcoord : COORD, lpnumberofcharsread : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn ReadConsoleOutputW(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : *mut CHAR_INFO, dwbuffersize : COORD, dwbuffercoord : COORD, lpreadregion : *mut SMALL_RECT) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn ReadConsoleW(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *mut ::core::ffi::c_void, nnumberofcharstoread : u32, lpnumberofcharsread : *mut u32, pinputcontrol : *const CONSOLE_READCONSOLE_CONTROL) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn ResizePseudoConsole(hpc : HPCON, size : COORD) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("kernel32.dll" "system" fn ReadConsoleW(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *mut core::ffi::c_void, nnumberofcharstoread : u32, lpnumberofcharsread : *mut u32, pinputcontrol : *const CONSOLE_READCONSOLE_CONTROL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn ResizePseudoConsole(hpc : HPCON, size : COORD) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("kernel32.dll" "system" fn ScrollConsoleScreenBufferA(hconsoleoutput : super::super::Foundation:: HANDLE, lpscrollrectangle : *const SMALL_RECT, lpcliprectangle : *const SMALL_RECT, dwdestinationorigin : COORD, lpfill : *const CHAR_INFO) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn ScrollConsoleScreenBufferW(hconsoleoutput : super::super::Foundation:: HANDLE, lpscrollrectangle : *const SMALL_RECT, lpcliprectangle : *const SMALL_RECT, dwdestinationorigin : COORD, lpfill : *const CHAR_INFO) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn SetConsoleActiveScreenBuffer(hconsoleoutput : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
@@ -73,27 +73,27 @@
 ::windows_targets::link!("kernel32.dll" "system" fn SetConsoleDisplayMode(hconsoleoutput : super::super::Foundation:: HANDLE, dwflags : u32, lpnewscreenbufferdimensions : *mut COORD) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn SetConsoleHistoryInfo(lpconsolehistoryinfo : *const CONSOLE_HISTORY_INFO) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn SetConsoleMode(hconsolehandle : super::super::Foundation:: HANDLE, dwmode : CONSOLE_MODE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn SetConsoleNumberOfCommandsA(number : u32, exename : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn SetConsoleNumberOfCommandsW(number : u32, exename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn SetConsoleNumberOfCommandsA(number : u32, exename : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn SetConsoleNumberOfCommandsW(number : u32, exename : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn SetConsoleOutputCP(wcodepageid : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn SetConsoleScreenBufferInfoEx(hconsoleoutput : super::super::Foundation:: HANDLE, lpconsolescreenbufferinfoex : *const CONSOLE_SCREEN_BUFFER_INFOEX) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn SetConsoleScreenBufferSize(hconsoleoutput : super::super::Foundation:: HANDLE, dwsize : COORD) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn SetConsoleTextAttribute(hconsoleoutput : super::super::Foundation:: HANDLE, wattributes : CONSOLE_CHARACTER_ATTRIBUTES) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn SetConsoleTitleA(lpconsoletitle : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn SetConsoleTitleW(lpconsoletitle : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn SetConsoleTitleA(lpconsoletitle : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn SetConsoleTitleW(lpconsoletitle : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn SetConsoleWindowInfo(hconsoleoutput : super::super::Foundation:: HANDLE, babsolute : super::super::Foundation:: BOOL, lpconsolewindow : *const SMALL_RECT) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn SetCurrentConsoleFontEx(hconsoleoutput : super::super::Foundation:: HANDLE, bmaximumwindow : super::super::Foundation:: BOOL, lpconsolecurrentfontex : *const CONSOLE_FONT_INFOEX) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn SetStdHandle(nstdhandle : STD_HANDLE, hhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn SetStdHandleEx(nstdhandle : STD_HANDLE, hhandle : super::super::Foundation:: HANDLE, phprevvalue : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn WriteConsoleA(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : *const ::core::ffi::c_void, nnumberofcharstowrite : u32, lpnumberofcharswritten : *mut u32, lpreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn WriteConsoleA(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : *const core::ffi::c_void, nnumberofcharstowrite : u32, lpnumberofcharswritten : *mut u32, lpreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn WriteConsoleInputA(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *const INPUT_RECORD, nlength : u32, lpnumberofeventswritten : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn WriteConsoleInputW(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *const INPUT_RECORD, nlength : u32, lpnumberofeventswritten : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn WriteConsoleOutputA(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : *const CHAR_INFO, dwbuffersize : COORD, dwbuffercoord : COORD, lpwriteregion : *mut SMALL_RECT) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn WriteConsoleOutputAttribute(hconsoleoutput : super::super::Foundation:: HANDLE, lpattribute : *const u16, nlength : u32, dwwritecoord : COORD, lpnumberofattrswritten : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn WriteConsoleOutputCharacterA(hconsoleoutput : super::super::Foundation:: HANDLE, lpcharacter : ::windows_sys::core::PCSTR, nlength : u32, dwwritecoord : COORD, lpnumberofcharswritten : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn WriteConsoleOutputCharacterW(hconsoleoutput : super::super::Foundation:: HANDLE, lpcharacter : ::windows_sys::core::PCWSTR, nlength : u32, dwwritecoord : COORD, lpnumberofcharswritten : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn WriteConsoleOutputCharacterA(hconsoleoutput : super::super::Foundation:: HANDLE, lpcharacter : windows_sys::core::PCSTR, nlength : u32, dwwritecoord : COORD, lpnumberofcharswritten : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn WriteConsoleOutputCharacterW(hconsoleoutput : super::super::Foundation:: HANDLE, lpcharacter : windows_sys::core::PCWSTR, nlength : u32, dwwritecoord : COORD, lpnumberofcharswritten : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn WriteConsoleOutputW(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : *const CHAR_INFO, dwbuffersize : COORD, dwbuffercoord : COORD, lpwriteregion : *mut SMALL_RECT) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn WriteConsoleW(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : *const ::core::ffi::c_void, nnumberofcharstowrite : u32, lpnumberofcharswritten : *mut u32, lpreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn WriteConsoleW(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : *const core::ffi::c_void, nnumberofcharstowrite : u32, lpnumberofcharswritten : *mut u32, lpreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
 pub const ALTNUMPAD_BIT: u32 = 67108864u32;
 pub const ATTACH_PARENT_PROCESS: u32 = 4294967295u32;
 pub const BACKGROUND_BLUE: CONSOLE_CHARACTER_ATTRIBUTES = 16u16;
@@ -194,8 +194,8 @@ pub struct CHAR_INFO {
     pub Char: CHAR_INFO_0,
     pub Attributes: u16,
 }
-impl ::core::marker::Copy for CHAR_INFO {}
-impl ::core::clone::Clone for CHAR_INFO {
+impl Copy for CHAR_INFO {}
+impl Clone for CHAR_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -205,8 +205,8 @@ pub union CHAR_INFO_0 {
     pub UnicodeChar: u16,
     pub AsciiChar: i8,
 }
-impl ::core::marker::Copy for CHAR_INFO_0 {}
-impl ::core::clone::Clone for CHAR_INFO_0 {
+impl Copy for CHAR_INFO_0 {}
+impl Clone for CHAR_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -218,8 +218,8 @@ pub struct CONSOLEENDTASK {
     pub ConsoleEventCode: u32,
     pub ConsoleFlags: u32,
 }
-impl ::core::marker::Copy for CONSOLEENDTASK {}
-impl ::core::clone::Clone for CONSOLEENDTASK {
+impl Copy for CONSOLEENDTASK {}
+impl Clone for CONSOLEENDTASK {
     fn clone(&self) -> Self {
         *self
     }
@@ -229,8 +229,8 @@ pub struct CONSOLESETFOREGROUND {
     pub hProcess: super::super::Foundation::HANDLE,
     pub bForeground: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for CONSOLESETFOREGROUND {}
-impl ::core::clone::Clone for CONSOLESETFOREGROUND {
+impl Copy for CONSOLESETFOREGROUND {}
+impl Clone for CONSOLESETFOREGROUND {
     fn clone(&self) -> Self {
         *self
     }
@@ -241,8 +241,8 @@ pub struct CONSOLEWINDOWOWNER {
     pub ProcessId: u32,
     pub ThreadId: u32,
 }
-impl ::core::marker::Copy for CONSOLEWINDOWOWNER {}
-impl ::core::clone::Clone for CONSOLEWINDOWOWNER {
+impl Copy for CONSOLEWINDOWOWNER {}
+impl Clone for CONSOLEWINDOWOWNER {
     fn clone(&self) -> Self {
         *self
     }
@@ -252,8 +252,8 @@ pub struct CONSOLE_CARET_INFO {
     pub hwnd: super::super::Foundation::HWND,
     pub rc: super::super::Foundation::RECT,
 }
-impl ::core::marker::Copy for CONSOLE_CARET_INFO {}
-impl ::core::clone::Clone for CONSOLE_CARET_INFO {
+impl Copy for CONSOLE_CARET_INFO {}
+impl Clone for CONSOLE_CARET_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -263,8 +263,8 @@ pub struct CONSOLE_CURSOR_INFO {
     pub dwSize: u32,
     pub bVisible: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for CONSOLE_CURSOR_INFO {}
-impl ::core::clone::Clone for CONSOLE_CURSOR_INFO {
+impl Copy for CONSOLE_CURSOR_INFO {}
+impl Clone for CONSOLE_CURSOR_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -274,8 +274,8 @@ pub struct CONSOLE_FONT_INFO {
     pub nFont: u32,
     pub dwFontSize: COORD,
 }
-impl ::core::marker::Copy for CONSOLE_FONT_INFO {}
-impl ::core::clone::Clone for CONSOLE_FONT_INFO {
+impl Copy for CONSOLE_FONT_INFO {}
+impl Clone for CONSOLE_FONT_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -289,8 +289,8 @@ pub struct CONSOLE_FONT_INFOEX {
     pub FontWeight: u32,
     pub FaceName: [u16; 32],
 }
-impl ::core::marker::Copy for CONSOLE_FONT_INFOEX {}
-impl ::core::clone::Clone for CONSOLE_FONT_INFOEX {
+impl Copy for CONSOLE_FONT_INFOEX {}
+impl Clone for CONSOLE_FONT_INFOEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -302,8 +302,8 @@ pub struct CONSOLE_HISTORY_INFO {
     pub NumberOfHistoryBuffers: u32,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for CONSOLE_HISTORY_INFO {}
-impl ::core::clone::Clone for CONSOLE_HISTORY_INFO {
+impl Copy for CONSOLE_HISTORY_INFO {}
+impl Clone for CONSOLE_HISTORY_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -313,8 +313,8 @@ pub struct CONSOLE_PROCESS_INFO {
     pub dwProcessID: u32,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for CONSOLE_PROCESS_INFO {}
-impl ::core::clone::Clone for CONSOLE_PROCESS_INFO {
+impl Copy for CONSOLE_PROCESS_INFO {}
+impl Clone for CONSOLE_PROCESS_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -326,8 +326,8 @@ pub struct CONSOLE_READCONSOLE_CONTROL {
     pub dwCtrlWakeupMask: u32,
     pub dwControlKeyState: u32,
 }
-impl ::core::marker::Copy for CONSOLE_READCONSOLE_CONTROL {}
-impl ::core::clone::Clone for CONSOLE_READCONSOLE_CONTROL {
+impl Copy for CONSOLE_READCONSOLE_CONTROL {}
+impl Clone for CONSOLE_READCONSOLE_CONTROL {
     fn clone(&self) -> Self {
         *self
     }
@@ -340,8 +340,8 @@ pub struct CONSOLE_SCREEN_BUFFER_INFO {
     pub srWindow: SMALL_RECT,
     pub dwMaximumWindowSize: COORD,
 }
-impl ::core::marker::Copy for CONSOLE_SCREEN_BUFFER_INFO {}
-impl ::core::clone::Clone for CONSOLE_SCREEN_BUFFER_INFO {
+impl Copy for CONSOLE_SCREEN_BUFFER_INFO {}
+impl Clone for CONSOLE_SCREEN_BUFFER_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -358,8 +358,8 @@ pub struct CONSOLE_SCREEN_BUFFER_INFOEX {
     pub bFullscreenSupported: super::super::Foundation::BOOL,
     pub ColorTable: [super::super::Foundation::COLORREF; 16],
 }
-impl ::core::marker::Copy for CONSOLE_SCREEN_BUFFER_INFOEX {}
-impl ::core::clone::Clone for CONSOLE_SCREEN_BUFFER_INFOEX {
+impl Copy for CONSOLE_SCREEN_BUFFER_INFOEX {}
+impl Clone for CONSOLE_SCREEN_BUFFER_INFOEX {
     fn clone(&self) -> Self {
         *self
     }
@@ -370,8 +370,8 @@ pub struct CONSOLE_SELECTION_INFO {
     pub dwSelectionAnchor: COORD,
     pub srSelection: SMALL_RECT,
 }
-impl ::core::marker::Copy for CONSOLE_SELECTION_INFO {}
-impl ::core::clone::Clone for CONSOLE_SELECTION_INFO {
+impl Copy for CONSOLE_SELECTION_INFO {}
+impl Clone for CONSOLE_SELECTION_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -381,8 +381,8 @@ pub struct COORD {
     pub X: i16,
     pub Y: i16,
 }
-impl ::core::marker::Copy for COORD {}
-impl ::core::clone::Clone for COORD {
+impl Copy for COORD {}
+impl Clone for COORD {
     fn clone(&self) -> Self {
         *self
     }
@@ -391,8 +391,8 @@ impl ::core::clone::Clone for COORD {
 pub struct FOCUS_EVENT_RECORD {
     pub bSetFocus: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for FOCUS_EVENT_RECORD {}
-impl ::core::clone::Clone for FOCUS_EVENT_RECORD {
+impl Copy for FOCUS_EVENT_RECORD {}
+impl Clone for FOCUS_EVENT_RECORD {
     fn clone(&self) -> Self {
         *self
     }
@@ -403,8 +403,8 @@ pub struct INPUT_RECORD {
     pub EventType: u16,
     pub Event: INPUT_RECORD_0,
 }
-impl ::core::marker::Copy for INPUT_RECORD {}
-impl ::core::clone::Clone for INPUT_RECORD {
+impl Copy for INPUT_RECORD {}
+impl Clone for INPUT_RECORD {
     fn clone(&self) -> Self {
         *self
     }
@@ -417,8 +417,8 @@ pub union INPUT_RECORD_0 {
     pub MenuEvent: MENU_EVENT_RECORD,
     pub FocusEvent: FOCUS_EVENT_RECORD,
 }
-impl ::core::marker::Copy for INPUT_RECORD_0 {}
-impl ::core::clone::Clone for INPUT_RECORD_0 {
+impl Copy for INPUT_RECORD_0 {}
+impl Clone for INPUT_RECORD_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -432,8 +432,8 @@ pub struct KEY_EVENT_RECORD {
     pub uChar: KEY_EVENT_RECORD_0,
     pub dwControlKeyState: u32,
 }
-impl ::core::marker::Copy for KEY_EVENT_RECORD {}
-impl ::core::clone::Clone for KEY_EVENT_RECORD {
+impl Copy for KEY_EVENT_RECORD {}
+impl Clone for KEY_EVENT_RECORD {
     fn clone(&self) -> Self {
         *self
     }
@@ -443,8 +443,8 @@ pub union KEY_EVENT_RECORD_0 {
     pub UnicodeChar: u16,
     pub AsciiChar: i8,
 }
-impl ::core::marker::Copy for KEY_EVENT_RECORD_0 {}
-impl ::core::clone::Clone for KEY_EVENT_RECORD_0 {
+impl Copy for KEY_EVENT_RECORD_0 {}
+impl Clone for KEY_EVENT_RECORD_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -453,8 +453,8 @@ impl ::core::clone::Clone for KEY_EVENT_RECORD_0 {
 pub struct MENU_EVENT_RECORD {
     pub dwCommandId: u32,
 }
-impl ::core::marker::Copy for MENU_EVENT_RECORD {}
-impl ::core::clone::Clone for MENU_EVENT_RECORD {
+impl Copy for MENU_EVENT_RECORD {}
+impl Clone for MENU_EVENT_RECORD {
     fn clone(&self) -> Self {
         *self
     }
@@ -466,8 +466,8 @@ pub struct MOUSE_EVENT_RECORD {
     pub dwControlKeyState: u32,
     pub dwEventFlags: u32,
 }
-impl ::core::marker::Copy for MOUSE_EVENT_RECORD {}
-impl ::core::clone::Clone for MOUSE_EVENT_RECORD {
+impl Copy for MOUSE_EVENT_RECORD {}
+impl Clone for MOUSE_EVENT_RECORD {
     fn clone(&self) -> Self {
         *self
     }
@@ -479,8 +479,8 @@ pub struct SMALL_RECT {
     pub Right: i16,
     pub Bottom: i16,
 }
-impl ::core::marker::Copy for SMALL_RECT {}
-impl ::core::clone::Clone for SMALL_RECT {
+impl Copy for SMALL_RECT {}
+impl Clone for SMALL_RECT {
     fn clone(&self) -> Self {
         *self
     }
@@ -489,10 +489,10 @@ impl ::core::clone::Clone for SMALL_RECT {
 pub struct WINDOW_BUFFER_SIZE_RECORD {
     pub dwSize: COORD,
 }
-impl ::core::marker::Copy for WINDOW_BUFFER_SIZE_RECORD {}
-impl ::core::clone::Clone for WINDOW_BUFFER_SIZE_RECORD {
+impl Copy for WINDOW_BUFFER_SIZE_RECORD {}
+impl Clone for WINDOW_BUFFER_SIZE_RECORD {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type PHANDLER_ROUTINE = ::core::option::Option<unsafe extern "system" fn(ctrltype: u32) -> super::super::Foundation::BOOL>;
+pub type PHANDLER_ROUTINE = Option<unsafe extern "system" fn(ctrltype: u32) -> super::super::Foundation::BOOL>;

@@ -9,7 +9,7 @@
 )]
 pub type ADDRESS_FAMILY = u16;
 pub type HANDLE = isize;
-pub type LPWSAOVERLAPPED_COMPLETION_ROUTINE = ::core::option::Option<
+pub type LPWSAOVERLAPPED_COMPLETION_ROUTINE = Option<
     unsafe extern "system" fn(
         dwerror: u32,
         cbtransferred: u32,
@@ -24,8 +24,8 @@ pub struct OVERLAPPED {
     pub Anonymous: OVERLAPPED_0,
     pub hEvent: HANDLE,
 }
-impl ::core::marker::Copy for OVERLAPPED {}
-impl ::core::clone::Clone for OVERLAPPED {
+impl Copy for OVERLAPPED {}
+impl Clone for OVERLAPPED {
     fn clone(&self) -> Self {
         *self
     }
@@ -33,10 +33,10 @@ impl ::core::clone::Clone for OVERLAPPED {
 #[repr(C)]
 pub union OVERLAPPED_0 {
     pub Anonymous: OVERLAPPED_0_0,
-    pub Pointer: *mut ::core::ffi::c_void,
+    pub Pointer: *mut core::ffi::c_void,
 }
-impl ::core::marker::Copy for OVERLAPPED_0 {}
-impl ::core::clone::Clone for OVERLAPPED_0 {
+impl Copy for OVERLAPPED_0 {}
+impl Clone for OVERLAPPED_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -46,8 +46,8 @@ pub struct OVERLAPPED_0_0 {
     pub Offset: u32,
     pub OffsetHigh: u32,
 }
-impl ::core::marker::Copy for OVERLAPPED_0_0 {}
-impl ::core::clone::Clone for OVERLAPPED_0_0 {
+impl Copy for OVERLAPPED_0_0 {}
+impl Clone for OVERLAPPED_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -58,8 +58,8 @@ pub struct SOCKADDR {
     pub sa_family: ADDRESS_FAMILY,
     pub sa_data: [i8; 14],
 }
-impl ::core::marker::Copy for SOCKADDR {}
-impl ::core::clone::Clone for SOCKADDR {
+impl Copy for SOCKADDR {}
+impl Clone for SOCKADDR {
     fn clone(&self) -> Self {
         *self
     }
@@ -69,8 +69,8 @@ pub struct WSABUF {
     pub len: u32,
     pub buf: PSTR,
 }
-impl ::core::marker::Copy for WSABUF {}
-impl ::core::clone::Clone for WSABUF {
+impl Copy for WSABUF {}
+impl Clone for WSABUF {
     fn clone(&self) -> Self {
         *self
     }
@@ -84,8 +84,8 @@ pub struct WSAMSG {
     pub Control: WSABUF,
     pub dwFlags: u32,
 }
-impl ::core::marker::Copy for WSAMSG {}
-impl ::core::clone::Clone for WSAMSG {
+impl Copy for WSAMSG {}
+impl Clone for WSAMSG {
     fn clone(&self) -> Self {
         *self
     }
@@ -98,8 +98,8 @@ pub struct WSASENDMSG {
     pub lpOverlapped: *mut OVERLAPPED,
     pub lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE,
 }
-impl ::core::marker::Copy for WSASENDMSG {}
-impl ::core::clone::Clone for WSASENDMSG {
+impl Copy for WSASENDMSG {}
+impl Clone for WSASENDMSG {
     fn clone(&self) -> Self {
         *self
     }

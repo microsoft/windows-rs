@@ -1,16 +1,16 @@
 ::windows_targets::link!("websocket.dll" "system" fn WebSocketAbortHandle(hwebsocket : WEB_SOCKET_HANDLE));
-::windows_targets::link!("websocket.dll" "system" fn WebSocketBeginClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocols : *const ::windows_sys::core::PCSTR, ulsubprotocolcount : u32, pszextensions : *const ::windows_sys::core::PCSTR, ulextensioncount : u32, pinitialheaders : *const WEB_SOCKET_HTTP_HEADER, ulinitialheadercount : u32, padditionalheaders : *mut *mut WEB_SOCKET_HTTP_HEADER, puladditionalheadercount : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("websocket.dll" "system" fn WebSocketBeginServerHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocolselected : ::windows_sys::core::PCSTR, pszextensionselected : *const ::windows_sys::core::PCSTR, ulextensionselectedcount : u32, prequestheaders : *const WEB_SOCKET_HTTP_HEADER, ulrequestheadercount : u32, presponseheaders : *mut *mut WEB_SOCKET_HTTP_HEADER, pulresponseheadercount : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("websocket.dll" "system" fn WebSocketCompleteAction(hwebsocket : WEB_SOCKET_HANDLE, pvactioncontext : *const ::core::ffi::c_void, ulbytestransferred : u32));
-::windows_targets::link!("websocket.dll" "system" fn WebSocketCreateClientHandle(pproperties : *const WEB_SOCKET_PROPERTY, ulpropertycount : u32, phwebsocket : *mut WEB_SOCKET_HANDLE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("websocket.dll" "system" fn WebSocketCreateServerHandle(pproperties : *const WEB_SOCKET_PROPERTY, ulpropertycount : u32, phwebsocket : *mut WEB_SOCKET_HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("websocket.dll" "system" fn WebSocketBeginClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocols : *const windows_sys::core::PCSTR, ulsubprotocolcount : u32, pszextensions : *const windows_sys::core::PCSTR, ulextensioncount : u32, pinitialheaders : *const WEB_SOCKET_HTTP_HEADER, ulinitialheadercount : u32, padditionalheaders : *mut *mut WEB_SOCKET_HTTP_HEADER, puladditionalheadercount : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("websocket.dll" "system" fn WebSocketBeginServerHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocolselected : windows_sys::core::PCSTR, pszextensionselected : *const windows_sys::core::PCSTR, ulextensionselectedcount : u32, prequestheaders : *const WEB_SOCKET_HTTP_HEADER, ulrequestheadercount : u32, presponseheaders : *mut *mut WEB_SOCKET_HTTP_HEADER, pulresponseheadercount : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("websocket.dll" "system" fn WebSocketCompleteAction(hwebsocket : WEB_SOCKET_HANDLE, pvactioncontext : *const core::ffi::c_void, ulbytestransferred : u32));
+::windows_targets::link!("websocket.dll" "system" fn WebSocketCreateClientHandle(pproperties : *const WEB_SOCKET_PROPERTY, ulpropertycount : u32, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_sys::core::HRESULT);
+::windows_targets::link!("websocket.dll" "system" fn WebSocketCreateServerHandle(pproperties : *const WEB_SOCKET_PROPERTY, ulpropertycount : u32, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_sys::core::HRESULT);
 ::windows_targets::link!("websocket.dll" "system" fn WebSocketDeleteHandle(hwebsocket : WEB_SOCKET_HANDLE));
-::windows_targets::link!("websocket.dll" "system" fn WebSocketEndClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, presponseheaders : *const WEB_SOCKET_HTTP_HEADER, ulreponseheadercount : u32, pulselectedextensions : *mut u32, pulselectedextensioncount : *mut u32, pulselectedsubprotocol : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("websocket.dll" "system" fn WebSocketEndServerHandshake(hwebsocket : WEB_SOCKET_HANDLE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("websocket.dll" "system" fn WebSocketGetAction(hwebsocket : WEB_SOCKET_HANDLE, eactionqueue : WEB_SOCKET_ACTION_QUEUE, pdatabuffers : *mut WEB_SOCKET_BUFFER, puldatabuffercount : *mut u32, paction : *mut WEB_SOCKET_ACTION, pbuffertype : *mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext : *mut *mut ::core::ffi::c_void, pvactioncontext : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("websocket.dll" "system" fn WebSocketGetGlobalProperty(etype : WEB_SOCKET_PROPERTY_TYPE, pvvalue : *mut ::core::ffi::c_void, ulsize : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("websocket.dll" "system" fn WebSocketReceive(hwebsocket : WEB_SOCKET_HANDLE, pbuffer : *const WEB_SOCKET_BUFFER, pvcontext : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("websocket.dll" "system" fn WebSocketSend(hwebsocket : WEB_SOCKET_HANDLE, buffertype : WEB_SOCKET_BUFFER_TYPE, pbuffer : *const WEB_SOCKET_BUFFER, context : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("websocket.dll" "system" fn WebSocketEndClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, presponseheaders : *const WEB_SOCKET_HTTP_HEADER, ulreponseheadercount : u32, pulselectedextensions : *mut u32, pulselectedextensioncount : *mut u32, pulselectedsubprotocol : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("websocket.dll" "system" fn WebSocketEndServerHandshake(hwebsocket : WEB_SOCKET_HANDLE) -> windows_sys::core::HRESULT);
+::windows_targets::link!("websocket.dll" "system" fn WebSocketGetAction(hwebsocket : WEB_SOCKET_HANDLE, eactionqueue : WEB_SOCKET_ACTION_QUEUE, pdatabuffers : *mut WEB_SOCKET_BUFFER, puldatabuffercount : *mut u32, paction : *mut WEB_SOCKET_ACTION, pbuffertype : *mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext : *mut *mut core::ffi::c_void, pvactioncontext : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("websocket.dll" "system" fn WebSocketGetGlobalProperty(etype : WEB_SOCKET_PROPERTY_TYPE, pvvalue : *mut core::ffi::c_void, ulsize : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("websocket.dll" "system" fn WebSocketReceive(hwebsocket : WEB_SOCKET_HANDLE, pbuffer : *const WEB_SOCKET_BUFFER, pvcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("websocket.dll" "system" fn WebSocketSend(hwebsocket : WEB_SOCKET_HANDLE, buffertype : WEB_SOCKET_BUFFER_TYPE, pbuffer : *const WEB_SOCKET_BUFFER, context : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const WEB_SOCKET_ABORTED_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = 1006i32;
 pub const WEB_SOCKET_ALLOCATED_BUFFER_PROPERTY_TYPE: WEB_SOCKET_PROPERTY_TYPE = 3i32;
 pub const WEB_SOCKET_ALL_ACTION_QUEUE: WEB_SOCKET_ACTION_QUEUE = 3i32;
@@ -56,8 +56,8 @@ pub union WEB_SOCKET_BUFFER {
     pub Data: WEB_SOCKET_BUFFER_1,
     pub CloseStatus: WEB_SOCKET_BUFFER_0,
 }
-impl ::core::marker::Copy for WEB_SOCKET_BUFFER {}
-impl ::core::clone::Clone for WEB_SOCKET_BUFFER {
+impl Copy for WEB_SOCKET_BUFFER {}
+impl Clone for WEB_SOCKET_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
@@ -68,8 +68,8 @@ pub struct WEB_SOCKET_BUFFER_0 {
     pub ulReasonLength: u32,
     pub usStatus: u16,
 }
-impl ::core::marker::Copy for WEB_SOCKET_BUFFER_0 {}
-impl ::core::clone::Clone for WEB_SOCKET_BUFFER_0 {
+impl Copy for WEB_SOCKET_BUFFER_0 {}
+impl Clone for WEB_SOCKET_BUFFER_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -79,8 +79,8 @@ pub struct WEB_SOCKET_BUFFER_1 {
     pub pbBuffer: *mut u8,
     pub ulBufferLength: u32,
 }
-impl ::core::marker::Copy for WEB_SOCKET_BUFFER_1 {}
-impl ::core::clone::Clone for WEB_SOCKET_BUFFER_1 {
+impl Copy for WEB_SOCKET_BUFFER_1 {}
+impl Clone for WEB_SOCKET_BUFFER_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -88,13 +88,13 @@ impl ::core::clone::Clone for WEB_SOCKET_BUFFER_1 {
 pub type WEB_SOCKET_HANDLE = isize;
 #[repr(C)]
 pub struct WEB_SOCKET_HTTP_HEADER {
-    pub pcName: ::windows_sys::core::PSTR,
+    pub pcName: windows_sys::core::PSTR,
     pub ulNameLength: u32,
-    pub pcValue: ::windows_sys::core::PSTR,
+    pub pcValue: windows_sys::core::PSTR,
     pub ulValueLength: u32,
 }
-impl ::core::marker::Copy for WEB_SOCKET_HTTP_HEADER {}
-impl ::core::clone::Clone for WEB_SOCKET_HTTP_HEADER {
+impl Copy for WEB_SOCKET_HTTP_HEADER {}
+impl Clone for WEB_SOCKET_HTTP_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -102,11 +102,11 @@ impl ::core::clone::Clone for WEB_SOCKET_HTTP_HEADER {
 #[repr(C)]
 pub struct WEB_SOCKET_PROPERTY {
     pub Type: WEB_SOCKET_PROPERTY_TYPE,
-    pub pvValue: *mut ::core::ffi::c_void,
+    pub pvValue: *mut core::ffi::c_void,
     pub ulValueSize: u32,
 }
-impl ::core::marker::Copy for WEB_SOCKET_PROPERTY {}
-impl ::core::clone::Clone for WEB_SOCKET_PROPERTY {
+impl Copy for WEB_SOCKET_PROPERTY {}
+impl Clone for WEB_SOCKET_PROPERTY {
     fn clone(&self) -> Self {
         *self
     }

@@ -82,7 +82,7 @@ struct TearOff {
 impl TearOff {
     #[allow(clippy::new_ret_no_self)]
     unsafe fn new(object: *mut std::ffi::c_void, strong_count: u32) -> IWeakReferenceSource {
-        std::mem::transmute(std::boxed::Box::new(TearOff {
+        std::mem::transmute(Box::new(TearOff {
             strong_vtable: &Self::STRONG_VTABLE,
             weak_vtable: &Self::WEAK_VTABLE,
             object,
@@ -127,7 +127,7 @@ impl TearOff {
         let this = Self::from_strong_ptr(ptr);
 
         if iid.is_null() || interface.is_null() {
-            return ::windows_core::HRESULT(-2147467261); // E_POINTER
+            return windows_core::HRESULT(-2147467261); // E_POINTER
         }
 
         // Only directly respond to queries for the the tear-off's strong interface. This is
@@ -147,7 +147,7 @@ impl TearOff {
         let this = Self::from_weak_ptr(ptr);
 
         if iid.is_null() || interface.is_null() {
-            return ::windows_core::HRESULT(-2147467261); // E_POINTER
+            return windows_core::HRESULT(-2147467261); // E_POINTER
         }
 
         // While the weak vtable is packed into the same allocation as the strong vtable and
@@ -197,7 +197,7 @@ impl TearOff {
         // If there are no remaining references, it means that the object has already been
         // destroyed. Go ahead and destroy the tear-off.
         if remaining == 0 {
-            let _ = std::boxed::Box::from_raw(this);
+            let _ = Box::from_raw(this);
         }
 
         remaining

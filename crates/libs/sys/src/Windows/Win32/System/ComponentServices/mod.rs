@@ -1,13 +1,13 @@
-::windows_targets::link!("comsvcs.dll" "system" fn CoCreateActivity(piunknown : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("comsvcs.dll" "system" fn CoEnterServiceDomain(pconfigobject : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comsvcs.dll" "system" fn CoCreateActivity(piunknown : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("comsvcs.dll" "system" fn CoEnterServiceDomain(pconfigobject : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("ole32.dll" "system" fn CoGetDefaultContext(apttype : super::Com:: APTTYPE, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("comsvcs.dll" "system" fn CoLeaveServiceDomain(punkstatus : * mut::core::ffi::c_void));
-::windows_targets::link!("mtxdm.dll" "cdecl" fn GetDispenserManager(param0 : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("comsvcs.dll" "system" fn GetManagedExtensions(dwexts : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("comsvcs.dll" "system" fn MTSCreateActivity(riid : *const ::windows_sys::core::GUID, ppobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("comsvcs.dll" "cdecl" fn RecycleSurrogate(lreasoncode : i32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("comsvcs.dll" "cdecl" fn SafeRef(rid : *const ::windows_sys::core::GUID, punk : * mut::core::ffi::c_void) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("ole32.dll" "system" fn CoGetDefaultContext(apttype : super::Com:: APTTYPE, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("comsvcs.dll" "system" fn CoLeaveServiceDomain(punkstatus : * mut core::ffi::c_void));
+::windows_targets::link!("mtxdm.dll" "cdecl" fn GetDispenserManager(param0 : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("comsvcs.dll" "system" fn GetManagedExtensions(dwexts : *mut u32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("comsvcs.dll" "system" fn MTSCreateActivity(riid : *const windows_sys::core::GUID, ppobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+::windows_targets::link!("comsvcs.dll" "cdecl" fn RecycleSurrogate(lreasoncode : i32) -> windows_sys::core::HRESULT);
+::windows_targets::link!("comsvcs.dll" "cdecl" fn SafeRef(rid : *const windows_sys::core::GUID, punk : * mut core::ffi::c_void) -> *mut core::ffi::c_void);
 pub const APPTYPE_LIBRARY: COMPLUS_APPTYPE = 0i32;
 pub const APPTYPE_SERVER: COMPLUS_APPTYPE = 1i32;
 pub const APPTYPE_SWC: COMPLUS_APPTYPE = 2i32;
@@ -291,8 +291,8 @@ pub const LockSetGet: LockModes = 0i32;
 pub const MTXDM_E_ENLISTRESOURCEFAILED: u32 = 2147803392u32;
 pub const Process: ReleaseModes = 1i32;
 pub const Standard: ReleaseModes = 0i32;
-pub const TRACKER_INIT_EVENT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Global\\COM+ Tracker Init Event");
-pub const TRACKER_STARTSTOP_EVENT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Global\\COM+ Tracker Push Event");
+pub const TRACKER_INIT_EVENT: windows_sys::core::PCWSTR = windows_sys::core::w!("Global\\COM+ Tracker Init Event");
+pub const TRACKER_STARTSTOP_EVENT: windows_sys::core::PCWSTR = windows_sys::core::w!("Global\\COM+ Tracker Push Event");
 pub const TRKCOLL_APPLICATIONS: TRACKING_COLL_TYPE = 1i32;
 pub const TRKCOLL_COMPONENTS: TRACKING_COLL_TYPE = 2i32;
 pub const TRKCOLL_PROCESSES: TRACKING_COLL_TYPE = 0i32;
@@ -376,8 +376,8 @@ pub struct APPDATA {
     pub m_dwAppProcessId: u32,
     pub m_AppStatistics: APPSTATISTICS,
 }
-impl ::core::marker::Copy for APPDATA {}
-impl ::core::clone::Clone for APPDATA {
+impl Copy for APPDATA {}
+impl Clone for APPDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -389,13 +389,13 @@ pub struct APPSTATISTICS {
     pub m_cTotalClasses: u32,
     pub m_cCallsPerSecond: u32,
 }
-impl ::core::marker::Copy for APPSTATISTICS {}
-impl ::core::clone::Clone for APPSTATISTICS {
+impl Copy for APPSTATISTICS {}
+impl Clone for APPSTATISTICS {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const AppDomainHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xef24f689_14f8_4d92_b4af_d7b1f0e70fd4);
+pub const AppDomainHelper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xef24f689_14f8_4d92_b4af_d7b1f0e70fd4);
 #[repr(C)]
 pub struct ApplicationProcessRecycleInfo {
     pub IsRecyclable: super::super::Foundation::BOOL,
@@ -413,8 +413,8 @@ pub struct ApplicationProcessRecycleInfo {
     pub CallLimit: u32,
     pub NumCallsLastReported: u32,
 }
-impl ::core::marker::Copy for ApplicationProcessRecycleInfo {}
-impl ::core::clone::Clone for ApplicationProcessRecycleInfo {
+impl Copy for ApplicationProcessRecycleInfo {}
+impl Clone for ApplicationProcessRecycleInfo {
     fn clone(&self) -> Self {
         *self
     }
@@ -430,50 +430,50 @@ pub struct ApplicationProcessStatistics {
     pub Reserved3: u32,
     pub Reserved4: u32,
 }
-impl ::core::marker::Copy for ApplicationProcessStatistics {}
-impl ::core::clone::Clone for ApplicationProcessStatistics {
+impl Copy for ApplicationProcessStatistics {}
+impl Clone for ApplicationProcessStatistics {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct ApplicationProcessSummary {
-    pub PartitionIdPrimaryApplication: ::windows_sys::core::GUID,
-    pub ApplicationIdPrimaryApplication: ::windows_sys::core::GUID,
-    pub ApplicationInstanceId: ::windows_sys::core::GUID,
+    pub PartitionIdPrimaryApplication: windows_sys::core::GUID,
+    pub ApplicationIdPrimaryApplication: windows_sys::core::GUID,
+    pub ApplicationInstanceId: windows_sys::core::GUID,
     pub ProcessId: u32,
     pub Type: COMPLUS_APPTYPE,
-    pub ProcessExeName: ::windows_sys::core::PWSTR,
+    pub ProcessExeName: windows_sys::core::PWSTR,
     pub IsService: super::super::Foundation::BOOL,
     pub IsPaused: super::super::Foundation::BOOL,
     pub IsRecycled: super::super::Foundation::BOOL,
 }
-impl ::core::marker::Copy for ApplicationProcessSummary {}
-impl ::core::clone::Clone for ApplicationProcessSummary {
+impl Copy for ApplicationProcessSummary {}
+impl Clone for ApplicationProcessSummary {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct ApplicationSummary {
-    pub ApplicationInstanceId: ::windows_sys::core::GUID,
-    pub PartitionId: ::windows_sys::core::GUID,
-    pub ApplicationId: ::windows_sys::core::GUID,
+    pub ApplicationInstanceId: windows_sys::core::GUID,
+    pub PartitionId: windows_sys::core::GUID,
+    pub ApplicationId: windows_sys::core::GUID,
     pub Type: COMPLUS_APPTYPE,
-    pub ApplicationName: ::windows_sys::core::PWSTR,
+    pub ApplicationName: windows_sys::core::PWSTR,
     pub NumTrackedComponents: u32,
     pub NumComponentInstances: u32,
 }
-impl ::core::marker::Copy for ApplicationSummary {}
-impl ::core::clone::Clone for ApplicationSummary {
+impl Copy for ApplicationSummary {}
+impl Clone for ApplicationSummary {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const ByotServerEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabb0aa_7f19_11d2_978e_0000f8757e2a);
+pub const ByotServerEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0aa_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
 pub struct CLSIDDATA {
-    pub m_clsid: ::windows_sys::core::GUID,
+    pub m_clsid: windows_sys::core::GUID,
     pub m_cReferences: u32,
     pub m_cBound: u32,
     pub m_cPooled: u32,
@@ -482,19 +482,19 @@ pub struct CLSIDDATA {
     pub m_cCallsCompleted: u32,
     pub m_cCallsFailed: u32,
 }
-impl ::core::marker::Copy for CLSIDDATA {}
-impl ::core::clone::Clone for CLSIDDATA {
+impl Copy for CLSIDDATA {}
+impl Clone for CLSIDDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct CLSIDDATA2 {
-    pub m_clsid: ::windows_sys::core::GUID,
-    pub m_appid: ::windows_sys::core::GUID,
-    pub m_partid: ::windows_sys::core::GUID,
-    pub m_pwszAppName: ::windows_sys::core::PWSTR,
-    pub m_pwszCtxName: ::windows_sys::core::PWSTR,
+    pub m_clsid: windows_sys::core::GUID,
+    pub m_appid: windows_sys::core::GUID,
+    pub m_partid: windows_sys::core::GUID,
+    pub m_pwszAppName: windows_sys::core::PWSTR,
+    pub m_pwszCtxName: windows_sys::core::PWSTR,
     pub m_eAppType: COMPLUS_APPTYPE,
     pub m_cReferences: u32,
     pub m_cBound: u32,
@@ -504,16 +504,16 @@ pub struct CLSIDDATA2 {
     pub m_cCallsCompleted: u32,
     pub m_cCallsFailed: u32,
 }
-impl ::core::marker::Copy for CLSIDDATA2 {}
-impl ::core::clone::Clone for CLSIDDATA2 {
+impl Copy for CLSIDDATA2 {}
+impl Clone for CLSIDDATA2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const COMAdminCatalog: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf618c514_dfb8_11d1_a2cf_00805fc79235);
-pub const COMAdminCatalogCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf618c516_dfb8_11d1_a2cf_00805fc79235);
-pub const COMAdminCatalogObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf618c515_dfb8_11d1_a2cf_00805fc79235);
-pub const COMEvents: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabb0ab_7f19_11d2_978e_0000f8757e2a);
+pub const COMAdminCatalog: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf618c514_dfb8_11d1_a2cf_00805fc79235);
+pub const COMAdminCatalogCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf618c516_dfb8_11d1_a2cf_00805fc79235);
+pub const COMAdminCatalogObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf618c515_dfb8_11d1_a2cf_00805fc79235);
+pub const COMEvents: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0ab_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
 pub struct COMSVCSEVENTINFO {
     pub cbSize: u32,
@@ -521,30 +521,30 @@ pub struct COMSVCSEVENTINFO {
     pub lTime: i64,
     pub lMicroTime: i32,
     pub perfCount: i64,
-    pub guidApp: ::windows_sys::core::GUID,
-    pub sMachineName: ::windows_sys::core::PWSTR,
+    pub guidApp: windows_sys::core::GUID,
+    pub sMachineName: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for COMSVCSEVENTINFO {}
-impl ::core::clone::Clone for COMSVCSEVENTINFO {
+impl Copy for COMSVCSEVENTINFO {}
+impl Clone for COMSVCSEVENTINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const CRMClerk: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabb0bd_7f19_11d2_978e_0000f8757e2a);
-pub const CRMRecoveryClerk: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabb0be_7f19_11d2_978e_0000f8757e2a);
-pub const CServiceConfig: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabb0c8_7f19_11d2_978e_0000f8757e2a);
-pub const ClrAssemblyLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x458aa3b5_265a_4b75_bc05_9bea4630cf18);
-pub const CoMTSLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabb0ac_7f19_11d2_978e_0000f8757e2a);
-pub const ComServiceEvents: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabb0c3_7f19_11d2_978e_0000f8757e2a);
-pub const ComSystemAppEventData: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabb0c6_7f19_11d2_978e_0000f8757e2a);
+pub const CRMClerk: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0bd_7f19_11d2_978e_0000f8757e2a);
+pub const CRMRecoveryClerk: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0be_7f19_11d2_978e_0000f8757e2a);
+pub const CServiceConfig: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0c8_7f19_11d2_978e_0000f8757e2a);
+pub const ClrAssemblyLocator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x458aa3b5_265a_4b75_bc05_9bea4630cf18);
+pub const CoMTSLocator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0ac_7f19_11d2_978e_0000f8757e2a);
+pub const ComServiceEvents: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0c3_7f19_11d2_978e_0000f8757e2a);
+pub const ComSystemAppEventData: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0c6_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
 pub struct ComponentHangMonitorInfo {
     pub IsMonitored: super::super::Foundation::BOOL,
     pub TerminateOnHang: super::super::Foundation::BOOL,
     pub AvgCallThresholdInMs: u32,
 }
-impl ::core::marker::Copy for ComponentHangMonitorInfo {}
-impl ::core::clone::Clone for ComponentHangMonitorInfo {
+impl Copy for ComponentHangMonitorInfo {}
+impl Clone for ComponentHangMonitorInfo {
     fn clone(&self) -> Self {
         *self
     }
@@ -565,23 +565,23 @@ pub struct ComponentStatistics {
     pub Reserved3: u32,
     pub Reserved4: u32,
 }
-impl ::core::marker::Copy for ComponentStatistics {}
-impl ::core::clone::Clone for ComponentStatistics {
+impl Copy for ComponentStatistics {}
+impl Clone for ComponentStatistics {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
 pub struct ComponentSummary {
-    pub ApplicationInstanceId: ::windows_sys::core::GUID,
-    pub PartitionId: ::windows_sys::core::GUID,
-    pub ApplicationId: ::windows_sys::core::GUID,
-    pub Clsid: ::windows_sys::core::GUID,
-    pub ClassName: ::windows_sys::core::PWSTR,
-    pub ApplicationName: ::windows_sys::core::PWSTR,
+    pub ApplicationInstanceId: windows_sys::core::GUID,
+    pub PartitionId: windows_sys::core::GUID,
+    pub ApplicationId: windows_sys::core::GUID,
+    pub Clsid: windows_sys::core::GUID,
+    pub ClassName: windows_sys::core::PWSTR,
+    pub ApplicationName: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for ComponentSummary {}
-impl ::core::clone::Clone for ComponentSummary {
+impl Copy for ComponentSummary {}
+impl Clone for ComponentSummary {
     fn clone(&self) -> Self {
         *self
     }
@@ -594,17 +594,17 @@ pub struct CrmLogRecordRead {
     pub blobUserData: super::Com::BLOB,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for CrmLogRecordRead {}
+impl Copy for CrmLogRecordRead {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for CrmLogRecordRead {
+impl Clone for CrmLogRecordRead {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const DispenserManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabb0c0_7f19_11d2_978e_0000f8757e2a);
-pub const Dummy30040732: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabb0a9_7f19_11d2_978e_0000f8757e2a);
-pub const EventServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabafbc_7f19_11d2_978e_0000f8757e2a);
-pub const GetSecurityCallContextAppObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabb0a8_7f19_11d2_978e_0000f8757e2a);
+pub const DispenserManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0c0_7f19_11d2_978e_0000f8757e2a);
+pub const Dummy30040732: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0a9_7f19_11d2_978e_0000f8757e2a);
+pub const EventServer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabafbc_7f19_11d2_978e_0000f8757e2a);
+pub const GetSecurityCallContextAppObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0a8_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
 pub struct HANG_INFO {
     pub fAppHangMonitorEnabled: super::super::Foundation::BOOL,
@@ -614,38 +614,38 @@ pub struct HANG_INFO {
     pub dwDumpCount: u32,
     pub dwInfoMsgCount: u32,
 }
-impl ::core::marker::Copy for HANG_INFO {}
-impl ::core::clone::Clone for HANG_INFO {
+impl Copy for HANG_INFO {}
+impl Clone for HANG_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const LBEvents: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabb0c1_7f19_11d2_978e_0000f8757e2a);
-pub const MessageMover: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabb0bf_7f19_11d2_978e_0000f8757e2a);
-pub const MtsGrp: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4b2e958d_0393_11d1_b1ab_00aa00ba3258);
-pub const PoolMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabafb5_7f19_11d2_978e_0000f8757e2a);
+pub const LBEvents: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0c1_7f19_11d2_978e_0000f8757e2a);
+pub const MessageMover: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0bf_7f19_11d2_978e_0000f8757e2a);
+pub const MtsGrp: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4b2e958d_0393_11d1_b1ab_00aa00ba3258);
+pub const PoolMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabafb5_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
 pub struct RECYCLE_INFO {
-    pub guidCombaseProcessIdentifier: ::windows_sys::core::GUID,
+    pub guidCombaseProcessIdentifier: windows_sys::core::GUID,
     pub ProcessStartTime: i64,
     pub dwRecycleLifetimeLimit: u32,
     pub dwRecycleMemoryLimit: u32,
     pub dwRecycleExpirationTimeout: u32,
 }
-impl ::core::marker::Copy for RECYCLE_INFO {}
-impl ::core::clone::Clone for RECYCLE_INFO {
+impl Copy for RECYCLE_INFO {}
+impl Clone for RECYCLE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub const SecurityCallContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabb0a7_7f19_11d2_978e_0000f8757e2a);
-pub const SecurityCallers: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabb0a6_7f19_11d2_978e_0000f8757e2a);
-pub const SecurityIdentity: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabb0a5_7f19_11d2_978e_0000f8757e2a);
-pub const ServicePool: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabb0c9_7f19_11d2_978e_0000f8757e2a);
-pub const ServicePoolConfig: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabb0ca_7f19_11d2_978e_0000f8757e2a);
-pub const SharedProperty: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2a005c05_a5de_11cf_9e66_00aa00a3f464);
-pub const SharedPropertyGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2a005c0b_a5de_11cf_9e66_00aa00a3f464);
-pub const SharedPropertyGroupManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2a005c11_a5de_11cf_9e66_00aa00a3f464);
-pub const TrackerServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xecabafb9_7f19_11d2_978e_0000f8757e2a);
-pub const TransactionContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7999fc25_d3c6_11cf_acab_00a024a55aef);
-pub const TransactionContextEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5cb66670_d3d4_11cf_acab_00a024a55aef);
+pub const SecurityCallContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0a7_7f19_11d2_978e_0000f8757e2a);
+pub const SecurityCallers: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0a6_7f19_11d2_978e_0000f8757e2a);
+pub const SecurityIdentity: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0a5_7f19_11d2_978e_0000f8757e2a);
+pub const ServicePool: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0c9_7f19_11d2_978e_0000f8757e2a);
+pub const ServicePoolConfig: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0ca_7f19_11d2_978e_0000f8757e2a);
+pub const SharedProperty: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2a005c05_a5de_11cf_9e66_00aa00a3f464);
+pub const SharedPropertyGroup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2a005c0b_a5de_11cf_9e66_00aa00a3f464);
+pub const SharedPropertyGroupManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2a005c11_a5de_11cf_9e66_00aa00a3f464);
+pub const TrackerServer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabafb9_7f19_11d2_978e_0000f8757e2a);
+pub const TransactionContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7999fc25_d3c6_11cf_acab_00a024a55aef);
+pub const TransactionContextEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5cb66670_d3d4_11cf_acab_00a024a55aef);

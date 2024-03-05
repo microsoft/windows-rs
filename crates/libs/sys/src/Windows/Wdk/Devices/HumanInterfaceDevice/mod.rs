@@ -1,16 +1,16 @@
-::windows_targets::link!("vhfum.dll" "system" fn VhfAsyncOperationComplete(vhfoperationhandle : *const ::core::ffi::c_void, completionstatus : super::super::super::Win32::Foundation:: NTSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-::windows_targets::link!("vhfum.dll" "system" fn VhfCreate(vhfconfig : *const VHF_CONFIG, vhfhandle : *mut *mut ::core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-::windows_targets::link!("vhfum.dll" "system" fn VhfDelete(vhfhandle : *const ::core::ffi::c_void, wait : super::super::super::Win32::Foundation:: BOOLEAN));
-::windows_targets::link!("vhfum.dll" "system" fn VhfReadReportSubmit(vhfhandle : *const ::core::ffi::c_void, hidtransferpacket : *const HID_XFER_PACKET) -> super::super::super::Win32::Foundation:: NTSTATUS);
-::windows_targets::link!("vhfum.dll" "system" fn VhfStart(vhfhandle : *const ::core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
+::windows_targets::link!("vhfum.dll" "system" fn VhfAsyncOperationComplete(vhfoperationhandle : *const core::ffi::c_void, completionstatus : super::super::super::Win32::Foundation:: NTSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
+::windows_targets::link!("vhfum.dll" "system" fn VhfCreate(vhfconfig : *const VHF_CONFIG, vhfhandle : *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
+::windows_targets::link!("vhfum.dll" "system" fn VhfDelete(vhfhandle : *const core::ffi::c_void, wait : super::super::super::Win32::Foundation:: BOOLEAN));
+::windows_targets::link!("vhfum.dll" "system" fn VhfReadReportSubmit(vhfhandle : *const core::ffi::c_void, hidtransferpacket : *const HID_XFER_PACKET) -> super::super::super::Win32::Foundation:: NTSTATUS);
+::windows_targets::link!("vhfum.dll" "system" fn VhfStart(vhfhandle : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[repr(C)]
 pub struct HID_XFER_PACKET {
     pub reportBuffer: *mut u8,
     pub reportBufferLen: u32,
     pub reportId: u8,
 }
-impl ::core::marker::Copy for HID_XFER_PACKET {}
-impl ::core::clone::Clone for HID_XFER_PACKET {
+impl Copy for HID_XFER_PACKET {}
+impl Clone for HID_XFER_PACKET {
     fn clone(&self) -> Self {
         *self
     }
@@ -18,15 +18,15 @@ impl ::core::clone::Clone for HID_XFER_PACKET {
 #[repr(C)]
 pub struct VHF_CONFIG {
     pub Size: u32,
-    pub VhfClientContext: *mut ::core::ffi::c_void,
+    pub VhfClientContext: *mut core::ffi::c_void,
     pub OperationContextSize: u32,
     pub FileHandle: super::super::super::Win32::Foundation::HANDLE,
     pub VendorID: u16,
     pub ProductID: u16,
     pub VersionNumber: u16,
-    pub ContainerID: ::windows_sys::core::GUID,
+    pub ContainerID: windows_sys::core::GUID,
     pub InstanceIDLength: u16,
-    pub InstanceID: ::windows_sys::core::PWSTR,
+    pub InstanceID: windows_sys::core::PWSTR,
     pub ReportDescriptorLength: u16,
     pub ReportDescriptor: *mut u8,
     pub EvtVhfReadyForNextReadReport: PEVT_VHF_READY_FOR_NEXT_READ_REPORT,
@@ -36,17 +36,17 @@ pub struct VHF_CONFIG {
     pub EvtVhfAsyncOperationGetInputReport: PEVT_VHF_ASYNC_OPERATION,
     pub EvtVhfCleanup: PEVT_VHF_CLEANUP,
     pub HardwareIDsLength: u16,
-    pub HardwareIDs: ::windows_sys::core::PWSTR,
+    pub HardwareIDs: windows_sys::core::PWSTR,
 }
-impl ::core::marker::Copy for VHF_CONFIG {}
-impl ::core::clone::Clone for VHF_CONFIG {
+impl Copy for VHF_CONFIG {}
+impl Clone for VHF_CONFIG {
     fn clone(&self) -> Self {
         *self
     }
 }
-pub type EVT_VHF_ASYNC_OPERATION = ::core::option::Option<unsafe extern "system" fn(vhfclientcontext: *const ::core::ffi::c_void, vhfoperationhandle: *const ::core::ffi::c_void, vhfoperationcontext: *const ::core::ffi::c_void, hidtransferpacket: *const HID_XFER_PACKET)>;
-pub type EVT_VHF_CLEANUP = ::core::option::Option<unsafe extern "system" fn(vhfclientcontext: *const ::core::ffi::c_void)>;
-pub type EVT_VHF_READY_FOR_NEXT_READ_REPORT = ::core::option::Option<unsafe extern "system" fn(vhfclientcontext: *const ::core::ffi::c_void)>;
-pub type PEVT_VHF_ASYNC_OPERATION = ::core::option::Option<unsafe extern "system" fn()>;
-pub type PEVT_VHF_CLEANUP = ::core::option::Option<unsafe extern "system" fn()>;
-pub type PEVT_VHF_READY_FOR_NEXT_READ_REPORT = ::core::option::Option<unsafe extern "system" fn()>;
+pub type EVT_VHF_ASYNC_OPERATION = Option<unsafe extern "system" fn(vhfclientcontext: *const core::ffi::c_void, vhfoperationhandle: *const core::ffi::c_void, vhfoperationcontext: *const core::ffi::c_void, hidtransferpacket: *const HID_XFER_PACKET)>;
+pub type EVT_VHF_CLEANUP = Option<unsafe extern "system" fn(vhfclientcontext: *const core::ffi::c_void)>;
+pub type EVT_VHF_READY_FOR_NEXT_READ_REPORT = Option<unsafe extern "system" fn(vhfclientcontext: *const core::ffi::c_void)>;
+pub type PEVT_VHF_ASYNC_OPERATION = Option<unsafe extern "system" fn()>;
+pub type PEVT_VHF_CLEANUP = Option<unsafe extern "system" fn()>;
+pub type PEVT_VHF_READY_FOR_NEXT_READ_REPORT = Option<unsafe extern "system" fn()>;

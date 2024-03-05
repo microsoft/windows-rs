@@ -1,17 +1,17 @@
-::windows_targets::link!("tbs.dll" "system" fn GetDeviceID(pbwindowsaik : *mut u8, cbwindowsaik : u32, pcbresult : *mut u32, pfprotectedbytpm : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("tbs.dll" "system" fn GetDeviceIDString(pszwindowsaik : ::windows_sys::core::PWSTR, cchwindowsaik : u32, pcchresult : *mut u32, pfprotectedbytpm : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("tbs.dll" "system" fn Tbsi_Context_Create(pcontextparams : *const TBS_CONTEXT_PARAMS, phcontext : *mut *mut ::core::ffi::c_void) -> u32);
+::windows_targets::link!("tbs.dll" "system" fn GetDeviceID(pbwindowsaik : *mut u8, cbwindowsaik : u32, pcbresult : *mut u32, pfprotectedbytpm : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+::windows_targets::link!("tbs.dll" "system" fn GetDeviceIDString(pszwindowsaik : windows_sys::core::PWSTR, cchwindowsaik : u32, pcchresult : *mut u32, pfprotectedbytpm : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+::windows_targets::link!("tbs.dll" "system" fn Tbsi_Context_Create(pcontextparams : *const TBS_CONTEXT_PARAMS, phcontext : *mut *mut core::ffi::c_void) -> u32);
 ::windows_targets::link!("tbs.dll" "system" fn Tbsi_Create_Windows_Key(keyhandle : u32) -> u32);
-::windows_targets::link!("tbs.dll" "system" fn Tbsi_GetDeviceInfo(size : u32, info : *mut ::core::ffi::c_void) -> u32);
-::windows_targets::link!("tbs.dll" "system" fn Tbsi_Get_OwnerAuth(hcontext : *const ::core::ffi::c_void, ownerauthtype : u32, poutputbuf : *mut u8, poutputbuflen : *mut u32) -> u32);
-::windows_targets::link!("tbs.dll" "system" fn Tbsi_Get_TCG_Log(hcontext : *const ::core::ffi::c_void, poutputbuf : *mut u8, poutputbuflen : *mut u32) -> u32);
+::windows_targets::link!("tbs.dll" "system" fn Tbsi_GetDeviceInfo(size : u32, info : *mut core::ffi::c_void) -> u32);
+::windows_targets::link!("tbs.dll" "system" fn Tbsi_Get_OwnerAuth(hcontext : *const core::ffi::c_void, ownerauthtype : u32, poutputbuf : *mut u8, poutputbuflen : *mut u32) -> u32);
+::windows_targets::link!("tbs.dll" "system" fn Tbsi_Get_TCG_Log(hcontext : *const core::ffi::c_void, poutputbuf : *mut u8, poutputbuflen : *mut u32) -> u32);
 ::windows_targets::link!("tbs.dll" "system" fn Tbsi_Get_TCG_Log_Ex(logtype : u32, pboutput : *mut u8, pcboutput : *mut u32) -> u32);
 ::windows_targets::link!("tbs.dll" "system" fn Tbsi_Is_Tpm_Present() -> super::super::Foundation:: BOOL);
-::windows_targets::link!("tbs.dll" "system" fn Tbsi_Physical_Presence_Command(hcontext : *const ::core::ffi::c_void, pabinput : *const u8, cbinput : u32, paboutput : *mut u8, pcboutput : *mut u32) -> u32);
+::windows_targets::link!("tbs.dll" "system" fn Tbsi_Physical_Presence_Command(hcontext : *const core::ffi::c_void, pabinput : *const u8, cbinput : u32, paboutput : *mut u8, pcboutput : *mut u32) -> u32);
 ::windows_targets::link!("tbs.dll" "system" fn Tbsi_Revoke_Attestation() -> u32);
-::windows_targets::link!("tbs.dll" "system" fn Tbsip_Cancel_Commands(hcontext : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("tbs.dll" "system" fn Tbsip_Context_Close(hcontext : *const ::core::ffi::c_void) -> u32);
-::windows_targets::link!("tbs.dll" "system" fn Tbsip_Submit_Command(hcontext : *const ::core::ffi::c_void, locality : TBS_COMMAND_LOCALITY, priority : TBS_COMMAND_PRIORITY, pabcommand : *const u8, cbcommand : u32, pabresult : *mut u8, pcbresult : *mut u32) -> u32);
+::windows_targets::link!("tbs.dll" "system" fn Tbsip_Cancel_Commands(hcontext : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("tbs.dll" "system" fn Tbsip_Context_Close(hcontext : *const core::ffi::c_void) -> u32);
+::windows_targets::link!("tbs.dll" "system" fn Tbsip_Submit_Command(hcontext : *const core::ffi::c_void, locality : TBS_COMMAND_LOCALITY, priority : TBS_COMMAND_PRIORITY, pabcommand : *const u8, cbcommand : u32, pabresult : *mut u8, pcbresult : *mut u32) -> u32);
 pub const TBS_COMMAND_LOCALITY_FOUR: TBS_COMMAND_LOCALITY = 4u32;
 pub const TBS_COMMAND_LOCALITY_ONE: TBS_COMMAND_LOCALITY = 1u32;
 pub const TBS_COMMAND_LOCALITY_THREE: TBS_COMMAND_LOCALITY = 3u32;
@@ -55,8 +55,8 @@ pub type TBS_COMMAND_PRIORITY = u32;
 pub struct TBS_CONTEXT_PARAMS {
     pub version: u32,
 }
-impl ::core::marker::Copy for TBS_CONTEXT_PARAMS {}
-impl ::core::clone::Clone for TBS_CONTEXT_PARAMS {
+impl Copy for TBS_CONTEXT_PARAMS {}
+impl Clone for TBS_CONTEXT_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
@@ -66,8 +66,8 @@ pub struct TBS_CONTEXT_PARAMS2 {
     pub version: u32,
     pub Anonymous: TBS_CONTEXT_PARAMS2_0,
 }
-impl ::core::marker::Copy for TBS_CONTEXT_PARAMS2 {}
-impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2 {
+impl Copy for TBS_CONTEXT_PARAMS2 {}
+impl Clone for TBS_CONTEXT_PARAMS2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -77,8 +77,8 @@ pub union TBS_CONTEXT_PARAMS2_0 {
     pub Anonymous: TBS_CONTEXT_PARAMS2_0_0,
     pub asUINT32: u32,
 }
-impl ::core::marker::Copy for TBS_CONTEXT_PARAMS2_0 {}
-impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2_0 {
+impl Copy for TBS_CONTEXT_PARAMS2_0 {}
+impl Clone for TBS_CONTEXT_PARAMS2_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -87,8 +87,8 @@ impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2_0 {
 pub struct TBS_CONTEXT_PARAMS2_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for TBS_CONTEXT_PARAMS2_0_0 {}
-impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2_0_0 {
+impl Copy for TBS_CONTEXT_PARAMS2_0_0 {}
+impl Clone for TBS_CONTEXT_PARAMS2_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -100,8 +100,8 @@ pub struct TPM_DEVICE_INFO {
     pub tpmInterfaceType: u32,
     pub tpmImpRevision: u32,
 }
-impl ::core::marker::Copy for TPM_DEVICE_INFO {}
-impl ::core::clone::Clone for TPM_DEVICE_INFO {
+impl Copy for TPM_DEVICE_INFO {}
+impl Clone for TPM_DEVICE_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -111,8 +111,8 @@ pub struct TPM_WNF_PROVISIONING {
     pub status: u32,
     pub message: [u8; 28],
 }
-impl ::core::marker::Copy for TPM_WNF_PROVISIONING {}
-impl ::core::clone::Clone for TPM_WNF_PROVISIONING {
+impl Copy for TPM_WNF_PROVISIONING {}
+impl Clone for TPM_WNF_PROVISIONING {
     fn clone(&self) -> Self {
         *self
     }

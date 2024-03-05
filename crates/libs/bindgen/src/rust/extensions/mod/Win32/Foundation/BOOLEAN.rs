@@ -4,11 +4,11 @@ impl BOOLEAN {
         self.0 != 0
     }
     #[inline]
-    pub fn ok(self) -> ::windows_core::Result<()> {
+    pub fn ok(self) -> windows_core::Result<()> {
         if self.as_bool() {
             Ok(())
         } else {
-            Err(::windows_core::Error::from_win32())
+            Err(windows_core::Error::from_win32())
         }
     }
     #[inline]
@@ -22,17 +22,17 @@ impl BOOLEAN {
         self.ok().expect(msg);
     }
 }
-impl ::core::convert::From<BOOLEAN> for bool {
+impl From<BOOLEAN> for bool {
     fn from(value: BOOLEAN) -> Self {
         value.as_bool()
     }
 }
-impl ::core::convert::From<&BOOLEAN> for bool {
+impl From<&BOOLEAN> for bool {
     fn from(value: &BOOLEAN) -> Self {
         value.as_bool()
     }
 }
-impl ::core::convert::From<bool> for BOOLEAN {
+impl From<bool> for BOOLEAN {
     fn from(value: bool) -> Self {
         if value {
             Self(1)
@@ -41,22 +41,22 @@ impl ::core::convert::From<bool> for BOOLEAN {
         }
     }
 }
-impl ::core::convert::From<&bool> for BOOLEAN {
+impl From<&bool> for BOOLEAN {
     fn from(value: &bool) -> Self {
         (*value).into()
     }
 }
-impl ::core::cmp::PartialEq<bool> for BOOLEAN {
+impl PartialEq<bool> for BOOLEAN {
     fn eq(&self, other: &bool) -> bool {
         self.as_bool() == *other
     }
 }
-impl ::core::cmp::PartialEq<BOOLEAN> for bool {
+impl PartialEq<BOOLEAN> for bool {
     fn eq(&self, other: &BOOLEAN) -> bool {
         *self == other.as_bool()
     }
 }
-impl ::core::ops::Not for BOOLEAN {
+impl core::ops::Not for BOOLEAN {
     type Output = Self;
     fn not(self) -> Self::Output {
         if self.as_bool() {
@@ -66,8 +66,8 @@ impl ::core::ops::Not for BOOLEAN {
         }
     }
 }
-impl ::windows_core::IntoParam<BOOLEAN> for bool {
-    unsafe fn into_param(self) -> ::windows_core::Param<BOOLEAN> {
-        ::windows_core::Param::Owned(self.into())
+impl windows_core::IntoParam<BOOLEAN> for bool {
+    unsafe fn into_param(self) -> windows_core::Param<BOOLEAN> {
+        windows_core::Param::Owned(self.into())
     }
 }

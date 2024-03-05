@@ -51,20 +51,20 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             let iid = writer.guid_literal(metadata::type_def_guid(def));
             tokens.combine(&quote! {
                 #features
-                ::windows_core::imp::com_interface!(#ident, #vtbl_ident, #iid);
+                windows_core::imp::com_interface!(#ident, #vtbl_ident, #iid);
             });
         } else {
             tokens.combine(&quote! {
                 #features
                 #[repr(transparent)]
-                #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-                pub struct #ident(::windows_core::IUnknown, #phantoms) where #constraints;
+                #[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+                pub struct #ident(windows_core::IUnknown, #phantoms) where #constraints;
             });
         }
     } else {
         tokens.combine(&quote! {
             #features
-            ::windows_core::imp::interface!(#ident, #vtbl_ident);
+            windows_core::imp::interface!(#ident, #vtbl_ident);
         });
     }
 
@@ -108,7 +108,7 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         }
 
         if !vtables.is_empty() && generics.is_empty() {
-            let mut hierarchy = format!("::windows_core::imp::interface_hierarchy!({ident}");
+            let mut hierarchy = format!("windows_core::imp::interface_hierarchy!({ident}");
             let mut hierarchy_cfg = cfg.clone();
 
             for ty in &vtables {
@@ -127,14 +127,14 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
                 let cfg = writer.cfg_features(&cfg.union(&cfg::type_cfg(writer, ty)));
                 tokens.combine(&quote! {
                     #cfg
-                    impl<#constraints> ::windows_core::CanInto<#into> for #ident {}
+                    impl<#constraints> windows_core::CanInto<#into> for #ident {}
                 });
             }
         }
 
         if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) && !interfaces.is_empty() {
             if generics.is_empty() {
-                let mut hierarchy = format!("::windows_core::imp::required_hierarchy!({ident}");
+                let mut hierarchy = format!("windows_core::imp::required_hierarchy!({ident}");
                 let mut hierarchy_cfg = cfg.clone();
 
                 for interface in &interfaces {
@@ -153,7 +153,7 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
                     let cfg = writer.cfg_features(&cfg.union(&cfg::type_cfg(writer, &interface.ty)));
                     tokens.combine(&quote! {
                         #cfg
-                        impl<#constraints> ::windows_core::CanInto<#into> for #ident { const QUERY: bool = true; }
+                        impl<#constraints> windows_core::CanInto<#into> for #ident { const QUERY: bool = true; }
                     });
                 }
             }
