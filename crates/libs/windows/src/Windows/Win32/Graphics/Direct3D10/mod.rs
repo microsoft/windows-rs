@@ -225,7 +225,7 @@ pub unsafe fn D3D10StateBlockMaskUnion(pa: *const D3D10_STATE_BLOCK_MASK, pb: *c
     windows_targets::link!("d3d10.dll" "system" fn D3D10StateBlockMaskUnion(pa : *const D3D10_STATE_BLOCK_MASK, pb : *const D3D10_STATE_BLOCK_MASK, presult : *mut D3D10_STATE_BLOCK_MASK) -> windows_core::HRESULT);
     D3D10StateBlockMaskUnion(pa, pb, presult).ok()
 }
-windows_core::imp::com_interface!(ID3D10Asynchronous, ID3D10Asynchronous_Vtbl, 0x9b7e4c0d_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10Asynchronous, ID3D10Asynchronous_Vtbl, 0x9b7e4c0d_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10Asynchronous, windows_core::IUnknown, ID3D10DeviceChild);
 impl ID3D10Asynchronous {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -268,7 +268,7 @@ pub struct ID3D10Asynchronous_Vtbl {
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub GetDataSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
-windows_core::imp::com_interface!(ID3D10BlendState, ID3D10BlendState_Vtbl, 0xedad8d19_8a35_4d6d_8566_2ea276cde161);
+windows_core::imp::define_interface!(ID3D10BlendState, ID3D10BlendState_Vtbl, 0xedad8d19_8a35_4d6d_8566_2ea276cde161);
 windows_core::imp::interface_hierarchy!(ID3D10BlendState, windows_core::IUnknown, ID3D10DeviceChild);
 impl ID3D10BlendState {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -299,7 +299,7 @@ pub struct ID3D10BlendState_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_BLEND_DESC),
 }
-windows_core::imp::com_interface!(ID3D10BlendState1, ID3D10BlendState1_Vtbl, 0xedad8d99_8a35_4d6d_8566_2ea276cde161);
+windows_core::imp::define_interface!(ID3D10BlendState1, ID3D10BlendState1_Vtbl, 0xedad8d99_8a35_4d6d_8566_2ea276cde161);
 windows_core::imp::interface_hierarchy!(ID3D10BlendState1, windows_core::IUnknown, ID3D10DeviceChild, ID3D10BlendState);
 impl ID3D10BlendState1 {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -333,7 +333,7 @@ pub struct ID3D10BlendState1_Vtbl {
     pub base__: ID3D10BlendState_Vtbl,
     pub GetDesc1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_BLEND_DESC1),
 }
-windows_core::imp::com_interface!(ID3D10Buffer, ID3D10Buffer_Vtbl, 0x9b7e4c02_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10Buffer, ID3D10Buffer_Vtbl, 0x9b7e4c02_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10Buffer, windows_core::IUnknown, ID3D10DeviceChild, ID3D10Resource);
 impl ID3D10Buffer {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -383,7 +383,7 @@ pub struct ID3D10Buffer_Vtbl {
     pub Unmap: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_BUFFER_DESC),
 }
-windows_core::imp::com_interface!(ID3D10Counter, ID3D10Counter_Vtbl, 0x9b7e4c11_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10Counter, ID3D10Counter_Vtbl, 0x9b7e4c11_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10Counter, windows_core::IUnknown, ID3D10DeviceChild, ID3D10Asynchronous);
 impl ID3D10Counter {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -428,7 +428,7 @@ pub struct ID3D10Counter_Vtbl {
     pub base__: ID3D10Asynchronous_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_COUNTER_DESC),
 }
-windows_core::imp::com_interface!(ID3D10Debug, ID3D10Debug_Vtbl, 0x9b7e4e01_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10Debug, ID3D10Debug_Vtbl, 0x9b7e4e01_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10Debug, windows_core::IUnknown);
 impl ID3D10Debug {
     pub unsafe fn SetFeatureMask(&self, mask: u32) -> windows_core::Result<()> {
@@ -478,7 +478,7 @@ pub struct ID3D10Debug_Vtbl {
     GetSwapChain: usize,
     pub Validate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ID3D10DepthStencilState, ID3D10DepthStencilState_Vtbl, 0x2b4b1cc8_a4ad_41f8_8322_ca86fc3ec675);
+windows_core::imp::define_interface!(ID3D10DepthStencilState, ID3D10DepthStencilState_Vtbl, 0x2b4b1cc8_a4ad_41f8_8322_ca86fc3ec675);
 windows_core::imp::interface_hierarchy!(ID3D10DepthStencilState, windows_core::IUnknown, ID3D10DeviceChild);
 impl ID3D10DepthStencilState {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -509,7 +509,7 @@ pub struct ID3D10DepthStencilState_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_DEPTH_STENCIL_DESC),
 }
-windows_core::imp::com_interface!(ID3D10DepthStencilView, ID3D10DepthStencilView_Vtbl, 0x9b7e4c09_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10DepthStencilView, ID3D10DepthStencilView_Vtbl, 0x9b7e4c09_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10DepthStencilView, windows_core::IUnknown, ID3D10DeviceChild, ID3D10View);
 impl ID3D10DepthStencilView {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -549,7 +549,7 @@ pub struct ID3D10DepthStencilView_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
-windows_core::imp::com_interface!(ID3D10Device, ID3D10Device_Vtbl, 0x9b7e4c0f_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10Device, ID3D10Device_Vtbl, 0x9b7e4c0f_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10Device, windows_core::IUnknown);
 impl ID3D10Device {
     pub unsafe fn VSSetConstantBuffers(&self, startslot: u32, ppconstantbuffers: Option<&[Option<ID3D10Buffer>]>) {
@@ -1084,7 +1084,7 @@ pub struct ID3D10Device_Vtbl {
     pub SetTextFilterSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32),
     pub GetTextFilterSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32),
 }
-windows_core::imp::com_interface!(ID3D10Device1, ID3D10Device1_Vtbl, 0x9b7e4c8f_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10Device1, ID3D10Device1_Vtbl, 0x9b7e4c8f_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10Device1, windows_core::IUnknown, ID3D10Device);
 impl ID3D10Device1 {
     pub unsafe fn VSSetConstantBuffers(&self, startslot: u32, ppconstantbuffers: Option<&[Option<ID3D10Buffer>]>) {
@@ -1501,7 +1501,7 @@ pub struct ID3D10Device1_Vtbl {
     pub CreateBlendState1: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D10_BLEND_DESC1, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFeatureLevel: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3D10_FEATURE_LEVEL1,
 }
-windows_core::imp::com_interface!(ID3D10DeviceChild, ID3D10DeviceChild_Vtbl, 0x9b7e4c00_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10DeviceChild, ID3D10DeviceChild_Vtbl, 0x9b7e4c00_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10DeviceChild, windows_core::IUnknown);
 impl ID3D10DeviceChild {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -1532,7 +1532,7 @@ pub struct ID3D10DeviceChild_Vtbl {
     pub SetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPrivateDataInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ID3D10Effect, ID3D10Effect_Vtbl, 0x51b0ca8b_ec0b_4519_870d_8ee1cb5017c7);
+windows_core::imp::define_interface!(ID3D10Effect, ID3D10Effect_Vtbl, 0x51b0ca8b_ec0b_4519_870d_8ee1cb5017c7);
 windows_core::imp::interface_hierarchy!(ID3D10Effect, windows_core::IUnknown);
 impl ID3D10Effect {
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
@@ -1607,7 +1607,7 @@ pub struct ID3D10Effect_Vtbl {
     pub Optimize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsOptimized: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
-windows_core::imp::interface!(ID3D10EffectBlendVariable, ID3D10EffectBlendVariable_Vtbl);
+windows_core::imp::define_interface!(ID3D10EffectBlendVariable, ID3D10EffectBlendVariable_Vtbl);
 windows_core::imp::interface_hierarchy!(ID3D10EffectBlendVariable, ID3D10EffectVariable);
 impl ID3D10EffectBlendVariable {
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
@@ -1710,7 +1710,7 @@ pub struct ID3D10EffectBlendVariable_Vtbl {
     pub GetBlendState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetBackingStore: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3D10_BLEND_DESC) -> windows_core::HRESULT,
 }
-windows_core::imp::interface!(ID3D10EffectConstantBuffer, ID3D10EffectConstantBuffer_Vtbl);
+windows_core::imp::define_interface!(ID3D10EffectConstantBuffer, ID3D10EffectConstantBuffer_Vtbl);
 windows_core::imp::interface_hierarchy!(ID3D10EffectConstantBuffer, ID3D10EffectVariable);
 impl ID3D10EffectConstantBuffer {
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
@@ -1828,7 +1828,7 @@ pub struct ID3D10EffectConstantBuffer_Vtbl {
     pub SetTextureBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetTextureBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::interface!(ID3D10EffectDepthStencilVariable, ID3D10EffectDepthStencilVariable_Vtbl);
+windows_core::imp::define_interface!(ID3D10EffectDepthStencilVariable, ID3D10EffectDepthStencilVariable_Vtbl);
 windows_core::imp::interface_hierarchy!(ID3D10EffectDepthStencilVariable, ID3D10EffectVariable);
 impl ID3D10EffectDepthStencilVariable {
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
@@ -1931,7 +1931,7 @@ pub struct ID3D10EffectDepthStencilVariable_Vtbl {
     pub GetDepthStencilState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetBackingStore: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3D10_DEPTH_STENCIL_DESC) -> windows_core::HRESULT,
 }
-windows_core::imp::interface!(ID3D10EffectDepthStencilViewVariable, ID3D10EffectDepthStencilViewVariable_Vtbl);
+windows_core::imp::define_interface!(ID3D10EffectDepthStencilViewVariable, ID3D10EffectDepthStencilViewVariable_Vtbl);
 windows_core::imp::interface_hierarchy!(ID3D10EffectDepthStencilViewVariable, ID3D10EffectVariable);
 impl ID3D10EffectDepthStencilViewVariable {
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
@@ -2045,7 +2045,7 @@ pub struct ID3D10EffectDepthStencilViewVariable_Vtbl {
     pub SetDepthStencilArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub GetDepthStencilArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::interface!(ID3D10EffectMatrixVariable, ID3D10EffectMatrixVariable_Vtbl);
+windows_core::imp::define_interface!(ID3D10EffectMatrixVariable, ID3D10EffectMatrixVariable_Vtbl);
 windows_core::imp::interface_hierarchy!(ID3D10EffectMatrixVariable, ID3D10EffectVariable);
 impl ID3D10EffectMatrixVariable {
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
@@ -2171,7 +2171,7 @@ pub struct ID3D10EffectMatrixVariable_Vtbl {
     pub SetMatrixTransposeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, u32, u32) -> windows_core::HRESULT,
     pub GetMatrixTransposeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, u32, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::interface!(ID3D10EffectPass, ID3D10EffectPass_Vtbl);
+windows_core::imp::define_interface!(ID3D10EffectPass, ID3D10EffectPass_Vtbl);
 impl ID3D10EffectPass {
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).IsValid)(windows_core::Interface::as_raw(self))
@@ -2218,7 +2218,7 @@ pub struct ID3D10EffectPass_Vtbl {
     pub Apply: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub ComputeStateBlockMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_STATE_BLOCK_MASK) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ID3D10EffectPool, ID3D10EffectPool_Vtbl, 0x9537ab04_3250_412e_8213_fcd2f8677933);
+windows_core::imp::define_interface!(ID3D10EffectPool, ID3D10EffectPool_Vtbl, 0x9537ab04_3250_412e_8213_fcd2f8677933);
 windows_core::imp::interface_hierarchy!(ID3D10EffectPool, windows_core::IUnknown);
 impl ID3D10EffectPool {
     pub unsafe fn AsEffect(&self) -> Option<ID3D10Effect> {
@@ -2232,7 +2232,7 @@ pub struct ID3D10EffectPool_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AsEffect: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<ID3D10Effect>,
 }
-windows_core::imp::interface!(ID3D10EffectRasterizerVariable, ID3D10EffectRasterizerVariable_Vtbl);
+windows_core::imp::define_interface!(ID3D10EffectRasterizerVariable, ID3D10EffectRasterizerVariable_Vtbl);
 windows_core::imp::interface_hierarchy!(ID3D10EffectRasterizerVariable, ID3D10EffectVariable);
 impl ID3D10EffectRasterizerVariable {
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
@@ -2335,7 +2335,7 @@ pub struct ID3D10EffectRasterizerVariable_Vtbl {
     pub GetRasterizerState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetBackingStore: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3D10_RASTERIZER_DESC) -> windows_core::HRESULT,
 }
-windows_core::imp::interface!(ID3D10EffectRenderTargetViewVariable, ID3D10EffectRenderTargetViewVariable_Vtbl);
+windows_core::imp::define_interface!(ID3D10EffectRenderTargetViewVariable, ID3D10EffectRenderTargetViewVariable_Vtbl);
 windows_core::imp::interface_hierarchy!(ID3D10EffectRenderTargetViewVariable, ID3D10EffectVariable);
 impl ID3D10EffectRenderTargetViewVariable {
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
@@ -2449,7 +2449,7 @@ pub struct ID3D10EffectRenderTargetViewVariable_Vtbl {
     pub SetRenderTargetArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub GetRenderTargetArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::interface!(ID3D10EffectSamplerVariable, ID3D10EffectSamplerVariable_Vtbl);
+windows_core::imp::define_interface!(ID3D10EffectSamplerVariable, ID3D10EffectSamplerVariable_Vtbl);
 windows_core::imp::interface_hierarchy!(ID3D10EffectSamplerVariable, ID3D10EffectVariable);
 impl ID3D10EffectSamplerVariable {
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
@@ -2552,7 +2552,7 @@ pub struct ID3D10EffectSamplerVariable_Vtbl {
     pub GetSampler: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetBackingStore: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3D10_SAMPLER_DESC) -> windows_core::HRESULT,
 }
-windows_core::imp::interface!(ID3D10EffectScalarVariable, ID3D10EffectScalarVariable_Vtbl);
+windows_core::imp::define_interface!(ID3D10EffectScalarVariable, ID3D10EffectScalarVariable_Vtbl);
 windows_core::imp::interface_hierarchy!(ID3D10EffectScalarVariable, ID3D10EffectVariable);
 impl ID3D10EffectScalarVariable {
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
@@ -2700,7 +2700,7 @@ pub struct ID3D10EffectScalarVariable_Vtbl {
     pub SetBoolArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::BOOL, u32, u32) -> windows_core::HRESULT,
     pub GetBoolArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, u32, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::interface!(ID3D10EffectShaderResourceVariable, ID3D10EffectShaderResourceVariable_Vtbl);
+windows_core::imp::define_interface!(ID3D10EffectShaderResourceVariable, ID3D10EffectShaderResourceVariable_Vtbl);
 windows_core::imp::interface_hierarchy!(ID3D10EffectShaderResourceVariable, ID3D10EffectVariable);
 impl ID3D10EffectShaderResourceVariable {
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
@@ -2814,7 +2814,7 @@ pub struct ID3D10EffectShaderResourceVariable_Vtbl {
     pub SetResourceArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub GetResourceArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::interface!(ID3D10EffectShaderVariable, ID3D10EffectShaderVariable_Vtbl);
+windows_core::imp::define_interface!(ID3D10EffectShaderVariable, ID3D10EffectShaderVariable_Vtbl);
 windows_core::imp::interface_hierarchy!(ID3D10EffectShaderVariable, ID3D10EffectVariable);
 impl ID3D10EffectShaderVariable {
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
@@ -2943,7 +2943,7 @@ pub struct ID3D10EffectShaderVariable_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetOutputSignatureElementDesc: usize,
 }
-windows_core::imp::interface!(ID3D10EffectStringVariable, ID3D10EffectStringVariable_Vtbl);
+windows_core::imp::define_interface!(ID3D10EffectStringVariable, ID3D10EffectStringVariable_Vtbl);
 windows_core::imp::interface_hierarchy!(ID3D10EffectStringVariable, ID3D10EffectVariable);
 impl ID3D10EffectStringVariable {
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
@@ -3046,7 +3046,7 @@ pub struct ID3D10EffectStringVariable_Vtbl {
     pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetStringArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PCSTR, u32, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::interface!(ID3D10EffectTechnique, ID3D10EffectTechnique_Vtbl);
+windows_core::imp::define_interface!(ID3D10EffectTechnique, ID3D10EffectTechnique_Vtbl);
 impl ID3D10EffectTechnique {
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).IsValid)(windows_core::Interface::as_raw(self))
@@ -3088,7 +3088,7 @@ pub struct ID3D10EffectTechnique_Vtbl {
     pub GetPassByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> Option<ID3D10EffectPass>,
     pub ComputeStateBlockMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_STATE_BLOCK_MASK) -> windows_core::HRESULT,
 }
-windows_core::imp::interface!(ID3D10EffectType, ID3D10EffectType_Vtbl);
+windows_core::imp::define_interface!(ID3D10EffectType, ID3D10EffectType_Vtbl);
 impl ID3D10EffectType {
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).IsValid)(windows_core::Interface::as_raw(self))
@@ -3134,7 +3134,7 @@ pub struct ID3D10EffectType_Vtbl {
     pub GetMemberName: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::PCSTR,
     pub GetMemberSemantic: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::PCSTR,
 }
-windows_core::imp::interface!(ID3D10EffectVariable, ID3D10EffectVariable_Vtbl);
+windows_core::imp::define_interface!(ID3D10EffectVariable, ID3D10EffectVariable_Vtbl);
 impl ID3D10EffectVariable {
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).IsValid)(windows_core::Interface::as_raw(self))
@@ -3251,7 +3251,7 @@ pub struct ID3D10EffectVariable_Vtbl {
     pub SetRawValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub GetRawValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::interface!(ID3D10EffectVectorVariable, ID3D10EffectVectorVariable_Vtbl);
+windows_core::imp::define_interface!(ID3D10EffectVectorVariable, ID3D10EffectVectorVariable_Vtbl);
 windows_core::imp::interface_hierarchy!(ID3D10EffectVectorVariable, ID3D10EffectVariable);
 impl ID3D10EffectVectorVariable {
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
@@ -3393,7 +3393,7 @@ pub struct ID3D10EffectVectorVariable_Vtbl {
     pub GetIntVectorArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, u32, u32) -> windows_core::HRESULT,
     pub GetFloatVectorArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, u32, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ID3D10GeometryShader, ID3D10GeometryShader_Vtbl, 0x6316be88_54cd_4040_ab44_20461bc81f68);
+windows_core::imp::define_interface!(ID3D10GeometryShader, ID3D10GeometryShader_Vtbl, 0x6316be88_54cd_4040_ab44_20461bc81f68);
 windows_core::imp::interface_hierarchy!(ID3D10GeometryShader, windows_core::IUnknown, ID3D10DeviceChild);
 impl ID3D10GeometryShader {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -3420,7 +3420,7 @@ unsafe impl Sync for ID3D10GeometryShader {}
 pub struct ID3D10GeometryShader_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
 }
-windows_core::imp::com_interface!(ID3D10InfoQueue, ID3D10InfoQueue_Vtbl, 0x1b940b17_2642_4d1f_ab1f_b99bad0c395f);
+windows_core::imp::define_interface!(ID3D10InfoQueue, ID3D10InfoQueue_Vtbl, 0x1b940b17_2642_4d1f_ab1f_b99bad0c395f);
 windows_core::imp::interface_hierarchy!(ID3D10InfoQueue, windows_core::IUnknown);
 impl ID3D10InfoQueue {
     pub unsafe fn SetMessageCountLimit(&self, messagecountlimit: u64) -> windows_core::Result<()> {
@@ -3588,7 +3588,7 @@ pub struct ID3D10InfoQueue_Vtbl {
     pub SetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL),
     pub GetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
-windows_core::imp::com_interface!(ID3D10InputLayout, ID3D10InputLayout_Vtbl, 0x9b7e4c0b_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10InputLayout, ID3D10InputLayout_Vtbl, 0x9b7e4c0b_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10InputLayout, windows_core::IUnknown, ID3D10DeviceChild);
 impl ID3D10InputLayout {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -3615,7 +3615,7 @@ unsafe impl Sync for ID3D10InputLayout {}
 pub struct ID3D10InputLayout_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
 }
-windows_core::imp::com_interface!(ID3D10Multithread, ID3D10Multithread_Vtbl, 0x9b7e4e00_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10Multithread, ID3D10Multithread_Vtbl, 0x9b7e4e00_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10Multithread, windows_core::IUnknown);
 impl ID3D10Multithread {
     pub unsafe fn Enter(&self) {
@@ -3644,7 +3644,7 @@ pub struct ID3D10Multithread_Vtbl {
     pub SetMultithreadProtected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> super::super::Foundation::BOOL,
     pub GetMultithreadProtected: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
-windows_core::imp::com_interface!(ID3D10PixelShader, ID3D10PixelShader_Vtbl, 0x4968b601_9d00_4cde_8346_8e7f675819b6);
+windows_core::imp::define_interface!(ID3D10PixelShader, ID3D10PixelShader_Vtbl, 0x4968b601_9d00_4cde_8346_8e7f675819b6);
 windows_core::imp::interface_hierarchy!(ID3D10PixelShader, windows_core::IUnknown, ID3D10DeviceChild);
 impl ID3D10PixelShader {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -3671,7 +3671,7 @@ unsafe impl Sync for ID3D10PixelShader {}
 pub struct ID3D10PixelShader_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
 }
-windows_core::imp::com_interface!(ID3D10Predicate, ID3D10Predicate_Vtbl, 0x9b7e4c10_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10Predicate, ID3D10Predicate_Vtbl, 0x9b7e4c10_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10Predicate, windows_core::IUnknown, ID3D10DeviceChild, ID3D10Asynchronous, ID3D10Query);
 impl ID3D10Predicate {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -3715,7 +3715,7 @@ unsafe impl Sync for ID3D10Predicate {}
 pub struct ID3D10Predicate_Vtbl {
     pub base__: ID3D10Query_Vtbl,
 }
-windows_core::imp::com_interface!(ID3D10Query, ID3D10Query_Vtbl, 0x9b7e4c0e_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10Query, ID3D10Query_Vtbl, 0x9b7e4c0e_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10Query, windows_core::IUnknown, ID3D10DeviceChild, ID3D10Asynchronous);
 impl ID3D10Query {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -3760,7 +3760,7 @@ pub struct ID3D10Query_Vtbl {
     pub base__: ID3D10Asynchronous_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_QUERY_DESC),
 }
-windows_core::imp::com_interface!(ID3D10RasterizerState, ID3D10RasterizerState_Vtbl, 0xa2a07292_89af_4345_be2e_c53d9fbb6e9f);
+windows_core::imp::define_interface!(ID3D10RasterizerState, ID3D10RasterizerState_Vtbl, 0xa2a07292_89af_4345_be2e_c53d9fbb6e9f);
 windows_core::imp::interface_hierarchy!(ID3D10RasterizerState, windows_core::IUnknown, ID3D10DeviceChild);
 impl ID3D10RasterizerState {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -3791,7 +3791,7 @@ pub struct ID3D10RasterizerState_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_RASTERIZER_DESC),
 }
-windows_core::imp::com_interface!(ID3D10RenderTargetView, ID3D10RenderTargetView_Vtbl, 0x9b7e4c08_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10RenderTargetView, ID3D10RenderTargetView_Vtbl, 0x9b7e4c08_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10RenderTargetView, windows_core::IUnknown, ID3D10DeviceChild, ID3D10View);
 impl ID3D10RenderTargetView {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -3831,7 +3831,7 @@ pub struct ID3D10RenderTargetView_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
-windows_core::imp::com_interface!(ID3D10Resource, ID3D10Resource_Vtbl, 0x9b7e4c01_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10Resource, ID3D10Resource_Vtbl, 0x9b7e4c01_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10Resource, windows_core::IUnknown, ID3D10DeviceChild);
 impl ID3D10Resource {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -3872,7 +3872,7 @@ pub struct ID3D10Resource_Vtbl {
     pub SetEvictionPriority: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
     pub GetEvictionPriority: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
-windows_core::imp::com_interface!(ID3D10SamplerState, ID3D10SamplerState_Vtbl, 0x9b7e4c0c_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10SamplerState, ID3D10SamplerState_Vtbl, 0x9b7e4c0c_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10SamplerState, windows_core::IUnknown, ID3D10DeviceChild);
 impl ID3D10SamplerState {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -3903,7 +3903,7 @@ pub struct ID3D10SamplerState_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_SAMPLER_DESC),
 }
-windows_core::imp::com_interface!(ID3D10ShaderReflection, ID3D10ShaderReflection_Vtbl, 0xd40e20b6_f8f7_42ad_ab20_4baf8f15dfaa);
+windows_core::imp::define_interface!(ID3D10ShaderReflection, ID3D10ShaderReflection_Vtbl, 0xd40e20b6_f8f7_42ad_ab20_4baf8f15dfaa);
 windows_core::imp::interface_hierarchy!(ID3D10ShaderReflection, windows_core::IUnknown);
 impl ID3D10ShaderReflection {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -3956,7 +3956,7 @@ pub struct ID3D10ShaderReflection_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetOutputParameterDesc: usize,
 }
-windows_core::imp::com_interface!(ID3D10ShaderReflection1, ID3D10ShaderReflection1_Vtbl, 0xc3457783_a846_47ce_9520_cea6f66e7447);
+windows_core::imp::define_interface!(ID3D10ShaderReflection1, ID3D10ShaderReflection1_Vtbl, 0xc3457783_a846_47ce_9520_cea6f66e7447);
 windows_core::imp::interface_hierarchy!(ID3D10ShaderReflection1, windows_core::IUnknown);
 impl ID3D10ShaderReflection1 {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -4066,7 +4066,7 @@ pub struct ID3D10ShaderReflection1_Vtbl {
     pub IsLevel9Shader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub IsSampleFrequencyShader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::interface!(ID3D10ShaderReflectionConstantBuffer, ID3D10ShaderReflectionConstantBuffer_Vtbl);
+windows_core::imp::define_interface!(ID3D10ShaderReflectionConstantBuffer, ID3D10ShaderReflectionConstantBuffer_Vtbl);
 impl ID3D10ShaderReflectionConstantBuffer {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_SHADER_BUFFER_DESC) -> windows_core::Result<()> {
@@ -4093,7 +4093,7 @@ pub struct ID3D10ShaderReflectionConstantBuffer_Vtbl {
     pub GetVariableByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> Option<ID3D10ShaderReflectionVariable>,
     pub GetVariableByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> Option<ID3D10ShaderReflectionVariable>,
 }
-windows_core::imp::interface!(ID3D10ShaderReflectionType, ID3D10ShaderReflectionType_Vtbl);
+windows_core::imp::define_interface!(ID3D10ShaderReflectionType, ID3D10ShaderReflectionType_Vtbl);
 impl ID3D10ShaderReflectionType {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_SHADER_TYPE_DESC) -> windows_core::Result<()> {
@@ -4124,7 +4124,7 @@ pub struct ID3D10ShaderReflectionType_Vtbl {
     pub GetMemberTypeByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> Option<ID3D10ShaderReflectionType>,
     pub GetMemberTypeName: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::PCSTR,
 }
-windows_core::imp::interface!(ID3D10ShaderReflectionVariable, ID3D10ShaderReflectionVariable_Vtbl);
+windows_core::imp::define_interface!(ID3D10ShaderReflectionVariable, ID3D10ShaderReflectionVariable_Vtbl);
 impl ID3D10ShaderReflectionVariable {
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_SHADER_VARIABLE_DESC) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc).ok()
@@ -4140,7 +4140,7 @@ pub struct ID3D10ShaderReflectionVariable_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D10_SHADER_VARIABLE_DESC) -> windows_core::HRESULT,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<ID3D10ShaderReflectionType>,
 }
-windows_core::imp::com_interface!(ID3D10ShaderResourceView, ID3D10ShaderResourceView_Vtbl, 0x9b7e4c07_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10ShaderResourceView, ID3D10ShaderResourceView_Vtbl, 0x9b7e4c07_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10ShaderResourceView, windows_core::IUnknown, ID3D10DeviceChild, ID3D10View);
 impl ID3D10ShaderResourceView {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -4180,7 +4180,7 @@ pub struct ID3D10ShaderResourceView_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common")))]
     GetDesc: usize,
 }
-windows_core::imp::com_interface!(ID3D10ShaderResourceView1, ID3D10ShaderResourceView1_Vtbl, 0x9b7e4c87_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10ShaderResourceView1, ID3D10ShaderResourceView1_Vtbl, 0x9b7e4c87_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10ShaderResourceView1, windows_core::IUnknown, ID3D10DeviceChild, ID3D10View, ID3D10ShaderResourceView);
 impl ID3D10ShaderResourceView1 {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -4224,7 +4224,7 @@ pub struct ID3D10ShaderResourceView1_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common")))]
     GetDesc1: usize,
 }
-windows_core::imp::com_interface!(ID3D10StateBlock, ID3D10StateBlock_Vtbl, 0x0803425a_57f5_4dd6_9465_a87570834a08);
+windows_core::imp::define_interface!(ID3D10StateBlock, ID3D10StateBlock_Vtbl, 0x0803425a_57f5_4dd6_9465_a87570834a08);
 windows_core::imp::interface_hierarchy!(ID3D10StateBlock, windows_core::IUnknown);
 impl ID3D10StateBlock {
     pub unsafe fn Capture(&self) -> windows_core::Result<()> {
@@ -4251,7 +4251,7 @@ pub struct ID3D10StateBlock_Vtbl {
     pub ReleaseAllDeviceObjects: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ID3D10SwitchToRef, ID3D10SwitchToRef_Vtbl, 0x9b7e4e02_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10SwitchToRef, ID3D10SwitchToRef_Vtbl, 0x9b7e4e02_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10SwitchToRef, windows_core::IUnknown);
 impl ID3D10SwitchToRef {
     pub unsafe fn SetUseRef<P0>(&self, useref: P0) -> super::super::Foundation::BOOL
@@ -4272,7 +4272,7 @@ pub struct ID3D10SwitchToRef_Vtbl {
     pub SetUseRef: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> super::super::Foundation::BOOL,
     pub GetUseRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
-windows_core::imp::com_interface!(ID3D10Texture1D, ID3D10Texture1D_Vtbl, 0x9b7e4c03_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10Texture1D, ID3D10Texture1D_Vtbl, 0x9b7e4c03_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10Texture1D, windows_core::IUnknown, ID3D10DeviceChild, ID3D10Resource);
 impl ID3D10Texture1D {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -4326,7 +4326,7 @@ pub struct ID3D10Texture1D_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
-windows_core::imp::com_interface!(ID3D10Texture2D, ID3D10Texture2D_Vtbl, 0x9b7e4c04_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10Texture2D, ID3D10Texture2D_Vtbl, 0x9b7e4c04_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10Texture2D, windows_core::IUnknown, ID3D10DeviceChild, ID3D10Resource);
 impl ID3D10Texture2D {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -4381,7 +4381,7 @@ pub struct ID3D10Texture2D_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
-windows_core::imp::com_interface!(ID3D10Texture3D, ID3D10Texture3D_Vtbl, 0x9b7e4c05_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10Texture3D, ID3D10Texture3D_Vtbl, 0x9b7e4c05_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10Texture3D, windows_core::IUnknown, ID3D10DeviceChild, ID3D10Resource);
 impl ID3D10Texture3D {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -4436,7 +4436,7 @@ pub struct ID3D10Texture3D_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
-windows_core::imp::com_interface!(ID3D10VertexShader, ID3D10VertexShader_Vtbl, 0x9b7e4c0a_342c_4106_a19f_4f2704f689f0);
+windows_core::imp::define_interface!(ID3D10VertexShader, ID3D10VertexShader_Vtbl, 0x9b7e4c0a_342c_4106_a19f_4f2704f689f0);
 windows_core::imp::interface_hierarchy!(ID3D10VertexShader, windows_core::IUnknown, ID3D10DeviceChild);
 impl ID3D10VertexShader {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {
@@ -4463,7 +4463,7 @@ unsafe impl Sync for ID3D10VertexShader {}
 pub struct ID3D10VertexShader_Vtbl {
     pub base__: ID3D10DeviceChild_Vtbl,
 }
-windows_core::imp::com_interface!(ID3D10View, ID3D10View_Vtbl, 0xc902b03f_60a7_49ba_9936_2a3ab37a7e33);
+windows_core::imp::define_interface!(ID3D10View, ID3D10View_Vtbl, 0xc902b03f_60a7_49ba_9936_2a3ab37a7e33);
 windows_core::imp::interface_hierarchy!(ID3D10View, windows_core::IUnknown, ID3D10DeviceChild);
 impl ID3D10View {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<ID3D10Device> {

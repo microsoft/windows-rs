@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(ISpatialSurfaceInfo, ISpatialSurfaceInfo_Vtbl, 0xf8e9ebe7_39b7_3962_bb03_57f56e1fb0a1);
+windows_core::imp::define_interface!(ISpatialSurfaceInfo, ISpatialSurfaceInfo_Vtbl, 0xf8e9ebe7_39b7_3962_bb03_57f56e1fb0a1);
 #[repr(C)]
 pub struct ISpatialSurfaceInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11,7 +11,7 @@ pub struct ISpatialSurfaceInfo_Vtbl {
     pub TryComputeLatestMeshAsync: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryComputeLatestMeshWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpatialSurfaceMesh, ISpatialSurfaceMesh_Vtbl, 0x108f57d9_df0d_3950_a0fd_f972c77c27b4);
+windows_core::imp::define_interface!(ISpatialSurfaceMesh, ISpatialSurfaceMesh_Vtbl, 0x108f57d9_df0d_3950_a0fd_f972c77c27b4);
 #[repr(C)]
 pub struct ISpatialSurfaceMesh_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -25,7 +25,7 @@ pub struct ISpatialSurfaceMesh_Vtbl {
     VertexPositionScale: usize,
     pub VertexNormals: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpatialSurfaceMeshBuffer, ISpatialSurfaceMeshBuffer_Vtbl, 0x93cf59e0_871f_33f8_98b2_03d101458f6f);
+windows_core::imp::define_interface!(ISpatialSurfaceMeshBuffer, ISpatialSurfaceMeshBuffer_Vtbl, 0x93cf59e0_871f_33f8_98b2_03d101458f6f);
 #[repr(C)]
 pub struct ISpatialSurfaceMeshBuffer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -40,7 +40,7 @@ pub struct ISpatialSurfaceMeshBuffer_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Data: usize,
 }
-windows_core::imp::com_interface!(ISpatialSurfaceMeshOptions, ISpatialSurfaceMeshOptions_Vtbl, 0xd2759f89_3572_3d2d_a10d_5fee9394aa37);
+windows_core::imp::define_interface!(ISpatialSurfaceMeshOptions, ISpatialSurfaceMeshOptions_Vtbl, 0xd2759f89_3572_3d2d_a10d_5fee9394aa37);
 #[repr(C)]
 pub struct ISpatialSurfaceMeshOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -71,7 +71,7 @@ pub struct ISpatialSurfaceMeshOptions_Vtbl {
     pub IncludeVertexNormals: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIncludeVertexNormals: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpatialSurfaceMeshOptionsStatics, ISpatialSurfaceMeshOptionsStatics_Vtbl, 0x9b340abf_9781_4505_8935_013575caae5e);
+windows_core::imp::define_interface!(ISpatialSurfaceMeshOptionsStatics, ISpatialSurfaceMeshOptionsStatics_Vtbl, 0x9b340abf_9781_4505_8935_013575caae5e);
 #[repr(C)]
 pub struct ISpatialSurfaceMeshOptionsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -88,7 +88,7 @@ pub struct ISpatialSurfaceMeshOptionsStatics_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_DirectX")))]
     SupportedVertexNormalFormats: usize,
 }
-windows_core::imp::com_interface!(ISpatialSurfaceObserver, ISpatialSurfaceObserver_Vtbl, 0x10b69819_ddca_3483_ac3a_748fe8c86df5);
+windows_core::imp::define_interface!(ISpatialSurfaceObserver, ISpatialSurfaceObserver_Vtbl, 0x10b69819_ddca_3483_ac3a_748fe8c86df5);
 #[repr(C)]
 pub struct ISpatialSurfaceObserver_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -104,13 +104,13 @@ pub struct ISpatialSurfaceObserver_Vtbl {
     pub ObservedSurfacesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveObservedSurfacesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpatialSurfaceObserverStatics, ISpatialSurfaceObserverStatics_Vtbl, 0x165951ed_2108_4168_9175_87e027bc9285);
+windows_core::imp::define_interface!(ISpatialSurfaceObserverStatics, ISpatialSurfaceObserverStatics_Vtbl, 0x165951ed_2108_4168_9175_87e027bc9285);
 #[repr(C)]
 pub struct ISpatialSurfaceObserverStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpatialSurfaceObserverStatics2, ISpatialSurfaceObserverStatics2_Vtbl, 0x0f534261_c55d_4e6b_a895_a19de69a42e3);
+windows_core::imp::define_interface!(ISpatialSurfaceObserverStatics2, ISpatialSurfaceObserverStatics2_Vtbl, 0x0f534261_c55d_4e6b_a895_a19de69a42e3);
 #[repr(C)]
 pub struct ISpatialSurfaceObserverStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

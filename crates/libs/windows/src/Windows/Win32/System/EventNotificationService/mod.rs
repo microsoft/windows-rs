@@ -20,7 +20,7 @@ pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> windows_core::Result<()> {
     IsNetworkAlive(lpdwflags).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISensLogon, ISensLogon_Vtbl, 0xd597bab3_5b9f_11d1_8dd2_00aa004abd5e);
+windows_core::imp::define_interface!(ISensLogon, ISensLogon_Vtbl, 0xd597bab3_5b9f_11d1_8dd2_00aa004abd5e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISensLogon, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -81,7 +81,7 @@ pub struct ISensLogon_Vtbl {
     pub StopScreenSaver: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISensLogon2, ISensLogon2_Vtbl, 0xd597bab4_5b9f_11d1_8dd2_00aa004abd5e);
+windows_core::imp::define_interface!(ISensLogon2, ISensLogon2_Vtbl, 0xd597bab4_5b9f_11d1_8dd2_00aa004abd5e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISensLogon2, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -128,7 +128,7 @@ pub struct ISensLogon2_Vtbl {
     pub PostShell: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISensNetwork, ISensNetwork_Vtbl, 0xd597bab1_5b9f_11d1_8dd2_00aa004abd5e);
+windows_core::imp::define_interface!(ISensNetwork, ISensNetwork_Vtbl, 0xd597bab1_5b9f_11d1_8dd2_00aa004abd5e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISensNetwork, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -177,7 +177,7 @@ pub struct ISensNetwork_Vtbl {
     pub DestinationReachableNoQOCInfo: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISensOnNow, ISensOnNow_Vtbl, 0xd597bab2_5b9f_11d1_8dd2_00aa004abd5e);
+windows_core::imp::define_interface!(ISensOnNow, ISensOnNow_Vtbl, 0xd597bab2_5b9f_11d1_8dd2_00aa004abd5e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISensOnNow, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]

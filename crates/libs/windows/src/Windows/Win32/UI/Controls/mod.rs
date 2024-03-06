@@ -1791,7 +1791,7 @@ where
     windows_targets::link!("uxtheme.dll" "system" fn UpdatePanningFeedback(hwnd : super::super::Foundation:: HWND, ltotaloverpanoffsetx : i32, ltotaloverpanoffsety : i32, fininertia : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     UpdatePanningFeedback(hwnd.into_param().abi(), ltotaloverpanoffsetx, ltotaloverpanoffsety, fininertia.into_param().abi())
 }
-windows_core::imp::com_interface!(IImageList, IImageList_Vtbl, 0x46eb5926_582e_4017_9fdf_e8998daa0950);
+windows_core::imp::define_interface!(IImageList, IImageList_Vtbl, 0x46eb5926_582e_4017_9fdf_e8998daa0950);
 windows_core::imp::interface_hierarchy!(IImageList, windows_core::IUnknown);
 impl IImageList {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1989,7 +1989,7 @@ pub struct IImageList_Vtbl {
     pub GetItemFlags: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut IMAGE_LIST_ITEM_FLAGS) -> windows_core::HRESULT,
     pub GetOverlayImage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IImageList2, IImageList2_Vtbl, 0x192b9d83_50fc_457b_90a0_2b82a8b5dae1);
+windows_core::imp::define_interface!(IImageList2, IImageList2_Vtbl, 0x192b9d83_50fc_457b_90a0_2b82a8b5dae1);
 windows_core::imp::interface_hierarchy!(IImageList2, windows_core::IUnknown, IImageList);
 impl IImageList2 {
     #[cfg(feature = "Win32_Graphics_Gdi")]

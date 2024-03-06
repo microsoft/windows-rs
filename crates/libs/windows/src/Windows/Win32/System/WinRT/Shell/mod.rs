@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IDDEInitializer, IDDEInitializer_Vtbl, 0x30dc931f_33fc_4ffd_a168_942258cf3ca4);
+windows_core::imp::define_interface!(IDDEInitializer, IDDEInitializer_Vtbl, 0x30dc931f_33fc_4ffd_a168_942258cf3ca4);
 windows_core::imp::interface_hierarchy!(IDDEInitializer, windows_core::IUnknown);
 impl IDDEInitializer {
     #[cfg(feature = "Win32_UI_Shell")]

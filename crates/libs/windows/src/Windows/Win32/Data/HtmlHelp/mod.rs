@@ -16,7 +16,7 @@ where
     windows_targets::link!("hhctrl.ocx" "system" fn HtmlHelpW(hwndcaller : super::super::Foundation:: HWND, pszfile : windows_core::PCWSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
     HtmlHelpW(hwndcaller.into_param().abi(), pszfile.into_param().abi(), ucommand.0 as _, dwdata)
 }
-windows_core::imp::com_interface!(IITDatabase, IITDatabase_Vtbl, 0x8fa0d5a2_dedf_11d0_9a61_00c04fb68bf7);
+windows_core::imp::define_interface!(IITDatabase, IITDatabase_Vtbl, 0x8fa0d5a2_dedf_11d0_9a61_00c04fb68bf7);
 windows_core::imp::interface_hierarchy!(IITDatabase, windows_core::IUnknown);
 impl IITDatabase {
     pub unsafe fn Open<P0, P1>(&self, lpszhost: P0, lpszmoniker: P1, dwflags: u32) -> windows_core::Result<()>
@@ -53,7 +53,7 @@ pub struct IITDatabase_Vtbl {
     pub GetObjectPersistence: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IITPropList, IITPropList_Vtbl, 0x1f403bb1_9997_11d0_a850_00aa006c7d01);
+windows_core::imp::define_interface!(IITPropList, IITPropList_Vtbl, 0x1f403bb1_9997_11d0_a850_00aa006c7d01);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IITPropList, windows_core::IUnknown, super::super::System::Com::IPersist, super::super::System::Com::IPersistStreamInit);
 #[cfg(feature = "Win32_System_Com")]
@@ -185,7 +185,7 @@ pub struct IITPropList_Vtbl {
     pub LoadFromMem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SaveToMem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IITResultSet, IITResultSet_Vtbl, 0x3bb91d41_998b_11d0_a850_00aa006c7d01);
+windows_core::imp::define_interface!(IITResultSet, IITResultSet_Vtbl, 0x3bb91d41_998b_11d0_a850_00aa006c7d01);
 windows_core::imp::interface_hierarchy!(IITResultSet, windows_core::IUnknown);
 impl IITResultSet {
     pub unsafe fn SetColumnPriority(&self, lcolumnindex: i32, columnpriority: PRIORITY) -> windows_core::Result<()> {
@@ -328,7 +328,7 @@ pub struct IITResultSet_Vtbl {
     pub GetRowStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut ROWSTATUS) -> windows_core::HRESULT,
     pub GetColumnStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut COLUMNSTATUS) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStemSink, IStemSink_Vtbl, 0xfe77c330_7f42_11ce_be57_00aa0051fe20);
+windows_core::imp::define_interface!(IStemSink, IStemSink_Vtbl, 0xfe77c330_7f42_11ce_be57_00aa0051fe20);
 windows_core::imp::interface_hierarchy!(IStemSink, windows_core::IUnknown);
 impl IStemSink {
     pub unsafe fn PutAltWord<P0>(&self, pwcinbuf: P0, cwc: u32) -> windows_core::Result<()>
@@ -350,7 +350,7 @@ pub struct IStemSink_Vtbl {
     pub PutAltWord: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
     pub PutWord: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStemmerConfig, IStemmerConfig_Vtbl, 0x8fa0d5a7_dedf_11d0_9a61_00c04fb68bf7);
+windows_core::imp::define_interface!(IStemmerConfig, IStemmerConfig_Vtbl, 0x8fa0d5a7_dedf_11d0_9a61_00c04fb68bf7);
 windows_core::imp::interface_hierarchy!(IStemmerConfig, windows_core::IUnknown);
 impl IStemmerConfig {
     pub unsafe fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> windows_core::Result<()> {
@@ -385,7 +385,7 @@ pub struct IStemmerConfig_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     LoadExternalStemmerData: usize,
 }
-windows_core::imp::com_interface!(IWordBreakerConfig, IWordBreakerConfig_Vtbl, 0x8fa0d5a6_dedf_11d0_9a61_00c04fb68bf7);
+windows_core::imp::define_interface!(IWordBreakerConfig, IWordBreakerConfig_Vtbl, 0x8fa0d5a6_dedf_11d0_9a61_00c04fb68bf7);
 windows_core::imp::interface_hierarchy!(IWordBreakerConfig, windows_core::IUnknown);
 impl IWordBreakerConfig {
     pub unsafe fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> windows_core::Result<()> {

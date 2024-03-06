@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(ILampArrayBitmapEffect, ILampArrayBitmapEffect_Vtbl, 0x3238e065_d877_4627_89e5_2a88f7052fa6);
+windows_core::imp::define_interface!(ILampArrayBitmapEffect, ILampArrayBitmapEffect_Vtbl, 0x3238e065_d877_4627_89e5_2a88f7052fa6);
 #[repr(C)]
 pub struct ILampArrayBitmapEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12,13 +12,13 @@ pub struct ILampArrayBitmapEffect_Vtbl {
     pub BitmapRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveBitmapRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ILampArrayBitmapEffectFactory, ILampArrayBitmapEffectFactory_Vtbl, 0x13608090_e336_4c8f_9053_a92407ca7b1d);
+windows_core::imp::define_interface!(ILampArrayBitmapEffectFactory, ILampArrayBitmapEffectFactory_Vtbl, 0x13608090_e336_4c8f_9053_a92407ca7b1d);
 #[repr(C)]
 pub struct ILampArrayBitmapEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ILampArrayBitmapRequestedEventArgs, ILampArrayBitmapRequestedEventArgs_Vtbl, 0xc8b4af9e_fe63_4d51_babd_619defb454ba);
+windows_core::imp::define_interface!(ILampArrayBitmapRequestedEventArgs, ILampArrayBitmapRequestedEventArgs_Vtbl, 0xc8b4af9e_fe63_4d51_babd_619defb454ba);
 #[repr(C)]
 pub struct ILampArrayBitmapRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -28,7 +28,7 @@ pub struct ILampArrayBitmapRequestedEventArgs_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     UpdateBitmap: usize,
 }
-windows_core::imp::com_interface!(ILampArrayBlinkEffect, ILampArrayBlinkEffect_Vtbl, 0xebbf35f6_2fc5_4bb3_b3c3_6221a7680d13);
+windows_core::imp::define_interface!(ILampArrayBlinkEffect, ILampArrayBlinkEffect_Vtbl, 0xebbf35f6_2fc5_4bb3_b3c3_6221a7680d13);
 #[repr(C)]
 pub struct ILampArrayBlinkEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -55,13 +55,13 @@ pub struct ILampArrayBlinkEffect_Vtbl {
     pub RepetitionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LampArrayRepetitionMode) -> windows_core::HRESULT,
     pub SetRepetitionMode: unsafe extern "system" fn(*mut core::ffi::c_void, LampArrayRepetitionMode) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ILampArrayBlinkEffectFactory, ILampArrayBlinkEffectFactory_Vtbl, 0x879f1d97_9f50_49b2_a56f_013aa08d55e0);
+windows_core::imp::define_interface!(ILampArrayBlinkEffectFactory, ILampArrayBlinkEffectFactory_Vtbl, 0x879f1d97_9f50_49b2_a56f_013aa08d55e0);
 #[repr(C)]
 pub struct ILampArrayBlinkEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ILampArrayColorRampEffect, ILampArrayColorRampEffect_Vtbl, 0x2b004437_40a7_432e_a0b9_0d570c2153ff);
+windows_core::imp::define_interface!(ILampArrayColorRampEffect, ILampArrayColorRampEffect_Vtbl, 0x2b004437_40a7_432e_a0b9_0d570c2153ff);
 #[repr(C)]
 pub struct ILampArrayColorRampEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -80,13 +80,13 @@ pub struct ILampArrayColorRampEffect_Vtbl {
     pub CompletionBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LampArrayEffectCompletionBehavior) -> windows_core::HRESULT,
     pub SetCompletionBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, LampArrayEffectCompletionBehavior) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ILampArrayColorRampEffectFactory, ILampArrayColorRampEffectFactory_Vtbl, 0x520bd133_0c74_4df5_bea7_4899e0266b0f);
+windows_core::imp::define_interface!(ILampArrayColorRampEffectFactory, ILampArrayColorRampEffectFactory_Vtbl, 0x520bd133_0c74_4df5_bea7_4899e0266b0f);
 #[repr(C)]
 pub struct ILampArrayColorRampEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ILampArrayCustomEffect, ILampArrayCustomEffect_Vtbl, 0xec579170_3c34_4876_818b_5765f78b0ee4);
+windows_core::imp::define_interface!(ILampArrayCustomEffect, ILampArrayCustomEffect_Vtbl, 0xec579170_3c34_4876_818b_5765f78b0ee4);
 #[repr(C)]
 pub struct ILampArrayCustomEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -97,13 +97,13 @@ pub struct ILampArrayCustomEffect_Vtbl {
     pub UpdateRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveUpdateRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ILampArrayCustomEffectFactory, ILampArrayCustomEffectFactory_Vtbl, 0x68b4774d_63e5_4af0_a58b_3e535b94e8c9);
+windows_core::imp::define_interface!(ILampArrayCustomEffectFactory, ILampArrayCustomEffectFactory_Vtbl, 0x68b4774d_63e5_4af0_a58b_3e535b94e8c9);
 #[repr(C)]
 pub struct ILampArrayCustomEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ILampArrayEffect, ILampArrayEffect_Vtbl, 0x11d45590_57fb_4546_b1ce_863107f740df);
+windows_core::imp::define_interface!(ILampArrayEffect, ILampArrayEffect_Vtbl, 0x11d45590_57fb_4546_b1ce_863107f740df);
 windows_core::imp::interface_hierarchy!(ILampArrayEffect, windows_core::IUnknown, windows_core::IInspectable);
 impl ILampArrayEffect {
     pub fn ZIndex(&self) -> windows_core::Result<i32> {
@@ -127,7 +127,7 @@ pub struct ILampArrayEffect_Vtbl {
     pub ZIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetZIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ILampArrayEffectPlaylist, ILampArrayEffectPlaylist_Vtbl, 0x7de58bfe_6f61_4103_98c7_d6632f7b9169);
+windows_core::imp::define_interface!(ILampArrayEffectPlaylist, ILampArrayEffectPlaylist_Vtbl, 0x7de58bfe_6f61_4103_98c7_d6632f7b9169);
 #[repr(C)]
 pub struct ILampArrayEffectPlaylist_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -143,7 +143,7 @@ pub struct ILampArrayEffectPlaylist_Vtbl {
     pub RepetitionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LampArrayRepetitionMode) -> windows_core::HRESULT,
     pub SetRepetitionMode: unsafe extern "system" fn(*mut core::ffi::c_void, LampArrayRepetitionMode) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ILampArrayEffectPlaylistStatics, ILampArrayEffectPlaylistStatics_Vtbl, 0xfb15235c_ea35_4c7f_a016_f3bfc6a6c47d);
+windows_core::imp::define_interface!(ILampArrayEffectPlaylistStatics, ILampArrayEffectPlaylistStatics_Vtbl, 0xfb15235c_ea35_4c7f_a016_f3bfc6a6c47d);
 #[repr(C)]
 pub struct ILampArrayEffectPlaylistStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -160,7 +160,7 @@ pub struct ILampArrayEffectPlaylistStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     PauseAll: usize,
 }
-windows_core::imp::com_interface!(ILampArraySolidEffect, ILampArraySolidEffect_Vtbl, 0x441f8213_43cc_4b33_80eb_c6ddde7dc8ed);
+windows_core::imp::define_interface!(ILampArraySolidEffect, ILampArraySolidEffect_Vtbl, 0x441f8213_43cc_4b33_80eb_c6ddde7dc8ed);
 #[repr(C)]
 pub struct ILampArraySolidEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -179,13 +179,13 @@ pub struct ILampArraySolidEffect_Vtbl {
     pub CompletionBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LampArrayEffectCompletionBehavior) -> windows_core::HRESULT,
     pub SetCompletionBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, LampArrayEffectCompletionBehavior) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ILampArraySolidEffectFactory, ILampArraySolidEffectFactory_Vtbl, 0xf862a32c_5576_4341_961b_aee1f13cf9dd);
+windows_core::imp::define_interface!(ILampArraySolidEffectFactory, ILampArraySolidEffectFactory_Vtbl, 0xf862a32c_5576_4341_961b_aee1f13cf9dd);
 #[repr(C)]
 pub struct ILampArraySolidEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ILampArrayUpdateRequestedEventArgs, ILampArrayUpdateRequestedEventArgs_Vtbl, 0x73560d6a_576a_48af_8539_67ffa0ab3516);
+windows_core::imp::define_interface!(ILampArrayUpdateRequestedEventArgs, ILampArrayUpdateRequestedEventArgs_Vtbl, 0x73560d6a_576a_48af_8539_67ffa0ab3516);
 #[repr(C)]
 pub struct ILampArrayUpdateRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

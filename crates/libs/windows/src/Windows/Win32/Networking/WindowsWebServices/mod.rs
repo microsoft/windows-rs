@@ -1087,7 +1087,7 @@ pub unsafe fn WsXmlStringEquals(string1: *const WS_XML_STRING, string2: *const W
     windows_targets::link!("webservices.dll" "system" fn WsXmlStringEquals(string1 : *const WS_XML_STRING, string2 : *const WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
     WsXmlStringEquals(string1, string2, core::mem::transmute(error.unwrap_or(std::ptr::null()))).ok()
 }
-windows_core::imp::com_interface!(IContentPrefetcherTaskTrigger, IContentPrefetcherTaskTrigger_Vtbl, 0x1b35a14a_6094_4799_a60e_e474e15d4dc9);
+windows_core::imp::define_interface!(IContentPrefetcherTaskTrigger, IContentPrefetcherTaskTrigger_Vtbl, 0x1b35a14a_6094_4799_a60e_e474e15d4dc9);
 windows_core::imp::interface_hierarchy!(IContentPrefetcherTaskTrigger, windows_core::IUnknown, windows_core::IInspectable);
 impl IContentPrefetcherTaskTrigger {
     pub unsafe fn TriggerContentPrefetcherTask<P0>(&self, packagefullname: P0) -> windows_core::Result<()>

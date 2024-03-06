@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IAudioEndpointFormatControl, IAudioEndpointFormatControl_Vtbl, 0x784cfd40_9f89_456e_a1a6_873b006a664e);
+windows_core::imp::define_interface!(IAudioEndpointFormatControl, IAudioEndpointFormatControl_Vtbl, 0x784cfd40_9f89_456e_a1a6_873b006a664e);
 windows_core::imp::interface_hierarchy!(IAudioEndpointFormatControl, windows_core::IUnknown);
 impl IAudioEndpointFormatControl {
     pub unsafe fn ResetToDefault(&self, resetflags: u32) -> windows_core::Result<()> {
@@ -10,7 +10,7 @@ pub struct IAudioEndpointFormatControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ResetToDefault: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAudioEndpointLastBufferControl, IAudioEndpointLastBufferControl_Vtbl, 0xf8520dd3_8f9d_4437_9861_62f584c33dd6);
+windows_core::imp::define_interface!(IAudioEndpointLastBufferControl, IAudioEndpointLastBufferControl_Vtbl, 0xf8520dd3_8f9d_4437_9861_62f584c33dd6);
 windows_core::imp::interface_hierarchy!(IAudioEndpointLastBufferControl, windows_core::IUnknown);
 impl IAudioEndpointLastBufferControl {
     pub unsafe fn IsLastBufferControlSupported(&self) -> super::super::super::Foundation::BOOL {
@@ -30,7 +30,7 @@ pub struct IAudioEndpointLastBufferControl_Vtbl {
     #[cfg(not(feature = "Win32_Media_Audio_Apo"))]
     ReleaseOutputDataPointerForLastBuffer: usize,
 }
-windows_core::imp::com_interface!(IAudioEndpointOffloadStreamMeter, IAudioEndpointOffloadStreamMeter_Vtbl, 0xe1546dce_9dd1_418b_9ab2_348ced161c86);
+windows_core::imp::define_interface!(IAudioEndpointOffloadStreamMeter, IAudioEndpointOffloadStreamMeter_Vtbl, 0xe1546dce_9dd1_418b_9ab2_348ced161c86);
 windows_core::imp::interface_hierarchy!(IAudioEndpointOffloadStreamMeter, windows_core::IUnknown);
 impl IAudioEndpointOffloadStreamMeter {
     pub unsafe fn GetMeterChannelCount(&self) -> windows_core::Result<u32> {
@@ -48,7 +48,7 @@ pub struct IAudioEndpointOffloadStreamMeter_Vtbl {
     pub GetMeterChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetMeteringData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAudioEndpointOffloadStreamMute, IAudioEndpointOffloadStreamMute_Vtbl, 0xdfe21355_5ec2_40e0_8d6b_710ac3c00249);
+windows_core::imp::define_interface!(IAudioEndpointOffloadStreamMute, IAudioEndpointOffloadStreamMute_Vtbl, 0xdfe21355_5ec2_40e0_8d6b_710ac3c00249);
 windows_core::imp::interface_hierarchy!(IAudioEndpointOffloadStreamMute, windows_core::IUnknown);
 impl IAudioEndpointOffloadStreamMute {
     pub unsafe fn SetMute(&self, bmuted: u8) -> windows_core::Result<()> {
@@ -65,7 +65,7 @@ pub struct IAudioEndpointOffloadStreamMute_Vtbl {
     pub SetMute: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
     pub GetMute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAudioEndpointOffloadStreamVolume, IAudioEndpointOffloadStreamVolume_Vtbl, 0x64f1dd49_71ca_4281_8672_3a9eddd1d0b6);
+windows_core::imp::define_interface!(IAudioEndpointOffloadStreamVolume, IAudioEndpointOffloadStreamVolume_Vtbl, 0x64f1dd49_71ca_4281_8672_3a9eddd1d0b6);
 windows_core::imp::interface_hierarchy!(IAudioEndpointOffloadStreamVolume, windows_core::IUnknown);
 impl IAudioEndpointOffloadStreamVolume {
     pub unsafe fn GetVolumeChannelCount(&self) -> windows_core::Result<u32> {
@@ -91,7 +91,7 @@ pub struct IAudioEndpointOffloadStreamVolume_Vtbl {
     SetChannelVolumes: usize,
     pub GetChannelVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAudioEndpointVolume, IAudioEndpointVolume_Vtbl, 0x5cdf2c82_841e_4546_9722_0cf74078229a);
+windows_core::imp::define_interface!(IAudioEndpointVolume, IAudioEndpointVolume_Vtbl, 0x5cdf2c82_841e_4546_9722_0cf74078229a);
 windows_core::imp::interface_hierarchy!(IAudioEndpointVolume, windows_core::IUnknown);
 impl IAudioEndpointVolume {
     pub unsafe fn RegisterControlChangeNotify<P0>(&self, pnotify: P0) -> windows_core::Result<()>
@@ -187,7 +187,7 @@ pub struct IAudioEndpointVolume_Vtbl {
     pub QueryHardwareSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetVolumeRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, *mut f32, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAudioEndpointVolumeCallback, IAudioEndpointVolumeCallback_Vtbl, 0x657804fa_d6ad_4496_8a60_352752af4f89);
+windows_core::imp::define_interface!(IAudioEndpointVolumeCallback, IAudioEndpointVolumeCallback_Vtbl, 0x657804fa_d6ad_4496_8a60_352752af4f89);
 windows_core::imp::interface_hierarchy!(IAudioEndpointVolumeCallback, windows_core::IUnknown);
 impl IAudioEndpointVolumeCallback {
     pub unsafe fn OnNotify(&self, pnotify: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA) -> windows_core::Result<()> {
@@ -199,7 +199,7 @@ pub struct IAudioEndpointVolumeCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnNotify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::AUDIO_VOLUME_NOTIFICATION_DATA) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAudioEndpointVolumeEx, IAudioEndpointVolumeEx_Vtbl, 0x66e11784_f695_4f28_a505_a7080081a78f);
+windows_core::imp::define_interface!(IAudioEndpointVolumeEx, IAudioEndpointVolumeEx_Vtbl, 0x66e11784_f695_4f28_a505_a7080081a78f);
 windows_core::imp::interface_hierarchy!(IAudioEndpointVolumeEx, windows_core::IUnknown, IAudioEndpointVolume);
 impl IAudioEndpointVolumeEx {
     pub unsafe fn RegisterControlChangeNotify<P0>(&self, pnotify: P0) -> windows_core::Result<()>
@@ -281,7 +281,7 @@ pub struct IAudioEndpointVolumeEx_Vtbl {
     pub base__: IAudioEndpointVolume_Vtbl,
     pub GetVolumeRangeChannel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32, *mut f32, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAudioLfxControl, IAudioLfxControl_Vtbl, 0x076a6922_d802_4f83_baf6_409d9ca11bfe);
+windows_core::imp::define_interface!(IAudioLfxControl, IAudioLfxControl_Vtbl, 0x076a6922_d802_4f83_baf6_409d9ca11bfe);
 windows_core::imp::interface_hierarchy!(IAudioLfxControl, windows_core::IUnknown);
 impl IAudioLfxControl {
     pub unsafe fn SetLocalEffectsState<P0>(&self, benabled: P0) -> windows_core::Result<()>
@@ -301,7 +301,7 @@ pub struct IAudioLfxControl_Vtbl {
     pub SetLocalEffectsState: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetLocalEffectsState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAudioMeterInformation, IAudioMeterInformation_Vtbl, 0xc02216f6_8c67_4b5b_9d00_d008e73e0064);
+windows_core::imp::define_interface!(IAudioMeterInformation, IAudioMeterInformation_Vtbl, 0xc02216f6_8c67_4b5b_9d00_d008e73e0064);
 windows_core::imp::interface_hierarchy!(IAudioMeterInformation, windows_core::IUnknown);
 impl IAudioMeterInformation {
     pub unsafe fn GetPeakValue(&self) -> windows_core::Result<f32> {
@@ -328,7 +328,7 @@ pub struct IAudioMeterInformation_Vtbl {
     pub GetChannelsPeakValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32) -> windows_core::HRESULT,
     pub QueryHardwareSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IHardwareAudioEngineBase, IHardwareAudioEngineBase_Vtbl, 0xeddce3e4_f3c1_453a_b461_223563cbd886);
+windows_core::imp::define_interface!(IHardwareAudioEngineBase, IHardwareAudioEngineBase_Vtbl, 0xeddce3e4_f3c1_453a_b461_223563cbd886);
 windows_core::imp::interface_hierarchy!(IHardwareAudioEngineBase, windows_core::IUnknown);
 impl IHardwareAudioEngineBase {
     pub unsafe fn GetAvailableOffloadConnectorCount<P0>(&self, _pwstrdeviceid: P0, _uconnectorid: u32) -> windows_core::Result<u32>

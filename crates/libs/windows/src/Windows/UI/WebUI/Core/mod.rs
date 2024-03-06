@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IWebUICommandBar, IWebUICommandBar_Vtbl, 0xa4fc0016_dbe5_41ad_8d7b_14698bd6911d);
+windows_core::imp::define_interface!(IWebUICommandBar, IWebUICommandBar_Vtbl, 0xa4fc0016_dbe5_41ad_8d7b_14698bd6911d);
 #[repr(C)]
 pub struct IWebUICommandBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -30,20 +30,20 @@ pub struct IWebUICommandBar_Vtbl {
     pub SizeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveSizeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWebUICommandBarBitmapIcon, IWebUICommandBarBitmapIcon_Vtbl, 0x858f4f45_08d8_4a46_81ec_00015b0b1c6c);
+windows_core::imp::define_interface!(IWebUICommandBarBitmapIcon, IWebUICommandBarBitmapIcon_Vtbl, 0x858f4f45_08d8_4a46_81ec_00015b0b1c6c);
 #[repr(C)]
 pub struct IWebUICommandBarBitmapIcon_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWebUICommandBarBitmapIconFactory, IWebUICommandBarBitmapIconFactory_Vtbl, 0xf3f7d78a_7673_444a_be62_ac12d31c2231);
+windows_core::imp::define_interface!(IWebUICommandBarBitmapIconFactory, IWebUICommandBarBitmapIconFactory_Vtbl, 0xf3f7d78a_7673_444a_be62_ac12d31c2231);
 #[repr(C)]
 pub struct IWebUICommandBarBitmapIconFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWebUICommandBarConfirmationButton, IWebUICommandBarConfirmationButton_Vtbl, 0x86e7824a_e3d5_4eb6_b2ff_8f018a172105);
+windows_core::imp::define_interface!(IWebUICommandBarConfirmationButton, IWebUICommandBarConfirmationButton_Vtbl, 0x86e7824a_e3d5_4eb6_b2ff_8f018a172105);
 #[repr(C)]
 pub struct IWebUICommandBarConfirmationButton_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -52,7 +52,7 @@ pub struct IWebUICommandBarConfirmationButton_Vtbl {
     pub ItemInvoked: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveItemInvoked: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWebUICommandBarElement, IWebUICommandBarElement_Vtbl, 0xc9069ec2_284a_4633_8aad_637a27e282c3);
+windows_core::imp::define_interface!(IWebUICommandBarElement, IWebUICommandBarElement_Vtbl, 0xc9069ec2_284a_4633_8aad_637a27e282c3);
 windows_core::imp::interface_hierarchy!(IWebUICommandBarElement, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebUICommandBarElement {}
 impl windows_core::RuntimeType for IWebUICommandBarElement {
@@ -62,7 +62,7 @@ impl windows_core::RuntimeType for IWebUICommandBarElement {
 pub struct IWebUICommandBarElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IWebUICommandBarIcon, IWebUICommandBarIcon_Vtbl, 0xd587655d_2014_42be_969a_7d14ca6c8a49);
+windows_core::imp::define_interface!(IWebUICommandBarIcon, IWebUICommandBarIcon_Vtbl, 0xd587655d_2014_42be_969a_7d14ca6c8a49);
 windows_core::imp::interface_hierarchy!(IWebUICommandBarIcon, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebUICommandBarIcon {}
 impl windows_core::RuntimeType for IWebUICommandBarIcon {
@@ -72,7 +72,7 @@ impl windows_core::RuntimeType for IWebUICommandBarIcon {
 pub struct IWebUICommandBarIcon_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IWebUICommandBarIconButton, IWebUICommandBarIconButton_Vtbl, 0x8f1bc93a_3a7c_4842_a0cf_aff6ea308586);
+windows_core::imp::define_interface!(IWebUICommandBarIconButton, IWebUICommandBarIconButton_Vtbl, 0x8f1bc93a_3a7c_4842_a0cf_aff6ea308586);
 #[repr(C)]
 pub struct IWebUICommandBarIconButton_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -89,32 +89,32 @@ pub struct IWebUICommandBarIconButton_Vtbl {
     pub ItemInvoked: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveItemInvoked: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWebUICommandBarItemInvokedEventArgs, IWebUICommandBarItemInvokedEventArgs_Vtbl, 0x304edbdd_e741_41ef_bdc4_a45cea2a4f70);
+windows_core::imp::define_interface!(IWebUICommandBarItemInvokedEventArgs, IWebUICommandBarItemInvokedEventArgs_Vtbl, 0x304edbdd_e741_41ef_bdc4_a45cea2a4f70);
 #[repr(C)]
 pub struct IWebUICommandBarItemInvokedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsPrimaryCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWebUICommandBarSizeChangedEventArgs, IWebUICommandBarSizeChangedEventArgs_Vtbl, 0xfbf1e2f6_3029_4719_8378_92f82b87af1e);
+windows_core::imp::define_interface!(IWebUICommandBarSizeChangedEventArgs, IWebUICommandBarSizeChangedEventArgs_Vtbl, 0xfbf1e2f6_3029_4719_8378_92f82b87af1e);
 #[repr(C)]
 pub struct IWebUICommandBarSizeChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Size) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWebUICommandBarStatics, IWebUICommandBarStatics_Vtbl, 0x1449cdb9_a506_45be_8f42_b2837e2fe0c9);
+windows_core::imp::define_interface!(IWebUICommandBarStatics, IWebUICommandBarStatics_Vtbl, 0x1449cdb9_a506_45be_8f42_b2837e2fe0c9);
 #[repr(C)]
 pub struct IWebUICommandBarStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWebUICommandBarSymbolIcon, IWebUICommandBarSymbolIcon_Vtbl, 0xd4935477_fd26_46ed_8658_1a3f4400e7b3);
+windows_core::imp::define_interface!(IWebUICommandBarSymbolIcon, IWebUICommandBarSymbolIcon_Vtbl, 0xd4935477_fd26_46ed_8658_1a3f4400e7b3);
 #[repr(C)]
 pub struct IWebUICommandBarSymbolIcon_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Symbol: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetSymbol: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWebUICommandBarSymbolIconFactory, IWebUICommandBarSymbolIconFactory_Vtbl, 0x51be1a1f_3730_429e_b622_14e2b7bf6a07);
+windows_core::imp::define_interface!(IWebUICommandBarSymbolIconFactory, IWebUICommandBarSymbolIconFactory_Vtbl, 0x51be1a1f_3730_429e_b622_14e2b7bf6a07);
 #[repr(C)]
 pub struct IWebUICommandBarSymbolIconFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -600,7 +600,7 @@ impl core::fmt::Debug for WebUICommandBarClosedDisplayMode {
 impl windows_core::RuntimeType for WebUICommandBarClosedDisplayMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.Core.WebUICommandBarClosedDisplayMode;i4)");
 }
-windows_core::imp::com_interface!(MenuClosedEventHandler, MenuClosedEventHandler_Vtbl, 0x435387c8_4dd0_4c52_9489_d390ce7721d2);
+windows_core::imp::define_interface!(MenuClosedEventHandler, MenuClosedEventHandler_Vtbl, 0x435387c8_4dd0_4c52_9489_d390ce7721d2);
 impl MenuClosedEventHandler {
     pub fn new<F: FnMut() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = MenuClosedEventHandlerBox::<F> { vtable: &MenuClosedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
@@ -657,7 +657,7 @@ pub struct MenuClosedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(MenuOpenedEventHandler, MenuOpenedEventHandler_Vtbl, 0x18dc0ad3_678f_4c19_8963_cc1c49a5ef9e);
+windows_core::imp::define_interface!(MenuOpenedEventHandler, MenuOpenedEventHandler_Vtbl, 0x18dc0ad3_678f_4c19_8963_cc1c49a5ef9e);
 impl MenuOpenedEventHandler {
     pub fn new<F: FnMut() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = MenuOpenedEventHandlerBox::<F> { vtable: &MenuOpenedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
@@ -714,7 +714,7 @@ pub struct MenuOpenedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(SizeChangedEventHandler, SizeChangedEventHandler_Vtbl, 0xd49cfe3c_dd2e_4c28_b627_303a7f911af5);
+windows_core::imp::define_interface!(SizeChangedEventHandler, SizeChangedEventHandler_Vtbl, 0xd49cfe3c_dd2e_4c28_b627_303a7f911af5);
 impl SizeChangedEventHandler {
     pub fn new<F: FnMut(Option<&WebUICommandBarSizeChangedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = SizeChangedEventHandlerBox::<F> { vtable: &SizeChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };

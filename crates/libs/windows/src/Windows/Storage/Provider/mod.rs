@@ -1,10 +1,10 @@
-windows_core::imp::com_interface!(ICachedFileUpdaterStatics, ICachedFileUpdaterStatics_Vtbl, 0x9fc90920_7bcf_4888_a81e_102d7034d7ce);
+windows_core::imp::define_interface!(ICachedFileUpdaterStatics, ICachedFileUpdaterStatics_Vtbl, 0x9fc90920_7bcf_4888_a81e_102d7034d7ce);
 #[repr(C)]
 pub struct ICachedFileUpdaterStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetUpdateInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, ReadActivationMode, WriteActivationMode, CachedFileOptions) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICachedFileUpdaterUI, ICachedFileUpdaterUI_Vtbl, 0x9e6f41e6_baf2_4a97_b600_9333f5df80fd);
+windows_core::imp::define_interface!(ICachedFileUpdaterUI, ICachedFileUpdaterUI_Vtbl, 0x9e6f41e6_baf2_4a97_b600_9333f5df80fd);
 #[repr(C)]
 pub struct ICachedFileUpdaterUI_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -17,14 +17,14 @@ pub struct ICachedFileUpdaterUI_Vtbl {
     pub RemoveUIRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub UIStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UIStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICachedFileUpdaterUI2, ICachedFileUpdaterUI2_Vtbl, 0x8856a21c_8699_4340_9f49_f7cad7fe8991);
+windows_core::imp::define_interface!(ICachedFileUpdaterUI2, ICachedFileUpdaterUI2_Vtbl, 0x8856a21c_8699_4340_9f49_f7cad7fe8991);
 #[repr(C)]
 pub struct ICachedFileUpdaterUI2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UpdateRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IFileUpdateRequest, IFileUpdateRequest_Vtbl, 0x40c82536_c1fe_4d93_a792_1e736bc70837);
+windows_core::imp::define_interface!(IFileUpdateRequest, IFileUpdateRequest_Vtbl, 0x40c82536_c1fe_4d93_a792_1e736bc70837);
 #[repr(C)]
 pub struct IFileUpdateRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -35,39 +35,39 @@ pub struct IFileUpdateRequest_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UpdateLocalFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IFileUpdateRequest2, IFileUpdateRequest2_Vtbl, 0x82484648_bdbe_447b_a2ee_7afe6a032a94);
+windows_core::imp::define_interface!(IFileUpdateRequest2, IFileUpdateRequest2_Vtbl, 0x82484648_bdbe_447b_a2ee_7afe6a032a94);
 #[repr(C)]
 pub struct IFileUpdateRequest2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UserInputNeededMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetUserInputNeededMessage: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IFileUpdateRequestDeferral, IFileUpdateRequestDeferral_Vtbl, 0xffcedb2b_8ade_44a5_bb00_164c4e72f13a);
+windows_core::imp::define_interface!(IFileUpdateRequestDeferral, IFileUpdateRequestDeferral_Vtbl, 0xffcedb2b_8ade_44a5_bb00_164c4e72f13a);
 #[repr(C)]
 pub struct IFileUpdateRequestDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IFileUpdateRequestedEventArgs, IFileUpdateRequestedEventArgs_Vtbl, 0x7b0a9342_3905_438d_aaef_78ae265f8dd2);
+windows_core::imp::define_interface!(IFileUpdateRequestedEventArgs, IFileUpdateRequestedEventArgs_Vtbl, 0x7b0a9342_3905_438d_aaef_78ae265f8dd2);
 #[repr(C)]
 pub struct IFileUpdateRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderFileTypeInfo, IStorageProviderFileTypeInfo_Vtbl, 0x1955b9c1_0184_5a88_87df_4544f464365d);
+windows_core::imp::define_interface!(IStorageProviderFileTypeInfo, IStorageProviderFileTypeInfo_Vtbl, 0x1955b9c1_0184_5a88_87df_4544f464365d);
 #[repr(C)]
 pub struct IStorageProviderFileTypeInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FileExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub IconResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderFileTypeInfoFactory, IStorageProviderFileTypeInfoFactory_Vtbl, 0x3fa12c6f_cce6_5d5d_80b1_389e7cf92dbf);
+windows_core::imp::define_interface!(IStorageProviderFileTypeInfoFactory, IStorageProviderFileTypeInfoFactory_Vtbl, 0x3fa12c6f_cce6_5d5d_80b1_389e7cf92dbf);
 #[repr(C)]
 pub struct IStorageProviderFileTypeInfoFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderGetContentInfoForPathResult, IStorageProviderGetContentInfoForPathResult_Vtbl, 0x2564711d_aa89_4d12_82e3_f72a92e33966);
+windows_core::imp::define_interface!(IStorageProviderGetContentInfoForPathResult, IStorageProviderGetContentInfoForPathResult_Vtbl, 0x2564711d_aa89_4d12_82e3_f72a92e33966);
 #[repr(C)]
 pub struct IStorageProviderGetContentInfoForPathResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -78,7 +78,7 @@ pub struct IStorageProviderGetContentInfoForPathResult_Vtbl {
     pub ContentId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetContentId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderGetPathForContentUriResult, IStorageProviderGetPathForContentUriResult_Vtbl, 0x63711a9d_4118_45a6_acb6_22c49d019f40);
+windows_core::imp::define_interface!(IStorageProviderGetPathForContentUriResult, IStorageProviderGetPathForContentUriResult_Vtbl, 0x63711a9d_4118_45a6_acb6_22c49d019f40);
 #[repr(C)]
 pub struct IStorageProviderGetPathForContentUriResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -87,7 +87,7 @@ pub struct IStorageProviderGetPathForContentUriResult_Vtbl {
     pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetPath: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderItemPropertiesStatics, IStorageProviderItemPropertiesStatics_Vtbl, 0x2d2c1c97_2704_4729_8fa9_7e6b8e158c2f);
+windows_core::imp::define_interface!(IStorageProviderItemPropertiesStatics, IStorageProviderItemPropertiesStatics_Vtbl, 0x2d2c1c97_2704_4729_8fa9_7e6b8e158c2f);
 #[repr(C)]
 pub struct IStorageProviderItemPropertiesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -96,7 +96,7 @@ pub struct IStorageProviderItemPropertiesStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SetAsync: usize,
 }
-windows_core::imp::com_interface!(IStorageProviderItemProperty, IStorageProviderItemProperty_Vtbl, 0x476cb558_730b_4188_b7b5_63b716ed476d);
+windows_core::imp::define_interface!(IStorageProviderItemProperty, IStorageProviderItemProperty_Vtbl, 0x476cb558_730b_4188_b7b5_63b716ed476d);
 #[repr(C)]
 pub struct IStorageProviderItemProperty_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -107,7 +107,7 @@ pub struct IStorageProviderItemProperty_Vtbl {
     pub SetIconResource: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub IconResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderItemPropertyDefinition, IStorageProviderItemPropertyDefinition_Vtbl, 0xc5b383bb_ff1f_4298_831e_ff1c08089690);
+windows_core::imp::define_interface!(IStorageProviderItemPropertyDefinition, IStorageProviderItemPropertyDefinition_Vtbl, 0xc5b383bb_ff1f_4298_831e_ff1c08089690);
 #[repr(C)]
 pub struct IStorageProviderItemPropertyDefinition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -116,7 +116,7 @@ pub struct IStorageProviderItemPropertyDefinition_Vtbl {
     pub DisplayNameResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetDisplayNameResource: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderItemPropertySource, IStorageProviderItemPropertySource_Vtbl, 0x8f6f9c3e_f632_4a9b_8d99_d2d7a11df56a);
+windows_core::imp::define_interface!(IStorageProviderItemPropertySource, IStorageProviderItemPropertySource_Vtbl, 0x8f6f9c3e_f632_4a9b_8d99_d2d7a11df56a);
 windows_core::imp::interface_hierarchy!(IStorageProviderItemPropertySource, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderItemPropertySource {
     #[cfg(feature = "Foundation_Collections")]
@@ -139,7 +139,7 @@ pub struct IStorageProviderItemPropertySource_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetItemProperties: usize,
 }
-windows_core::imp::com_interface!(IStorageProviderKnownFolderEntry, IStorageProviderKnownFolderEntry_Vtbl, 0xeffa7db0_1d44_596b_8464_928800c5e2d8);
+windows_core::imp::define_interface!(IStorageProviderKnownFolderEntry, IStorageProviderKnownFolderEntry_Vtbl, 0xeffa7db0_1d44_596b_8464_928800c5e2d8);
 #[repr(C)]
 pub struct IStorageProviderKnownFolderEntry_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -148,7 +148,7 @@ pub struct IStorageProviderKnownFolderEntry_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StorageProviderKnownFolderSyncStatus) -> windows_core::HRESULT,
     pub SetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, StorageProviderKnownFolderSyncStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderKnownFolderSyncInfo, IStorageProviderKnownFolderSyncInfo_Vtbl, 0x98b017ce_ffc1_5b11_ae77_cc17afec1049);
+windows_core::imp::define_interface!(IStorageProviderKnownFolderSyncInfo, IStorageProviderKnownFolderSyncInfo_Vtbl, 0x98b017ce_ffc1_5b11_ae77_cc17afec1049);
 #[repr(C)]
 pub struct IStorageProviderKnownFolderSyncInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -161,7 +161,7 @@ pub struct IStorageProviderKnownFolderSyncInfo_Vtbl {
     pub SyncRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSyncRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderKnownFolderSyncInfoSource, IStorageProviderKnownFolderSyncInfoSource_Vtbl, 0x51359342_f7c0_53d0_bbb6_1cdc098ebda9);
+windows_core::imp::define_interface!(IStorageProviderKnownFolderSyncInfoSource, IStorageProviderKnownFolderSyncInfoSource_Vtbl, 0x51359342_f7c0_53d0_bbb6_1cdc098ebda9);
 windows_core::imp::interface_hierarchy!(IStorageProviderKnownFolderSyncInfoSource, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderKnownFolderSyncInfoSource {
     pub fn GetKnownFolderSyncInfo(&self) -> windows_core::Result<StorageProviderKnownFolderSyncInfo> {
@@ -196,7 +196,7 @@ pub struct IStorageProviderKnownFolderSyncInfoSource_Vtbl {
     pub KnownFolderSyncInfoChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveKnownFolderSyncInfoChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderKnownFolderSyncInfoSourceFactory, IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl, 0xaaee03a7_a7f6_50be_a9b0_8e82d0c81082);
+windows_core::imp::define_interface!(IStorageProviderKnownFolderSyncInfoSourceFactory, IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl, 0xaaee03a7_a7f6_50be_a9b0_8e82d0c81082);
 windows_core::imp::interface_hierarchy!(IStorageProviderKnownFolderSyncInfoSourceFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderKnownFolderSyncInfoSourceFactory {
     pub fn GetKnownFolderSyncInfoSource(&self) -> windows_core::Result<IStorageProviderKnownFolderSyncInfoSource> {
@@ -215,7 +215,7 @@ pub struct IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetKnownFolderSyncInfoSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderKnownFolderSyncRequestArgs, IStorageProviderKnownFolderSyncRequestArgs_Vtbl, 0xeda6d569_b4e8_542f_ab8d_f3613f250a4a);
+windows_core::imp::define_interface!(IStorageProviderKnownFolderSyncRequestArgs, IStorageProviderKnownFolderSyncRequestArgs_Vtbl, 0xeda6d569_b4e8_542f_ab8d_f3613f250a4a);
 #[repr(C)]
 pub struct IStorageProviderKnownFolderSyncRequestArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -225,7 +225,7 @@ pub struct IStorageProviderKnownFolderSyncRequestArgs_Vtbl {
     KnownFolders: usize,
     pub Source: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderMoreInfoUI, IStorageProviderMoreInfoUI_Vtbl, 0xef38e591_a7cb_5e7d_9b5e_22749842697c);
+windows_core::imp::define_interface!(IStorageProviderMoreInfoUI, IStorageProviderMoreInfoUI_Vtbl, 0xef38e591_a7cb_5e7d_9b5e_22749842697c);
 #[repr(C)]
 pub struct IStorageProviderMoreInfoUI_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -234,7 +234,7 @@ pub struct IStorageProviderMoreInfoUI_Vtbl {
     pub Command: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderPropertyCapabilities, IStorageProviderPropertyCapabilities_Vtbl, 0x658d2f0e_63b7_4567_acf9_51abe301dda5);
+windows_core::imp::define_interface!(IStorageProviderPropertyCapabilities, IStorageProviderPropertyCapabilities_Vtbl, 0x658d2f0e_63b7_4567_acf9_51abe301dda5);
 windows_core::imp::interface_hierarchy!(IStorageProviderPropertyCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderPropertyCapabilities {
     pub fn IsPropertySupported(&self, propertycanonicalname: &windows_core::HSTRING) -> windows_core::Result<bool> {
@@ -253,7 +253,7 @@ pub struct IStorageProviderPropertyCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsPropertySupported: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderQuotaUI, IStorageProviderQuotaUI_Vtbl, 0xba6295c3_312e_544f_9fd5_1f81b21f3649);
+windows_core::imp::define_interface!(IStorageProviderQuotaUI, IStorageProviderQuotaUI_Vtbl, 0xba6295c3_312e_544f_9fd5_1f81b21f3649);
 #[repr(C)]
 pub struct IStorageProviderQuotaUI_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -272,7 +272,7 @@ pub struct IStorageProviderQuotaUI_Vtbl {
     #[cfg(not(feature = "UI"))]
     SetQuotaUsedColor: usize,
 }
-windows_core::imp::com_interface!(IStorageProviderStatusUI, IStorageProviderStatusUI_Vtbl, 0xd6b6a758_198d_5b80_977f_5ff73da33118);
+windows_core::imp::define_interface!(IStorageProviderStatusUI, IStorageProviderStatusUI_Vtbl, 0xd6b6a758_198d_5b80_977f_5ff73da33118);
 #[repr(C)]
 pub struct IStorageProviderStatusUI_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -299,7 +299,7 @@ pub struct IStorageProviderStatusUI_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SetProviderSecondaryCommands: usize,
 }
-windows_core::imp::com_interface!(IStorageProviderStatusUISource, IStorageProviderStatusUISource_Vtbl, 0xa306c249_3d66_5e70_9007_e43df96051ff);
+windows_core::imp::define_interface!(IStorageProviderStatusUISource, IStorageProviderStatusUISource_Vtbl, 0xa306c249_3d66_5e70_9007_e43df96051ff);
 windows_core::imp::interface_hierarchy!(IStorageProviderStatusUISource, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderStatusUISource {
     pub fn GetStatusUI(&self) -> windows_core::Result<StorageProviderStatusUI> {
@@ -334,7 +334,7 @@ pub struct IStorageProviderStatusUISource_Vtbl {
     pub StatusUIChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveStatusUIChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderStatusUISourceFactory, IStorageProviderStatusUISourceFactory_Vtbl, 0x12e46b74_4e5a_58d1_a62f_0376e8ee7dd8);
+windows_core::imp::define_interface!(IStorageProviderStatusUISourceFactory, IStorageProviderStatusUISourceFactory_Vtbl, 0x12e46b74_4e5a_58d1_a62f_0376e8ee7dd8);
 windows_core::imp::interface_hierarchy!(IStorageProviderStatusUISourceFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderStatusUISourceFactory {
     pub fn GetStatusUISource(&self, syncrootid: &windows_core::HSTRING) -> windows_core::Result<IStorageProviderStatusUISource> {
@@ -353,7 +353,7 @@ pub struct IStorageProviderStatusUISourceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetStatusUISource: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderSyncRootInfo, IStorageProviderSyncRootInfo_Vtbl, 0x7c1305c4_99f9_41ac_8904_ab055d654926);
+windows_core::imp::define_interface!(IStorageProviderSyncRootInfo, IStorageProviderSyncRootInfo_Vtbl, 0x7c1305c4_99f9_41ac_8904_ab055d654926);
 #[repr(C)]
 pub struct IStorageProviderSyncRootInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -398,14 +398,14 @@ pub struct IStorageProviderSyncRootInfo_Vtbl {
     pub RecycleBinUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetRecycleBinUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderSyncRootInfo2, IStorageProviderSyncRootInfo2_Vtbl, 0xcf51b023_7cf1_5166_bdba_efd95f529e31);
+windows_core::imp::define_interface!(IStorageProviderSyncRootInfo2, IStorageProviderSyncRootInfo2_Vtbl, 0xcf51b023_7cf1_5166_bdba_efd95f529e31);
 #[repr(C)]
 pub struct IStorageProviderSyncRootInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub SetProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderSyncRootInfo3, IStorageProviderSyncRootInfo3_Vtbl, 0x507a6617_bef6_56fd_855e_75ace2e45cf5);
+windows_core::imp::define_interface!(IStorageProviderSyncRootInfo3, IStorageProviderSyncRootInfo3_Vtbl, 0x507a6617_bef6_56fd_855e_75ace2e45cf5);
 #[repr(C)]
 pub struct IStorageProviderSyncRootInfo3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -414,7 +414,7 @@ pub struct IStorageProviderSyncRootInfo3_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     FallbackFileTypeInfo: usize,
 }
-windows_core::imp::com_interface!(IStorageProviderSyncRootManagerStatics, IStorageProviderSyncRootManagerStatics_Vtbl, 0x3e99fbbf_8fe3_4b40_abc7_f6fc3d74c98e);
+windows_core::imp::define_interface!(IStorageProviderSyncRootManagerStatics, IStorageProviderSyncRootManagerStatics_Vtbl, 0x3e99fbbf_8fe3_4b40_abc7_f6fc3d74c98e);
 #[repr(C)]
 pub struct IStorageProviderSyncRootManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -427,13 +427,13 @@ pub struct IStorageProviderSyncRootManagerStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetCurrentSyncRoots: usize,
 }
-windows_core::imp::com_interface!(IStorageProviderSyncRootManagerStatics2, IStorageProviderSyncRootManagerStatics2_Vtbl, 0xefb6cfee_1374_544e_9df1_5598d2e9cfdd);
+windows_core::imp::define_interface!(IStorageProviderSyncRootManagerStatics2, IStorageProviderSyncRootManagerStatics2_Vtbl, 0xefb6cfee_1374_544e_9df1_5598d2e9cfdd);
 #[repr(C)]
 pub struct IStorageProviderSyncRootManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderUICommand, IStorageProviderUICommand_Vtbl, 0x0c3e0760_d846_568f_9484_105cc57b502b);
+windows_core::imp::define_interface!(IStorageProviderUICommand, IStorageProviderUICommand_Vtbl, 0x0c3e0760_d846_568f_9484_105cc57b502b);
 windows_core::imp::interface_hierarchy!(IStorageProviderUICommand, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderUICommand {
     pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -481,7 +481,7 @@ pub struct IStorageProviderUICommand_Vtbl {
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StorageProviderUICommandState) -> windows_core::HRESULT,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageProviderUriSource, IStorageProviderUriSource_Vtbl, 0xb29806d1_8be0_4962_8bb6_0d4c2e14d47a);
+windows_core::imp::define_interface!(IStorageProviderUriSource, IStorageProviderUriSource_Vtbl, 0xb29806d1_8be0_4962_8bb6_0d4c2e14d47a);
 windows_core::imp::interface_hierarchy!(IStorageProviderUriSource, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderUriSource {
     pub fn GetPathForContentUri<P0>(&self, contenturi: &windows_core::HSTRING, result: P0) -> windows_core::Result<()>
@@ -2119,7 +2119,7 @@ impl core::fmt::Debug for WriteActivationMode {
 impl windows_core::RuntimeType for WriteActivationMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.WriteActivationMode;i4)");
 }
-windows_core::imp::com_interface!(StorageProviderKnownFolderSyncRequestedHandler, StorageProviderKnownFolderSyncRequestedHandler_Vtbl, 0xc4cbb4f5_13dd_5c8e_8b96_336fc30c629b);
+windows_core::imp::define_interface!(StorageProviderKnownFolderSyncRequestedHandler, StorageProviderKnownFolderSyncRequestedHandler_Vtbl, 0xc4cbb4f5_13dd_5c8e_8b96_336fc30c629b);
 impl StorageProviderKnownFolderSyncRequestedHandler {
     pub fn new<F: FnMut(Option<&StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = StorageProviderKnownFolderSyncRequestedHandlerBox::<F> { vtable: &StorageProviderKnownFolderSyncRequestedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };

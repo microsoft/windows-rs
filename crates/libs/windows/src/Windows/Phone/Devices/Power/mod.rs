@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IBattery, IBattery_Vtbl, 0x972adbdd_6720_4702_a476_b9d38a0070e3);
+windows_core::imp::define_interface!(IBattery, IBattery_Vtbl, 0x972adbdd_6720_4702_a476_b9d38a0070e3);
 #[repr(C)]
 pub struct IBattery_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7,7 +7,7 @@ pub struct IBattery_Vtbl {
     pub RemainingChargePercentChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveRemainingChargePercentChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBatteryStatics, IBatteryStatics_Vtbl, 0xfaf5bc70_6369_11e1_b86c_0800200c9a66);
+windows_core::imp::define_interface!(IBatteryStatics, IBatteryStatics_Vtbl, 0xfaf5bc70_6369_11e1_b86c_0800200c9a66);
 #[repr(C)]
 pub struct IBatteryStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

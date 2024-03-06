@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IActivitySensorTrigger, IActivitySensorTrigger_Vtbl, 0xd0dd4342_e37b_4823_a5fe_6b31dfefdeb0);
+windows_core::imp::define_interface!(IActivitySensorTrigger, IActivitySensorTrigger_Vtbl, 0xd0dd4342_e37b_4823_a5fe_6b31dfefdeb0);
 #[repr(C)]
 pub struct IActivitySensorTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -13,33 +13,33 @@ pub struct IActivitySensorTrigger_Vtbl {
     SupportedActivities: usize,
     pub MinimumReportInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IActivitySensorTriggerFactory, IActivitySensorTriggerFactory_Vtbl, 0xa72691c3_3837_44f7_831b_0132cc872bc3);
+windows_core::imp::define_interface!(IActivitySensorTriggerFactory, IActivitySensorTriggerFactory_Vtbl, 0xa72691c3_3837_44f7_831b_0132cc872bc3);
 #[repr(C)]
 pub struct IActivitySensorTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAlarmApplicationManagerStatics, IAlarmApplicationManagerStatics_Vtbl, 0xca03fa3b_cce6_4de2_b09b_9628bd33bbbe);
+windows_core::imp::define_interface!(IAlarmApplicationManagerStatics, IAlarmApplicationManagerStatics_Vtbl, 0xca03fa3b_cce6_4de2_b09b_9628bd33bbbe);
 #[repr(C)]
 pub struct IAlarmApplicationManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAccessStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AlarmAccessStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAppBroadcastTrigger, IAppBroadcastTrigger_Vtbl, 0x74d4f496_8d37_44ec_9481_2a0b9854eb48);
+windows_core::imp::define_interface!(IAppBroadcastTrigger, IAppBroadcastTrigger_Vtbl, 0x74d4f496_8d37_44ec_9481_2a0b9854eb48);
 #[repr(C)]
 pub struct IAppBroadcastTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetProviderInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProviderInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAppBroadcastTriggerFactory, IAppBroadcastTriggerFactory_Vtbl, 0x280b9f44_22f4_4618_a02e_e7e411eb7238);
+windows_core::imp::define_interface!(IAppBroadcastTriggerFactory, IAppBroadcastTriggerFactory_Vtbl, 0x280b9f44_22f4_4618_a02e_e7e411eb7238);
 #[repr(C)]
 pub struct IAppBroadcastTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAppBroadcastTrigger: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAppBroadcastTriggerProviderInfo, IAppBroadcastTriggerProviderInfo_Vtbl, 0xf219352d_9de8_4420_9ce2_5eff8f17376b);
+windows_core::imp::define_interface!(IAppBroadcastTriggerProviderInfo, IAppBroadcastTriggerProviderInfo_Vtbl, 0xf219352d_9de8_4420_9ce2_5eff8f17376b);
 #[repr(C)]
 pub struct IAppBroadcastTriggerProviderInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -56,7 +56,7 @@ pub struct IAppBroadcastTriggerProviderInfo_Vtbl {
     pub SetMaxVideoHeight: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub MaxVideoHeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IApplicationTrigger, IApplicationTrigger_Vtbl, 0x0b468630_9574_492c_9e93_1a3ae6335fe9);
+windows_core::imp::define_interface!(IApplicationTrigger, IApplicationTrigger_Vtbl, 0x0b468630_9574_492c_9e93_1a3ae6335fe9);
 #[repr(C)]
 pub struct IApplicationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -66,7 +66,7 @@ pub struct IApplicationTrigger_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     RequestAsyncWithArguments: usize,
 }
-windows_core::imp::com_interface!(IApplicationTriggerDetails, IApplicationTriggerDetails_Vtbl, 0x97dc6ab2_2219_4a9e_9c5e_41d047f76e82);
+windows_core::imp::define_interface!(IApplicationTriggerDetails, IApplicationTriggerDetails_Vtbl, 0x97dc6ab2_2219_4a9e_9c5e_41d047f76e82);
 #[repr(C)]
 pub struct IApplicationTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -75,12 +75,12 @@ pub struct IApplicationTriggerDetails_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Arguments: usize,
 }
-windows_core::imp::com_interface!(IAppointmentStoreNotificationTrigger, IAppointmentStoreNotificationTrigger_Vtbl, 0x64d4040c_c201_42ad_aa2a_e21ba3425b6d);
+windows_core::imp::define_interface!(IAppointmentStoreNotificationTrigger, IAppointmentStoreNotificationTrigger_Vtbl, 0x64d4040c_c201_42ad_aa2a_e21ba3425b6d);
 #[repr(C)]
 pub struct IAppointmentStoreNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IBackgroundCondition, IBackgroundCondition_Vtbl, 0xae48a1ee_8951_400a_8302_9c9c9a2a3a3b);
+windows_core::imp::define_interface!(IBackgroundCondition, IBackgroundCondition_Vtbl, 0xae48a1ee_8951_400a_8302_9c9c9a2a3a3b);
 windows_core::imp::interface_hierarchy!(IBackgroundCondition, windows_core::IUnknown, windows_core::IInspectable);
 impl IBackgroundCondition {}
 impl windows_core::RuntimeType for IBackgroundCondition {
@@ -90,7 +90,7 @@ impl windows_core::RuntimeType for IBackgroundCondition {
 pub struct IBackgroundCondition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IBackgroundExecutionManagerStatics, IBackgroundExecutionManagerStatics_Vtbl, 0xe826ea58_66a9_4d41_83d4_b4c18c87b846);
+windows_core::imp::define_interface!(IBackgroundExecutionManagerStatics, IBackgroundExecutionManagerStatics_Vtbl, 0xe826ea58_66a9_4d41_83d4_b4c18c87b846);
 #[repr(C)]
 pub struct IBackgroundExecutionManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -101,13 +101,13 @@ pub struct IBackgroundExecutionManagerStatics_Vtbl {
     pub GetAccessStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundAccessStatus) -> windows_core::HRESULT,
     pub GetAccessStatusForApplication: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut BackgroundAccessStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundExecutionManagerStatics2, IBackgroundExecutionManagerStatics2_Vtbl, 0x469b24ef_9bbb_4e18_999a_fd6512931be9);
+windows_core::imp::define_interface!(IBackgroundExecutionManagerStatics2, IBackgroundExecutionManagerStatics2_Vtbl, 0x469b24ef_9bbb_4e18_999a_fd6512931be9);
 #[repr(C)]
 pub struct IBackgroundExecutionManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAccessKindAsync: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundAccessRequestKind, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundExecutionManagerStatics3, IBackgroundExecutionManagerStatics3_Vtbl, 0x98a5d3f6_5a25_5b6c_9192_d77a43dfedc4);
+windows_core::imp::define_interface!(IBackgroundExecutionManagerStatics3, IBackgroundExecutionManagerStatics3_Vtbl, 0x98a5d3f6_5a25_5b6c_9192_d77a43dfedc4);
 #[repr(C)]
 pub struct IBackgroundExecutionManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -115,7 +115,7 @@ pub struct IBackgroundExecutionManagerStatics3_Vtbl {
     pub GetAccessStatusForModernStandby: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundAccessStatus) -> windows_core::HRESULT,
     pub GetAccessStatusForModernStandbyForApplication: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut BackgroundAccessStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundTask, IBackgroundTask_Vtbl, 0x7d13d534_fd12_43ce_8c22_ea1ff13c06df);
+windows_core::imp::define_interface!(IBackgroundTask, IBackgroundTask_Vtbl, 0x7d13d534_fd12_43ce_8c22_ea1ff13c06df);
 windows_core::imp::interface_hierarchy!(IBackgroundTask, windows_core::IUnknown, windows_core::IInspectable);
 impl IBackgroundTask {
     pub fn Run<P0>(&self, taskinstance: P0) -> windows_core::Result<()>
@@ -134,7 +134,7 @@ pub struct IBackgroundTask_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Run: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundTaskBuilder, IBackgroundTaskBuilder_Vtbl, 0x0351550e_3e64_4572_a93a_84075a37c917);
+windows_core::imp::define_interface!(IBackgroundTaskBuilder, IBackgroundTaskBuilder_Vtbl, 0x0351550e_3e64_4572_a93a_84075a37c917);
 #[repr(C)]
 pub struct IBackgroundTaskBuilder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -146,47 +146,47 @@ pub struct IBackgroundTaskBuilder_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundTaskBuilder2, IBackgroundTaskBuilder2_Vtbl, 0x6ae7cfb1_104f_406d_8db6_844a570f42bb);
+windows_core::imp::define_interface!(IBackgroundTaskBuilder2, IBackgroundTaskBuilder2_Vtbl, 0x6ae7cfb1_104f_406d_8db6_844a570f42bb);
 #[repr(C)]
 pub struct IBackgroundTaskBuilder2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetCancelOnConditionLoss: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub CancelOnConditionLoss: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundTaskBuilder3, IBackgroundTaskBuilder3_Vtbl, 0x28c74f4a_8ba9_4c09_a24f_19683e2c924c);
+windows_core::imp::define_interface!(IBackgroundTaskBuilder3, IBackgroundTaskBuilder3_Vtbl, 0x28c74f4a_8ba9_4c09_a24f_19683e2c924c);
 #[repr(C)]
 pub struct IBackgroundTaskBuilder3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetIsNetworkRequested: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub IsNetworkRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundTaskBuilder4, IBackgroundTaskBuilder4_Vtbl, 0x4755e522_cba2_4e35_bd16_a6da7f1c19aa);
+windows_core::imp::define_interface!(IBackgroundTaskBuilder4, IBackgroundTaskBuilder4_Vtbl, 0x4755e522_cba2_4e35_bd16_a6da7f1c19aa);
 #[repr(C)]
 pub struct IBackgroundTaskBuilder4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundTaskBuilder5, IBackgroundTaskBuilder5_Vtbl, 0x077103f6_99f5_4af4_bcad_4731d0330d43);
+windows_core::imp::define_interface!(IBackgroundTaskBuilder5, IBackgroundTaskBuilder5_Vtbl, 0x077103f6_99f5_4af4_bcad_4731d0330d43);
 #[repr(C)]
 pub struct IBackgroundTaskBuilder5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetTaskEntryPointClsid: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundTaskCompletedEventArgs, IBackgroundTaskCompletedEventArgs_Vtbl, 0x565d25cf_f209_48f4_9967_2b184f7bfbf0);
+windows_core::imp::define_interface!(IBackgroundTaskCompletedEventArgs, IBackgroundTaskCompletedEventArgs_Vtbl, 0x565d25cf_f209_48f4_9967_2b184f7bfbf0);
 #[repr(C)]
 pub struct IBackgroundTaskCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InstanceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub CheckResult: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundTaskDeferral, IBackgroundTaskDeferral_Vtbl, 0x93cc156d_af27_4dd3_846e_24ee40cadd25);
+windows_core::imp::define_interface!(IBackgroundTaskDeferral, IBackgroundTaskDeferral_Vtbl, 0x93cc156d_af27_4dd3_846e_24ee40cadd25);
 #[repr(C)]
 pub struct IBackgroundTaskDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundTaskInstance, IBackgroundTaskInstance_Vtbl, 0x865bda7a_21d8_4573_8f32_928a1b0641f6);
+windows_core::imp::define_interface!(IBackgroundTaskInstance, IBackgroundTaskInstance_Vtbl, 0x865bda7a_21d8_4573_8f32_928a1b0641f6);
 windows_core::imp::interface_hierarchy!(IBackgroundTaskInstance, windows_core::IUnknown, windows_core::IInspectable);
 impl IBackgroundTaskInstance {
     pub fn InstanceId(&self) -> windows_core::Result<windows_core::GUID> {
@@ -266,7 +266,7 @@ pub struct IBackgroundTaskInstance_Vtbl {
     pub SuspendedCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundTaskInstance2, IBackgroundTaskInstance2_Vtbl, 0x4f7d0176_0c76_4fb4_896d_5de1864122f6);
+windows_core::imp::define_interface!(IBackgroundTaskInstance2, IBackgroundTaskInstance2_Vtbl, 0x4f7d0176_0c76_4fb4_896d_5de1864122f6);
 windows_core::imp::interface_hierarchy!(IBackgroundTaskInstance2, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IBackgroundTaskInstance2, IBackgroundTaskInstance);
 impl IBackgroundTaskInstance2 {
@@ -346,7 +346,7 @@ pub struct IBackgroundTaskInstance2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetThrottleCount: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundTaskThrottleCounter, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundTaskInstance4, IBackgroundTaskInstance4_Vtbl, 0x7f29f23c_aa04_4b08_97b0_06d874cdabf5);
+windows_core::imp::define_interface!(IBackgroundTaskInstance4, IBackgroundTaskInstance4_Vtbl, 0x7f29f23c_aa04_4b08_97b0_06d874cdabf5);
 windows_core::imp::interface_hierarchy!(IBackgroundTaskInstance4, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IBackgroundTaskInstance4, IBackgroundTaskInstance);
 impl IBackgroundTaskInstance4 {
@@ -430,14 +430,14 @@ pub struct IBackgroundTaskInstance4_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::com_interface!(IBackgroundTaskProgressEventArgs, IBackgroundTaskProgressEventArgs_Vtbl, 0xfb1468ac_8332_4d0a_9532_03eae684da31);
+windows_core::imp::define_interface!(IBackgroundTaskProgressEventArgs, IBackgroundTaskProgressEventArgs_Vtbl, 0xfb1468ac_8332_4d0a_9532_03eae684da31);
 #[repr(C)]
 pub struct IBackgroundTaskProgressEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InstanceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub Progress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundTaskRegistration, IBackgroundTaskRegistration_Vtbl, 0x10654cc2_a26e_43bf_8c12_1fb40dbfbfa0);
+windows_core::imp::define_interface!(IBackgroundTaskRegistration, IBackgroundTaskRegistration_Vtbl, 0x10654cc2_a26e_43bf_8c12_1fb40dbfbfa0);
 windows_core::imp::interface_hierarchy!(IBackgroundTaskRegistration, windows_core::IUnknown, windows_core::IInspectable);
 impl IBackgroundTaskRegistration {
     pub fn TaskId(&self) -> windows_core::Result<windows_core::GUID> {
@@ -501,7 +501,7 @@ pub struct IBackgroundTaskRegistration_Vtbl {
     pub RemoveCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub Unregister: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundTaskRegistration2, IBackgroundTaskRegistration2_Vtbl, 0x6138c703_bb86_4112_afc3_7f939b166e3b);
+windows_core::imp::define_interface!(IBackgroundTaskRegistration2, IBackgroundTaskRegistration2_Vtbl, 0x6138c703_bb86_4112_afc3_7f939b166e3b);
 windows_core::imp::interface_hierarchy!(IBackgroundTaskRegistration2, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IBackgroundTaskRegistration2, IBackgroundTaskRegistration);
 impl IBackgroundTaskRegistration2 {
@@ -567,7 +567,7 @@ pub struct IBackgroundTaskRegistration2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Trigger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundTaskRegistration3, IBackgroundTaskRegistration3_Vtbl, 0xfe338195_9423_4d8b_830d_b1dd2c7badd5);
+windows_core::imp::define_interface!(IBackgroundTaskRegistration3, IBackgroundTaskRegistration3_Vtbl, 0xfe338195_9423_4d8b_830d_b1dd2c7badd5);
 windows_core::imp::interface_hierarchy!(IBackgroundTaskRegistration3, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IBackgroundTaskRegistration3, IBackgroundTaskRegistration);
 impl IBackgroundTaskRegistration3 {
@@ -633,7 +633,7 @@ pub struct IBackgroundTaskRegistration3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundTaskRegistrationGroup, IBackgroundTaskRegistrationGroup_Vtbl, 0x2ab1919a_871b_4167_8a76_055cd67b5b23);
+windows_core::imp::define_interface!(IBackgroundTaskRegistrationGroup, IBackgroundTaskRegistrationGroup_Vtbl, 0x2ab1919a_871b_4167_8a76_055cd67b5b23);
 #[repr(C)]
 pub struct IBackgroundTaskRegistrationGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -649,14 +649,14 @@ pub struct IBackgroundTaskRegistrationGroup_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     AllTasks: usize,
 }
-windows_core::imp::com_interface!(IBackgroundTaskRegistrationGroupFactory, IBackgroundTaskRegistrationGroupFactory_Vtbl, 0x83d92b69_44cf_4631_9740_03c7d8741bc5);
+windows_core::imp::define_interface!(IBackgroundTaskRegistrationGroupFactory, IBackgroundTaskRegistrationGroupFactory_Vtbl, 0x83d92b69_44cf_4631_9740_03c7d8741bc5);
 #[repr(C)]
 pub struct IBackgroundTaskRegistrationGroupFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateWithName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundTaskRegistrationStatics, IBackgroundTaskRegistrationStatics_Vtbl, 0x4c542f69_b000_42ba_a093_6a563c65e3f8);
+windows_core::imp::define_interface!(IBackgroundTaskRegistrationStatics, IBackgroundTaskRegistrationStatics_Vtbl, 0x4c542f69_b000_42ba_a093_6a563c65e3f8);
 #[repr(C)]
 pub struct IBackgroundTaskRegistrationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -665,7 +665,7 @@ pub struct IBackgroundTaskRegistrationStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     AllTasks: usize,
 }
-windows_core::imp::com_interface!(IBackgroundTaskRegistrationStatics2, IBackgroundTaskRegistrationStatics2_Vtbl, 0x174b671e_b20d_4fa9_ad9a_e93ad6c71e01);
+windows_core::imp::define_interface!(IBackgroundTaskRegistrationStatics2, IBackgroundTaskRegistrationStatics2_Vtbl, 0x174b671e_b20d_4fa9_ad9a_e93ad6c71e01);
 #[repr(C)]
 pub struct IBackgroundTaskRegistrationStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -675,7 +675,7 @@ pub struct IBackgroundTaskRegistrationStatics2_Vtbl {
     AllTaskGroups: usize,
     pub GetTaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBackgroundTrigger, IBackgroundTrigger_Vtbl, 0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+windows_core::imp::define_interface!(IBackgroundTrigger, IBackgroundTrigger_Vtbl, 0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
 windows_core::imp::interface_hierarchy!(IBackgroundTrigger, windows_core::IUnknown, windows_core::IInspectable);
 impl IBackgroundTrigger {}
 impl windows_core::RuntimeType for IBackgroundTrigger {
@@ -685,13 +685,13 @@ impl windows_core::RuntimeType for IBackgroundTrigger {
 pub struct IBackgroundTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IBackgroundWorkCostStatics, IBackgroundWorkCostStatics_Vtbl, 0xc740a662_c310_4b82_b3e3_3bcfb9e4c77d);
+windows_core::imp::define_interface!(IBackgroundWorkCostStatics, IBackgroundWorkCostStatics_Vtbl, 0xc740a662_c310_4b82_b3e3_3bcfb9e4c77d);
 #[repr(C)]
 pub struct IBackgroundWorkCostStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CurrentBackgroundWorkCost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundWorkCostValue) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBluetoothLEAdvertisementPublisherTrigger, IBluetoothLEAdvertisementPublisherTrigger_Vtbl, 0xab3e2612_25d3_48ae_8724_d81877ae6129);
+windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisherTrigger, IBluetoothLEAdvertisementPublisherTrigger_Vtbl, 0xab3e2612_25d3_48ae_8724_d81877ae6129);
 #[repr(C)]
 pub struct IBluetoothLEAdvertisementPublisherTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -700,7 +700,7 @@ pub struct IBluetoothLEAdvertisementPublisherTrigger_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
     Advertisement: usize,
 }
-windows_core::imp::com_interface!(IBluetoothLEAdvertisementPublisherTrigger2, IBluetoothLEAdvertisementPublisherTrigger2_Vtbl, 0xaa28d064_38f4_597d_b597_4e55588c6503);
+windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisherTrigger2, IBluetoothLEAdvertisementPublisherTrigger2_Vtbl, 0xaa28d064_38f4_597d_b597_4e55588c6503);
 #[repr(C)]
 pub struct IBluetoothLEAdvertisementPublisherTrigger2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -713,7 +713,7 @@ pub struct IBluetoothLEAdvertisementPublisherTrigger2_Vtbl {
     pub IncludeTransmitPowerLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIncludeTransmitPowerLevel: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBluetoothLEAdvertisementWatcherTrigger, IBluetoothLEAdvertisementWatcherTrigger_Vtbl, 0x1aab1819_bce1_48eb_a827_59fb7cee52a6);
+windows_core::imp::define_interface!(IBluetoothLEAdvertisementWatcherTrigger, IBluetoothLEAdvertisementWatcherTrigger_Vtbl, 0x1aab1819_bce1_48eb_a827_59fb7cee52a6);
 #[repr(C)]
 pub struct IBluetoothLEAdvertisementWatcherTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -738,19 +738,19 @@ pub struct IBluetoothLEAdvertisementWatcherTrigger_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
     SetAdvertisementFilter: usize,
 }
-windows_core::imp::com_interface!(IBluetoothLEAdvertisementWatcherTrigger2, IBluetoothLEAdvertisementWatcherTrigger2_Vtbl, 0x39b56799_eb39_5ab6_9932_aa9e4549604d);
+windows_core::imp::define_interface!(IBluetoothLEAdvertisementWatcherTrigger2, IBluetoothLEAdvertisementWatcherTrigger2_Vtbl, 0x39b56799_eb39_5ab6_9932_aa9e4549604d);
 #[repr(C)]
 pub struct IBluetoothLEAdvertisementWatcherTrigger2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllowExtendedAdvertisements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAllowExtendedAdvertisements: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICachedFileUpdaterTrigger, ICachedFileUpdaterTrigger_Vtbl, 0xe21caeeb_32f2_4d31_b553_b9e01bde37e0);
+windows_core::imp::define_interface!(ICachedFileUpdaterTrigger, ICachedFileUpdaterTrigger_Vtbl, 0xe21caeeb_32f2_4d31_b553_b9e01bde37e0);
 #[repr(C)]
 pub struct ICachedFileUpdaterTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(ICachedFileUpdaterTriggerDetails, ICachedFileUpdaterTriggerDetails_Vtbl, 0x71838c13_1314_47b4_9597_dc7e248c17cc);
+windows_core::imp::define_interface!(ICachedFileUpdaterTriggerDetails, ICachedFileUpdaterTriggerDetails_Vtbl, 0x71838c13_1314_47b4_9597_dc7e248c17cc);
 #[repr(C)]
 pub struct ICachedFileUpdaterTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -764,52 +764,52 @@ pub struct ICachedFileUpdaterTriggerDetails_Vtbl {
     UpdateRequest: usize,
     pub CanRequestUserInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageNotificationTrigger, IChatMessageNotificationTrigger_Vtbl, 0x513b43bf_1d40_5c5d_78f5_c923fee3739e);
+windows_core::imp::define_interface!(IChatMessageNotificationTrigger, IChatMessageNotificationTrigger_Vtbl, 0x513b43bf_1d40_5c5d_78f5_c923fee3739e);
 #[repr(C)]
 pub struct IChatMessageNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IChatMessageReceivedNotificationTrigger, IChatMessageReceivedNotificationTrigger_Vtbl, 0x3ea3760e_baf5_4077_88e9_060cf6f0c6d5);
+windows_core::imp::define_interface!(IChatMessageReceivedNotificationTrigger, IChatMessageReceivedNotificationTrigger_Vtbl, 0x3ea3760e_baf5_4077_88e9_060cf6f0c6d5);
 #[repr(C)]
 pub struct IChatMessageReceivedNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(ICommunicationBlockingAppSetAsActiveTrigger, ICommunicationBlockingAppSetAsActiveTrigger_Vtbl, 0xfb91f28a_16a5_486d_974c_7835a8477be2);
+windows_core::imp::define_interface!(ICommunicationBlockingAppSetAsActiveTrigger, ICommunicationBlockingAppSetAsActiveTrigger_Vtbl, 0xfb91f28a_16a5_486d_974c_7835a8477be2);
 #[repr(C)]
 pub struct ICommunicationBlockingAppSetAsActiveTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IContactStoreNotificationTrigger, IContactStoreNotificationTrigger_Vtbl, 0xc833419b_4705_4571_9a16_06b997bf9c96);
+windows_core::imp::define_interface!(IContactStoreNotificationTrigger, IContactStoreNotificationTrigger_Vtbl, 0xc833419b_4705_4571_9a16_06b997bf9c96);
 #[repr(C)]
 pub struct IContactStoreNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IContentPrefetchTrigger, IContentPrefetchTrigger_Vtbl, 0x710627ee_04fa_440b_80c0_173202199e5d);
+windows_core::imp::define_interface!(IContentPrefetchTrigger, IContentPrefetchTrigger_Vtbl, 0x710627ee_04fa_440b_80c0_173202199e5d);
 #[repr(C)]
 pub struct IContentPrefetchTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub WaitInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IContentPrefetchTriggerFactory, IContentPrefetchTriggerFactory_Vtbl, 0xc2643eda_8a03_409e_b8c4_88814c28ccb6);
+windows_core::imp::define_interface!(IContentPrefetchTriggerFactory, IContentPrefetchTriggerFactory_Vtbl, 0xc2643eda_8a03_409e_b8c4_88814c28ccb6);
 #[repr(C)]
 pub struct IContentPrefetchTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICustomSystemEventTrigger, ICustomSystemEventTrigger_Vtbl, 0xf3596798_cf6b_4ef4_a0ca_29cf4a278c87);
+windows_core::imp::define_interface!(ICustomSystemEventTrigger, ICustomSystemEventTrigger_Vtbl, 0xf3596798_cf6b_4ef4_a0ca_29cf4a278c87);
 #[repr(C)]
 pub struct ICustomSystemEventTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TriggerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Recurrence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CustomSystemEventTriggerRecurrence) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICustomSystemEventTriggerFactory, ICustomSystemEventTriggerFactory_Vtbl, 0x6bcb16c5_f2dc_41b2_9efd_b96bdcd13ced);
+windows_core::imp::define_interface!(ICustomSystemEventTriggerFactory, ICustomSystemEventTriggerFactory_Vtbl, 0x6bcb16c5_f2dc_41b2_9efd_b96bdcd13ced);
 #[repr(C)]
 pub struct ICustomSystemEventTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, CustomSystemEventTriggerRecurrence, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDeviceConnectionChangeTrigger, IDeviceConnectionChangeTrigger_Vtbl, 0x90875e64_3cdd_4efb_ab1c_5b3b6a60ce34);
+windows_core::imp::define_interface!(IDeviceConnectionChangeTrigger, IDeviceConnectionChangeTrigger_Vtbl, 0x90875e64_3cdd_4efb_ab1c_5b3b6a60ce34);
 #[repr(C)]
 pub struct IDeviceConnectionChangeTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -818,14 +818,14 @@ pub struct IDeviceConnectionChangeTrigger_Vtbl {
     pub MaintainConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetMaintainConnection: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDeviceConnectionChangeTriggerStatics, IDeviceConnectionChangeTriggerStatics_Vtbl, 0xc3ea246a_4efd_4498_aa60_a4e4e3b17ab9);
+windows_core::imp::define_interface!(IDeviceConnectionChangeTriggerStatics, IDeviceConnectionChangeTriggerStatics_Vtbl, 0xc3ea246a_4efd_4498_aa60_a4e4e3b17ab9);
 #[repr(C)]
 pub struct IDeviceConnectionChangeTriggerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IDeviceManufacturerNotificationTrigger, IDeviceManufacturerNotificationTrigger_Vtbl, 0x81278ab5_41ab_16da_86c2_7f7bf0912f5b);
+windows_core::imp::define_interface!(IDeviceManufacturerNotificationTrigger, IDeviceManufacturerNotificationTrigger_Vtbl, 0x81278ab5_41ab_16da_86c2_7f7bf0912f5b);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IDeviceManufacturerNotificationTrigger_Vtbl {
@@ -840,7 +840,7 @@ pub struct IDeviceManufacturerNotificationTrigger_Vtbl {
     OneShot: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IDeviceManufacturerNotificationTriggerFactory, IDeviceManufacturerNotificationTriggerFactory_Vtbl, 0x7955de75_25bb_4153_a1a2_3029fcabb652);
+windows_core::imp::define_interface!(IDeviceManufacturerNotificationTriggerFactory, IDeviceManufacturerNotificationTriggerFactory_Vtbl, 0x7955de75_25bb_4153_a1a2_3029fcabb652);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IDeviceManufacturerNotificationTriggerFactory_Vtbl {
@@ -850,31 +850,31 @@ pub struct IDeviceManufacturerNotificationTriggerFactory_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     Create: usize,
 }
-windows_core::imp::com_interface!(IDeviceServicingTrigger, IDeviceServicingTrigger_Vtbl, 0x1ab217ad_6e34_49d3_9e6f_17f1b6dfa881);
+windows_core::imp::define_interface!(IDeviceServicingTrigger, IDeviceServicingTrigger_Vtbl, 0x1ab217ad_6e34_49d3_9e6f_17f1b6dfa881);
 #[repr(C)]
 pub struct IDeviceServicingTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAsyncSimple: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestAsyncWithArguments: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::super::Foundation::TimeSpan, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDeviceUseTrigger, IDeviceUseTrigger_Vtbl, 0x0da68011_334f_4d57_b6ec_6dca64b412e4);
+windows_core::imp::define_interface!(IDeviceUseTrigger, IDeviceUseTrigger_Vtbl, 0x0da68011_334f_4d57_b6ec_6dca64b412e4);
 #[repr(C)]
 pub struct IDeviceUseTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAsyncSimple: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestAsyncWithArguments: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDeviceWatcherTrigger, IDeviceWatcherTrigger_Vtbl, 0xa4617fdd_8573_4260_befc_5bec89cb693d);
+windows_core::imp::define_interface!(IDeviceWatcherTrigger, IDeviceWatcherTrigger_Vtbl, 0xa4617fdd_8573_4260_befc_5bec89cb693d);
 #[repr(C)]
 pub struct IDeviceWatcherTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IEmailStoreNotificationTrigger, IEmailStoreNotificationTrigger_Vtbl, 0x986d06da_47eb_4268_a4f2_f3f77188388a);
+windows_core::imp::define_interface!(IEmailStoreNotificationTrigger, IEmailStoreNotificationTrigger_Vtbl, 0x986d06da_47eb_4268_a4f2_f3f77188388a);
 #[repr(C)]
 pub struct IEmailStoreNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IGattCharacteristicNotificationTrigger, IGattCharacteristicNotificationTrigger_Vtbl, 0xe25f8fc8_0696_474f_a732_f292b0cebc5d);
+windows_core::imp::define_interface!(IGattCharacteristicNotificationTrigger, IGattCharacteristicNotificationTrigger_Vtbl, 0xe25f8fc8_0696_474f_a732_f292b0cebc5d);
 #[repr(C)]
 pub struct IGattCharacteristicNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -883,7 +883,7 @@ pub struct IGattCharacteristicNotificationTrigger_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))]
     Characteristic: usize,
 }
-windows_core::imp::com_interface!(IGattCharacteristicNotificationTrigger2, IGattCharacteristicNotificationTrigger2_Vtbl, 0x9322a2c4_ae0e_42f2_b28c_f51372e69245);
+windows_core::imp::define_interface!(IGattCharacteristicNotificationTrigger2, IGattCharacteristicNotificationTrigger2_Vtbl, 0x9322a2c4_ae0e_42f2_b28c_f51372e69245);
 #[repr(C)]
 pub struct IGattCharacteristicNotificationTrigger2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -892,7 +892,7 @@ pub struct IGattCharacteristicNotificationTrigger2_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth_Background"))]
     EventTriggeringMode: usize,
 }
-windows_core::imp::com_interface!(IGattCharacteristicNotificationTriggerFactory, IGattCharacteristicNotificationTriggerFactory_Vtbl, 0x57ba1995_b143_4575_9f6b_fd59d93ace1a);
+windows_core::imp::define_interface!(IGattCharacteristicNotificationTriggerFactory, IGattCharacteristicNotificationTriggerFactory_Vtbl, 0x57ba1995_b143_4575_9f6b_fd59d93ace1a);
 #[repr(C)]
 pub struct IGattCharacteristicNotificationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -901,7 +901,7 @@ pub struct IGattCharacteristicNotificationTriggerFactory_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))]
     Create: usize,
 }
-windows_core::imp::com_interface!(IGattCharacteristicNotificationTriggerFactory2, IGattCharacteristicNotificationTriggerFactory2_Vtbl, 0x5998e91f_8a53_4e9f_a32c_23cd33664cee);
+windows_core::imp::define_interface!(IGattCharacteristicNotificationTriggerFactory2, IGattCharacteristicNotificationTriggerFactory2_Vtbl, 0x5998e91f_8a53_4e9f_a32c_23cd33664cee);
 #[repr(C)]
 pub struct IGattCharacteristicNotificationTriggerFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -910,7 +910,7 @@ pub struct IGattCharacteristicNotificationTriggerFactory2_Vtbl {
     #[cfg(not(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile")))]
     CreateWithEventTriggeringMode: usize,
 }
-windows_core::imp::com_interface!(IGattServiceProviderTrigger, IGattServiceProviderTrigger_Vtbl, 0xddc6a3e9_1557_4bd8_8542_468aa0c696f6);
+windows_core::imp::define_interface!(IGattServiceProviderTrigger, IGattServiceProviderTrigger_Vtbl, 0xddc6a3e9_1557_4bd8_8542_468aa0c696f6);
 #[repr(C)]
 pub struct IGattServiceProviderTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -928,7 +928,7 @@ pub struct IGattServiceProviderTrigger_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))]
     AdvertisingParameters: usize,
 }
-windows_core::imp::com_interface!(IGattServiceProviderTriggerResult, IGattServiceProviderTriggerResult_Vtbl, 0x3c4691b1_b198_4e84_bad4_cf4ad299ed3a);
+windows_core::imp::define_interface!(IGattServiceProviderTriggerResult, IGattServiceProviderTriggerResult_Vtbl, 0x3c4691b1_b198_4e84_bad4_cf4ad299ed3a);
 #[repr(C)]
 pub struct IGattServiceProviderTriggerResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -938,13 +938,13 @@ pub struct IGattServiceProviderTriggerResult_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth"))]
     Error: usize,
 }
-windows_core::imp::com_interface!(IGattServiceProviderTriggerStatics, IGattServiceProviderTriggerStatics_Vtbl, 0xb413a36a_e294_4591_a5a6_64891a828153);
+windows_core::imp::define_interface!(IGattServiceProviderTriggerStatics, IGattServiceProviderTriggerStatics_Vtbl, 0xb413a36a_e294_4591_a5a6_64891a828153);
 #[repr(C)]
 pub struct IGattServiceProviderTriggerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGeovisitTrigger, IGeovisitTrigger_Vtbl, 0x4818edaa_04e1_4127_9a4c_19351b8a80a4);
+windows_core::imp::define_interface!(IGeovisitTrigger, IGeovisitTrigger_Vtbl, 0x4818edaa_04e1_4127_9a4c_19351b8a80a4);
 #[repr(C)]
 pub struct IGeovisitTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -957,32 +957,32 @@ pub struct IGeovisitTrigger_Vtbl {
     #[cfg(not(feature = "Devices_Geolocation"))]
     SetMonitoringScope: usize,
 }
-windows_core::imp::com_interface!(ILocationTrigger, ILocationTrigger_Vtbl, 0x47666a1c_6877_481e_8026_ff7e14a811a0);
+windows_core::imp::define_interface!(ILocationTrigger, ILocationTrigger_Vtbl, 0x47666a1c_6877_481e_8026_ff7e14a811a0);
 #[repr(C)]
 pub struct ILocationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TriggerType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LocationTriggerType) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ILocationTriggerFactory, ILocationTriggerFactory_Vtbl, 0x1106bb07_ff69_4e09_aa8b_1384ea475e98);
+windows_core::imp::define_interface!(ILocationTriggerFactory, ILocationTriggerFactory_Vtbl, 0x1106bb07_ff69_4e09_aa8b_1384ea475e98);
 #[repr(C)]
 pub struct ILocationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, LocationTriggerType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMaintenanceTrigger, IMaintenanceTrigger_Vtbl, 0x68184c83_fc22_4ce5_841a_7239a9810047);
+windows_core::imp::define_interface!(IMaintenanceTrigger, IMaintenanceTrigger_Vtbl, 0x68184c83_fc22_4ce5_841a_7239a9810047);
 #[repr(C)]
 pub struct IMaintenanceTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FreshnessTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub OneShot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMaintenanceTriggerFactory, IMaintenanceTriggerFactory_Vtbl, 0x4b3ddb2e_97dd_4629_88b0_b06cf9482ae5);
+windows_core::imp::define_interface!(IMaintenanceTriggerFactory, IMaintenanceTriggerFactory_Vtbl, 0x4b3ddb2e_97dd_4629_88b0_b06cf9482ae5);
 #[repr(C)]
 pub struct IMaintenanceTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMediaProcessingTrigger, IMediaProcessingTrigger_Vtbl, 0x9a95be65_8a52_4b30_9011_cf38040ea8b0);
+windows_core::imp::define_interface!(IMediaProcessingTrigger, IMediaProcessingTrigger_Vtbl, 0x9a95be65_8a52_4b30_9011_cf38040ea8b0);
 #[repr(C)]
 pub struct IMediaProcessingTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -992,24 +992,24 @@ pub struct IMediaProcessingTrigger_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     RequestAsyncWithArguments: usize,
 }
-windows_core::imp::com_interface!(INetworkOperatorHotspotAuthenticationTrigger, INetworkOperatorHotspotAuthenticationTrigger_Vtbl, 0xe756c791_3001_4de5_83c7_de61d88831d0);
+windows_core::imp::define_interface!(INetworkOperatorHotspotAuthenticationTrigger, INetworkOperatorHotspotAuthenticationTrigger_Vtbl, 0xe756c791_3001_4de5_83c7_de61d88831d0);
 #[repr(C)]
 pub struct INetworkOperatorHotspotAuthenticationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(INetworkOperatorNotificationTrigger, INetworkOperatorNotificationTrigger_Vtbl, 0x90089cc6_63cd_480c_95d1_6e6aef801e4a);
+windows_core::imp::define_interface!(INetworkOperatorNotificationTrigger, INetworkOperatorNotificationTrigger_Vtbl, 0x90089cc6_63cd_480c_95d1_6e6aef801e4a);
 #[repr(C)]
 pub struct INetworkOperatorNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NetworkAccountId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(INetworkOperatorNotificationTriggerFactory, INetworkOperatorNotificationTriggerFactory_Vtbl, 0x0a223e00_27d7_4353_adb9_9265aaea579d);
+windows_core::imp::define_interface!(INetworkOperatorNotificationTriggerFactory, INetworkOperatorNotificationTriggerFactory_Vtbl, 0x0a223e00_27d7_4353_adb9_9265aaea579d);
 #[repr(C)]
 pub struct INetworkOperatorNotificationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPhoneTrigger, IPhoneTrigger_Vtbl, 0x8dcfe99b_d4c5_49f1_b7d3_82e87a0e9dde);
+windows_core::imp::define_interface!(IPhoneTrigger, IPhoneTrigger_Vtbl, 0x8dcfe99b_d4c5_49f1_b7d3_82e87a0e9dde);
 #[repr(C)]
 pub struct IPhoneTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1019,7 +1019,7 @@ pub struct IPhoneTrigger_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Calls_Background"))]
     TriggerType: usize,
 }
-windows_core::imp::com_interface!(IPhoneTriggerFactory, IPhoneTriggerFactory_Vtbl, 0xa0d93cda_5fc1_48fb_a546_32262040157b);
+windows_core::imp::define_interface!(IPhoneTriggerFactory, IPhoneTriggerFactory_Vtbl, 0xa0d93cda_5fc1_48fb_a546_32262040157b);
 #[repr(C)]
 pub struct IPhoneTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1028,18 +1028,18 @@ pub struct IPhoneTriggerFactory_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Calls_Background"))]
     Create: usize,
 }
-windows_core::imp::com_interface!(IPushNotificationTriggerFactory, IPushNotificationTriggerFactory_Vtbl, 0x6dd8ed1b_458e_4fc2_bc2e_d5664f77ed19);
+windows_core::imp::define_interface!(IPushNotificationTriggerFactory, IPushNotificationTriggerFactory_Vtbl, 0x6dd8ed1b_458e_4fc2_bc2e_d5664f77ed19);
 #[repr(C)]
 pub struct IPushNotificationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IRcsEndUserMessageAvailableTrigger, IRcsEndUserMessageAvailableTrigger_Vtbl, 0x986d0d6a_b2f6_467f_a978_a44091c11a66);
+windows_core::imp::define_interface!(IRcsEndUserMessageAvailableTrigger, IRcsEndUserMessageAvailableTrigger_Vtbl, 0x986d0d6a_b2f6_467f_a978_a44091c11a66);
 #[repr(C)]
 pub struct IRcsEndUserMessageAvailableTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IRfcommConnectionTrigger, IRfcommConnectionTrigger_Vtbl, 0xe8c4cae2_0b53_4464_9394_fd875654de64);
+windows_core::imp::define_interface!(IRfcommConnectionTrigger, IRfcommConnectionTrigger_Vtbl, 0xe8c4cae2_0b53_4464_9394_fd875654de64);
 #[repr(C)]
 pub struct IRfcommConnectionTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1071,18 +1071,18 @@ pub struct IRfcommConnectionTrigger_Vtbl {
     SetRemoteHostName: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(ISecondaryAuthenticationFactorAuthenticationTrigger, ISecondaryAuthenticationFactorAuthenticationTrigger_Vtbl, 0xf237f327_5181_4f24_96a7_700a4e5fac62);
+windows_core::imp::define_interface!(ISecondaryAuthenticationFactorAuthenticationTrigger, ISecondaryAuthenticationFactorAuthenticationTrigger_Vtbl, 0xf237f327_5181_4f24_96a7_700a4e5fac62);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISecondaryAuthenticationFactorAuthenticationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(ISensorDataThresholdTrigger, ISensorDataThresholdTrigger_Vtbl, 0x5bc0f372_d48b_4b7f_abec_15f9bacc12e2);
+windows_core::imp::define_interface!(ISensorDataThresholdTrigger, ISensorDataThresholdTrigger_Vtbl, 0x5bc0f372_d48b_4b7f_abec_15f9bacc12e2);
 #[repr(C)]
 pub struct ISensorDataThresholdTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(ISensorDataThresholdTriggerFactory, ISensorDataThresholdTriggerFactory_Vtbl, 0x921fe675_7df0_4da3_97b3_e544ee857fe6);
+windows_core::imp::define_interface!(ISensorDataThresholdTriggerFactory, ISensorDataThresholdTriggerFactory_Vtbl, 0x921fe675_7df0_4da3_97b3_e544ee857fe6);
 #[repr(C)]
 pub struct ISensorDataThresholdTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1091,7 +1091,7 @@ pub struct ISensorDataThresholdTriggerFactory_Vtbl {
     #[cfg(not(feature = "Devices_Sensors"))]
     Create: usize,
 }
-windows_core::imp::com_interface!(ISmartCardTrigger, ISmartCardTrigger_Vtbl, 0xf53bc5ac_84ca_4972_8ce9_e58f97b37a50);
+windows_core::imp::define_interface!(ISmartCardTrigger, ISmartCardTrigger_Vtbl, 0xf53bc5ac_84ca_4972_8ce9_e58f97b37a50);
 #[repr(C)]
 pub struct ISmartCardTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1100,7 +1100,7 @@ pub struct ISmartCardTrigger_Vtbl {
     #[cfg(not(feature = "Devices_SmartCards"))]
     TriggerType: usize,
 }
-windows_core::imp::com_interface!(ISmartCardTriggerFactory, ISmartCardTriggerFactory_Vtbl, 0x63bf54c3_89c1_4e00_a9d3_97c629269dad);
+windows_core::imp::define_interface!(ISmartCardTriggerFactory, ISmartCardTriggerFactory_Vtbl, 0x63bf54c3_89c1_4e00_a9d3_97c629269dad);
 #[repr(C)]
 pub struct ISmartCardTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1109,7 +1109,7 @@ pub struct ISmartCardTriggerFactory_Vtbl {
     #[cfg(not(feature = "Devices_SmartCards"))]
     Create: usize,
 }
-windows_core::imp::com_interface!(ISmsMessageReceivedTriggerFactory, ISmsMessageReceivedTriggerFactory_Vtbl, 0xea3ad8c8_6ba4_4ab2_8d21_bc6b09c77564);
+windows_core::imp::define_interface!(ISmsMessageReceivedTriggerFactory, ISmsMessageReceivedTriggerFactory_Vtbl, 0xea3ad8c8_6ba4_4ab2_8d21_bc6b09c77564);
 #[repr(C)]
 pub struct ISmsMessageReceivedTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1118,13 +1118,13 @@ pub struct ISmsMessageReceivedTriggerFactory_Vtbl {
     #[cfg(not(feature = "Devices_Sms"))]
     Create: usize,
 }
-windows_core::imp::com_interface!(ISocketActivityTrigger, ISocketActivityTrigger_Vtbl, 0xa9bbf810_9dde_4f8a_83e3_b0e0e7a50d70);
+windows_core::imp::define_interface!(ISocketActivityTrigger, ISocketActivityTrigger_Vtbl, 0xa9bbf810_9dde_4f8a_83e3_b0e0e7a50d70);
 #[repr(C)]
 pub struct ISocketActivityTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsWakeFromLowPowerSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorageLibraryChangeTrackerTriggerFactory, IStorageLibraryChangeTrackerTriggerFactory_Vtbl, 0x1eb0ffd0_5a85_499e_a888_824607124f50);
+windows_core::imp::define_interface!(IStorageLibraryChangeTrackerTriggerFactory, IStorageLibraryChangeTrackerTriggerFactory_Vtbl, 0x1eb0ffd0_5a85_499e_a888_824607124f50);
 #[repr(C)]
 pub struct IStorageLibraryChangeTrackerTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1133,12 +1133,12 @@ pub struct IStorageLibraryChangeTrackerTriggerFactory_Vtbl {
     #[cfg(not(feature = "Storage"))]
     Create: usize,
 }
-windows_core::imp::com_interface!(IStorageLibraryContentChangedTrigger, IStorageLibraryContentChangedTrigger_Vtbl, 0x1637e0a7_829c_45bc_929b_a1e7ea78d89b);
+windows_core::imp::define_interface!(IStorageLibraryContentChangedTrigger, IStorageLibraryContentChangedTrigger_Vtbl, 0x1637e0a7_829c_45bc_929b_a1e7ea78d89b);
 #[repr(C)]
 pub struct IStorageLibraryContentChangedTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IStorageLibraryContentChangedTriggerStatics, IStorageLibraryContentChangedTriggerStatics_Vtbl, 0x7f9f1b39_5f90_4e12_914e_a7d8e0bbfb18);
+windows_core::imp::define_interface!(IStorageLibraryContentChangedTriggerStatics, IStorageLibraryContentChangedTriggerStatics_Vtbl, 0x7f9f1b39_5f90_4e12_914e_a7d8e0bbfb18);
 #[repr(C)]
 pub struct IStorageLibraryContentChangedTriggerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1151,57 +1151,57 @@ pub struct IStorageLibraryContentChangedTriggerStatics_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
     CreateFromLibraries: usize,
 }
-windows_core::imp::com_interface!(ISystemCondition, ISystemCondition_Vtbl, 0xc15fb476_89c5_420b_abd3_fb3030472128);
+windows_core::imp::define_interface!(ISystemCondition, ISystemCondition_Vtbl, 0xc15fb476_89c5_420b_abd3_fb3030472128);
 #[repr(C)]
 pub struct ISystemCondition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ConditionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SystemConditionType) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISystemConditionFactory, ISystemConditionFactory_Vtbl, 0xd269d1f1_05a7_49ae_87d7_16b2b8b9a553);
+windows_core::imp::define_interface!(ISystemConditionFactory, ISystemConditionFactory_Vtbl, 0xd269d1f1_05a7_49ae_87d7_16b2b8b9a553);
 #[repr(C)]
 pub struct ISystemConditionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, SystemConditionType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISystemTrigger, ISystemTrigger_Vtbl, 0x1d80c776_3748_4463_8d7e_276dc139ac1c);
+windows_core::imp::define_interface!(ISystemTrigger, ISystemTrigger_Vtbl, 0x1d80c776_3748_4463_8d7e_276dc139ac1c);
 #[repr(C)]
 pub struct ISystemTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OneShot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub TriggerType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SystemTriggerType) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISystemTriggerFactory, ISystemTriggerFactory_Vtbl, 0xe80423d4_8791_4579_8126_87ec8aaa407a);
+windows_core::imp::define_interface!(ISystemTriggerFactory, ISystemTriggerFactory_Vtbl, 0xe80423d4_8791_4579_8126_87ec8aaa407a);
 #[repr(C)]
 pub struct ISystemTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, SystemTriggerType, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ITimeTrigger, ITimeTrigger_Vtbl, 0x656e5556_0b2a_4377_ba70_3b45a935547f);
+windows_core::imp::define_interface!(ITimeTrigger, ITimeTrigger_Vtbl, 0x656e5556_0b2a_4377_ba70_3b45a935547f);
 #[repr(C)]
 pub struct ITimeTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FreshnessTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub OneShot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ITimeTriggerFactory, ITimeTriggerFactory_Vtbl, 0x38c682fe_9b54_45e6_b2f3_269b87a6f734);
+windows_core::imp::define_interface!(ITimeTriggerFactory, ITimeTriggerFactory_Vtbl, 0x38c682fe_9b54_45e6_b2f3_269b87a6f734);
 #[repr(C)]
 pub struct ITimeTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastNotificationActionTriggerFactory, IToastNotificationActionTriggerFactory_Vtbl, 0xb09dfc27_6480_4349_8125_97b3efaa0a3a);
+windows_core::imp::define_interface!(IToastNotificationActionTriggerFactory, IToastNotificationActionTriggerFactory_Vtbl, 0xb09dfc27_6480_4349_8125_97b3efaa0a3a);
 #[repr(C)]
 pub struct IToastNotificationActionTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastNotificationHistoryChangedTriggerFactory, IToastNotificationHistoryChangedTriggerFactory_Vtbl, 0x81c6faad_8797_4785_81b4_b0cccb73d1d9);
+windows_core::imp::define_interface!(IToastNotificationHistoryChangedTriggerFactory, IToastNotificationHistoryChangedTriggerFactory_Vtbl, 0x81c6faad_8797_4785_81b4_b0cccb73d1d9);
 #[repr(C)]
 pub struct IToastNotificationHistoryChangedTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IUserNotificationChangedTriggerFactory, IUserNotificationChangedTriggerFactory_Vtbl, 0xcad4436c_69ab_4e18_a48a_5ed2ac435957);
+windows_core::imp::define_interface!(IUserNotificationChangedTriggerFactory, IUserNotificationChangedTriggerFactory_Vtbl, 0xcad4436c_69ab_4e18_a48a_5ed2ac435957);
 #[repr(C)]
 pub struct IUserNotificationChangedTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -4244,7 +4244,7 @@ impl core::fmt::Debug for SystemTriggerType {
 impl windows_core::RuntimeType for SystemTriggerType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.SystemTriggerType;i4)");
 }
-windows_core::imp::com_interface!(BackgroundTaskCanceledEventHandler, BackgroundTaskCanceledEventHandler_Vtbl, 0xa6c4bac0_51f8_4c57_ac3f_156dd1680c4f);
+windows_core::imp::define_interface!(BackgroundTaskCanceledEventHandler, BackgroundTaskCanceledEventHandler_Vtbl, 0xa6c4bac0_51f8_4c57_ac3f_156dd1680c4f);
 impl BackgroundTaskCanceledEventHandler {
     pub fn new<F: FnMut(Option<&IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = BackgroundTaskCanceledEventHandlerBox::<F> { vtable: &BackgroundTaskCanceledEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
@@ -4304,7 +4304,7 @@ pub struct BackgroundTaskCanceledEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, BackgroundTaskCancellationReason) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(BackgroundTaskCompletedEventHandler, BackgroundTaskCompletedEventHandler_Vtbl, 0x5b38e929_a086_46a7_a678_439135822bcf);
+windows_core::imp::define_interface!(BackgroundTaskCompletedEventHandler, BackgroundTaskCompletedEventHandler_Vtbl, 0x5b38e929_a086_46a7_a678_439135822bcf);
 impl BackgroundTaskCompletedEventHandler {
     pub fn new<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = BackgroundTaskCompletedEventHandlerBox::<F> { vtable: &BackgroundTaskCompletedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
@@ -4365,7 +4365,7 @@ pub struct BackgroundTaskCompletedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(BackgroundTaskProgressEventHandler, BackgroundTaskProgressEventHandler_Vtbl, 0x46e0683c_8a88_4c99_804c_76897f6277a6);
+windows_core::imp::define_interface!(BackgroundTaskProgressEventHandler, BackgroundTaskProgressEventHandler_Vtbl, 0x46e0683c_8a88_4c99_804c_76897f6277a6);
 impl BackgroundTaskProgressEventHandler {
     pub fn new<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = BackgroundTaskProgressEventHandlerBox::<F> { vtable: &BackgroundTaskProgressEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };

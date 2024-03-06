@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(ICompositionConditionalValue, ICompositionConditionalValue_Vtbl, 0x43250538_eb73_4561_a71d_1a43eaeb7a9b);
+windows_core::imp::define_interface!(ICompositionConditionalValue, ICompositionConditionalValue_Vtbl, 0x43250538_eb73_4561_a71d_1a43eaeb7a9b);
 #[repr(C)]
 pub struct ICompositionConditionalValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7,13 +7,13 @@ pub struct ICompositionConditionalValue_Vtbl {
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICompositionConditionalValueStatics, ICompositionConditionalValueStatics_Vtbl, 0x090c4b72_8467_4d0a_9065_ac46b80a5522);
+windows_core::imp::define_interface!(ICompositionConditionalValueStatics, ICompositionConditionalValueStatics_Vtbl, 0x090c4b72_8467_4d0a_9065_ac46b80a5522);
 #[repr(C)]
 pub struct ICompositionConditionalValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICompositionInteractionSource, ICompositionInteractionSource_Vtbl, 0x043b2431_06e3_495a_ba54_409f0017fac0);
+windows_core::imp::define_interface!(ICompositionInteractionSource, ICompositionInteractionSource_Vtbl, 0x043b2431_06e3_495a_ba54_409f0017fac0);
 windows_core::imp::interface_hierarchy!(ICompositionInteractionSource, windows_core::IUnknown, windows_core::IInspectable);
 impl ICompositionInteractionSource {}
 impl windows_core::RuntimeType for ICompositionInteractionSource {
@@ -23,7 +23,7 @@ impl windows_core::RuntimeType for ICompositionInteractionSource {
 pub struct ICompositionInteractionSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(ICompositionInteractionSourceCollection, ICompositionInteractionSourceCollection_Vtbl, 0x1b468e4b_a5bf_47d8_a547_3894155a158c);
+windows_core::imp::define_interface!(ICompositionInteractionSourceCollection, ICompositionInteractionSourceCollection_Vtbl, 0x1b468e4b_a5bf_47d8_a547_3894155a158c);
 #[repr(C)]
 pub struct ICompositionInteractionSourceCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -32,7 +32,7 @@ pub struct ICompositionInteractionSourceCollection_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionSourceConfiguration, IInteractionSourceConfiguration_Vtbl, 0xa78347e5_a9d1_4d02_985e_b930cd0b9da4);
+windows_core::imp::define_interface!(IInteractionSourceConfiguration, IInteractionSourceConfiguration_Vtbl, 0xa78347e5_a9d1_4d02_985e_b930cd0b9da4);
 #[repr(C)]
 pub struct IInteractionSourceConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -43,7 +43,7 @@ pub struct IInteractionSourceConfiguration_Vtbl {
     pub ScaleSourceMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InteractionSourceRedirectionMode) -> windows_core::HRESULT,
     pub SetScaleSourceMode: unsafe extern "system" fn(*mut core::ffi::c_void, InteractionSourceRedirectionMode) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTracker, IInteractionTracker_Vtbl, 0x2a8e8cb1_1000_4416_8363_cc27fb877308);
+windows_core::imp::define_interface!(IInteractionTracker, IInteractionTracker_Vtbl, 0x2a8e8cb1_1000_4416_8363_cc27fb877308);
 #[repr(C)]
 pub struct IInteractionTracker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -135,7 +135,7 @@ pub struct IInteractionTracker_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     TryUpdateScaleWithAdditionalVelocity: usize,
 }
-windows_core::imp::com_interface!(IInteractionTracker2, IInteractionTracker2_Vtbl, 0x25769a3e_ce6d_448c_8386_92620d240756);
+windows_core::imp::define_interface!(IInteractionTracker2, IInteractionTracker2_Vtbl, 0x25769a3e_ce6d_448c_8386_92620d240756);
 #[repr(C)]
 pub struct IInteractionTracker2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -148,7 +148,7 @@ pub struct IInteractionTracker2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ConfigureCenterPointYInertiaModifiers: usize,
 }
-windows_core::imp::com_interface!(IInteractionTracker3, IInteractionTracker3_Vtbl, 0xe6c5d7a2_5c4b_42c6_84b7_f69441b18091);
+windows_core::imp::define_interface!(IInteractionTracker3, IInteractionTracker3_Vtbl, 0xe6c5d7a2_5c4b_42c6_84b7_f69441b18091);
 #[repr(C)]
 pub struct IInteractionTracker3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -157,7 +157,7 @@ pub struct IInteractionTracker3_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ConfigureVector2PositionInertiaModifiers: usize,
 }
-windows_core::imp::com_interface!(IInteractionTracker4, IInteractionTracker4_Vtbl, 0xebd222bc_04af_4ac7_847d_06ea36e80a16);
+windows_core::imp::define_interface!(IInteractionTracker4, IInteractionTracker4_Vtbl, 0xebd222bc_04af_4ac7_847d_06ea36e80a16);
 #[repr(C)]
 pub struct IInteractionTracker4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -171,7 +171,7 @@ pub struct IInteractionTracker4_Vtbl {
     TryUpdatePositionByWithOption: usize,
     pub IsInertiaFromImpulse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTracker5, IInteractionTracker5_Vtbl, 0xd3ef5da2_a254_40e4_88d5_44e4e16b5809);
+windows_core::imp::define_interface!(IInteractionTracker5, IInteractionTracker5_Vtbl, 0xd3ef5da2_a254_40e4_88d5_44e4e16b5809);
 #[repr(C)]
 pub struct IInteractionTracker5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -180,41 +180,41 @@ pub struct IInteractionTracker5_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     TryUpdatePositionWithOption: usize,
 }
-windows_core::imp::com_interface!(IInteractionTrackerCustomAnimationStateEnteredArgs, IInteractionTrackerCustomAnimationStateEnteredArgs_Vtbl, 0x8d1c8cf1_d7b0_434c_a5d2_2d7611864834);
+windows_core::imp::define_interface!(IInteractionTrackerCustomAnimationStateEnteredArgs, IInteractionTrackerCustomAnimationStateEnteredArgs_Vtbl, 0x8d1c8cf1_d7b0_434c_a5d2_2d7611864834);
 #[repr(C)]
 pub struct IInteractionTrackerCustomAnimationStateEnteredArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerCustomAnimationStateEnteredArgs2, IInteractionTrackerCustomAnimationStateEnteredArgs2_Vtbl, 0x47d579b7_0985_5e99_b024_2f32c380c1a4);
+windows_core::imp::define_interface!(IInteractionTrackerCustomAnimationStateEnteredArgs2, IInteractionTrackerCustomAnimationStateEnteredArgs2_Vtbl, 0x47d579b7_0985_5e99_b024_2f32c380c1a4);
 #[repr(C)]
 pub struct IInteractionTrackerCustomAnimationStateEnteredArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsFromBinding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerIdleStateEnteredArgs, IInteractionTrackerIdleStateEnteredArgs_Vtbl, 0x50012faa_1510_4142_a1a5_019b09f8857b);
+windows_core::imp::define_interface!(IInteractionTrackerIdleStateEnteredArgs, IInteractionTrackerIdleStateEnteredArgs_Vtbl, 0x50012faa_1510_4142_a1a5_019b09f8857b);
 #[repr(C)]
 pub struct IInteractionTrackerIdleStateEnteredArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerIdleStateEnteredArgs2, IInteractionTrackerIdleStateEnteredArgs2_Vtbl, 0xf2e771ed_b803_5137_9435_1c96e48721e9);
+windows_core::imp::define_interface!(IInteractionTrackerIdleStateEnteredArgs2, IInteractionTrackerIdleStateEnteredArgs2_Vtbl, 0xf2e771ed_b803_5137_9435_1c96e48721e9);
 #[repr(C)]
 pub struct IInteractionTrackerIdleStateEnteredArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsFromBinding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerInertiaModifier, IInteractionTrackerInertiaModifier_Vtbl, 0xa0e2c920_26b4_4da2_8b61_5e683979bbe2);
+windows_core::imp::define_interface!(IInteractionTrackerInertiaModifier, IInteractionTrackerInertiaModifier_Vtbl, 0xa0e2c920_26b4_4da2_8b61_5e683979bbe2);
 #[repr(C)]
 pub struct IInteractionTrackerInertiaModifier_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IInteractionTrackerInertiaModifierFactory, IInteractionTrackerInertiaModifierFactory_Vtbl, 0x993818fe_c94e_4b86_87f3_922665ba46b9);
+windows_core::imp::define_interface!(IInteractionTrackerInertiaModifierFactory, IInteractionTrackerInertiaModifierFactory_Vtbl, 0x993818fe_c94e_4b86_87f3_922665ba46b9);
 #[repr(C)]
 pub struct IInteractionTrackerInertiaModifierFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IInteractionTrackerInertiaMotion, IInteractionTrackerInertiaMotion_Vtbl, 0x04922fdc_f154_4cb8_bf33_cc1ba611e6db);
+windows_core::imp::define_interface!(IInteractionTrackerInertiaMotion, IInteractionTrackerInertiaMotion_Vtbl, 0x04922fdc_f154_4cb8_bf33_cc1ba611e6db);
 #[repr(C)]
 pub struct IInteractionTrackerInertiaMotion_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -223,13 +223,13 @@ pub struct IInteractionTrackerInertiaMotion_Vtbl {
     pub Motion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetMotion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerInertiaMotionStatics, IInteractionTrackerInertiaMotionStatics_Vtbl, 0x8cc83dd6_ba7b_431a_844b_6eac9130f99a);
+windows_core::imp::define_interface!(IInteractionTrackerInertiaMotionStatics, IInteractionTrackerInertiaMotionStatics_Vtbl, 0x8cc83dd6_ba7b_431a_844b_6eac9130f99a);
 #[repr(C)]
 pub struct IInteractionTrackerInertiaMotionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerInertiaNaturalMotion, IInteractionTrackerInertiaNaturalMotion_Vtbl, 0x70acdaae_27dc_48ed_a3c3_6d61c9a029d2);
+windows_core::imp::define_interface!(IInteractionTrackerInertiaNaturalMotion, IInteractionTrackerInertiaNaturalMotion_Vtbl, 0x70acdaae_27dc_48ed_a3c3_6d61c9a029d2);
 #[repr(C)]
 pub struct IInteractionTrackerInertiaNaturalMotion_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -238,13 +238,13 @@ pub struct IInteractionTrackerInertiaNaturalMotion_Vtbl {
     pub NaturalMotion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetNaturalMotion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerInertiaNaturalMotionStatics, IInteractionTrackerInertiaNaturalMotionStatics_Vtbl, 0xcfda55b0_5e3e_4289_932d_ee5f50e74283);
+windows_core::imp::define_interface!(IInteractionTrackerInertiaNaturalMotionStatics, IInteractionTrackerInertiaNaturalMotionStatics_Vtbl, 0xcfda55b0_5e3e_4289_932d_ee5f50e74283);
 #[repr(C)]
 pub struct IInteractionTrackerInertiaNaturalMotionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerInertiaRestingValue, IInteractionTrackerInertiaRestingValue_Vtbl, 0x86f7ec09_5096_4170_9cc8_df2fe101bb93);
+windows_core::imp::define_interface!(IInteractionTrackerInertiaRestingValue, IInteractionTrackerInertiaRestingValue_Vtbl, 0x86f7ec09_5096_4170_9cc8_df2fe101bb93);
 #[repr(C)]
 pub struct IInteractionTrackerInertiaRestingValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -253,13 +253,13 @@ pub struct IInteractionTrackerInertiaRestingValue_Vtbl {
     pub RestingValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetRestingValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerInertiaRestingValueStatics, IInteractionTrackerInertiaRestingValueStatics_Vtbl, 0x18ed4699_0745_4096_bcab_3a4e99569bcf);
+windows_core::imp::define_interface!(IInteractionTrackerInertiaRestingValueStatics, IInteractionTrackerInertiaRestingValueStatics_Vtbl, 0x18ed4699_0745_4096_bcab_3a4e99569bcf);
 #[repr(C)]
 pub struct IInteractionTrackerInertiaRestingValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerInertiaStateEnteredArgs, IInteractionTrackerInertiaStateEnteredArgs_Vtbl, 0x87108cf2_e7ff_4f7d_9ffd_d72f1e409b63);
+windows_core::imp::define_interface!(IInteractionTrackerInertiaStateEnteredArgs, IInteractionTrackerInertiaStateEnteredArgs_Vtbl, 0x87108cf2_e7ff_4f7d_9ffd_d72f1e409b63);
 #[repr(C)]
 pub struct IInteractionTrackerInertiaStateEnteredArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -280,31 +280,31 @@ pub struct IInteractionTrackerInertiaStateEnteredArgs_Vtbl {
     pub RequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub ScaleVelocityInPercentPerSecond: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerInertiaStateEnteredArgs2, IInteractionTrackerInertiaStateEnteredArgs2_Vtbl, 0xb1eb32f6_c26c_41f6_a189_fabc22b323cc);
+windows_core::imp::define_interface!(IInteractionTrackerInertiaStateEnteredArgs2, IInteractionTrackerInertiaStateEnteredArgs2_Vtbl, 0xb1eb32f6_c26c_41f6_a189_fabc22b323cc);
 #[repr(C)]
 pub struct IInteractionTrackerInertiaStateEnteredArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsInertiaFromImpulse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerInertiaStateEnteredArgs3, IInteractionTrackerInertiaStateEnteredArgs3_Vtbl, 0x48ac1c2f_47bd_59af_a58c_79bd2eb9ef71);
+windows_core::imp::define_interface!(IInteractionTrackerInertiaStateEnteredArgs3, IInteractionTrackerInertiaStateEnteredArgs3_Vtbl, 0x48ac1c2f_47bd_59af_a58c_79bd2eb9ef71);
 #[repr(C)]
 pub struct IInteractionTrackerInertiaStateEnteredArgs3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsFromBinding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerInteractingStateEnteredArgs, IInteractionTrackerInteractingStateEnteredArgs_Vtbl, 0xa7263939_a17b_4011_99fd_b5c24f143748);
+windows_core::imp::define_interface!(IInteractionTrackerInteractingStateEnteredArgs, IInteractionTrackerInteractingStateEnteredArgs_Vtbl, 0xa7263939_a17b_4011_99fd_b5c24f143748);
 #[repr(C)]
 pub struct IInteractionTrackerInteractingStateEnteredArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerInteractingStateEnteredArgs2, IInteractionTrackerInteractingStateEnteredArgs2_Vtbl, 0x509652d6_d488_59cd_819f_f52310295b11);
+windows_core::imp::define_interface!(IInteractionTrackerInteractingStateEnteredArgs2, IInteractionTrackerInteractingStateEnteredArgs2_Vtbl, 0x509652d6_d488_59cd_819f_f52310295b11);
 #[repr(C)]
 pub struct IInteractionTrackerInteractingStateEnteredArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsFromBinding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerOwner, IInteractionTrackerOwner_Vtbl, 0xdb2e8af3_4deb_4e53_b29c_b06c9f96d651);
+windows_core::imp::define_interface!(IInteractionTrackerOwner, IInteractionTrackerOwner_Vtbl, 0xdb2e8af3_4deb_4e53_b29c_b06c9f96d651);
 windows_core::imp::interface_hierarchy!(IInteractionTrackerOwner, windows_core::IUnknown, windows_core::IInspectable);
 impl IInteractionTrackerOwner {
     pub fn CustomAnimationStateEntered<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
@@ -369,27 +369,27 @@ pub struct IInteractionTrackerOwner_Vtbl {
     pub RequestIgnored: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ValuesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerRequestIgnoredArgs, IInteractionTrackerRequestIgnoredArgs_Vtbl, 0x80dd82f1_ce25_488f_91dd_cb6455ccff2e);
+windows_core::imp::define_interface!(IInteractionTrackerRequestIgnoredArgs, IInteractionTrackerRequestIgnoredArgs_Vtbl, 0x80dd82f1_ce25_488f_91dd_cb6455ccff2e);
 #[repr(C)]
 pub struct IInteractionTrackerRequestIgnoredArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerStatics, IInteractionTrackerStatics_Vtbl, 0xbba5d7b7_6590_4498_8d6c_eb62b514c92a);
+windows_core::imp::define_interface!(IInteractionTrackerStatics, IInteractionTrackerStatics_Vtbl, 0xbba5d7b7_6590_4498_8d6c_eb62b514c92a);
 #[repr(C)]
 pub struct IInteractionTrackerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateWithOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerStatics2, IInteractionTrackerStatics2_Vtbl, 0x35e53720_46b7_5cb0_b505_f3d6884a6163);
+windows_core::imp::define_interface!(IInteractionTrackerStatics2, IInteractionTrackerStatics2_Vtbl, 0x35e53720_46b7_5cb0_b505_f3d6884a6163);
 #[repr(C)]
 pub struct IInteractionTrackerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetBindingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, InteractionBindingAxisModes) -> windows_core::HRESULT,
     pub GetBindingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut InteractionBindingAxisModes) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerValuesChangedArgs, IInteractionTrackerValuesChangedArgs_Vtbl, 0xcf1578ef_d3df_4501_b9e6_f02fb22f73d0);
+windows_core::imp::define_interface!(IInteractionTrackerValuesChangedArgs, IInteractionTrackerValuesChangedArgs_Vtbl, 0xcf1578ef_d3df_4501_b9e6_f02fb22f73d0);
 #[repr(C)]
 pub struct IInteractionTrackerValuesChangedArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -400,17 +400,17 @@ pub struct IInteractionTrackerValuesChangedArgs_Vtbl {
     pub RequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Scale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerVector2InertiaModifier, IInteractionTrackerVector2InertiaModifier_Vtbl, 0x87e08ab0_3086_4853_a4b7_77882ad5d7e3);
+windows_core::imp::define_interface!(IInteractionTrackerVector2InertiaModifier, IInteractionTrackerVector2InertiaModifier_Vtbl, 0x87e08ab0_3086_4853_a4b7_77882ad5d7e3);
 #[repr(C)]
 pub struct IInteractionTrackerVector2InertiaModifier_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IInteractionTrackerVector2InertiaModifierFactory, IInteractionTrackerVector2InertiaModifierFactory_Vtbl, 0x7401d6c4_6c6d_48df_bc3e_171e227e7d7f);
+windows_core::imp::define_interface!(IInteractionTrackerVector2InertiaModifierFactory, IInteractionTrackerVector2InertiaModifierFactory_Vtbl, 0x7401d6c4_6c6d_48df_bc3e_171e227e7d7f);
 #[repr(C)]
 pub struct IInteractionTrackerVector2InertiaModifierFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IInteractionTrackerVector2InertiaNaturalMotion, IInteractionTrackerVector2InertiaNaturalMotion_Vtbl, 0x5f17695c_162d_4c07_9400_c282b28276ca);
+windows_core::imp::define_interface!(IInteractionTrackerVector2InertiaNaturalMotion, IInteractionTrackerVector2InertiaNaturalMotion_Vtbl, 0x5f17695c_162d_4c07_9400_c282b28276ca);
 #[repr(C)]
 pub struct IInteractionTrackerVector2InertiaNaturalMotion_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -419,13 +419,13 @@ pub struct IInteractionTrackerVector2InertiaNaturalMotion_Vtbl {
     pub NaturalMotion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetNaturalMotion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInteractionTrackerVector2InertiaNaturalMotionStatics, IInteractionTrackerVector2InertiaNaturalMotionStatics_Vtbl, 0x82001a48_09c0_434f_8189_141c66df362f);
+windows_core::imp::define_interface!(IInteractionTrackerVector2InertiaNaturalMotionStatics, IInteractionTrackerVector2InertiaNaturalMotionStatics_Vtbl, 0x82001a48_09c0_434f_8189_141c66df362f);
 #[repr(C)]
 pub struct IInteractionTrackerVector2InertiaNaturalMotionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IVisualInteractionSource, IVisualInteractionSource_Vtbl, 0xca0e8a86_d8d6_4111_b088_70347bd2b0ed);
+windows_core::imp::define_interface!(IVisualInteractionSource, IVisualInteractionSource_Vtbl, 0xca0e8a86_d8d6_4111_b088_70347bd2b0ed);
 #[repr(C)]
 pub struct IVisualInteractionSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -453,7 +453,7 @@ pub struct IVisualInteractionSource_Vtbl {
     #[cfg(not(feature = "UI_Input"))]
     TryRedirectForManipulation: usize,
 }
-windows_core::imp::com_interface!(IVisualInteractionSource2, IVisualInteractionSource2_Vtbl, 0xaa914893_a73c_414d_80d0_249bad2fbd93);
+windows_core::imp::define_interface!(IVisualInteractionSource2, IVisualInteractionSource2_Vtbl, 0xaa914893_a73c_414d_80d0_249bad2fbd93);
 #[repr(C)]
 pub struct IVisualInteractionSource2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -493,24 +493,24 @@ pub struct IVisualInteractionSource2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ConfigureDeltaScaleModifiers: usize,
 }
-windows_core::imp::com_interface!(IVisualInteractionSource3, IVisualInteractionSource3_Vtbl, 0xd941ef2a_0d5c_4057_92d7_c9711533204f);
+windows_core::imp::define_interface!(IVisualInteractionSource3, IVisualInteractionSource3_Vtbl, 0xd941ef2a_0d5c_4057_92d7_c9711533204f);
 #[repr(C)]
 pub struct IVisualInteractionSource3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PointerWheelConfig: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IVisualInteractionSourceObjectFactory, IVisualInteractionSourceObjectFactory_Vtbl, 0xb2ca917c_e98a_41f2_b3c9_891c9266c8f6);
+windows_core::imp::define_interface!(IVisualInteractionSourceObjectFactory, IVisualInteractionSourceObjectFactory_Vtbl, 0xb2ca917c_e98a_41f2_b3c9_891c9266c8f6);
 #[repr(C)]
 pub struct IVisualInteractionSourceObjectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IVisualInteractionSourceStatics, IVisualInteractionSourceStatics_Vtbl, 0x369965e1_8645_4f75_ba00_6479cd10c8e6);
+windows_core::imp::define_interface!(IVisualInteractionSourceStatics, IVisualInteractionSourceStatics_Vtbl, 0x369965e1_8645_4f75_ba00_6479cd10c8e6);
 #[repr(C)]
 pub struct IVisualInteractionSourceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IVisualInteractionSourceStatics2, IVisualInteractionSourceStatics2_Vtbl, 0xa979c032_5764_55e0_bc1f_0778786dcfde);
+windows_core::imp::define_interface!(IVisualInteractionSourceStatics2, IVisualInteractionSourceStatics2_Vtbl, 0xa979c032_5764_55e0_bc1f_0778786dcfde);
 #[repr(C)]
 pub struct IVisualInteractionSourceStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

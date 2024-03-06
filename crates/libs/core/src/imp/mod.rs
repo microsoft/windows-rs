@@ -72,9 +72,17 @@ pub use required_hierarchy;
 
 #[doc(hidden)]
 #[macro_export]
-macro_rules! interface {
-    ($(#[$doc:meta])? $name:ident, $vtbl:ident) => {
-        $(#[$doc])?
+macro_rules! define_interface {
+    ($name:ident, $vtbl:ident, $iid:literal) => {
+        #[repr(transparent)]
+        #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+        pub struct $name(::windows_core::IUnknown);
+        unsafe impl ::windows_core::Interface for $name {
+            type Vtable = $vtbl;
+            const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128($iid);
+        }
+    };
+    ($name:ident, $vtbl:ident) => {
         #[repr(transparent)]
         #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
         pub struct $name(::std::ptr::NonNull<::std::ffi::c_void>);
@@ -87,22 +95,4 @@ macro_rules! interface {
 }
 
 #[doc(hidden)]
-pub use interface;
-
-#[doc(hidden)]
-#[macro_export]
-macro_rules! com_interface {
-    ($(#[$doc:meta])? $name:ident, $vtbl:ident, $iid:literal) => {
-        $(#[$doc])?
-        #[repr(transparent)]
-        #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-        pub struct $name(::windows_core::IUnknown);
-        unsafe impl ::windows_core::Interface for $name {
-            type Vtable = $vtbl;
-            const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128($iid);
-        }
-    };
-}
-
-#[doc(hidden)]
-pub use com_interface;
+pub use define_interface;

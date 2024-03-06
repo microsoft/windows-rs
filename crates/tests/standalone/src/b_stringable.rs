@@ -5,7 +5,7 @@
     dead_code,
     clippy::all
 )]
-windows_core::imp::com_interface!(
+windows_core::imp::define_interface!(
     IStringable,
     IStringable_Vtbl,
     0x96369f54_8eb6_48f0_abce_c1b211e627c3

@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IDirectMusic, IDirectMusic_Vtbl, 0x6536115a_7b2d_11d2_ba18_0000f875ac12);
+windows_core::imp::define_interface!(IDirectMusic, IDirectMusic_Vtbl, 0x6536115a_7b2d_11d2_ba18_0000f875ac12);
 windows_core::imp::interface_hierarchy!(IDirectMusic, windows_core::IUnknown);
 impl IDirectMusic {
     pub unsafe fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> windows_core::Result<()> {
@@ -59,7 +59,7 @@ pub struct IDirectMusic_Vtbl {
     #[cfg(not(feature = "Win32_Media_Audio_DirectSound"))]
     SetDirectSound: usize,
 }
-windows_core::imp::com_interface!(IDirectMusic8, IDirectMusic8_Vtbl, 0x2d3629f7_813d_4939_8508_f05c6b75fd97);
+windows_core::imp::define_interface!(IDirectMusic8, IDirectMusic8_Vtbl, 0x2d3629f7_813d_4939_8508_f05c6b75fd97);
 windows_core::imp::interface_hierarchy!(IDirectMusic8, windows_core::IUnknown, IDirectMusic);
 impl IDirectMusic8 {
     pub unsafe fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> windows_core::Result<()> {
@@ -115,7 +115,7 @@ pub struct IDirectMusic8_Vtbl {
     pub base__: IDirectMusic_Vtbl,
     pub SetExternalMasterClock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDirectMusicBuffer, IDirectMusicBuffer_Vtbl, 0xd2ac2878_b39b_11d1_8704_00600893b1bd);
+windows_core::imp::define_interface!(IDirectMusicBuffer, IDirectMusicBuffer_Vtbl, 0xd2ac2878_b39b_11d1_8704_00600893b1bd);
 windows_core::imp::interface_hierarchy!(IDirectMusicBuffer, windows_core::IUnknown);
 impl IDirectMusicBuffer {
     pub unsafe fn Flush(&self) -> windows_core::Result<()> {
@@ -175,7 +175,7 @@ pub struct IDirectMusicBuffer_Vtbl {
     pub SetStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub SetUsedBytes: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDirectMusicCollection, IDirectMusicCollection_Vtbl, 0xd2ac287c_b39b_11d1_8704_00600893b1bd);
+windows_core::imp::define_interface!(IDirectMusicCollection, IDirectMusicCollection_Vtbl, 0xd2ac287c_b39b_11d1_8704_00600893b1bd);
 windows_core::imp::interface_hierarchy!(IDirectMusicCollection, windows_core::IUnknown);
 impl IDirectMusicCollection {
     pub unsafe fn GetInstrument(&self, dwpatch: u32) -> windows_core::Result<IDirectMusicInstrument> {
@@ -195,7 +195,7 @@ pub struct IDirectMusicCollection_Vtbl {
     pub GetInstrument: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumInstrument: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDirectMusicDownload, IDirectMusicDownload_Vtbl, 0xd2ac287b_b39b_11d1_8704_00600893b1bd);
+windows_core::imp::define_interface!(IDirectMusicDownload, IDirectMusicDownload_Vtbl, 0xd2ac287b_b39b_11d1_8704_00600893b1bd);
 windows_core::imp::interface_hierarchy!(IDirectMusicDownload, windows_core::IUnknown);
 impl IDirectMusicDownload {
     pub unsafe fn GetBuffer(&self, ppvbuffer: *mut *mut core::ffi::c_void, pdwsize: *mut u32) -> windows_core::Result<()> {
@@ -207,14 +207,14 @@ pub struct IDirectMusicDownload_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDirectMusicDownloadedInstrument, IDirectMusicDownloadedInstrument_Vtbl, 0xd2ac287e_b39b_11d1_8704_00600893b1bd);
+windows_core::imp::define_interface!(IDirectMusicDownloadedInstrument, IDirectMusicDownloadedInstrument_Vtbl, 0xd2ac287e_b39b_11d1_8704_00600893b1bd);
 windows_core::imp::interface_hierarchy!(IDirectMusicDownloadedInstrument, windows_core::IUnknown);
 impl IDirectMusicDownloadedInstrument {}
 #[repr(C)]
 pub struct IDirectMusicDownloadedInstrument_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
-windows_core::imp::com_interface!(IDirectMusicInstrument, IDirectMusicInstrument_Vtbl, 0xd2ac287d_b39b_11d1_8704_00600893b1bd);
+windows_core::imp::define_interface!(IDirectMusicInstrument, IDirectMusicInstrument_Vtbl, 0xd2ac287d_b39b_11d1_8704_00600893b1bd);
 windows_core::imp::interface_hierarchy!(IDirectMusicInstrument, windows_core::IUnknown);
 impl IDirectMusicInstrument {
     pub unsafe fn GetPatch(&self, pdwpatch: *mut u32) -> windows_core::Result<()> {
@@ -230,7 +230,7 @@ pub struct IDirectMusicInstrument_Vtbl {
     pub GetPatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetPatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDirectMusicPort, IDirectMusicPort_Vtbl, 0x08f2d8c9_37c2_11d2_b9f9_0000f875ac12);
+windows_core::imp::define_interface!(IDirectMusicPort, IDirectMusicPort_Vtbl, 0x08f2d8c9_37c2_11d2_b9f9_0000f875ac12);
 windows_core::imp::interface_hierarchy!(IDirectMusicPort, windows_core::IUnknown);
 impl IDirectMusicPort {
     pub unsafe fn PlayBuffer<P0>(&self, pbuffer: P0) -> windows_core::Result<()>
@@ -337,7 +337,7 @@ pub struct IDirectMusicPort_Vtbl {
     SetDirectSound: usize,
     pub GetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::WAVEFORMATEX, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDirectMusicPortDownload, IDirectMusicPortDownload_Vtbl, 0xd2ac287a_b39b_11d1_8704_00600893b1bd);
+windows_core::imp::define_interface!(IDirectMusicPortDownload, IDirectMusicPortDownload_Vtbl, 0xd2ac287a_b39b_11d1_8704_00600893b1bd);
 windows_core::imp::interface_hierarchy!(IDirectMusicPortDownload, windows_core::IUnknown);
 impl IDirectMusicPortDownload {
     pub unsafe fn GetBuffer(&self, dwdlid: u32) -> windows_core::Result<IDirectMusicDownload> {
@@ -377,7 +377,7 @@ pub struct IDirectMusicPortDownload_Vtbl {
     pub Download: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Unload: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDirectMusicSynth, IDirectMusicSynth_Vtbl, 0x09823661_5c85_11d2_afa6_00aa0024d8b6);
+windows_core::imp::define_interface!(IDirectMusicSynth, IDirectMusicSynth_Vtbl, 0x09823661_5c85_11d2_afa6_00aa0024d8b6);
 windows_core::imp::interface_hierarchy!(IDirectMusicSynth, windows_core::IUnknown);
 impl IDirectMusicSynth {
     pub unsafe fn Open(&self, pportparams: *mut DMUS_PORTPARAMS8) -> windows_core::Result<()> {
@@ -467,7 +467,7 @@ pub struct IDirectMusicSynth_Vtbl {
     pub GetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::WAVEFORMATEX, *mut u32) -> windows_core::HRESULT,
     pub GetAppend: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDirectMusicSynth8, IDirectMusicSynth8_Vtbl, 0x53cab625_2711_4c9f_9de7_1b7f925f6fc8);
+windows_core::imp::define_interface!(IDirectMusicSynth8, IDirectMusicSynth8_Vtbl, 0x53cab625_2711_4c9f_9de7_1b7f925f6fc8);
 windows_core::imp::interface_hierarchy!(IDirectMusicSynth8, windows_core::IUnknown, IDirectMusicSynth);
 impl IDirectMusicSynth8 {
     pub unsafe fn Open(&self, pportparams: *mut DMUS_PORTPARAMS8) -> windows_core::Result<()> {
@@ -560,7 +560,7 @@ pub struct IDirectMusicSynth8_Vtbl {
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub AssignChannelToBuses: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDirectMusicSynthSink, IDirectMusicSynthSink_Vtbl, 0x09823663_5c85_11d2_afa6_00aa0024d8b6);
+windows_core::imp::define_interface!(IDirectMusicSynthSink, IDirectMusicSynthSink_Vtbl, 0x09823663_5c85_11d2_afa6_00aa0024d8b6);
 windows_core::imp::interface_hierarchy!(IDirectMusicSynthSink, windows_core::IUnknown);
 impl IDirectMusicSynthSink {
     pub unsafe fn Init<P0>(&self, psynth: P0) -> windows_core::Result<()>
@@ -618,7 +618,7 @@ pub struct IDirectMusicSynthSink_Vtbl {
     SetDirectSound: usize,
     pub GetDesiredBufferSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDirectMusicThru, IDirectMusicThru_Vtbl, 0xced153e7_3606_11d2_b9f9_0000f875ac12);
+windows_core::imp::define_interface!(IDirectMusicThru, IDirectMusicThru_Vtbl, 0xced153e7_3606_11d2_b9f9_0000f875ac12);
 windows_core::imp::interface_hierarchy!(IDirectMusicThru, windows_core::IUnknown);
 impl IDirectMusicThru {
     pub unsafe fn ThruChannel<P0>(&self, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: P0) -> windows_core::Result<()>

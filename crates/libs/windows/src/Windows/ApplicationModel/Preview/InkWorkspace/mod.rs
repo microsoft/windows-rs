@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IInkWorkspaceHostedAppManager, IInkWorkspaceHostedAppManager_Vtbl, 0xfe0a7990_5e59_4bb7_8a63_7d218cd96300);
+windows_core::imp::define_interface!(IInkWorkspaceHostedAppManager, IInkWorkspaceHostedAppManager_Vtbl, 0xfe0a7990_5e59_4bb7_8a63_7d218cd96300);
 #[repr(C)]
 pub struct IInkWorkspaceHostedAppManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7,7 +7,7 @@ pub struct IInkWorkspaceHostedAppManager_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     SetThumbnailAsync: usize,
 }
-windows_core::imp::com_interface!(IInkWorkspaceHostedAppManagerStatics, IInkWorkspaceHostedAppManagerStatics_Vtbl, 0xcbfd8cc5_a162_4bc4_84ee_e8716d5233c5);
+windows_core::imp::define_interface!(IInkWorkspaceHostedAppManagerStatics, IInkWorkspaceHostedAppManagerStatics_Vtbl, 0xcbfd8cc5_a162_4bc4_84ee_e8716d5233c5);
 #[repr(C)]
 pub struct IInkWorkspaceHostedAppManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

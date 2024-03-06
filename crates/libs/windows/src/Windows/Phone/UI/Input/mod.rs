@@ -1,23 +1,23 @@
-windows_core::imp::com_interface!(IBackPressedEventArgs, IBackPressedEventArgs_Vtbl, 0xf6f555ff_64ec_42a2_b93b_2fbc0c36a121);
+windows_core::imp::define_interface!(IBackPressedEventArgs, IBackPressedEventArgs_Vtbl, 0xf6f555ff_64ec_42a2_b93b_2fbc0c36a121);
 #[repr(C)]
 pub struct IBackPressedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICameraEventArgs, ICameraEventArgs_Vtbl, 0xb4063bda_201f_473d_bc69_e9e4ac57c9d0);
+windows_core::imp::define_interface!(ICameraEventArgs, ICameraEventArgs_Vtbl, 0xb4063bda_201f_473d_bc69_e9e4ac57c9d0);
 #[repr(C)]
 pub struct ICameraEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IHardwareButtonsStatics, IHardwareButtonsStatics_Vtbl, 0x594b8780_da66_4fd8_a776_7506bd0cbfa7);
+windows_core::imp::define_interface!(IHardwareButtonsStatics, IHardwareButtonsStatics_Vtbl, 0x594b8780_da66_4fd8_a776_7506bd0cbfa7);
 #[repr(C)]
 pub struct IHardwareButtonsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BackPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveBackPressed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IHardwareButtonsStatics2, IHardwareButtonsStatics2_Vtbl, 0x39c6c274_993f_40dd_854c_831a8934b92e);
+windows_core::imp::define_interface!(IHardwareButtonsStatics2, IHardwareButtonsStatics2_Vtbl, 0x39c6c274_993f_40dd_854c_831a8934b92e);
 #[repr(C)]
 pub struct IHardwareButtonsStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

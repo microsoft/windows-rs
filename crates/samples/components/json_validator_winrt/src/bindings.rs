@@ -7,7 +7,7 @@
     dead_code,
     clippy::all
 )]
-windows_core::imp::com_interface!(
+windows_core::imp::define_interface!(
     IJsonValidator,
     IJsonValidator_Vtbl,
     0xe09cb12b_b13c_5139_8c99_6140bf80deb9
@@ -21,7 +21,7 @@ pub struct IJsonValidator_Vtbl {
         *mut std::mem::MaybeUninit<windows_core::HSTRING>,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(
+windows_core::imp::define_interface!(
     IJsonValidatorFactory,
     IJsonValidatorFactory_Vtbl,
     0x1cf4464e_ae9e_55d5_9539_0af4d8fc35aa

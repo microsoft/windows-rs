@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IWPCGamesSettings, IWPCGamesSettings_Vtbl, 0x95e87780_e158_489e_b452_bbb850790715);
+windows_core::imp::define_interface!(IWPCGamesSettings, IWPCGamesSettings_Vtbl, 0x95e87780_e158_489e_b452_bbb850790715);
 windows_core::imp::interface_hierarchy!(IWPCGamesSettings, windows_core::IUnknown, IWPCSettings);
 impl IWPCGamesSettings {
     pub unsafe fn IsLoggingRequired(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -23,7 +23,7 @@ pub struct IWPCGamesSettings_Vtbl {
     pub base__: IWPCSettings_Vtbl,
     pub IsBlocked: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWPCProviderConfig, IWPCProviderConfig_Vtbl, 0xbef54196_2d02_4a26_b6e5_d65af295d0f1);
+windows_core::imp::define_interface!(IWPCProviderConfig, IWPCProviderConfig_Vtbl, 0xbef54196_2d02_4a26_b6e5_d65af295d0f1);
 windows_core::imp::interface_hierarchy!(IWPCProviderConfig, windows_core::IUnknown);
 impl IWPCProviderConfig {
     pub unsafe fn GetUserSummary<P0>(&self, bstrsid: P0) -> windows_core::Result<windows_core::BSTR>
@@ -55,7 +55,7 @@ pub struct IWPCProviderConfig_Vtbl {
     pub Configure: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub RequestOverride: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, std::mem::MaybeUninit<windows_core::BSTR>, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWPCProviderState, IWPCProviderState_Vtbl, 0x50b6a267_c4bd_450b_adb5_759073837c9e);
+windows_core::imp::define_interface!(IWPCProviderState, IWPCProviderState_Vtbl, 0x50b6a267_c4bd_450b_adb5_759073837c9e);
 windows_core::imp::interface_hierarchy!(IWPCProviderState, windows_core::IUnknown);
 impl IWPCProviderState {
     pub unsafe fn Enable(&self) -> windows_core::Result<()> {
@@ -71,7 +71,7 @@ pub struct IWPCProviderState_Vtbl {
     pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Disable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWPCProviderSupport, IWPCProviderSupport_Vtbl, 0x41eba572_23ed_4779_bec1_8df96206c44c);
+windows_core::imp::define_interface!(IWPCProviderSupport, IWPCProviderSupport_Vtbl, 0x41eba572_23ed_4779_bec1_8df96206c44c);
 windows_core::imp::interface_hierarchy!(IWPCProviderSupport, windows_core::IUnknown);
 impl IWPCProviderSupport {
     pub unsafe fn GetCurrent(&self) -> windows_core::Result<windows_core::GUID> {
@@ -84,7 +84,7 @@ pub struct IWPCProviderSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWPCSettings, IWPCSettings_Vtbl, 0x8fdf6ca1_0189_47e4_b670_1a8a4636e340);
+windows_core::imp::define_interface!(IWPCSettings, IWPCSettings_Vtbl, 0x8fdf6ca1_0189_47e4_b670_1a8a4636e340);
 windows_core::imp::interface_hierarchy!(IWPCSettings, windows_core::IUnknown);
 impl IWPCSettings {
     pub unsafe fn IsLoggingRequired(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -107,7 +107,7 @@ pub struct IWPCSettings_Vtbl {
     pub GetLastSettingsChangeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT,
     pub GetRestrictions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WPCFLAG_RESTRICTION) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWPCWebSettings, IWPCWebSettings_Vtbl, 0xffccbdb8_0992_4c30_b0f1_1cbb09c240aa);
+windows_core::imp::define_interface!(IWPCWebSettings, IWPCWebSettings_Vtbl, 0xffccbdb8_0992_4c30_b0f1_1cbb09c240aa);
 windows_core::imp::interface_hierarchy!(IWPCWebSettings, windows_core::IUnknown, IWPCSettings);
 impl IWPCWebSettings {
     pub unsafe fn IsLoggingRequired(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -141,7 +141,7 @@ pub struct IWPCWebSettings_Vtbl {
     pub GetSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WPCFLAG_WEB_SETTING) -> windows_core::HRESULT,
     pub RequestURLOverride: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::PCWSTR, u32, *const windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWindowsParentalControls, IWindowsParentalControls_Vtbl, 0x28b4d88b_e072_49e6_804d_26edbe21a7b9);
+windows_core::imp::define_interface!(IWindowsParentalControls, IWindowsParentalControls_Vtbl, 0x28b4d88b_e072_49e6_804d_26edbe21a7b9);
 windows_core::imp::interface_hierarchy!(IWindowsParentalControls, windows_core::IUnknown, IWindowsParentalControlsCore);
 impl IWindowsParentalControls {
     pub unsafe fn GetVisibility(&self) -> windows_core::Result<WPCFLAG_VISIBILITY> {
@@ -178,7 +178,7 @@ pub struct IWindowsParentalControls_Vtbl {
     pub base__: IWindowsParentalControlsCore_Vtbl,
     pub GetGamesSettings: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWindowsParentalControlsCore, IWindowsParentalControlsCore_Vtbl, 0x4ff40a0f_3f3b_4d7c_a41b_4f39d7b44d05);
+windows_core::imp::define_interface!(IWindowsParentalControlsCore, IWindowsParentalControlsCore_Vtbl, 0x4ff40a0f_3f3b_4d7c_a41b_4f39d7b44d05);
 windows_core::imp::interface_hierarchy!(IWindowsParentalControlsCore, windows_core::IUnknown);
 impl IWindowsParentalControlsCore {
     pub unsafe fn GetVisibility(&self) -> windows_core::Result<WPCFLAG_VISIBILITY> {

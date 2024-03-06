@@ -1317,7 +1317,7 @@ impl windows_core::RuntimeType for DayOfWeek {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DayOfWeek;i4)");
 }
-windows_core::imp::com_interface!(
+windows_core::imp::define_interface!(
     ICalendar,
     ICalendar_Vtbl,
     0xca30221d_86d9_40fb_a26b_d44eb7cf08ea
@@ -1591,7 +1591,7 @@ pub struct ICalendar_Vtbl {
     pub IsDaylightSavingTime:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(
+windows_core::imp::define_interface!(
     ICalendarFactory,
     ICalendarFactory_Vtbl,
     0x83f58412_e56b_4c75_a66e_0f63d57758a6
@@ -1613,7 +1613,7 @@ pub struct ICalendarFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(
+windows_core::imp::define_interface!(
     ICalendarFactory2,
     ICalendarFactory2_Vtbl,
     0xb44b378c_ca7e_4590_9e72_ea2bec1a5115
@@ -1808,7 +1808,7 @@ where
     ) -> windows_core::HRESULT,
     pub T: core::marker::PhantomData<T>,
 }
-windows_core::imp::com_interface!(
+windows_core::imp::define_interface!(
     ITimeZoneOnCalendar,
     ITimeZoneOnCalendar_Vtbl,
     0xbb3c25e5_46cf_4317_a3f5_02621ad54478

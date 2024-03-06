@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IInstalledVoicesStatic, IInstalledVoicesStatic_Vtbl, 0x7d526ecc_7533_4c3f_85be_888c2baeebdc);
+windows_core::imp::define_interface!(IInstalledVoicesStatic, IInstalledVoicesStatic_Vtbl, 0x7d526ecc_7533_4c3f_85be_888c2baeebdc);
 #[repr(C)]
 pub struct IInstalledVoicesStatic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,13 +8,13 @@ pub struct IInstalledVoicesStatic_Vtbl {
     AllVoices: usize,
     pub DefaultVoice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInstalledVoicesStatic2, IInstalledVoicesStatic2_Vtbl, 0x64255f2e_358d_4058_be9a_fd3fcb423530);
+windows_core::imp::define_interface!(IInstalledVoicesStatic2, IInstalledVoicesStatic2_Vtbl, 0x64255f2e_358d_4058_be9a_fd3fcb423530);
 #[repr(C)]
 pub struct IInstalledVoicesStatic2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TrySetDefaultVoiceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpeechSynthesisStream, ISpeechSynthesisStream_Vtbl, 0x83e46e93_244c_4622_ba0b_6229c4d0d65d);
+windows_core::imp::define_interface!(ISpeechSynthesisStream, ISpeechSynthesisStream_Vtbl, 0x83e46e93_244c_4622_ba0b_6229c4d0d65d);
 #[repr(C)]
 pub struct ISpeechSynthesisStream_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -23,7 +23,7 @@ pub struct ISpeechSynthesisStream_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Markers: usize,
 }
-windows_core::imp::com_interface!(ISpeechSynthesizer, ISpeechSynthesizer_Vtbl, 0xce9f7c76_97f4_4ced_ad68_d51c458e45c6);
+windows_core::imp::define_interface!(ISpeechSynthesizer, ISpeechSynthesizer_Vtbl, 0xce9f7c76_97f4_4ced_ad68_d51c458e45c6);
 #[repr(C)]
 pub struct ISpeechSynthesizer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -32,13 +32,13 @@ pub struct ISpeechSynthesizer_Vtbl {
     pub SetVoice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Voice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpeechSynthesizer2, ISpeechSynthesizer2_Vtbl, 0xa7c5ecb2_4339_4d6a_bbf8_c7a4f1544c2e);
+windows_core::imp::define_interface!(ISpeechSynthesizer2, ISpeechSynthesizer2_Vtbl, 0xa7c5ecb2_4339_4d6a_bbf8_c7a4f1544c2e);
 #[repr(C)]
 pub struct ISpeechSynthesizer2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Options: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpeechSynthesizerOptions, ISpeechSynthesizerOptions_Vtbl, 0xa0e23871_cc3d_43c9_91b1_ee185324d83d);
+windows_core::imp::define_interface!(ISpeechSynthesizerOptions, ISpeechSynthesizerOptions_Vtbl, 0xa0e23871_cc3d_43c9_91b1_ee185324d83d);
 #[repr(C)]
 pub struct ISpeechSynthesizerOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -47,7 +47,7 @@ pub struct ISpeechSynthesizerOptions_Vtbl {
     pub IncludeSentenceBoundaryMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIncludeSentenceBoundaryMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpeechSynthesizerOptions2, ISpeechSynthesizerOptions2_Vtbl, 0x1cbef60e_119c_4bed_b118_d250c3a25793);
+windows_core::imp::define_interface!(ISpeechSynthesizerOptions2, ISpeechSynthesizerOptions2_Vtbl, 0x1cbef60e_119c_4bed_b118_d250c3a25793);
 #[repr(C)]
 pub struct ISpeechSynthesizerOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -58,7 +58,7 @@ pub struct ISpeechSynthesizerOptions2_Vtbl {
     pub AudioPitch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetAudioPitch: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpeechSynthesizerOptions3, ISpeechSynthesizerOptions3_Vtbl, 0x401ed877_902c_4814_a582_a5d0c0769fa8);
+windows_core::imp::define_interface!(ISpeechSynthesizerOptions3, ISpeechSynthesizerOptions3_Vtbl, 0x401ed877_902c_4814_a582_a5d0c0769fa8);
 #[repr(C)]
 pub struct ISpeechSynthesizerOptions3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -67,7 +67,7 @@ pub struct ISpeechSynthesizerOptions3_Vtbl {
     pub PunctuationSilence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechPunctuationSilence) -> windows_core::HRESULT,
     pub SetPunctuationSilence: unsafe extern "system" fn(*mut core::ffi::c_void, SpeechPunctuationSilence) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IVoiceInformation, IVoiceInformation_Vtbl, 0xb127d6a4_1291_4604_aa9c_83134083352c);
+windows_core::imp::define_interface!(IVoiceInformation, IVoiceInformation_Vtbl, 0xb127d6a4_1291_4604_aa9c_83134083352c);
 #[repr(C)]
 pub struct IVoiceInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

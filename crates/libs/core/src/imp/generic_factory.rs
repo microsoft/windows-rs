@@ -2,7 +2,7 @@ use crate::Interface;
 
 // A streamlined version of the IActivationFactory interface used by WinRT class factories used internally by the windows crate
 // to simplify code generation. Components should implement the `IActivationFactory` interface published by the windows crate.
-super::com_interface!(IGenericFactory, IGenericFactory_Vtbl, 0x00000035_0000_0000_c000_000000000046);
+super::define_interface!(IGenericFactory, IGenericFactory_Vtbl, 0x00000035_0000_0000_c000_000000000046);
 super::interface_hierarchy!(IGenericFactory, crate::IUnknown, crate::IInspectable);
 
 impl IGenericFactory {

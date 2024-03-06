@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IGraphicsEffect, IGraphicsEffect_Vtbl, 0xcb51c0ce_8fe6_4636_b202_861faa07d8f3);
+windows_core::imp::define_interface!(IGraphicsEffect, IGraphicsEffect_Vtbl, 0xcb51c0ce_8fe6_4636_b202_861faa07d8f3);
 windows_core::imp::interface_hierarchy!(IGraphicsEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IGraphicsEffect, IGraphicsEffectSource);
 impl IGraphicsEffect {
@@ -23,7 +23,7 @@ pub struct IGraphicsEffect_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGraphicsEffectSource, IGraphicsEffectSource_Vtbl, 0x2d8f9ddc_4339_4eb9_9216_f9deb75658a2);
+windows_core::imp::define_interface!(IGraphicsEffectSource, IGraphicsEffectSource_Vtbl, 0x2d8f9ddc_4339_4eb9_9216_f9deb75658a2);
 windows_core::imp::interface_hierarchy!(IGraphicsEffectSource, windows_core::IUnknown, windows_core::IInspectable);
 impl IGraphicsEffectSource {}
 impl windows_core::RuntimeType for IGraphicsEffectSource {

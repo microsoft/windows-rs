@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IPdfDocument, IPdfDocument_Vtbl, 0xac7ebedd_80fa_4089_846e_81b77ff5a86c);
+windows_core::imp::define_interface!(IPdfDocument, IPdfDocument_Vtbl, 0xac7ebedd_80fa_4089_846e_81b77ff5a86c);
 #[repr(C)]
 pub struct IPdfDocument_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6,7 +6,7 @@ pub struct IPdfDocument_Vtbl {
     pub PageCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub IsPasswordProtected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPdfDocumentStatics, IPdfDocumentStatics_Vtbl, 0x433a0b5f_c007_4788_90f2_08143d922599);
+windows_core::imp::define_interface!(IPdfDocumentStatics, IPdfDocumentStatics_Vtbl, 0x433a0b5f_c007_4788_90f2_08143d922599);
 #[repr(C)]
 pub struct IPdfDocumentStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -27,7 +27,7 @@ pub struct IPdfDocumentStatics_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     LoadFromStreamWithPasswordAsync: usize,
 }
-windows_core::imp::com_interface!(IPdfPage, IPdfPage_Vtbl, 0x9db4b0c8_5320_4cfc_ad76_493fdad0e594);
+windows_core::imp::define_interface!(IPdfPage, IPdfPage_Vtbl, 0x9db4b0c8_5320_4cfc_ad76_493fdad0e594);
 #[repr(C)]
 pub struct IPdfPage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -46,7 +46,7 @@ pub struct IPdfPage_Vtbl {
     pub Rotation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PdfPageRotation) -> windows_core::HRESULT,
     pub PreferredZoom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPdfPageDimensions, IPdfPageDimensions_Vtbl, 0x22170471_313e_44e8_835d_63a3e7624a10);
+windows_core::imp::define_interface!(IPdfPageDimensions, IPdfPageDimensions_Vtbl, 0x22170471_313e_44e8_835d_63a3e7624a10);
 #[repr(C)]
 pub struct IPdfPageDimensions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -56,7 +56,7 @@ pub struct IPdfPageDimensions_Vtbl {
     pub TrimBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
     pub ArtBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPdfPageRenderOptions, IPdfPageRenderOptions_Vtbl, 0x3c98056f_b7cf_4c29_9a04_52d90267f425);
+windows_core::imp::define_interface!(IPdfPageRenderOptions, IPdfPageRenderOptions_Vtbl, 0x3c98056f_b7cf_4c29_9a04_52d90267f425);
 #[repr(C)]
 pub struct IPdfPageRenderOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

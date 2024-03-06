@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(ICoreTextCompositionCompletedEventArgs, ICoreTextCompositionCompletedEventArgs_Vtbl, 0x1f34ebb6_b79f_4121_a5e7_fda9b8616e30);
+windows_core::imp::define_interface!(ICoreTextCompositionCompletedEventArgs, ICoreTextCompositionCompletedEventArgs_Vtbl, 0x1f34ebb6_b79f_4121_a5e7_fda9b8616e30);
 #[repr(C)]
 pub struct ICoreTextCompositionCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9,21 +9,21 @@ pub struct ICoreTextCompositionCompletedEventArgs_Vtbl {
     CompositionSegments: usize,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICoreTextCompositionSegment, ICoreTextCompositionSegment_Vtbl, 0x776c6bd9_4ead_4da7_8f47_3a88b523cc34);
+windows_core::imp::define_interface!(ICoreTextCompositionSegment, ICoreTextCompositionSegment_Vtbl, 0x776c6bd9_4ead_4da7_8f47_3a88b523cc34);
 #[repr(C)]
 pub struct ICoreTextCompositionSegment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PreconversionString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Range: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CoreTextRange) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICoreTextCompositionStartedEventArgs, ICoreTextCompositionStartedEventArgs_Vtbl, 0x276b16a9_64e7_4ab0_bc4b_a02d73835bfb);
+windows_core::imp::define_interface!(ICoreTextCompositionStartedEventArgs, ICoreTextCompositionStartedEventArgs_Vtbl, 0x276b16a9_64e7_4ab0_bc4b_a02d73835bfb);
 #[repr(C)]
 pub struct ICoreTextCompositionStartedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICoreTextEditContext, ICoreTextEditContext_Vtbl, 0xbf6608af_4041_47c3_b263_a918eb5eaef2);
+windows_core::imp::define_interface!(ICoreTextEditContext, ICoreTextEditContext_Vtbl, 0xbf6608af_4041_47c3_b263_a918eb5eaef2);
 #[repr(C)]
 pub struct ICoreTextEditContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -59,14 +59,14 @@ pub struct ICoreTextEditContext_Vtbl {
     pub NotifySelectionChanged: unsafe extern "system" fn(*mut core::ffi::c_void, CoreTextRange) -> windows_core::HRESULT,
     pub NotifyLayoutChanged: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICoreTextEditContext2, ICoreTextEditContext2_Vtbl, 0xb1867dbb_083b_49e1_b281_2b35d62bf466);
+windows_core::imp::define_interface!(ICoreTextEditContext2, ICoreTextEditContext2_Vtbl, 0xb1867dbb_083b_49e1_b281_2b35d62bf466);
 #[repr(C)]
 pub struct ICoreTextEditContext2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NotifyFocusLeaveCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveNotifyFocusLeaveCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICoreTextFormatUpdatingEventArgs, ICoreTextFormatUpdatingEventArgs_Vtbl, 0x7310bd33_b4a8_43b1_b37b_0724d4aca7ab);
+windows_core::imp::define_interface!(ICoreTextFormatUpdatingEventArgs, ICoreTextFormatUpdatingEventArgs_Vtbl, 0x7310bd33_b4a8_43b1_b37b_0724d4aca7ab);
 #[repr(C)]
 pub struct ICoreTextFormatUpdatingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -90,7 +90,7 @@ pub struct ICoreTextFormatUpdatingEventArgs_Vtbl {
     pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICoreTextLayoutBounds, ICoreTextLayoutBounds_Vtbl, 0xe972c974_4436_4917_80d0_a525e4ca6780);
+windows_core::imp::define_interface!(ICoreTextLayoutBounds, ICoreTextLayoutBounds_Vtbl, 0xe972c974_4436_4917_80d0_a525e4ca6780);
 #[repr(C)]
 pub struct ICoreTextLayoutBounds_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -99,7 +99,7 @@ pub struct ICoreTextLayoutBounds_Vtbl {
     pub ControlBounds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT,
     pub SetControlBounds: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Rect) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICoreTextLayoutRequest, ICoreTextLayoutRequest_Vtbl, 0x2555a8cc_51fd_4f03_98bf_ac78174d68e0);
+windows_core::imp::define_interface!(ICoreTextLayoutRequest, ICoreTextLayoutRequest_Vtbl, 0x2555a8cc_51fd_4f03_98bf_ac78174d68e0);
 #[repr(C)]
 pub struct ICoreTextLayoutRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -108,19 +108,19 @@ pub struct ICoreTextLayoutRequest_Vtbl {
     pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICoreTextLayoutRequest2, ICoreTextLayoutRequest2_Vtbl, 0x676de624_cd3d_4bcd_bf01_7f7110954511);
+windows_core::imp::define_interface!(ICoreTextLayoutRequest2, ICoreTextLayoutRequest2_Vtbl, 0x676de624_cd3d_4bcd_bf01_7f7110954511);
 #[repr(C)]
 pub struct ICoreTextLayoutRequest2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LayoutBoundsVisualPixels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICoreTextLayoutRequestedEventArgs, ICoreTextLayoutRequestedEventArgs_Vtbl, 0xb1dc6ae0_9a7b_4e9e_a566_4a6b5f8ad676);
+windows_core::imp::define_interface!(ICoreTextLayoutRequestedEventArgs, ICoreTextLayoutRequestedEventArgs_Vtbl, 0xb1dc6ae0_9a7b_4e9e_a566_4a6b5f8ad676);
 #[repr(C)]
 pub struct ICoreTextLayoutRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICoreTextSelectionRequest, ICoreTextSelectionRequest_Vtbl, 0xf0a70403_208b_4301_883c_74ca7485fd8d);
+windows_core::imp::define_interface!(ICoreTextSelectionRequest, ICoreTextSelectionRequest_Vtbl, 0xf0a70403_208b_4301_883c_74ca7485fd8d);
 #[repr(C)]
 pub struct ICoreTextSelectionRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -129,13 +129,13 @@ pub struct ICoreTextSelectionRequest_Vtbl {
     pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICoreTextSelectionRequestedEventArgs, ICoreTextSelectionRequestedEventArgs_Vtbl, 0x13c6682b_f614_421a_8f4b_9ec8a5a37fcd);
+windows_core::imp::define_interface!(ICoreTextSelectionRequestedEventArgs, ICoreTextSelectionRequestedEventArgs_Vtbl, 0x13c6682b_f614_421a_8f4b_9ec8a5a37fcd);
 #[repr(C)]
 pub struct ICoreTextSelectionRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICoreTextSelectionUpdatingEventArgs, ICoreTextSelectionUpdatingEventArgs_Vtbl, 0xd445839f_fe7f_4bd5_8a26_0922c1b3e639);
+windows_core::imp::define_interface!(ICoreTextSelectionUpdatingEventArgs, ICoreTextSelectionUpdatingEventArgs_Vtbl, 0xd445839f_fe7f_4bd5_8a26_0922c1b3e639);
 #[repr(C)]
 pub struct ICoreTextSelectionUpdatingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -145,7 +145,7 @@ pub struct ICoreTextSelectionUpdatingEventArgs_Vtbl {
     pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICoreTextServicesManager, ICoreTextServicesManager_Vtbl, 0xc2507d83_6e0a_4a8a_bdf8_1948874854ba);
+windows_core::imp::define_interface!(ICoreTextServicesManager, ICoreTextServicesManager_Vtbl, 0xc2507d83_6e0a_4a8a_bdf8_1948874854ba);
 #[repr(C)]
 pub struct ICoreTextServicesManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -157,19 +157,19 @@ pub struct ICoreTextServicesManager_Vtbl {
     pub RemoveInputLanguageChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub CreateEditContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICoreTextServicesManagerStatics, ICoreTextServicesManagerStatics_Vtbl, 0x1520a388_e2cf_4d65_aeb9_b32d86fe39b9);
+windows_core::imp::define_interface!(ICoreTextServicesManagerStatics, ICoreTextServicesManagerStatics_Vtbl, 0x1520a388_e2cf_4d65_aeb9_b32d86fe39b9);
 #[repr(C)]
 pub struct ICoreTextServicesManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICoreTextServicesStatics, ICoreTextServicesStatics_Vtbl, 0x91859a46_eccf_47a4_8ae7_098a9c6fbb15);
+windows_core::imp::define_interface!(ICoreTextServicesStatics, ICoreTextServicesStatics_Vtbl, 0x91859a46_eccf_47a4_8ae7_098a9c6fbb15);
 #[repr(C)]
 pub struct ICoreTextServicesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HiddenCharacter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICoreTextTextRequest, ICoreTextTextRequest_Vtbl, 0x50d950a9_f51e_4cc1_8ca1_e6346d1a61be);
+windows_core::imp::define_interface!(ICoreTextTextRequest, ICoreTextTextRequest_Vtbl, 0x50d950a9_f51e_4cc1_8ca1_e6346d1a61be);
 #[repr(C)]
 pub struct ICoreTextTextRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -179,13 +179,13 @@ pub struct ICoreTextTextRequest_Vtbl {
     pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICoreTextTextRequestedEventArgs, ICoreTextTextRequestedEventArgs_Vtbl, 0xf096a2d0_41c6_4c02_8b1a_d953b00cabb3);
+windows_core::imp::define_interface!(ICoreTextTextRequestedEventArgs, ICoreTextTextRequestedEventArgs_Vtbl, 0xf096a2d0_41c6_4c02_8b1a_d953b00cabb3);
 #[repr(C)]
 pub struct ICoreTextTextRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICoreTextTextUpdatingEventArgs, ICoreTextTextUpdatingEventArgs_Vtbl, 0xeea7918d_cc2b_4f03_8ff6_02fd217db450);
+windows_core::imp::define_interface!(ICoreTextTextUpdatingEventArgs, ICoreTextTextUpdatingEventArgs_Vtbl, 0xeea7918d_cc2b_4f03_8ff6_02fd217db450);
 #[repr(C)]
 pub struct ICoreTextTextUpdatingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

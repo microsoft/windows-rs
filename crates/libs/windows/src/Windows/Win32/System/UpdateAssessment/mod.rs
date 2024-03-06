@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IWaaSAssessor, IWaaSAssessor_Vtbl, 0x2347bbef_1a3b_45a4_902d_3e09c269b45e);
+windows_core::imp::define_interface!(IWaaSAssessor, IWaaSAssessor_Vtbl, 0x2347bbef_1a3b_45a4_902d_3e09c269b45e);
 windows_core::imp::interface_hierarchy!(IWaaSAssessor, windows_core::IUnknown);
 impl IWaaSAssessor {
     pub unsafe fn GetOSUpdateAssessment(&self) -> windows_core::Result<OSUpdateAssessment> {

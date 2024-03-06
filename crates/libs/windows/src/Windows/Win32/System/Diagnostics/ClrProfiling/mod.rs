@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(ICorProfilerAssemblyReferenceProvider, ICorProfilerAssemblyReferenceProvider_Vtbl, 0x66a78c24_2eef_4f65_b45f_dd1d8038bf3c);
+windows_core::imp::define_interface!(ICorProfilerAssemblyReferenceProvider, ICorProfilerAssemblyReferenceProvider_Vtbl, 0x66a78c24_2eef_4f65_b45f_dd1d8038bf3c);
 windows_core::imp::interface_hierarchy!(ICorProfilerAssemblyReferenceProvider, windows_core::IUnknown);
 impl ICorProfilerAssemblyReferenceProvider {
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
@@ -14,7 +14,7 @@ pub struct ICorProfilerAssemblyReferenceProvider_Vtbl {
     #[cfg(not(feature = "Win32_System_WinRT_Metadata"))]
     AddAssemblyReference: usize,
 }
-windows_core::imp::com_interface!(ICorProfilerCallback, ICorProfilerCallback_Vtbl, 0x176fbed1_a55c_4796_98ca_a9da0ef883e7);
+windows_core::imp::define_interface!(ICorProfilerCallback, ICorProfilerCallback_Vtbl, 0x176fbed1_a55c_4796_98ca_a9da0ef883e7);
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback, windows_core::IUnknown);
 impl ICorProfilerCallback {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
@@ -321,7 +321,7 @@ pub struct ICorProfilerCallback_Vtbl {
     pub ExceptionCLRCatcherFound: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExceptionCLRCatcherExecute: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerCallback10, ICorProfilerCallback10_Vtbl, 0xcec5b60e_c69c_495f_87f6_84d28ee16ffb);
+windows_core::imp::define_interface!(ICorProfilerCallback10, ICorProfilerCallback10_Vtbl, 0xcec5b60e_c69c_495f_87f6_84d28ee16ffb);
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback10, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7, ICorProfilerCallback8, ICorProfilerCallback9);
 impl ICorProfilerCallback10 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
@@ -658,7 +658,7 @@ pub struct ICorProfilerCallback10_Vtbl {
     pub EventPipeEventDelivered: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, u32, u32, *const u8, u32, *const u8, *const windows_core::GUID, *const windows_core::GUID, usize, u32, *const usize) -> windows_core::HRESULT,
     pub EventPipeProviderCreated: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerCallback11, ICorProfilerCallback11_Vtbl, 0x42350846_aaed_47f7_b128_fd0c98881cde);
+windows_core::imp::define_interface!(ICorProfilerCallback11, ICorProfilerCallback11_Vtbl, 0x42350846_aaed_47f7_b128_fd0c98881cde);
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback11, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7, ICorProfilerCallback8, ICorProfilerCallback9, ICorProfilerCallback10);
 impl ICorProfilerCallback11 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
@@ -997,7 +997,7 @@ pub struct ICorProfilerCallback11_Vtbl {
     pub base__: ICorProfilerCallback10_Vtbl,
     pub LoadAsNotificationOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerCallback2, ICorProfilerCallback2_Vtbl, 0x8a8cc829_ccf2_49fe_bbae_0f022228071a);
+windows_core::imp::define_interface!(ICorProfilerCallback2, ICorProfilerCallback2_Vtbl, 0x8a8cc829_ccf2_49fe_bbae_0f022228071a);
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback2, windows_core::IUnknown, ICorProfilerCallback);
 impl ICorProfilerCallback2 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
@@ -1267,7 +1267,7 @@ pub struct ICorProfilerCallback2_Vtbl {
     pub HandleCreated: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize) -> windows_core::HRESULT,
     pub HandleDestroyed: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerCallback3, ICorProfilerCallback3_Vtbl, 0x4fd2ed52_7731_4b8d_9469_03d2cc3086c5);
+windows_core::imp::define_interface!(ICorProfilerCallback3, ICorProfilerCallback3_Vtbl, 0x4fd2ed52_7731_4b8d_9469_03d2cc3086c5);
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback3, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2);
 impl ICorProfilerCallback3 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
@@ -1544,7 +1544,7 @@ pub struct ICorProfilerCallback3_Vtbl {
     pub ProfilerAttachComplete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProfilerDetachSucceeded: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerCallback4, ICorProfilerCallback4_Vtbl, 0x7b63b2e3_107d_4d48_b2f6_f61e229470d2);
+windows_core::imp::define_interface!(ICorProfilerCallback4, ICorProfilerCallback4_Vtbl, 0x7b63b2e3_107d_4d48_b2f6_f61e229470d2);
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback4, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3);
 impl ICorProfilerCallback4 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
@@ -1851,7 +1851,7 @@ pub struct ICorProfilerCallback4_Vtbl {
     pub MovedReferences2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const usize, *const usize, *const usize) -> windows_core::HRESULT,
     pub SurvivingReferences2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const usize, *const usize) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerCallback5, ICorProfilerCallback5_Vtbl, 0x8dfba405_8c9f_45f8_bffa_83b14cef78b5);
+windows_core::imp::define_interface!(ICorProfilerCallback5, ICorProfilerCallback5_Vtbl, 0x8dfba405_8c9f_45f8_bffa_83b14cef78b5);
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback5, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4);
 impl ICorProfilerCallback5 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
@@ -2156,7 +2156,7 @@ pub struct ICorProfilerCallback5_Vtbl {
     pub base__: ICorProfilerCallback4_Vtbl,
     pub ConditionalWeakTableElementReferences: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const usize, *const usize, *const usize) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerCallback6, ICorProfilerCallback6_Vtbl, 0xfc13df4b_4448_4f4f_950c_ba8d19d00c36);
+windows_core::imp::define_interface!(ICorProfilerCallback6, ICorProfilerCallback6_Vtbl, 0xfc13df4b_4448_4f4f_950c_ba8d19d00c36);
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback6, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5);
 impl ICorProfilerCallback6 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
@@ -2468,7 +2468,7 @@ pub struct ICorProfilerCallback6_Vtbl {
     pub base__: ICorProfilerCallback5_Vtbl,
     pub GetAssemblyReferences: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerCallback7, ICorProfilerCallback7_Vtbl, 0xf76a2dba_1d52_4539_866c_2aa518f9efc3);
+windows_core::imp::define_interface!(ICorProfilerCallback7, ICorProfilerCallback7_Vtbl, 0xf76a2dba_1d52_4539_866c_2aa518f9efc3);
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback7, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6);
 impl ICorProfilerCallback7 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
@@ -2783,7 +2783,7 @@ pub struct ICorProfilerCallback7_Vtbl {
     pub base__: ICorProfilerCallback6_Vtbl,
     pub ModuleInMemorySymbolsUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerCallback8, ICorProfilerCallback8_Vtbl, 0x5bed9b15_c079_4d47_bfe2_215a140c07e0);
+windows_core::imp::define_interface!(ICorProfilerCallback8, ICorProfilerCallback8_Vtbl, 0x5bed9b15_c079_4d47_bfe2_215a140c07e0);
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback8, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7);
 impl ICorProfilerCallback8 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
@@ -3111,7 +3111,7 @@ pub struct ICorProfilerCallback8_Vtbl {
     pub DynamicMethodJITCompilationStarted: unsafe extern "system" fn(*mut core::ffi::c_void, usize, super::super::super::Foundation::BOOL, *const u8, u32) -> windows_core::HRESULT,
     pub DynamicMethodJITCompilationFinished: unsafe extern "system" fn(*mut core::ffi::c_void, usize, windows_core::HRESULT, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerCallback9, ICorProfilerCallback9_Vtbl, 0x27583ec3_c8f5_482f_8052_194b8ce4705a);
+windows_core::imp::define_interface!(ICorProfilerCallback9, ICorProfilerCallback9_Vtbl, 0x27583ec3_c8f5_482f_8052_194b8ce4705a);
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback9, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7, ICorProfilerCallback8);
 impl ICorProfilerCallback9 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
@@ -3441,7 +3441,7 @@ pub struct ICorProfilerCallback9_Vtbl {
     pub base__: ICorProfilerCallback8_Vtbl,
     pub DynamicMethodUnloaded: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerFunctionControl, ICorProfilerFunctionControl_Vtbl, 0xf0963021_e1ea_4732_8581_e01b0bd3c0c6);
+windows_core::imp::define_interface!(ICorProfilerFunctionControl, ICorProfilerFunctionControl_Vtbl, 0xf0963021_e1ea_4732_8581_e01b0bd3c0c6);
 windows_core::imp::interface_hierarchy!(ICorProfilerFunctionControl, windows_core::IUnknown);
 impl ICorProfilerFunctionControl {
     pub unsafe fn SetCodegenFlags(&self, flags: u32) -> windows_core::Result<()> {
@@ -3461,7 +3461,7 @@ pub struct ICorProfilerFunctionControl_Vtbl {
     pub SetILFunctionBody: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
     pub SetILInstrumentedCodeMap: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const COR_IL_MAP) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerFunctionEnum, ICorProfilerFunctionEnum_Vtbl, 0xff71301a_b994_429d_a10b_b345a65280ef);
+windows_core::imp::define_interface!(ICorProfilerFunctionEnum, ICorProfilerFunctionEnum_Vtbl, 0xff71301a_b994_429d_a10b_b345a65280ef);
 windows_core::imp::interface_hierarchy!(ICorProfilerFunctionEnum, windows_core::IUnknown);
 impl ICorProfilerFunctionEnum {
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
@@ -3491,7 +3491,7 @@ pub struct ICorProfilerFunctionEnum_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut COR_PRF_FUNCTION, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerInfo, ICorProfilerInfo_Vtbl, 0x28b5557d_3f3f_48b4_90b2_5f9eea2f6c48);
+windows_core::imp::define_interface!(ICorProfilerInfo, ICorProfilerInfo_Vtbl, 0x28b5557d_3f3f_48b4_90b2_5f9eea2f6c48);
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo, windows_core::IUnknown);
 impl ICorProfilerInfo {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> windows_core::Result<usize> {
@@ -3656,7 +3656,7 @@ pub struct ICorProfilerInfo_Vtbl {
     pub EndInprocDebugging: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetILToNativeMapping: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut u32, *mut COR_DEBUG_IL_TO_NATIVE_MAP) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerInfo10, ICorProfilerInfo10_Vtbl, 0x2f1b5152_c869_40c9_aa5f_3abe026bd720);
+windows_core::imp::define_interface!(ICorProfilerInfo10, ICorProfilerInfo10_Vtbl, 0x2f1b5152_c869_40c9_aa5f_3abe026bd720);
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo10, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9);
 impl ICorProfilerInfo10 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> windows_core::Result<usize> {
@@ -3997,7 +3997,7 @@ pub struct ICorProfilerInfo10_Vtbl {
     pub SuspendRuntime: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResumeRuntime: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerInfo11, ICorProfilerInfo11_Vtbl, 0x06398876_8987_4154_b621_40a00d6e4d04);
+windows_core::imp::define_interface!(ICorProfilerInfo11, ICorProfilerInfo11_Vtbl, 0x06398876_8987_4154_b621_40a00d6e4d04);
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo11, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9, ICorProfilerInfo10);
 impl ICorProfilerInfo11 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> windows_core::Result<usize> {
@@ -4347,7 +4347,7 @@ pub struct ICorProfilerInfo11_Vtbl {
     pub GetEnvironmentVariableA: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut u32, windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetEnvironmentVariable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerInfo12, ICorProfilerInfo12_Vtbl, 0x27b24ccd_1cb1_47c5_96ee_98190dc30959);
+windows_core::imp::define_interface!(ICorProfilerInfo12, ICorProfilerInfo12_Vtbl, 0x27b24ccd_1cb1_47c5_96ee_98190dc30959);
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo12, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9, ICorProfilerInfo10, ICorProfilerInfo11);
 impl ICorProfilerInfo12 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> windows_core::Result<usize> {
@@ -4736,7 +4736,7 @@ pub struct ICorProfilerInfo12_Vtbl {
     pub EventPipeDefineEvent: unsafe extern "system" fn(*mut core::ffi::c_void, usize, windows_core::PCWSTR, u32, u64, u32, u32, u8, super::super::super::Foundation::BOOL, u32, *const COR_PRF_EVENTPIPE_PARAM_DESC, *mut usize) -> windows_core::HRESULT,
     pub EventPipeWriteEvent: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *const COR_PRF_EVENT_DATA, *const windows_core::GUID, *const windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerInfo13, ICorProfilerInfo13_Vtbl, 0x6e6c7ee2_0701_4ec2_9d29_2e8733b66934);
+windows_core::imp::define_interface!(ICorProfilerInfo13, ICorProfilerInfo13_Vtbl, 0x6e6c7ee2_0701_4ec2_9d29_2e8733b66934);
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo13, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9, ICorProfilerInfo10, ICorProfilerInfo11, ICorProfilerInfo12);
 impl ICorProfilerInfo13 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> windows_core::Result<usize> {
@@ -5131,7 +5131,7 @@ pub struct ICorProfilerInfo13_Vtbl {
     pub DestroyHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const core::ffi::c_void) -> windows_core::HRESULT,
     pub GetObjectIDFromHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerInfo14, ICorProfilerInfo14_Vtbl, 0xf460e352_d76d_4fe9_835f_f6af9d6e862d);
+windows_core::imp::define_interface!(ICorProfilerInfo14, ICorProfilerInfo14_Vtbl, 0xf460e352_d76d_4fe9_835f_f6af9d6e862d);
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo14, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9, ICorProfilerInfo10, ICorProfilerInfo11, ICorProfilerInfo12, ICorProfilerInfo13);
 impl ICorProfilerInfo14 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> windows_core::Result<usize> {
@@ -5540,7 +5540,7 @@ pub struct ICorProfilerInfo14_Vtbl {
     pub GetNonGCHeapBounds: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut COR_PRF_NONGC_HEAP_RANGE) -> windows_core::HRESULT,
     pub EventPipeCreateProvider2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const EventPipeProviderCallback, *mut usize) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerInfo2, ICorProfilerInfo2_Vtbl, 0xcc0935cd_a518_487d_b0bb_a93214e65478);
+windows_core::imp::define_interface!(ICorProfilerInfo2, ICorProfilerInfo2_Vtbl, 0xcc0935cd_a518_487d_b0bb_a93214e65478);
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo2, windows_core::IUnknown, ICorProfilerInfo);
 impl ICorProfilerInfo2 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> windows_core::Result<usize> {
@@ -5765,7 +5765,7 @@ pub struct ICorProfilerInfo2_Vtbl {
     pub GetObjectGeneration: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut COR_PRF_GC_GENERATION_RANGE) -> windows_core::HRESULT,
     pub GetNotifiedExceptionClauseInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut COR_PRF_EX_CLAUSE_INFO) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerInfo3, ICorProfilerInfo3_Vtbl, 0xb555ed4f_452a_4e54_8b39_b5360bad32a0);
+windows_core::imp::define_interface!(ICorProfilerInfo3, ICorProfilerInfo3_Vtbl, 0xb555ed4f_452a_4e54_8b39_b5360bad32a0);
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo3, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2);
 impl ICorProfilerInfo3 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> windows_core::Result<usize> {
@@ -6025,7 +6025,7 @@ pub struct ICorProfilerInfo3_Vtbl {
     pub GetAppDomainsContainingModule: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut u32, *mut usize) -> windows_core::HRESULT,
     pub GetModuleInfo2: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut *mut u8, u32, *mut u32, windows_core::PWSTR, *mut usize, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerInfo4, ICorProfilerInfo4_Vtbl, 0x0d8fdcaa_6257_47bf_b1bf_94dac88466ee);
+windows_core::imp::define_interface!(ICorProfilerInfo4, ICorProfilerInfo4_Vtbl, 0x0d8fdcaa_6257_47bf_b1bf_94dac88466ee);
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo4, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3);
 impl ICorProfilerInfo4 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> windows_core::Result<usize> {
@@ -6314,7 +6314,7 @@ pub struct ICorProfilerInfo4_Vtbl {
     pub EnumJITedFunctions2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetObjectSize2: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut usize) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerInfo5, ICorProfilerInfo5_Vtbl, 0x07602928_ce38_4b83_81e7_74adaf781214);
+windows_core::imp::define_interface!(ICorProfilerInfo5, ICorProfilerInfo5_Vtbl, 0x07602928_ce38_4b83_81e7_74adaf781214);
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo5, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4);
 impl ICorProfilerInfo5 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> windows_core::Result<usize> {
@@ -6601,7 +6601,7 @@ pub struct ICorProfilerInfo5_Vtbl {
     pub GetEventMask2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub SetEventMask2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerInfo6, ICorProfilerInfo6_Vtbl, 0xf30a070d_bffb_46a7_b1d8_8781ef7b698a);
+windows_core::imp::define_interface!(ICorProfilerInfo6, ICorProfilerInfo6_Vtbl, 0xf30a070d_bffb_46a7_b1d8_8781ef7b698a);
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo6, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5);
 impl ICorProfilerInfo6 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> windows_core::Result<usize> {
@@ -6890,7 +6890,7 @@ pub struct ICorProfilerInfo6_Vtbl {
     pub base__: ICorProfilerInfo5_Vtbl,
     pub EnumNgenModuleMethodsInliningThisMethod: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize, u32, *mut super::super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerInfo7, ICorProfilerInfo7_Vtbl, 0x9aeecc0d_63e0_4187_8c00_e312f503f663);
+windows_core::imp::define_interface!(ICorProfilerInfo7, ICorProfilerInfo7_Vtbl, 0x9aeecc0d_63e0_4187_8c00_e312f503f663);
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo7, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6);
 impl ICorProfilerInfo7 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> windows_core::Result<usize> {
@@ -7191,7 +7191,7 @@ pub struct ICorProfilerInfo7_Vtbl {
     pub GetInMemorySymbolsLength: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut u32) -> windows_core::HRESULT,
     pub ReadInMemorySymbols: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut u8, u32, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerInfo8, ICorProfilerInfo8_Vtbl, 0xc5ac80a6_782e_4716_8044_39598c60cfbf);
+windows_core::imp::define_interface!(ICorProfilerInfo8, ICorProfilerInfo8_Vtbl, 0xc5ac80a6_782e_4716_8044_39598c60cfbf);
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo8, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7);
 impl ICorProfilerInfo8 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> windows_core::Result<usize> {
@@ -7502,7 +7502,7 @@ pub struct ICorProfilerInfo8_Vtbl {
     pub GetFunctionFromIP3: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *mut usize, *mut usize) -> windows_core::HRESULT,
     pub GetDynamicFunctionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut usize, *mut *mut u8, *mut u32, u32, *mut u32, windows_core::PWSTR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerInfo9, ICorProfilerInfo9_Vtbl, 0x008170db_f8cc_4796_9a51_dc8aa0b47012);
+windows_core::imp::define_interface!(ICorProfilerInfo9, ICorProfilerInfo9_Vtbl, 0x008170db_f8cc_4796_9a51_dc8aa0b47012);
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo9, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8);
 impl ICorProfilerInfo9 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> windows_core::Result<usize> {
@@ -7822,7 +7822,7 @@ pub struct ICorProfilerInfo9_Vtbl {
     pub GetILToNativeMapping3: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut u32, *mut COR_DEBUG_IL_TO_NATIVE_MAP) -> windows_core::HRESULT,
     pub GetCodeInfo4: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut u32, *mut COR_PRF_CODE_INFO) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerMethodEnum, ICorProfilerMethodEnum_Vtbl, 0xfccee788_0088_454b_a811_c99f298d1942);
+windows_core::imp::define_interface!(ICorProfilerMethodEnum, ICorProfilerMethodEnum_Vtbl, 0xfccee788_0088_454b_a811_c99f298d1942);
 windows_core::imp::interface_hierarchy!(ICorProfilerMethodEnum, windows_core::IUnknown);
 impl ICorProfilerMethodEnum {
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
@@ -7852,7 +7852,7 @@ pub struct ICorProfilerMethodEnum_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut COR_PRF_METHOD, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerModuleEnum, ICorProfilerModuleEnum_Vtbl, 0xb0266d75_2081_4493_af7f_028ba34db891);
+windows_core::imp::define_interface!(ICorProfilerModuleEnum, ICorProfilerModuleEnum_Vtbl, 0xb0266d75_2081_4493_af7f_028ba34db891);
 windows_core::imp::interface_hierarchy!(ICorProfilerModuleEnum, windows_core::IUnknown);
 impl ICorProfilerModuleEnum {
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
@@ -7882,7 +7882,7 @@ pub struct ICorProfilerModuleEnum_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut usize, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerObjectEnum, ICorProfilerObjectEnum_Vtbl, 0x2c6269bd_2d13_4321_ae12_6686365fd6af);
+windows_core::imp::define_interface!(ICorProfilerObjectEnum, ICorProfilerObjectEnum_Vtbl, 0x2c6269bd_2d13_4321_ae12_6686365fd6af);
 windows_core::imp::interface_hierarchy!(ICorProfilerObjectEnum, windows_core::IUnknown);
 impl ICorProfilerObjectEnum {
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
@@ -7912,7 +7912,7 @@ pub struct ICorProfilerObjectEnum_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut usize, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICorProfilerThreadEnum, ICorProfilerThreadEnum_Vtbl, 0x571194f7_25ed_419f_aa8b_7016b3159701);
+windows_core::imp::define_interface!(ICorProfilerThreadEnum, ICorProfilerThreadEnum_Vtbl, 0x571194f7_25ed_419f_aa8b_7016b3159701);
 windows_core::imp::interface_hierarchy!(ICorProfilerThreadEnum, windows_core::IUnknown);
 impl ICorProfilerThreadEnum {
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
@@ -7942,7 +7942,7 @@ pub struct ICorProfilerThreadEnum_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut usize, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMethodMalloc, IMethodMalloc_Vtbl, 0xa0efb28b_6ee2_4d7b_b983_a75ef7beedb8);
+windows_core::imp::define_interface!(IMethodMalloc, IMethodMalloc_Vtbl, 0xa0efb28b_6ee2_4d7b_b983_a75ef7beedb8);
 windows_core::imp::interface_hierarchy!(IMethodMalloc, windows_core::IUnknown);
 impl IMethodMalloc {
     pub unsafe fn Alloc(&self, cb: u32) -> *mut core::ffi::c_void {

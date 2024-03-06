@@ -62,14 +62,14 @@ impl Default for DateTime {
 pub const E_BOUNDS: windows_core::HRESULT = windows_core::HRESULT(0x8000000B_u32 as _);
 pub const E_NOINTERFACE: windows_core::HRESULT = windows_core::HRESULT(0x80004002_u32 as _);
 pub const E_OUTOFMEMORY: windows_core::HRESULT = windows_core::HRESULT(0x8007000E_u32 as _);
-windows_core::imp::com_interface!(IAgileObject, IAgileObject_Vtbl, 0x94ea2b94_e9cc_49e0_c0ff_ee64ca8f5b90);
+windows_core::imp::define_interface!(IAgileObject, IAgileObject_Vtbl, 0x94ea2b94_e9cc_49e0_c0ff_ee64ca8f5b90);
 windows_core::imp::interface_hierarchy!(IAgileObject, windows_core::IUnknown);
 impl IAgileObject {}
 #[repr(C)]
 pub struct IAgileObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
-windows_core::imp::com_interface!(IAgileReference, IAgileReference_Vtbl, 0xc03f6a43_65a4_9818_987e_e0b810d2a6f2);
+windows_core::imp::define_interface!(IAgileReference, IAgileReference_Vtbl, 0xc03f6a43_65a4_9818_987e_e0b810d2a6f2);
 windows_core::imp::interface_hierarchy!(IAgileReference, windows_core::IUnknown);
 impl IAgileReference {
     pub unsafe fn Resolve<T>(&self) -> windows_core::Result<T>
@@ -85,7 +85,7 @@ pub struct IAgileReference_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Resolve: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPropertyValue, IPropertyValue_Vtbl, 0x4bd682dd_7554_40e9_9a9b_82654ede7e62);
+windows_core::imp::define_interface!(IPropertyValue, IPropertyValue_Vtbl, 0x4bd682dd_7554_40e9_9a9b_82654ede7e62);
 windows_core::imp::interface_hierarchy!(IPropertyValue, windows_core::IUnknown, windows_core::IInspectable);
 impl IPropertyValue {
     pub fn Type(&self) -> windows_core::Result<PropertyType> {
@@ -351,7 +351,7 @@ pub struct IPropertyValue_Vtbl {
     pub GetSizeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut Size) -> windows_core::HRESULT,
     pub GetRectArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut Rect) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPropertyValueStatics, IPropertyValueStatics_Vtbl, 0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858);
+windows_core::imp::define_interface!(IPropertyValueStatics, IPropertyValueStatics_Vtbl, 0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858);
 #[repr(C)]
 pub struct IPropertyValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -646,7 +646,7 @@ where
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::AbiType<T>) -> windows_core::HRESULT,
     pub T: core::marker::PhantomData<T>,
 }
-windows_core::imp::com_interface!(IStringable, IStringable_Vtbl, 0x96369f54_8eb6_48f0_abce_c1b211e627c3);
+windows_core::imp::define_interface!(IStringable, IStringable_Vtbl, 0x96369f54_8eb6_48f0_abce_c1b211e627c3);
 windows_core::imp::interface_hierarchy!(IStringable, windows_core::IUnknown, windows_core::IInspectable);
 impl IStringable {
     pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -665,7 +665,7 @@ pub struct IStringable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWeakReference, IWeakReference_Vtbl, 0x00000037_0000_0000_c000_000000000046);
+windows_core::imp::define_interface!(IWeakReference, IWeakReference_Vtbl, 0x00000037_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IWeakReference, windows_core::IUnknown);
 impl IWeakReference {
     pub unsafe fn Resolve<T>(&self) -> windows_core::Result<T>
@@ -681,7 +681,7 @@ pub struct IWeakReference_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Resolve: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWeakReferenceSource, IWeakReferenceSource_Vtbl, 0x00000038_0000_0000_c000_000000000046);
+windows_core::imp::define_interface!(IWeakReferenceSource, IWeakReferenceSource_Vtbl, 0x00000038_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IWeakReferenceSource, windows_core::IUnknown);
 impl IWeakReferenceSource {
     pub unsafe fn GetWeakReference(&self) -> windows_core::Result<IWeakReference> {

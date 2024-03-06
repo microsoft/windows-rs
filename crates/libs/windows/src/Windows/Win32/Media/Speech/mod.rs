@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IEnumSpObjectTokens, IEnumSpObjectTokens_Vtbl, 0x06b64f9e_7fda_11d2_b4f2_00c04f797396);
+windows_core::imp::define_interface!(IEnumSpObjectTokens, IEnumSpObjectTokens_Vtbl, 0x06b64f9e_7fda_11d2_b4f2_00c04f797396);
 windows_core::imp::interface_hierarchy!(IEnumSpObjectTokens, windows_core::IUnknown);
 impl IEnumSpObjectTokens {
     pub unsafe fn Next(&self, celt: u32, pelt: *mut Option<ISpObjectToken>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
@@ -33,7 +33,7 @@ pub struct IEnumSpObjectTokens_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpAudio, ISpAudio_Vtbl, 0xc05c768f_fae8_4ec2_8e07_338321c12452);
+windows_core::imp::define_interface!(ISpAudio, ISpAudio_Vtbl, 0xc05c768f_fae8_4ec2_8e07_338321c12452);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpAudio, windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat);
 #[cfg(feature = "Win32_System_Com")]
@@ -149,7 +149,7 @@ pub struct ISpAudio_Vtbl {
     pub GetBufferNotifySize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetBufferNotifySize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpCFGInterpreter, ISpCFGInterpreter_Vtbl, 0xf3d3f926_11fc_11d3_bb97_00c04f8ee6c0);
+windows_core::imp::define_interface!(ISpCFGInterpreter, ISpCFGInterpreter_Vtbl, 0xf3d3f926_11fc_11d3_bb97_00c04f8ee6c0);
 windows_core::imp::interface_hierarchy!(ISpCFGInterpreter, windows_core::IUnknown);
 impl ISpCFGInterpreter {
     pub unsafe fn InitGrammar<P0>(&self, pszgrammarname: P0, pvgrammardata: *const *const core::ffi::c_void) -> windows_core::Result<()>
@@ -172,7 +172,7 @@ pub struct ISpCFGInterpreter_Vtbl {
     pub InitGrammar: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const *const core::ffi::c_void) -> windows_core::HRESULT,
     pub Interpret: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpCFGInterpreterSite, ISpCFGInterpreterSite_Vtbl, 0x6a6ffad8_78b6_473d_b844_98152e4fb16b);
+windows_core::imp::define_interface!(ISpCFGInterpreterSite, ISpCFGInterpreterSite_Vtbl, 0x6a6ffad8_78b6_473d_b844_98152e4fb16b);
 windows_core::imp::interface_hierarchy!(ISpCFGInterpreterSite, windows_core::IUnknown);
 impl ISpCFGInterpreterSite {
     pub unsafe fn AddTextReplacement(&self, preplace: *const SPPHRASEREPLACEMENT) -> windows_core::Result<()> {
@@ -196,7 +196,7 @@ pub struct ISpCFGInterpreterSite_Vtbl {
     pub AddProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPPHRASEPROPERTY) -> windows_core::HRESULT,
     pub GetResourceValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpContainerLexicon, ISpContainerLexicon_Vtbl, 0x8565572f_c094_41cc_b56e_10bd9c3ff044);
+windows_core::imp::define_interface!(ISpContainerLexicon, ISpContainerLexicon_Vtbl, 0x8565572f_c094_41cc_b56e_10bd9c3ff044);
 windows_core::imp::interface_hierarchy!(ISpContainerLexicon, windows_core::IUnknown, ISpLexicon);
 impl ISpContainerLexicon {
     pub unsafe fn GetPronunciations<P0>(&self, pszword: P0, langid: u16, dwflags: u32, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::Result<()>
@@ -238,7 +238,7 @@ pub struct ISpContainerLexicon_Vtbl {
     pub base__: ISpLexicon_Vtbl,
     pub AddLexicon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpDataKey, ISpDataKey_Vtbl, 0x14056581_e16c_11d2_bb90_00c04f8ee6c0);
+windows_core::imp::define_interface!(ISpDataKey, ISpDataKey_Vtbl, 0x14056581_e16c_11d2_bb90_00c04f8ee6c0);
 windows_core::imp::interface_hierarchy!(ISpDataKey, windows_core::IUnknown);
 impl ISpDataKey {
     pub unsafe fn SetData<P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> windows_core::Result<()>
@@ -330,7 +330,7 @@ pub struct ISpDataKey_Vtbl {
     pub EnumKeys: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub EnumValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpDisplayAlternates, ISpDisplayAlternates_Vtbl, 0xc8d7c7e2_0dde_44b7_afe3_b0c991fbeb5e);
+windows_core::imp::define_interface!(ISpDisplayAlternates, ISpDisplayAlternates_Vtbl, 0xc8d7c7e2_0dde_44b7_afe3_b0c991fbeb5e);
 windows_core::imp::interface_hierarchy!(ISpDisplayAlternates, windows_core::IUnknown);
 impl ISpDisplayAlternates {
     pub unsafe fn GetDisplayAlternates(&self, pphrase: *const SPDISPLAYPHRASE, crequestcount: u32, ppcomemphrases: *mut *mut SPDISPLAYPHRASE, pcphrasesreturned: *mut u32) -> windows_core::Result<()> {
@@ -346,7 +346,7 @@ pub struct ISpDisplayAlternates_Vtbl {
     pub GetDisplayAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPDISPLAYPHRASE, u32, *mut *mut SPDISPLAYPHRASE, *mut u32) -> windows_core::HRESULT,
     pub SetFullStopTrailSpace: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpEnginePronunciation, ISpEnginePronunciation_Vtbl, 0xc360ce4b_76d1_4214_ad68_52657d5083da);
+windows_core::imp::define_interface!(ISpEnginePronunciation, ISpEnginePronunciation_Vtbl, 0xc360ce4b_76d1_4214_ad68_52657d5083da);
 windows_core::imp::interface_hierarchy!(ISpEnginePronunciation, windows_core::IUnknown);
 impl ISpEnginePronunciation {
     pub unsafe fn Normalize<P0, P1, P2>(&self, pszword: P0, pszleftcontext: P1, pszrightcontext: P2, langid: u16, pnormalizationlist: *mut SPNORMALIZATIONLIST) -> windows_core::Result<()>
@@ -372,7 +372,7 @@ pub struct ISpEnginePronunciation_Vtbl {
     pub Normalize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, u16, *mut SPNORMALIZATIONLIST) -> windows_core::HRESULT,
     pub GetPronunciations: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, u16, *mut SPWORDPRONUNCIATIONLIST) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpErrorLog, ISpErrorLog_Vtbl, 0xf4711347_e608_11d2_a086_00c04f8ef9b5);
+windows_core::imp::define_interface!(ISpErrorLog, ISpErrorLog_Vtbl, 0xf4711347_e608_11d2_a086_00c04f8ef9b5);
 windows_core::imp::interface_hierarchy!(ISpErrorLog, windows_core::IUnknown);
 impl ISpErrorLog {
     pub unsafe fn AddError<P0, P1>(&self, llinenumber: i32, hr: windows_core::HRESULT, pszdescription: P0, pszhelpfile: P1, dwhelpcontext: u32) -> windows_core::Result<()>
@@ -388,7 +388,7 @@ pub struct ISpErrorLog_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddError: unsafe extern "system" fn(*mut core::ffi::c_void, i32, windows_core::HRESULT, windows_core::PCWSTR, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpEventSink, ISpEventSink_Vtbl, 0xbe7a9cc9_5f9e_11d2_960f_00c04f8ee628);
+windows_core::imp::define_interface!(ISpEventSink, ISpEventSink_Vtbl, 0xbe7a9cc9_5f9e_11d2_960f_00c04f8ee628);
 windows_core::imp::interface_hierarchy!(ISpEventSink, windows_core::IUnknown);
 impl ISpEventSink {
     pub unsafe fn AddEvents(&self, peventarray: *const SPEVENT, ulcount: u32) -> windows_core::Result<()> {
@@ -404,7 +404,7 @@ pub struct ISpEventSink_Vtbl {
     pub AddEvents: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPEVENT, u32) -> windows_core::HRESULT,
     pub GetEventInterest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpEventSource, ISpEventSource_Vtbl, 0xbe7a9cce_5f9e_11d2_960f_00c04f8ee628);
+windows_core::imp::define_interface!(ISpEventSource, ISpEventSource_Vtbl, 0xbe7a9cce_5f9e_11d2_960f_00c04f8ee628);
 windows_core::imp::interface_hierarchy!(ISpEventSource, windows_core::IUnknown, ISpNotifySource);
 impl ISpEventSource {
     pub unsafe fn SetNotifySink<P0>(&self, pnotifysink: P0) -> windows_core::Result<()>
@@ -462,7 +462,7 @@ pub struct ISpEventSource_Vtbl {
     pub GetEvents: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut SPEVENT, *mut u32) -> windows_core::HRESULT,
     pub GetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPEVENTSOURCEINFO) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpEventSource2, ISpEventSource2_Vtbl, 0x2373a435_6a4b_429e_a6ac_d4231a61975b);
+windows_core::imp::define_interface!(ISpEventSource2, ISpEventSource2_Vtbl, 0x2373a435_6a4b_429e_a6ac_d4231a61975b);
 windows_core::imp::interface_hierarchy!(ISpEventSource2, windows_core::IUnknown, ISpNotifySource, ISpEventSource);
 impl ISpEventSource2 {
     pub unsafe fn SetNotifySink<P0>(&self, pnotifysink: P0) -> windows_core::Result<()>
@@ -521,7 +521,7 @@ pub struct ISpEventSource2_Vtbl {
     pub base__: ISpEventSource_Vtbl,
     pub GetEventsEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut SPEVENTEX, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpGramCompBackend, ISpGramCompBackend_Vtbl, 0x3ddca27c_665c_4786_9f97_8c90c3488b61);
+windows_core::imp::define_interface!(ISpGramCompBackend, ISpGramCompBackend_Vtbl, 0x3ddca27c_665c_4786_9f97_8c90c3488b61);
 windows_core::imp::interface_hierarchy!(ISpGramCompBackend, windows_core::IUnknown, ISpGrammarBuilder);
 impl ISpGramCompBackend {
     pub unsafe fn ResetGrammar(&self, newlanguage: u16) -> windows_core::Result<()> {
@@ -595,7 +595,7 @@ pub struct ISpGramCompBackend_Vtbl {
     SetSaveObjects: usize,
     pub InitFromBinaryGrammar: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPBINARYGRAMMAR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpGrammarBuilder, ISpGrammarBuilder_Vtbl, 0x8137828f_591a_4a42_be58_49ea7ebaac68);
+windows_core::imp::define_interface!(ISpGrammarBuilder, ISpGrammarBuilder_Vtbl, 0x8137828f_591a_4a42_be58_49ea7ebaac68);
 windows_core::imp::interface_hierarchy!(ISpGrammarBuilder, windows_core::IUnknown);
 impl ISpGrammarBuilder {
     pub unsafe fn ResetGrammar(&self, newlanguage: u16) -> windows_core::Result<()> {
@@ -661,7 +661,7 @@ pub struct ISpGrammarBuilder_Vtbl {
     pub AddResource: unsafe extern "system" fn(*mut core::ffi::c_void, SPSTATEHANDLE, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpGrammarBuilder2, ISpGrammarBuilder2_Vtbl, 0x8ab10026_20cc_4b20_8c22_a49c9ba78f60);
+windows_core::imp::define_interface!(ISpGrammarBuilder2, ISpGrammarBuilder2_Vtbl, 0x8ab10026_20cc_4b20_8c22_a49c9ba78f60);
 windows_core::imp::interface_hierarchy!(ISpGrammarBuilder2, windows_core::IUnknown);
 impl ISpGrammarBuilder2 {
     pub unsafe fn AddTextSubset<P0, P1, P2>(&self, hfromstate: P0, htostate: P1, psz: P2, ematchmode: SPMATCHINGMODE) -> windows_core::Result<()>
@@ -682,7 +682,7 @@ pub struct ISpGrammarBuilder2_Vtbl {
     pub AddTextSubset: unsafe extern "system" fn(*mut core::ffi::c_void, SPSTATEHANDLE, SPSTATEHANDLE, windows_core::PCWSTR, SPMATCHINGMODE) -> windows_core::HRESULT,
     pub SetPhoneticAlphabet: unsafe extern "system" fn(*mut core::ffi::c_void, PHONETICALPHABET) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpGrammarCompiler, ISpGrammarCompiler_Vtbl, 0xb1e29d58_a675_11d2_8302_00c04f8ee6c0);
+windows_core::imp::define_interface!(ISpGrammarCompiler, ISpGrammarCompiler_Vtbl, 0xb1e29d58_a675_11d2_8302_00c04f8ee6c0);
 windows_core::imp::interface_hierarchy!(ISpGrammarCompiler, windows_core::IUnknown);
 impl ISpGrammarCompiler {
     #[cfg(feature = "Win32_System_Com")]
@@ -705,7 +705,7 @@ pub struct ISpGrammarCompiler_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CompileStream: usize,
 }
-windows_core::imp::com_interface!(ISpITNProcessor, ISpITNProcessor_Vtbl, 0x12d7360f_a1c9_11d3_bc90_00c04f72df9f);
+windows_core::imp::define_interface!(ISpITNProcessor, ISpITNProcessor_Vtbl, 0x12d7360f_a1c9_11d3_bc90_00c04f72df9f);
 windows_core::imp::interface_hierarchy!(ISpITNProcessor, windows_core::IUnknown);
 impl ISpITNProcessor {
     pub unsafe fn LoadITNGrammar<P0>(&self, pszclsid: P0) -> windows_core::Result<()>
@@ -727,7 +727,7 @@ pub struct ISpITNProcessor_Vtbl {
     pub LoadITNGrammar: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub ITNPhrase: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpLexicon, ISpLexicon_Vtbl, 0xda41a7c2_5383_4db2_916b_6c1719e3db58);
+windows_core::imp::define_interface!(ISpLexicon, ISpLexicon_Vtbl, 0xda41a7c2_5383_4db2_916b_6c1719e3db58);
 windows_core::imp::interface_hierarchy!(ISpLexicon, windows_core::IUnknown);
 impl ISpLexicon {
     pub unsafe fn GetPronunciations<P0>(&self, pszword: P0, langid: u16, dwflags: u32, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> windows_core::Result<()>
@@ -769,7 +769,7 @@ pub struct ISpLexicon_Vtbl {
     pub GetWords: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut u32, *mut SPWORDLIST) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpMMSysAudio, ISpMMSysAudio_Vtbl, 0x15806f6e_1d70_4b48_98e6_3b1a007509ab);
+windows_core::imp::define_interface!(ISpMMSysAudio, ISpMMSysAudio_Vtbl, 0x15806f6e_1d70_4b48_98e6_3b1a007509ab);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpMMSysAudio, windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat, ISpAudio);
 #[cfg(feature = "Win32_System_Com")]
@@ -888,7 +888,7 @@ pub struct ISpMMSysAudio_Vtbl {
     pub GetLineId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetLineId: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::interface!(ISpNotifyCallback, ISpNotifyCallback_Vtbl);
+windows_core::imp::define_interface!(ISpNotifyCallback, ISpNotifyCallback_Vtbl);
 impl ISpNotifyCallback {
     pub unsafe fn NotifyCallback<P0, P1>(&self, wparam: P0, lparam: P1) -> windows_core::Result<()>
     where
@@ -902,7 +902,7 @@ impl ISpNotifyCallback {
 pub struct ISpNotifyCallback_Vtbl {
     pub NotifyCallback: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpNotifySink, ISpNotifySink_Vtbl, 0x259684dc_37c3_11d2_9603_00c04f8ee628);
+windows_core::imp::define_interface!(ISpNotifySink, ISpNotifySink_Vtbl, 0x259684dc_37c3_11d2_9603_00c04f8ee628);
 windows_core::imp::interface_hierarchy!(ISpNotifySink, windows_core::IUnknown);
 impl ISpNotifySink {
     pub unsafe fn Notify(&self) -> windows_core::Result<()> {
@@ -914,7 +914,7 @@ pub struct ISpNotifySink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpNotifySource, ISpNotifySource_Vtbl, 0x5eff4aef_8487_11d2_961c_00c04f8ee628);
+windows_core::imp::define_interface!(ISpNotifySource, ISpNotifySource_Vtbl, 0x5eff4aef_8487_11d2_961c_00c04f8ee628);
 windows_core::imp::interface_hierarchy!(ISpNotifySource, windows_core::IUnknown);
 impl ISpNotifySource {
     pub unsafe fn SetNotifySink<P0>(&self, pnotifysink: P0) -> windows_core::Result<()>
@@ -967,7 +967,7 @@ pub struct ISpNotifySource_Vtbl {
     pub WaitForNotifyEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetNotifyEventHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
 }
-windows_core::imp::com_interface!(ISpNotifyTranslator, ISpNotifyTranslator_Vtbl, 0xaca16614_5d3d_11d2_960e_00c04f8ee628);
+windows_core::imp::define_interface!(ISpNotifyTranslator, ISpNotifyTranslator_Vtbl, 0xaca16614_5d3d_11d2_960e_00c04f8ee628);
 windows_core::imp::interface_hierarchy!(ISpNotifyTranslator, windows_core::IUnknown, ISpNotifySink);
 impl ISpNotifyTranslator {
     pub unsafe fn Notify(&self) -> windows_core::Result<()> {
@@ -1020,7 +1020,7 @@ pub struct ISpNotifyTranslator_Vtbl {
     pub Wait: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetEventHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
 }
-windows_core::imp::com_interface!(ISpObjectToken, ISpObjectToken_Vtbl, 0x14056589_e16c_11d2_bb90_00c04f8ee6c0);
+windows_core::imp::define_interface!(ISpObjectToken, ISpObjectToken_Vtbl, 0x14056589_e16c_11d2_bb90_00c04f8ee6c0);
 windows_core::imp::interface_hierarchy!(ISpObjectToken, windows_core::IUnknown, ISpDataKey);
 impl ISpObjectToken {
     pub unsafe fn SetData<P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> windows_core::Result<()>
@@ -1172,7 +1172,7 @@ pub struct ISpObjectToken_Vtbl {
     pub DisplayUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MatchesAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpObjectTokenCategory, ISpObjectTokenCategory_Vtbl, 0x2d3d3845_39af_4850_bbf9_40b49780011d);
+windows_core::imp::define_interface!(ISpObjectTokenCategory, ISpObjectTokenCategory_Vtbl, 0x2d3d3845_39af_4850_bbf9_40b49780011d);
 windows_core::imp::interface_hierarchy!(ISpObjectTokenCategory, windows_core::IUnknown, ISpDataKey);
 impl ISpObjectTokenCategory {
     pub unsafe fn SetData<P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> windows_core::Result<()>
@@ -1291,7 +1291,7 @@ pub struct ISpObjectTokenCategory_Vtbl {
     pub SetDefaultTokenId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetDefaultTokenId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpObjectTokenEnumBuilder, ISpObjectTokenEnumBuilder_Vtbl, 0x06b64f9f_7fda_11d2_b4f2_00c04f797396);
+windows_core::imp::define_interface!(ISpObjectTokenEnumBuilder, ISpObjectTokenEnumBuilder_Vtbl, 0x06b64f9f_7fda_11d2_b4f2_00c04f797396);
 windows_core::imp::interface_hierarchy!(ISpObjectTokenEnumBuilder, windows_core::IUnknown, IEnumSpObjectTokens);
 impl ISpObjectTokenEnumBuilder {
     pub unsafe fn Next(&self, celt: u32, pelt: *mut Option<ISpObjectToken>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
@@ -1354,7 +1354,7 @@ pub struct ISpObjectTokenEnumBuilder_Vtbl {
     pub AddTokensFromTokenEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Sort: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpObjectTokenInit, ISpObjectTokenInit_Vtbl, 0xb8aab0cf_346f_49d8_9499_c8b03f161d51);
+windows_core::imp::define_interface!(ISpObjectTokenInit, ISpObjectTokenInit_Vtbl, 0xb8aab0cf_346f_49d8_9499_c8b03f161d51);
 windows_core::imp::interface_hierarchy!(ISpObjectTokenInit, windows_core::IUnknown, ISpDataKey, ISpObjectToken);
 impl ISpObjectTokenInit {
     pub unsafe fn SetData<P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> windows_core::Result<()>
@@ -1505,7 +1505,7 @@ pub struct ISpObjectTokenInit_Vtbl {
     pub base__: ISpObjectToken_Vtbl,
     pub InitFromDataKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpObjectWithToken, ISpObjectWithToken_Vtbl, 0x5b559f40_e952_11d2_bb91_00c04f8ee6c0);
+windows_core::imp::define_interface!(ISpObjectWithToken, ISpObjectWithToken_Vtbl, 0x5b559f40_e952_11d2_bb91_00c04f8ee6c0);
 windows_core::imp::interface_hierarchy!(ISpObjectWithToken, windows_core::IUnknown);
 impl ISpObjectWithToken {
     pub unsafe fn SetObjectToken<P0>(&self, ptoken: P0) -> windows_core::Result<()>
@@ -1525,7 +1525,7 @@ pub struct ISpObjectWithToken_Vtbl {
     pub SetObjectToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetObjectToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpPhoneConverter, ISpPhoneConverter_Vtbl, 0x8445c581_0cac_4a38_abfe_9b2ce2826455);
+windows_core::imp::define_interface!(ISpPhoneConverter, ISpPhoneConverter_Vtbl, 0x8445c581_0cac_4a38_abfe_9b2ce2826455);
 windows_core::imp::interface_hierarchy!(ISpPhoneConverter, windows_core::IUnknown, ISpObjectWithToken);
 impl ISpPhoneConverter {
     pub unsafe fn SetObjectToken<P0>(&self, ptoken: P0) -> windows_core::Result<()>
@@ -1555,7 +1555,7 @@ pub struct ISpPhoneConverter_Vtbl {
     pub PhoneToId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u16) -> windows_core::HRESULT,
     pub IdToPhone: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, windows_core::PWSTR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpPhoneticAlphabetConverter, ISpPhoneticAlphabetConverter_Vtbl, 0x133adcd4_19b4_4020_9fdc_842e78253b17);
+windows_core::imp::define_interface!(ISpPhoneticAlphabetConverter, ISpPhoneticAlphabetConverter_Vtbl, 0x133adcd4_19b4_4020_9fdc_842e78253b17);
 windows_core::imp::interface_hierarchy!(ISpPhoneticAlphabetConverter, windows_core::IUnknown);
 impl ISpPhoneticAlphabetConverter {
     pub unsafe fn GetLangId(&self) -> windows_core::Result<u16> {
@@ -1588,7 +1588,7 @@ pub struct ISpPhoneticAlphabetConverter_Vtbl {
     pub UPS2SAPI: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *mut u16, u32) -> windows_core::HRESULT,
     pub GetMaxConvertLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::BOOL, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpPhoneticAlphabetSelection, ISpPhoneticAlphabetSelection_Vtbl, 0xb2745efd_42ce_48ca_81f1_a96e02538a90);
+windows_core::imp::define_interface!(ISpPhoneticAlphabetSelection, ISpPhoneticAlphabetSelection_Vtbl, 0xb2745efd_42ce_48ca_81f1_a96e02538a90);
 windows_core::imp::interface_hierarchy!(ISpPhoneticAlphabetSelection, windows_core::IUnknown);
 impl ISpPhoneticAlphabetSelection {
     pub unsafe fn IsAlphabetUPS(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -1608,7 +1608,7 @@ pub struct ISpPhoneticAlphabetSelection_Vtbl {
     pub IsAlphabetUPS: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub SetAlphabetToUPS: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpPhrase, ISpPhrase_Vtbl, 0x1a5c0354_b621_4b5a_8791_d306ed379e53);
+windows_core::imp::define_interface!(ISpPhrase, ISpPhrase_Vtbl, 0x1a5c0354_b621_4b5a_8791_d306ed379e53);
 windows_core::imp::interface_hierarchy!(ISpPhrase, windows_core::IUnknown);
 impl ISpPhrase {
     pub unsafe fn GetPhrase(&self) -> windows_core::Result<*mut SPPHRASE> {
@@ -1637,7 +1637,7 @@ pub struct ISpPhrase_Vtbl {
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::super::Foundation::BOOL, *mut windows_core::PWSTR, *mut u8) -> windows_core::HRESULT,
     pub Discard: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpPhrase2, ISpPhrase2_Vtbl, 0xf264da52_e457_4696_b856_a737b717af79);
+windows_core::imp::define_interface!(ISpPhrase2, ISpPhrase2_Vtbl, 0xf264da52_e457_4696_b856_a737b717af79);
 windows_core::imp::interface_hierarchy!(ISpPhrase2, windows_core::IUnknown, ISpPhrase);
 impl ISpPhrase2 {
     pub unsafe fn GetPhrase(&self) -> windows_core::Result<*mut SPPHRASE> {
@@ -1679,7 +1679,7 @@ pub struct ISpPhrase2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetAudio: usize,
 }
-windows_core::imp::com_interface!(ISpPhraseAlt, ISpPhraseAlt_Vtbl, 0x8fcebc98_4e49_4067_9c6c_d86a0e092e3d);
+windows_core::imp::define_interface!(ISpPhraseAlt, ISpPhraseAlt_Vtbl, 0x8fcebc98_4e49_4067_9c6c_d86a0e092e3d);
 windows_core::imp::interface_hierarchy!(ISpPhraseAlt, windows_core::IUnknown, ISpPhrase);
 impl ISpPhraseAlt {
     pub unsafe fn GetPhrase(&self) -> windows_core::Result<*mut SPPHRASE> {
@@ -1712,7 +1712,7 @@ pub struct ISpPhraseAlt_Vtbl {
     pub GetAltInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpPhraseBuilder, ISpPhraseBuilder_Vtbl, 0x88a3342a_0bed_4834_922b_88d43173162f);
+windows_core::imp::define_interface!(ISpPhraseBuilder, ISpPhraseBuilder_Vtbl, 0x88a3342a_0bed_4834_922b_88d43173162f);
 windows_core::imp::interface_hierarchy!(ISpPhraseBuilder, windows_core::IUnknown, ISpPhrase);
 impl ISpPhraseBuilder {
     pub unsafe fn GetPhrase(&self) -> windows_core::Result<*mut SPPHRASE> {
@@ -1769,7 +1769,7 @@ pub struct ISpPhraseBuilder_Vtbl {
     pub AddProperties: unsafe extern "system" fn(*mut core::ffi::c_void, SPPHRASEPROPERTYHANDLE, *const SPPHRASEPROPERTY, *mut SPPHRASEPROPERTYHANDLE) -> windows_core::HRESULT,
     pub AddReplacements: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const SPPHRASEREPLACEMENT) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpPrivateEngineCallEx, ISpPrivateEngineCallEx_Vtbl, 0xdefd682a_fe0a_42b9_bfa1_56d3d6cecfaf);
+windows_core::imp::define_interface!(ISpPrivateEngineCallEx, ISpPrivateEngineCallEx_Vtbl, 0xdefd682a_fe0a_42b9_bfa1_56d3d6cecfaf);
 windows_core::imp::interface_hierarchy!(ISpPrivateEngineCallEx, windows_core::IUnknown);
 impl ISpPrivateEngineCallEx {
     pub unsafe fn CallEngineSynchronize(&self, pinframe: *const core::ffi::c_void, ulinframesize: u32, ppcomemoutframe: *mut *mut core::ffi::c_void, puloutframesize: *mut u32) -> windows_core::Result<()> {
@@ -1785,7 +1785,7 @@ pub struct ISpPrivateEngineCallEx_Vtbl {
     pub CallEngineSynchronize: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub CallEngineImmediate: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpProperties, ISpProperties_Vtbl, 0x5b4fb971_b115_4de1_ad97_e482e3bf6ee4);
+windows_core::imp::define_interface!(ISpProperties, ISpProperties_Vtbl, 0x5b4fb971_b115_4de1_ad97_e482e3bf6ee4);
 windows_core::imp::interface_hierarchy!(ISpProperties, windows_core::IUnknown);
 impl ISpProperties {
     pub unsafe fn SetPropertyNum<P0>(&self, pname: P0, lvalue: i32) -> windows_core::Result<()>
@@ -1823,7 +1823,7 @@ pub struct ISpProperties_Vtbl {
     pub SetPropertyString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetPropertyString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpRecoContext, ISpRecoContext_Vtbl, 0xf740a62f_7c15_489e_8234_940a33d9272d);
+windows_core::imp::define_interface!(ISpRecoContext, ISpRecoContext_Vtbl, 0xf740a62f_7c15_489e_8234_940a33d9272d);
 windows_core::imp::interface_hierarchy!(ISpRecoContext, windows_core::IUnknown, ISpNotifySource, ISpEventSource);
 impl ISpRecoContext {
     pub unsafe fn SetNotifySink<P0>(&self, pnotifysink: P0) -> windows_core::Result<()>
@@ -1972,7 +1972,7 @@ pub struct ISpRecoContext_Vtbl {
     pub SetContextState: unsafe extern "system" fn(*mut core::ffi::c_void, SPCONTEXTSTATE) -> windows_core::HRESULT,
     pub GetContextState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPCONTEXTSTATE) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpRecoContext2, ISpRecoContext2_Vtbl, 0xbead311c_52ff_437f_9464_6b21054ca73d);
+windows_core::imp::define_interface!(ISpRecoContext2, ISpRecoContext2_Vtbl, 0xbead311c_52ff_437f_9464_6b21054ca73d);
 windows_core::imp::interface_hierarchy!(ISpRecoContext2, windows_core::IUnknown);
 impl ISpRecoContext2 {
     pub unsafe fn SetGrammarOptions(&self, egrammaroptions: u32) -> windows_core::Result<()> {
@@ -1996,7 +1996,7 @@ pub struct ISpRecoContext2_Vtbl {
     pub GetGrammarOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetAdaptationData2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, windows_core::PCWSTR, u32, SPADAPTATIONRELEVANCE) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpRecoGrammar, ISpRecoGrammar_Vtbl, 0x2177db29_7f45_47d0_8554_067e91c80502);
+windows_core::imp::define_interface!(ISpRecoGrammar, ISpRecoGrammar_Vtbl, 0x2177db29_7f45_47d0_8554_067e91c80502);
 windows_core::imp::interface_hierarchy!(ISpRecoGrammar, windows_core::IUnknown, ISpGrammarBuilder);
 impl ISpRecoGrammar {
     pub unsafe fn ResetGrammar(&self, newlanguage: u16) -> windows_core::Result<()> {
@@ -2157,7 +2157,7 @@ pub struct ISpRecoGrammar_Vtbl {
     SaveCmd: usize,
     pub GetGrammarState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPGRAMMARSTATE) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpRecoGrammar2, ISpRecoGrammar2_Vtbl, 0x4b37bc9e_9ed6_44a3_93d3_18f022b79ec3);
+windows_core::imp::define_interface!(ISpRecoGrammar2, ISpRecoGrammar2_Vtbl, 0x4b37bc9e_9ed6_44a3_93d3_18f022b79ec3);
 windows_core::imp::interface_hierarchy!(ISpRecoGrammar2, windows_core::IUnknown);
 impl ISpRecoGrammar2 {
     pub unsafe fn GetRules(&self, ppcomemrules: *mut *mut SPRULE, punumrules: *mut u32) -> windows_core::Result<()> {
@@ -2226,7 +2226,7 @@ pub struct ISpRecoGrammar2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com_Urlmon"))]
     SetSMLSecurityManager: usize,
 }
-windows_core::imp::com_interface!(ISpRecoResult, ISpRecoResult_Vtbl, 0x20b053be_e235_43cd_9a2a_8d17a48b7842);
+windows_core::imp::define_interface!(ISpRecoResult, ISpRecoResult_Vtbl, 0x20b053be_e235_43cd_9a2a_8d17a48b7842);
 windows_core::imp::interface_hierarchy!(ISpRecoResult, windows_core::IUnknown, ISpPhrase);
 impl ISpRecoResult {
     pub unsafe fn GetPhrase(&self) -> windows_core::Result<*mut SPPHRASE> {
@@ -2289,7 +2289,7 @@ pub struct ISpRecoResult_Vtbl {
     ScaleAudio: usize,
     pub GetRecoContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpRecoResult2, ISpRecoResult2_Vtbl, 0x27cac6c4_88f2_41f2_8817_0c95e59f1e6e);
+windows_core::imp::define_interface!(ISpRecoResult2, ISpRecoResult2_Vtbl, 0x27cac6c4_88f2_41f2_8817_0c95e59f1e6e);
 windows_core::imp::interface_hierarchy!(ISpRecoResult2, windows_core::IUnknown, ISpPhrase, ISpRecoResult);
 impl ISpRecoResult2 {
     pub unsafe fn GetPhrase(&self) -> windows_core::Result<*mut SPPHRASE> {
@@ -2362,7 +2362,7 @@ pub struct ISpRecoResult2_Vtbl {
     pub CommitText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
     pub SetTextFeedback: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpRecognizer, ISpRecognizer_Vtbl, 0xc2b5f241_daa0_4507_9e16_5a1eaa2b7a5c);
+windows_core::imp::define_interface!(ISpRecognizer, ISpRecognizer_Vtbl, 0xc2b5f241_daa0_4507_9e16_5a1eaa2b7a5c);
 windows_core::imp::interface_hierarchy!(ISpRecognizer, windows_core::IUnknown, ISpProperties);
 impl ISpRecognizer {
     pub unsafe fn SetPropertyNum<P0>(&self, pname: P0, lvalue: i32) -> windows_core::Result<()>
@@ -2494,7 +2494,7 @@ pub struct ISpRecognizer_Vtbl {
     pub DisplayUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub EmulateRecognition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpRecognizer2, ISpRecognizer2_Vtbl, 0x8fc6d974_c81e_4098_93c5_0147f61ed4d3);
+windows_core::imp::define_interface!(ISpRecognizer2, ISpRecognizer2_Vtbl, 0x8fc6d974_c81e_4098_93c5_0147f61ed4d3);
 windows_core::imp::interface_hierarchy!(ISpRecognizer2, windows_core::IUnknown);
 impl ISpRecognizer2 {
     pub unsafe fn EmulateRecognitionEx<P0>(&self, pphrase: P0, dwcompareflags: u32) -> windows_core::Result<()>
@@ -2521,7 +2521,7 @@ pub struct ISpRecognizer2_Vtbl {
     pub SetTrainingState: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub ResetAcousticModelAdaptation: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpRegDataKey, ISpRegDataKey_Vtbl, 0x92a66e2b_c830_4149_83df_6fc2ba1e7a5b);
+windows_core::imp::define_interface!(ISpRegDataKey, ISpRegDataKey_Vtbl, 0x92a66e2b_c830_4149_83df_6fc2ba1e7a5b);
 windows_core::imp::interface_hierarchy!(ISpRegDataKey, windows_core::IUnknown, ISpDataKey);
 impl ISpRegDataKey {
     pub unsafe fn SetData<P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> windows_core::Result<()>
@@ -2614,7 +2614,7 @@ pub struct ISpRegDataKey_Vtbl {
     SetKey: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpResourceManager, ISpResourceManager_Vtbl, 0x93384e18_5014_43d5_adbb_a78e055926bd);
+windows_core::imp::define_interface!(ISpResourceManager, ISpResourceManager_Vtbl, 0x93384e18_5014_43d5_adbb_a78e055926bd);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpResourceManager, windows_core::IUnknown, super::super::System::Com::IServiceProvider);
 #[cfg(feature = "Win32_System_Com")]
@@ -2647,7 +2647,7 @@ pub struct ISpResourceManager_Vtbl {
     pub SetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *const windows_core::GUID, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpSRAlternates, ISpSRAlternates_Vtbl, 0xfece8294_2be1_408f_8e68_2de377092f0e);
+windows_core::imp::define_interface!(ISpSRAlternates, ISpSRAlternates_Vtbl, 0xfece8294_2be1_408f_8e68_2de377092f0e);
 windows_core::imp::interface_hierarchy!(ISpSRAlternates, windows_core::IUnknown);
 impl ISpSRAlternates {
     pub unsafe fn GetAlternates(&self, paltrequest: *const SPPHRASEALTREQUEST, ppalts: *mut *mut SPPHRASEALT, pcalts: *mut u32) -> windows_core::Result<()> {
@@ -2663,7 +2663,7 @@ pub struct ISpSRAlternates_Vtbl {
     pub GetAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPPHRASEALTREQUEST, *mut *mut SPPHRASEALT, *mut u32) -> windows_core::HRESULT,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPPHRASEALTREQUEST, *const SPPHRASEALT, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpSRAlternates2, ISpSRAlternates2_Vtbl, 0xf338f437_cb33_4020_9cab_c71ff9ce12d3);
+windows_core::imp::define_interface!(ISpSRAlternates2, ISpSRAlternates2_Vtbl, 0xf338f437_cb33_4020_9cab_c71ff9ce12d3);
 windows_core::imp::interface_hierarchy!(ISpSRAlternates2, windows_core::IUnknown, ISpSRAlternates);
 impl ISpSRAlternates2 {
     pub unsafe fn GetAlternates(&self, paltrequest: *const SPPHRASEALTREQUEST, ppalts: *mut *mut SPPHRASEALT, pcalts: *mut u32) -> windows_core::Result<()> {
@@ -2684,7 +2684,7 @@ pub struct ISpSRAlternates2_Vtbl {
     pub base__: ISpSRAlternates_Vtbl,
     pub CommitText: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPPHRASEALTREQUEST, windows_core::PCWSTR, SPCOMMITFLAGS) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpSREngine, ISpSREngine_Vtbl, 0x2f472991_854b_4465_b613_fbafb3ad8ed8);
+windows_core::imp::define_interface!(ISpSREngine, ISpSREngine_Vtbl, 0x2f472991_854b_4465_b613_fbafb3ad8ed8);
 windows_core::imp::interface_hierarchy!(ISpSREngine, windows_core::IUnknown);
 impl ISpSREngine {
     pub unsafe fn SetSite<P0>(&self, psite: P0) -> windows_core::Result<()>
@@ -2865,7 +2865,7 @@ pub struct ISpSREngine_Vtbl {
     pub PrivateCallEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, *const core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetContextState: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, SPCONTEXTSTATE) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpSREngine2, ISpSREngine2_Vtbl, 0x7ba627d8_33f9_4375_90c5_9985aee5ede5);
+windows_core::imp::define_interface!(ISpSREngine2, ISpSREngine2_Vtbl, 0x7ba627d8_33f9_4375_90c5_9985aee5ede5);
 windows_core::imp::interface_hierarchy!(ISpSREngine2, windows_core::IUnknown, ISpSREngine);
 impl ISpSREngine2 {
     pub unsafe fn SetSite<P0>(&self, psite: P0) -> windows_core::Result<()>
@@ -3075,7 +3075,7 @@ pub struct ISpSREngine2_Vtbl {
     pub OnLoadCFG: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, *const SPBINARYGRAMMAR, u32) -> windows_core::HRESULT,
     pub OnUnloadCFG: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpSREngineSite, ISpSREngineSite_Vtbl, 0x3b414aec_720c_4883_b9ef_178cd394fb3a);
+windows_core::imp::define_interface!(ISpSREngineSite, ISpSREngineSite_Vtbl, 0x3b414aec_720c_4883_b9ef_178cd394fb3a);
 windows_core::imp::interface_hierarchy!(ISpSREngineSite, windows_core::IUnknown);
 impl ISpSREngineSite {
     pub unsafe fn Read(&self, pv: *const core::ffi::c_void, cb: u32) -> windows_core::Result<u32> {
@@ -3191,7 +3191,7 @@ pub struct ISpSREngineSite_Vtbl {
     pub GetContextMaxAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, SPRECOCONTEXTHANDLE, *mut u32) -> windows_core::HRESULT,
     pub UpdateRecoPos: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpSREngineSite2, ISpSREngineSite2_Vtbl, 0x7bc6e012_684a_493e_bdd4_2bf5fbf48cfe);
+windows_core::imp::define_interface!(ISpSREngineSite2, ISpSREngineSite2_Vtbl, 0x7bc6e012_684a_493e_bdd4_2bf5fbf48cfe);
 windows_core::imp::interface_hierarchy!(ISpSREngineSite2, windows_core::IUnknown, ISpSREngineSite);
 impl ISpSREngineSite2 {
     pub unsafe fn Read(&self, pv: *const core::ffi::c_void, cb: u32) -> windows_core::Result<u32> {
@@ -3308,7 +3308,7 @@ pub struct ISpSREngineSite2_Vtbl {
     pub GetRuleTransition: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut SPTRANSITIONENTRY) -> windows_core::HRESULT,
     pub RecognitionEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const SPRECORESULTINFOEX) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpSerializeState, ISpSerializeState_Vtbl, 0x21b501a0_0ec7_46c9_92c3_a2bc784c54b9);
+windows_core::imp::define_interface!(ISpSerializeState, ISpSerializeState_Vtbl, 0x21b501a0_0ec7_46c9_92c3_a2bc784c54b9);
 windows_core::imp::interface_hierarchy!(ISpSerializeState, windows_core::IUnknown);
 impl ISpSerializeState {
     pub unsafe fn GetSerializedState(&self, ppbdata: *mut *mut u8, pulsize: *mut u32, dwreserved: u32) -> windows_core::Result<()> {
@@ -3324,7 +3324,7 @@ pub struct ISpSerializeState_Vtbl {
     pub GetSerializedState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32, u32) -> windows_core::HRESULT,
     pub SetSerializedState: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpShortcut, ISpShortcut_Vtbl, 0x3df681e2_ea56_11d9_8bde_f66bad1e3f3a);
+windows_core::imp::define_interface!(ISpShortcut, ISpShortcut_Vtbl, 0x3df681e2_ea56_11d9_8bde_f66bad1e3f3a);
 windows_core::imp::interface_hierarchy!(ISpShortcut, windows_core::IUnknown);
 impl ISpShortcut {
     pub unsafe fn AddShortcut<P0, P1>(&self, pszdisplay: P0, langid: u16, pszspoken: P1, shtype: SPSHORTCUTTYPE) -> windows_core::Result<()>
@@ -3374,7 +3374,7 @@ pub struct ISpShortcut_Vtbl {
     pub GetGenerationChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut SPSHORTCUTPAIRLIST) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpStream, ISpStream_Vtbl, 0x12e3cca9_7518_44c5_a5e7_ba5a79cb929e);
+windows_core::imp::define_interface!(ISpStream, ISpStream_Vtbl, 0x12e3cca9_7518_44c5_a5e7_ba5a79cb929e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpStream, windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat);
 #[cfg(feature = "Win32_System_Com")]
@@ -3474,7 +3474,7 @@ pub struct ISpStream_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpStreamFormat, ISpStreamFormat_Vtbl, 0xbed530be_2606_4f4d_a1c0_54c5cda5566f);
+windows_core::imp::define_interface!(ISpStreamFormat, ISpStreamFormat_Vtbl, 0xbed530be_2606_4f4d_a1c0_54c5cda5566f);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpStreamFormat, windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
@@ -3543,7 +3543,7 @@ pub struct ISpStreamFormat_Vtbl {
     GetFormat: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpStreamFormatConverter, ISpStreamFormatConverter_Vtbl, 0x678a932c_ea71_4446_9b41_78fda6280a29);
+windows_core::imp::define_interface!(ISpStreamFormatConverter, ISpStreamFormatConverter_Vtbl, 0x678a932c_ea71_4446_9b41_78fda6280a29);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpStreamFormatConverter, windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat);
 #[cfg(feature = "Win32_System_Com")]
@@ -3651,7 +3651,7 @@ pub struct ISpStreamFormatConverter_Vtbl {
     pub ScaleConvertedToBaseOffset: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
     pub ScaleBaseToConvertedOffset: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpTTSEngine, ISpTTSEngine_Vtbl, 0xa74d7c8e_4cc5_4f2f_a6eb_804dee18500e);
+windows_core::imp::define_interface!(ISpTTSEngine, ISpTTSEngine_Vtbl, 0xa74d7c8e_4cc5_4f2f_a6eb_804dee18500e);
 windows_core::imp::interface_hierarchy!(ISpTTSEngine, windows_core::IUnknown);
 impl ISpTTSEngine {
     #[cfg(feature = "Win32_Media_Audio")]
@@ -3678,7 +3678,7 @@ pub struct ISpTTSEngine_Vtbl {
     #[cfg(not(feature = "Win32_Media_Audio"))]
     GetOutputFormat: usize,
 }
-windows_core::imp::com_interface!(ISpTTSEngineSite, ISpTTSEngineSite_Vtbl, 0x9880499b_cce9_11d2_b503_00c04f797396);
+windows_core::imp::define_interface!(ISpTTSEngineSite, ISpTTSEngineSite_Vtbl, 0x9880499b_cce9_11d2_b503_00c04f797396);
 windows_core::imp::interface_hierarchy!(ISpTTSEngineSite, windows_core::IUnknown, ISpEventSink);
 impl ISpTTSEngineSite {
     pub unsafe fn AddEvents(&self, peventarray: *const SPEVENT, ulcount: u32) -> windows_core::Result<()> {
@@ -3719,7 +3719,7 @@ pub struct ISpTTSEngineSite_Vtbl {
     pub GetSkipInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPVSKIPTYPE, *mut i32) -> windows_core::HRESULT,
     pub CompleteSkip: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-windows_core::imp::interface!(ISpTask, ISpTask_Vtbl);
+windows_core::imp::define_interface!(ISpTask, ISpTask_Vtbl);
 impl ISpTask {
     pub unsafe fn Execute(&self, pvtaskdata: *mut core::ffi::c_void, pfcontinueprocessing: *const i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), pvtaskdata, pfcontinueprocessing).ok()
@@ -3729,7 +3729,7 @@ impl ISpTask {
 pub struct ISpTask_Vtbl {
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpTaskManager, ISpTaskManager_Vtbl, 0x2baeef81_2ca3_4331_98f3_26ec5abefb03);
+windows_core::imp::define_interface!(ISpTaskManager, ISpTaskManager_Vtbl, 0x2baeef81_2ca3_4331_98f3_26ec5abefb03);
 windows_core::imp::interface_hierarchy!(ISpTaskManager, windows_core::IUnknown);
 impl ISpTaskManager {
     pub unsafe fn SetThreadPoolInfo(&self, ppoolinfo: *const SPTMTHREADINFO) -> windows_core::Result<()> {
@@ -3779,7 +3779,7 @@ pub struct ISpTaskManager_Vtbl {
     pub TerminateTask: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub TerminateTaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpThreadControl, ISpThreadControl_Vtbl, 0xa6be4d73_4403_4358_b22d_0346e23b1764);
+windows_core::imp::define_interface!(ISpThreadControl, ISpThreadControl_Vtbl, 0xa6be4d73_4403_4358_b22d_0346e23b1764);
 windows_core::imp::interface_hierarchy!(ISpThreadControl, windows_core::IUnknown, ISpNotifySink);
 impl ISpThreadControl {
     pub unsafe fn Notify(&self) -> windows_core::Result<()> {
@@ -3830,7 +3830,7 @@ pub struct ISpThreadControl_Vtbl {
     pub ThreadCompleteEvent: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
     pub ExitThreadEvent: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
 }
-windows_core::imp::interface!(ISpThreadTask, ISpThreadTask_Vtbl);
+windows_core::imp::define_interface!(ISpThreadTask, ISpThreadTask_Vtbl);
 impl ISpThreadTask {
     pub unsafe fn InitThread<P0>(&self, pvtaskdata: *mut core::ffi::c_void, hwnd: P0) -> windows_core::Result<()>
     where
@@ -3861,7 +3861,7 @@ pub struct ISpThreadTask_Vtbl {
     pub ThreadProc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::HANDLE, super::super::Foundation::HANDLE, super::super::Foundation::HWND, *const i32) -> windows_core::HRESULT,
     pub WindowMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::HWND, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT,
 }
-windows_core::imp::com_interface!(ISpTokenUI, ISpTokenUI_Vtbl, 0xf8e690f0_39cb_4843_b8d7_c84696e1119d);
+windows_core::imp::define_interface!(ISpTokenUI, ISpTokenUI_Vtbl, 0xf8e690f0_39cb_4843_b8d7_c84696e1119d);
 windows_core::imp::interface_hierarchy!(ISpTokenUI, windows_core::IUnknown);
 impl ISpTokenUI {
     pub unsafe fn IsUISupported<P0, P1>(&self, psztypeofui: P0, pvextradata: *const core::ffi::c_void, cbextradata: u32, punkobject: P1) -> windows_core::Result<super::super::Foundation::BOOL>
@@ -3889,7 +3889,7 @@ pub struct ISpTokenUI_Vtbl {
     pub IsUISupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::ffi::c_void, u32, *mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub DisplayUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::PCWSTR, windows_core::PCWSTR, *const core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpTranscript, ISpTranscript_Vtbl, 0x10f63bce_201a_11d3_ac70_00c04f8ee6c0);
+windows_core::imp::define_interface!(ISpTranscript, ISpTranscript_Vtbl, 0x10f63bce_201a_11d3_ac70_00c04f8ee6c0);
 windows_core::imp::interface_hierarchy!(ISpTranscript, windows_core::IUnknown);
 impl ISpTranscript {
     pub unsafe fn GetTranscript(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -3909,7 +3909,7 @@ pub struct ISpTranscript_Vtbl {
     pub GetTranscript: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub AppendTranscript: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpVoice, ISpVoice_Vtbl, 0x6c44df74_72b9_4992_a1ec_ef996e0422d4);
+windows_core::imp::define_interface!(ISpVoice, ISpVoice_Vtbl, 0x6c44df74_72b9_4992_a1ec_ef996e0422d4);
 windows_core::imp::interface_hierarchy!(ISpVoice, windows_core::IUnknown, ISpNotifySource, ISpEventSource);
 impl ISpVoice {
     pub unsafe fn SetNotifySink<P0>(&self, pnotifysink: P0) -> windows_core::Result<()>
@@ -4099,7 +4099,7 @@ pub struct ISpVoice_Vtbl {
     pub IsUISupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, u32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub DisplayUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpXMLRecoResult, ISpXMLRecoResult_Vtbl, 0xae39362b_45a8_4074_9b9e_ccf49aa2d0b6);
+windows_core::imp::define_interface!(ISpXMLRecoResult, ISpXMLRecoResult_Vtbl, 0xae39362b_45a8_4074_9b9e_ccf49aa2d0b6);
 windows_core::imp::interface_hierarchy!(ISpXMLRecoResult, windows_core::IUnknown, ISpPhrase, ISpRecoResult);
 impl ISpXMLRecoResult {
     pub unsafe fn GetPhrase(&self) -> windows_core::Result<*mut SPPHRASE> {
@@ -4158,7 +4158,7 @@ pub struct ISpXMLRecoResult_Vtbl {
     pub GetXMLErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SPSEMANTICERRORINFO) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechAudio, ISpeechAudio_Vtbl, 0xcff8e175_019e_11d3_a08e_00c04f8ef9b5);
+windows_core::imp::define_interface!(ISpeechAudio, ISpeechAudio_Vtbl, 0xcff8e175_019e_11d3_a08e_00c04f8ef9b5);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechAudio, windows_core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
 #[cfg(feature = "Win32_System_Com")]
@@ -4253,7 +4253,7 @@ pub struct ISpeechAudio_Vtbl {
     pub SetState: unsafe extern "system" fn(*mut core::ffi::c_void, SpeechAudioState) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechAudioBufferInfo, ISpeechAudioBufferInfo_Vtbl, 0x11b103d8_1142_4edf_a093_82fb3915f8cc);
+windows_core::imp::define_interface!(ISpeechAudioBufferInfo, ISpeechAudioBufferInfo_Vtbl, 0x11b103d8_1142_4edf_a093_82fb3915f8cc);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechAudioBufferInfo, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4292,7 +4292,7 @@ pub struct ISpeechAudioBufferInfo_Vtbl {
     pub SetEventBias: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechAudioFormat, ISpeechAudioFormat_Vtbl, 0xe6e9c590_3e18_40e3_8299_061f98bde7c7);
+windows_core::imp::define_interface!(ISpeechAudioFormat, ISpeechAudioFormat_Vtbl, 0xe6e9c590_3e18_40e3_8299_061f98bde7c7);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechAudioFormat, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4345,7 +4345,7 @@ pub struct ISpeechAudioFormat_Vtbl {
     SetWaveFormatEx: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechAudioStatus, ISpeechAudioStatus_Vtbl, 0xc62d9c91_7458_47f6_862d_1ef86fb0b278);
+windows_core::imp::define_interface!(ISpeechAudioStatus, ISpeechAudioStatus_Vtbl, 0xc62d9c91_7458_47f6_862d_1ef86fb0b278);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechAudioStatus, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4382,7 +4382,7 @@ pub struct ISpeechAudioStatus_Vtbl {
     pub CurrentDevicePosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechBaseStream, ISpeechBaseStream_Vtbl, 0x6450336f_7d49_4ced_8097_49d6dee37294);
+windows_core::imp::define_interface!(ISpeechBaseStream, ISpeechBaseStream_Vtbl, 0x6450336f_7d49_4ced_8097_49d6dee37294);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechBaseStream, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4434,7 +4434,7 @@ pub struct ISpeechBaseStream_Vtbl {
     pub Seek: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, SpeechStreamSeekPositionType, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechCustomStream, ISpeechCustomStream_Vtbl, 0x1a9e9f4f_104f_4db8_a115_efd7fd0c97ae);
+windows_core::imp::define_interface!(ISpeechCustomStream, ISpeechCustomStream_Vtbl, 0x1a9e9f4f_104f_4db8_a115_efd7fd0c97ae);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechCustomStream, windows_core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
 #[cfg(feature = "Win32_System_Com")]
@@ -4487,7 +4487,7 @@ pub struct ISpeechCustomStream_Vtbl {
     pub putref_BaseStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechDataKey, ISpeechDataKey_Vtbl, 0xce17c09b_4efa_44d5_a4c9_59d9585ab0cd);
+windows_core::imp::define_interface!(ISpeechDataKey, ISpeechDataKey_Vtbl, 0xce17c09b_4efa_44d5_a4c9_59d9585ab0cd);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechDataKey, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4594,7 +4594,7 @@ pub struct ISpeechDataKey_Vtbl {
     pub EnumValues: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechFileStream, ISpeechFileStream_Vtbl, 0xaf67f125_ab39_4e93_b4a2_cc2e66e182a7);
+windows_core::imp::define_interface!(ISpeechFileStream, ISpeechFileStream_Vtbl, 0xaf67f125_ab39_4e93_b4a2_cc2e66e182a7);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechFileStream, windows_core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
 #[cfg(feature = "Win32_System_Com")]
@@ -4647,7 +4647,7 @@ pub struct ISpeechFileStream_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechGrammarRule, ISpeechGrammarRule_Vtbl, 0xafe719cf_5dd1_44f2_999c_7a399f1cfccc);
+windows_core::imp::define_interface!(ISpeechGrammarRule, ISpeechGrammarRule_Vtbl, 0xafe719cf_5dd1_44f2_999c_7a399f1cfccc);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechGrammarRule, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4704,7 +4704,7 @@ pub struct ISpeechGrammarRule_Vtbl {
     AddState: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechGrammarRuleState, ISpeechGrammarRuleState_Vtbl, 0xd4286f2c_ee67_45ae_b928_28d695362eda);
+windows_core::imp::define_interface!(ISpeechGrammarRuleState, ISpeechGrammarRuleState_Vtbl, 0xd4286f2c_ee67_45ae_b928_28d695362eda);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechGrammarRuleState, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4773,7 +4773,7 @@ pub struct ISpeechGrammarRuleState_Vtbl {
     AddSpecialTransition: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechGrammarRuleStateTransition, ISpeechGrammarRuleStateTransition_Vtbl, 0xcafd1db1_41d1_4a06_9863_e2e81da17a9a);
+windows_core::imp::define_interface!(ISpeechGrammarRuleStateTransition, ISpeechGrammarRuleStateTransition_Vtbl, 0xcafd1db1_41d1_4a06_9863_e2e81da17a9a);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechGrammarRuleStateTransition, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4833,7 +4833,7 @@ pub struct ISpeechGrammarRuleStateTransition_Vtbl {
     NextState: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechGrammarRuleStateTransitions, ISpeechGrammarRuleStateTransitions_Vtbl, 0xeabce657_75bc_44a2_aa7f_c56476742963);
+windows_core::imp::define_interface!(ISpeechGrammarRuleStateTransitions, ISpeechGrammarRuleStateTransitions_Vtbl, 0xeabce657_75bc_44a2_aa7f_c56476742963);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechGrammarRuleStateTransitions, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4864,7 +4864,7 @@ pub struct ISpeechGrammarRuleStateTransitions_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechGrammarRules, ISpeechGrammarRules_Vtbl, 0x6ffa3b44_fc2d_40d1_8afc_32911c7f1ad1);
+windows_core::imp::define_interface!(ISpeechGrammarRules, ISpeechGrammarRules_Vtbl, 0x6ffa3b44_fc2d_40d1_8afc_32911c7f1ad1);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechGrammarRules, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4932,7 +4932,7 @@ pub struct ISpeechGrammarRules_Vtbl {
     pub CommitAndSave: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechLexicon, ISpeechLexicon_Vtbl, 0x3da7627a_c7ae_4b23_8708_638c50362c25);
+windows_core::imp::define_interface!(ISpeechLexicon, ISpeechLexicon_Vtbl, 0x3da7627a_c7ae_4b23_8708_638c50362c25);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechLexicon, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5007,7 +5007,7 @@ pub struct ISpeechLexicon_Vtbl {
     GetGenerationChange: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechLexiconPronunciation, ISpeechLexiconPronunciation_Vtbl, 0x95252c5d_9e43_4f4a_9899_48ee73352f9f);
+windows_core::imp::define_interface!(ISpeechLexiconPronunciation, ISpeechLexiconPronunciation_Vtbl, 0x95252c5d_9e43_4f4a_9899_48ee73352f9f);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechLexiconPronunciation, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5044,7 +5044,7 @@ pub struct ISpeechLexiconPronunciation_Vtbl {
     pub Symbolic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechLexiconPronunciations, ISpeechLexiconPronunciations_Vtbl, 0x72829128_5682_4704_a0d4_3e2bb6f2ead3);
+windows_core::imp::define_interface!(ISpeechLexiconPronunciations, ISpeechLexiconPronunciations_Vtbl, 0x72829128_5682_4704_a0d4_3e2bb6f2ead3);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechLexiconPronunciations, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5075,7 +5075,7 @@ pub struct ISpeechLexiconPronunciations_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechLexiconWord, ISpeechLexiconWord_Vtbl, 0x4e5b933c_c9be_48ed_8842_1ee51bb1d4ff);
+windows_core::imp::define_interface!(ISpeechLexiconWord, ISpeechLexiconWord_Vtbl, 0x4e5b933c_c9be_48ed_8842_1ee51bb1d4ff);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechLexiconWord, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5111,7 +5111,7 @@ pub struct ISpeechLexiconWord_Vtbl {
     Pronunciations: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechLexiconWords, ISpeechLexiconWords_Vtbl, 0x8d199862_415e_47d5_ac4f_faa608b424e6);
+windows_core::imp::define_interface!(ISpeechLexiconWords, ISpeechLexiconWords_Vtbl, 0x8d199862_415e_47d5_ac4f_faa608b424e6);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechLexiconWords, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5142,7 +5142,7 @@ pub struct ISpeechLexiconWords_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechMMSysAudio, ISpeechMMSysAudio_Vtbl, 0x3c76af6d_1fd7_4831_81d1_3b71d5a13c44);
+windows_core::imp::define_interface!(ISpeechMMSysAudio, ISpeechMMSysAudio_Vtbl, 0x3c76af6d_1fd7_4831_81d1_3b71d5a13c44);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechMMSysAudio, windows_core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream, ISpeechAudio);
 #[cfg(feature = "Win32_System_Com")]
@@ -5242,7 +5242,7 @@ pub struct ISpeechMMSysAudio_Vtbl {
     pub MMHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechMemoryStream, ISpeechMemoryStream_Vtbl, 0xeeb14b68_808b_4abe_a5ea_b51da7588008);
+windows_core::imp::define_interface!(ISpeechMemoryStream, ISpeechMemoryStream_Vtbl, 0xeeb14b68_808b_4abe_a5ea_b51da7588008);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechMemoryStream, windows_core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
 #[cfg(feature = "Win32_System_Com")]
@@ -5295,7 +5295,7 @@ pub struct ISpeechMemoryStream_Vtbl {
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechObjectToken, ISpeechObjectToken_Vtbl, 0xc74a3adc_b727_4500_a84a_b526721c8b8c);
+windows_core::imp::define_interface!(ISpeechObjectToken, ISpeechObjectToken_Vtbl, 0xc74a3adc_b727_4500_a84a_b526721c8b8c);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechObjectToken, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5412,7 +5412,7 @@ pub struct ISpeechObjectToken_Vtbl {
     pub MatchesAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechObjectTokenCategory, ISpeechObjectTokenCategory_Vtbl, 0xca7eac50_2d01_4145_86d4_5ae7d70f4469);
+windows_core::imp::define_interface!(ISpeechObjectTokenCategory, ISpeechObjectTokenCategory_Vtbl, 0xca7eac50_2d01_4145_86d4_5ae7d70f4469);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechObjectTokenCategory, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5471,7 +5471,7 @@ pub struct ISpeechObjectTokenCategory_Vtbl {
     EnumerateTokens: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechObjectTokens, ISpeechObjectTokens_Vtbl, 0x9285b776_2e7b_4bc0_b53e_580eb6fa967f);
+windows_core::imp::define_interface!(ISpeechObjectTokens, ISpeechObjectTokens_Vtbl, 0x9285b776_2e7b_4bc0_b53e_580eb6fa967f);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechObjectTokens, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5502,7 +5502,7 @@ pub struct ISpeechObjectTokens_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechPhoneConverter, ISpeechPhoneConverter_Vtbl, 0xc3e4f353_433f_43d6_89a1_6a62a7054c3d);
+windows_core::imp::define_interface!(ISpeechPhoneConverter, ISpeechPhoneConverter_Vtbl, 0xc3e4f353_433f_43d6_89a1_6a62a7054c3d);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechPhoneConverter, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5539,7 +5539,7 @@ pub struct ISpeechPhoneConverter_Vtbl {
     pub IdToPhone: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechPhraseAlternate, ISpeechPhraseAlternate_Vtbl, 0x27864a2a_2b9f_4cb8_92d3_0d2722fd1e73);
+windows_core::imp::define_interface!(ISpeechPhraseAlternate, ISpeechPhraseAlternate_Vtbl, 0x27864a2a_2b9f_4cb8_92d3_0d2722fd1e73);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechPhraseAlternate, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5583,7 +5583,7 @@ pub struct ISpeechPhraseAlternate_Vtbl {
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechPhraseAlternates, ISpeechPhraseAlternates_Vtbl, 0xb238b6d5_f276_4c3d_a6c1_2974801c3cc2);
+windows_core::imp::define_interface!(ISpeechPhraseAlternates, ISpeechPhraseAlternates_Vtbl, 0xb238b6d5_f276_4c3d_a6c1_2974801c3cc2);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechPhraseAlternates, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5614,7 +5614,7 @@ pub struct ISpeechPhraseAlternates_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechPhraseElement, ISpeechPhraseElement_Vtbl, 0xe6176f96_e373_4801_b223_3b62c068c0b4);
+windows_core::imp::define_interface!(ISpeechPhraseElement, ISpeechPhraseElement_Vtbl, 0xe6176f96_e373_4801_b223_3b62c068c0b4);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechPhraseElement, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5691,7 +5691,7 @@ pub struct ISpeechPhraseElement_Vtbl {
     pub EngineConfidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechPhraseElements, ISpeechPhraseElements_Vtbl, 0x0626b328_3478_467d_a0b3_d0853b93dda3);
+windows_core::imp::define_interface!(ISpeechPhraseElements, ISpeechPhraseElements_Vtbl, 0x0626b328_3478_467d_a0b3_d0853b93dda3);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechPhraseElements, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5722,7 +5722,7 @@ pub struct ISpeechPhraseElements_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechPhraseInfo, ISpeechPhraseInfo_Vtbl, 0x961559cf_4e67_4662_8bf0_d93f1fcd61b3);
+windows_core::imp::define_interface!(ISpeechPhraseInfo, ISpeechPhraseInfo_Vtbl, 0x961559cf_4e67_4662_8bf0_d93f1fcd61b3);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechPhraseInfo, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5836,7 +5836,7 @@ pub struct ISpeechPhraseInfo_Vtbl {
     pub GetDisplayAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, super::super::Foundation::VARIANT_BOOL, *mut SpeechDisplayAttributes) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechPhraseInfoBuilder, ISpeechPhraseInfoBuilder_Vtbl, 0x3b151836_df3a_4e0a_846c_d2adc9334333);
+windows_core::imp::define_interface!(ISpeechPhraseInfoBuilder, ISpeechPhraseInfoBuilder_Vtbl, 0x3b151836_df3a_4e0a_846c_d2adc9334333);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechPhraseInfoBuilder, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5857,7 +5857,7 @@ pub struct ISpeechPhraseInfoBuilder_Vtbl {
     RestorePhraseFromMemory: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechPhraseProperties, ISpeechPhraseProperties_Vtbl, 0x08166b47_102e_4b23_a599_bdb98dbfd1f4);
+windows_core::imp::define_interface!(ISpeechPhraseProperties, ISpeechPhraseProperties_Vtbl, 0x08166b47_102e_4b23_a599_bdb98dbfd1f4);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechPhraseProperties, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5888,7 +5888,7 @@ pub struct ISpeechPhraseProperties_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechPhraseProperty, ISpeechPhraseProperty_Vtbl, 0xce563d48_961e_4732_a2e1_378a42b430be);
+windows_core::imp::define_interface!(ISpeechPhraseProperty, ISpeechPhraseProperty_Vtbl, 0xce563d48_961e_4732_a2e1_378a42b430be);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechPhraseProperty, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5953,7 +5953,7 @@ pub struct ISpeechPhraseProperty_Vtbl {
     Children: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechPhraseReplacement, ISpeechPhraseReplacement_Vtbl, 0x2890a410_53a7_4fb5_94ec_06d4998e3d02);
+windows_core::imp::define_interface!(ISpeechPhraseReplacement, ISpeechPhraseReplacement_Vtbl, 0x2890a410_53a7_4fb5_94ec_06d4998e3d02);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechPhraseReplacement, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5985,7 +5985,7 @@ pub struct ISpeechPhraseReplacement_Vtbl {
     pub NumberOfElements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechPhraseReplacements, ISpeechPhraseReplacements_Vtbl, 0x38bc662f_2257_4525_959e_2069d2596c05);
+windows_core::imp::define_interface!(ISpeechPhraseReplacements, ISpeechPhraseReplacements_Vtbl, 0x38bc662f_2257_4525_959e_2069d2596c05);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechPhraseReplacements, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6016,7 +6016,7 @@ pub struct ISpeechPhraseReplacements_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechPhraseRule, ISpeechPhraseRule_Vtbl, 0xa7bfe112_a4a0_48d9_b602_c313843f6964);
+windows_core::imp::define_interface!(ISpeechPhraseRule, ISpeechPhraseRule_Vtbl, 0xa7bfe112_a4a0_48d9_b602_c313843f6964);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechPhraseRule, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6076,7 +6076,7 @@ pub struct ISpeechPhraseRule_Vtbl {
     pub EngineConfidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechPhraseRules, ISpeechPhraseRules_Vtbl, 0x9047d593_01dd_4b72_81a3_e4a0ca69f407);
+windows_core::imp::define_interface!(ISpeechPhraseRules, ISpeechPhraseRules_Vtbl, 0x9047d593_01dd_4b72_81a3_e4a0ca69f407);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechPhraseRules, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6107,7 +6107,7 @@ pub struct ISpeechPhraseRules_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechRecoContext, ISpeechRecoContext_Vtbl, 0x580aa49d_7e1e_4809_b8e2_57da806104b8);
+windows_core::imp::define_interface!(ISpeechRecoContext, ISpeechRecoContext_Vtbl, 0x580aa49d_7e1e_4809_b8e2_57da806104b8);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechRecoContext, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6279,7 +6279,7 @@ pub struct ISpeechRecoContext_Vtbl {
     pub SetAdaptationData: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechRecoGrammar, ISpeechRecoGrammar_Vtbl, 0xb6d6f79f_2158_4e50_b5bc_9a9ccd852a09);
+windows_core::imp::define_interface!(ISpeechRecoGrammar, ISpeechRecoGrammar_Vtbl, 0xb6d6f79f_2158_4e50_b5bc_9a9ccd852a09);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechRecoGrammar, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6423,7 +6423,7 @@ pub struct ISpeechRecoGrammar_Vtbl {
     pub IsPronounceable: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut SpeechWordPronounceable) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechRecoResult, ISpeechRecoResult_Vtbl, 0xed2879cf_ced9_4ee6_a534_de0191d5468d);
+windows_core::imp::define_interface!(ISpeechRecoResult, ISpeechRecoResult_Vtbl, 0xed2879cf_ced9_4ee6_a534_de0191d5468d);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechRecoResult, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6514,7 +6514,7 @@ pub struct ISpeechRecoResult_Vtbl {
     pub DiscardResultInfo: unsafe extern "system" fn(*mut core::ffi::c_void, SpeechDiscardType) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechRecoResult2, ISpeechRecoResult2_Vtbl, 0x8e0a246d_d3c8_45de_8657_04290c458c3c);
+windows_core::imp::define_interface!(ISpeechRecoResult2, ISpeechRecoResult2_Vtbl, 0x8e0a246d_d3c8_45de_8657_04290c458c3c);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechRecoResult2, windows_core::IUnknown, super::super::System::Com::IDispatch, ISpeechRecoResult);
 #[cfg(feature = "Win32_System_Com")]
@@ -6582,7 +6582,7 @@ pub struct ISpeechRecoResult2_Vtbl {
     pub SetTextFeedback: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechRecoResultDispatch, ISpeechRecoResultDispatch_Vtbl, 0x6d60eb64_aced_40a6_bbf3_4e557f71dee2);
+windows_core::imp::define_interface!(ISpeechRecoResultDispatch, ISpeechRecoResultDispatch_Vtbl, 0x6d60eb64_aced_40a6_bbf3_4e557f71dee2);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechRecoResultDispatch, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6690,7 +6690,7 @@ pub struct ISpeechRecoResultDispatch_Vtbl {
     pub SetTextFeedback: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechRecoResultTimes, ISpeechRecoResultTimes_Vtbl, 0x62b3b8fb_f6e7_41be_bdcb_056b1c29efc0);
+windows_core::imp::define_interface!(ISpeechRecoResultTimes, ISpeechRecoResultTimes_Vtbl, 0x62b3b8fb_f6e7_41be_bdcb_056b1c29efc0);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechRecoResultTimes, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6722,7 +6722,7 @@ pub struct ISpeechRecoResultTimes_Vtbl {
     pub OffsetFromStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechRecognizer, ISpeechRecognizer_Vtbl, 0x2d5f1c0c_bd75_4b08_9478_3b11fea2586c);
+windows_core::imp::define_interface!(ISpeechRecognizer, ISpeechRecognizer_Vtbl, 0x2d5f1c0c_bd75_4b08_9478_3b11fea2586c);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechRecognizer, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6960,7 +6960,7 @@ pub struct ISpeechRecognizer_Vtbl {
     GetProfiles: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechRecognizerStatus, ISpeechRecognizerStatus_Vtbl, 0xbff9e781_53ec_484e_bb8a_0e1b5551e35c);
+windows_core::imp::define_interface!(ISpeechRecognizerStatus, ISpeechRecognizerStatus_Vtbl, 0xbff9e781_53ec_484e_bb8a_0e1b5551e35c);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechRecognizerStatus, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -7006,7 +7006,7 @@ pub struct ISpeechRecognizerStatus_Vtbl {
     pub SupportedLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechResourceLoader, ISpeechResourceLoader_Vtbl, 0xb9ac5783_fcd0_4b21_b119_b4f8da8fd2c3);
+windows_core::imp::define_interface!(ISpeechResourceLoader, ISpeechResourceLoader_Vtbl, 0xb9ac5783_fcd0_4b21_b119_b4f8da8fd2c3);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechResourceLoader, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -7040,7 +7040,7 @@ pub struct ISpeechResourceLoader_Vtbl {
     pub ReleaseLocalCopy: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechTextSelectionInformation, ISpeechTextSelectionInformation_Vtbl, 0x3b9c7e7a_6eee_4ded_9092_11657279adbe);
+windows_core::imp::define_interface!(ISpeechTextSelectionInformation, ISpeechTextSelectionInformation_Vtbl, 0x3b9c7e7a_6eee_4ded_9092_11657279adbe);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechTextSelectionInformation, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -7088,7 +7088,7 @@ pub struct ISpeechTextSelectionInformation_Vtbl {
     pub SelectionLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechVoice, ISpeechVoice_Vtbl, 0x269316d8_57bd_11d2_9eee_00c04f797396);
+windows_core::imp::define_interface!(ISpeechVoice, ISpeechVoice_Vtbl, 0x269316d8_57bd_11d2_9eee_00c04f797396);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechVoice, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -7323,7 +7323,7 @@ pub struct ISpeechVoice_Vtbl {
     pub DisplayUI: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechVoiceStatus, ISpeechVoiceStatus_Vtbl, 0x8be47b07_57f6_11d2_9eee_00c04f797396);
+windows_core::imp::define_interface!(ISpeechVoiceStatus, ISpeechVoiceStatus_Vtbl, 0x8be47b07_57f6_11d2_9eee_00c04f797396);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechVoiceStatus, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -7395,7 +7395,7 @@ pub struct ISpeechVoiceStatus_Vtbl {
     pub VisemeId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i16) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechWaveFormatEx, ISpeechWaveFormatEx_Vtbl, 0x7a1ef0d5_1581_4741_88e4_209a49f11a10);
+windows_core::imp::define_interface!(ISpeechWaveFormatEx, ISpeechWaveFormatEx_Vtbl, 0x7a1ef0d5_1581_4741_88e4_209a49f11a10);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechWaveFormatEx, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -7473,7 +7473,7 @@ pub struct ISpeechWaveFormatEx_Vtbl {
     pub SetExtraData: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ISpeechXMLRecoResult, ISpeechXMLRecoResult_Vtbl, 0xaaec54af_8f85_4924_944d_b79d39d72e19);
+windows_core::imp::define_interface!(ISpeechXMLRecoResult, ISpeechXMLRecoResult_Vtbl, 0xaaec54af_8f85_4924_944d_b79d39d72e19);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISpeechXMLRecoResult, windows_core::IUnknown, super::super::System::Com::IDispatch, ISpeechRecoResult);
 #[cfg(feature = "Win32_System_Com")]
@@ -7541,7 +7541,7 @@ pub struct ISpeechXMLRecoResult_Vtbl {
     pub GetXMLResult: unsafe extern "system" fn(*mut core::ffi::c_void, SPXMLRESULTOPTIONS, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetXMLErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut i32, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(_ISpPrivateEngineCall, _ISpPrivateEngineCall_Vtbl, 0x8e7c791e_4467_11d3_9723_00c04f72db08);
+windows_core::imp::define_interface!(_ISpPrivateEngineCall, _ISpPrivateEngineCall_Vtbl, 0x8e7c791e_4467_11d3_9723_00c04f72db08);
 windows_core::imp::interface_hierarchy!(_ISpPrivateEngineCall, windows_core::IUnknown);
 impl _ISpPrivateEngineCall {
     pub unsafe fn CallEngine(&self, pcallframe: *mut core::ffi::c_void, ulcallframesize: u32) -> windows_core::Result<()> {
@@ -7558,7 +7558,7 @@ pub struct _ISpPrivateEngineCall_Vtbl {
     pub CallEngineEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(_ISpeechRecoContextEvents, _ISpeechRecoContextEvents_Vtbl, 0x7b8fcb42_0e9d_4f00_a048_7b04d6179d3d);
+windows_core::imp::define_interface!(_ISpeechRecoContextEvents, _ISpeechRecoContextEvents_Vtbl, 0x7b8fcb42_0e9d_4f00_a048_7b04d6179d3d);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(_ISpeechRecoContextEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -7569,7 +7569,7 @@ pub struct _ISpeechRecoContextEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(_ISpeechVoiceEvents, _ISpeechVoiceEvents_Vtbl, 0xa372acd1_3bef_4bbd_8ffb_cb3e2b416af8);
+windows_core::imp::define_interface!(_ISpeechVoiceEvents, _ISpeechVoiceEvents_Vtbl, 0xa372acd1_3bef_4bbd_8ffb_cb3e2b416af8);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(_ISpeechVoiceEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]

@@ -1,6 +1,6 @@
 #[cfg(feature = "Devices_Lights_Effects")]
 pub mod Effects;
-windows_core::imp::com_interface!(ILamp, ILamp_Vtbl, 0x047d5b9a_ea45_4b2b_b1a2_14dff00bde7b);
+windows_core::imp::define_interface!(ILamp, ILamp_Vtbl, 0x047d5b9a_ea45_4b2b_b1a2_14dff00bde7b);
 #[repr(C)]
 pub struct ILamp_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -21,7 +21,7 @@ pub struct ILamp_Vtbl {
     pub AvailabilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveAvailabilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ILampArray, ILampArray_Vtbl, 0x7ace9787_c8a0_4e95_a1e0_d58676538649);
+windows_core::imp::define_interface!(ILampArray, ILampArray_Vtbl, 0x7ace9787_c8a0_4e95_a1e0_d58676538649);
 #[repr(C)]
 pub struct ILampArray_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -85,7 +85,7 @@ pub struct ILampArray_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     RequestMessageAsync: usize,
 }
-windows_core::imp::com_interface!(ILampArray2, ILampArray2_Vtbl, 0x050c181f_60a8_4711_a1af_1b1b4c658ea2);
+windows_core::imp::define_interface!(ILampArray2, ILampArray2_Vtbl, 0x050c181f_60a8_4711_a1af_1b1b4c658ea2);
 #[repr(C)]
 pub struct ILampArray2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -93,20 +93,20 @@ pub struct ILampArray2_Vtbl {
     pub AvailabilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveAvailabilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ILampArrayStatics, ILampArrayStatics_Vtbl, 0x7bb8c98d_5fc1_452d_bb1f_4ad410d398ff);
+windows_core::imp::define_interface!(ILampArrayStatics, ILampArrayStatics_Vtbl, 0x7bb8c98d_5fc1_452d_bb1f_4ad410d398ff);
 #[repr(C)]
 pub struct ILampArrayStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ILampAvailabilityChangedEventArgs, ILampAvailabilityChangedEventArgs_Vtbl, 0x4f6e3ded_07a2_499d_9260_67e304532ba4);
+windows_core::imp::define_interface!(ILampAvailabilityChangedEventArgs, ILampAvailabilityChangedEventArgs_Vtbl, 0x4f6e3ded_07a2_499d_9260_67e304532ba4);
 #[repr(C)]
 pub struct ILampAvailabilityChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ILampInfo, ILampInfo_Vtbl, 0x30bb521c_0acf_49da_8c10_150b9cf62713);
+windows_core::imp::define_interface!(ILampInfo, ILampInfo_Vtbl, 0x30bb521c_0acf_49da_8c10_150b9cf62713);
 #[repr(C)]
 pub struct ILampInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -130,7 +130,7 @@ pub struct ILampInfo_Vtbl {
     GetNearestSupportedColor: usize,
     pub UpdateLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ILampStatics, ILampStatics_Vtbl, 0xa822416c_8885_401e_b821_8e8b38a8e8ec);
+windows_core::imp::define_interface!(ILampStatics, ILampStatics_Vtbl, 0xa822416c_8885_401e_b821_8e8b38a8e8ec);
 #[repr(C)]
 pub struct ILampStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

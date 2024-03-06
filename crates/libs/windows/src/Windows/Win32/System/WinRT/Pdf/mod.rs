@@ -8,7 +8,7 @@ where
     let mut result__ = std::mem::zeroed();
     PdfCreateRenderer(pdevice.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
-windows_core::imp::com_interface!(IPdfRendererNative, IPdfRendererNative_Vtbl, 0x7d9dcd91_d277_4947_8527_07a0daeda94a);
+windows_core::imp::define_interface!(IPdfRendererNative, IPdfRendererNative_Vtbl, 0x7d9dcd91_d277_4947_8527_07a0daeda94a);
 windows_core::imp::interface_hierarchy!(IPdfRendererNative, windows_core::IUnknown);
 impl IPdfRendererNative {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi"))]

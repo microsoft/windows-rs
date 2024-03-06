@@ -18,7 +18,7 @@ where
     let mut result__ = std::mem::zeroed();
     CreateDirect3D11SurfaceFromDXGISurface(dgxisurface.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
-windows_core::imp::com_interface!(IDirect3DDxgiInterfaceAccess, IDirect3DDxgiInterfaceAccess_Vtbl, 0xa9b3d012_3df2_4ee3_b8d1_8695f457d3c1);
+windows_core::imp::define_interface!(IDirect3DDxgiInterfaceAccess, IDirect3DDxgiInterfaceAccess_Vtbl, 0xa9b3d012_3df2_4ee3_b8d1_8695f457d3c1);
 windows_core::imp::interface_hierarchy!(IDirect3DDxgiInterfaceAccess, windows_core::IUnknown);
 impl IDirect3DDxgiInterfaceAccess {
     pub unsafe fn GetInterface<T>(&self) -> windows_core::Result<T>

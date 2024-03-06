@@ -1,18 +1,18 @@
-windows_core::imp::com_interface!(IPrint3DManager, IPrint3DManager_Vtbl, 0x4d2fcb0a_7366_4971_8bd5_17c4e3e8c6c0);
+windows_core::imp::define_interface!(IPrint3DManager, IPrint3DManager_Vtbl, 0x4d2fcb0a_7366_4971_8bd5_17c4e3e8c6c0);
 #[repr(C)]
 pub struct IPrint3DManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TaskRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveTaskRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrint3DManagerStatics, IPrint3DManagerStatics_Vtbl, 0x0ef1cafe_a9ad_4c08_a917_1d1f863eabcb);
+windows_core::imp::define_interface!(IPrint3DManagerStatics, IPrint3DManagerStatics_Vtbl, 0x0ef1cafe_a9ad_4c08_a917_1d1f863eabcb);
 #[repr(C)]
 pub struct IPrint3DManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShowPrintUIAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrint3DTask, IPrint3DTask_Vtbl, 0x8ce3d080_2118_4c28_80de_f426d70191ae);
+windows_core::imp::define_interface!(IPrint3DTask, IPrint3DTask_Vtbl, 0x8ce3d080_2118_4c28_80de_f426d70191ae);
 #[repr(C)]
 pub struct IPrint3DTask_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -24,38 +24,38 @@ pub struct IPrint3DTask_Vtbl {
     pub SourceChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveSourceChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrint3DTaskCompletedEventArgs, IPrint3DTaskCompletedEventArgs_Vtbl, 0xcc1914af_2614_4f1d_accc_d6fc4fda5455);
+windows_core::imp::define_interface!(IPrint3DTaskCompletedEventArgs, IPrint3DTaskCompletedEventArgs_Vtbl, 0xcc1914af_2614_4f1d_accc_d6fc4fda5455);
 #[repr(C)]
 pub struct IPrint3DTaskCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Completion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Print3DTaskCompletion) -> windows_core::HRESULT,
     pub ExtendedStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Print3DTaskDetail) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrint3DTaskRequest, IPrint3DTaskRequest_Vtbl, 0x2595c46f_2245_4c5a_8731_0d604dc6bc3c);
+windows_core::imp::define_interface!(IPrint3DTaskRequest, IPrint3DTaskRequest_Vtbl, 0x2595c46f_2245_4c5a_8731_0d604dc6bc3c);
 #[repr(C)]
 pub struct IPrint3DTaskRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateTask: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrint3DTaskRequestedEventArgs, IPrint3DTaskRequestedEventArgs_Vtbl, 0x150cb77f_18c5_40d7_9f40_fab3096e05a9);
+windows_core::imp::define_interface!(IPrint3DTaskRequestedEventArgs, IPrint3DTaskRequestedEventArgs_Vtbl, 0x150cb77f_18c5_40d7_9f40_fab3096e05a9);
 #[repr(C)]
 pub struct IPrint3DTaskRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrint3DTaskSourceChangedEventArgs, IPrint3DTaskSourceChangedEventArgs_Vtbl, 0x5bcd34af_24e9_4c10_8d07_14c346ba3fcf);
+windows_core::imp::define_interface!(IPrint3DTaskSourceChangedEventArgs, IPrint3DTaskSourceChangedEventArgs_Vtbl, 0x5bcd34af_24e9_4c10_8d07_14c346ba3fcf);
 #[repr(C)]
 pub struct IPrint3DTaskSourceChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Source: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrint3DTaskSourceRequestedArgs, IPrint3DTaskSourceRequestedArgs_Vtbl, 0xc77c9aba_24af_424d_a3bf_92250c355602);
+windows_core::imp::define_interface!(IPrint3DTaskSourceRequestedArgs, IPrint3DTaskSourceRequestedArgs_Vtbl, 0xc77c9aba_24af_424d_a3bf_92250c355602);
 #[repr(C)]
 pub struct IPrint3DTaskSourceRequestedArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3D3MFPackage, IPrinting3D3MFPackage_Vtbl, 0xf64dd5c8_2ab7_45a9_a1b7_267e948d5b18);
+windows_core::imp::define_interface!(IPrinting3D3MFPackage, IPrinting3D3MFPackage_Vtbl, 0xf64dd5c8_2ab7_45a9_a1b7_267e948d5b18);
 #[repr(C)]
 pub struct IPrinting3D3MFPackage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -91,14 +91,14 @@ pub struct IPrinting3D3MFPackage_Vtbl {
     LoadModelFromPackageAsync: usize,
     pub SaveModelToPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3D3MFPackage2, IPrinting3D3MFPackage2_Vtbl, 0x965c7ac4_93cb_4430_92b8_789cd454f883);
+windows_core::imp::define_interface!(IPrinting3D3MFPackage2, IPrinting3D3MFPackage2_Vtbl, 0x965c7ac4_93cb_4430_92b8_789cd454f883);
 #[repr(C)]
 pub struct IPrinting3D3MFPackage2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Compression: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Printing3DPackageCompression) -> windows_core::HRESULT,
     pub SetCompression: unsafe extern "system" fn(*mut core::ffi::c_void, Printing3DPackageCompression) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3D3MFPackageStatics, IPrinting3D3MFPackageStatics_Vtbl, 0x7058d9af_7a9a_4787_b817_f6f459214823);
+windows_core::imp::define_interface!(IPrinting3D3MFPackageStatics, IPrinting3D3MFPackageStatics_Vtbl, 0x7058d9af_7a9a_4787_b817_f6f459214823);
 #[repr(C)]
 pub struct IPrinting3D3MFPackageStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -107,7 +107,7 @@ pub struct IPrinting3D3MFPackageStatics_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     LoadAsync: usize,
 }
-windows_core::imp::com_interface!(IPrinting3DBaseMaterial, IPrinting3DBaseMaterial_Vtbl, 0xd0f0e743_c50c_4bcb_9d04_fc16adcea2c9);
+windows_core::imp::define_interface!(IPrinting3DBaseMaterial, IPrinting3DBaseMaterial_Vtbl, 0xd0f0e743_c50c_4bcb_9d04_fc16adcea2c9);
 #[repr(C)]
 pub struct IPrinting3DBaseMaterial_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -116,7 +116,7 @@ pub struct IPrinting3DBaseMaterial_Vtbl {
     pub Color: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DBaseMaterialGroup, IPrinting3DBaseMaterialGroup_Vtbl, 0x94f070b8_2515_4a8d_a1f0_d0fc13d06021);
+windows_core::imp::define_interface!(IPrinting3DBaseMaterialGroup, IPrinting3DBaseMaterialGroup_Vtbl, 0x94f070b8_2515_4a8d_a1f0_d0fc13d06021);
 #[repr(C)]
 pub struct IPrinting3DBaseMaterialGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -126,27 +126,27 @@ pub struct IPrinting3DBaseMaterialGroup_Vtbl {
     Bases: usize,
     pub MaterialGroupId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DBaseMaterialGroupFactory, IPrinting3DBaseMaterialGroupFactory_Vtbl, 0x5c1546dc_8697_4193_976b_84bb4116e5bf);
+windows_core::imp::define_interface!(IPrinting3DBaseMaterialGroupFactory, IPrinting3DBaseMaterialGroupFactory_Vtbl, 0x5c1546dc_8697_4193_976b_84bb4116e5bf);
 #[repr(C)]
 pub struct IPrinting3DBaseMaterialGroupFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DBaseMaterialStatics, IPrinting3DBaseMaterialStatics_Vtbl, 0x815a47bc_374a_476d_be92_3ecfd1cb9776);
+windows_core::imp::define_interface!(IPrinting3DBaseMaterialStatics, IPrinting3DBaseMaterialStatics_Vtbl, 0x815a47bc_374a_476d_be92_3ecfd1cb9776);
 #[repr(C)]
 pub struct IPrinting3DBaseMaterialStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Abs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Pla: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DColorMaterial, IPrinting3DColorMaterial_Vtbl, 0xe1899928_7ce7_4285_a35d_f145c9510c7b);
+windows_core::imp::define_interface!(IPrinting3DColorMaterial, IPrinting3DColorMaterial_Vtbl, 0xe1899928_7ce7_4285_a35d_f145c9510c7b);
 #[repr(C)]
 pub struct IPrinting3DColorMaterial_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DColorMaterial2, IPrinting3DColorMaterial2_Vtbl, 0xfab0e852_0aef_44e9_9ddd_36eeea5acd44);
+windows_core::imp::define_interface!(IPrinting3DColorMaterial2, IPrinting3DColorMaterial2_Vtbl, 0xfab0e852_0aef_44e9_9ddd_36eeea5acd44);
 #[repr(C)]
 pub struct IPrinting3DColorMaterial2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -159,7 +159,7 @@ pub struct IPrinting3DColorMaterial2_Vtbl {
     #[cfg(not(feature = "UI"))]
     SetColor: usize,
 }
-windows_core::imp::com_interface!(IPrinting3DColorMaterialGroup, IPrinting3DColorMaterialGroup_Vtbl, 0x001a6bd0_aadf_4226_afe9_f369a0b45004);
+windows_core::imp::define_interface!(IPrinting3DColorMaterialGroup, IPrinting3DColorMaterialGroup_Vtbl, 0x001a6bd0_aadf_4226_afe9_f369a0b45004);
 #[repr(C)]
 pub struct IPrinting3DColorMaterialGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -169,13 +169,13 @@ pub struct IPrinting3DColorMaterialGroup_Vtbl {
     Colors: usize,
     pub MaterialGroupId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DColorMaterialGroupFactory, IPrinting3DColorMaterialGroupFactory_Vtbl, 0x71d38d6d_b1ea_4a5b_bc54_19c65f3df044);
+windows_core::imp::define_interface!(IPrinting3DColorMaterialGroupFactory, IPrinting3DColorMaterialGroupFactory_Vtbl, 0x71d38d6d_b1ea_4a5b_bc54_19c65f3df044);
 #[repr(C)]
 pub struct IPrinting3DColorMaterialGroupFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DComponent, IPrinting3DComponent_Vtbl, 0x7e287845_bf7f_4cdb_a27f_30a01437fede);
+windows_core::imp::define_interface!(IPrinting3DComponent, IPrinting3DComponent_Vtbl, 0x7e287845_bf7f_4cdb_a27f_30a01437fede);
 #[repr(C)]
 pub struct IPrinting3DComponent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -194,7 +194,7 @@ pub struct IPrinting3DComponent_Vtbl {
     pub PartNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetPartNumber: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DComponentWithMatrix, IPrinting3DComponentWithMatrix_Vtbl, 0x3279f335_0ef0_456b_9a21_49bebe8b51c2);
+windows_core::imp::define_interface!(IPrinting3DComponentWithMatrix, IPrinting3DComponentWithMatrix_Vtbl, 0x3279f335_0ef0_456b_9a21_49bebe8b51c2);
 #[repr(C)]
 pub struct IPrinting3DComponentWithMatrix_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -209,7 +209,7 @@ pub struct IPrinting3DComponentWithMatrix_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetMatrix: usize,
 }
-windows_core::imp::com_interface!(IPrinting3DCompositeMaterial, IPrinting3DCompositeMaterial_Vtbl, 0x462238dd_562e_4f6c_882d_f4d841fd63c7);
+windows_core::imp::define_interface!(IPrinting3DCompositeMaterial, IPrinting3DCompositeMaterial_Vtbl, 0x462238dd_562e_4f6c_882d_f4d841fd63c7);
 #[repr(C)]
 pub struct IPrinting3DCompositeMaterial_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -218,7 +218,7 @@ pub struct IPrinting3DCompositeMaterial_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Values: usize,
 }
-windows_core::imp::com_interface!(IPrinting3DCompositeMaterialGroup, IPrinting3DCompositeMaterialGroup_Vtbl, 0x8d946a5b_40f1_496d_a5fb_340a5a678e30);
+windows_core::imp::define_interface!(IPrinting3DCompositeMaterialGroup, IPrinting3DCompositeMaterialGroup_Vtbl, 0x8d946a5b_40f1_496d_a5fb_340a5a678e30);
 #[repr(C)]
 pub struct IPrinting3DCompositeMaterialGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -232,20 +232,20 @@ pub struct IPrinting3DCompositeMaterialGroup_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     MaterialIndices: usize,
 }
-windows_core::imp::com_interface!(IPrinting3DCompositeMaterialGroup2, IPrinting3DCompositeMaterialGroup2_Vtbl, 0x06e86d62_7d3b_41e1_944c_bafde4555483);
+windows_core::imp::define_interface!(IPrinting3DCompositeMaterialGroup2, IPrinting3DCompositeMaterialGroup2_Vtbl, 0x06e86d62_7d3b_41e1_944c_bafde4555483);
 #[repr(C)]
 pub struct IPrinting3DCompositeMaterialGroup2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BaseMaterialGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetBaseMaterialGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DCompositeMaterialGroupFactory, IPrinting3DCompositeMaterialGroupFactory_Vtbl, 0xd08ecd13_92ff_43aa_a627_8d43c22c817e);
+windows_core::imp::define_interface!(IPrinting3DCompositeMaterialGroupFactory, IPrinting3DCompositeMaterialGroupFactory_Vtbl, 0xd08ecd13_92ff_43aa_a627_8d43c22c817e);
 #[repr(C)]
 pub struct IPrinting3DCompositeMaterialGroupFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DFaceReductionOptions, IPrinting3DFaceReductionOptions_Vtbl, 0xbbfed397_2d74_46f7_be85_99a67bbb6629);
+windows_core::imp::define_interface!(IPrinting3DFaceReductionOptions, IPrinting3DFaceReductionOptions_Vtbl, 0xbbfed397_2d74_46f7_be85_99a67bbb6629);
 #[repr(C)]
 pub struct IPrinting3DFaceReductionOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -256,7 +256,7 @@ pub struct IPrinting3DFaceReductionOptions_Vtbl {
     pub MaxEdgeLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetMaxEdgeLength: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DMaterial, IPrinting3DMaterial_Vtbl, 0x378db256_ed62_4952_b85b_03567d7c465e);
+windows_core::imp::define_interface!(IPrinting3DMaterial, IPrinting3DMaterial_Vtbl, 0x378db256_ed62_4952_b85b_03567d7c465e);
 #[repr(C)]
 pub struct IPrinting3DMaterial_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -281,7 +281,7 @@ pub struct IPrinting3DMaterial_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     MultiplePropertyGroups: usize,
 }
-windows_core::imp::com_interface!(IPrinting3DMesh, IPrinting3DMesh_Vtbl, 0x192e90dc_0228_2e01_bc20_c5290cbf32c4);
+windows_core::imp::define_interface!(IPrinting3DMesh, IPrinting3DMesh_Vtbl, 0x192e90dc_0228_2e01_bc20_c5290cbf32c4);
 #[repr(C)]
 pub struct IPrinting3DMesh_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -327,7 +327,7 @@ pub struct IPrinting3DMesh_Vtbl {
     BufferSet: usize,
     pub VerifyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, Printing3DMeshVerificationMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DMeshVerificationResult, IPrinting3DMeshVerificationResult_Vtbl, 0x195671ba_e93a_4e8a_a46f_dea8e852197e);
+windows_core::imp::define_interface!(IPrinting3DMeshVerificationResult, IPrinting3DMeshVerificationResult_Vtbl, 0x195671ba_e93a_4e8a_a46f_dea8e852197e);
 #[repr(C)]
 pub struct IPrinting3DMeshVerificationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -341,7 +341,7 @@ pub struct IPrinting3DMeshVerificationResult_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ReversedNormalTriangles: usize,
 }
-windows_core::imp::com_interface!(IPrinting3DModel, IPrinting3DModel_Vtbl, 0x2d012ef0_52fb_919a_77b0_4b1a3b80324f);
+windows_core::imp::define_interface!(IPrinting3DModel, IPrinting3DModel_Vtbl, 0x2d012ef0_52fb_919a_77b0_4b1a3b80324f);
 #[repr(C)]
 pub struct IPrinting3DModel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -376,7 +376,7 @@ pub struct IPrinting3DModel_Vtbl {
     pub RepairAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DModel2, IPrinting3DModel2_Vtbl, 0xc92069c7_c841_47f3_a84e_a149fd08b657);
+windows_core::imp::define_interface!(IPrinting3DModel2, IPrinting3DModel2_Vtbl, 0xc92069c7_c841_47f3_a84e_a149fd08b657);
 #[repr(C)]
 pub struct IPrinting3DModel2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -387,7 +387,7 @@ pub struct IPrinting3DModel2_Vtbl {
     pub TryReduceFacesWithOptionsAndTimeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RepairWithProgressAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DModelTexture, IPrinting3DModelTexture_Vtbl, 0x5dafcf01_b59d_483c_97bb_a4d546d1c75c);
+windows_core::imp::define_interface!(IPrinting3DModelTexture, IPrinting3DModelTexture_Vtbl, 0x5dafcf01_b59d_483c_97bb_a4d546d1c75c);
 #[repr(C)]
 pub struct IPrinting3DModelTexture_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -398,7 +398,7 @@ pub struct IPrinting3DModelTexture_Vtbl {
     pub TileStyleV: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Printing3DTextureEdgeBehavior) -> windows_core::HRESULT,
     pub SetTileStyleV: unsafe extern "system" fn(*mut core::ffi::c_void, Printing3DTextureEdgeBehavior) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DMultiplePropertyMaterial, IPrinting3DMultiplePropertyMaterial_Vtbl, 0x25a6254b_c6e9_484d_a214_a25e5776ba62);
+windows_core::imp::define_interface!(IPrinting3DMultiplePropertyMaterial, IPrinting3DMultiplePropertyMaterial_Vtbl, 0x25a6254b_c6e9_484d_a214_a25e5776ba62);
 #[repr(C)]
 pub struct IPrinting3DMultiplePropertyMaterial_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -407,7 +407,7 @@ pub struct IPrinting3DMultiplePropertyMaterial_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     MaterialIndices: usize,
 }
-windows_core::imp::com_interface!(IPrinting3DMultiplePropertyMaterialGroup, IPrinting3DMultiplePropertyMaterialGroup_Vtbl, 0xf0950519_aeb9_4515_a39b_a088fbbb277c);
+windows_core::imp::define_interface!(IPrinting3DMultiplePropertyMaterialGroup, IPrinting3DMultiplePropertyMaterialGroup_Vtbl, 0xf0950519_aeb9_4515_a39b_a088fbbb277c);
 #[repr(C)]
 pub struct IPrinting3DMultiplePropertyMaterialGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -421,13 +421,13 @@ pub struct IPrinting3DMultiplePropertyMaterialGroup_Vtbl {
     MaterialGroupIndices: usize,
     pub MaterialGroupId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DMultiplePropertyMaterialGroupFactory, IPrinting3DMultiplePropertyMaterialGroupFactory_Vtbl, 0x323e196e_d4c6_451e_a814_4d78a210fe53);
+windows_core::imp::define_interface!(IPrinting3DMultiplePropertyMaterialGroupFactory, IPrinting3DMultiplePropertyMaterialGroupFactory_Vtbl, 0x323e196e_d4c6_451e_a814_4d78a210fe53);
 #[repr(C)]
 pub struct IPrinting3DMultiplePropertyMaterialGroupFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DTexture2CoordMaterial, IPrinting3DTexture2CoordMaterial_Vtbl, 0x8d844bfb_07e9_4986_9833_8dd3d48c6859);
+windows_core::imp::define_interface!(IPrinting3DTexture2CoordMaterial, IPrinting3DTexture2CoordMaterial_Vtbl, 0x8d844bfb_07e9_4986_9833_8dd3d48c6859);
 #[repr(C)]
 pub struct IPrinting3DTexture2CoordMaterial_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -438,7 +438,7 @@ pub struct IPrinting3DTexture2CoordMaterial_Vtbl {
     pub V: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetV: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DTexture2CoordMaterialGroup, IPrinting3DTexture2CoordMaterialGroup_Vtbl, 0x627d7ca7_6d90_4fb9_9fc4_9feff3dfa892);
+windows_core::imp::define_interface!(IPrinting3DTexture2CoordMaterialGroup, IPrinting3DTexture2CoordMaterialGroup_Vtbl, 0x627d7ca7_6d90_4fb9_9fc4_9feff3dfa892);
 #[repr(C)]
 pub struct IPrinting3DTexture2CoordMaterialGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -448,20 +448,20 @@ pub struct IPrinting3DTexture2CoordMaterialGroup_Vtbl {
     Texture2Coords: usize,
     pub MaterialGroupId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DTexture2CoordMaterialGroup2, IPrinting3DTexture2CoordMaterialGroup2_Vtbl, 0x69fbdbba_b12e_429b_8386_df5284f6e80f);
+windows_core::imp::define_interface!(IPrinting3DTexture2CoordMaterialGroup2, IPrinting3DTexture2CoordMaterialGroup2_Vtbl, 0x69fbdbba_b12e_429b_8386_df5284f6e80f);
 #[repr(C)]
 pub struct IPrinting3DTexture2CoordMaterialGroup2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Texture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTexture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DTexture2CoordMaterialGroupFactory, IPrinting3DTexture2CoordMaterialGroupFactory_Vtbl, 0xcbb049b0_468a_4c6f_b2a2_8eb8ba8dea48);
+windows_core::imp::define_interface!(IPrinting3DTexture2CoordMaterialGroupFactory, IPrinting3DTexture2CoordMaterialGroupFactory_Vtbl, 0xcbb049b0_468a_4c6f_b2a2_8eb8ba8dea48);
 #[repr(C)]
 pub struct IPrinting3DTexture2CoordMaterialGroupFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrinting3DTextureResource, IPrinting3DTextureResource_Vtbl, 0xa70df32d_6ab1_44ae_bc45_a27382c0d38c);
+windows_core::imp::define_interface!(IPrinting3DTextureResource, IPrinting3DTextureResource_Vtbl, 0xa70df32d_6ab1_44ae_bc45_a27382c0d38c);
 #[repr(C)]
 pub struct IPrinting3DTextureResource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -2328,7 +2328,7 @@ impl Default for Printing3DBufferDescription {
         unsafe { core::mem::zeroed() }
     }
 }
-windows_core::imp::com_interface!(Print3DTaskSourceRequestedHandler, Print3DTaskSourceRequestedHandler_Vtbl, 0xe9175e70_c917_46de_bb51_d9a94db3711f);
+windows_core::imp::define_interface!(Print3DTaskSourceRequestedHandler, Print3DTaskSourceRequestedHandler_Vtbl, 0xe9175e70_c917_46de_bb51_d9a94db3711f);
 impl Print3DTaskSourceRequestedHandler {
     pub fn new<F: FnMut(Option<&Print3DTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = Print3DTaskSourceRequestedHandlerBox::<F> { vtable: &Print3DTaskSourceRequestedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };

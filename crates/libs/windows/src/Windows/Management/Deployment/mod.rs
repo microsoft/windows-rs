@@ -1,6 +1,6 @@
 #[cfg(feature = "Management_Deployment_Preview")]
 pub mod Preview;
-windows_core::imp::com_interface!(IAddPackageOptions, IAddPackageOptions_Vtbl, 0x05cee018_f68f_422b_95a4_66679ec77fc0);
+windows_core::imp::define_interface!(IAddPackageOptions, IAddPackageOptions_Vtbl, 0x05cee018_f68f_422b_95a4_66679ec77fc0);
 #[repr(C)]
 pub struct IAddPackageOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -47,7 +47,7 @@ pub struct IAddPackageOptions_Vtbl {
     pub DeferRegistrationWhenPackagesAreInUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetDeferRegistrationWhenPackagesAreInUse: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAddPackageOptions2, IAddPackageOptions2_Vtbl, 0xee515828_bf33_40f7_84af_1b6fad2919d7);
+windows_core::imp::define_interface!(IAddPackageOptions2, IAddPackageOptions2_Vtbl, 0xee515828_bf33_40f7_84af_1b6fad2919d7);
 #[repr(C)]
 pub struct IAddPackageOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -58,7 +58,7 @@ pub struct IAddPackageOptions2_Vtbl {
     pub LimitToExistingPackages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetLimitToExistingPackages: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAppInstallerManager, IAppInstallerManager_Vtbl, 0xe7ee21c3_2103_53ee_9b18_68afeab0033d);
+windows_core::imp::define_interface!(IAppInstallerManager, IAppInstallerManager_Vtbl, 0xe7ee21c3_2103_53ee_9b18_68afeab0033d);
 #[repr(C)]
 pub struct IAppInstallerManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -66,14 +66,14 @@ pub struct IAppInstallerManager_Vtbl {
     pub ClearAutoUpdateSettings: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub PauseAutoUpdatesUntil: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAppInstallerManagerStatics, IAppInstallerManagerStatics_Vtbl, 0xc95a6ed5_fc59_5336_9b2e_2b07c5e61434);
+windows_core::imp::define_interface!(IAppInstallerManagerStatics, IAppInstallerManagerStatics_Vtbl, 0xc95a6ed5_fc59_5336_9b2e_2b07c5e61434);
 #[repr(C)]
 pub struct IAppInstallerManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetForSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAutoUpdateSettingsOptions, IAutoUpdateSettingsOptions_Vtbl, 0x67491d87_35e1_512a_8968_1ae88d1be6d3);
+windows_core::imp::define_interface!(IAutoUpdateSettingsOptions, IAutoUpdateSettingsOptions_Vtbl, 0x67491d87_35e1_512a_8968_1ae88d1be6d3);
 #[repr(C)]
 pub struct IAutoUpdateSettingsOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -118,7 +118,7 @@ pub struct IAutoUpdateSettingsOptions_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     OptionalPackageUris: usize,
 }
-windows_core::imp::com_interface!(IAutoUpdateSettingsOptionsStatics, IAutoUpdateSettingsOptionsStatics_Vtbl, 0x887b337d_0c05_54d0_bd49_3bb7a2c084cb);
+windows_core::imp::define_interface!(IAutoUpdateSettingsOptionsStatics, IAutoUpdateSettingsOptionsStatics_Vtbl, 0x887b337d_0c05_54d0_bd49_3bb7a2c084cb);
 #[repr(C)]
 pub struct IAutoUpdateSettingsOptionsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -127,7 +127,7 @@ pub struct IAutoUpdateSettingsOptionsStatics_Vtbl {
     #[cfg(not(feature = "ApplicationModel"))]
     CreateFromAppInstallerInfo: usize,
 }
-windows_core::imp::com_interface!(ICreateSharedPackageContainerOptions, ICreateSharedPackageContainerOptions_Vtbl, 0xc2ab6ece_f664_5c8e_a4b3_2a33276d3dde);
+windows_core::imp::define_interface!(ICreateSharedPackageContainerOptions, ICreateSharedPackageContainerOptions_Vtbl, 0xc2ab6ece_f664_5c8e_a4b3_2a33276d3dde);
 #[repr(C)]
 pub struct ICreateSharedPackageContainerOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -140,7 +140,7 @@ pub struct ICreateSharedPackageContainerOptions_Vtbl {
     pub CreateCollisionOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SharedPackageContainerCreationCollisionOptions) -> windows_core::HRESULT,
     pub SetCreateCollisionOption: unsafe extern "system" fn(*mut core::ffi::c_void, SharedPackageContainerCreationCollisionOptions) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICreateSharedPackageContainerResult, ICreateSharedPackageContainerResult_Vtbl, 0xce8810bf_151c_5707_b936_497e564afc7a);
+windows_core::imp::define_interface!(ICreateSharedPackageContainerResult, ICreateSharedPackageContainerResult_Vtbl, 0xce8810bf_151c_5707_b936_497e564afc7a);
 #[repr(C)]
 pub struct ICreateSharedPackageContainerResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -148,7 +148,7 @@ pub struct ICreateSharedPackageContainerResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SharedPackageContainerOperationStatus) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDeleteSharedPackageContainerOptions, IDeleteSharedPackageContainerOptions_Vtbl, 0x9d81865f_986e_5138_8b5d_384d8e66ed6c);
+windows_core::imp::define_interface!(IDeleteSharedPackageContainerOptions, IDeleteSharedPackageContainerOptions_Vtbl, 0x9d81865f_986e_5138_8b5d_384d8e66ed6c);
 #[repr(C)]
 pub struct IDeleteSharedPackageContainerOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -157,14 +157,14 @@ pub struct IDeleteSharedPackageContainerOptions_Vtbl {
     pub AllUsers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAllUsers: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDeleteSharedPackageContainerResult, IDeleteSharedPackageContainerResult_Vtbl, 0x35398884_5736_517b_85bc_e598c81ab284);
+windows_core::imp::define_interface!(IDeleteSharedPackageContainerResult, IDeleteSharedPackageContainerResult_Vtbl, 0x35398884_5736_517b_85bc_e598c81ab284);
 #[repr(C)]
 pub struct IDeleteSharedPackageContainerResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SharedPackageContainerOperationStatus) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDeploymentResult, IDeploymentResult_Vtbl, 0x2563b9ae_b77d_4c1f_8a7b_20e6ad515ef3);
+windows_core::imp::define_interface!(IDeploymentResult, IDeploymentResult_Vtbl, 0x2563b9ae_b77d_4c1f_8a7b_20e6ad515ef3);
 #[repr(C)]
 pub struct IDeploymentResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -172,13 +172,13 @@ pub struct IDeploymentResult_Vtbl {
     pub ActivityId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub ExtendedErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDeploymentResult2, IDeploymentResult2_Vtbl, 0xfc0e715c_5a01_4bd7_bcf1_381c8c82e04a);
+windows_core::imp::define_interface!(IDeploymentResult2, IDeploymentResult2_Vtbl, 0xfc0e715c_5a01_4bd7_bcf1_381c8c82e04a);
 #[repr(C)]
 pub struct IDeploymentResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsRegistered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IFindSharedPackageContainerOptions, IFindSharedPackageContainerOptions_Vtbl, 0xb40fc8fe_8384_54cc_817d_ae09d3b6a606);
+windows_core::imp::define_interface!(IFindSharedPackageContainerOptions, IFindSharedPackageContainerOptions_Vtbl, 0xb40fc8fe_8384_54cc_817d_ae09d3b6a606);
 #[repr(C)]
 pub struct IFindSharedPackageContainerOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -187,7 +187,7 @@ pub struct IFindSharedPackageContainerOptions_Vtbl {
     pub PackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPackageAllUserProvisioningOptions, IPackageAllUserProvisioningOptions_Vtbl, 0xda35aa22_1de0_5d3e_99ff_d24f3118bf5e);
+windows_core::imp::define_interface!(IPackageAllUserProvisioningOptions, IPackageAllUserProvisioningOptions_Vtbl, 0xda35aa22_1de0_5d3e_99ff_d24f3118bf5e);
 #[repr(C)]
 pub struct IPackageAllUserProvisioningOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -200,7 +200,7 @@ pub struct IPackageAllUserProvisioningOptions_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ProjectionOrderPackageFamilyNames: usize,
 }
-windows_core::imp::com_interface!(IPackageManager, IPackageManager_Vtbl, 0x9a7d4b65_5e8f_4fc7_a2e5_7f6925cb8b53);
+windows_core::imp::define_interface!(IPackageManager, IPackageManager_Vtbl, 0x9a7d4b65_5e8f_4fc7_a2e5_7f6925cb8b53);
 #[repr(C)]
 pub struct IPackageManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -260,13 +260,13 @@ pub struct IPackageManager_Vtbl {
     #[cfg(not(feature = "ApplicationModel"))]
     FindPackageByUserSecurityIdPackageFullName: usize,
 }
-windows_core::imp::com_interface!(IPackageManager10, IPackageManager10_Vtbl, 0xa7d7d07e_2e66_4093_aed5_e093ed87b3bb);
+windows_core::imp::define_interface!(IPackageManager10, IPackageManager10_Vtbl, 0xa7d7d07e_2e66_4093_aed5_e093ed87b3bb);
 #[repr(C)]
 pub struct IPackageManager10_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProvisionPackageForAllUsersWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPackageManager2, IPackageManager2_Vtbl, 0xf7aad08d_0840_46f2_b5d8_cad47693a095);
+windows_core::imp::define_interface!(IPackageManager2, IPackageManager2_Vtbl, 0xf7aad08d_0840_46f2_b5d8_cad47693a095);
 #[repr(C)]
 pub struct IPackageManager2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -305,7 +305,7 @@ pub struct IPackageManager2_Vtbl {
     FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes: usize,
     pub StageUserDataAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPackageManager3, IPackageManager3_Vtbl, 0xdaad9948_36f1_41a7_9188_bc263e0dcb72);
+windows_core::imp::define_interface!(IPackageManager3, IPackageManager3_Vtbl, 0xdaad9948_36f1_41a7_9188_bc263e0dcb72);
 #[repr(C)]
 pub struct IPackageManager3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -337,7 +337,7 @@ pub struct IPackageManager3_Vtbl {
     StagePackageToVolumeAsync: usize,
     pub StageUserDataWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, DeploymentOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPackageManager4, IPackageManager4_Vtbl, 0x3c719963_bab6_46bf_8ff7_da4719230ae6);
+windows_core::imp::define_interface!(IPackageManager4, IPackageManager4_Vtbl, 0x3c719963_bab6_46bf_8ff7_da4719230ae6);
 #[repr(C)]
 pub struct IPackageManager4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -346,7 +346,7 @@ pub struct IPackageManager4_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetPackageVolumesAsync: usize,
 }
-windows_core::imp::com_interface!(IPackageManager5, IPackageManager5_Vtbl, 0x711f3117_1afd_4313_978c_9bb6e1b864a7);
+windows_core::imp::define_interface!(IPackageManager5, IPackageManager5_Vtbl, 0x711f3117_1afd_4313_978c_9bb6e1b864a7);
 #[repr(C)]
 pub struct IPackageManager5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -364,7 +364,7 @@ pub struct IPackageManager5_Vtbl {
     RegisterPackageByFamilyNameAndOptionalPackagesAsync: usize,
     pub DebugSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPackageManager6, IPackageManager6_Vtbl, 0x0847e909_53cd_4e4f_832e_57d180f6e447);
+windows_core::imp::define_interface!(IPackageManager6, IPackageManager6_Vtbl, 0x0847e909_53cd_4e4f_832e_57d180f6e447);
 #[repr(C)]
 pub struct IPackageManager6_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -384,7 +384,7 @@ pub struct IPackageManager6_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     RequestAddPackageAsync: usize,
 }
-windows_core::imp::com_interface!(IPackageManager7, IPackageManager7_Vtbl, 0xf28654f4_2ba7_4b80_88d6_be15f9a23fba);
+windows_core::imp::define_interface!(IPackageManager7, IPackageManager7_Vtbl, 0xf28654f4_2ba7_4b80_88d6_be15f9a23fba);
 #[repr(C)]
 pub struct IPackageManager7_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -393,13 +393,13 @@ pub struct IPackageManager7_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     RequestAddPackageAndRelatedSetAsync: usize,
 }
-windows_core::imp::com_interface!(IPackageManager8, IPackageManager8_Vtbl, 0xb8575330_1298_4ee2_80ee_7f659c5d2782);
+windows_core::imp::define_interface!(IPackageManager8, IPackageManager8_Vtbl, 0xb8575330_1298_4ee2_80ee_7f659c5d2782);
 #[repr(C)]
 pub struct IPackageManager8_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeprovisionPackageForAllUsersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPackageManager9, IPackageManager9_Vtbl, 0x1aa79035_cc71_4b2e_80a6_c7041d8579a7);
+windows_core::imp::define_interface!(IPackageManager9, IPackageManager9_Vtbl, 0x1aa79035_cc71_4b2e_80a6_c7041d8579a7);
 #[repr(C)]
 pub struct IPackageManager9_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -417,7 +417,7 @@ pub struct IPackageManager9_Vtbl {
     pub SetPackageStubPreference: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, PackageStubPreference) -> windows_core::HRESULT,
     pub GetPackageStubPreference: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut PackageStubPreference) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPackageManagerDebugSettings, IPackageManagerDebugSettings_Vtbl, 0x1a611683_a988_4fcf_8f0f_ce175898e8eb);
+windows_core::imp::define_interface!(IPackageManagerDebugSettings, IPackageManagerDebugSettings_Vtbl, 0x1a611683_a988_4fcf_8f0f_ce175898e8eb);
 #[repr(C)]
 pub struct IPackageManagerDebugSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -430,14 +430,14 @@ pub struct IPackageManagerDebugSettings_Vtbl {
     #[cfg(not(feature = "ApplicationModel"))]
     SetContentGroupStateWithPercentageAsync: usize,
 }
-windows_core::imp::com_interface!(IPackageUserInformation, IPackageUserInformation_Vtbl, 0xf6383423_fa09_4cbc_9055_15ca275e2e7e);
+windows_core::imp::define_interface!(IPackageUserInformation, IPackageUserInformation_Vtbl, 0xf6383423_fa09_4cbc_9055_15ca275e2e7e);
 #[repr(C)]
 pub struct IPackageUserInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UserSecurityId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub InstallState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PackageInstallState) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPackageVolume, IPackageVolume_Vtbl, 0xcf2672c3_1a40_4450_9739_2ace2e898853);
+windows_core::imp::define_interface!(IPackageVolume, IPackageVolume_Vtbl, 0xcf2672c3_1a40_4450_9739_2ace2e898853);
 #[repr(C)]
 pub struct IPackageVolume_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -504,7 +504,7 @@ pub struct IPackageVolume_Vtbl {
     #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
     FindPackageByUserSecurityIdPackageFullName: usize,
 }
-windows_core::imp::com_interface!(IPackageVolume2, IPackageVolume2_Vtbl, 0x46abcf2e_9dd4_47a2_ab8c_c6408349bcd8);
+windows_core::imp::define_interface!(IPackageVolume2, IPackageVolume2_Vtbl, 0x46abcf2e_9dd4_47a2_ab8c_c6408349bcd8);
 #[repr(C)]
 pub struct IPackageVolume2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -512,7 +512,7 @@ pub struct IPackageVolume2_Vtbl {
     pub IsAppxInstallSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetAvailableSpaceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IRegisterPackageOptions, IRegisterPackageOptions_Vtbl, 0x677112a7_50d4_496c_8415_0602b4c6d3bf);
+windows_core::imp::define_interface!(IRegisterPackageOptions, IRegisterPackageOptions_Vtbl, 0x677112a7_50d4_496c_8415_0602b4c6d3bf);
 #[repr(C)]
 pub struct IRegisterPackageOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -545,7 +545,7 @@ pub struct IRegisterPackageOptions_Vtbl {
     pub DeferRegistrationWhenPackagesAreInUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetDeferRegistrationWhenPackagesAreInUse: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IRegisterPackageOptions2, IRegisterPackageOptions2_Vtbl, 0x3dfa9743_86ff_4a11_bc93_434eb6be3a0b);
+windows_core::imp::define_interface!(IRegisterPackageOptions2, IRegisterPackageOptions2_Vtbl, 0x3dfa9743_86ff_4a11_bc93_434eb6be3a0b);
 #[repr(C)]
 pub struct IRegisterPackageOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -554,7 +554,7 @@ pub struct IRegisterPackageOptions2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ExpectedDigests: usize,
 }
-windows_core::imp::com_interface!(ISharedPackageContainer, ISharedPackageContainer_Vtbl, 0x177f1aa9_151e_5ef7_b1d9_2fba0b4b0d17);
+windows_core::imp::define_interface!(ISharedPackageContainer, ISharedPackageContainer_Vtbl, 0x177f1aa9_151e_5ef7_b1d9_2fba0b4b0d17);
 #[repr(C)]
 pub struct ISharedPackageContainer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -567,7 +567,7 @@ pub struct ISharedPackageContainer_Vtbl {
     pub RemovePackageFamily: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISharedPackageContainerManager, ISharedPackageContainerManager_Vtbl, 0xbe353068_1ef7_5ac8_ab3f_0b9f612f0274);
+windows_core::imp::define_interface!(ISharedPackageContainerManager, ISharedPackageContainerManager_Vtbl, 0xbe353068_1ef7_5ac8_ab3f_0b9f612f0274);
 #[repr(C)]
 pub struct ISharedPackageContainerManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -583,7 +583,7 @@ pub struct ISharedPackageContainerManager_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     FindContainersWithOptions: usize,
 }
-windows_core::imp::com_interface!(ISharedPackageContainerManagerStatics, ISharedPackageContainerManagerStatics_Vtbl, 0x2ef56348_838a_5f55_a89e_1198a2c627e6);
+windows_core::imp::define_interface!(ISharedPackageContainerManagerStatics, ISharedPackageContainerManagerStatics_Vtbl, 0x2ef56348_838a_5f55_a89e_1198a2c627e6);
 #[repr(C)]
 pub struct ISharedPackageContainerManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -591,19 +591,19 @@ pub struct ISharedPackageContainerManagerStatics_Vtbl {
     pub GetForUser: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetForProvisioning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISharedPackageContainerMember, ISharedPackageContainerMember_Vtbl, 0xfe0d0438_43c9_5426_b89c_f79bf85ddff4);
+windows_core::imp::define_interface!(ISharedPackageContainerMember, ISharedPackageContainerMember_Vtbl, 0xfe0d0438_43c9_5426_b89c_f79bf85ddff4);
 #[repr(C)]
 pub struct ISharedPackageContainerMember_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISharedPackageContainerMemberFactory, ISharedPackageContainerMemberFactory_Vtbl, 0x49b0ceeb_498f_5a62_b738_b3ca0d436704);
+windows_core::imp::define_interface!(ISharedPackageContainerMemberFactory, ISharedPackageContainerMemberFactory_Vtbl, 0x49b0ceeb_498f_5a62_b738_b3ca0d436704);
 #[repr(C)]
 pub struct ISharedPackageContainerMemberFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStagePackageOptions, IStagePackageOptions_Vtbl, 0x0b110c9c_b95d_4c56_bd36_6d656800d06b);
+windows_core::imp::define_interface!(IStagePackageOptions, IStagePackageOptions_Vtbl, 0x0b110c9c_b95d_4c56_bd36_6d656800d06b);
 #[repr(C)]
 pub struct IStagePackageOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -642,7 +642,7 @@ pub struct IStagePackageOptions_Vtbl {
     pub AllowUnsigned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAllowUnsigned: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStagePackageOptions2, IStagePackageOptions2_Vtbl, 0x990c4ccc_6226_4192_ba92_79875fce0d9c);
+windows_core::imp::define_interface!(IStagePackageOptions2, IStagePackageOptions2_Vtbl, 0x990c4ccc_6226_4192_ba92_79875fce0d9c);
 #[repr(C)]
 pub struct IStagePackageOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -651,7 +651,7 @@ pub struct IStagePackageOptions2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ExpectedDigests: usize,
 }
-windows_core::imp::com_interface!(IUpdateSharedPackageContainerOptions, IUpdateSharedPackageContainerOptions_Vtbl, 0x80672e83_7194_59f9_b5b9_daa5375f130a);
+windows_core::imp::define_interface!(IUpdateSharedPackageContainerOptions, IUpdateSharedPackageContainerOptions_Vtbl, 0x80672e83_7194_59f9_b5b9_daa5375f130a);
 #[repr(C)]
 pub struct IUpdateSharedPackageContainerOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -660,7 +660,7 @@ pub struct IUpdateSharedPackageContainerOptions_Vtbl {
     pub RequirePackagesPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetRequirePackagesPresent: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IUpdateSharedPackageContainerResult, IUpdateSharedPackageContainerResult_Vtbl, 0xaa407df7_c72d_5458_aea3_4645b6a8ee99);
+windows_core::imp::define_interface!(IUpdateSharedPackageContainerResult, IUpdateSharedPackageContainerResult_Vtbl, 0xaa407df7_c72d_5458_aea3_4645b6a8ee99);
 #[repr(C)]
 pub struct IUpdateSharedPackageContainerResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

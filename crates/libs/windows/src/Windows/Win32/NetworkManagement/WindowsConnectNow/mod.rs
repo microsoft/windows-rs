@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IWCNConnectNotify, IWCNConnectNotify_Vtbl, 0xc100be9f_d33a_4a4b_bf23_bbef4663d017);
+windows_core::imp::define_interface!(IWCNConnectNotify, IWCNConnectNotify_Vtbl, 0xc100be9f_d33a_4a4b_bf23_bbef4663d017);
 windows_core::imp::interface_hierarchy!(IWCNConnectNotify, windows_core::IUnknown);
 impl IWCNConnectNotify {
     pub unsafe fn ConnectSucceeded(&self) -> windows_core::Result<()> {
@@ -14,7 +14,7 @@ pub struct IWCNConnectNotify_Vtbl {
     pub ConnectSucceeded: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ConnectFailed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWCNDevice, IWCNDevice_Vtbl, 0xc100be9c_d33a_4a4b_bf23_bbef4663d017);
+windows_core::imp::define_interface!(IWCNDevice, IWCNDevice_Vtbl, 0xc100be9c_d33a_4a4b_bf23_bbef4663d017);
 windows_core::imp::interface_hierarchy!(IWCNDevice, windows_core::IUnknown);
 impl IWCNDevice {
     pub unsafe fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, pbpassword: &[u8]) -> windows_core::Result<()> {

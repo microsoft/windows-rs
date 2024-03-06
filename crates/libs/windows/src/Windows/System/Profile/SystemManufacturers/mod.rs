@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IOemSupportInfo, IOemSupportInfo_Vtbl, 0x8d2eae55_87ef_4266_86d0_c4afbeb29bb9);
+windows_core::imp::define_interface!(IOemSupportInfo, IOemSupportInfo_Vtbl, 0x8d2eae55_87ef_4266_86d0_c4afbeb29bb9);
 #[repr(C)]
 pub struct IOemSupportInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6,13 +6,13 @@ pub struct IOemSupportInfo_Vtbl {
     pub SupportAppLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SupportProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISmbiosInformationStatics, ISmbiosInformationStatics_Vtbl, 0x080cca7c_637c_48c4_b728_f9273812db8e);
+windows_core::imp::define_interface!(ISmbiosInformationStatics, ISmbiosInformationStatics_Vtbl, 0x080cca7c_637c_48c4_b728_f9273812db8e);
 #[repr(C)]
 pub struct ISmbiosInformationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SerialNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISystemSupportDeviceInfo, ISystemSupportDeviceInfo_Vtbl, 0x05880b99_8247_441b_a996_a1784bab79a8);
+windows_core::imp::define_interface!(ISystemSupportDeviceInfo, ISystemSupportDeviceInfo_Vtbl, 0x05880b99_8247_441b_a996_a1784bab79a8);
 #[repr(C)]
 pub struct ISystemSupportDeviceInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -24,14 +24,14 @@ pub struct ISystemSupportDeviceInfo_Vtbl {
     pub SystemHardwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SystemFirmwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISystemSupportInfoStatics, ISystemSupportInfoStatics_Vtbl, 0xef750974_c422_45d7_a44d_5c1c0043a2b3);
+windows_core::imp::define_interface!(ISystemSupportInfoStatics, ISystemSupportInfoStatics_Vtbl, 0xef750974_c422_45d7_a44d_5c1c0043a2b3);
 #[repr(C)]
 pub struct ISystemSupportInfoStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LocalSystemEdition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub OemSupportInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISystemSupportInfoStatics2, ISystemSupportInfoStatics2_Vtbl, 0x33f349a4_3fa1_4986_aa4b_057420455e6d);
+windows_core::imp::define_interface!(ISystemSupportInfoStatics2, ISystemSupportInfoStatics2_Vtbl, 0x33f349a4_3fa1_4986_aa4b_057420455e6d);
 #[repr(C)]
 pub struct ISystemSupportInfoStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

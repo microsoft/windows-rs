@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IXsltProcessor, IXsltProcessor_Vtbl, 0x7b64703f_550c_48c6_a90f_93a5b964518f);
+windows_core::imp::define_interface!(IXsltProcessor, IXsltProcessor_Vtbl, 0x7b64703f_550c_48c6_a90f_93a5b964518f);
 #[repr(C)]
 pub struct IXsltProcessor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7,7 +7,7 @@ pub struct IXsltProcessor_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     TransformToString: usize,
 }
-windows_core::imp::com_interface!(IXsltProcessor2, IXsltProcessor2_Vtbl, 0x8da45c56_97a5_44cb_a8be_27d86280c70a);
+windows_core::imp::define_interface!(IXsltProcessor2, IXsltProcessor2_Vtbl, 0x8da45c56_97a5_44cb_a8be_27d86280c70a);
 #[repr(C)]
 pub struct IXsltProcessor2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16,7 +16,7 @@ pub struct IXsltProcessor2_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     TransformToDocument: usize,
 }
-windows_core::imp::com_interface!(IXsltProcessorFactory, IXsltProcessorFactory_Vtbl, 0x274146c0_9a51_4663_bf30_0ef742146f20);
+windows_core::imp::define_interface!(IXsltProcessorFactory, IXsltProcessorFactory_Vtbl, 0x274146c0_9a51_4663_bf30_0ef742146f20);
 #[repr(C)]
 pub struct IXsltProcessorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

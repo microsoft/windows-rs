@@ -258,7 +258,7 @@ where
     MQSetQueueSecurity(lpwcsformatname.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQApplication, IMSMQApplication_Vtbl, 0xd7d6e085_dccd_11d0_aa4b_0060970debae);
+windows_core::imp::define_interface!(IMSMQApplication, IMSMQApplication_Vtbl, 0xd7d6e085_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQApplication, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -278,7 +278,7 @@ pub struct IMSMQApplication_Vtbl {
     pub MachineIdOfMachineName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQApplication2, IMSMQApplication2_Vtbl, 0x12a30900_7300_11d2_b0e6_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQApplication2, IMSMQApplication2_Vtbl, 0x12a30900_7300_11d2_b0e6_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQApplication2, windows_core::IUnknown, super::Com::IDispatch, IMSMQApplication);
 #[cfg(feature = "Win32_System_Com")]
@@ -338,7 +338,7 @@ pub struct IMSMQApplication2_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQApplication3, IMSMQApplication3_Vtbl, 0xeba96b1f_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQApplication3, IMSMQApplication3_Vtbl, 0xeba96b1f_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQApplication3, windows_core::IUnknown, super::Com::IDispatch, IMSMQApplication, IMSMQApplication2);
 #[cfg(feature = "Win32_System_Com")]
@@ -437,7 +437,7 @@ pub struct IMSMQApplication3_Vtbl {
     pub Tidy: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQCollection, IMSMQCollection_Vtbl, 0x0188ac2f_ecb3_4173_9779_635ca2039c72);
+windows_core::imp::define_interface!(IMSMQCollection, IMSMQCollection_Vtbl, 0x0188ac2f_ecb3_4173_9779_635ca2039c72);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -464,7 +464,7 @@ pub struct IMSMQCollection_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQCoordinatedTransactionDispenser, IMSMQCoordinatedTransactionDispenser_Vtbl, 0xd7d6e081_dccd_11d0_aa4b_0060970debae);
+windows_core::imp::define_interface!(IMSMQCoordinatedTransactionDispenser, IMSMQCoordinatedTransactionDispenser_Vtbl, 0xd7d6e081_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -485,7 +485,7 @@ pub struct IMSMQCoordinatedTransactionDispenser_Vtbl {
     BeginTransaction: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQCoordinatedTransactionDispenser2, IMSMQCoordinatedTransactionDispenser2_Vtbl, 0xeba96b10_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQCoordinatedTransactionDispenser2, IMSMQCoordinatedTransactionDispenser2_Vtbl, 0xeba96b10_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser2, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -515,7 +515,7 @@ pub struct IMSMQCoordinatedTransactionDispenser2_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQCoordinatedTransactionDispenser3, IMSMQCoordinatedTransactionDispenser3_Vtbl, 0xeba96b14_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQCoordinatedTransactionDispenser3, IMSMQCoordinatedTransactionDispenser3_Vtbl, 0xeba96b14_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser3, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -545,7 +545,7 @@ pub struct IMSMQCoordinatedTransactionDispenser3_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQDestination, IMSMQDestination_Vtbl, 0xeba96b16_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQDestination, IMSMQDestination_Vtbl, 0xeba96b16_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQDestination, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -655,7 +655,7 @@ pub struct IMSMQDestination_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQEvent, IMSMQEvent_Vtbl, 0xd7d6e077_dccd_11d0_aa4b_0060970debae);
+windows_core::imp::define_interface!(IMSMQEvent, IMSMQEvent_Vtbl, 0xd7d6e077_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -666,7 +666,7 @@ pub struct IMSMQEvent_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQEvent2, IMSMQEvent2_Vtbl, 0xeba96b12_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQEvent2, IMSMQEvent2_Vtbl, 0xeba96b12_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQEvent2, windows_core::IUnknown, super::Com::IDispatch, IMSMQEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -687,7 +687,7 @@ pub struct IMSMQEvent2_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQEvent3, IMSMQEvent3_Vtbl, 0xeba96b1c_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQEvent3, IMSMQEvent3_Vtbl, 0xeba96b1c_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQEvent3, windows_core::IUnknown, super::Com::IDispatch, IMSMQEvent, IMSMQEvent2);
 #[cfg(feature = "Win32_System_Com")]
@@ -704,7 +704,7 @@ pub struct IMSMQEvent3_Vtbl {
     pub base__: IMSMQEvent2_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQManagement, IMSMQManagement_Vtbl, 0xbe5f0241_e489_4957_8cc4_a452fcf3e23e);
+windows_core::imp::define_interface!(IMSMQManagement, IMSMQManagement_Vtbl, 0xbe5f0241_e489_4957_8cc4_a452fcf3e23e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQManagement, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -760,7 +760,7 @@ pub struct IMSMQManagement_Vtbl {
     pub BytesInQueue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQMessage, IMSMQMessage_Vtbl, 0xd7d6e074_dccd_11d0_aa4b_0060970debae);
+windows_core::imp::define_interface!(IMSMQMessage, IMSMQMessage_Vtbl, 0xd7d6e074_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQMessage, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1041,7 +1041,7 @@ pub struct IMSMQMessage_Vtbl {
     pub AttachCurrentSecurityContext: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQMessage2, IMSMQMessage2_Vtbl, 0xd9933be0_a567_11d2_b0f3_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQMessage2, IMSMQMessage2_Vtbl, 0xd9933be0_a567_11d2_b0f3_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQMessage2, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1490,7 +1490,7 @@ pub struct IMSMQMessage2_Vtbl {
     pub ReceivedAuthenticationLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i16) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQMessage3, IMSMQMessage3_Vtbl, 0xeba96b1a_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQMessage3, IMSMQMessage3_Vtbl, 0xeba96b1a_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQMessage3, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2056,7 +2056,7 @@ pub struct IMSMQMessage3_Vtbl {
     pub SetSoapBody: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQMessage4, IMSMQMessage4_Vtbl, 0xeba96b23_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQMessage4, IMSMQMessage4_Vtbl, 0xeba96b23_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQMessage4, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2622,7 +2622,7 @@ pub struct IMSMQMessage4_Vtbl {
     pub SetSoapBody: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQOutgoingQueueManagement, IMSMQOutgoingQueueManagement_Vtbl, 0x64c478fb_f9b0_4695_8a7f_439ac94326d3);
+windows_core::imp::define_interface!(IMSMQOutgoingQueueManagement, IMSMQOutgoingQueueManagement_Vtbl, 0x64c478fb_f9b0_4695_8a7f_439ac94326d3);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQOutgoingQueueManagement, windows_core::IUnknown, super::Com::IDispatch, IMSMQManagement);
 #[cfg(feature = "Win32_System_Com")]
@@ -2700,7 +2700,7 @@ pub struct IMSMQOutgoingQueueManagement_Vtbl {
     pub EodResend: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQPrivateDestination, IMSMQPrivateDestination_Vtbl, 0xeba96b17_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQPrivateDestination, IMSMQPrivateDestination_Vtbl, 0xeba96b17_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQPrivateDestination, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2724,7 +2724,7 @@ pub struct IMSMQPrivateDestination_Vtbl {
     pub SetHandle: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQPrivateEvent, IMSMQPrivateEvent_Vtbl, 0xd7ab3341_c9d3_11d1_bb47_0080c7c5a2c0);
+windows_core::imp::define_interface!(IMSMQPrivateEvent, IMSMQPrivateEvent_Vtbl, 0xd7ab3341_c9d3_11d1_bb47_0080c7c5a2c0);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQPrivateEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2763,7 +2763,7 @@ pub struct IMSMQPrivateEvent_Vtbl {
     FireArrivedErrorEvent: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQQuery, IMSMQQuery_Vtbl, 0xd7d6e072_dccd_11d0_aa4b_0060970debae);
+windows_core::imp::define_interface!(IMSMQQuery, IMSMQQuery_Vtbl, 0xd7d6e072_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQuery, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2784,7 +2784,7 @@ pub struct IMSMQQuery_Vtbl {
     LookupQueue: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQQuery2, IMSMQQuery2_Vtbl, 0xeba96b0e_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQQuery2, IMSMQQuery2_Vtbl, 0xeba96b0e_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQuery2, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2814,7 +2814,7 @@ pub struct IMSMQQuery2_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQQuery3, IMSMQQuery3_Vtbl, 0xeba96b19_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQQuery3, IMSMQQuery3_Vtbl, 0xeba96b19_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQuery3, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2853,7 +2853,7 @@ pub struct IMSMQQuery3_Vtbl {
     LookupQueue: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQQuery4, IMSMQQuery4_Vtbl, 0xeba96b24_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQQuery4, IMSMQQuery4_Vtbl, 0xeba96b24_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQuery4, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2892,7 +2892,7 @@ pub struct IMSMQQuery4_Vtbl {
     LookupQueue: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQQueue, IMSMQQueue_Vtbl, 0xd7d6e076_dccd_11d0_aa4b_0060970debae);
+windows_core::imp::define_interface!(IMSMQQueue, IMSMQQueue_Vtbl, 0xd7d6e076_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueue, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2997,7 +2997,7 @@ pub struct IMSMQQueue_Vtbl {
     PeekCurrent: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQQueue2, IMSMQQueue2_Vtbl, 0xef0574e0_06d8_11d3_b100_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQQueue2, IMSMQQueue2_Vtbl, 0xef0574e0_06d8_11d3_b100_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueue2, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3156,7 +3156,7 @@ pub struct IMSMQQueue2_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQQueue3, IMSMQQueue3_Vtbl, 0xeba96b1b_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQQueue3, IMSMQQueue3_Vtbl, 0xeba96b1b_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueue3, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3437,7 +3437,7 @@ pub struct IMSMQQueue3_Vtbl {
     pub IsOpen2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQQueue4, IMSMQQueue4_Vtbl, 0xeba96b20_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQQueue4, IMSMQQueue4_Vtbl, 0xeba96b20_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueue4, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3730,7 +3730,7 @@ pub struct IMSMQQueue4_Vtbl {
     ReceiveByLookupIdAllowPeek: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQQueueInfo, IMSMQQueueInfo_Vtbl, 0xd7d6e07b_dccd_11d0_aa4b_0060970debae);
+windows_core::imp::define_interface!(IMSMQQueueInfo, IMSMQQueueInfo_Vtbl, 0xd7d6e07b_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueueInfo, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3894,7 +3894,7 @@ pub struct IMSMQQueueInfo_Vtbl {
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQQueueInfo2, IMSMQQueueInfo2_Vtbl, 0xfd174a80_89cf_11d2_b0f2_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQQueueInfo2, IMSMQQueueInfo2_Vtbl, 0xfd174a80_89cf_11d2_b0f2_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueueInfo2, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4084,7 +4084,7 @@ pub struct IMSMQQueueInfo2_Vtbl {
     pub SetSecurity: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQQueueInfo3, IMSMQQueueInfo3_Vtbl, 0xeba96b1d_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQQueueInfo3, IMSMQQueueInfo3_Vtbl, 0xeba96b1d_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueueInfo3, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4301,7 +4301,7 @@ pub struct IMSMQQueueInfo3_Vtbl {
     pub ADsPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQQueueInfo4, IMSMQQueueInfo4_Vtbl, 0xeba96b21_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQQueueInfo4, IMSMQQueueInfo4_Vtbl, 0xeba96b21_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueueInfo4, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4518,7 +4518,7 @@ pub struct IMSMQQueueInfo4_Vtbl {
     pub ADsPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQQueueInfos, IMSMQQueueInfos_Vtbl, 0xd7d6e07d_dccd_11d0_aa4b_0060970debae);
+windows_core::imp::define_interface!(IMSMQQueueInfos, IMSMQQueueInfos_Vtbl, 0xd7d6e07d_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueueInfos, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4543,7 +4543,7 @@ pub struct IMSMQQueueInfos_Vtbl {
     Next: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQQueueInfos2, IMSMQQueueInfos2_Vtbl, 0xeba96b0f_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQQueueInfos2, IMSMQQueueInfos2_Vtbl, 0xeba96b0f_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueueInfos2, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4577,7 +4577,7 @@ pub struct IMSMQQueueInfos2_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQQueueInfos3, IMSMQQueueInfos3_Vtbl, 0xeba96b1e_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQQueueInfos3, IMSMQQueueInfos3_Vtbl, 0xeba96b1e_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueueInfos3, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4611,7 +4611,7 @@ pub struct IMSMQQueueInfos3_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQQueueInfos4, IMSMQQueueInfos4_Vtbl, 0xeba96b22_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQQueueInfos4, IMSMQQueueInfos4_Vtbl, 0xeba96b22_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueueInfos4, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4645,7 +4645,7 @@ pub struct IMSMQQueueInfos4_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQQueueManagement, IMSMQQueueManagement_Vtbl, 0x7fbe7759_5760_444d_b8a5_5e7ab9a84cce);
+windows_core::imp::define_interface!(IMSMQQueueManagement, IMSMQQueueManagement_Vtbl, 0x7fbe7759_5760_444d_b8a5_5e7ab9a84cce);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueueManagement, windows_core::IUnknown, super::Com::IDispatch, IMSMQManagement);
 #[cfg(feature = "Win32_System_Com")]
@@ -4707,7 +4707,7 @@ pub struct IMSMQQueueManagement_Vtbl {
     pub EodGetReceiveInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQTransaction, IMSMQTransaction_Vtbl, 0xd7d6e07f_dccd_11d0_aa4b_0060970debae);
+windows_core::imp::define_interface!(IMSMQTransaction, IMSMQTransaction_Vtbl, 0xd7d6e07f_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQTransaction, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4732,7 +4732,7 @@ pub struct IMSMQTransaction_Vtbl {
     pub Abort: unsafe extern "system" fn(*mut core::ffi::c_void, *const std::mem::MaybeUninit<windows_core::VARIANT>, *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQTransaction2, IMSMQTransaction2_Vtbl, 0x2ce0c5b0_6e67_11d2_b0e6_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQTransaction2, IMSMQTransaction2_Vtbl, 0x2ce0c5b0_6e67_11d2_b0e6_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQTransaction2, windows_core::IUnknown, super::Com::IDispatch, IMSMQTransaction);
 #[cfg(feature = "Win32_System_Com")]
@@ -4770,7 +4770,7 @@ pub struct IMSMQTransaction2_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQTransaction3, IMSMQTransaction3_Vtbl, 0xeba96b13_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQTransaction3, IMSMQTransaction3_Vtbl, 0xeba96b13_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQTransaction3, windows_core::IUnknown, super::Com::IDispatch, IMSMQTransaction, IMSMQTransaction2);
 #[cfg(feature = "Win32_System_Com")]
@@ -4808,7 +4808,7 @@ pub struct IMSMQTransaction3_Vtbl {
     pub ITransaction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQTransactionDispenser, IMSMQTransactionDispenser_Vtbl, 0xd7d6e083_dccd_11d0_aa4b_0060970debae);
+windows_core::imp::define_interface!(IMSMQTransactionDispenser, IMSMQTransactionDispenser_Vtbl, 0xd7d6e083_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQTransactionDispenser, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4829,7 +4829,7 @@ pub struct IMSMQTransactionDispenser_Vtbl {
     BeginTransaction: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQTransactionDispenser2, IMSMQTransactionDispenser2_Vtbl, 0xeba96b11_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQTransactionDispenser2, IMSMQTransactionDispenser2_Vtbl, 0xeba96b11_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQTransactionDispenser2, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4859,7 +4859,7 @@ pub struct IMSMQTransactionDispenser2_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSMQTransactionDispenser3, IMSMQTransactionDispenser3_Vtbl, 0xeba96b15_2168_11d3_898c_00e02c074f6b);
+windows_core::imp::define_interface!(IMSMQTransactionDispenser3, IMSMQTransactionDispenser3_Vtbl, 0xeba96b15_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQTransactionDispenser3, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4889,7 +4889,7 @@ pub struct IMSMQTransactionDispenser3_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(_DMSMQEventEvents, _DMSMQEventEvents_Vtbl, 0xd7d6e078_dccd_11d0_aa4b_0060970debae);
+windows_core::imp::define_interface!(_DMSMQEventEvents, _DMSMQEventEvents_Vtbl, 0xd7d6e078_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(_DMSMQEventEvents, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]

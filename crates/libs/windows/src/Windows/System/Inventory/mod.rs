@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IInstalledDesktopApp, IInstalledDesktopApp_Vtbl, 0x75eab8ed_c0bc_5364_4c28_166e0545167a);
+windows_core::imp::define_interface!(IInstalledDesktopApp, IInstalledDesktopApp_Vtbl, 0x75eab8ed_c0bc_5364_4c28_166e0545167a);
 #[repr(C)]
 pub struct IInstalledDesktopApp_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7,7 +7,7 @@ pub struct IInstalledDesktopApp_Vtbl {
     pub Publisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub DisplayVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInstalledDesktopAppStatics, IInstalledDesktopAppStatics_Vtbl, 0x264cf74e_21cd_5f9b_6056_7866ad72489a);
+windows_core::imp::define_interface!(IInstalledDesktopAppStatics, IInstalledDesktopAppStatics_Vtbl, 0x264cf74e_21cd_5f9b_6056_7866ad72489a);
 #[repr(C)]
 pub struct IInstalledDesktopAppStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

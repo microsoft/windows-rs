@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IHolographicCameraInterop, IHolographicCameraInterop_Vtbl, 0x7cc1f9c5_6d02_41fa_9500_e1809eb48eec);
+windows_core::imp::define_interface!(IHolographicCameraInterop, IHolographicCameraInterop_Vtbl, 0x7cc1f9c5_6d02_41fa_9500_e1809eb48eec);
 windows_core::imp::interface_hierarchy!(IHolographicCameraInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IHolographicCameraInterop {
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -66,7 +66,7 @@ pub struct IHolographicCameraInterop_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     UnacquireDirect3D12BufferResource: usize,
 }
-windows_core::imp::com_interface!(IHolographicCameraRenderingParametersInterop, IHolographicCameraRenderingParametersInterop_Vtbl, 0xf75b68d6_d1fd_4707_aafd_fa6f4c0e3bf4);
+windows_core::imp::define_interface!(IHolographicCameraRenderingParametersInterop, IHolographicCameraRenderingParametersInterop_Vtbl, 0xf75b68d6_d1fd_4707_aafd_fa6f4c0e3bf4);
 windows_core::imp::interface_hierarchy!(IHolographicCameraRenderingParametersInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IHolographicCameraRenderingParametersInterop {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -100,7 +100,7 @@ pub struct IHolographicCameraRenderingParametersInterop_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     CommitDirect3D12ResourceWithDepthData: usize,
 }
-windows_core::imp::com_interface!(IHolographicQuadLayerInterop, IHolographicQuadLayerInterop_Vtbl, 0xcfa688f0_639e_4a47_83d7_6b7f5ebf7fed);
+windows_core::imp::define_interface!(IHolographicQuadLayerInterop, IHolographicQuadLayerInterop_Vtbl, 0xcfa688f0_639e_4a47_83d7_6b7f5ebf7fed);
 windows_core::imp::interface_hierarchy!(IHolographicQuadLayerInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IHolographicQuadLayerInterop {
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -168,7 +168,7 @@ pub struct IHolographicQuadLayerInterop_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     UnacquireDirect3D12BufferResource: usize,
 }
-windows_core::imp::com_interface!(IHolographicQuadLayerUpdateParametersInterop, IHolographicQuadLayerUpdateParametersInterop_Vtbl, 0xe5f549cd_c909_444f_8809_7cc18a9c8920);
+windows_core::imp::define_interface!(IHolographicQuadLayerUpdateParametersInterop, IHolographicQuadLayerUpdateParametersInterop_Vtbl, 0xe5f549cd_c909_444f_8809_7cc18a9c8920);
 windows_core::imp::interface_hierarchy!(IHolographicQuadLayerUpdateParametersInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IHolographicQuadLayerUpdateParametersInterop {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]

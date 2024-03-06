@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(ICustomDevice, ICustomDevice_Vtbl, 0xdd30251f_c48b_43bd_bcb1_dec88f15143e);
+windows_core::imp::define_interface!(ICustomDevice, ICustomDevice_Vtbl, 0xdd30251f_c48b_43bd_bcb1_dec88f15143e);
 #[repr(C)]
 pub struct ICustomDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19,14 +19,14 @@ pub struct ICustomDevice_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     TrySendIOControlAsync: usize,
 }
-windows_core::imp::com_interface!(ICustomDeviceStatics, ICustomDeviceStatics_Vtbl, 0xc8220312_ef4c_46b1_a58e_eeb308dc8917);
+windows_core::imp::define_interface!(ICustomDeviceStatics, ICustomDeviceStatics_Vtbl, 0xc8220312_ef4c_46b1_a58e_eeb308dc8917);
 #[repr(C)]
 pub struct ICustomDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, DeviceAccessMode, DeviceSharingMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIOControlCode, IIOControlCode_Vtbl, 0x0e9559e7_60c8_4375_a761_7f8808066c60);
+windows_core::imp::define_interface!(IIOControlCode, IIOControlCode_Vtbl, 0x0e9559e7_60c8_4375_a761_7f8808066c60);
 windows_core::imp::interface_hierarchy!(IIOControlCode, windows_core::IUnknown, windows_core::IInspectable);
 impl IIOControlCode {
     pub fn AccessMode(&self) -> windows_core::Result<IOControlAccessMode> {
@@ -77,13 +77,13 @@ pub struct IIOControlCode_Vtbl {
     pub DeviceType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub ControlCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIOControlCodeFactory, IIOControlCodeFactory_Vtbl, 0x856a7cf0_4c11_44ae_afc6_b8d4a212788f);
+windows_core::imp::define_interface!(IIOControlCodeFactory, IIOControlCodeFactory_Vtbl, 0x856a7cf0_4c11_44ae_afc6_b8d4a212788f);
 #[repr(C)]
 pub struct IIOControlCodeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateIOControlCode: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, IOControlAccessMode, IOControlBufferingMethod, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKnownDeviceTypesStatics, IKnownDeviceTypesStatics_Vtbl, 0xee5479c2_5448_45da_ad1b_24948c239094);
+windows_core::imp::define_interface!(IKnownDeviceTypesStatics, IKnownDeviceTypesStatics_Vtbl, 0xee5479c2_5448_45da_ad1b_24948c239094);
 #[repr(C)]
 pub struct IKnownDeviceTypesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

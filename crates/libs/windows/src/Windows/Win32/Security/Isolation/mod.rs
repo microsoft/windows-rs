@@ -85,7 +85,7 @@ pub unsafe fn IsProcessInWDAGContainer(reserved: *const core::ffi::c_void) -> wi
     let mut result__ = std::mem::zeroed();
     IsProcessInWDAGContainer(reserved, &mut result__).map(|| result__)
 }
-windows_core::imp::com_interface!(IIsolatedAppLauncher, IIsolatedAppLauncher_Vtbl, 0xf686878f_7b42_4cc4_96fb_f4f3b6e3d24d);
+windows_core::imp::define_interface!(IIsolatedAppLauncher, IIsolatedAppLauncher_Vtbl, 0xf686878f_7b42_4cc4_96fb_f4f3b6e3d24d);
 windows_core::imp::interface_hierarchy!(IIsolatedAppLauncher, windows_core::IUnknown);
 impl IIsolatedAppLauncher {
     pub unsafe fn Launch<P0, P1>(&self, appusermodelid: P0, arguments: P1, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> windows_core::Result<()>
@@ -101,7 +101,7 @@ pub struct IIsolatedAppLauncher_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Launch: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const IsolatedAppLauncherTelemetryParameters) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsolatedProcessLauncher, IIsolatedProcessLauncher_Vtbl, 0x1aa24232_9a91_4201_88cb_122f9d6522e0);
+windows_core::imp::define_interface!(IIsolatedProcessLauncher, IIsolatedProcessLauncher_Vtbl, 0x1aa24232_9a91_4201_88cb_122f9d6522e0);
 windows_core::imp::interface_hierarchy!(IIsolatedProcessLauncher, windows_core::IUnknown);
 impl IIsolatedProcessLauncher {
     pub unsafe fn LaunchProcess<P0, P1, P2>(&self, process: P0, arguments: P1, workingdirectory: P2) -> windows_core::Result<()>
@@ -141,7 +141,7 @@ pub struct IIsolatedProcessLauncher_Vtbl {
     pub AllowSetForegroundAccess: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub IsContainerRunning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsolatedProcessLauncher2, IIsolatedProcessLauncher2_Vtbl, 0x780e4416_5e72_4123_808e_66dc6479feef);
+windows_core::imp::define_interface!(IIsolatedProcessLauncher2, IIsolatedProcessLauncher2_Vtbl, 0x780e4416_5e72_4123_808e_66dc6479feef);
 windows_core::imp::interface_hierarchy!(IIsolatedProcessLauncher2, windows_core::IUnknown, IIsolatedProcessLauncher);
 impl IIsolatedProcessLauncher2 {
     pub unsafe fn LaunchProcess<P0, P1, P2>(&self, process: P0, arguments: P1, workingdirectory: P2) -> windows_core::Result<()>

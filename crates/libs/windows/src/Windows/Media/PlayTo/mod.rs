@@ -1,17 +1,17 @@
-windows_core::imp::com_interface!(ICurrentTimeChangeRequestedEventArgs, ICurrentTimeChangeRequestedEventArgs_Vtbl, 0x99711324_edc7_4bf5_91f6_3c8627db59e5);
+windows_core::imp::define_interface!(ICurrentTimeChangeRequestedEventArgs, ICurrentTimeChangeRequestedEventArgs_Vtbl, 0x99711324_edc7_4bf5_91f6_3c8627db59e5);
 #[repr(C)]
 pub struct ICurrentTimeChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Time: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMuteChangeRequestedEventArgs, IMuteChangeRequestedEventArgs_Vtbl, 0xe4b4f5f6_af1f_4f1e_b437_7da32400e1d4);
+windows_core::imp::define_interface!(IMuteChangeRequestedEventArgs, IMuteChangeRequestedEventArgs_Vtbl, 0xe4b4f5f6_af1f_4f1e_b437_7da32400e1d4);
 #[repr(C)]
 pub struct IMuteChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Mute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IPlayToConnection, IPlayToConnection_Vtbl, 0x112fbfc8_f235_4fde_8d41_9bf27c9e9a40);
+windows_core::imp::define_interface!(IPlayToConnection, IPlayToConnection_Vtbl, 0x112fbfc8_f235_4fde_8d41_9bf27c9e9a40);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToConnection_Vtbl {
@@ -46,7 +46,7 @@ pub struct IPlayToConnection_Vtbl {
     RemoveError: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IPlayToConnectionErrorEventArgs, IPlayToConnectionErrorEventArgs_Vtbl, 0xbf5eada6_88e6_445f_9d40_d9b9f8939896);
+windows_core::imp::define_interface!(IPlayToConnectionErrorEventArgs, IPlayToConnectionErrorEventArgs_Vtbl, 0xbf5eada6_88e6_445f_9d40_d9b9f8939896);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToConnectionErrorEventArgs_Vtbl {
@@ -61,7 +61,7 @@ pub struct IPlayToConnectionErrorEventArgs_Vtbl {
     Message: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IPlayToConnectionStateChangedEventArgs, IPlayToConnectionStateChangedEventArgs_Vtbl, 0x68c4b50f_0c20_4980_8602_58c62238d423);
+windows_core::imp::define_interface!(IPlayToConnectionStateChangedEventArgs, IPlayToConnectionStateChangedEventArgs_Vtbl, 0x68c4b50f_0c20_4980_8602_58c62238d423);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToConnectionStateChangedEventArgs_Vtbl {
@@ -76,7 +76,7 @@ pub struct IPlayToConnectionStateChangedEventArgs_Vtbl {
     CurrentState: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IPlayToConnectionTransferredEventArgs, IPlayToConnectionTransferredEventArgs_Vtbl, 0xfae3193a_0683_47d9_8df0_18cbb48984d8);
+windows_core::imp::define_interface!(IPlayToConnectionTransferredEventArgs, IPlayToConnectionTransferredEventArgs_Vtbl, 0xfae3193a_0683_47d9_8df0_18cbb48984d8);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToConnectionTransferredEventArgs_Vtbl {
@@ -91,7 +91,7 @@ pub struct IPlayToConnectionTransferredEventArgs_Vtbl {
     CurrentSource: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IPlayToManager, IPlayToManager_Vtbl, 0xf56a206e_1b77_42ef_8f0d_b949f8d9b260);
+windows_core::imp::define_interface!(IPlayToManager, IPlayToManager_Vtbl, 0xf56a206e_1b77_42ef_8f0d_b949f8d9b260);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToManager_Vtbl {
@@ -122,7 +122,7 @@ pub struct IPlayToManager_Vtbl {
     DefaultSourceSelection: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IPlayToManagerStatics, IPlayToManagerStatics_Vtbl, 0x64e6a887_3982_4f3b_ba20_6155e435325b);
+windows_core::imp::define_interface!(IPlayToManagerStatics, IPlayToManagerStatics_Vtbl, 0x64e6a887_3982_4f3b_ba20_6155e435325b);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToManagerStatics_Vtbl {
@@ -136,7 +136,7 @@ pub struct IPlayToManagerStatics_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     ShowPlayToUI: usize,
 }
-windows_core::imp::com_interface!(IPlayToReceiver, IPlayToReceiver_Vtbl, 0xac15cf47_a162_4aa6_af1b_3aa35f3b9069);
+windows_core::imp::define_interface!(IPlayToReceiver, IPlayToReceiver_Vtbl, 0xac15cf47_a162_4aa6_af1b_3aa35f3b9069);
 #[repr(C)]
 pub struct IPlayToReceiver_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -186,7 +186,7 @@ pub struct IPlayToReceiver_Vtbl {
     pub StopAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IPlayToSource, IPlayToSource_Vtbl, 0x7f138a08_fbb7_4b09_8356_aa5f4e335c31);
+windows_core::imp::define_interface!(IPlayToSource, IPlayToSource_Vtbl, 0x7f138a08_fbb7_4b09_8356_aa5f4e335c31);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToSource_Vtbl {
@@ -209,7 +209,7 @@ pub struct IPlayToSource_Vtbl {
     PlayNext: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IPlayToSourceDeferral, IPlayToSourceDeferral_Vtbl, 0x4100891d_278e_4f29_859b_a9e501053e7d);
+windows_core::imp::define_interface!(IPlayToSourceDeferral, IPlayToSourceDeferral_Vtbl, 0x4100891d_278e_4f29_859b_a9e501053e7d);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToSourceDeferral_Vtbl {
@@ -220,7 +220,7 @@ pub struct IPlayToSourceDeferral_Vtbl {
     Complete: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IPlayToSourceRequest, IPlayToSourceRequest_Vtbl, 0xf8584665_64f4_44a0_ac0d_468d2b8fda83);
+windows_core::imp::define_interface!(IPlayToSourceRequest, IPlayToSourceRequest_Vtbl, 0xf8584665_64f4_44a0_ac0d_468d2b8fda83);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToSourceRequest_Vtbl {
@@ -243,7 +243,7 @@ pub struct IPlayToSourceRequest_Vtbl {
     SetSource: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IPlayToSourceRequestedEventArgs, IPlayToSourceRequestedEventArgs_Vtbl, 0xc5cdc330_29df_4ec6_9da9_9fbdfcfc1b3e);
+windows_core::imp::define_interface!(IPlayToSourceRequestedEventArgs, IPlayToSourceRequestedEventArgs_Vtbl, 0xc5cdc330_29df_4ec6_9da9_9fbdfcfc1b3e);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToSourceRequestedEventArgs_Vtbl {
@@ -254,7 +254,7 @@ pub struct IPlayToSourceRequestedEventArgs_Vtbl {
     SourceRequest: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IPlayToSourceSelectedEventArgs, IPlayToSourceSelectedEventArgs_Vtbl, 0x0c9d8511_5202_4dcb_8c67_abda12bb3c12);
+windows_core::imp::define_interface!(IPlayToSourceSelectedEventArgs, IPlayToSourceSelectedEventArgs_Vtbl, 0x0c9d8511_5202_4dcb_8c67_abda12bb3c12);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToSourceSelectedEventArgs_Vtbl {
@@ -281,7 +281,7 @@ pub struct IPlayToSourceSelectedEventArgs_Vtbl {
     SupportsVideo: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IPlayToSourceWithPreferredSourceUri, IPlayToSourceWithPreferredSourceUri_Vtbl, 0xaab253eb_3301_4dc4_afba_b2f2ed9635a0);
+windows_core::imp::define_interface!(IPlayToSourceWithPreferredSourceUri, IPlayToSourceWithPreferredSourceUri_Vtbl, 0xaab253eb_3301_4dc4_afba_b2f2ed9635a0);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToSourceWithPreferredSourceUri_Vtbl {
@@ -295,13 +295,13 @@ pub struct IPlayToSourceWithPreferredSourceUri_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     SetPreferredSourceUri: usize,
 }
-windows_core::imp::com_interface!(IPlaybackRateChangeRequestedEventArgs, IPlaybackRateChangeRequestedEventArgs_Vtbl, 0x0f5661ae_2c88_4cca_8540_d586095d13a5);
+windows_core::imp::define_interface!(IPlaybackRateChangeRequestedEventArgs, IPlaybackRateChangeRequestedEventArgs_Vtbl, 0x0f5661ae_2c88_4cca_8540_d586095d13a5);
 #[repr(C)]
 pub struct IPlaybackRateChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Rate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISourceChangeRequestedEventArgs, ISourceChangeRequestedEventArgs_Vtbl, 0xfb3f3a96_7aa6_4a8b_86e7_54f6c6d34f64);
+windows_core::imp::define_interface!(ISourceChangeRequestedEventArgs, ISourceChangeRequestedEventArgs_Vtbl, 0xfb3f3a96_7aa6_4a8b_86e7_54f6c6d34f64);
 #[repr(C)]
 pub struct ISourceChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -325,7 +325,7 @@ pub struct ISourceChangeRequestedEventArgs_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Properties: usize,
 }
-windows_core::imp::com_interface!(IVolumeChangeRequestedEventArgs, IVolumeChangeRequestedEventArgs_Vtbl, 0x6f026d5c_cf75_4c2b_913e_6d7c6c329179);
+windows_core::imp::define_interface!(IVolumeChangeRequestedEventArgs, IVolumeChangeRequestedEventArgs_Vtbl, 0x6f026d5c_cf75_4c2b_913e_6d7c6c329179);
 #[repr(C)]
 pub struct IVolumeChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

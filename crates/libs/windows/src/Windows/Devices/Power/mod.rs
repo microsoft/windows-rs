@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IBattery, IBattery_Vtbl, 0xbc894fc6_0072_47c8_8b5d_614aaa7a437e);
+windows_core::imp::define_interface!(IBattery, IBattery_Vtbl, 0xbc894fc6_0072_47c8_8b5d_614aaa7a437e);
 #[repr(C)]
 pub struct IBattery_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7,7 +7,7 @@ pub struct IBattery_Vtbl {
     pub ReportUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveReportUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBatteryReport, IBatteryReport_Vtbl, 0xc9858c3a_4e13_420a_a8d0_24f18f395401);
+windows_core::imp::define_interface!(IBatteryReport, IBatteryReport_Vtbl, 0xc9858c3a_4e13_420a_a8d0_24f18f395401);
 #[repr(C)]
 pub struct IBatteryReport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -20,7 +20,7 @@ pub struct IBatteryReport_Vtbl {
     #[cfg(not(feature = "System_Power"))]
     Status: usize,
 }
-windows_core::imp::com_interface!(IBatteryStatics, IBatteryStatics_Vtbl, 0x79cd72b6_9e5e_4452_bea6_dfcd541e597f);
+windows_core::imp::define_interface!(IBatteryStatics, IBatteryStatics_Vtbl, 0x79cd72b6_9e5e_4452_bea6_dfcd541e597f);
 #[repr(C)]
 pub struct IBatteryStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

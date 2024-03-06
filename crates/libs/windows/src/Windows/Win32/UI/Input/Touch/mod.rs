@@ -78,7 +78,7 @@ where
     windows_targets::link!("user32.dll" "system" fn UnregisterTouchWindow(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: BOOL);
     UnregisterTouchWindow(hwnd.into_param().abi()).ok()
 }
-windows_core::imp::com_interface!(IInertiaProcessor, IInertiaProcessor_Vtbl, 0x18b00c6d_c5ee_41b1_90a9_9d4a929095ad);
+windows_core::imp::define_interface!(IInertiaProcessor, IInertiaProcessor_Vtbl, 0x18b00c6d_c5ee_41b1_90a9_9d4a929095ad);
 windows_core::imp::interface_hierarchy!(IInertiaProcessor, windows_core::IUnknown);
 impl IInertiaProcessor {
     pub unsafe fn InitialOriginX(&self) -> windows_core::Result<f32> {
@@ -306,7 +306,7 @@ pub struct IInertiaProcessor_Vtbl {
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CompleteTime: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IManipulationProcessor, IManipulationProcessor_Vtbl, 0xa22ac519_8300_48a0_bef4_f1be8737dba4);
+windows_core::imp::define_interface!(IManipulationProcessor, IManipulationProcessor_Vtbl, 0xa22ac519_8300_48a0_bef4_f1be8737dba4);
 windows_core::imp::interface_hierarchy!(IManipulationProcessor, windows_core::IUnknown);
 impl IManipulationProcessor {
     pub unsafe fn SupportedManipulations(&self) -> windows_core::Result<MANIPULATION_PROCESSOR_MANIPULATIONS> {
@@ -407,7 +407,7 @@ pub struct IManipulationProcessor_Vtbl {
     pub MinimumScaleRotateRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetMinimumScaleRotateRadius: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(_IManipulationEvents, _IManipulationEvents_Vtbl, 0x4f62c8da_9c53_4b22_93df_927a862bbb03);
+windows_core::imp::define_interface!(_IManipulationEvents, _IManipulationEvents_Vtbl, 0x4f62c8da_9c53_4b22_93df_927a862bbb03);
 windows_core::imp::interface_hierarchy!(_IManipulationEvents, windows_core::IUnknown);
 impl _IManipulationEvents {
     pub unsafe fn ManipulationStarted(&self, x: f32, y: f32) -> windows_core::Result<()> {

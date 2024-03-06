@@ -1,5 +1,5 @@
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IEnumNetworkConnections, IEnumNetworkConnections_Vtbl, 0xdcb00006_570f_4a9b_8d69_199fdba5723b);
+windows_core::imp::define_interface!(IEnumNetworkConnections, IEnumNetworkConnections_Vtbl, 0xdcb00006_570f_4a9b_8d69_199fdba5723b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IEnumNetworkConnections, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -45,7 +45,7 @@ pub struct IEnumNetworkConnections_Vtbl {
     Clone: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IEnumNetworks, IEnumNetworks_Vtbl, 0xdcb00003_570f_4a9b_8d69_199fdba5723b);
+windows_core::imp::define_interface!(IEnumNetworks, IEnumNetworks_Vtbl, 0xdcb00003_570f_4a9b_8d69_199fdba5723b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IEnumNetworks, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -91,7 +91,7 @@ pub struct IEnumNetworks_Vtbl {
     Clone: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(INetwork, INetwork_Vtbl, 0xdcb00002_570f_4a9b_8d69_199fdba5723b);
+windows_core::imp::define_interface!(INetwork, INetwork_Vtbl, 0xdcb00002_570f_4a9b_8d69_199fdba5723b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetwork, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -174,7 +174,7 @@ pub struct INetwork_Vtbl {
     pub SetCategory: unsafe extern "system" fn(*mut core::ffi::c_void, NLM_NETWORK_CATEGORY) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(INetwork2, INetwork2_Vtbl, 0xb5550abb_3391_4310_804f_25dcc325ed81);
+windows_core::imp::define_interface!(INetwork2, INetwork2_Vtbl, 0xb5550abb_3391_4310_804f_25dcc325ed81);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetwork2, windows_core::IUnknown, super::super::System::Com::IDispatch, INetwork);
 #[cfg(feature = "Win32_System_Com")]
@@ -246,7 +246,7 @@ pub struct INetwork2_Vtbl {
     pub IsDomainAuthenticatedBy: unsafe extern "system" fn(*mut core::ffi::c_void, NLM_DOMAIN_AUTHENTICATION_KIND, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(INetworkConnection, INetworkConnection_Vtbl, 0xdcb00005_570f_4a9b_8d69_199fdba5723b);
+windows_core::imp::define_interface!(INetworkConnection, INetworkConnection_Vtbl, 0xdcb00005_570f_4a9b_8d69_199fdba5723b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetworkConnection, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -297,7 +297,7 @@ pub struct INetworkConnection_Vtbl {
     pub GetDomainType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NLM_DOMAIN_TYPE) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(INetworkConnection2, INetworkConnection2_Vtbl, 0x00e676ed_5a35_4738_92eb_8581738d0f0a);
+windows_core::imp::define_interface!(INetworkConnection2, INetworkConnection2_Vtbl, 0x00e676ed_5a35_4738_92eb_8581738d0f0a);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetworkConnection2, windows_core::IUnknown, super::super::System::Com::IDispatch, INetworkConnection);
 #[cfg(feature = "Win32_System_Com")]
@@ -342,7 +342,7 @@ pub struct INetworkConnection2_Vtbl {
     pub base__: INetworkConnection_Vtbl,
     pub IsDomainAuthenticatedBy: unsafe extern "system" fn(*mut core::ffi::c_void, NLM_DOMAIN_AUTHENTICATION_KIND, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(INetworkConnectionCost, INetworkConnectionCost_Vtbl, 0xdcb0000a_570f_4a9b_8d69_199fdba5723b);
+windows_core::imp::define_interface!(INetworkConnectionCost, INetworkConnectionCost_Vtbl, 0xdcb0000a_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkConnectionCost, windows_core::IUnknown);
 impl INetworkConnectionCost {
     pub unsafe fn GetCost(&self) -> windows_core::Result<u32> {
@@ -359,7 +359,7 @@ pub struct INetworkConnectionCost_Vtbl {
     pub GetCost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetDataPlanStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NLM_DATAPLAN_STATUS) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(INetworkConnectionCostEvents, INetworkConnectionCostEvents_Vtbl, 0xdcb0000b_570f_4a9b_8d69_199fdba5723b);
+windows_core::imp::define_interface!(INetworkConnectionCostEvents, INetworkConnectionCostEvents_Vtbl, 0xdcb0000b_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkConnectionCostEvents, windows_core::IUnknown);
 impl INetworkConnectionCostEvents {
     pub unsafe fn ConnectionCostChanged(&self, connectionid: windows_core::GUID, newcost: u32) -> windows_core::Result<()> {
@@ -375,7 +375,7 @@ pub struct INetworkConnectionCostEvents_Vtbl {
     pub ConnectionCostChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, u32) -> windows_core::HRESULT,
     pub ConnectionDataPlanStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(INetworkConnectionEvents, INetworkConnectionEvents_Vtbl, 0xdcb00007_570f_4a9b_8d69_199fdba5723b);
+windows_core::imp::define_interface!(INetworkConnectionEvents, INetworkConnectionEvents_Vtbl, 0xdcb00007_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkConnectionEvents, windows_core::IUnknown);
 impl INetworkConnectionEvents {
     pub unsafe fn NetworkConnectionConnectivityChanged(&self, connectionid: windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::Result<()> {
@@ -391,7 +391,7 @@ pub struct INetworkConnectionEvents_Vtbl {
     pub NetworkConnectionConnectivityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, NLM_CONNECTIVITY) -> windows_core::HRESULT,
     pub NetworkConnectionPropertyChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, NLM_CONNECTION_PROPERTY_CHANGE) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(INetworkCostManager, INetworkCostManager_Vtbl, 0xdcb00008_570f_4a9b_8d69_199fdba5723b);
+windows_core::imp::define_interface!(INetworkCostManager, INetworkCostManager_Vtbl, 0xdcb00008_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkCostManager, windows_core::IUnknown);
 impl INetworkCostManager {
     pub unsafe fn GetCost(&self, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::Result<()> {
@@ -414,7 +414,7 @@ pub struct INetworkCostManager_Vtbl {
     pub GetDataPlanStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NLM_DATAPLAN_STATUS, *const NLM_SOCKADDR) -> windows_core::HRESULT,
     pub SetDestinationAddresses: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const NLM_SOCKADDR, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(INetworkCostManagerEvents, INetworkCostManagerEvents_Vtbl, 0xdcb00009_570f_4a9b_8d69_199fdba5723b);
+windows_core::imp::define_interface!(INetworkCostManagerEvents, INetworkCostManagerEvents_Vtbl, 0xdcb00009_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkCostManagerEvents, windows_core::IUnknown);
 impl INetworkCostManagerEvents {
     pub unsafe fn CostChanged(&self, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> windows_core::Result<()> {
@@ -430,7 +430,7 @@ pub struct INetworkCostManagerEvents_Vtbl {
     pub CostChanged: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const NLM_SOCKADDR) -> windows_core::HRESULT,
     pub DataPlanStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *const NLM_SOCKADDR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(INetworkEvents, INetworkEvents_Vtbl, 0xdcb00004_570f_4a9b_8d69_199fdba5723b);
+windows_core::imp::define_interface!(INetworkEvents, INetworkEvents_Vtbl, 0xdcb00004_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkEvents, windows_core::IUnknown);
 impl INetworkEvents {
     pub unsafe fn NetworkAdded(&self, networkid: windows_core::GUID) -> windows_core::Result<()> {
@@ -455,7 +455,7 @@ pub struct INetworkEvents_Vtbl {
     pub NetworkPropertyChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, NLM_NETWORK_PROPERTY_CHANGE) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(INetworkListManager, INetworkListManager_Vtbl, 0xdcb00000_570f_4a9b_8d69_199fdba5723b);
+windows_core::imp::define_interface!(INetworkListManager, INetworkListManager_Vtbl, 0xdcb00000_570f_4a9b_8d69_199fdba5723b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetworkListManager, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -525,7 +525,7 @@ pub struct INetworkListManager_Vtbl {
     pub SetSimulatedProfileInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const NLM_SIMULATED_PROFILE_INFO) -> windows_core::HRESULT,
     pub ClearSimulatedProfileInfo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(INetworkListManagerEvents, INetworkListManagerEvents_Vtbl, 0xdcb00001_570f_4a9b_8d69_199fdba5723b);
+windows_core::imp::define_interface!(INetworkListManagerEvents, INetworkListManagerEvents_Vtbl, 0xdcb00001_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkListManagerEvents, windows_core::IUnknown);
 impl INetworkListManagerEvents {
     pub unsafe fn ConnectivityChanged(&self, newconnectivity: NLM_CONNECTIVITY) -> windows_core::Result<()> {

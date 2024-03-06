@@ -1,7 +1,7 @@
 #[cfg(feature = "ApplicationModel_Wallet_System")]
 pub mod System;
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IWalletBarcode, IWalletBarcode_Vtbl, 0x4f857b29_de80_4ea4_a1cd_81cd084dac27);
+windows_core::imp::define_interface!(IWalletBarcode, IWalletBarcode_Vtbl, 0x4f857b29_de80_4ea4_a1cd_81cd084dac27);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IWalletBarcode_Vtbl {
@@ -20,7 +20,7 @@ pub struct IWalletBarcode_Vtbl {
     GetImageAsync: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IWalletBarcodeFactory, IWalletBarcodeFactory_Vtbl, 0x30117161_ed9c_469e_bbfd_306c95ea7108);
+windows_core::imp::define_interface!(IWalletBarcodeFactory, IWalletBarcodeFactory_Vtbl, 0x30117161_ed9c_469e_bbfd_306c95ea7108);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IWalletBarcodeFactory_Vtbl {
@@ -35,7 +35,7 @@ pub struct IWalletBarcodeFactory_Vtbl {
     CreateCustomWalletBarcode: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IWalletItem, IWalletItem_Vtbl, 0x20b54be8_118d_4ec4_996c_b963e7bd3e74);
+windows_core::imp::define_interface!(IWalletItem, IWalletItem_Vtbl, 0x20b54be8_118d_4ec4_996c_b963e7bd3e74);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IWalletItem_Vtbl {
@@ -250,7 +250,7 @@ pub struct IWalletItem_Vtbl {
     Verbs: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IWalletItemCustomProperty, IWalletItemCustomProperty_Vtbl, 0xb94b40f3_fa00_40fd_98dc_9de46697f1e7);
+windows_core::imp::define_interface!(IWalletItemCustomProperty, IWalletItemCustomProperty_Vtbl, 0xb94b40f3_fa00_40fd_98dc_9de46697f1e7);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IWalletItemCustomProperty_Vtbl {
@@ -297,7 +297,7 @@ pub struct IWalletItemCustomProperty_Vtbl {
     SetSummaryViewPosition: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IWalletItemCustomPropertyFactory, IWalletItemCustomPropertyFactory_Vtbl, 0xd0046a44_61a1_41aa_b259_a5610ab5d575);
+windows_core::imp::define_interface!(IWalletItemCustomPropertyFactory, IWalletItemCustomPropertyFactory_Vtbl, 0xd0046a44_61a1_41aa_b259_a5610ab5d575);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IWalletItemCustomPropertyFactory_Vtbl {
@@ -308,7 +308,7 @@ pub struct IWalletItemCustomPropertyFactory_Vtbl {
     CreateWalletItemCustomProperty: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IWalletItemFactory, IWalletItemFactory_Vtbl, 0x53e27470_4f0b_4a3e_99e5_0bbb1eab38d4);
+windows_core::imp::define_interface!(IWalletItemFactory, IWalletItemFactory_Vtbl, 0x53e27470_4f0b_4a3e_99e5_0bbb1eab38d4);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IWalletItemFactory_Vtbl {
@@ -319,7 +319,7 @@ pub struct IWalletItemFactory_Vtbl {
     CreateWalletItem: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IWalletItemStore, IWalletItemStore_Vtbl, 0x7160484b_6d49_48f8_91a9_40a1d0f13ef4);
+windows_core::imp::define_interface!(IWalletItemStore, IWalletItemStore_Vtbl, 0x7160484b_6d49_48f8_91a9_40a1d0f13ef4);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IWalletItemStore_Vtbl {
@@ -366,7 +366,7 @@ pub struct IWalletItemStore_Vtbl {
     UpdateAsync: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IWalletItemStore2, IWalletItemStore2_Vtbl, 0x65e682f0_7009_4a15_bd54_4fff379bffe2);
+windows_core::imp::define_interface!(IWalletItemStore2, IWalletItemStore2_Vtbl, 0x65e682f0_7009_4a15_bd54_4fff379bffe2);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IWalletItemStore2_Vtbl {
@@ -381,7 +381,7 @@ pub struct IWalletItemStore2_Vtbl {
     RemoveItemsChanged: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IWalletManagerStatics, IWalletManagerStatics_Vtbl, 0x5111d6b8_c9a4_4c64_b4dd_e1e548001c0d);
+windows_core::imp::define_interface!(IWalletManagerStatics, IWalletManagerStatics_Vtbl, 0x5111d6b8_c9a4_4c64_b4dd_e1e548001c0d);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IWalletManagerStatics_Vtbl {
@@ -392,7 +392,7 @@ pub struct IWalletManagerStatics_Vtbl {
     RequestStoreAsync: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IWalletRelevantLocation, IWalletRelevantLocation_Vtbl, 0x9fd8782a_e3f9_4de1_bab3_bb192e46b3f3);
+windows_core::imp::define_interface!(IWalletRelevantLocation, IWalletRelevantLocation_Vtbl, 0x9fd8782a_e3f9_4de1_bab3_bb192e46b3f3);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IWalletRelevantLocation_Vtbl {
@@ -415,7 +415,7 @@ pub struct IWalletRelevantLocation_Vtbl {
     SetDisplayMessage: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IWalletTransaction, IWalletTransaction_Vtbl, 0x40e1e940_2606_4519_81cb_bff1c60d1f79);
+windows_core::imp::define_interface!(IWalletTransaction, IWalletTransaction_Vtbl, 0x40e1e940_2606_4519_81cb_bff1c60d1f79);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IWalletTransaction_Vtbl {
@@ -470,7 +470,7 @@ pub struct IWalletTransaction_Vtbl {
     SetIsLaunchable: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IWalletVerb, IWalletVerb_Vtbl, 0x17b826d6_e3c1_4c74_8a94_217aadbc4884);
+windows_core::imp::define_interface!(IWalletVerb, IWalletVerb_Vtbl, 0x17b826d6_e3c1_4c74_8a94_217aadbc4884);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IWalletVerb_Vtbl {
@@ -485,7 +485,7 @@ pub struct IWalletVerb_Vtbl {
     SetName: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IWalletVerbFactory, IWalletVerbFactory_Vtbl, 0x76012771_be58_4d5e_83ed_58b1669c7ad9);
+windows_core::imp::define_interface!(IWalletVerbFactory, IWalletVerbFactory_Vtbl, 0x76012771_be58_4d5e_83ed_58b1669c7ad9);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IWalletVerbFactory_Vtbl {

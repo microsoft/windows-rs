@@ -111,7 +111,7 @@ where
     windows_targets::link!("ksproxy.ax" "system" fn KsSynchronousDeviceControl(handle : super::super::Foundation:: HANDLE, iocontrol : u32, inbuffer : *const core::ffi::c_void, inlength : u32, outbuffer : *mut core::ffi::c_void, outlength : u32, bytesreturned : *mut u32) -> windows_core::HRESULT);
     KsSynchronousDeviceControl(handle.into_param().abi(), iocontrol, core::mem::transmute(inbuffer.unwrap_or(std::ptr::null())), inlength, core::mem::transmute(outbuffer.unwrap_or(std::ptr::null_mut())), outlength, core::mem::transmute(bytesreturned.unwrap_or(std::ptr::null_mut()))).ok()
 }
-windows_core::imp::com_interface!(IKsAggregateControl, IKsAggregateControl_Vtbl, 0x7f40eac0_3947_11d2_874e_00a0c9223196);
+windows_core::imp::define_interface!(IKsAggregateControl, IKsAggregateControl_Vtbl, 0x7f40eac0_3947_11d2_874e_00a0c9223196);
 windows_core::imp::interface_hierarchy!(IKsAggregateControl, windows_core::IUnknown);
 impl IKsAggregateControl {
     pub unsafe fn KsAddAggregate(&self, aggregateclass: *const windows_core::GUID) -> windows_core::Result<()> {
@@ -127,7 +127,7 @@ pub struct IKsAggregateControl_Vtbl {
     pub KsAddAggregate: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     pub KsRemoveAggregate: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKsAllocator, IKsAllocator_Vtbl, 0x8da64899_c0d9_11d0_8413_0000f822fe8a);
+windows_core::imp::define_interface!(IKsAllocator, IKsAllocator_Vtbl, 0x8da64899_c0d9_11d0_8413_0000f822fe8a);
 windows_core::imp::interface_hierarchy!(IKsAllocator, windows_core::IUnknown);
 impl IKsAllocator {
     pub unsafe fn KsGetAllocatorHandle(&self) -> super::super::Foundation::HANDLE {
@@ -151,7 +151,7 @@ pub struct IKsAllocator_Vtbl {
     pub KsGetAllocatorStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KSSTREAMALLOCATOR_STATUS) -> windows_core::HRESULT,
     pub KsSetAllocatorMode: unsafe extern "system" fn(*mut core::ffi::c_void, KSALLOCATORMODE),
 }
-windows_core::imp::com_interface!(IKsAllocatorEx, IKsAllocatorEx_Vtbl, 0x091bb63a_603f_11d1_b067_00a0c9062802);
+windows_core::imp::define_interface!(IKsAllocatorEx, IKsAllocatorEx_Vtbl, 0x091bb63a_603f_11d1_b067_00a0c9062802);
 windows_core::imp::interface_hierarchy!(IKsAllocatorEx, windows_core::IUnknown, IKsAllocator);
 impl IKsAllocatorEx {
     pub unsafe fn KsGetAllocatorHandle(&self) -> super::super::Foundation::HANDLE {
@@ -193,7 +193,7 @@ pub struct IKsAllocatorEx_Vtbl {
     pub KsSetAllocatorHandle: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE),
     pub KsCreateAllocatorAndGetHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
 }
-windows_core::imp::com_interface!(IKsClockPropertySet, IKsClockPropertySet_Vtbl, 0x5c5cbd84_e755_11d0_ac18_00a0c9223196);
+windows_core::imp::define_interface!(IKsClockPropertySet, IKsClockPropertySet_Vtbl, 0x5c5cbd84_e755_11d0_ac18_00a0c9223196);
 windows_core::imp::interface_hierarchy!(IKsClockPropertySet, windows_core::IUnknown);
 impl IKsClockPropertySet {
     pub unsafe fn KsGetTime(&self) -> windows_core::Result<i64> {
@@ -247,7 +247,7 @@ pub struct IKsClockPropertySet_Vtbl {
     pub KsGetResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KSRESOLUTION) -> windows_core::HRESULT,
     pub KsGetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KSSTATE) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKsControl, IKsControl_Vtbl, 0x28f54685_06fd_11d2_b27a_00a0c9223196);
+windows_core::imp::define_interface!(IKsControl, IKsControl_Vtbl, 0x28f54685_06fd_11d2_b27a_00a0c9223196);
 windows_core::imp::interface_hierarchy!(IKsControl, windows_core::IUnknown);
 impl IKsControl {
     pub unsafe fn KsProperty(&self, property: *const KSIDENTIFIER, propertylength: u32, propertydata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::Result<()> {
@@ -267,7 +267,7 @@ pub struct IKsControl_Vtbl {
     pub KsMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *const KSIDENTIFIER, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub KsEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const KSIDENTIFIER, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKsDataTypeCompletion, IKsDataTypeCompletion_Vtbl, 0x827d1a0e_0f73_11d2_b27a_00a0c9223196);
+windows_core::imp::define_interface!(IKsDataTypeCompletion, IKsDataTypeCompletion_Vtbl, 0x827d1a0e_0f73_11d2_b27a_00a0c9223196);
 windows_core::imp::interface_hierarchy!(IKsDataTypeCompletion, windows_core::IUnknown);
 impl IKsDataTypeCompletion {
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -286,7 +286,7 @@ pub struct IKsDataTypeCompletion_Vtbl {
     #[cfg(not(feature = "Win32_Media_MediaFoundation"))]
     KsCompleteMediaType: usize,
 }
-windows_core::imp::com_interface!(IKsDataTypeHandler, IKsDataTypeHandler_Vtbl, 0x5ffbaa02_49a3_11d0_9f36_00aa00a216a1);
+windows_core::imp::define_interface!(IKsDataTypeHandler, IKsDataTypeHandler_Vtbl, 0x5ffbaa02_49a3_11d0_9f36_00aa00a216a1);
 windows_core::imp::interface_hierarchy!(IKsDataTypeHandler, windows_core::IUnknown);
 impl IKsDataTypeHandler {
     #[cfg(feature = "Win32_Media_DirectShow")]
@@ -334,7 +334,7 @@ pub struct IKsDataTypeHandler_Vtbl {
     #[cfg(not(feature = "Win32_Media_MediaFoundation"))]
     KsSetMediaType: usize,
 }
-windows_core::imp::com_interface!(IKsFormatSupport, IKsFormatSupport_Vtbl, 0x3cb4a69d_bb6f_4d2b_95b7_452d2c155db5);
+windows_core::imp::define_interface!(IKsFormatSupport, IKsFormatSupport_Vtbl, 0x3cb4a69d_bb6f_4d2b_95b7_452d2c155db5);
 windows_core::imp::interface_hierarchy!(IKsFormatSupport, windows_core::IUnknown);
 impl IKsFormatSupport {
     pub unsafe fn IsFormatSupported(&self, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
@@ -351,7 +351,7 @@ pub struct IKsFormatSupport_Vtbl {
     pub IsFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KSDATAFORMAT, u32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetDevicePreferredFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut KSDATAFORMAT) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKsInterfaceHandler, IKsInterfaceHandler_Vtbl, 0xd3abc7e0_9a61_11d0_a40d_00a0c9223196);
+windows_core::imp::define_interface!(IKsInterfaceHandler, IKsInterfaceHandler_Vtbl, 0xd3abc7e0_9a61_11d0_a40d_00a0c9223196);
 windows_core::imp::interface_hierarchy!(IKsInterfaceHandler, windows_core::IUnknown);
 impl IKsInterfaceHandler {
     pub unsafe fn KsSetPin<P0>(&self, kspin: P0) -> windows_core::Result<()>
@@ -381,7 +381,7 @@ pub struct IKsInterfaceHandler_Vtbl {
     KsProcessMediaSamples: usize,
     pub KsCompleteIo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KSSTREAM_SEGMENT) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKsJackContainerId, IKsJackContainerId_Vtbl, 0xc99af463_d629_4ec4_8c00_e54d68154248);
+windows_core::imp::define_interface!(IKsJackContainerId, IKsJackContainerId_Vtbl, 0xc99af463_d629_4ec4_8c00_e54d68154248);
 windows_core::imp::interface_hierarchy!(IKsJackContainerId, windows_core::IUnknown);
 impl IKsJackContainerId {
     pub unsafe fn GetJackContainerId(&self) -> windows_core::Result<windows_core::GUID> {
@@ -394,7 +394,7 @@ pub struct IKsJackContainerId_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetJackContainerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKsJackDescription, IKsJackDescription_Vtbl, 0x4509f757_2d46_4637_8e62_ce7db944f57b);
+windows_core::imp::define_interface!(IKsJackDescription, IKsJackDescription_Vtbl, 0x4509f757_2d46_4637_8e62_ce7db944f57b);
 windows_core::imp::interface_hierarchy!(IKsJackDescription, windows_core::IUnknown);
 impl IKsJackDescription {
     pub unsafe fn GetJackCount(&self) -> windows_core::Result<u32> {
@@ -411,7 +411,7 @@ pub struct IKsJackDescription_Vtbl {
     pub GetJackCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetJackDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut KSJACK_DESCRIPTION) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKsJackDescription2, IKsJackDescription2_Vtbl, 0x478f3a9b_e0c9_4827_9228_6f5505ffe76a);
+windows_core::imp::define_interface!(IKsJackDescription2, IKsJackDescription2_Vtbl, 0x478f3a9b_e0c9_4827_9228_6f5505ffe76a);
 windows_core::imp::interface_hierarchy!(IKsJackDescription2, windows_core::IUnknown);
 impl IKsJackDescription2 {
     pub unsafe fn GetJackCount(&self) -> windows_core::Result<u32> {
@@ -429,7 +429,7 @@ pub struct IKsJackDescription2_Vtbl {
     pub GetJackCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetJackDescription2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut KSJACK_DESCRIPTION2) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKsJackDescription3, IKsJackDescription3_Vtbl, 0xe3f6778b_6660_4cc8_a291_ecc4192d9967);
+windows_core::imp::define_interface!(IKsJackDescription3, IKsJackDescription3_Vtbl, 0xe3f6778b_6660_4cc8_a291_ecc4192d9967);
 windows_core::imp::interface_hierarchy!(IKsJackDescription3, windows_core::IUnknown);
 impl IKsJackDescription3 {
     pub unsafe fn GetJackCount(&self) -> windows_core::Result<u32> {
@@ -447,7 +447,7 @@ pub struct IKsJackDescription3_Vtbl {
     pub GetJackCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetJackDescription3: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut KSJACK_DESCRIPTION3) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKsJackSinkInformation, IKsJackSinkInformation_Vtbl, 0xd9bd72ed_290f_4581_9ff3_61027a8fe532);
+windows_core::imp::define_interface!(IKsJackSinkInformation, IKsJackSinkInformation_Vtbl, 0xd9bd72ed_290f_4581_9ff3_61027a8fe532);
 windows_core::imp::interface_hierarchy!(IKsJackSinkInformation, windows_core::IUnknown);
 impl IKsJackSinkInformation {
     pub unsafe fn GetJackSinkInformation(&self, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> windows_core::Result<()> {
@@ -459,7 +459,7 @@ pub struct IKsJackSinkInformation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetJackSinkInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KSJACK_SINK_INFORMATION) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKsNodeControl, IKsNodeControl_Vtbl, 0x11737c14_24a7_4bb5_81a0_0d003813b0c4);
+windows_core::imp::define_interface!(IKsNodeControl, IKsNodeControl_Vtbl, 0x11737c14_24a7_4bb5_81a0_0d003813b0c4);
 windows_core::imp::interface_hierarchy!(IKsNodeControl, windows_core::IUnknown);
 impl IKsNodeControl {
     pub unsafe fn SetNodeId(&self, dwnodeid: u32) -> windows_core::Result<()> {
@@ -475,7 +475,7 @@ pub struct IKsNodeControl_Vtbl {
     pub SetNodeId: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetKsControl: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKsNotifyEvent, IKsNotifyEvent_Vtbl, 0x412bd695_f84b_46c1_ac73_54196dbc8fa7);
+windows_core::imp::define_interface!(IKsNotifyEvent, IKsNotifyEvent_Vtbl, 0x412bd695_f84b_46c1_ac73_54196dbc8fa7);
 windows_core::imp::interface_hierarchy!(IKsNotifyEvent, windows_core::IUnknown);
 impl IKsNotifyEvent {
     pub unsafe fn KsNotifyEvent(&self, event: u32, lparam1: usize, lparam2: usize) -> windows_core::Result<()> {
@@ -487,7 +487,7 @@ pub struct IKsNotifyEvent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub KsNotifyEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, usize, usize) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKsObject, IKsObject_Vtbl, 0x423c13a2_2070_11d0_9ef7_00aa00a216a1);
+windows_core::imp::define_interface!(IKsObject, IKsObject_Vtbl, 0x423c13a2_2070_11d0_9ef7_00aa00a216a1);
 windows_core::imp::interface_hierarchy!(IKsObject, windows_core::IUnknown);
 impl IKsObject {
     pub unsafe fn KsGetObjectHandle(&self) -> super::super::Foundation::HANDLE {
@@ -499,7 +499,7 @@ pub struct IKsObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub KsGetObjectHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
 }
-windows_core::imp::com_interface!(IKsPin, IKsPin_Vtbl, 0xb61178d1_a2d9_11cf_9e53_00aa00a216a1);
+windows_core::imp::define_interface!(IKsPin, IKsPin_Vtbl, 0xb61178d1_a2d9_11cf_9e53_00aa00a216a1);
 windows_core::imp::interface_hierarchy!(IKsPin, windows_core::IUnknown);
 impl IKsPin {
     pub unsafe fn KsQueryMediums(&self) -> windows_core::Result<*mut KSMULTIPLE_ITEM> {
@@ -579,7 +579,7 @@ pub struct IKsPin_Vtbl {
     pub KsDecrementPendingIoCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> i32,
     pub KsQualityNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKsPinEx, IKsPinEx_Vtbl, 0x7bb38260_d19c_11d2_b38a_00a0c95ec22e);
+windows_core::imp::define_interface!(IKsPinEx, IKsPinEx_Vtbl, 0x7bb38260_d19c_11d2_b38a_00a0c95ec22e);
 windows_core::imp::interface_hierarchy!(IKsPinEx, windows_core::IUnknown, IKsPin);
 impl IKsPinEx {
     pub unsafe fn KsQueryMediums(&self) -> windows_core::Result<*mut KSMULTIPLE_ITEM> {
@@ -648,7 +648,7 @@ pub struct IKsPinEx_Vtbl {
     #[cfg(not(feature = "Win32_Media_DirectShow"))]
     KsNotifyError: usize,
 }
-windows_core::imp::com_interface!(IKsPinFactory, IKsPinFactory_Vtbl, 0xcd5ebe6b_8b6e_11d1_8ae0_00a0c9223196);
+windows_core::imp::define_interface!(IKsPinFactory, IKsPinFactory_Vtbl, 0xcd5ebe6b_8b6e_11d1_8ae0_00a0c9223196);
 windows_core::imp::interface_hierarchy!(IKsPinFactory, windows_core::IUnknown);
 impl IKsPinFactory {
     pub unsafe fn KsPinFactory(&self) -> windows_core::Result<u32> {
@@ -661,7 +661,7 @@ pub struct IKsPinFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub KsPinFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKsPinPipe, IKsPinPipe_Vtbl, 0xe539cd90_a8b4_11d1_8189_00a0c9062802);
+windows_core::imp::define_interface!(IKsPinPipe, IKsPinPipe_Vtbl, 0xe539cd90_a8b4_11d1_8189_00a0c9062802);
 windows_core::imp::interface_hierarchy!(IKsPinPipe, windows_core::IUnknown);
 impl IKsPinPipe {
     pub unsafe fn KsGetPinFramingCache(&self, framingex: *mut *mut KSALLOCATOR_FRAMING_EX, framingprop: *mut FRAMING_PROP, option: FRAMING_CACHE_OPS) -> windows_core::Result<()> {
@@ -722,7 +722,7 @@ pub struct IKsPinPipe_Vtbl {
     pub KsGetPinName: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::PWSTR,
     pub KsGetFilterName: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::PWSTR,
 }
-windows_core::imp::com_interface!(IKsPropertySet, IKsPropertySet_Vtbl, 0x31efac30_515c_11d0_a9aa_00aa0061be93);
+windows_core::imp::define_interface!(IKsPropertySet, IKsPropertySet_Vtbl, 0x31efac30_515c_11d0_a9aa_00aa0061be93);
 windows_core::imp::interface_hierarchy!(IKsPropertySet, windows_core::IUnknown);
 impl IKsPropertySet {
     pub unsafe fn Set(&self, guidpropset: *const windows_core::GUID, dwpropid: u32, pinstancedata: *const core::ffi::c_void, cbinstancedata: u32, ppropdata: *const core::ffi::c_void, cbpropdata: u32) -> windows_core::Result<()> {
@@ -743,7 +743,7 @@ pub struct IKsPropertySet_Vtbl {
     pub Get: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *const core::ffi::c_void, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub QuerySupported: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKsQualityForwarder, IKsQualityForwarder_Vtbl, 0x97ebaacb_95bd_11d0_a3ea_00a0c9223196);
+windows_core::imp::define_interface!(IKsQualityForwarder, IKsQualityForwarder_Vtbl, 0x97ebaacb_95bd_11d0_a3ea_00a0c9223196);
 windows_core::imp::interface_hierarchy!(IKsQualityForwarder, windows_core::IUnknown, IKsObject);
 impl IKsQualityForwarder {
     pub unsafe fn KsGetObjectHandle(&self) -> super::super::Foundation::HANDLE {
@@ -761,7 +761,7 @@ pub struct IKsQualityForwarder_Vtbl {
     pub base__: IKsObject_Vtbl,
     pub KsFlushClient: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
 }
-windows_core::imp::com_interface!(IKsTopology, IKsTopology_Vtbl, 0x28f54683_06fd_11d2_b27a_00a0c9223196);
+windows_core::imp::define_interface!(IKsTopology, IKsTopology_Vtbl, 0x28f54683_06fd_11d2_b27a_00a0c9223196);
 windows_core::imp::interface_hierarchy!(IKsTopology, windows_core::IUnknown);
 impl IKsTopology {
     pub unsafe fn CreateNodeInstance<P0>(&self, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: P0, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -776,7 +776,7 @@ pub struct IKsTopology_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateNodeInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKsTopologyInfo, IKsTopologyInfo_Vtbl, 0x720d4ac0_7533_11d0_a5d6_28db04c10000);
+windows_core::imp::define_interface!(IKsTopologyInfo, IKsTopologyInfo_Vtbl, 0x720d4ac0_7533_11d0_a5d6_28db04c10000);
 windows_core::imp::interface_hierarchy!(IKsTopologyInfo, windows_core::IUnknown);
 impl IKsTopologyInfo {
     pub unsafe fn NumCategories(&self) -> windows_core::Result<u32> {

@@ -78,7 +78,7 @@ where
     windows_targets::link!("wmvcore.dll" "system" fn WMIsContentProtected(pwszfilename : windows_core::PCWSTR, pfisprotected : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     WMIsContentProtected(pwszfilename.into_param().abi(), pfisprotected).ok()
 }
-windows_core::imp::com_interface!(INSNetSourceCreator, INSNetSourceCreator_Vtbl, 0x0c0e4080_9081_11d2_beec_0060082f2054);
+windows_core::imp::define_interface!(INSNetSourceCreator, INSNetSourceCreator_Vtbl, 0x0c0e4080_9081_11d2_beec_0060082f2054);
 windows_core::imp::interface_hierarchy!(INSNetSourceCreator, windows_core::IUnknown);
 impl INSNetSourceCreator {
     pub unsafe fn Initialize(&self) -> windows_core::Result<()> {
@@ -134,7 +134,7 @@ pub struct INSNetSourceCreator_Vtbl {
     pub GetProtocolName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, *mut u16) -> windows_core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(INSSBuffer, INSSBuffer_Vtbl, 0xe1cd3524_03d7_11d2_9eed_006097d2d7cf);
+windows_core::imp::define_interface!(INSSBuffer, INSSBuffer_Vtbl, 0xe1cd3524_03d7_11d2_9eed_006097d2d7cf);
 windows_core::imp::interface_hierarchy!(INSSBuffer, windows_core::IUnknown);
 impl INSSBuffer {
     pub unsafe fn GetLength(&self) -> windows_core::Result<u32> {
@@ -165,7 +165,7 @@ pub struct INSSBuffer_Vtbl {
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8) -> windows_core::HRESULT,
     pub GetBufferAndLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(INSSBuffer2, INSSBuffer2_Vtbl, 0x4f528693_1035_43fe_b428_757561ad3a68);
+windows_core::imp::define_interface!(INSSBuffer2, INSSBuffer2_Vtbl, 0x4f528693_1035_43fe_b428_757561ad3a68);
 windows_core::imp::interface_hierarchy!(INSSBuffer2, windows_core::IUnknown, INSSBuffer);
 impl INSSBuffer2 {
     pub unsafe fn GetLength(&self) -> windows_core::Result<u32> {
@@ -200,7 +200,7 @@ pub struct INSSBuffer2_Vtbl {
     pub GetSampleProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
     pub SetSampleProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(INSSBuffer3, INSSBuffer3_Vtbl, 0xc87ceaaf_75be_4bc4_84eb_ac2798507672);
+windows_core::imp::define_interface!(INSSBuffer3, INSSBuffer3_Vtbl, 0xc87ceaaf_75be_4bc4_84eb_ac2798507672);
 windows_core::imp::interface_hierarchy!(INSSBuffer3, windows_core::IUnknown, INSSBuffer, INSSBuffer2);
 impl INSSBuffer3 {
     pub unsafe fn GetLength(&self) -> windows_core::Result<u32> {
@@ -241,7 +241,7 @@ pub struct INSSBuffer3_Vtbl {
     pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(INSSBuffer4, INSSBuffer4_Vtbl, 0xb6b8fd5a_32e2_49d4_a910_c26cc85465ed);
+windows_core::imp::define_interface!(INSSBuffer4, INSSBuffer4_Vtbl, 0xb6b8fd5a_32e2_49d4_a910_c26cc85465ed);
 windows_core::imp::interface_hierarchy!(INSSBuffer4, windows_core::IUnknown, INSSBuffer, INSSBuffer2, INSSBuffer3);
 impl INSSBuffer4 {
     pub unsafe fn GetLength(&self) -> windows_core::Result<u32> {
@@ -289,7 +289,7 @@ pub struct INSSBuffer4_Vtbl {
     pub GetPropertyCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetPropertyByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::GUID, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMAddressAccess, IWMAddressAccess_Vtbl, 0xbb3c6389_1633_4e92_af14_9f3173ba39d0);
+windows_core::imp::define_interface!(IWMAddressAccess, IWMAddressAccess_Vtbl, 0xbb3c6389_1633_4e92_af14_9f3173ba39d0);
 windows_core::imp::interface_hierarchy!(IWMAddressAccess, windows_core::IUnknown);
 impl IWMAddressAccess {
     pub unsafe fn GetAccessEntryCount(&self, aetype: WM_AETYPE) -> windows_core::Result<u32> {
@@ -315,7 +315,7 @@ pub struct IWMAddressAccess_Vtbl {
     pub AddAccessEntry: unsafe extern "system" fn(*mut core::ffi::c_void, WM_AETYPE, *const WM_ADDRESS_ACCESSENTRY) -> windows_core::HRESULT,
     pub RemoveAccessEntry: unsafe extern "system" fn(*mut core::ffi::c_void, WM_AETYPE, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMAddressAccess2, IWMAddressAccess2_Vtbl, 0x65a83fc2_3e98_4d4d_81b5_2a742886b33d);
+windows_core::imp::define_interface!(IWMAddressAccess2, IWMAddressAccess2_Vtbl, 0x65a83fc2_3e98_4d4d_81b5_2a742886b33d);
 windows_core::imp::interface_hierarchy!(IWMAddressAccess2, windows_core::IUnknown, IWMAddressAccess);
 impl IWMAddressAccess2 {
     pub unsafe fn GetAccessEntryCount(&self, aetype: WM_AETYPE) -> windows_core::Result<u32> {
@@ -349,7 +349,7 @@ pub struct IWMAddressAccess2_Vtbl {
     pub GetAccessEntryEx: unsafe extern "system" fn(*mut core::ffi::c_void, WM_AETYPE, u32, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub AddAccessEntryEx: unsafe extern "system" fn(*mut core::ffi::c_void, WM_AETYPE, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMAuthorizer, IWMAuthorizer_Vtbl, 0xd9b67d36_a9ad_4eb4_baef_db284ef5504c);
+windows_core::imp::define_interface!(IWMAuthorizer, IWMAuthorizer_Vtbl, 0xd9b67d36_a9ad_4eb4_baef_db284ef5504c);
 windows_core::imp::interface_hierarchy!(IWMAuthorizer, windows_core::IUnknown);
 impl IWMAuthorizer {
     pub unsafe fn GetCertCount(&self) -> windows_core::Result<u32> {
@@ -372,7 +372,7 @@ pub struct IWMAuthorizer_Vtbl {
     pub GetCert: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut u8) -> windows_core::HRESULT,
     pub GetSharedData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *const u8, *mut *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMBackupRestoreProps, IWMBackupRestoreProps_Vtbl, 0x3c8e0da6_996f_4ff3_a1af_4838f9377e2e);
+windows_core::imp::define_interface!(IWMBackupRestoreProps, IWMBackupRestoreProps_Vtbl, 0x3c8e0da6_996f_4ff3_a1af_4838f9377e2e);
 windows_core::imp::interface_hierarchy!(IWMBackupRestoreProps, windows_core::IUnknown);
 impl IWMBackupRestoreProps {
     pub unsafe fn GetPropCount(&self) -> windows_core::Result<u16> {
@@ -414,7 +414,7 @@ pub struct IWMBackupRestoreProps_Vtbl {
     pub RemoveProp: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub RemoveAllProps: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMBandwidthSharing, IWMBandwidthSharing_Vtbl, 0xad694af1_f8d9_42f8_bc47_70311b0c4f9e);
+windows_core::imp::define_interface!(IWMBandwidthSharing, IWMBandwidthSharing_Vtbl, 0xad694af1_f8d9_42f8_bc47_70311b0c4f9e);
 windows_core::imp::interface_hierarchy!(IWMBandwidthSharing, windows_core::IUnknown, IWMStreamList);
 impl IWMBandwidthSharing {
     pub unsafe fn GetStreams(&self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> windows_core::Result<()> {
@@ -448,7 +448,7 @@ pub struct IWMBandwidthSharing_Vtbl {
     pub GetBandwidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub SetBandwidth: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMClientConnections, IWMClientConnections_Vtbl, 0x73c66010_a299_41df_b1f0_ccf03b09c1c6);
+windows_core::imp::define_interface!(IWMClientConnections, IWMClientConnections_Vtbl, 0x73c66010_a299_41df_b1f0_ccf03b09c1c6);
 windows_core::imp::interface_hierarchy!(IWMClientConnections, windows_core::IUnknown);
 impl IWMClientConnections {
     pub unsafe fn GetClientCount(&self) -> windows_core::Result<u32> {
@@ -466,7 +466,7 @@ pub struct IWMClientConnections_Vtbl {
     pub GetClientCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetClientProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut WM_CLIENT_PROPERTIES) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMClientConnections2, IWMClientConnections2_Vtbl, 0x4091571e_4701_4593_bb3d_d5f5f0c74246);
+windows_core::imp::define_interface!(IWMClientConnections2, IWMClientConnections2_Vtbl, 0x4091571e_4701_4593_bb3d_d5f5f0c74246);
 windows_core::imp::interface_hierarchy!(IWMClientConnections2, windows_core::IUnknown, IWMClientConnections);
 impl IWMClientConnections2 {
     pub unsafe fn GetClientCount(&self) -> windows_core::Result<u32> {
@@ -486,7 +486,7 @@ pub struct IWMClientConnections2_Vtbl {
     pub base__: IWMClientConnections_Vtbl,
     pub GetClientInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, *mut u32, windows_core::PWSTR, *mut u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMCodecInfo, IWMCodecInfo_Vtbl, 0xa970f41e_34de_4a98_b3ba_e4b3ca7528f0);
+windows_core::imp::define_interface!(IWMCodecInfo, IWMCodecInfo_Vtbl, 0xa970f41e_34de_4a98_b3ba_e4b3ca7528f0);
 windows_core::imp::interface_hierarchy!(IWMCodecInfo, windows_core::IUnknown);
 impl IWMCodecInfo {
     pub unsafe fn GetCodecInfoCount(&self, guidtype: *const windows_core::GUID) -> windows_core::Result<u32> {
@@ -509,7 +509,7 @@ pub struct IWMCodecInfo_Vtbl {
     pub GetCodecFormatCount: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *mut u32) -> windows_core::HRESULT,
     pub GetCodecFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMCodecInfo2, IWMCodecInfo2_Vtbl, 0xaa65e273_b686_4056_91ec_dd768d4df710);
+windows_core::imp::define_interface!(IWMCodecInfo2, IWMCodecInfo2_Vtbl, 0xaa65e273_b686_4056_91ec_dd768d4df710);
 windows_core::imp::interface_hierarchy!(IWMCodecInfo2, windows_core::IUnknown, IWMCodecInfo);
 impl IWMCodecInfo2 {
     pub unsafe fn GetCodecInfoCount(&self, guidtype: *const windows_core::GUID) -> windows_core::Result<u32> {
@@ -537,7 +537,7 @@ pub struct IWMCodecInfo2_Vtbl {
     pub GetCodecName: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
     pub GetCodecFormatDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32, *mut *mut core::ffi::c_void, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMCodecInfo3, IWMCodecInfo3_Vtbl, 0x7e51f487_4d93_4f98_8ab4_27d0565adc51);
+windows_core::imp::define_interface!(IWMCodecInfo3, IWMCodecInfo3_Vtbl, 0x7e51f487_4d93_4f98_8ab4_27d0565adc51);
 windows_core::imp::interface_hierarchy!(IWMCodecInfo3, windows_core::IUnknown, IWMCodecInfo, IWMCodecInfo2);
 impl IWMCodecInfo3 {
     pub unsafe fn GetCodecInfoCount(&self, guidtype: *const windows_core::GUID) -> windows_core::Result<u32> {
@@ -591,7 +591,7 @@ pub struct IWMCodecInfo3_Vtbl {
     pub SetCodecEnumerationSetting: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, windows_core::PCWSTR, WMT_ATTR_DATATYPE, *const u8, u32) -> windows_core::HRESULT,
     pub GetCodecEnumerationSetting: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMCredentialCallback, IWMCredentialCallback_Vtbl, 0x342e0eb7_e651_450c_975b_2ace2c90c48e);
+windows_core::imp::define_interface!(IWMCredentialCallback, IWMCredentialCallback_Vtbl, 0x342e0eb7_e651_450c_975b_2ace2c90c48e);
 windows_core::imp::interface_hierarchy!(IWMCredentialCallback, windows_core::IUnknown);
 impl IWMCredentialCallback {
     pub unsafe fn AcquireCredentials<P0, P1>(&self, pwszrealm: P0, pwszsite: P1, pwszuser: &mut [u16], pwszpassword: &mut [u16], hrstatus: windows_core::HRESULT, pdwflags: *mut u32) -> windows_core::Result<()>
@@ -607,7 +607,7 @@ pub struct IWMCredentialCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AcquireCredentials: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PWSTR, u32, windows_core::PWSTR, u32, windows_core::HRESULT, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMDRMEditor, IWMDRMEditor_Vtbl, 0xff130ebc_a6c3_42a6_b401_c3382c3e08b3);
+windows_core::imp::define_interface!(IWMDRMEditor, IWMDRMEditor_Vtbl, 0xff130ebc_a6c3_42a6_b401_c3382c3e08b3);
 windows_core::imp::interface_hierarchy!(IWMDRMEditor, windows_core::IUnknown);
 impl IWMDRMEditor {
     pub unsafe fn GetDRMProperty<P0>(&self, pwstrname: P0, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
@@ -622,7 +622,7 @@ pub struct IWMDRMEditor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDRMProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMDRMMessageParser, IWMDRMMessageParser_Vtbl, 0xa73a0072_25a0_4c99_b4a5_ede8101a6c39);
+windows_core::imp::define_interface!(IWMDRMMessageParser, IWMDRMMessageParser_Vtbl, 0xa73a0072_25a0_4c99_b4a5_ede8101a6c39);
 windows_core::imp::interface_hierarchy!(IWMDRMMessageParser, windows_core::IUnknown);
 impl IWMDRMMessageParser {
     pub unsafe fn ParseRegistrationReqMsg(&self, pbregistrationreqmsg: &[u8], ppdevicecert: *mut Option<INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16) -> windows_core::Result<()> {
@@ -638,7 +638,7 @@ pub struct IWMDRMMessageParser_Vtbl {
     pub ParseRegistrationReqMsg: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut *mut core::ffi::c_void, *mut DRM_VAL16) -> windows_core::HRESULT,
     pub ParseLicenseRequestMsg: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut *mut core::ffi::c_void, *mut DRM_VAL16, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMDRMReader, IWMDRMReader_Vtbl, 0xd2827540_3ee7_432c_b14c_dc17f085d3b3);
+windows_core::imp::define_interface!(IWMDRMReader, IWMDRMReader_Vtbl, 0xd2827540_3ee7_432c_b14c_dc17f085d3b3);
 windows_core::imp::interface_hierarchy!(IWMDRMReader, windows_core::IUnknown);
 impl IWMDRMReader {
     pub unsafe fn AcquireLicense(&self, dwflags: u32) -> windows_core::Result<()> {
@@ -684,7 +684,7 @@ pub struct IWMDRMReader_Vtbl {
     pub SetDRMProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, WMT_ATTR_DATATYPE, *const u8, u16) -> windows_core::HRESULT,
     pub GetDRMProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMDRMReader2, IWMDRMReader2_Vtbl, 0xbefe7a75_9f1d_4075_b9d9_a3c37bda49a0);
+windows_core::imp::define_interface!(IWMDRMReader2, IWMDRMReader2_Vtbl, 0xbefe7a75_9f1d_4075_b9d9_a3c37bda49a0);
 windows_core::imp::interface_hierarchy!(IWMDRMReader2, windows_core::IUnknown, IWMDRMReader);
 impl IWMDRMReader2 {
     pub unsafe fn AcquireLicense(&self, dwflags: u32) -> windows_core::Result<()> {
@@ -741,7 +741,7 @@ pub struct IWMDRMReader2_Vtbl {
     pub GetCopyOutputLevels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DRM_COPY_OPL, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub TryNextLicense: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMDRMReader3, IWMDRMReader3_Vtbl, 0xe08672de_f1e7_4ff4_a0a3_fc4b08e4caf8);
+windows_core::imp::define_interface!(IWMDRMReader3, IWMDRMReader3_Vtbl, 0xe08672de_f1e7_4ff4_a0a3_fc4b08e4caf8);
 windows_core::imp::interface_hierarchy!(IWMDRMReader3, windows_core::IUnknown, IWMDRMReader, IWMDRMReader2);
 impl IWMDRMReader3 {
     pub unsafe fn AcquireLicense(&self, dwflags: u32) -> windows_core::Result<()> {
@@ -798,7 +798,7 @@ pub struct IWMDRMReader3_Vtbl {
     pub base__: IWMDRMReader2_Vtbl,
     pub GetInclusionList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut windows_core::GUID, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMDRMTranscryptionManager, IWMDRMTranscryptionManager_Vtbl, 0xb1a887b2_a4f0_407a_b02e_efbd23bbecdf);
+windows_core::imp::define_interface!(IWMDRMTranscryptionManager, IWMDRMTranscryptionManager_Vtbl, 0xb1a887b2_a4f0_407a_b02e_efbd23bbecdf);
 windows_core::imp::interface_hierarchy!(IWMDRMTranscryptionManager, windows_core::IUnknown);
 impl IWMDRMTranscryptionManager {
     pub unsafe fn CreateTranscryptor(&self) -> windows_core::Result<IWMDRMTranscryptor> {
@@ -811,7 +811,7 @@ pub struct IWMDRMTranscryptionManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateTranscryptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMDRMTranscryptor, IWMDRMTranscryptor_Vtbl, 0x69059850_6e6f_4bb2_806f_71863ddfc471);
+windows_core::imp::define_interface!(IWMDRMTranscryptor, IWMDRMTranscryptor_Vtbl, 0x69059850_6e6f_4bb2_806f_71863ddfc471);
 windows_core::imp::interface_hierarchy!(IWMDRMTranscryptor, windows_core::IUnknown);
 impl IWMDRMTranscryptor {
     pub unsafe fn Initialize<P0, P1>(&self, bstrfilename: P0, pblicenserequestmsg: *mut u8, cblicenserequestmsg: u32, pplicenseresponsemsg: *mut Option<INSSBuffer>, pcallback: P1, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -839,7 +839,7 @@ pub struct IWMDRMTranscryptor_Vtbl {
     pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *const u32) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMDRMTranscryptor2, IWMDRMTranscryptor2_Vtbl, 0xe0da439f_d331_496a_bece_18e5bac5dd23);
+windows_core::imp::define_interface!(IWMDRMTranscryptor2, IWMDRMTranscryptor2_Vtbl, 0xe0da439f_d331_496a_bece_18e5bac5dd23);
 windows_core::imp::interface_hierarchy!(IWMDRMTranscryptor2, windows_core::IUnknown, IWMDRMTranscryptor);
 impl IWMDRMTranscryptor2 {
     pub unsafe fn Initialize<P0, P1>(&self, bstrfilename: P0, pblicenserequestmsg: *mut u8, cblicenserequestmsg: u32, pplicenseresponsemsg: *mut Option<INSSBuffer>, pcallback: P1, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -887,7 +887,7 @@ pub struct IWMDRMTranscryptor2_Vtbl {
     pub GetSeekStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub GetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMDRMWriter, IWMDRMWriter_Vtbl, 0xd6ea5dd0_12a0_43f4_90ab_a3fd451e6a07);
+windows_core::imp::define_interface!(IWMDRMWriter, IWMDRMWriter_Vtbl, 0xd6ea5dd0_12a0_43f4_90ab_a3fd451e6a07);
 windows_core::imp::interface_hierarchy!(IWMDRMWriter, windows_core::IUnknown);
 impl IWMDRMWriter {
     pub unsafe fn GenerateKeySeed(&self, pwszkeyseed: windows_core::PWSTR, pcwchlength: *mut u32) -> windows_core::Result<()> {
@@ -914,7 +914,7 @@ pub struct IWMDRMWriter_Vtbl {
     pub GenerateSigningKeyPair: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, *mut u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
     pub SetDRMAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, u16, windows_core::PCWSTR, WMT_ATTR_DATATYPE, *const u8, u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMDRMWriter2, IWMDRMWriter2_Vtbl, 0x38ee7a94_40e2_4e10_aa3f_33fd3210ed5b);
+windows_core::imp::define_interface!(IWMDRMWriter2, IWMDRMWriter2_Vtbl, 0x38ee7a94_40e2_4e10_aa3f_33fd3210ed5b);
 windows_core::imp::interface_hierarchy!(IWMDRMWriter2, windows_core::IUnknown, IWMDRMWriter);
 impl IWMDRMWriter2 {
     pub unsafe fn GenerateKeySeed(&self, pwszkeyseed: windows_core::PWSTR, pcwchlength: *mut u32) -> windows_core::Result<()> {
@@ -944,7 +944,7 @@ pub struct IWMDRMWriter2_Vtbl {
     pub base__: IWMDRMWriter_Vtbl,
     pub SetWMDRMNetEncryption: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *const u8, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMDRMWriter3, IWMDRMWriter3_Vtbl, 0xa7184082_a4aa_4dde_ac9c_e75dbd1117ce);
+windows_core::imp::define_interface!(IWMDRMWriter3, IWMDRMWriter3_Vtbl, 0xa7184082_a4aa_4dde_ac9c_e75dbd1117ce);
 windows_core::imp::interface_hierarchy!(IWMDRMWriter3, windows_core::IUnknown, IWMDRMWriter, IWMDRMWriter2);
 impl IWMDRMWriter3 {
     pub unsafe fn GenerateKeySeed(&self, pwszkeyseed: windows_core::PWSTR, pcwchlength: *mut u32) -> windows_core::Result<()> {
@@ -977,7 +977,7 @@ pub struct IWMDRMWriter3_Vtbl {
     pub base__: IWMDRMWriter2_Vtbl,
     pub SetProtectStreamSamples: unsafe extern "system" fn(*mut core::ffi::c_void, *const WMDRM_IMPORT_INIT_STRUCT) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMDeviceRegistration, IWMDeviceRegistration_Vtbl, 0xf6211f03_8d21_4e94_93e6_8510805f2d99);
+windows_core::imp::define_interface!(IWMDeviceRegistration, IWMDeviceRegistration_Vtbl, 0xf6211f03_8d21_4e94_93e6_8510805f2d99);
 windows_core::imp::interface_hierarchy!(IWMDeviceRegistration, windows_core::IUnknown);
 impl IWMDeviceRegistration {
     pub unsafe fn RegisterDevice(&self, dwregistertype: u32, pbcertificate: &[u8], serialnumber: DRM_VAL16) -> windows_core::Result<IWMRegisteredDevice> {
@@ -1014,7 +1014,7 @@ pub struct IWMDeviceRegistration_Vtbl {
     pub GetNextRegisteredDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRegisteredDeviceByID: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, DRM_VAL16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMGetSecureChannel, IWMGetSecureChannel_Vtbl, 0x94bc0598_c3d2_11d3_bedf_00c04f612986);
+windows_core::imp::define_interface!(IWMGetSecureChannel, IWMGetSecureChannel_Vtbl, 0x94bc0598_c3d2_11d3_bedf_00c04f612986);
 windows_core::imp::interface_hierarchy!(IWMGetSecureChannel, windows_core::IUnknown);
 impl IWMGetSecureChannel {
     pub unsafe fn GetPeerSecureChannelInterface(&self) -> windows_core::Result<IWMSecureChannel> {
@@ -1027,7 +1027,7 @@ pub struct IWMGetSecureChannel_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPeerSecureChannelInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMHeaderInfo, IWMHeaderInfo_Vtbl, 0x96406bda_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMHeaderInfo, IWMHeaderInfo_Vtbl, 0x96406bda_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMHeaderInfo, windows_core::IUnknown);
 impl IWMHeaderInfo {
     pub unsafe fn GetAttributeCount(&self, wstreamnum: u16) -> windows_core::Result<u16> {
@@ -1099,7 +1099,7 @@ pub struct IWMHeaderInfo_Vtbl {
     pub AddScript: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u64) -> windows_core::HRESULT,
     pub RemoveScript: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMHeaderInfo2, IWMHeaderInfo2_Vtbl, 0x15cf9781_454e_482e_b393_85fae487a810);
+windows_core::imp::define_interface!(IWMHeaderInfo2, IWMHeaderInfo2_Vtbl, 0x15cf9781_454e_482e_b393_85fae487a810);
 windows_core::imp::interface_hierarchy!(IWMHeaderInfo2, windows_core::IUnknown, IWMHeaderInfo);
 impl IWMHeaderInfo2 {
     pub unsafe fn GetAttributeCount(&self, wstreamnum: u16) -> windows_core::Result<u16> {
@@ -1168,7 +1168,7 @@ pub struct IWMHeaderInfo2_Vtbl {
     pub GetCodecInfoCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetCodecInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u16, windows_core::PWSTR, *mut u16, windows_core::PWSTR, *mut WMT_CODEC_INFO_TYPE, *mut u16, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMHeaderInfo3, IWMHeaderInfo3_Vtbl, 0x15cc68e3_27cc_4ecd_b222_3f5d02d80bd5);
+windows_core::imp::define_interface!(IWMHeaderInfo3, IWMHeaderInfo3_Vtbl, 0x15cc68e3_27cc_4ecd_b222_3f5d02d80bd5);
 windows_core::imp::interface_hierarchy!(IWMHeaderInfo3, windows_core::IUnknown, IWMHeaderInfo, IWMHeaderInfo2);
 impl IWMHeaderInfo3 {
     pub unsafe fn GetAttributeCount(&self, wstreamnum: u16) -> windows_core::Result<u16> {
@@ -1274,7 +1274,7 @@ pub struct IWMHeaderInfo3_Vtbl {
     pub DeleteAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16) -> windows_core::HRESULT,
     pub AddCodecInfo: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, WMT_CODEC_INFO_TYPE, u16, *const u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMIStreamProps, IWMIStreamProps_Vtbl, 0x6816dad3_2b4b_4c8e_8149_874c3483a753);
+windows_core::imp::define_interface!(IWMIStreamProps, IWMIStreamProps_Vtbl, 0x6816dad3_2b4b_4c8e_8149_874c3483a753);
 windows_core::imp::interface_hierarchy!(IWMIStreamProps, windows_core::IUnknown);
 impl IWMIStreamProps {
     pub unsafe fn GetProperty<P0>(&self, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>
@@ -1289,7 +1289,7 @@ pub struct IWMIStreamProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMImageInfo, IWMImageInfo_Vtbl, 0x9f0aa3b6_7267_4d89_88f2_ba915aa5c4c6);
+windows_core::imp::define_interface!(IWMImageInfo, IWMImageInfo_Vtbl, 0x9f0aa3b6_7267_4d89_88f2_ba915aa5c4c6);
 windows_core::imp::interface_hierarchy!(IWMImageInfo, windows_core::IUnknown);
 impl IWMImageInfo {
     pub unsafe fn GetImageCount(&self) -> windows_core::Result<u32> {
@@ -1306,7 +1306,7 @@ pub struct IWMImageInfo_Vtbl {
     pub GetImageCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetImage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u16, windows_core::PWSTR, *mut u16, windows_core::PWSTR, *mut u16, *mut u32, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMIndexer, IWMIndexer_Vtbl, 0x6d7cdc71_9888_11d3_8edc_00c04f6109cf);
+windows_core::imp::define_interface!(IWMIndexer, IWMIndexer_Vtbl, 0x6d7cdc71_9888_11d3_8edc_00c04f6109cf);
 windows_core::imp::interface_hierarchy!(IWMIndexer, windows_core::IUnknown);
 impl IWMIndexer {
     pub unsafe fn StartIndexing<P0, P1>(&self, pwszurl: P0, pcallback: P1, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -1326,7 +1326,7 @@ pub struct IWMIndexer_Vtbl {
     pub StartIndexing: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMIndexer2, IWMIndexer2_Vtbl, 0xb70f1e42_6255_4df0_a6b9_02b212d9e2bb);
+windows_core::imp::define_interface!(IWMIndexer2, IWMIndexer2_Vtbl, 0xb70f1e42_6255_4df0_a6b9_02b212d9e2bb);
 windows_core::imp::interface_hierarchy!(IWMIndexer2, windows_core::IUnknown, IWMIndexer);
 impl IWMIndexer2 {
     pub unsafe fn StartIndexing<P0, P1>(&self, pwszurl: P0, pcallback: P1, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -1348,7 +1348,7 @@ pub struct IWMIndexer2_Vtbl {
     pub base__: IWMIndexer_Vtbl,
     pub Configure: unsafe extern "system" fn(*mut core::ffi::c_void, u16, WMT_INDEXER_TYPE, *const core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMInputMediaProps, IWMInputMediaProps_Vtbl, 0x96406bd5_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMInputMediaProps, IWMInputMediaProps_Vtbl, 0x96406bd5_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMInputMediaProps, windows_core::IUnknown, IWMMediaProps);
 impl IWMInputMediaProps {
     pub unsafe fn GetType(&self) -> windows_core::Result<windows_core::GUID> {
@@ -1374,7 +1374,7 @@ pub struct IWMInputMediaProps_Vtbl {
     pub GetConnectionName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, *mut u16) -> windows_core::HRESULT,
     pub GetGroupName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMLanguageList, IWMLanguageList_Vtbl, 0xdf683f00_2d49_4d8e_92b7_fb19f6a0dc57);
+windows_core::imp::define_interface!(IWMLanguageList, IWMLanguageList_Vtbl, 0xdf683f00_2d49_4d8e_92b7_fb19f6a0dc57);
 windows_core::imp::interface_hierarchy!(IWMLanguageList, windows_core::IUnknown);
 impl IWMLanguageList {
     pub unsafe fn GetLanguageCount(&self) -> windows_core::Result<u16> {
@@ -1399,7 +1399,7 @@ pub struct IWMLanguageList_Vtbl {
     pub GetLanguageDetails: unsafe extern "system" fn(*mut core::ffi::c_void, u16, windows_core::PWSTR, *mut u16) -> windows_core::HRESULT,
     pub AddLanguageByRFC1766String: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMLicenseBackup, IWMLicenseBackup_Vtbl, 0x05e5ac9f_3fb6_4508_bb43_a4067ba1ebe8);
+windows_core::imp::define_interface!(IWMLicenseBackup, IWMLicenseBackup_Vtbl, 0x05e5ac9f_3fb6_4508_bb43_a4067ba1ebe8);
 windows_core::imp::interface_hierarchy!(IWMLicenseBackup, windows_core::IUnknown);
 impl IWMLicenseBackup {
     pub unsafe fn BackupLicenses<P0>(&self, dwflags: u32, pcallback: P0) -> windows_core::Result<()>
@@ -1418,7 +1418,7 @@ pub struct IWMLicenseBackup_Vtbl {
     pub BackupLicenses: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CancelLicenseBackup: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMLicenseRestore, IWMLicenseRestore_Vtbl, 0xc70b6334_a22e_4efb_a245_15e65a004a13);
+windows_core::imp::define_interface!(IWMLicenseRestore, IWMLicenseRestore_Vtbl, 0xc70b6334_a22e_4efb_a245_15e65a004a13);
 windows_core::imp::interface_hierarchy!(IWMLicenseRestore, windows_core::IUnknown);
 impl IWMLicenseRestore {
     pub unsafe fn RestoreLicenses<P0>(&self, dwflags: u32, pcallback: P0) -> windows_core::Result<()>
@@ -1437,7 +1437,7 @@ pub struct IWMLicenseRestore_Vtbl {
     pub RestoreLicenses: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CancelLicenseRestore: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMLicenseRevocationAgent, IWMLicenseRevocationAgent_Vtbl, 0x6967f2c9_4e26_4b57_8894_799880f7ac7b);
+windows_core::imp::define_interface!(IWMLicenseRevocationAgent, IWMLicenseRevocationAgent_Vtbl, 0x6967f2c9_4e26_4b57_8894_799880f7ac7b);
 windows_core::imp::interface_hierarchy!(IWMLicenseRevocationAgent, windows_core::IUnknown);
 impl IWMLicenseRevocationAgent {
     pub unsafe fn GetLRBChallenge(&self, pmachineid: *const u8, dwmachineidlength: u32, pchallenge: *const u8, dwchallengelength: u32, pchallengeoutput: *mut u8, pdwchallengeoutputlength: *mut u32) -> windows_core::Result<()> {
@@ -1453,7 +1453,7 @@ pub struct IWMLicenseRevocationAgent_Vtbl {
     pub GetLRBChallenge: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *const u8, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub ProcessLRB: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMMediaProps, IWMMediaProps_Vtbl, 0x96406bce_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMMediaProps, IWMMediaProps_Vtbl, 0x96406bce_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMMediaProps, windows_core::IUnknown);
 impl IWMMediaProps {
     pub unsafe fn GetType(&self) -> windows_core::Result<windows_core::GUID> {
@@ -1474,7 +1474,7 @@ pub struct IWMMediaProps_Vtbl {
     pub GetMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WM_MEDIA_TYPE, *mut u32) -> windows_core::HRESULT,
     pub SetMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *const WM_MEDIA_TYPE) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMMetadataEditor, IWMMetadataEditor_Vtbl, 0x96406bd9_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMMetadataEditor, IWMMetadataEditor_Vtbl, 0x96406bd9_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMMetadataEditor, windows_core::IUnknown);
 impl IWMMetadataEditor {
     pub unsafe fn Open<P0>(&self, pwszfilename: P0) -> windows_core::Result<()>
@@ -1497,7 +1497,7 @@ pub struct IWMMetadataEditor_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMMetadataEditor2, IWMMetadataEditor2_Vtbl, 0x203cffe3_2e18_4fdf_b59d_6e71530534cf);
+windows_core::imp::define_interface!(IWMMetadataEditor2, IWMMetadataEditor2_Vtbl, 0x203cffe3_2e18_4fdf_b59d_6e71530534cf);
 windows_core::imp::interface_hierarchy!(IWMMetadataEditor2, windows_core::IUnknown, IWMMetadataEditor);
 impl IWMMetadataEditor2 {
     pub unsafe fn Open<P0>(&self, pwszfilename: P0) -> windows_core::Result<()>
@@ -1524,7 +1524,7 @@ pub struct IWMMetadataEditor2_Vtbl {
     pub base__: IWMMetadataEditor_Vtbl,
     pub OpenEx: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMMutualExclusion, IWMMutualExclusion_Vtbl, 0x96406bde_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMMutualExclusion, IWMMutualExclusion_Vtbl, 0x96406bde_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMMutualExclusion, windows_core::IUnknown, IWMStreamList);
 impl IWMMutualExclusion {
     pub unsafe fn GetStreams(&self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> windows_core::Result<()> {
@@ -1550,7 +1550,7 @@ pub struct IWMMutualExclusion_Vtbl {
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub SetType: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMMutualExclusion2, IWMMutualExclusion2_Vtbl, 0x0302b57d_89d1_4ba2_85c9_166f2c53eb91);
+windows_core::imp::define_interface!(IWMMutualExclusion2, IWMMutualExclusion2_Vtbl, 0x0302b57d_89d1_4ba2_85c9_166f2c53eb91);
 windows_core::imp::interface_hierarchy!(IWMMutualExclusion2, windows_core::IUnknown, IWMStreamList, IWMMutualExclusion);
 impl IWMMutualExclusion2 {
     pub unsafe fn GetStreams(&self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> windows_core::Result<()> {
@@ -1621,7 +1621,7 @@ pub struct IWMMutualExclusion2_Vtbl {
     pub AddStreamForRecord: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16) -> windows_core::HRESULT,
     pub RemoveStreamForRecord: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMOutputMediaProps, IWMOutputMediaProps_Vtbl, 0x96406bd7_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMOutputMediaProps, IWMOutputMediaProps_Vtbl, 0x96406bd7_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMOutputMediaProps, windows_core::IUnknown, IWMMediaProps);
 impl IWMOutputMediaProps {
     pub unsafe fn GetType(&self) -> windows_core::Result<windows_core::GUID> {
@@ -1647,7 +1647,7 @@ pub struct IWMOutputMediaProps_Vtbl {
     pub GetStreamGroupName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, *mut u16) -> windows_core::HRESULT,
     pub GetConnectionName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMPacketSize, IWMPacketSize_Vtbl, 0xcdfb97ab_188f_40b3_b643_5b7903975c59);
+windows_core::imp::define_interface!(IWMPacketSize, IWMPacketSize_Vtbl, 0xcdfb97ab_188f_40b3_b643_5b7903975c59);
 windows_core::imp::interface_hierarchy!(IWMPacketSize, windows_core::IUnknown);
 impl IWMPacketSize {
     pub unsafe fn GetMaxPacketSize(&self) -> windows_core::Result<u32> {
@@ -1664,7 +1664,7 @@ pub struct IWMPacketSize_Vtbl {
     pub GetMaxPacketSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetMaxPacketSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMPacketSize2, IWMPacketSize2_Vtbl, 0x8bfc2b9e_b646_4233_a877_1c6a079669dc);
+windows_core::imp::define_interface!(IWMPacketSize2, IWMPacketSize2_Vtbl, 0x8bfc2b9e_b646_4233_a877_1c6a079669dc);
 windows_core::imp::interface_hierarchy!(IWMPacketSize2, windows_core::IUnknown, IWMPacketSize);
 impl IWMPacketSize2 {
     pub unsafe fn GetMaxPacketSize(&self) -> windows_core::Result<u32> {
@@ -1688,7 +1688,7 @@ pub struct IWMPacketSize2_Vtbl {
     pub GetMinPacketSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetMinPacketSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMPlayerHook, IWMPlayerHook_Vtbl, 0xe5b7ca9a_0f1c_4f66_9002_74ec50d8b304);
+windows_core::imp::define_interface!(IWMPlayerHook, IWMPlayerHook_Vtbl, 0xe5b7ca9a_0f1c_4f66_9002_74ec50d8b304);
 windows_core::imp::interface_hierarchy!(IWMPlayerHook, windows_core::IUnknown);
 impl IWMPlayerHook {
     pub unsafe fn PreDecode(&self) -> windows_core::Result<()> {
@@ -1700,7 +1700,7 @@ pub struct IWMPlayerHook_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PreDecode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMPlayerTimestampHook, IWMPlayerTimestampHook_Vtbl, 0x28580dda_d98e_48d0_b7ae_69e473a02825);
+windows_core::imp::define_interface!(IWMPlayerTimestampHook, IWMPlayerTimestampHook_Vtbl, 0x28580dda_d98e_48d0_b7ae_69e473a02825);
 windows_core::imp::interface_hierarchy!(IWMPlayerTimestampHook, windows_core::IUnknown);
 impl IWMPlayerTimestampHook {
     pub unsafe fn MapTimestamp(&self, rtin: i64) -> windows_core::Result<i64> {
@@ -1713,7 +1713,7 @@ pub struct IWMPlayerTimestampHook_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub MapTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, i64, *mut i64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMProfile, IWMProfile_Vtbl, 0x96406bdb_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMProfile, IWMProfile_Vtbl, 0x96406bdb_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMProfile, windows_core::IUnknown);
 impl IWMProfile {
     pub unsafe fn GetVersion(&self) -> windows_core::Result<WMT_VERSION> {
@@ -1822,7 +1822,7 @@ pub struct IWMProfile_Vtbl {
     pub AddMutualExclusion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateNewMutualExclusion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMProfile2, IWMProfile2_Vtbl, 0x07e72d33_d94e_4be7_8843_60ae5ff7e5f5);
+windows_core::imp::define_interface!(IWMProfile2, IWMProfile2_Vtbl, 0x07e72d33_d94e_4be7_8843_60ae5ff7e5f5);
 windows_core::imp::interface_hierarchy!(IWMProfile2, windows_core::IUnknown, IWMProfile);
 impl IWMProfile2 {
     pub unsafe fn GetVersion(&self) -> windows_core::Result<WMT_VERSION> {
@@ -1918,7 +1918,7 @@ pub struct IWMProfile2_Vtbl {
     pub base__: IWMProfile_Vtbl,
     pub GetProfileID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMProfile3, IWMProfile3_Vtbl, 0x00ef96cc_a461_4546_8bcd_c9a28f0e06f5);
+windows_core::imp::define_interface!(IWMProfile3, IWMProfile3_Vtbl, 0x00ef96cc_a461_4546_8bcd_c9a28f0e06f5);
 windows_core::imp::interface_hierarchy!(IWMProfile3, windows_core::IUnknown, IWMProfile, IWMProfile2);
 impl IWMProfile3 {
     pub unsafe fn GetVersion(&self) -> windows_core::Result<WMT_VERSION> {
@@ -2077,7 +2077,7 @@ pub struct IWMProfile3_Vtbl {
     pub CreateNewStreamPrioritization: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetExpectedPacketCount: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMProfileManager, IWMProfileManager_Vtbl, 0xd16679f2_6ca0_472d_8d31_2f5d55aee155);
+windows_core::imp::define_interface!(IWMProfileManager, IWMProfileManager_Vtbl, 0xd16679f2_6ca0_472d_8d31_2f5d55aee155);
 windows_core::imp::interface_hierarchy!(IWMProfileManager, windows_core::IUnknown);
 impl IWMProfileManager {
     pub unsafe fn CreateEmptyProfile(&self, dwversion: WMT_VERSION) -> windows_core::Result<IWMProfile> {
@@ -2121,7 +2121,7 @@ pub struct IWMProfileManager_Vtbl {
     pub GetSystemProfileCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub LoadSystemProfile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMProfileManager2, IWMProfileManager2_Vtbl, 0x7a924e51_73c1_494d_8019_23d37ed9b89a);
+windows_core::imp::define_interface!(IWMProfileManager2, IWMProfileManager2_Vtbl, 0x7a924e51_73c1_494d_8019_23d37ed9b89a);
 windows_core::imp::interface_hierarchy!(IWMProfileManager2, windows_core::IUnknown, IWMProfileManager);
 impl IWMProfileManager2 {
     pub unsafe fn CreateEmptyProfile(&self, dwversion: WMT_VERSION) -> windows_core::Result<IWMProfile> {
@@ -2167,7 +2167,7 @@ pub struct IWMProfileManager2_Vtbl {
     pub GetSystemProfileVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WMT_VERSION) -> windows_core::HRESULT,
     pub SetSystemProfileVersion: unsafe extern "system" fn(*mut core::ffi::c_void, WMT_VERSION) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMProfileManagerLanguage, IWMProfileManagerLanguage_Vtbl, 0xba4dcc78_7ee0_4ab8_b27a_dbce8bc51454);
+windows_core::imp::define_interface!(IWMProfileManagerLanguage, IWMProfileManagerLanguage_Vtbl, 0xba4dcc78_7ee0_4ab8_b27a_dbce8bc51454);
 windows_core::imp::interface_hierarchy!(IWMProfileManagerLanguage, windows_core::IUnknown);
 impl IWMProfileManagerLanguage {
     pub unsafe fn GetUserLanguageID(&self, wlangid: *mut u16) -> windows_core::Result<()> {
@@ -2183,7 +2183,7 @@ pub struct IWMProfileManagerLanguage_Vtbl {
     pub GetUserLanguageID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub SetUserLanguageID: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMPropertyVault, IWMPropertyVault_Vtbl, 0x72995a79_5090_42a4_9c8c_d9d0b6d34be5);
+windows_core::imp::define_interface!(IWMPropertyVault, IWMPropertyVault_Vtbl, 0x72995a79_5090_42a4_9c8c_d9d0b6d34be5);
 windows_core::imp::interface_hierarchy!(IWMPropertyVault, windows_core::IUnknown);
 impl IWMPropertyVault {
     pub unsafe fn GetPropertyCount(&self, pdwcount: *const u32) -> windows_core::Result<()> {
@@ -2224,7 +2224,7 @@ pub struct IWMPropertyVault_Vtbl {
     pub CopyPropertiesFrom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMProximityDetection, IWMProximityDetection_Vtbl, 0x6a9fd8ee_b651_4bf0_b849_7d4ece79a2b1);
+windows_core::imp::define_interface!(IWMProximityDetection, IWMProximityDetection_Vtbl, 0x6a9fd8ee_b651_4bf0_b849_7d4ece79a2b1);
 windows_core::imp::interface_hierarchy!(IWMProximityDetection, windows_core::IUnknown);
 impl IWMProximityDetection {
     pub unsafe fn StartDetection<P0>(&self, pbregistrationmsg: &[u8], pblocaladdress: &[u8], dwextraportsallowed: u32, ppregistrationresponsemsg: *mut Option<INSSBuffer>, pcallback: P0, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -2239,7 +2239,7 @@ pub struct IWMProximityDetection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartDetection: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *const u8, u32, u32, *mut *mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMReader, IWMReader_Vtbl, 0x96406bd6_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMReader, IWMReader_Vtbl, 0x96406bd6_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMReader, windows_core::IUnknown);
 impl IWMReader {
     pub unsafe fn Open<P0, P1>(&self, pwszurl: P0, pcallback: P1, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -2302,7 +2302,7 @@ pub struct IWMReader_Vtbl {
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMReaderAccelerator, IWMReaderAccelerator_Vtbl, 0xbddc4d08_944d_4d52_a612_46c3fda07dd4);
+windows_core::imp::define_interface!(IWMReaderAccelerator, IWMReaderAccelerator_Vtbl, 0xbddc4d08_944d_4d52_a612_46c3fda07dd4);
 windows_core::imp::interface_hierarchy!(IWMReaderAccelerator, windows_core::IUnknown);
 impl IWMReaderAccelerator {
     pub unsafe fn GetCodecInterface(&self, dwoutputnum: u32, riid: *const windows_core::GUID, ppvcodecinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -2318,7 +2318,7 @@ pub struct IWMReaderAccelerator_Vtbl {
     pub GetCodecInterface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const WM_MEDIA_TYPE) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMReaderAdvanced, IWMReaderAdvanced_Vtbl, 0x96406bea_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMReaderAdvanced, IWMReaderAdvanced_Vtbl, 0x96406bea_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMReaderAdvanced, windows_core::IUnknown);
 impl IWMReaderAdvanced {
     pub unsafe fn SetUserProvidedClock<P0>(&self, fuserclock: P0) -> windows_core::Result<()>
@@ -2433,7 +2433,7 @@ pub struct IWMReaderAdvanced_Vtbl {
     pub GetMaxStreamSampleSize: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut u32) -> windows_core::HRESULT,
     pub NotifyLateDelivery: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMReaderAdvanced2, IWMReaderAdvanced2_Vtbl, 0xae14a945_b90c_4d0d_9127_80d665f7d73e);
+windows_core::imp::define_interface!(IWMReaderAdvanced2, IWMReaderAdvanced2_Vtbl, 0xae14a945_b90c_4d0d_9127_80d665f7d73e);
 windows_core::imp::interface_hierarchy!(IWMReaderAdvanced2, windows_core::IUnknown, IWMReaderAdvanced);
 impl IWMReaderAdvanced2 {
     pub unsafe fn SetUserProvidedClock<P0>(&self, fuserclock: P0) -> windows_core::Result<()>
@@ -2611,7 +2611,7 @@ pub struct IWMReaderAdvanced2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     OpenStream: usize,
 }
-windows_core::imp::com_interface!(IWMReaderAdvanced3, IWMReaderAdvanced3_Vtbl, 0x5dc0674b_f04b_4a4e_9f2a_b1afde2c8100);
+windows_core::imp::define_interface!(IWMReaderAdvanced3, IWMReaderAdvanced3_Vtbl, 0x5dc0674b_f04b_4a4e_9f2a_b1afde2c8100);
 windows_core::imp::interface_hierarchy!(IWMReaderAdvanced3, windows_core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2);
 impl IWMReaderAdvanced3 {
     pub unsafe fn SetUserProvidedClock<P0>(&self, fuserclock: P0) -> windows_core::Result<()>
@@ -2779,7 +2779,7 @@ pub struct IWMReaderAdvanced3_Vtbl {
     pub StopNetStreaming: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StartAtPosition: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *const core::ffi::c_void, *const core::ffi::c_void, WMT_OFFSET_FORMAT, f32, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMReaderAdvanced4, IWMReaderAdvanced4_Vtbl, 0x945a76a2_12ae_4d48_bd3c_cd1d90399b85);
+windows_core::imp::define_interface!(IWMReaderAdvanced4, IWMReaderAdvanced4_Vtbl, 0x945a76a2_12ae_4d48_bd3c_cd1d90399b85);
 windows_core::imp::interface_hierarchy!(IWMReaderAdvanced4, windows_core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3);
 impl IWMReaderAdvanced4 {
     pub unsafe fn SetUserProvidedClock<P0>(&self, fuserclock: P0) -> windows_core::Result<()>
@@ -2990,7 +2990,7 @@ pub struct IWMReaderAdvanced4_Vtbl {
     pub CancelSaveFileAs: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetURL: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMReaderAdvanced5, IWMReaderAdvanced5_Vtbl, 0x24c44db0_55d1_49ae_a5cc_f13815e36363);
+windows_core::imp::define_interface!(IWMReaderAdvanced5, IWMReaderAdvanced5_Vtbl, 0x24c44db0_55d1_49ae_a5cc_f13815e36363);
 windows_core::imp::interface_hierarchy!(IWMReaderAdvanced5, windows_core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3, IWMReaderAdvanced4);
 impl IWMReaderAdvanced5 {
     pub unsafe fn SetUserProvidedClock<P0>(&self, fuserclock: P0) -> windows_core::Result<()>
@@ -3199,7 +3199,7 @@ pub struct IWMReaderAdvanced5_Vtbl {
     pub base__: IWMReaderAdvanced4_Vtbl,
     pub SetPlayerHook: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMReaderAdvanced6, IWMReaderAdvanced6_Vtbl, 0x18a2e7f8_428f_4acd_8a00_e64639bc93de);
+windows_core::imp::define_interface!(IWMReaderAdvanced6, IWMReaderAdvanced6_Vtbl, 0x18a2e7f8_428f_4acd_8a00_e64639bc93de);
 windows_core::imp::interface_hierarchy!(IWMReaderAdvanced6, windows_core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3, IWMReaderAdvanced4, IWMReaderAdvanced5);
 impl IWMReaderAdvanced6 {
     pub unsafe fn SetUserProvidedClock<P0>(&self, fuserclock: P0) -> windows_core::Result<()>
@@ -3411,7 +3411,7 @@ pub struct IWMReaderAdvanced6_Vtbl {
     pub base__: IWMReaderAdvanced5_Vtbl,
     pub SetProtectStreamSamples: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, u32, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMReaderAllocatorEx, IWMReaderAllocatorEx_Vtbl, 0x9f762fa7_a22e_428d_93c9_ac82f3aafe5a);
+windows_core::imp::define_interface!(IWMReaderAllocatorEx, IWMReaderAllocatorEx_Vtbl, 0x9f762fa7_a22e_428d_93c9_ac82f3aafe5a);
 windows_core::imp::interface_hierarchy!(IWMReaderAllocatorEx, windows_core::IUnknown);
 impl IWMReaderAllocatorEx {
     pub unsafe fn AllocateForStreamEx(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut Option<INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -3427,7 +3427,7 @@ pub struct IWMReaderAllocatorEx_Vtbl {
     pub AllocateForStreamEx: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u32, *mut *mut core::ffi::c_void, u32, u64, u64, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub AllocateForOutputEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void, u32, u64, u64, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMReaderCallback, IWMReaderCallback_Vtbl, 0x96406bd8_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMReaderCallback, IWMReaderCallback_Vtbl, 0x96406bd8_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMReaderCallback, windows_core::IUnknown, IWMStatusCallback);
 impl IWMReaderCallback {
     pub unsafe fn OnStatus(&self, status: WMT_STATUS, hr: windows_core::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -3445,7 +3445,7 @@ pub struct IWMReaderCallback_Vtbl {
     pub base__: IWMStatusCallback_Vtbl,
     pub OnSample: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u64, u32, *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMReaderCallbackAdvanced, IWMReaderCallbackAdvanced_Vtbl, 0x96406beb_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMReaderCallbackAdvanced, IWMReaderCallbackAdvanced_Vtbl, 0x96406beb_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMReaderCallbackAdvanced, windows_core::IUnknown);
 impl IWMReaderCallbackAdvanced {
     pub unsafe fn OnStreamSample<P0>(&self, wstreamnum: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: P0, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -3480,7 +3480,7 @@ pub struct IWMReaderCallbackAdvanced_Vtbl {
     pub AllocateForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u32, *mut *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub AllocateForOutput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMReaderNetworkConfig, IWMReaderNetworkConfig_Vtbl, 0x96406bec_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMReaderNetworkConfig, IWMReaderNetworkConfig_Vtbl, 0x96406bec_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMReaderNetworkConfig, windows_core::IUnknown);
 impl IWMReaderNetworkConfig {
     pub unsafe fn GetBufferingTime(&self) -> windows_core::Result<u64> {
@@ -3683,7 +3683,7 @@ pub struct IWMReaderNetworkConfig_Vtbl {
     pub GetLoggingUrlCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub ResetLoggingUrlList: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMReaderNetworkConfig2, IWMReaderNetworkConfig2_Vtbl, 0xd979a853_042b_4050_8387_c939db22013f);
+windows_core::imp::define_interface!(IWMReaderNetworkConfig2, IWMReaderNetworkConfig2_Vtbl, 0xd979a853_042b_4050_8387_c939db22013f);
 windows_core::imp::interface_hierarchy!(IWMReaderNetworkConfig2, windows_core::IUnknown, IWMReaderNetworkConfig);
 impl IWMReaderNetworkConfig2 {
     pub unsafe fn GetBufferingTime(&self) -> windows_core::Result<u64> {
@@ -3924,7 +3924,7 @@ pub struct IWMReaderNetworkConfig2_Vtbl {
     pub SetEnableThinning: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetMaxNetPacketSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMReaderPlaylistBurn, IWMReaderPlaylistBurn_Vtbl, 0xf28c0300_9baa_4477_a846_1744d9cbf533);
+windows_core::imp::define_interface!(IWMReaderPlaylistBurn, IWMReaderPlaylistBurn_Vtbl, 0xf28c0300_9baa_4477_a846_1744d9cbf533);
 windows_core::imp::interface_hierarchy!(IWMReaderPlaylistBurn, windows_core::IUnknown);
 impl IWMReaderPlaylistBurn {
     pub unsafe fn InitPlaylistBurn<P0>(&self, cfiles: u32, ppwszfilenames: *const windows_core::PCWSTR, pcallback: P0, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -3952,7 +3952,7 @@ pub struct IWMReaderPlaylistBurn_Vtbl {
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndPlaylistBurn: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMReaderStreamClock, IWMReaderStreamClock_Vtbl, 0x96406bed_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMReaderStreamClock, IWMReaderStreamClock_Vtbl, 0x96406bed_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMReaderStreamClock, windows_core::IUnknown);
 impl IWMReaderStreamClock {
     pub unsafe fn GetTime(&self, pcnsnow: *const u64) -> windows_core::Result<()> {
@@ -3973,7 +3973,7 @@ pub struct IWMReaderStreamClock_Vtbl {
     pub SetTimer: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub KillTimer: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMReaderTimecode, IWMReaderTimecode_Vtbl, 0xf369e2f0_e081_4fe6_8450_b810b2f410d1);
+windows_core::imp::define_interface!(IWMReaderTimecode, IWMReaderTimecode_Vtbl, 0xf369e2f0_e081_4fe6_8450_b810b2f410d1);
 windows_core::imp::interface_hierarchy!(IWMReaderTimecode, windows_core::IUnknown);
 impl IWMReaderTimecode {
     pub unsafe fn GetTimecodeRangeCount(&self, wstreamnum: u16) -> windows_core::Result<u16> {
@@ -3990,7 +3990,7 @@ pub struct IWMReaderTimecode_Vtbl {
     pub GetTimecodeRangeCount: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut u16) -> windows_core::HRESULT,
     pub GetTimecodeRangeBounds: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMReaderTypeNegotiation, IWMReaderTypeNegotiation_Vtbl, 0xfdbe5592_81a1_41ea_93bd_735cad1adc05);
+windows_core::imp::define_interface!(IWMReaderTypeNegotiation, IWMReaderTypeNegotiation_Vtbl, 0xfdbe5592_81a1_41ea_93bd_735cad1adc05);
 windows_core::imp::interface_hierarchy!(IWMReaderTypeNegotiation, windows_core::IUnknown);
 impl IWMReaderTypeNegotiation {
     pub unsafe fn TryOutputProps<P0>(&self, dwoutputnum: u32, poutput: P0) -> windows_core::Result<()>
@@ -4005,7 +4005,7 @@ pub struct IWMReaderTypeNegotiation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TryOutputProps: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMRegisterCallback, IWMRegisterCallback_Vtbl, 0xcf4b1f99_4de2_4e49_a363_252740d99bc1);
+windows_core::imp::define_interface!(IWMRegisterCallback, IWMRegisterCallback_Vtbl, 0xcf4b1f99_4de2_4e49_a363_252740d99bc1);
 windows_core::imp::interface_hierarchy!(IWMRegisterCallback, windows_core::IUnknown);
 impl IWMRegisterCallback {
     pub unsafe fn Advise<P0>(&self, pcallback: P0, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -4027,7 +4027,7 @@ pub struct IWMRegisterCallback_Vtbl {
     pub Advise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub Unadvise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMRegisteredDevice, IWMRegisteredDevice_Vtbl, 0xa4503bec_5508_4148_97ac_bfa75760a70d);
+windows_core::imp::define_interface!(IWMRegisteredDevice, IWMRegisteredDevice_Vtbl, 0xa4503bec_5508_4148_97ac_bfa75760a70d);
 windows_core::imp::interface_hierarchy!(IWMRegisteredDevice, windows_core::IUnknown);
 impl IWMRegisteredDevice {
     pub unsafe fn GetDeviceSerialNumber(&self) -> windows_core::Result<DRM_VAL16> {
@@ -4110,7 +4110,7 @@ pub struct IWMRegisteredDevice_Vtbl {
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMSBufferAllocator, IWMSBufferAllocator_Vtbl, 0x61103ca4_2033_11d2_9ef1_006097d2d7cf);
+windows_core::imp::define_interface!(IWMSBufferAllocator, IWMSBufferAllocator_Vtbl, 0x61103ca4_2033_11d2_9ef1_006097d2d7cf);
 windows_core::imp::interface_hierarchy!(IWMSBufferAllocator, windows_core::IUnknown);
 impl IWMSBufferAllocator {
     pub unsafe fn AllocateBuffer(&self, dwmaxbuffersize: u32) -> windows_core::Result<INSSBuffer> {
@@ -4128,7 +4128,7 @@ pub struct IWMSBufferAllocator_Vtbl {
     pub AllocateBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AllocatePageSizeBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMSInternalAdminNetSource, IWMSInternalAdminNetSource_Vtbl, 0x8bb23e5f_d127_4afb_8d02_ae5b66d54c78);
+windows_core::imp::define_interface!(IWMSInternalAdminNetSource, IWMSInternalAdminNetSource_Vtbl, 0x8bb23e5f_d127_4afb_8d02_ae5b66d54c78);
 windows_core::imp::interface_hierarchy!(IWMSInternalAdminNetSource, windows_core::IUnknown);
 impl IWMSInternalAdminNetSource {
     pub unsafe fn Initialize<P0, P1, P2, P3>(&self, psharednamespace: P0, pnamespacenode: P1, pnetsourcecreator: P2, fembeddedinserver: P3) -> windows_core::Result<()>
@@ -4206,7 +4206,7 @@ pub struct IWMSInternalAdminNetSource_Vtbl {
     pub ShutdownProxyContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub IsUsingIE: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMSInternalAdminNetSource2, IWMSInternalAdminNetSource2_Vtbl, 0xe74d58c3_cf77_4b51_af17_744687c43eae);
+windows_core::imp::define_interface!(IWMSInternalAdminNetSource2, IWMSInternalAdminNetSource2_Vtbl, 0xe74d58c3_cf77_4b51_af17_744687c43eae);
 windows_core::imp::interface_hierarchy!(IWMSInternalAdminNetSource2, windows_core::IUnknown);
 impl IWMSInternalAdminNetSource2 {
     pub unsafe fn SetCredentialsEx<P0, P1, P2, P3, P4, P5, P6>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, bstrname: P3, bstrpassword: P4, fpersist: P5, fconfirmedgood: P6) -> windows_core::Result<()>
@@ -4254,7 +4254,7 @@ pub struct IWMSInternalAdminNetSource2_Vtbl {
     pub DeleteCredentialsEx: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub FindProxyForURLEx: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Foundation::BOOL, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMSInternalAdminNetSource3, IWMSInternalAdminNetSource3_Vtbl, 0x6b63d08e_4590_44af_9eb3_57ff1e73bf80);
+windows_core::imp::define_interface!(IWMSInternalAdminNetSource3, IWMSInternalAdminNetSource3_Vtbl, 0x6b63d08e_4590_44af_9eb3_57ff1e73bf80);
 windows_core::imp::interface_hierarchy!(IWMSInternalAdminNetSource3, windows_core::IUnknown, IWMSInternalAdminNetSource2);
 impl IWMSInternalAdminNetSource3 {
     pub unsafe fn SetCredentialsEx<P0, P1, P2, P3, P4, P5, P6>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, bstrname: P3, bstrpassword: P4, fpersist: P5, fconfirmedgood: P6) -> windows_core::Result<()>
@@ -4349,7 +4349,7 @@ pub struct IWMSInternalAdminNetSource3_Vtbl {
     pub SetCredentialsEx2: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, super::super::Foundation::BOOL, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, super::super::Foundation::BOOL, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetCredentialsEx2: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut NETSOURCE_URLCREDPOLICY_SETTINGS, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMSecureChannel, IWMSecureChannel_Vtbl, 0x2720598a_d0f2_4189_bd10_91c46ef0936f);
+windows_core::imp::define_interface!(IWMSecureChannel, IWMSecureChannel_Vtbl, 0x2720598a_d0f2_4189_bd10_91c46ef0936f);
 windows_core::imp::interface_hierarchy!(IWMSecureChannel, windows_core::IUnknown, IWMAuthorizer);
 impl IWMSecureChannel {
     pub unsafe fn GetCertCount(&self) -> windows_core::Result<u32> {
@@ -4420,7 +4420,7 @@ pub struct IWMSecureChannel_Vtbl {
     pub WMSC_Unlock: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub WMSC_SetSharedData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMStatusCallback, IWMStatusCallback_Vtbl, 0x6d7cdc70_9888_11d3_8edc_00c04f6109cf);
+windows_core::imp::define_interface!(IWMStatusCallback, IWMStatusCallback_Vtbl, 0x6d7cdc70_9888_11d3_8edc_00c04f6109cf);
 windows_core::imp::interface_hierarchy!(IWMStatusCallback, windows_core::IUnknown);
 impl IWMStatusCallback {
     pub unsafe fn OnStatus(&self, status: WMT_STATUS, hr: windows_core::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -4432,7 +4432,7 @@ pub struct IWMStatusCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnStatus: unsafe extern "system" fn(*mut core::ffi::c_void, WMT_STATUS, windows_core::HRESULT, WMT_ATTR_DATATYPE, *const u8, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMStreamConfig, IWMStreamConfig_Vtbl, 0x96406bdc_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMStreamConfig, IWMStreamConfig_Vtbl, 0x96406bdc_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMStreamConfig, windows_core::IUnknown);
 impl IWMStreamConfig {
     pub unsafe fn GetStreamType(&self) -> windows_core::Result<windows_core::GUID> {
@@ -4494,7 +4494,7 @@ pub struct IWMStreamConfig_Vtbl {
     pub GetBufferWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetBufferWindow: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMStreamConfig2, IWMStreamConfig2_Vtbl, 0x7688d8cb_fc0d_43bd_9459_5a8dec200cfa);
+windows_core::imp::define_interface!(IWMStreamConfig2, IWMStreamConfig2_Vtbl, 0x7688d8cb_fc0d_43bd_9459_5a8dec200cfa);
 windows_core::imp::interface_hierarchy!(IWMStreamConfig2, windows_core::IUnknown, IWMStreamConfig);
 impl IWMStreamConfig2 {
     pub unsafe fn GetStreamType(&self) -> windows_core::Result<windows_core::GUID> {
@@ -4571,7 +4571,7 @@ pub struct IWMStreamConfig2_Vtbl {
     pub GetDataUnitExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut windows_core::GUID, *mut u16, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub RemoveAllDataUnitExtensions: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMStreamConfig3, IWMStreamConfig3_Vtbl, 0xcb164104_3aa9_45a7_9ac9_4daee131d6e1);
+windows_core::imp::define_interface!(IWMStreamConfig3, IWMStreamConfig3_Vtbl, 0xcb164104_3aa9_45a7_9ac9_4daee131d6e1);
 windows_core::imp::interface_hierarchy!(IWMStreamConfig3, windows_core::IUnknown, IWMStreamConfig, IWMStreamConfig2);
 impl IWMStreamConfig3 {
     pub unsafe fn GetStreamType(&self) -> windows_core::Result<windows_core::GUID> {
@@ -4653,7 +4653,7 @@ pub struct IWMStreamConfig3_Vtbl {
     pub GetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, *mut u16) -> windows_core::HRESULT,
     pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMStreamList, IWMStreamList_Vtbl, 0x96406bdd_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMStreamList, IWMStreamList_Vtbl, 0x96406bdd_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMStreamList, windows_core::IUnknown);
 impl IWMStreamList {
     pub unsafe fn GetStreams(&self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> windows_core::Result<()> {
@@ -4673,7 +4673,7 @@ pub struct IWMStreamList_Vtbl {
     pub AddStream: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
     pub RemoveStream: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMStreamPrioritization, IWMStreamPrioritization_Vtbl, 0x8c1c6090_f9a8_4748_8ec3_dd1108ba1e77);
+windows_core::imp::define_interface!(IWMStreamPrioritization, IWMStreamPrioritization_Vtbl, 0x8c1c6090_f9a8_4748_8ec3_dd1108ba1e77);
 windows_core::imp::interface_hierarchy!(IWMStreamPrioritization, windows_core::IUnknown);
 impl IWMStreamPrioritization {
     pub unsafe fn GetPriorityRecords(&self, precordarray: *mut WM_STREAM_PRIORITY_RECORD, pcrecords: *mut u16) -> windows_core::Result<()> {
@@ -4689,7 +4689,7 @@ pub struct IWMStreamPrioritization_Vtbl {
     pub GetPriorityRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WM_STREAM_PRIORITY_RECORD, *mut u16) -> windows_core::HRESULT,
     pub SetPriorityRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *const WM_STREAM_PRIORITY_RECORD, u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMSyncReader, IWMSyncReader_Vtbl, 0x9397f121_7705_4dc9_b049_98b698188414);
+windows_core::imp::define_interface!(IWMSyncReader, IWMSyncReader_Vtbl, 0x9397f121_7705_4dc9_b049_98b698188414);
 windows_core::imp::interface_hierarchy!(IWMSyncReader, windows_core::IUnknown);
 impl IWMSyncReader {
     pub unsafe fn Open<P0>(&self, pwszfilename: P0) -> windows_core::Result<()>
@@ -4813,7 +4813,7 @@ pub struct IWMSyncReader_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     OpenStream: usize,
 }
-windows_core::imp::com_interface!(IWMSyncReader2, IWMSyncReader2_Vtbl, 0xfaed3d21_1b6b_4af7_8cb6_3e189bbc187b);
+windows_core::imp::define_interface!(IWMSyncReader2, IWMSyncReader2_Vtbl, 0xfaed3d21_1b6b_4af7_8cb6_3e189bbc187b);
 windows_core::imp::interface_hierarchy!(IWMSyncReader2, windows_core::IUnknown, IWMSyncReader);
 impl IWMSyncReader2 {
     pub unsafe fn Open<P0>(&self, pwszfilename: P0) -> windows_core::Result<()>
@@ -4946,7 +4946,7 @@ pub struct IWMSyncReader2_Vtbl {
     pub SetAllocateForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAllocateForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMVideoMediaProps, IWMVideoMediaProps_Vtbl, 0x96406bcf_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMVideoMediaProps, IWMVideoMediaProps_Vtbl, 0x96406bcf_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMVideoMediaProps, windows_core::IUnknown, IWMMediaProps);
 impl IWMVideoMediaProps {
     pub unsafe fn GetType(&self) -> windows_core::Result<windows_core::GUID> {
@@ -4982,7 +4982,7 @@ pub struct IWMVideoMediaProps_Vtbl {
     pub GetQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetQuality: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMWatermarkInfo, IWMWatermarkInfo_Vtbl, 0x6f497062_f2e2_4624_8ea7_9dd40d81fc8d);
+windows_core::imp::define_interface!(IWMWatermarkInfo, IWMWatermarkInfo_Vtbl, 0x6f497062_f2e2_4624_8ea7_9dd40d81fc8d);
 windows_core::imp::interface_hierarchy!(IWMWatermarkInfo, windows_core::IUnknown);
 impl IWMWatermarkInfo {
     pub unsafe fn GetWatermarkEntryCount(&self, wmettype: WMT_WATERMARK_ENTRY_TYPE) -> windows_core::Result<u32> {
@@ -4999,7 +4999,7 @@ pub struct IWMWatermarkInfo_Vtbl {
     pub GetWatermarkEntryCount: unsafe extern "system" fn(*mut core::ffi::c_void, WMT_WATERMARK_ENTRY_TYPE, *mut u32) -> windows_core::HRESULT,
     pub GetWatermarkEntry: unsafe extern "system" fn(*mut core::ffi::c_void, WMT_WATERMARK_ENTRY_TYPE, u32, *mut WMT_WATERMARK_ENTRY) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMWriter, IWMWriter_Vtbl, 0x96406bd4_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMWriter, IWMWriter_Vtbl, 0x96406bd4_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMWriter, windows_core::IUnknown);
 impl IWMWriter {
     pub unsafe fn SetProfileByID(&self, guidprofile: *const windows_core::GUID) -> windows_core::Result<()> {
@@ -5076,7 +5076,7 @@ pub struct IWMWriter_Vtbl {
     pub WriteSample: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMWriterAdvanced, IWMWriterAdvanced_Vtbl, 0x96406be3_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMWriterAdvanced, IWMWriterAdvanced_Vtbl, 0x96406be3_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMWriterAdvanced, windows_core::IUnknown);
 impl IWMWriterAdvanced {
     pub unsafe fn GetSinkCount(&self) -> windows_core::Result<u32> {
@@ -5145,7 +5145,7 @@ pub struct IWMWriterAdvanced_Vtbl {
     pub SetSyncTolerance: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetSyncTolerance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMWriterAdvanced2, IWMWriterAdvanced2_Vtbl, 0x962dc1ec_c046_4db8_9cc7_26ceae500817);
+windows_core::imp::define_interface!(IWMWriterAdvanced2, IWMWriterAdvanced2_Vtbl, 0x962dc1ec_c046_4db8_9cc7_26ceae500817);
 windows_core::imp::interface_hierarchy!(IWMWriterAdvanced2, windows_core::IUnknown, IWMWriterAdvanced);
 impl IWMWriterAdvanced2 {
     pub unsafe fn GetSinkCount(&self) -> windows_core::Result<u32> {
@@ -5217,7 +5217,7 @@ pub struct IWMWriterAdvanced2_Vtbl {
     pub GetInputSetting: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u16) -> windows_core::HRESULT,
     pub SetInputSetting: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, WMT_ATTR_DATATYPE, *const u8, u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMWriterAdvanced3, IWMWriterAdvanced3_Vtbl, 0x2cd6492d_7c37_4e76_9d3b_59261183a22e);
+windows_core::imp::define_interface!(IWMWriterAdvanced3, IWMWriterAdvanced3_Vtbl, 0x2cd6492d_7c37_4e76_9d3b_59261183a22e);
 windows_core::imp::interface_hierarchy!(IWMWriterAdvanced3, windows_core::IUnknown, IWMWriterAdvanced, IWMWriterAdvanced2);
 impl IWMWriterAdvanced3 {
     pub unsafe fn GetSinkCount(&self) -> windows_core::Result<u32> {
@@ -5295,7 +5295,7 @@ pub struct IWMWriterAdvanced3_Vtbl {
     pub GetStatisticsEx: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut WM_WRITER_STATISTICS_EX) -> windows_core::HRESULT,
     pub SetNonBlocking: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMWriterFileSink, IWMWriterFileSink_Vtbl, 0x96406be5_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMWriterFileSink, IWMWriterFileSink_Vtbl, 0x96406be5_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMWriterFileSink, windows_core::IUnknown, IWMWriterSink);
 impl IWMWriterFileSink {
     pub unsafe fn OnHeader<P0>(&self, pheader: P0) -> windows_core::Result<()>
@@ -5333,7 +5333,7 @@ pub struct IWMWriterFileSink_Vtbl {
     pub base__: IWMWriterSink_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMWriterFileSink2, IWMWriterFileSink2_Vtbl, 0x14282ba7_4aef_4205_8ce5_c229035a05bc);
+windows_core::imp::define_interface!(IWMWriterFileSink2, IWMWriterFileSink2_Vtbl, 0x14282ba7_4aef_4205_8ce5_c229035a05bc);
 windows_core::imp::interface_hierarchy!(IWMWriterFileSink2, windows_core::IUnknown, IWMWriterSink, IWMWriterFileSink);
 impl IWMWriterFileSink2 {
     pub unsafe fn OnHeader<P0>(&self, pheader: P0) -> windows_core::Result<()>
@@ -5402,7 +5402,7 @@ pub struct IWMWriterFileSink2_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsClosed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMWriterFileSink3, IWMWriterFileSink3_Vtbl, 0x3fea4feb_2945_47a7_a1dd_c53a8fc4c45c);
+windows_core::imp::define_interface!(IWMWriterFileSink3, IWMWriterFileSink3_Vtbl, 0x3fea4feb_2945_47a7_a1dd_c53a8fc4c45c);
 windows_core::imp::interface_hierarchy!(IWMWriterFileSink3, windows_core::IUnknown, IWMWriterSink, IWMWriterFileSink, IWMWriterFileSink2);
 impl IWMWriterFileSink3 {
     pub unsafe fn OnHeader<P0>(&self, pheader: P0) -> windows_core::Result<()>
@@ -5509,7 +5509,7 @@ pub struct IWMWriterFileSink3_Vtbl {
     pub GetUnbufferedIO: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub CompleteOperations: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMWriterNetworkSink, IWMWriterNetworkSink_Vtbl, 0x96406be7_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMWriterNetworkSink, IWMWriterNetworkSink_Vtbl, 0x96406be7_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMWriterNetworkSink, windows_core::IUnknown, IWMWriterSink);
 impl IWMWriterNetworkSink {
     pub unsafe fn OnHeader<P0>(&self, pheader: P0) -> windows_core::Result<()>
@@ -5574,7 +5574,7 @@ pub struct IWMWriterNetworkSink_Vtbl {
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMWriterPostView, IWMWriterPostView_Vtbl, 0x81e20ce4_75ef_491a_8004_fc53c45bdc3e);
+windows_core::imp::define_interface!(IWMWriterPostView, IWMWriterPostView_Vtbl, 0x81e20ce4_75ef_491a_8004_fc53c45bdc3e);
 windows_core::imp::interface_hierarchy!(IWMWriterPostView, windows_core::IUnknown);
 impl IWMWriterPostView {
     pub unsafe fn SetPostViewCallback<P0>(&self, pcallback: P0, pvcontext: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -5635,7 +5635,7 @@ pub struct IWMWriterPostView_Vtbl {
     pub SetAllocateForPostView: unsafe extern "system" fn(*mut core::ffi::c_void, u16, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetAllocateForPostView: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMWriterPostViewCallback, IWMWriterPostViewCallback_Vtbl, 0xd9d6549d_a193_4f24_b308_03123d9b7f8d);
+windows_core::imp::define_interface!(IWMWriterPostViewCallback, IWMWriterPostViewCallback_Vtbl, 0xd9d6549d_a193_4f24_b308_03123d9b7f8d);
 windows_core::imp::interface_hierarchy!(IWMWriterPostViewCallback, windows_core::IUnknown, IWMStatusCallback);
 impl IWMWriterPostViewCallback {
     pub unsafe fn OnStatus(&self, status: WMT_STATUS, hr: windows_core::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -5657,7 +5657,7 @@ pub struct IWMWriterPostViewCallback_Vtbl {
     pub OnPostViewSample: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u64, u64, u32, *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub AllocateForPostView: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u32, *mut *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMWriterPreprocess, IWMWriterPreprocess_Vtbl, 0xfc54a285_38c4_45b5_aa23_85b9f7cb424b);
+windows_core::imp::define_interface!(IWMWriterPreprocess, IWMWriterPreprocess_Vtbl, 0xfc54a285_38c4_45b5_aa23_85b9f7cb424b);
 windows_core::imp::interface_hierarchy!(IWMWriterPreprocess, windows_core::IUnknown);
 impl IWMWriterPreprocess {
     pub unsafe fn GetMaxPreprocessingPasses(&self, dwinputnum: u32, dwflags: u32) -> windows_core::Result<u32> {
@@ -5689,7 +5689,7 @@ pub struct IWMWriterPreprocess_Vtbl {
     pub PreprocessSample: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndPreprocessingPass: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMWriterPushSink, IWMWriterPushSink_Vtbl, 0xdc10e6a5_072c_467d_bf57_6330a9dde12a);
+windows_core::imp::define_interface!(IWMWriterPushSink, IWMWriterPushSink_Vtbl, 0xdc10e6a5_072c_467d_bf57_6330a9dde12a);
 windows_core::imp::interface_hierarchy!(IWMWriterPushSink, windows_core::IUnknown, IWMWriterSink);
 impl IWMWriterPushSink {
     pub unsafe fn OnHeader<P0>(&self, pheader: P0) -> windows_core::Result<()>
@@ -5737,7 +5737,7 @@ pub struct IWMWriterPushSink_Vtbl {
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndSession: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWMWriterSink, IWMWriterSink_Vtbl, 0x96406be4_2b2b_11d3_b36b_00c04f6108ff);
+windows_core::imp::define_interface!(IWMWriterSink, IWMWriterSink_Vtbl, 0x96406be4_2b2b_11d3_b36b_00c04f6108ff);
 windows_core::imp::interface_hierarchy!(IWMWriterSink, windows_core::IUnknown);
 impl IWMWriterSink {
     pub unsafe fn OnHeader<P0>(&self, pheader: P0) -> windows_core::Result<()>

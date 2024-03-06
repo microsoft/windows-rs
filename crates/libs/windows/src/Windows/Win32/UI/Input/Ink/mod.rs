@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IInkCommitRequestHandler, IInkCommitRequestHandler_Vtbl, 0xfabea3fc_b108_45b6_a9fc_8d08fa9f85cf);
+windows_core::imp::define_interface!(IInkCommitRequestHandler, IInkCommitRequestHandler_Vtbl, 0xfabea3fc_b108_45b6_a9fc_8d08fa9f85cf);
 windows_core::imp::interface_hierarchy!(IInkCommitRequestHandler, windows_core::IUnknown);
 impl IInkCommitRequestHandler {
     pub unsafe fn OnCommitRequested(&self) -> windows_core::Result<()> {
@@ -10,7 +10,7 @@ pub struct IInkCommitRequestHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnCommitRequested: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkD2DRenderer, IInkD2DRenderer_Vtbl, 0x407fb1de_f85a_4150_97cf_b7fb274fb4f8);
+windows_core::imp::define_interface!(IInkD2DRenderer, IInkD2DRenderer_Vtbl, 0x407fb1de_f85a_4150_97cf_b7fb274fb4f8);
 windows_core::imp::interface_hierarchy!(IInkD2DRenderer, windows_core::IUnknown);
 impl IInkD2DRenderer {
     pub unsafe fn Draw<P0, P1, P2>(&self, pd2d1devicecontext: P0, pinkstrokeiterable: P1, fhighcontrast: P2) -> windows_core::Result<()>
@@ -27,7 +27,7 @@ pub struct IInkD2DRenderer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Draw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkD2DRenderer2, IInkD2DRenderer2_Vtbl, 0x0a95dcd9_4578_4b71_b20b_bf664d4bfeee);
+windows_core::imp::define_interface!(IInkD2DRenderer2, IInkD2DRenderer2_Vtbl, 0x0a95dcd9_4578_4b71_b20b_bf664d4bfeee);
 windows_core::imp::interface_hierarchy!(IInkD2DRenderer2, windows_core::IUnknown);
 impl IInkD2DRenderer2 {
     pub unsafe fn Draw<P0, P1>(&self, pd2d1devicecontext: P0, pinkstrokeiterable: P1, highcontrastadjustment: INK_HIGH_CONTRAST_ADJUSTMENT) -> windows_core::Result<()>
@@ -43,7 +43,7 @@ pub struct IInkD2DRenderer2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Draw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, INK_HIGH_CONTRAST_ADJUSTMENT) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkDesktopHost, IInkDesktopHost_Vtbl, 0x4ce7d875_a981_4140_a1ff_ad93258e8d59);
+windows_core::imp::define_interface!(IInkDesktopHost, IInkDesktopHost_Vtbl, 0x4ce7d875_a981_4140_a1ff_ad93258e8d59);
 windows_core::imp::interface_hierarchy!(IInkDesktopHost, windows_core::IUnknown);
 impl IInkDesktopHost {
     pub unsafe fn QueueWorkItem<P0>(&self, workitem: P0) -> windows_core::Result<()>
@@ -75,7 +75,7 @@ pub struct IInkDesktopHost_Vtbl {
     pub CreateInkPresenter: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateAndInitializeInkPresenter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f32, f32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkHostWorkItem, IInkHostWorkItem_Vtbl, 0xccda0a9a_1b78_4632_bb96_97800662e26c);
+windows_core::imp::define_interface!(IInkHostWorkItem, IInkHostWorkItem_Vtbl, 0xccda0a9a_1b78_4632_bb96_97800662e26c);
 windows_core::imp::interface_hierarchy!(IInkHostWorkItem, windows_core::IUnknown);
 impl IInkHostWorkItem {
     pub unsafe fn Invoke(&self) -> windows_core::Result<()> {
@@ -87,7 +87,7 @@ pub struct IInkHostWorkItem_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkPresenterDesktop, IInkPresenterDesktop_Vtbl, 0x73f3c0d9_2e8b_48f3_895e_20cbd27b723b);
+windows_core::imp::define_interface!(IInkPresenterDesktop, IInkPresenterDesktop_Vtbl, 0x73f3c0d9_2e8b_48f3_895e_20cbd27b723b);
 windows_core::imp::interface_hierarchy!(IInkPresenterDesktop, windows_core::IUnknown);
 impl IInkPresenterDesktop {
     pub unsafe fn SetRootVisual<P0, P1>(&self, rootvisual: P0, device: P1) -> windows_core::Result<()>

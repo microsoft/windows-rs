@@ -7,7 +7,7 @@ where
     let mut result__ = std::ptr::null_mut();
     DWriteCreateFactory(factorytype, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
-windows_core::imp::com_interface!(IDWriteAsyncResult, IDWriteAsyncResult_Vtbl, 0xce25f8fd_863b_4d13_9651_c1f88dc73fe2);
+windows_core::imp::define_interface!(IDWriteAsyncResult, IDWriteAsyncResult_Vtbl, 0xce25f8fd_863b_4d13_9651_c1f88dc73fe2);
 windows_core::imp::interface_hierarchy!(IDWriteAsyncResult, windows_core::IUnknown);
 impl IDWriteAsyncResult {
     pub unsafe fn GetWaitHandle(&self) -> super::super::Foundation::HANDLE {
@@ -25,7 +25,7 @@ pub struct IDWriteAsyncResult_Vtbl {
     pub GetWaitHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
     pub GetResult: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteBitmapRenderTarget, IDWriteBitmapRenderTarget_Vtbl, 0x5e5a32a3_8dff_4773_9ff6_0696eab77267);
+windows_core::imp::define_interface!(IDWriteBitmapRenderTarget, IDWriteBitmapRenderTarget_Vtbl, 0x5e5a32a3_8dff_4773_9ff6_0696eab77267);
 windows_core::imp::interface_hierarchy!(IDWriteBitmapRenderTarget, windows_core::IUnknown);
 impl IDWriteBitmapRenderTarget {
     pub unsafe fn DrawGlyphRun<P0, P1>(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: P0, textcolor: P1, blackboxrect: Option<*mut super::super::Foundation::RECT>) -> windows_core::Result<()>
@@ -76,7 +76,7 @@ pub struct IDWriteBitmapRenderTarget_Vtbl {
     pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SIZE) -> windows_core::HRESULT,
     pub Resize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteBitmapRenderTarget1, IDWriteBitmapRenderTarget1_Vtbl, 0x791e8298_3ef3_4230_9880_c9bdecc42064);
+windows_core::imp::define_interface!(IDWriteBitmapRenderTarget1, IDWriteBitmapRenderTarget1_Vtbl, 0x791e8298_3ef3_4230_9880_c9bdecc42064);
 windows_core::imp::interface_hierarchy!(IDWriteBitmapRenderTarget1, windows_core::IUnknown, IDWriteBitmapRenderTarget);
 impl IDWriteBitmapRenderTarget1 {
     pub unsafe fn DrawGlyphRun<P0, P1>(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: P0, textcolor: P1, blackboxrect: Option<*mut super::super::Foundation::RECT>) -> windows_core::Result<()>
@@ -124,7 +124,7 @@ pub struct IDWriteBitmapRenderTarget1_Vtbl {
     pub GetTextAntialiasMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_TEXT_ANTIALIAS_MODE,
     pub SetTextAntialiasMode: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_TEXT_ANTIALIAS_MODE) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteBitmapRenderTarget2, IDWriteBitmapRenderTarget2_Vtbl, 0xc553a742_fc01_44da_a66e_b8b9ed6c3995);
+windows_core::imp::define_interface!(IDWriteBitmapRenderTarget2, IDWriteBitmapRenderTarget2_Vtbl, 0xc553a742_fc01_44da_a66e_b8b9ed6c3995);
 windows_core::imp::interface_hierarchy!(IDWriteBitmapRenderTarget2, windows_core::IUnknown, IDWriteBitmapRenderTarget, IDWriteBitmapRenderTarget1);
 impl IDWriteBitmapRenderTarget2 {
     pub unsafe fn DrawGlyphRun<P0, P1>(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: P0, textcolor: P1, blackboxrect: Option<*mut super::super::Foundation::RECT>) -> windows_core::Result<()>
@@ -175,7 +175,7 @@ pub struct IDWriteBitmapRenderTarget2_Vtbl {
     pub base__: IDWriteBitmapRenderTarget1_Vtbl,
     pub GetBitmapData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_BITMAP_DATA_BGRA32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteBitmapRenderTarget3, IDWriteBitmapRenderTarget3_Vtbl, 0xaeec37db_c337_40f1_8e2a_9a41b167b238);
+windows_core::imp::define_interface!(IDWriteBitmapRenderTarget3, IDWriteBitmapRenderTarget3_Vtbl, 0xaeec37db_c337_40f1_8e2a_9a41b167b238);
 windows_core::imp::interface_hierarchy!(IDWriteBitmapRenderTarget3, windows_core::IUnknown, IDWriteBitmapRenderTarget, IDWriteBitmapRenderTarget1, IDWriteBitmapRenderTarget2);
 impl IDWriteBitmapRenderTarget3 {
     pub unsafe fn DrawGlyphRun<P0, P1>(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: P0, textcolor: P1, blackboxrect: Option<*mut super::super::Foundation::RECT>) -> windows_core::Result<()>
@@ -244,7 +244,7 @@ pub struct IDWriteBitmapRenderTarget3_Vtbl {
     pub DrawPaintGlyphRun: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, DWRITE_MEASURING_MODE, *const DWRITE_GLYPH_RUN, DWRITE_GLYPH_IMAGE_FORMATS, super::super::Foundation::COLORREF, u32, *mut super::super::Foundation::RECT) -> windows_core::HRESULT,
     pub DrawGlyphRunWithColorSupport: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, DWRITE_MEASURING_MODE, *const DWRITE_GLYPH_RUN, *mut core::ffi::c_void, super::super::Foundation::COLORREF, u32, *mut super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteColorGlyphRunEnumerator, IDWriteColorGlyphRunEnumerator_Vtbl, 0xd31fbe17_f157_41a2_8d24_cb779e0560e8);
+windows_core::imp::define_interface!(IDWriteColorGlyphRunEnumerator, IDWriteColorGlyphRunEnumerator_Vtbl, 0xd31fbe17_f157_41a2_8d24_cb779e0560e8);
 windows_core::imp::interface_hierarchy!(IDWriteColorGlyphRunEnumerator, windows_core::IUnknown);
 impl IDWriteColorGlyphRunEnumerator {
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -264,7 +264,7 @@ pub struct IDWriteColorGlyphRunEnumerator_Vtbl {
     pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetCurrentRun: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut DWRITE_COLOR_GLYPH_RUN) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteColorGlyphRunEnumerator1, IDWriteColorGlyphRunEnumerator1_Vtbl, 0x7c5f86da_c7a1_4f05_b8e1_55a179fe5a35);
+windows_core::imp::define_interface!(IDWriteColorGlyphRunEnumerator1, IDWriteColorGlyphRunEnumerator1_Vtbl, 0x7c5f86da_c7a1_4f05_b8e1_55a179fe5a35);
 windows_core::imp::interface_hierarchy!(IDWriteColorGlyphRunEnumerator1, windows_core::IUnknown, IDWriteColorGlyphRunEnumerator);
 impl IDWriteColorGlyphRunEnumerator1 {
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -287,7 +287,7 @@ pub struct IDWriteColorGlyphRunEnumerator1_Vtbl {
     pub base__: IDWriteColorGlyphRunEnumerator_Vtbl,
     pub GetCurrentRun2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut DWRITE_COLOR_GLYPH_RUN1) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFactory, IDWriteFactory_Vtbl, 0xb859ee5a_d838_4b5b_a2e8_1adc7d93db48);
+windows_core::imp::define_interface!(IDWriteFactory, IDWriteFactory_Vtbl, 0xb859ee5a_d838_4b5b_a2e8_1adc7d93db48);
 windows_core::imp::interface_hierarchy!(IDWriteFactory, windows_core::IUnknown);
 impl IDWriteFactory {
     pub unsafe fn GetSystemFontCollection<P0>(&self, fontcollection: *mut Option<IDWriteFontCollection>, checkforupdates: P0) -> windows_core::Result<()>
@@ -447,7 +447,7 @@ pub struct IDWriteFactory_Vtbl {
     pub CreateNumberSubstitution: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_NUMBER_SUBSTITUTION_METHOD, windows_core::PCWSTR, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateGlyphRunAnalysis: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_GLYPH_RUN, f32, *const DWRITE_MATRIX, DWRITE_RENDERING_MODE, DWRITE_MEASURING_MODE, f32, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFactory1, IDWriteFactory1_Vtbl, 0x30572f99_dac6_41db_a16e_0486307e606a);
+windows_core::imp::define_interface!(IDWriteFactory1, IDWriteFactory1_Vtbl, 0x30572f99_dac6_41db_a16e_0486307e606a);
 windows_core::imp::interface_hierarchy!(IDWriteFactory1, windows_core::IUnknown, IDWriteFactory);
 impl IDWriteFactory1 {
     pub unsafe fn GetSystemFontCollection<P0>(&self, fontcollection: *mut Option<IDWriteFontCollection>, checkforupdates: P0) -> windows_core::Result<()>
@@ -595,7 +595,7 @@ pub struct IDWriteFactory1_Vtbl {
     pub GetEudcFontCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub CreateCustomRenderingParams2: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, f32, DWRITE_PIXEL_GEOMETRY, DWRITE_RENDERING_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFactory2, IDWriteFactory2_Vtbl, 0x0439fc60_ca44_4994_8dee_3a9af7b732ec);
+windows_core::imp::define_interface!(IDWriteFactory2, IDWriteFactory2_Vtbl, 0x0439fc60_ca44_4994_8dee_3a9af7b732ec);
 windows_core::imp::interface_hierarchy!(IDWriteFactory2, windows_core::IUnknown, IDWriteFactory, IDWriteFactory1);
 impl IDWriteFactory2 {
     pub unsafe fn GetSystemFontCollection<P0>(&self, fontcollection: *mut Option<IDWriteFontCollection>, checkforupdates: P0) -> windows_core::Result<()>
@@ -766,7 +766,7 @@ pub struct IDWriteFactory2_Vtbl {
     pub CreateCustomRenderingParams3: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, f32, DWRITE_PIXEL_GEOMETRY, DWRITE_RENDERING_MODE, DWRITE_GRID_FIT_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateGlyphRunAnalysis2: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_GLYPH_RUN, *const DWRITE_MATRIX, DWRITE_RENDERING_MODE, DWRITE_MEASURING_MODE, DWRITE_GRID_FIT_MODE, DWRITE_TEXT_ANTIALIAS_MODE, f32, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFactory3, IDWriteFactory3_Vtbl, 0x9a1b41c3_d3bb_466a_87fc_fe67556a3b65);
+windows_core::imp::define_interface!(IDWriteFactory3, IDWriteFactory3_Vtbl, 0x9a1b41c3_d3bb_466a_87fc_fe67556a3b65);
 windows_core::imp::interface_hierarchy!(IDWriteFactory3, windows_core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2);
 impl IDWriteFactory3 {
     pub unsafe fn GetSystemFontCollection<P0>(&self, fontcollection: *mut Option<IDWriteFontCollection>, checkforupdates: P0) -> windows_core::Result<()>
@@ -989,7 +989,7 @@ pub struct IDWriteFactory3_Vtbl {
     pub GetSystemFontCollection2: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetFontDownloadQueue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFactory4, IDWriteFactory4_Vtbl, 0x4b0b5bd3_0797_4549_8ac5_fe915cc53856);
+windows_core::imp::define_interface!(IDWriteFactory4, IDWriteFactory4_Vtbl, 0x4b0b5bd3_0797_4549_8ac5_fe915cc53856);
 windows_core::imp::interface_hierarchy!(IDWriteFactory4, windows_core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3);
 impl IDWriteFactory4 {
     pub unsafe fn GetSystemFontCollection<P0>(&self, fontcollection: *mut Option<IDWriteFontCollection>, checkforupdates: P0) -> windows_core::Result<()>
@@ -1230,7 +1230,7 @@ pub struct IDWriteFactory4_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     ComputeGlyphOrigins2: usize,
 }
-windows_core::imp::com_interface!(IDWriteFactory5, IDWriteFactory5_Vtbl, 0x958db99a_be2a_4f09_af7d_65189803d1d3);
+windows_core::imp::define_interface!(IDWriteFactory5, IDWriteFactory5_Vtbl, 0x958db99a_be2a_4f09_af7d_65189803d1d3);
 windows_core::imp::interface_hierarchy!(IDWriteFactory5, windows_core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3, IDWriteFactory4);
 impl IDWriteFactory5 {
     pub unsafe fn GetSystemFontCollection<P0>(&self, fontcollection: *mut Option<IDWriteFontCollection>, checkforupdates: P0) -> windows_core::Result<()>
@@ -1487,7 +1487,7 @@ pub struct IDWriteFactory5_Vtbl {
     pub AnalyzeContainerType: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32) -> DWRITE_CONTAINER_TYPE,
     pub UnpackFontFile: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_CONTAINER_TYPE, *const core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFactory6, IDWriteFactory6_Vtbl, 0xf3744d80_21f7_42eb_b35d_995bc72fc223);
+windows_core::imp::define_interface!(IDWriteFactory6, IDWriteFactory6_Vtbl, 0xf3744d80_21f7_42eb_b35d_995bc72fc223);
 windows_core::imp::interface_hierarchy!(IDWriteFactory6, windows_core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3, IDWriteFactory4, IDWriteFactory5);
 impl IDWriteFactory6 {
     pub unsafe fn GetSystemFontCollection<P0>(&self, fontcollection: *mut Option<IDWriteFontCollection>, checkforupdates: P0) -> windows_core::Result<()>
@@ -1794,7 +1794,7 @@ pub struct IDWriteFactory6_Vtbl {
     pub CreateFontSetBuilder3: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateTextFormat2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *const DWRITE_FONT_AXIS_VALUE, u32, f32, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFactory7, IDWriteFactory7_Vtbl, 0x35d0e0b3_9076_4d2e_a016_a91b568a06b4);
+windows_core::imp::define_interface!(IDWriteFactory7, IDWriteFactory7_Vtbl, 0x35d0e0b3_9076_4d2e_a016_a91b568a06b4);
 windows_core::imp::interface_hierarchy!(IDWriteFactory7, windows_core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3, IDWriteFactory4, IDWriteFactory5, IDWriteFactory6);
 impl IDWriteFactory7 {
     pub unsafe fn GetSystemFontCollection<P0>(&self, fontcollection: *mut Option<IDWriteFontCollection>, checkforupdates: P0) -> windows_core::Result<()>
@@ -2110,7 +2110,7 @@ pub struct IDWriteFactory7_Vtbl {
     pub GetSystemFontSet3: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSystemFontCollection4: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, DWRITE_FONT_FAMILY_MODEL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFactory8, IDWriteFactory8_Vtbl, 0xee0a7fb5_def4_4c23_a454_c9c7dc878398);
+windows_core::imp::define_interface!(IDWriteFactory8, IDWriteFactory8_Vtbl, 0xee0a7fb5_def4_4c23_a454_c9c7dc878398);
 windows_core::imp::interface_hierarchy!(IDWriteFactory8, windows_core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3, IDWriteFactory4, IDWriteFactory5, IDWriteFactory6, IDWriteFactory7);
 impl IDWriteFactory8 {
     pub unsafe fn GetSystemFontCollection<P0>(&self, fontcollection: *mut Option<IDWriteFontCollection>, checkforupdates: P0) -> windows_core::Result<()>
@@ -2433,7 +2433,7 @@ pub struct IDWriteFactory8_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     TranslateColorGlyphRun3: usize,
 }
-windows_core::imp::com_interface!(IDWriteFont, IDWriteFont_Vtbl, 0xacd16696_8c14_4f5d_877e_fe3fc1d32737);
+windows_core::imp::define_interface!(IDWriteFont, IDWriteFont_Vtbl, 0xacd16696_8c14_4f5d_877e_fe3fc1d32737);
 windows_core::imp::interface_hierarchy!(IDWriteFont, windows_core::IUnknown);
 impl IDWriteFont {
     pub unsafe fn GetFontFamily(&self) -> windows_core::Result<IDWriteFontFamily> {
@@ -2491,7 +2491,7 @@ pub struct IDWriteFont_Vtbl {
     pub HasCharacter: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub CreateFontFace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFont1, IDWriteFont1_Vtbl, 0xacd16696_8c14_4f5d_877e_fe3fc1d32738);
+windows_core::imp::define_interface!(IDWriteFont1, IDWriteFont1_Vtbl, 0xacd16696_8c14_4f5d_877e_fe3fc1d32738);
 windows_core::imp::interface_hierarchy!(IDWriteFont1, windows_core::IUnknown, IDWriteFont);
 impl IDWriteFont1 {
     pub unsafe fn GetFontFamily(&self) -> windows_core::Result<IDWriteFontFamily> {
@@ -2556,7 +2556,7 @@ pub struct IDWriteFont1_Vtbl {
     pub GetUnicodeRanges: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DWRITE_UNICODE_RANGE, *mut u32) -> windows_core::HRESULT,
     pub IsMonospacedFont: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
-windows_core::imp::com_interface!(IDWriteFont2, IDWriteFont2_Vtbl, 0x29748ed6_8c9c_4a6a_be0b_d912e8538944);
+windows_core::imp::define_interface!(IDWriteFont2, IDWriteFont2_Vtbl, 0x29748ed6_8c9c_4a6a_be0b_d912e8538944);
 windows_core::imp::interface_hierarchy!(IDWriteFont2, windows_core::IUnknown, IDWriteFont, IDWriteFont1);
 impl IDWriteFont2 {
     pub unsafe fn GetFontFamily(&self) -> windows_core::Result<IDWriteFontFamily> {
@@ -2621,7 +2621,7 @@ pub struct IDWriteFont2_Vtbl {
     pub base__: IDWriteFont1_Vtbl,
     pub IsColorFont: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
-windows_core::imp::com_interface!(IDWriteFont3, IDWriteFont3_Vtbl, 0x29748ed6_8c9c_4a6a_be0b_d912e8538944);
+windows_core::imp::define_interface!(IDWriteFont3, IDWriteFont3_Vtbl, 0x29748ed6_8c9c_4a6a_be0b_d912e8538944);
 windows_core::imp::interface_hierarchy!(IDWriteFont3, windows_core::IUnknown, IDWriteFont, IDWriteFont1, IDWriteFont2);
 impl IDWriteFont3 {
     pub unsafe fn GetFontFamily(&self) -> windows_core::Result<IDWriteFontFamily> {
@@ -2710,7 +2710,7 @@ pub struct IDWriteFont3_Vtbl {
     pub HasCharacter2: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> super::super::Foundation::BOOL,
     pub GetLocality: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_LOCALITY,
 }
-windows_core::imp::com_interface!(IDWriteFontCollection, IDWriteFontCollection_Vtbl, 0xa84cee02_3eea_4eee_a827_87c1a02a0fcc);
+windows_core::imp::define_interface!(IDWriteFontCollection, IDWriteFontCollection_Vtbl, 0xa84cee02_3eea_4eee_a827_87c1a02a0fcc);
 windows_core::imp::interface_hierarchy!(IDWriteFontCollection, windows_core::IUnknown);
 impl IDWriteFontCollection {
     pub unsafe fn GetFontFamilyCount(&self) -> u32 {
@@ -2744,7 +2744,7 @@ pub struct IDWriteFontCollection_Vtbl {
     pub FindFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetFontFromFontFace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontCollection1, IDWriteFontCollection1_Vtbl, 0x53585141_d9f8_4095_8321_d73cf6bd116c);
+windows_core::imp::define_interface!(IDWriteFontCollection1, IDWriteFontCollection1_Vtbl, 0x53585141_d9f8_4095_8321_d73cf6bd116c);
 windows_core::imp::interface_hierarchy!(IDWriteFontCollection1, windows_core::IUnknown, IDWriteFontCollection);
 impl IDWriteFontCollection1 {
     pub unsafe fn GetFontFamilyCount(&self) -> u32 {
@@ -2784,7 +2784,7 @@ pub struct IDWriteFontCollection1_Vtbl {
     pub GetFontSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFontFamily2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontCollection2, IDWriteFontCollection2_Vtbl, 0x514039c6_4617_4064_bf8b_92ea83e506e0);
+windows_core::imp::define_interface!(IDWriteFontCollection2, IDWriteFontCollection2_Vtbl, 0x514039c6_4617_4064_bf8b_92ea83e506e0);
 windows_core::imp::interface_hierarchy!(IDWriteFontCollection2, windows_core::IUnknown, IDWriteFontCollection, IDWriteFontCollection1);
 impl IDWriteFontCollection2 {
     pub unsafe fn GetFontFamilyCount(&self) -> u32 {
@@ -2844,7 +2844,7 @@ pub struct IDWriteFontCollection2_Vtbl {
     pub GetFontFamilyModel: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_FONT_FAMILY_MODEL,
     pub GetFontSet2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontCollection3, IDWriteFontCollection3_Vtbl, 0xa4d055a6_f9e3_4e25_93b7_9e309f3af8e9);
+windows_core::imp::define_interface!(IDWriteFontCollection3, IDWriteFontCollection3_Vtbl, 0xa4d055a6_f9e3_4e25_93b7_9e309f3af8e9);
 windows_core::imp::interface_hierarchy!(IDWriteFontCollection3, windows_core::IUnknown, IDWriteFontCollection, IDWriteFontCollection1, IDWriteFontCollection2);
 impl IDWriteFontCollection3 {
     pub unsafe fn GetFontFamilyCount(&self) -> u32 {
@@ -2904,7 +2904,7 @@ pub struct IDWriteFontCollection3_Vtbl {
     pub base__: IDWriteFontCollection2_Vtbl,
     pub GetExpirationEvent: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
 }
-windows_core::imp::com_interface!(IDWriteFontCollectionLoader, IDWriteFontCollectionLoader_Vtbl, 0xcca920e4_52f0_492b_bfa8_29c72ee0a468);
+windows_core::imp::define_interface!(IDWriteFontCollectionLoader, IDWriteFontCollectionLoader_Vtbl, 0xcca920e4_52f0_492b_bfa8_29c72ee0a468);
 windows_core::imp::interface_hierarchy!(IDWriteFontCollectionLoader, windows_core::IUnknown);
 impl IDWriteFontCollectionLoader {
     pub unsafe fn CreateEnumeratorFromKey<P0>(&self, factory: P0, collectionkey: *const core::ffi::c_void, collectionkeysize: u32) -> windows_core::Result<IDWriteFontFileEnumerator>
@@ -2922,7 +2922,7 @@ pub struct IDWriteFontCollectionLoader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateEnumeratorFromKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontDownloadListener, IDWriteFontDownloadListener_Vtbl, 0xb06fe5b9_43ec_4393_881b_dbe4dc72fda7);
+windows_core::imp::define_interface!(IDWriteFontDownloadListener, IDWriteFontDownloadListener_Vtbl, 0xb06fe5b9_43ec_4393_881b_dbe4dc72fda7);
 windows_core::imp::interface_hierarchy!(IDWriteFontDownloadListener, windows_core::IUnknown);
 impl IDWriteFontDownloadListener {
     pub unsafe fn DownloadCompleted<P0, P1>(&self, downloadqueue: P0, context: P1, downloadresult: windows_core::HRESULT)
@@ -2940,7 +2940,7 @@ pub struct IDWriteFontDownloadListener_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DownloadCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::HRESULT),
 }
-windows_core::imp::com_interface!(IDWriteFontDownloadQueue, IDWriteFontDownloadQueue_Vtbl, 0xb71e6052_5aea_4fa3_832e_f60d431f7e91);
+windows_core::imp::define_interface!(IDWriteFontDownloadQueue, IDWriteFontDownloadQueue_Vtbl, 0xb71e6052_5aea_4fa3_832e_f60d431f7e91);
 windows_core::imp::interface_hierarchy!(IDWriteFontDownloadQueue, windows_core::IUnknown);
 impl IDWriteFontDownloadQueue {
     pub unsafe fn AddListener<P0>(&self, listener: P0) -> windows_core::Result<u32>
@@ -2981,7 +2981,7 @@ pub struct IDWriteFontDownloadQueue_Vtbl {
     pub CancelDownload: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetGenerationCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
 }
-windows_core::imp::com_interface!(IDWriteFontFace, IDWriteFontFace_Vtbl, 0x5f49804d_7024_4d43_bfa9_d25984f53849);
+windows_core::imp::define_interface!(IDWriteFontFace, IDWriteFontFace_Vtbl, 0x5f49804d_7024_4d43_bfa9_d25984f53849);
 windows_core::imp::interface_hierarchy!(IDWriteFontFace, windows_core::IUnknown);
 impl IDWriteFontFace {
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -3071,7 +3071,7 @@ pub struct IDWriteFontFace_Vtbl {
     pub GetGdiCompatibleMetrics: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, *const DWRITE_MATRIX, *mut DWRITE_FONT_METRICS) -> windows_core::HRESULT,
     pub GetGdiCompatibleGlyphMetrics: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, *const DWRITE_MATRIX, super::super::Foundation::BOOL, *const u16, u32, *mut DWRITE_GLYPH_METRICS, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontFace1, IDWriteFontFace1_Vtbl, 0xa71efdb4_9fdb_4838_ad90_cfc3be8c3daf);
+windows_core::imp::define_interface!(IDWriteFontFace1, IDWriteFontFace1_Vtbl, 0xa71efdb4_9fdb_4838_ad90_cfc3be8c3daf);
 windows_core::imp::interface_hierarchy!(IDWriteFontFace1, windows_core::IUnknown, IDWriteFontFace);
 impl IDWriteFontFace1 {
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -3204,7 +3204,7 @@ pub struct IDWriteFontFace1_Vtbl {
     pub GetVerticalGlyphVariants: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u16, *mut u16) -> windows_core::HRESULT,
     pub HasVerticalGlyphVariants: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
-windows_core::imp::com_interface!(IDWriteFontFace2, IDWriteFontFace2_Vtbl, 0xd8b768ff_64bc_4e66_982b_ec8e87f693f7);
+windows_core::imp::define_interface!(IDWriteFontFace2, IDWriteFontFace2_Vtbl, 0xd8b768ff_64bc_4e66_982b_ec8e87f693f7);
 windows_core::imp::interface_hierarchy!(IDWriteFontFace2, windows_core::IUnknown, IDWriteFontFace, IDWriteFontFace1);
 impl IDWriteFontFace2 {
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -3349,7 +3349,7 @@ pub struct IDWriteFontFace2_Vtbl {
     pub GetPaletteEntries: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut DWRITE_COLOR_F) -> windows_core::HRESULT,
     pub GetRecommendedRenderingMode3: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, *const DWRITE_MATRIX, super::super::Foundation::BOOL, DWRITE_OUTLINE_THRESHOLD, DWRITE_MEASURING_MODE, *mut core::ffi::c_void, *mut DWRITE_RENDERING_MODE, *mut DWRITE_GRID_FIT_MODE) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontFace3, IDWriteFontFace3_Vtbl, 0xd37d7598_09be_4222_a236_2081341cc1f2);
+windows_core::imp::define_interface!(IDWriteFontFace3, IDWriteFontFace3_Vtbl, 0xd37d7598_09be_4222_a236_2081341cc1f2);
 windows_core::imp::interface_hierarchy!(IDWriteFontFace3, windows_core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2);
 impl IDWriteFontFace3 {
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -3562,7 +3562,7 @@ pub struct IDWriteFontFace3_Vtbl {
     pub AreCharactersLocal: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub AreGlyphsLocal: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, u32, super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontFace4, IDWriteFontFace4_Vtbl, 0x27f2a904_4eb8_441d_9678_0563f53e3e2f);
+windows_core::imp::define_interface!(IDWriteFontFace4, IDWriteFontFace4_Vtbl, 0x27f2a904_4eb8_441d_9678_0563f53e3e2f);
 windows_core::imp::interface_hierarchy!(IDWriteFontFace4, windows_core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2, IDWriteFontFace3);
 impl IDWriteFontFace4 {
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -3782,7 +3782,7 @@ pub struct IDWriteFontFace4_Vtbl {
     GetGlyphImageData: usize,
     pub ReleaseGlyphImageData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
 }
-windows_core::imp::com_interface!(IDWriteFontFace5, IDWriteFontFace5_Vtbl, 0x98eff3a5_b667_479a_b145_e2fa5b9fdc29);
+windows_core::imp::define_interface!(IDWriteFontFace5, IDWriteFontFace5_Vtbl, 0x98eff3a5_b667_479a_b145_e2fa5b9fdc29);
 windows_core::imp::interface_hierarchy!(IDWriteFontFace5, windows_core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2, IDWriteFontFace3, IDWriteFontFace4);
 impl IDWriteFontFace5 {
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -4019,7 +4019,7 @@ pub struct IDWriteFontFace5_Vtbl {
     pub GetFontResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Equals: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
-windows_core::imp::com_interface!(IDWriteFontFace6, IDWriteFontFace6_Vtbl, 0xc4b1fe1b_6e84_47d5_b54c_a597981b06ad);
+windows_core::imp::define_interface!(IDWriteFontFace6, IDWriteFontFace6_Vtbl, 0xc4b1fe1b_6e84_47d5_b54c_a597981b06ad);
 windows_core::imp::interface_hierarchy!(IDWriteFontFace6, windows_core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2, IDWriteFontFace3, IDWriteFontFace4, IDWriteFontFace5);
 impl IDWriteFontFace6 {
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -4261,7 +4261,7 @@ pub struct IDWriteFontFace6_Vtbl {
     pub GetFamilyNames2: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_FONT_FAMILY_MODEL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFaceNames2: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_FONT_FAMILY_MODEL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontFace7, IDWriteFontFace7_Vtbl, 0x3945b85b_bc95_40f7_b72c_8b73bfc7e13b);
+windows_core::imp::define_interface!(IDWriteFontFace7, IDWriteFontFace7_Vtbl, 0x3945b85b_bc95_40f7_b72c_8b73bfc7e13b);
 windows_core::imp::interface_hierarchy!(IDWriteFontFace7, windows_core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2, IDWriteFontFace3, IDWriteFontFace4, IDWriteFontFace5, IDWriteFontFace6);
 impl IDWriteFontFace7 {
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -4510,7 +4510,7 @@ pub struct IDWriteFontFace7_Vtbl {
     pub GetPaintFeatureLevel: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_GLYPH_IMAGE_FORMATS) -> DWRITE_PAINT_FEATURE_LEVEL,
     pub CreatePaintReader: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_GLYPH_IMAGE_FORMATS, DWRITE_PAINT_FEATURE_LEVEL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontFaceReference, IDWriteFontFaceReference_Vtbl, 0x5e7fa7ca_dde3_424c_89f0_9fcd6fed58cd);
+windows_core::imp::define_interface!(IDWriteFontFaceReference, IDWriteFontFaceReference_Vtbl, 0x5e7fa7ca_dde3_424c_89f0_9fcd6fed58cd);
 windows_core::imp::interface_hierarchy!(IDWriteFontFaceReference, windows_core::IUnknown);
 impl IDWriteFontFaceReference {
     pub unsafe fn CreateFontFace(&self) -> windows_core::Result<IDWriteFontFace3> {
@@ -4583,7 +4583,7 @@ pub struct IDWriteFontFaceReference_Vtbl {
     pub EnqueueGlyphDownloadRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, u32) -> windows_core::HRESULT,
     pub EnqueueFileFragmentDownloadRequest: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontFaceReference1, IDWriteFontFaceReference1_Vtbl, 0xc081fe77_2fd1_41ac_a5a3_34983c4ba61a);
+windows_core::imp::define_interface!(IDWriteFontFaceReference1, IDWriteFontFaceReference1_Vtbl, 0xc081fe77_2fd1_41ac_a5a3_34983c4ba61a);
 windows_core::imp::interface_hierarchy!(IDWriteFontFaceReference1, windows_core::IUnknown, IDWriteFontFaceReference);
 impl IDWriteFontFaceReference1 {
     pub unsafe fn CreateFontFace(&self) -> windows_core::Result<IDWriteFontFace3> {
@@ -4655,7 +4655,7 @@ pub struct IDWriteFontFaceReference1_Vtbl {
     pub GetFontAxisValueCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetFontAxisValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_FONT_AXIS_VALUE, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontFallback, IDWriteFontFallback_Vtbl, 0xefa008f9_f7a1_48bf_b05c_f224713cc0ff);
+windows_core::imp::define_interface!(IDWriteFontFallback, IDWriteFontFallback_Vtbl, 0xefa008f9_f7a1_48bf_b05c_f224713cc0ff);
 windows_core::imp::interface_hierarchy!(IDWriteFontFallback, windows_core::IUnknown);
 impl IDWriteFontFallback {
     pub unsafe fn MapCharacters<P0, P1, P2>(&self, analysissource: P0, textposition: u32, textlength: u32, basefontcollection: P1, basefamilyname: P2, baseweight: DWRITE_FONT_WEIGHT, basestyle: DWRITE_FONT_STYLE, basestretch: DWRITE_FONT_STRETCH, mappedlength: *mut u32, mappedfont: *mut Option<IDWriteFont>, scale: *mut f32) -> windows_core::Result<()>
@@ -4674,7 +4674,7 @@ pub struct IDWriteFontFallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub MapCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, windows_core::PCWSTR, DWRITE_FONT_WEIGHT, DWRITE_FONT_STYLE, DWRITE_FONT_STRETCH, *mut u32, *mut *mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontFallback1, IDWriteFontFallback1_Vtbl, 0x2397599d_dd0d_4681_bd6a_f4f31eaade77);
+windows_core::imp::define_interface!(IDWriteFontFallback1, IDWriteFontFallback1_Vtbl, 0x2397599d_dd0d_4681_bd6a_f4f31eaade77);
 windows_core::imp::interface_hierarchy!(IDWriteFontFallback1, windows_core::IUnknown, IDWriteFontFallback);
 impl IDWriteFontFallback1 {
     pub unsafe fn MapCharacters<P0, P1, P2>(&self, analysissource: P0, textposition: u32, textlength: u32, basefontcollection: P1, basefamilyname: P2, baseweight: DWRITE_FONT_WEIGHT, basestyle: DWRITE_FONT_STYLE, basestretch: DWRITE_FONT_STRETCH, mappedlength: *mut u32, mappedfont: *mut Option<IDWriteFont>, scale: *mut f32) -> windows_core::Result<()>
@@ -4701,7 +4701,7 @@ pub struct IDWriteFontFallback1_Vtbl {
     pub base__: IDWriteFontFallback_Vtbl,
     pub MapCharacters2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, windows_core::PCWSTR, *const DWRITE_FONT_AXIS_VALUE, u32, *mut u32, *mut f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontFallbackBuilder, IDWriteFontFallbackBuilder_Vtbl, 0xfd882d06_8aba_4fb8_b849_8be8b73e14de);
+windows_core::imp::define_interface!(IDWriteFontFallbackBuilder, IDWriteFontFallbackBuilder_Vtbl, 0xfd882d06_8aba_4fb8_b849_8be8b73e14de);
 windows_core::imp::interface_hierarchy!(IDWriteFontFallbackBuilder, windows_core::IUnknown);
 impl IDWriteFontFallbackBuilder {
     pub unsafe fn AddMapping<P0, P1, P2>(&self, ranges: &[DWRITE_UNICODE_RANGE], targetfamilynames: &[*const u16], fontcollection: P0, localename: P1, basefamilyname: P2, scale: f32) -> windows_core::Result<()>
@@ -4732,7 +4732,7 @@ pub struct IDWriteFontFallbackBuilder_Vtbl {
     pub AddMappings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFontFallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontFamily, IDWriteFontFamily_Vtbl, 0xda20d8ef_812a_4c43_9802_62ec4abd7add);
+windows_core::imp::define_interface!(IDWriteFontFamily, IDWriteFontFamily_Vtbl, 0xda20d8ef_812a_4c43_9802_62ec4abd7add);
 windows_core::imp::interface_hierarchy!(IDWriteFontFamily, windows_core::IUnknown, IDWriteFontList);
 impl IDWriteFontFamily {
     pub unsafe fn GetFontCollection(&self) -> windows_core::Result<IDWriteFontCollection> {
@@ -4768,7 +4768,7 @@ pub struct IDWriteFontFamily_Vtbl {
     pub GetFirstMatchingFont: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_FONT_WEIGHT, DWRITE_FONT_STRETCH, DWRITE_FONT_STYLE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMatchingFonts: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_FONT_WEIGHT, DWRITE_FONT_STRETCH, DWRITE_FONT_STYLE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontFamily1, IDWriteFontFamily1_Vtbl, 0xda20d8ef_812a_4c43_9802_62ec4abd7adf);
+windows_core::imp::define_interface!(IDWriteFontFamily1, IDWriteFontFamily1_Vtbl, 0xda20d8ef_812a_4c43_9802_62ec4abd7adf);
 windows_core::imp::interface_hierarchy!(IDWriteFontFamily1, windows_core::IUnknown, IDWriteFontList, IDWriteFontFamily);
 impl IDWriteFontFamily1 {
     pub unsafe fn GetFontCollection(&self) -> windows_core::Result<IDWriteFontCollection> {
@@ -4815,7 +4815,7 @@ pub struct IDWriteFontFamily1_Vtbl {
     pub GetFont2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFontFaceReference: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontFamily2, IDWriteFontFamily2_Vtbl, 0x3ed49e77_a398_4261_b9cf_c126c2131ef3);
+windows_core::imp::define_interface!(IDWriteFontFamily2, IDWriteFontFamily2_Vtbl, 0x3ed49e77_a398_4261_b9cf_c126c2131ef3);
 windows_core::imp::interface_hierarchy!(IDWriteFontFamily2, windows_core::IUnknown, IDWriteFontList, IDWriteFontFamily, IDWriteFontFamily1);
 impl IDWriteFontFamily2 {
     pub unsafe fn GetFontCollection(&self) -> windows_core::Result<IDWriteFontCollection> {
@@ -4869,7 +4869,7 @@ pub struct IDWriteFontFamily2_Vtbl {
     pub GetMatchingFonts2: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_FONT_AXIS_VALUE, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFontSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontFile, IDWriteFontFile_Vtbl, 0x739d886a_cef5_47dc_8769_1a8b41bebbb0);
+windows_core::imp::define_interface!(IDWriteFontFile, IDWriteFontFile_Vtbl, 0x739d886a_cef5_47dc_8769_1a8b41bebbb0);
 windows_core::imp::interface_hierarchy!(IDWriteFontFile, windows_core::IUnknown);
 impl IDWriteFontFile {
     pub unsafe fn GetReferenceKey(&self, fontfilereferencekey: *mut *mut core::ffi::c_void, fontfilereferencekeysize: *mut u32) -> windows_core::Result<()> {
@@ -4892,7 +4892,7 @@ pub struct IDWriteFontFile_Vtbl {
     pub GetLoader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Analyze: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut DWRITE_FONT_FILE_TYPE, *mut DWRITE_FONT_FACE_TYPE, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontFileEnumerator, IDWriteFontFileEnumerator_Vtbl, 0x72755049_5ff7_435d_8348_4be97cfa6c7c);
+windows_core::imp::define_interface!(IDWriteFontFileEnumerator, IDWriteFontFileEnumerator_Vtbl, 0x72755049_5ff7_435d_8348_4be97cfa6c7c);
 windows_core::imp::interface_hierarchy!(IDWriteFontFileEnumerator, windows_core::IUnknown);
 impl IDWriteFontFileEnumerator {
     pub unsafe fn MoveNext(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -4912,7 +4912,7 @@ pub struct IDWriteFontFileEnumerator_Vtbl {
     pub MoveNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetCurrentFontFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontFileLoader, IDWriteFontFileLoader_Vtbl, 0x727cad4e_d6af_4c9e_8a08_d695b11caa49);
+windows_core::imp::define_interface!(IDWriteFontFileLoader, IDWriteFontFileLoader_Vtbl, 0x727cad4e_d6af_4c9e_8a08_d695b11caa49);
 windows_core::imp::interface_hierarchy!(IDWriteFontFileLoader, windows_core::IUnknown);
 impl IDWriteFontFileLoader {
     pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32) -> windows_core::Result<IDWriteFontFileStream> {
@@ -4927,7 +4927,7 @@ pub struct IDWriteFontFileLoader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateStreamFromKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontFileStream, IDWriteFontFileStream_Vtbl, 0x6d4865fe_0ab8_4d91_8f62_5dd6be34a3e0);
+windows_core::imp::define_interface!(IDWriteFontFileStream, IDWriteFontFileStream_Vtbl, 0x6d4865fe_0ab8_4d91_8f62_5dd6be34a3e0);
 windows_core::imp::interface_hierarchy!(IDWriteFontFileStream, windows_core::IUnknown);
 impl IDWriteFontFileStream {
     pub unsafe fn ReadFileFragment(&self, fragmentstart: *mut *mut core::ffi::c_void, fileoffset: u64, fragmentsize: u64, fragmentcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -4955,7 +4955,7 @@ pub struct IDWriteFontFileStream_Vtbl {
     pub GetFileSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub GetLastWriteTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontList, IDWriteFontList_Vtbl, 0x1a0d8438_1d97_4ec1_aef9_a2fb86ed6acb);
+windows_core::imp::define_interface!(IDWriteFontList, IDWriteFontList_Vtbl, 0x1a0d8438_1d97_4ec1_aef9_a2fb86ed6acb);
 windows_core::imp::interface_hierarchy!(IDWriteFontList, windows_core::IUnknown);
 impl IDWriteFontList {
     pub unsafe fn GetFontCollection(&self) -> windows_core::Result<IDWriteFontCollection> {
@@ -4979,7 +4979,7 @@ pub struct IDWriteFontList_Vtbl {
     pub GetFontCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetFont: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontList1, IDWriteFontList1_Vtbl, 0xda20d8ef_812a_4c43_9802_62ec4abd7ade);
+windows_core::imp::define_interface!(IDWriteFontList1, IDWriteFontList1_Vtbl, 0xda20d8ef_812a_4c43_9802_62ec4abd7ade);
 windows_core::imp::interface_hierarchy!(IDWriteFontList1, windows_core::IUnknown, IDWriteFontList);
 impl IDWriteFontList1 {
     pub unsafe fn GetFontCollection(&self) -> windows_core::Result<IDWriteFontCollection> {
@@ -5014,7 +5014,7 @@ pub struct IDWriteFontList1_Vtbl {
     pub GetFont2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFontFaceReference: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontList2, IDWriteFontList2_Vtbl, 0xc0763a34_77af_445a_b735_08c37b0a5bf5);
+windows_core::imp::define_interface!(IDWriteFontList2, IDWriteFontList2_Vtbl, 0xc0763a34_77af_445a_b735_08c37b0a5bf5);
 windows_core::imp::interface_hierarchy!(IDWriteFontList2, windows_core::IUnknown, IDWriteFontList, IDWriteFontList1);
 impl IDWriteFontList2 {
     pub unsafe fn GetFontCollection(&self) -> windows_core::Result<IDWriteFontCollection> {
@@ -5051,7 +5051,7 @@ pub struct IDWriteFontList2_Vtbl {
     pub base__: IDWriteFontList1_Vtbl,
     pub GetFontSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontResource, IDWriteFontResource_Vtbl, 0x1f803a76_6871_48e8_987f_b975551c50f2);
+windows_core::imp::define_interface!(IDWriteFontResource, IDWriteFontResource_Vtbl, 0x1f803a76_6871_48e8_987f_b975551c50f2);
 windows_core::imp::interface_hierarchy!(IDWriteFontResource, windows_core::IUnknown);
 impl IDWriteFontResource {
     pub unsafe fn GetFontFile(&self) -> windows_core::Result<IDWriteFontFile> {
@@ -5113,7 +5113,7 @@ pub struct IDWriteFontResource_Vtbl {
     pub CreateFontFace: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_FONT_SIMULATIONS, *const DWRITE_FONT_AXIS_VALUE, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFontFaceReference: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_FONT_SIMULATIONS, *const DWRITE_FONT_AXIS_VALUE, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontSet, IDWriteFontSet_Vtbl, 0x53585141_d9f8_4095_8321_d73cf6bd116b);
+windows_core::imp::define_interface!(IDWriteFontSet, IDWriteFontSet_Vtbl, 0x53585141_d9f8_4095_8321_d73cf6bd116b);
 windows_core::imp::interface_hierarchy!(IDWriteFontSet, windows_core::IUnknown);
 impl IDWriteFontSet {
     pub unsafe fn GetFontCount(&self) -> u32 {
@@ -5181,7 +5181,7 @@ pub struct IDWriteFontSet_Vtbl {
     pub GetMatchingFonts: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, DWRITE_FONT_WEIGHT, DWRITE_FONT_STRETCH, DWRITE_FONT_STYLE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMatchingFonts2: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_FONT_PROPERTY, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontSet1, IDWriteFontSet1_Vtbl, 0x7e9fda85_6c92_4053_bc47_7ae3530db4d3);
+windows_core::imp::define_interface!(IDWriteFontSet1, IDWriteFontSet1_Vtbl, 0x7e9fda85_6c92_4053_bc47_7ae3530db4d3);
 windows_core::imp::interface_hierarchy!(IDWriteFontSet1, windows_core::IUnknown, IDWriteFontSet);
 impl IDWriteFontSet1 {
     pub unsafe fn GetFontCount(&self) -> u32 {
@@ -5311,7 +5311,7 @@ pub struct IDWriteFontSet1_Vtbl {
     pub CreateFontFace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFontLocality: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> DWRITE_LOCALITY,
 }
-windows_core::imp::com_interface!(IDWriteFontSet2, IDWriteFontSet2_Vtbl, 0xdc7ead19_e54c_43af_b2da_4e2b79ba3f7f);
+windows_core::imp::define_interface!(IDWriteFontSet2, IDWriteFontSet2_Vtbl, 0xdc7ead19_e54c_43af_b2da_4e2b79ba3f7f);
 windows_core::imp::interface_hierarchy!(IDWriteFontSet2, windows_core::IUnknown, IDWriteFontSet, IDWriteFontSet1);
 impl IDWriteFontSet2 {
     pub unsafe fn GetFontCount(&self) -> u32 {
@@ -5432,7 +5432,7 @@ pub struct IDWriteFontSet2_Vtbl {
     pub base__: IDWriteFontSet1_Vtbl,
     pub GetExpirationEvent: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
 }
-windows_core::imp::com_interface!(IDWriteFontSet3, IDWriteFontSet3_Vtbl, 0x7c073ef2_a7f4_4045_8c32_8ab8ae640f90);
+windows_core::imp::define_interface!(IDWriteFontSet3, IDWriteFontSet3_Vtbl, 0x7c073ef2_a7f4_4045_8c32_8ab8ae640f90);
 windows_core::imp::interface_hierarchy!(IDWriteFontSet3, windows_core::IUnknown, IDWriteFontSet, IDWriteFontSet1, IDWriteFontSet2);
 impl IDWriteFontSet3 {
     pub unsafe fn GetFontCount(&self) -> u32 {
@@ -5564,7 +5564,7 @@ pub struct IDWriteFontSet3_Vtbl {
     pub GetFontSourceNameLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub GetFontSourceName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontSet4, IDWriteFontSet4_Vtbl, 0xeec175fc_bea9_4c86_8b53_ccbdd7df0c82);
+windows_core::imp::define_interface!(IDWriteFontSet4, IDWriteFontSet4_Vtbl, 0xeec175fc_bea9_4c86_8b53_ccbdd7df0c82);
 windows_core::imp::interface_hierarchy!(IDWriteFontSet4, windows_core::IUnknown, IDWriteFontSet, IDWriteFontSet1, IDWriteFontSet2, IDWriteFontSet3);
 impl IDWriteFontSet4 {
     pub unsafe fn GetFontCount(&self) -> u32 {
@@ -5705,7 +5705,7 @@ pub struct IDWriteFontSet4_Vtbl {
     pub ConvertWeightStretchStyleToFontAxisValues: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_FONT_AXIS_VALUE, u32, DWRITE_FONT_WEIGHT, DWRITE_FONT_STRETCH, DWRITE_FONT_STYLE, f32, *mut DWRITE_FONT_AXIS_VALUE) -> u32,
     pub GetMatchingFonts4: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const DWRITE_FONT_AXIS_VALUE, u32, DWRITE_FONT_SIMULATIONS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontSetBuilder, IDWriteFontSetBuilder_Vtbl, 0x2f642afe_9c68_4f40_b8be_457401afcb3d);
+windows_core::imp::define_interface!(IDWriteFontSetBuilder, IDWriteFontSetBuilder_Vtbl, 0x2f642afe_9c68_4f40_b8be_457401afcb3d);
 windows_core::imp::interface_hierarchy!(IDWriteFontSetBuilder, windows_core::IUnknown);
 impl IDWriteFontSetBuilder {
     pub unsafe fn AddFontFaceReference<P0>(&self, fontfacereference: P0, properties: &[DWRITE_FONT_PROPERTY]) -> windows_core::Result<()>
@@ -5741,7 +5741,7 @@ pub struct IDWriteFontSetBuilder_Vtbl {
     pub AddFontSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFontSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontSetBuilder1, IDWriteFontSetBuilder1_Vtbl, 0x3ff7715f_3cdc_4dc6_9b72_ec5621dccafd);
+windows_core::imp::define_interface!(IDWriteFontSetBuilder1, IDWriteFontSetBuilder1_Vtbl, 0x3ff7715f_3cdc_4dc6_9b72_ec5621dccafd);
 windows_core::imp::interface_hierarchy!(IDWriteFontSetBuilder1, windows_core::IUnknown, IDWriteFontSetBuilder);
 impl IDWriteFontSetBuilder1 {
     pub unsafe fn AddFontFaceReference<P0>(&self, fontfacereference: P0, properties: &[DWRITE_FONT_PROPERTY]) -> windows_core::Result<()>
@@ -5780,7 +5780,7 @@ pub struct IDWriteFontSetBuilder1_Vtbl {
     pub base__: IDWriteFontSetBuilder_Vtbl,
     pub AddFontFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteFontSetBuilder2, IDWriteFontSetBuilder2_Vtbl, 0xee5ba612_b131_463c_8f4f_3189b9401e45);
+windows_core::imp::define_interface!(IDWriteFontSetBuilder2, IDWriteFontSetBuilder2_Vtbl, 0xee5ba612_b131_463c_8f4f_3189b9401e45);
 windows_core::imp::interface_hierarchy!(IDWriteFontSetBuilder2, windows_core::IUnknown, IDWriteFontSetBuilder, IDWriteFontSetBuilder1);
 impl IDWriteFontSetBuilder2 {
     pub unsafe fn AddFontFaceReference<P0>(&self, fontfacereference: P0, properties: &[DWRITE_FONT_PROPERTY]) -> windows_core::Result<()>
@@ -5832,7 +5832,7 @@ pub struct IDWriteFontSetBuilder2_Vtbl {
     pub AddFont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, DWRITE_FONT_SIMULATIONS, *const DWRITE_FONT_AXIS_VALUE, u32, *const DWRITE_FONT_AXIS_RANGE, u32, *const DWRITE_FONT_PROPERTY, u32) -> windows_core::HRESULT,
     pub AddFontFile2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteGdiInterop, IDWriteGdiInterop_Vtbl, 0x1edd9491_9853_4299_898f_6432983b6f3a);
+windows_core::imp::define_interface!(IDWriteGdiInterop, IDWriteGdiInterop_Vtbl, 0x1edd9491_9853_4299_898f_6432983b6f3a);
 windows_core::imp::interface_hierarchy!(IDWriteGdiInterop, windows_core::IUnknown);
 impl IDWriteGdiInterop {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5897,7 +5897,7 @@ pub struct IDWriteGdiInterop_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     CreateBitmapRenderTarget: usize,
 }
-windows_core::imp::com_interface!(IDWriteGdiInterop1, IDWriteGdiInterop1_Vtbl, 0x4556be70_3abd_4f70_90be_421780a6f515);
+windows_core::imp::define_interface!(IDWriteGdiInterop1, IDWriteGdiInterop1_Vtbl, 0x4556be70_3abd_4f70_90be_421780a6f515);
 windows_core::imp::interface_hierarchy!(IDWriteGdiInterop1, windows_core::IUnknown, IDWriteGdiInterop);
 impl IDWriteGdiInterop1 {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5988,7 +5988,7 @@ pub struct IDWriteGdiInterop1_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetMatchingFontsByLOGFONT: usize,
 }
-windows_core::imp::com_interface!(IDWriteGlyphRunAnalysis, IDWriteGlyphRunAnalysis_Vtbl, 0x7d97dbf7_e085_42d4_81e3_6a883bded118);
+windows_core::imp::define_interface!(IDWriteGlyphRunAnalysis, IDWriteGlyphRunAnalysis_Vtbl, 0x7d97dbf7_e085_42d4_81e3_6a883bded118);
 windows_core::imp::interface_hierarchy!(IDWriteGlyphRunAnalysis, windows_core::IUnknown);
 impl IDWriteGlyphRunAnalysis {
     pub unsafe fn GetAlphaTextureBounds(&self, texturetype: DWRITE_TEXTURE_TYPE) -> windows_core::Result<super::super::Foundation::RECT> {
@@ -6014,7 +6014,7 @@ pub struct IDWriteGlyphRunAnalysis_Vtbl {
     pub CreateAlphaTexture: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_TEXTURE_TYPE, *const super::super::Foundation::RECT, *mut u8, u32) -> windows_core::HRESULT,
     pub GetAlphaBlendParams: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut f32, *mut f32, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteInMemoryFontFileLoader, IDWriteInMemoryFontFileLoader_Vtbl, 0xdc102f47_a12d_4b1c_822d_9e117e33043f);
+windows_core::imp::define_interface!(IDWriteInMemoryFontFileLoader, IDWriteInMemoryFontFileLoader_Vtbl, 0xdc102f47_a12d_4b1c_822d_9e117e33043f);
 windows_core::imp::interface_hierarchy!(IDWriteInMemoryFontFileLoader, windows_core::IUnknown, IDWriteFontFileLoader);
 impl IDWriteInMemoryFontFileLoader {
     pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32) -> windows_core::Result<IDWriteFontFileStream> {
@@ -6041,7 +6041,7 @@ pub struct IDWriteInMemoryFontFileLoader_Vtbl {
     pub CreateInMemoryFontFileReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFileCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
-windows_core::imp::com_interface!(IDWriteInlineObject, IDWriteInlineObject_Vtbl, 0x8339fde3_106f_47ab_8373_1c6295eb10b3);
+windows_core::imp::define_interface!(IDWriteInlineObject, IDWriteInlineObject_Vtbl, 0x8339fde3_106f_47ab_8373_1c6295eb10b3);
 windows_core::imp::interface_hierarchy!(IDWriteInlineObject, windows_core::IUnknown);
 impl IDWriteInlineObject {
     pub unsafe fn Draw<P0, P1, P2, P3>(&self, clientdrawingcontext: Option<*const core::ffi::c_void>, renderer: P0, originx: f32, originy: f32, issideways: P1, isrighttoleft: P2, clientdrawingeffect: P3) -> windows_core::Result<()>
@@ -6075,7 +6075,7 @@ pub struct IDWriteInlineObject_Vtbl {
     pub GetOverhangMetrics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_OVERHANG_METRICS) -> windows_core::HRESULT,
     pub GetBreakConditions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_BREAK_CONDITION, *mut DWRITE_BREAK_CONDITION) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteLocalFontFileLoader, IDWriteLocalFontFileLoader_Vtbl, 0xb2d9f3ec_c9fe_4a11_a2ec_d86208f7c0a2);
+windows_core::imp::define_interface!(IDWriteLocalFontFileLoader, IDWriteLocalFontFileLoader_Vtbl, 0xb2d9f3ec_c9fe_4a11_a2ec_d86208f7c0a2);
 windows_core::imp::interface_hierarchy!(IDWriteLocalFontFileLoader, windows_core::IUnknown, IDWriteFontFileLoader);
 impl IDWriteLocalFontFileLoader {
     pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32) -> windows_core::Result<IDWriteFontFileStream> {
@@ -6103,7 +6103,7 @@ pub struct IDWriteLocalFontFileLoader_Vtbl {
     pub GetFilePathFromKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, windows_core::PWSTR, u32) -> windows_core::HRESULT,
     pub GetLastWriteTimeFromKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteLocalizedStrings, IDWriteLocalizedStrings_Vtbl, 0x08256209_099a_4b34_b86d_c22b110e7771);
+windows_core::imp::define_interface!(IDWriteLocalizedStrings, IDWriteLocalizedStrings_Vtbl, 0x08256209_099a_4b34_b86d_c22b110e7771);
 windows_core::imp::interface_hierarchy!(IDWriteLocalizedStrings, windows_core::IUnknown);
 impl IDWriteLocalizedStrings {
     pub unsafe fn GetCount(&self) -> u32 {
@@ -6142,7 +6142,7 @@ pub struct IDWriteLocalizedStrings_Vtbl {
     pub GetStringLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteNumberSubstitution, IDWriteNumberSubstitution_Vtbl, 0x14885cc9_bab0_4f90_b6ed_5c366a2cd03d);
+windows_core::imp::define_interface!(IDWriteNumberSubstitution, IDWriteNumberSubstitution_Vtbl, 0x14885cc9_bab0_4f90_b6ed_5c366a2cd03d);
 windows_core::imp::interface_hierarchy!(IDWriteNumberSubstitution, windows_core::IUnknown);
 impl IDWriteNumberSubstitution {}
 unsafe impl Send for IDWriteNumberSubstitution {}
@@ -6151,7 +6151,7 @@ unsafe impl Sync for IDWriteNumberSubstitution {}
 pub struct IDWriteNumberSubstitution_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
-windows_core::imp::com_interface!(IDWritePaintReader, IDWritePaintReader_Vtbl, 0x8128e912_3b97_42a5_ab6c_24aad3a86e54);
+windows_core::imp::define_interface!(IDWritePaintReader, IDWritePaintReader_Vtbl, 0x8128e912_3b97_42a5_ab6c_24aad3a86e54);
 windows_core::imp::interface_hierarchy!(IDWritePaintReader, windows_core::IUnknown);
 impl IDWritePaintReader {
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -6213,7 +6213,7 @@ pub struct IDWritePaintReader_Vtbl {
     GetGradientStops: usize,
     pub GetGradientStopColors: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DWRITE_PAINT_COLOR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWritePixelSnapping, IDWritePixelSnapping_Vtbl, 0xeaf3a2da_ecf4_4d24_b644_b34f6842024b);
+windows_core::imp::define_interface!(IDWritePixelSnapping, IDWritePixelSnapping_Vtbl, 0xeaf3a2da_ecf4_4d24_b644_b34f6842024b);
 windows_core::imp::interface_hierarchy!(IDWritePixelSnapping, windows_core::IUnknown);
 impl IDWritePixelSnapping {
     pub unsafe fn IsPixelSnappingDisabled(&self, clientdrawingcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -6237,7 +6237,7 @@ pub struct IDWritePixelSnapping_Vtbl {
     pub GetCurrentTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, *mut DWRITE_MATRIX) -> windows_core::HRESULT,
     pub GetPixelsPerDip: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteRemoteFontFileLoader, IDWriteRemoteFontFileLoader_Vtbl, 0x68648c83_6ede_46c0_ab46_20083a887fde);
+windows_core::imp::define_interface!(IDWriteRemoteFontFileLoader, IDWriteRemoteFontFileLoader_Vtbl, 0x68648c83_6ede_46c0_ab46_20083a887fde);
 windows_core::imp::interface_hierarchy!(IDWriteRemoteFontFileLoader, windows_core::IUnknown, IDWriteFontFileLoader);
 impl IDWriteRemoteFontFileLoader {
     pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32) -> windows_core::Result<IDWriteFontFileStream> {
@@ -6271,7 +6271,7 @@ pub struct IDWriteRemoteFontFileLoader_Vtbl {
     pub GetLocalityFromKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut DWRITE_LOCALITY) -> windows_core::HRESULT,
     pub CreateFontFileReferenceFromUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteRemoteFontFileStream, IDWriteRemoteFontFileStream_Vtbl, 0x4db3757a_2c72_4ed9_b2b6_1ababe1aff9c);
+windows_core::imp::define_interface!(IDWriteRemoteFontFileStream, IDWriteRemoteFontFileStream_Vtbl, 0x4db3757a_2c72_4ed9_b2b6_1ababe1aff9c);
 windows_core::imp::interface_hierarchy!(IDWriteRemoteFontFileStream, windows_core::IUnknown, IDWriteFontFileStream);
 impl IDWriteRemoteFontFileStream {
     pub unsafe fn ReadFileFragment(&self, fragmentstart: *mut *mut core::ffi::c_void, fileoffset: u64, fragmentsize: u64, fragmentcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -6313,7 +6313,7 @@ pub struct IDWriteRemoteFontFileStream_Vtbl {
     pub GetLocality: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_LOCALITY,
     pub BeginDownload: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const DWRITE_FILE_FRAGMENT, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteRenderingParams, IDWriteRenderingParams_Vtbl, 0x2f0da53a_2add_47cd_82ee_d9ec34688e75);
+windows_core::imp::define_interface!(IDWriteRenderingParams, IDWriteRenderingParams_Vtbl, 0x2f0da53a_2add_47cd_82ee_d9ec34688e75);
 windows_core::imp::interface_hierarchy!(IDWriteRenderingParams, windows_core::IUnknown);
 impl IDWriteRenderingParams {
     pub unsafe fn GetGamma(&self) -> f32 {
@@ -6343,7 +6343,7 @@ pub struct IDWriteRenderingParams_Vtbl {
     pub GetPixelGeometry: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_PIXEL_GEOMETRY,
     pub GetRenderingMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_RENDERING_MODE,
 }
-windows_core::imp::com_interface!(IDWriteRenderingParams1, IDWriteRenderingParams1_Vtbl, 0x94413cf4_a6fc_4248_8b50_6674348fcad3);
+windows_core::imp::define_interface!(IDWriteRenderingParams1, IDWriteRenderingParams1_Vtbl, 0x94413cf4_a6fc_4248_8b50_6674348fcad3);
 windows_core::imp::interface_hierarchy!(IDWriteRenderingParams1, windows_core::IUnknown, IDWriteRenderingParams);
 impl IDWriteRenderingParams1 {
     pub unsafe fn GetGamma(&self) -> f32 {
@@ -6372,7 +6372,7 @@ pub struct IDWriteRenderingParams1_Vtbl {
     pub base__: IDWriteRenderingParams_Vtbl,
     pub GetGrayscaleEnhancedContrast: unsafe extern "system" fn(*mut core::ffi::c_void) -> f32,
 }
-windows_core::imp::com_interface!(IDWriteRenderingParams2, IDWriteRenderingParams2_Vtbl, 0xf9d711c3_9777_40ae_87e8_3e5af9bf0948);
+windows_core::imp::define_interface!(IDWriteRenderingParams2, IDWriteRenderingParams2_Vtbl, 0xf9d711c3_9777_40ae_87e8_3e5af9bf0948);
 windows_core::imp::interface_hierarchy!(IDWriteRenderingParams2, windows_core::IUnknown, IDWriteRenderingParams, IDWriteRenderingParams1);
 impl IDWriteRenderingParams2 {
     pub unsafe fn GetGamma(&self) -> f32 {
@@ -6404,7 +6404,7 @@ pub struct IDWriteRenderingParams2_Vtbl {
     pub base__: IDWriteRenderingParams1_Vtbl,
     pub GetGridFitMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_GRID_FIT_MODE,
 }
-windows_core::imp::com_interface!(IDWriteRenderingParams3, IDWriteRenderingParams3_Vtbl, 0xb7924baa_391b_412a_8c5c_e44cc2d867dc);
+windows_core::imp::define_interface!(IDWriteRenderingParams3, IDWriteRenderingParams3_Vtbl, 0xb7924baa_391b_412a_8c5c_e44cc2d867dc);
 windows_core::imp::interface_hierarchy!(IDWriteRenderingParams3, windows_core::IUnknown, IDWriteRenderingParams, IDWriteRenderingParams1, IDWriteRenderingParams2);
 impl IDWriteRenderingParams3 {
     pub unsafe fn GetGamma(&self) -> f32 {
@@ -6439,7 +6439,7 @@ pub struct IDWriteRenderingParams3_Vtbl {
     pub base__: IDWriteRenderingParams2_Vtbl,
     pub GetRenderingMode1: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_RENDERING_MODE1,
 }
-windows_core::imp::com_interface!(IDWriteStringList, IDWriteStringList_Vtbl, 0xcfee3140_1157_47ca_8b85_31bfcf3f2d0e);
+windows_core::imp::define_interface!(IDWriteStringList, IDWriteStringList_Vtbl, 0xcfee3140_1157_47ca_8b85_31bfcf3f2d0e);
 windows_core::imp::interface_hierarchy!(IDWriteStringList, windows_core::IUnknown);
 impl IDWriteStringList {
     pub unsafe fn GetCount(&self) -> u32 {
@@ -6471,7 +6471,7 @@ pub struct IDWriteStringList_Vtbl {
     pub GetStringLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTextAnalysisSink, IDWriteTextAnalysisSink_Vtbl, 0x5810cd44_0ca0_4701_b3fa_bec5182ae4f6);
+windows_core::imp::define_interface!(IDWriteTextAnalysisSink, IDWriteTextAnalysisSink_Vtbl, 0x5810cd44_0ca0_4701_b3fa_bec5182ae4f6);
 windows_core::imp::interface_hierarchy!(IDWriteTextAnalysisSink, windows_core::IUnknown);
 impl IDWriteTextAnalysisSink {
     pub unsafe fn SetScriptAnalysis(&self, textposition: u32, textlength: u32, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS) -> windows_core::Result<()> {
@@ -6500,7 +6500,7 @@ pub struct IDWriteTextAnalysisSink_Vtbl {
     pub SetBidiLevel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u8, u8) -> windows_core::HRESULT,
     pub SetNumberSubstitution: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTextAnalysisSink1, IDWriteTextAnalysisSink1_Vtbl, 0xb0d941a0_85e7_4d8b_9fd3_5ced9934482a);
+windows_core::imp::define_interface!(IDWriteTextAnalysisSink1, IDWriteTextAnalysisSink1_Vtbl, 0xb0d941a0_85e7_4d8b_9fd3_5ced9934482a);
 windows_core::imp::interface_hierarchy!(IDWriteTextAnalysisSink1, windows_core::IUnknown, IDWriteTextAnalysisSink);
 impl IDWriteTextAnalysisSink1 {
     pub unsafe fn SetScriptAnalysis(&self, textposition: u32, textlength: u32, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS) -> windows_core::Result<()> {
@@ -6533,7 +6533,7 @@ pub struct IDWriteTextAnalysisSink1_Vtbl {
     pub base__: IDWriteTextAnalysisSink_Vtbl,
     pub SetGlyphOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, DWRITE_GLYPH_ORIENTATION_ANGLE, u8, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTextAnalysisSource, IDWriteTextAnalysisSource_Vtbl, 0x688e1a58_5094_47c8_adc8_fbcea60ae92b);
+windows_core::imp::define_interface!(IDWriteTextAnalysisSource, IDWriteTextAnalysisSource_Vtbl, 0x688e1a58_5094_47c8_adc8_fbcea60ae92b);
 windows_core::imp::interface_hierarchy!(IDWriteTextAnalysisSource, windows_core::IUnknown);
 impl IDWriteTextAnalysisSource {
     pub unsafe fn GetTextAtPosition(&self, textposition: u32, textstring: *mut *mut u16, textlength: *mut u32) -> windows_core::Result<()> {
@@ -6563,7 +6563,7 @@ pub struct IDWriteTextAnalysisSource_Vtbl {
     pub GetLocaleName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut *mut u16) -> windows_core::HRESULT,
     pub GetNumberSubstitution: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTextAnalysisSource1, IDWriteTextAnalysisSource1_Vtbl, 0x639cfad8_0fb4_4b21_a58a_067920120009);
+windows_core::imp::define_interface!(IDWriteTextAnalysisSource1, IDWriteTextAnalysisSource1_Vtbl, 0x639cfad8_0fb4_4b21_a58a_067920120009);
 windows_core::imp::interface_hierarchy!(IDWriteTextAnalysisSource1, windows_core::IUnknown, IDWriteTextAnalysisSource);
 impl IDWriteTextAnalysisSource1 {
     pub unsafe fn GetTextAtPosition(&self, textposition: u32, textstring: *mut *mut u16, textlength: *mut u32) -> windows_core::Result<()> {
@@ -6592,7 +6592,7 @@ pub struct IDWriteTextAnalysisSource1_Vtbl {
     pub base__: IDWriteTextAnalysisSource_Vtbl,
     pub GetVerticalGlyphOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut DWRITE_VERTICAL_GLYPH_ORIENTATION, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTextAnalyzer, IDWriteTextAnalyzer_Vtbl, 0xb7e6163e_7f46_43b4_84b3_e4e6249c365d);
+windows_core::imp::define_interface!(IDWriteTextAnalyzer, IDWriteTextAnalyzer_Vtbl, 0xb7e6163e_7f46_43b4_84b3_e4e6249c365d);
 windows_core::imp::interface_hierarchy!(IDWriteTextAnalyzer, windows_core::IUnknown);
 impl IDWriteTextAnalyzer {
     pub unsafe fn AnalyzeScript<P0, P1>(&self, analysissource: P0, textposition: u32, textlength: u32, analysissink: P1) -> windows_core::Result<()>
@@ -6713,7 +6713,7 @@ pub struct IDWriteTextAnalyzer_Vtbl {
     pub GetGlyphPlacements: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const u16, *mut DWRITE_SHAPING_TEXT_PROPERTIES, u32, *const u16, *const DWRITE_SHAPING_GLYPH_PROPERTIES, u32, *mut core::ffi::c_void, f32, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *const DWRITE_SCRIPT_ANALYSIS, windows_core::PCWSTR, *const *const DWRITE_TYPOGRAPHIC_FEATURES, *const u32, u32, *mut f32, *mut DWRITE_GLYPH_OFFSET) -> windows_core::HRESULT,
     pub GetGdiCompatibleGlyphPlacements: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const u16, *const DWRITE_SHAPING_TEXT_PROPERTIES, u32, *const u16, *const DWRITE_SHAPING_GLYPH_PROPERTIES, u32, *mut core::ffi::c_void, f32, f32, *const DWRITE_MATRIX, super::super::Foundation::BOOL, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *const DWRITE_SCRIPT_ANALYSIS, windows_core::PCWSTR, *const *const DWRITE_TYPOGRAPHIC_FEATURES, *const u32, u32, *mut f32, *mut DWRITE_GLYPH_OFFSET) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTextAnalyzer1, IDWriteTextAnalyzer1_Vtbl, 0x80dad800_e21f_4e83_96ce_bfcce500db7c);
+windows_core::imp::define_interface!(IDWriteTextAnalyzer1, IDWriteTextAnalyzer1_Vtbl, 0x80dad800_e21f_4e83_96ce_bfcce500db7c);
 windows_core::imp::interface_hierarchy!(IDWriteTextAnalyzer1, windows_core::IUnknown, IDWriteTextAnalyzer);
 impl IDWriteTextAnalyzer1 {
     pub unsafe fn AnalyzeScript<P0, P1>(&self, analysissource: P0, textposition: u32, textlength: u32, analysissink: P1) -> windows_core::Result<()>
@@ -6887,7 +6887,7 @@ pub struct IDWriteTextAnalyzer1_Vtbl {
     pub JustifyGlyphAdvances: unsafe extern "system" fn(*mut core::ffi::c_void, f32, u32, *const DWRITE_JUSTIFICATION_OPPORTUNITY, *const f32, *const DWRITE_GLYPH_OFFSET, *mut f32, *mut DWRITE_GLYPH_OFFSET) -> windows_core::HRESULT,
     pub GetJustifiedGlyphs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f32, DWRITE_SCRIPT_ANALYSIS, u32, u32, u32, *const u16, *const u16, *const f32, *const f32, *const DWRITE_GLYPH_OFFSET, *const DWRITE_SHAPING_GLYPH_PROPERTIES, *mut u32, *mut u16, *mut u16, *mut f32, *mut DWRITE_GLYPH_OFFSET) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTextAnalyzer2, IDWriteTextAnalyzer2_Vtbl, 0x553a9ff3_5693_4df7_b52b_74806f7f2eb9);
+windows_core::imp::define_interface!(IDWriteTextAnalyzer2, IDWriteTextAnalyzer2_Vtbl, 0x553a9ff3_5693_4df7_b52b_74806f7f2eb9);
 windows_core::imp::interface_hierarchy!(IDWriteTextAnalyzer2, windows_core::IUnknown, IDWriteTextAnalyzer, IDWriteTextAnalyzer1);
 impl IDWriteTextAnalyzer2 {
     pub unsafe fn AnalyzeScript<P0, P1>(&self, analysissource: P0, textposition: u32, textlength: u32, analysissink: P1) -> windows_core::Result<()>
@@ -7075,7 +7075,7 @@ pub struct IDWriteTextAnalyzer2_Vtbl {
     pub GetTypographicFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DWRITE_SCRIPT_ANALYSIS, windows_core::PCWSTR, u32, *mut u32, *mut DWRITE_FONT_FEATURE_TAG) -> windows_core::HRESULT,
     pub CheckTypographicFeature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DWRITE_SCRIPT_ANALYSIS, windows_core::PCWSTR, DWRITE_FONT_FEATURE_TAG, u32, *const u16, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTextFormat, IDWriteTextFormat_Vtbl, 0x9c906818_31d7_4fd3_a151_7c5e225db55a);
+windows_core::imp::define_interface!(IDWriteTextFormat, IDWriteTextFormat_Vtbl, 0x9c906818_31d7_4fd3_a151_7c5e225db55a);
 windows_core::imp::interface_hierarchy!(IDWriteTextFormat, windows_core::IUnknown);
 impl IDWriteTextFormat {
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> windows_core::Result<()> {
@@ -7189,7 +7189,7 @@ pub struct IDWriteTextFormat_Vtbl {
     pub GetLocaleNameLength: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetLocaleName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTextFormat1, IDWriteTextFormat1_Vtbl, 0x5f174b49_0d8b_4cfb_8bca_f1cce9d06c67);
+windows_core::imp::define_interface!(IDWriteTextFormat1, IDWriteTextFormat1_Vtbl, 0x5f174b49_0d8b_4cfb_8bca_f1cce9d06c67);
 windows_core::imp::interface_hierarchy!(IDWriteTextFormat1, windows_core::IUnknown, IDWriteTextFormat);
 impl IDWriteTextFormat1 {
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> windows_core::Result<()> {
@@ -7317,7 +7317,7 @@ pub struct IDWriteTextFormat1_Vtbl {
     pub SetFontFallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFontFallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTextFormat2, IDWriteTextFormat2_Vtbl, 0xf67e0edd_9e3d_4ecc_8c32_4183253dfe70);
+windows_core::imp::define_interface!(IDWriteTextFormat2, IDWriteTextFormat2_Vtbl, 0xf67e0edd_9e3d_4ecc_8c32_4183253dfe70);
 windows_core::imp::interface_hierarchy!(IDWriteTextFormat2, windows_core::IUnknown, IDWriteTextFormat, IDWriteTextFormat1);
 impl IDWriteTextFormat2 {
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> windows_core::Result<()> {
@@ -7445,7 +7445,7 @@ pub struct IDWriteTextFormat2_Vtbl {
     pub SetLineSpacing2: unsafe extern "system" fn(*mut core::ffi::c_void, *const DWRITE_LINE_SPACING) -> windows_core::HRESULT,
     pub GetLineSpacing2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_LINE_SPACING) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTextFormat3, IDWriteTextFormat3_Vtbl, 0x6d3b5641_e550_430d_a85b_b7bf48a93427);
+windows_core::imp::define_interface!(IDWriteTextFormat3, IDWriteTextFormat3_Vtbl, 0x6d3b5641_e550_430d_a85b_b7bf48a93427);
 windows_core::imp::interface_hierarchy!(IDWriteTextFormat3, windows_core::IUnknown, IDWriteTextFormat, IDWriteTextFormat1, IDWriteTextFormat2);
 impl IDWriteTextFormat3 {
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> windows_core::Result<()> {
@@ -7591,7 +7591,7 @@ pub struct IDWriteTextFormat3_Vtbl {
     pub GetAutomaticFontAxes: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_AUTOMATIC_FONT_AXES,
     pub SetAutomaticFontAxes: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_AUTOMATIC_FONT_AXES) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTextLayout, IDWriteTextLayout_Vtbl, 0x53737037_6d14_410b_9bfe_0b182bb70961);
+windows_core::imp::define_interface!(IDWriteTextLayout, IDWriteTextLayout_Vtbl, 0x53737037_6d14_410b_9bfe_0b182bb70961);
 windows_core::imp::interface_hierarchy!(IDWriteTextLayout, windows_core::IUnknown, IDWriteTextFormat);
 impl IDWriteTextLayout {
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> windows_core::Result<()> {
@@ -7868,7 +7868,7 @@ pub struct IDWriteTextLayout_Vtbl {
     pub HitTestTextPosition: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::BOOL, *mut f32, *mut f32, *mut DWRITE_HIT_TEST_METRICS) -> windows_core::HRESULT,
     pub HitTestTextRange: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, f32, f32, *mut DWRITE_HIT_TEST_METRICS, u32, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTextLayout1, IDWriteTextLayout1_Vtbl, 0x9064d822_80a7_465c_a986_df65f78b8feb);
+windows_core::imp::define_interface!(IDWriteTextLayout1, IDWriteTextLayout1_Vtbl, 0x9064d822_80a7_465c_a986_df65f78b8feb);
 windows_core::imp::interface_hierarchy!(IDWriteTextLayout1, windows_core::IUnknown, IDWriteTextFormat, IDWriteTextLayout);
 impl IDWriteTextLayout1 {
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> windows_core::Result<()> {
@@ -8125,7 +8125,7 @@ pub struct IDWriteTextLayout1_Vtbl {
     pub SetCharacterSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, DWRITE_TEXT_RANGE) -> windows_core::HRESULT,
     pub GetCharacterSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32, *mut f32, *mut f32, *mut DWRITE_TEXT_RANGE) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTextLayout2, IDWriteTextLayout2_Vtbl, 0x1093c18f_8d5e_43f0_b064_0917311b525e);
+windows_core::imp::define_interface!(IDWriteTextLayout2, IDWriteTextLayout2_Vtbl, 0x1093c18f_8d5e_43f0_b064_0917311b525e);
 windows_core::imp::interface_hierarchy!(IDWriteTextLayout2, windows_core::IUnknown, IDWriteTextFormat, IDWriteTextLayout, IDWriteTextLayout1);
 impl IDWriteTextLayout2 {
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> windows_core::Result<()> {
@@ -8421,7 +8421,7 @@ pub struct IDWriteTextLayout2_Vtbl {
     pub SetFontFallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFontFallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTextLayout3, IDWriteTextLayout3_Vtbl, 0x07ddcd52_020e_4de8_ac33_6c953d83f92d);
+windows_core::imp::define_interface!(IDWriteTextLayout3, IDWriteTextLayout3_Vtbl, 0x07ddcd52_020e_4de8_ac33_6c953d83f92d);
 windows_core::imp::interface_hierarchy!(IDWriteTextLayout3, windows_core::IUnknown, IDWriteTextFormat, IDWriteTextLayout, IDWriteTextLayout1, IDWriteTextLayout2);
 impl IDWriteTextLayout3 {
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> windows_core::Result<()> {
@@ -8724,7 +8724,7 @@ pub struct IDWriteTextLayout3_Vtbl {
     pub GetLineSpacing2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_LINE_SPACING) -> windows_core::HRESULT,
     pub GetLineMetrics2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DWRITE_LINE_METRICS1, u32, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTextLayout4, IDWriteTextLayout4_Vtbl, 0x05a9bf42_223f_4441_b5fb_8263685f55e9);
+windows_core::imp::define_interface!(IDWriteTextLayout4, IDWriteTextLayout4_Vtbl, 0x05a9bf42_223f_4441_b5fb_8263685f55e9);
 windows_core::imp::interface_hierarchy!(IDWriteTextLayout4, windows_core::IUnknown, IDWriteTextFormat, IDWriteTextLayout, IDWriteTextLayout1, IDWriteTextLayout2, IDWriteTextLayout3);
 impl IDWriteTextLayout4 {
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> windows_core::Result<()> {
@@ -9043,7 +9043,7 @@ pub struct IDWriteTextLayout4_Vtbl {
     pub GetAutomaticFontAxes: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_AUTOMATIC_FONT_AXES,
     pub SetAutomaticFontAxes: unsafe extern "system" fn(*mut core::ffi::c_void, DWRITE_AUTOMATIC_FONT_AXES) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTextRenderer, IDWriteTextRenderer_Vtbl, 0xef8a8135_5cc6_45fe_8825_c5a0724eb819);
+windows_core::imp::define_interface!(IDWriteTextRenderer, IDWriteTextRenderer_Vtbl, 0xef8a8135_5cc6_45fe_8825_c5a0724eb819);
 windows_core::imp::interface_hierarchy!(IDWriteTextRenderer, windows_core::IUnknown, IDWritePixelSnapping);
 impl IDWriteTextRenderer {
     pub unsafe fn IsPixelSnappingDisabled(&self, clientdrawingcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -9095,7 +9095,7 @@ pub struct IDWriteTextRenderer_Vtbl {
     pub DrawStrikethrough: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, f32, f32, *const DWRITE_STRIKETHROUGH, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DrawInlineObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, f32, f32, *mut core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTextRenderer1, IDWriteTextRenderer1_Vtbl, 0xd3e0e934_22a0_427e_aae4_7d9574b59db1);
+windows_core::imp::define_interface!(IDWriteTextRenderer1, IDWriteTextRenderer1_Vtbl, 0xd3e0e934_22a0_427e_aae4_7d9574b59db1);
 windows_core::imp::interface_hierarchy!(IDWriteTextRenderer1, windows_core::IUnknown, IDWritePixelSnapping, IDWriteTextRenderer);
 impl IDWriteTextRenderer1 {
     pub unsafe fn IsPixelSnappingDisabled(&self, clientdrawingcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -9174,7 +9174,7 @@ pub struct IDWriteTextRenderer1_Vtbl {
     pub DrawStrikethrough2: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, f32, f32, DWRITE_GLYPH_ORIENTATION_ANGLE, *const DWRITE_STRIKETHROUGH, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DrawInlineObject2: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, f32, f32, DWRITE_GLYPH_ORIENTATION_ANGLE, *mut core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDWriteTypography, IDWriteTypography_Vtbl, 0x55f1112b_1dc2_4b3c_9541_f46894ed85b6);
+windows_core::imp::define_interface!(IDWriteTypography, IDWriteTypography_Vtbl, 0x55f1112b_1dc2_4b3c_9541_f46894ed85b6);
 windows_core::imp::interface_hierarchy!(IDWriteTypography, windows_core::IUnknown);
 impl IDWriteTypography {
     pub unsafe fn AddFontFeature(&self, fontfeature: DWRITE_FONT_FEATURE) -> windows_core::Result<()> {

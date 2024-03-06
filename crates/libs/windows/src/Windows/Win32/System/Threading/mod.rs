@@ -2439,7 +2439,7 @@ where
     windows_targets::link!("kernel32.dll" "system" fn Wow64SuspendThread(hthread : super::super::Foundation:: HANDLE) -> u32);
     Wow64SuspendThread(hthread.into_param().abi())
 }
-windows_core::imp::com_interface!(IRtwqAsyncCallback, IRtwqAsyncCallback_Vtbl, 0xa27003cf_2354_4f2a_8d6a_ab7cff15437e);
+windows_core::imp::define_interface!(IRtwqAsyncCallback, IRtwqAsyncCallback_Vtbl, 0xa27003cf_2354_4f2a_8d6a_ab7cff15437e);
 windows_core::imp::interface_hierarchy!(IRtwqAsyncCallback, windows_core::IUnknown);
 impl IRtwqAsyncCallback {
     pub unsafe fn GetParameters(&self, pdwflags: *mut u32, pdwqueue: *mut u32) -> windows_core::Result<()> {
@@ -2458,7 +2458,7 @@ pub struct IRtwqAsyncCallback_Vtbl {
     pub GetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IRtwqAsyncResult, IRtwqAsyncResult_Vtbl, 0xac6b7889_0740_4d51_8619_905994a55cc6);
+windows_core::imp::define_interface!(IRtwqAsyncResult, IRtwqAsyncResult_Vtbl, 0xac6b7889_0740_4d51_8619_905994a55cc6);
 windows_core::imp::interface_hierarchy!(IRtwqAsyncResult, windows_core::IUnknown);
 impl IRtwqAsyncResult {
     pub unsafe fn GetState(&self) -> windows_core::Result<windows_core::IUnknown> {
@@ -2488,7 +2488,7 @@ pub struct IRtwqAsyncResult_Vtbl {
     pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetStateNoAddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<windows_core::IUnknown>,
 }
-windows_core::imp::com_interface!(IRtwqPlatformEvents, IRtwqPlatformEvents_Vtbl, 0x63d9255a_7ff1_4b61_8faf_ed6460dacf2b);
+windows_core::imp::define_interface!(IRtwqPlatformEvents, IRtwqPlatformEvents_Vtbl, 0x63d9255a_7ff1_4b61_8faf_ed6460dacf2b);
 windows_core::imp::interface_hierarchy!(IRtwqPlatformEvents, windows_core::IUnknown);
 impl IRtwqPlatformEvents {
     pub unsafe fn InitializationComplete(&self) -> windows_core::Result<()> {
@@ -2508,7 +2508,7 @@ pub struct IRtwqPlatformEvents_Vtbl {
     pub ShutdownStart: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShutdownComplete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(RTWQASYNCRESULT, RTWQASYNCRESULT_Vtbl, 0);
+windows_core::imp::define_interface!(RTWQASYNCRESULT, RTWQASYNCRESULT_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(RTWQASYNCRESULT, windows_core::IUnknown, IRtwqAsyncResult);
 impl RTWQASYNCRESULT {
     pub unsafe fn GetState(&self) -> windows_core::Result<windows_core::IUnknown> {

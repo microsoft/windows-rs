@@ -1,6 +1,6 @@
 #[cfg(feature = "Devices_WiFiDirect_Services")]
 pub mod Services;
-windows_core::imp::com_interface!(IWiFiDirectAdvertisement, IWiFiDirectAdvertisement_Vtbl, 0xab511a2d_2a06_49a1_a584_61435c7905a6);
+windows_core::imp::define_interface!(IWiFiDirectAdvertisement, IWiFiDirectAdvertisement_Vtbl, 0xab511a2d_2a06_49a1_a584_61435c7905a6);
 #[repr(C)]
 pub struct IWiFiDirectAdvertisement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -18,7 +18,7 @@ pub struct IWiFiDirectAdvertisement_Vtbl {
     pub SetIsAutonomousGroupOwnerEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub LegacySettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWiFiDirectAdvertisement2, IWiFiDirectAdvertisement2_Vtbl, 0xb759aa46_d816_491b_917a_b40d7dc403a2);
+windows_core::imp::define_interface!(IWiFiDirectAdvertisement2, IWiFiDirectAdvertisement2_Vtbl, 0xb759aa46_d816_491b_917a_b40d7dc403a2);
 #[repr(C)]
 pub struct IWiFiDirectAdvertisement2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -27,7 +27,7 @@ pub struct IWiFiDirectAdvertisement2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SupportedConfigurationMethods: usize,
 }
-windows_core::imp::com_interface!(IWiFiDirectAdvertisementPublisher, IWiFiDirectAdvertisementPublisher_Vtbl, 0xb35a2d1a_9b1f_45d9_925a_694d66df68ef);
+windows_core::imp::define_interface!(IWiFiDirectAdvertisementPublisher, IWiFiDirectAdvertisementPublisher_Vtbl, 0xb35a2d1a_9b1f_45d9_925a_694d66df68ef);
 #[repr(C)]
 pub struct IWiFiDirectAdvertisementPublisher_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -38,28 +38,28 @@ pub struct IWiFiDirectAdvertisementPublisher_Vtbl {
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWiFiDirectAdvertisementPublisherStatusChangedEventArgs, IWiFiDirectAdvertisementPublisherStatusChangedEventArgs_Vtbl, 0xaafde53c_5481_46e6_90dd_32116518f192);
+windows_core::imp::define_interface!(IWiFiDirectAdvertisementPublisherStatusChangedEventArgs, IWiFiDirectAdvertisementPublisherStatusChangedEventArgs_Vtbl, 0xaafde53c_5481_46e6_90dd_32116518f192);
 #[repr(C)]
 pub struct IWiFiDirectAdvertisementPublisherStatusChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WiFiDirectAdvertisementPublisherStatus) -> windows_core::HRESULT,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WiFiDirectError) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWiFiDirectConnectionListener, IWiFiDirectConnectionListener_Vtbl, 0x699c1b0d_8d13_4ee9_b9ec_9c72f8251f7d);
+windows_core::imp::define_interface!(IWiFiDirectConnectionListener, IWiFiDirectConnectionListener_Vtbl, 0x699c1b0d_8d13_4ee9_b9ec_9c72f8251f7d);
 #[repr(C)]
 pub struct IWiFiDirectConnectionListener_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ConnectionRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveConnectionRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWiFiDirectConnectionParameters, IWiFiDirectConnectionParameters_Vtbl, 0xb2e55405_5702_4b16_a02c_bbcd21ef6098);
+windows_core::imp::define_interface!(IWiFiDirectConnectionParameters, IWiFiDirectConnectionParameters_Vtbl, 0xb2e55405_5702_4b16_a02c_bbcd21ef6098);
 #[repr(C)]
 pub struct IWiFiDirectConnectionParameters_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GroupOwnerIntent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i16) -> windows_core::HRESULT,
     pub SetGroupOwnerIntent: unsafe extern "system" fn(*mut core::ffi::c_void, i16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWiFiDirectConnectionParameters2, IWiFiDirectConnectionParameters2_Vtbl, 0xab3b0fbe_aa82_44b4_88c8_e3056b89801d);
+windows_core::imp::define_interface!(IWiFiDirectConnectionParameters2, IWiFiDirectConnectionParameters2_Vtbl, 0xab3b0fbe_aa82_44b4_88c8_e3056b89801d);
 #[repr(C)]
 pub struct IWiFiDirectConnectionParameters2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -70,7 +70,7 @@ pub struct IWiFiDirectConnectionParameters2_Vtbl {
     pub PreferredPairingProcedure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WiFiDirectPairingProcedure) -> windows_core::HRESULT,
     pub SetPreferredPairingProcedure: unsafe extern "system" fn(*mut core::ffi::c_void, WiFiDirectPairingProcedure) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWiFiDirectConnectionParametersStatics, IWiFiDirectConnectionParametersStatics_Vtbl, 0x598af493_7642_456f_b9d8_e8a9eb1f401a);
+windows_core::imp::define_interface!(IWiFiDirectConnectionParametersStatics, IWiFiDirectConnectionParametersStatics_Vtbl, 0x598af493_7642_456f_b9d8_e8a9eb1f401a);
 #[repr(C)]
 pub struct IWiFiDirectConnectionParametersStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -79,7 +79,7 @@ pub struct IWiFiDirectConnectionParametersStatics_Vtbl {
     #[cfg(not(feature = "Devices_Enumeration"))]
     GetDevicePairingKinds: usize,
 }
-windows_core::imp::com_interface!(IWiFiDirectConnectionRequest, IWiFiDirectConnectionRequest_Vtbl, 0x8eb99605_914f_49c3_a614_d18dc5b19b43);
+windows_core::imp::define_interface!(IWiFiDirectConnectionRequest, IWiFiDirectConnectionRequest_Vtbl, 0x8eb99605_914f_49c3_a614_d18dc5b19b43);
 #[repr(C)]
 pub struct IWiFiDirectConnectionRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -88,13 +88,13 @@ pub struct IWiFiDirectConnectionRequest_Vtbl {
     #[cfg(not(feature = "Devices_Enumeration"))]
     DeviceInformation: usize,
 }
-windows_core::imp::com_interface!(IWiFiDirectConnectionRequestedEventArgs, IWiFiDirectConnectionRequestedEventArgs_Vtbl, 0xf99d20be_d38d_484f_8215_e7b65abf244c);
+windows_core::imp::define_interface!(IWiFiDirectConnectionRequestedEventArgs, IWiFiDirectConnectionRequestedEventArgs_Vtbl, 0xf99d20be_d38d_484f_8215_e7b65abf244c);
 #[repr(C)]
 pub struct IWiFiDirectConnectionRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetConnectionRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWiFiDirectDevice, IWiFiDirectDevice_Vtbl, 0x72deaaa8_72eb_4dae_8a28_8513355d2777);
+windows_core::imp::define_interface!(IWiFiDirectDevice, IWiFiDirectDevice_Vtbl, 0x72deaaa8_72eb_4dae_8a28_8513355d2777);
 #[repr(C)]
 pub struct IWiFiDirectDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -107,21 +107,21 @@ pub struct IWiFiDirectDevice_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Networking")))]
     GetConnectionEndpointPairs: usize,
 }
-windows_core::imp::com_interface!(IWiFiDirectDeviceStatics, IWiFiDirectDeviceStatics_Vtbl, 0xe86cb57c_3aac_4851_a792_482aaf931b04);
+windows_core::imp::define_interface!(IWiFiDirectDeviceStatics, IWiFiDirectDeviceStatics_Vtbl, 0xe86cb57c_3aac_4851_a792_482aaf931b04);
 #[repr(C)]
 pub struct IWiFiDirectDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWiFiDirectDeviceStatics2, IWiFiDirectDeviceStatics2_Vtbl, 0x1a953e49_b103_437e_9226_ab67971342f9);
+windows_core::imp::define_interface!(IWiFiDirectDeviceStatics2, IWiFiDirectDeviceStatics2_Vtbl, 0x1a953e49_b103_437e_9226_ab67971342f9);
 #[repr(C)]
 pub struct IWiFiDirectDeviceStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, WiFiDirectDeviceSelectorType, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWiFiDirectInformationElement, IWiFiDirectInformationElement_Vtbl, 0xaffb72d6_76bb_497e_ac8b_dc72838bc309);
+windows_core::imp::define_interface!(IWiFiDirectInformationElement, IWiFiDirectInformationElement_Vtbl, 0xaffb72d6_76bb_497e_ac8b_dc72838bc309);
 #[repr(C)]
 pub struct IWiFiDirectInformationElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -144,7 +144,7 @@ pub struct IWiFiDirectInformationElement_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     SetValue: usize,
 }
-windows_core::imp::com_interface!(IWiFiDirectInformationElementStatics, IWiFiDirectInformationElementStatics_Vtbl, 0xdbd02f16_11a5_4e60_8caa_34772148378a);
+windows_core::imp::define_interface!(IWiFiDirectInformationElementStatics, IWiFiDirectInformationElementStatics_Vtbl, 0xdbd02f16_11a5_4e60_8caa_34772148378a);
 #[repr(C)]
 pub struct IWiFiDirectInformationElementStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -157,7 +157,7 @@ pub struct IWiFiDirectInformationElementStatics_Vtbl {
     #[cfg(not(all(feature = "Devices_Enumeration", feature = "Foundation_Collections")))]
     CreateFromDeviceInformation: usize,
 }
-windows_core::imp::com_interface!(IWiFiDirectLegacySettings, IWiFiDirectLegacySettings_Vtbl, 0xa64fdbba_f2fd_4567_a91b_f5c2f5321057);
+windows_core::imp::define_interface!(IWiFiDirectLegacySettings, IWiFiDirectLegacySettings_Vtbl, 0xa64fdbba_f2fd_4567_a91b_f5c2f5321057);
 #[repr(C)]
 pub struct IWiFiDirectLegacySettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

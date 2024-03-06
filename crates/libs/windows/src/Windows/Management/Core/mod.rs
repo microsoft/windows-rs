@@ -1,9 +1,9 @@
-windows_core::imp::com_interface!(IApplicationDataManager, IApplicationDataManager_Vtbl, 0x74d10432_2e99_4000_9a3a_64307e858129);
+windows_core::imp::define_interface!(IApplicationDataManager, IApplicationDataManager_Vtbl, 0x74d10432_2e99_4000_9a3a_64307e858129);
 #[repr(C)]
 pub struct IApplicationDataManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IApplicationDataManagerStatics, IApplicationDataManagerStatics_Vtbl, 0x1e1862e3_698e_49a1_9752_dee94925b9b3);
+windows_core::imp::define_interface!(IApplicationDataManagerStatics, IApplicationDataManagerStatics_Vtbl, 0x1e1862e3_698e_49a1_9752_dee94925b9b3);
 #[repr(C)]
 pub struct IApplicationDataManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

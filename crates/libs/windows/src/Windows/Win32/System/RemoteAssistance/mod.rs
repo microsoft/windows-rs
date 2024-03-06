@@ -1,5 +1,5 @@
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(DRendezvousSessionEvents, DRendezvousSessionEvents_Vtbl, 0x3fa19cf8_64c4_4f53_ae60_635b3806eca6);
+windows_core::imp::define_interface!(DRendezvousSessionEvents, DRendezvousSessionEvents_Vtbl, 0x3fa19cf8_64c4_4f53_ae60_635b3806eca6);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(DRendezvousSessionEvents, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -9,7 +9,7 @@ impl DRendezvousSessionEvents {}
 pub struct DRendezvousSessionEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
-windows_core::imp::com_interface!(IRendezvousApplication, IRendezvousApplication_Vtbl, 0x4f4d070b_a275_49fb_b10d_8ec26387b50d);
+windows_core::imp::define_interface!(IRendezvousApplication, IRendezvousApplication_Vtbl, 0x4f4d070b_a275_49fb_b10d_8ec26387b50d);
 windows_core::imp::interface_hierarchy!(IRendezvousApplication, windows_core::IUnknown);
 impl IRendezvousApplication {
     pub unsafe fn SetRendezvousSession<P0>(&self, prendezvoussession: P0) -> windows_core::Result<()>
@@ -24,7 +24,7 @@ pub struct IRendezvousApplication_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetRendezvousSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IRendezvousSession, IRendezvousSession_Vtbl, 0x9ba4b1dd_8b0c_48b7_9e7c_2f25857c8df5);
+windows_core::imp::define_interface!(IRendezvousSession, IRendezvousSession_Vtbl, 0x9ba4b1dd_8b0c_48b7_9e7c_2f25857c8df5);
 windows_core::imp::interface_hierarchy!(IRendezvousSession, windows_core::IUnknown);
 impl IRendezvousSession {
     pub unsafe fn State(&self) -> windows_core::Result<RENDEZVOUS_SESSION_STATE> {

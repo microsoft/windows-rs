@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(ICredentialPickerOptions, ICredentialPickerOptions_Vtbl, 0x965a0b4c_95fa_467f_992b_0b22e5859bf6);
+windows_core::imp::define_interface!(ICredentialPickerOptions, ICredentialPickerOptions_Vtbl, 0x965a0b4c_95fa_467f_992b_0b22e5859bf6);
 #[repr(C)]
 pub struct ICredentialPickerOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -29,7 +29,7 @@ pub struct ICredentialPickerOptions_Vtbl {
     pub SetCredentialSaveOption: unsafe extern "system" fn(*mut core::ffi::c_void, CredentialSaveOption) -> windows_core::HRESULT,
     pub CredentialSaveOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CredentialSaveOption) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICredentialPickerResults, ICredentialPickerResults_Vtbl, 0x1948f99a_cc30_410c_9c38_cc0884c5b3d7);
+windows_core::imp::define_interface!(ICredentialPickerResults, ICredentialPickerResults_Vtbl, 0x1948f99a_cc30_410c_9c38_cc0884c5b3d7);
 #[repr(C)]
 pub struct ICredentialPickerResults_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -44,7 +44,7 @@ pub struct ICredentialPickerResults_Vtbl {
     pub CredentialUserName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub CredentialPassword: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICredentialPickerStatics, ICredentialPickerStatics_Vtbl, 0xaa3a5c73_c9ea_4782_99fb_e6d7e938e12d);
+windows_core::imp::define_interface!(ICredentialPickerStatics, ICredentialPickerStatics_Vtbl, 0xaa3a5c73_c9ea_4782_99fb_e6d7e938e12d);
 #[repr(C)]
 pub struct ICredentialPickerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -52,7 +52,7 @@ pub struct ICredentialPickerStatics_Vtbl {
     pub PickWithMessageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PickWithCaptionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IUserConsentVerifierStatics, IUserConsentVerifierStatics_Vtbl, 0xaf4f3f91_564c_4ddc_b8b5_973447627c65);
+windows_core::imp::define_interface!(IUserConsentVerifierStatics, IUserConsentVerifierStatics_Vtbl, 0xaf4f3f91_564c_4ddc_b8b5_973447627c65);
 #[repr(C)]
 pub struct IUserConsentVerifierStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
