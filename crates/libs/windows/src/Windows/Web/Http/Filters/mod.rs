@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IHttpBaseProtocolFilter, IHttpBaseProtocolFilter_Vtbl, 0x71c89b09_e131_4b54_a53c_eb43ff37e9bb);
+windows_core::imp::define_interface!(IHttpBaseProtocolFilter, IHttpBaseProtocolFilter_Vtbl, 0x71c89b09_e131_4b54_a53c_eb43ff37e9bb);
 #[repr(C)]
 pub struct IHttpBaseProtocolFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -43,21 +43,21 @@ pub struct IHttpBaseProtocolFilter_Vtbl {
     pub UseProxy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetUseProxy: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IHttpBaseProtocolFilter2, IHttpBaseProtocolFilter2_Vtbl, 0x2ec30013_9427_4900_a017_fa7da3b5c9ae);
+windows_core::imp::define_interface!(IHttpBaseProtocolFilter2, IHttpBaseProtocolFilter2_Vtbl, 0x2ec30013_9427_4900_a017_fa7da3b5c9ae);
 #[repr(C)]
 pub struct IHttpBaseProtocolFilter2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::HttpVersion) -> windows_core::HRESULT,
     pub SetMaxVersion: unsafe extern "system" fn(*mut core::ffi::c_void, super::HttpVersion) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IHttpBaseProtocolFilter3, IHttpBaseProtocolFilter3_Vtbl, 0xd43f4d4c_bd42_43ae_8717_ad2c8f4b2937);
+windows_core::imp::define_interface!(IHttpBaseProtocolFilter3, IHttpBaseProtocolFilter3_Vtbl, 0xd43f4d4c_bd42_43ae_8717_ad2c8f4b2937);
 #[repr(C)]
 pub struct IHttpBaseProtocolFilter3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CookieUsageBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HttpCookieUsageBehavior) -> windows_core::HRESULT,
     pub SetCookieUsageBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, HttpCookieUsageBehavior) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IHttpBaseProtocolFilter4, IHttpBaseProtocolFilter4_Vtbl, 0x9fe36ccf_2983_4893_941f_eb518ca8cef9);
+windows_core::imp::define_interface!(IHttpBaseProtocolFilter4, IHttpBaseProtocolFilter4_Vtbl, 0x9fe36ccf_2983_4893_941f_eb518ca8cef9);
 #[repr(C)]
 pub struct IHttpBaseProtocolFilter4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -65,7 +65,7 @@ pub struct IHttpBaseProtocolFilter4_Vtbl {
     pub RemoveServerCustomValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub ClearAuthenticationCache: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IHttpBaseProtocolFilter5, IHttpBaseProtocolFilter5_Vtbl, 0x416e4993_31e3_4816_bf09_e018ee8dc1f5);
+windows_core::imp::define_interface!(IHttpBaseProtocolFilter5, IHttpBaseProtocolFilter5_Vtbl, 0x416e4993_31e3_4816_bf09_e018ee8dc1f5);
 #[repr(C)]
 pub struct IHttpBaseProtocolFilter5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -74,7 +74,7 @@ pub struct IHttpBaseProtocolFilter5_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::com_interface!(IHttpBaseProtocolFilterStatics, IHttpBaseProtocolFilterStatics_Vtbl, 0x6d4dee0c_e908_494e_b5a3_1263c9b8242a);
+windows_core::imp::define_interface!(IHttpBaseProtocolFilterStatics, IHttpBaseProtocolFilterStatics_Vtbl, 0x6d4dee0c_e908_494e_b5a3_1263c9b8242a);
 #[repr(C)]
 pub struct IHttpBaseProtocolFilterStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -83,7 +83,7 @@ pub struct IHttpBaseProtocolFilterStatics_Vtbl {
     #[cfg(not(feature = "System"))]
     CreateForUser: usize,
 }
-windows_core::imp::com_interface!(IHttpCacheControl, IHttpCacheControl_Vtbl, 0xc77e1cb4_3cea_4eb5_ac85_04e186e63ab7);
+windows_core::imp::define_interface!(IHttpCacheControl, IHttpCacheControl_Vtbl, 0xc77e1cb4_3cea_4eb5_ac85_04e186e63ab7);
 #[repr(C)]
 pub struct IHttpCacheControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -92,7 +92,7 @@ pub struct IHttpCacheControl_Vtbl {
     pub WriteBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HttpCacheWriteBehavior) -> windows_core::HRESULT,
     pub SetWriteBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, HttpCacheWriteBehavior) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IHttpFilter, IHttpFilter_Vtbl, 0xa4cb6dd5_0902_439e_bfd7_e12552b165ce);
+windows_core::imp::define_interface!(IHttpFilter, IHttpFilter_Vtbl, 0xa4cb6dd5_0902_439e_bfd7_e12552b165ce);
 windows_core::imp::interface_hierarchy!(IHttpFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IHttpFilter, super::super::super::Foundation::IClosable);
 impl IHttpFilter {
@@ -119,7 +119,7 @@ pub struct IHttpFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SendRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IHttpServerCustomValidationRequestedEventArgs, IHttpServerCustomValidationRequestedEventArgs_Vtbl, 0x3165fe32_e7dd_48b7_a361_939c750e63cc);
+windows_core::imp::define_interface!(IHttpServerCustomValidationRequestedEventArgs, IHttpServerCustomValidationRequestedEventArgs_Vtbl, 0x3165fe32_e7dd_48b7_a361_939c750e63cc);
 #[repr(C)]
 pub struct IHttpServerCustomValidationRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IGameSaveBlobGetResult, IGameSaveBlobGetResult_Vtbl, 0x917281e0_7201_4953_aa2c_4008f03aef45);
+windows_core::imp::define_interface!(IGameSaveBlobGetResult, IGameSaveBlobGetResult_Vtbl, 0x917281e0_7201_4953_aa2c_4008f03aef45);
 #[repr(C)]
 pub struct IGameSaveBlobGetResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,14 +8,14 @@ pub struct IGameSaveBlobGetResult_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
     Value: usize,
 }
-windows_core::imp::com_interface!(IGameSaveBlobInfo, IGameSaveBlobInfo_Vtbl, 0xadd38034_baf0_4645_b6d0_46edaffb3c2b);
+windows_core::imp::define_interface!(IGameSaveBlobInfo, IGameSaveBlobInfo_Vtbl, 0xadd38034_baf0_4645_b6d0_46edaffb3c2b);
 #[repr(C)]
 pub struct IGameSaveBlobInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGameSaveBlobInfoGetResult, IGameSaveBlobInfoGetResult_Vtbl, 0xc7578582_3697_42bf_989c_665d923b5231);
+windows_core::imp::define_interface!(IGameSaveBlobInfoGetResult, IGameSaveBlobInfoGetResult_Vtbl, 0xc7578582_3697_42bf_989c_665d923b5231);
 #[repr(C)]
 pub struct IGameSaveBlobInfoGetResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -25,7 +25,7 @@ pub struct IGameSaveBlobInfoGetResult_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Value: usize,
 }
-windows_core::imp::com_interface!(IGameSaveBlobInfoQuery, IGameSaveBlobInfoQuery_Vtbl, 0x9fdd74b2_eeee_447b_a9d2_7f96c0f83208);
+windows_core::imp::define_interface!(IGameSaveBlobInfoQuery, IGameSaveBlobInfoQuery_Vtbl, 0x9fdd74b2_eeee_447b_a9d2_7f96c0f83208);
 #[repr(C)]
 pub struct IGameSaveBlobInfoQuery_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -33,7 +33,7 @@ pub struct IGameSaveBlobInfoQuery_Vtbl {
     pub GetBlobInfoWithIndexAndMaxAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetItemCountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGameSaveContainer, IGameSaveContainer_Vtbl, 0xc3c08f89_563f_4ecd_9c6f_33fd0e323d10);
+windows_core::imp::define_interface!(IGameSaveContainer, IGameSaveContainer_Vtbl, 0xc3c08f89_563f_4ecd_9c6f_33fd0e323d10);
 #[repr(C)]
 pub struct IGameSaveContainer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -57,7 +57,7 @@ pub struct IGameSaveContainer_Vtbl {
     SubmitPropertySetUpdatesAsync: usize,
     pub CreateBlobInfoQuery: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGameSaveContainerInfo, IGameSaveContainerInfo_Vtbl, 0xb7e27300_155d_4bb4_b2ba_930306f391b5);
+windows_core::imp::define_interface!(IGameSaveContainerInfo, IGameSaveContainerInfo_Vtbl, 0xb7e27300_155d_4bb4_b2ba_930306f391b5);
 #[repr(C)]
 pub struct IGameSaveContainerInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -67,7 +67,7 @@ pub struct IGameSaveContainerInfo_Vtbl {
     pub LastModifiedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub NeedsSync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGameSaveContainerInfoGetResult, IGameSaveContainerInfoGetResult_Vtbl, 0xffc50d74_c581_4f9d_9e39_30a10c1e4c50);
+windows_core::imp::define_interface!(IGameSaveContainerInfoGetResult, IGameSaveContainerInfoGetResult_Vtbl, 0xffc50d74_c581_4f9d_9e39_30a10c1e4c50);
 #[repr(C)]
 pub struct IGameSaveContainerInfoGetResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -77,7 +77,7 @@ pub struct IGameSaveContainerInfoGetResult_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Value: usize,
 }
-windows_core::imp::com_interface!(IGameSaveContainerInfoQuery, IGameSaveContainerInfoQuery_Vtbl, 0x3c94e863_6f80_4327_9327_ffc11afd42b3);
+windows_core::imp::define_interface!(IGameSaveContainerInfoQuery, IGameSaveContainerInfoQuery_Vtbl, 0x3c94e863_6f80_4327_9327_ffc11afd42b3);
 #[repr(C)]
 pub struct IGameSaveContainerInfoQuery_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -85,13 +85,13 @@ pub struct IGameSaveContainerInfoQuery_Vtbl {
     pub GetContainerInfoWithIndexAndMaxAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetItemCountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGameSaveOperationResult, IGameSaveOperationResult_Vtbl, 0xcf0f1a05_24a0_4582_9a55_b1bbbb9388d8);
+windows_core::imp::define_interface!(IGameSaveOperationResult, IGameSaveOperationResult_Vtbl, 0xcf0f1a05_24a0_4582_9a55_b1bbbb9388d8);
 #[repr(C)]
 pub struct IGameSaveOperationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameSaveErrorStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGameSaveProvider, IGameSaveProvider_Vtbl, 0x90a60394_80fe_4211_97f8_a5de14dd95d2);
+windows_core::imp::define_interface!(IGameSaveProvider, IGameSaveProvider_Vtbl, 0x90a60394_80fe_4211_97f8_a5de14dd95d2);
 #[repr(C)]
 pub struct IGameSaveProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -109,14 +109,14 @@ pub struct IGameSaveProvider_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ContainersChangedSinceLastSync: usize,
 }
-windows_core::imp::com_interface!(IGameSaveProviderGetResult, IGameSaveProviderGetResult_Vtbl, 0x3ab90816_d393_4d65_ac16_41c3e67ab945);
+windows_core::imp::define_interface!(IGameSaveProviderGetResult, IGameSaveProviderGetResult_Vtbl, 0x3ab90816_d393_4d65_ac16_41c3e67ab945);
 #[repr(C)]
 pub struct IGameSaveProviderGetResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameSaveErrorStatus) -> windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGameSaveProviderStatics, IGameSaveProviderStatics_Vtbl, 0xd01d3ed0_7b03_449d_8cbd_3402842a1048);
+windows_core::imp::define_interface!(IGameSaveProviderStatics, IGameSaveProviderStatics_Vtbl, 0xd01d3ed0_7b03_449d_8cbd_3402842a1048);
 #[repr(C)]
 pub struct IGameSaveProviderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

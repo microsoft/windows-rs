@@ -183,7 +183,7 @@ where
     ) -> windows_core::HRESULT,
     pub T: core::marker::PhantomData<T>,
 }
-windows_core::imp::com_interface!(
+windows_core::imp::define_interface!(
     IStringable,
     IStringable_Vtbl,
     0x96369f54_8eb6_48f0_abce_c1b211e627c3
@@ -218,7 +218,7 @@ pub struct IStringable_Vtbl {
         *mut std::mem::MaybeUninit<windows_core::HSTRING>,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(
+windows_core::imp::define_interface!(
     IUriEscapeStatics,
     IUriEscapeStatics_Vtbl,
     0xc1d432ba_c824_4452_a7fd_512bc3bbe9a1
@@ -237,7 +237,7 @@ pub struct IUriEscapeStatics_Vtbl {
         *mut std::mem::MaybeUninit<windows_core::HSTRING>,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(
+windows_core::imp::define_interface!(
     IUriRuntimeClass,
     IUriRuntimeClass_Vtbl,
     0x9e365e57_48b2_4160_956f_c7385120bbfc
@@ -311,7 +311,7 @@ pub struct IUriRuntimeClass_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(
+windows_core::imp::define_interface!(
     IUriRuntimeClassFactory,
     IUriRuntimeClassFactory_Vtbl,
     0x44a9796f_723e_4fdf_a218_033e75b0c084
@@ -331,7 +331,7 @@ pub struct IUriRuntimeClassFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(
+windows_core::imp::define_interface!(
     IUriRuntimeClassWithAbsoluteCanonicalUri,
     IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl,
     0x758d9661_221c_480f_a339_50656673f46f
@@ -513,7 +513,7 @@ where
     ) -> windows_core::HRESULT,
     pub T: core::marker::PhantomData<T>,
 }
-windows_core::imp::com_interface!(
+windows_core::imp::define_interface!(
     IWwwFormUrlDecoderEntry,
     IWwwFormUrlDecoderEntry_Vtbl,
     0x125e7431_f678_4e8e_b670_20a9b06c512d
@@ -563,7 +563,7 @@ pub struct IWwwFormUrlDecoderEntry_Vtbl {
         *mut std::mem::MaybeUninit<windows_core::HSTRING>,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(
+windows_core::imp::define_interface!(
     IWwwFormUrlDecoderRuntimeClass,
     IWwwFormUrlDecoderRuntimeClass_Vtbl,
     0xd45a0451_f225_4542_9296_0e1df5d254df
@@ -577,7 +577,7 @@ pub struct IWwwFormUrlDecoderRuntimeClass_Vtbl {
         *mut std::mem::MaybeUninit<windows_core::HSTRING>,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(
+windows_core::imp::define_interface!(
     IWwwFormUrlDecoderRuntimeClassFactory,
     IWwwFormUrlDecoderRuntimeClassFactory_Vtbl,
     0x5b8c6b3d_24ae_41b5_a1bf_f0c3d544845b

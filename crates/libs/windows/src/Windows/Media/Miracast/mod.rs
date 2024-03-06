@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IMiracastReceiver, IMiracastReceiver_Vtbl, 0x7a315258_e444_51b4_aff7_b88daa1229e0);
+windows_core::imp::define_interface!(IMiracastReceiver, IMiracastReceiver_Vtbl, 0x7a315258_e444_51b4_aff7_b88daa1229e0);
 #[repr(C)]
 pub struct IMiracastReceiver_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -22,14 +22,14 @@ pub struct IMiracastReceiver_Vtbl {
     pub ClearKnownTransmitters: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveKnownTransmitter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMiracastReceiverApplySettingsResult, IMiracastReceiverApplySettingsResult_Vtbl, 0xd0aa6272_09cd_58e1_a4f2_5d5143d312f9);
+windows_core::imp::define_interface!(IMiracastReceiverApplySettingsResult, IMiracastReceiverApplySettingsResult_Vtbl, 0xd0aa6272_09cd_58e1_a4f2_5d5143d312f9);
 #[repr(C)]
 pub struct IMiracastReceiverApplySettingsResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MiracastReceiverApplySettingsStatus) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMiracastReceiverConnection, IMiracastReceiverConnection_Vtbl, 0x704b2f36_d2e5_551f_a854_f822b7917d28);
+windows_core::imp::define_interface!(IMiracastReceiverConnection, IMiracastReceiverConnection_Vtbl, 0x704b2f36_d2e5_551f_a854_f822b7917d28);
 #[repr(C)]
 pub struct IMiracastReceiverConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -44,7 +44,7 @@ pub struct IMiracastReceiverConnection_Vtbl {
     pub CursorImageChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StreamControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMiracastReceiverConnectionCreatedEventArgs, IMiracastReceiverConnectionCreatedEventArgs_Vtbl, 0x7d8dfa39_307a_5c0f_94bd_d0c69d169982);
+windows_core::imp::define_interface!(IMiracastReceiverConnectionCreatedEventArgs, IMiracastReceiverConnectionCreatedEventArgs_Vtbl, 0x7d8dfa39_307a_5c0f_94bd_d0c69d169982);
 #[repr(C)]
 pub struct IMiracastReceiverConnectionCreatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -52,7 +52,7 @@ pub struct IMiracastReceiverConnectionCreatedEventArgs_Vtbl {
     pub Pin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMiracastReceiverCursorImageChannel, IMiracastReceiverCursorImageChannel_Vtbl, 0xd9ac332d_723a_5a9d_b90a_81153efa2a0f);
+windows_core::imp::define_interface!(IMiracastReceiverCursorImageChannel, IMiracastReceiverCursorImageChannel_Vtbl, 0xd9ac332d_723a_5a9d_b90a_81153efa2a0f);
 #[repr(C)]
 pub struct IMiracastReceiverCursorImageChannel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -74,7 +74,7 @@ pub struct IMiracastReceiverCursorImageChannel_Vtbl {
     pub PositionChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemovePositionChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMiracastReceiverCursorImageChannelSettings, IMiracastReceiverCursorImageChannelSettings_Vtbl, 0xccdbedff_bd00_5b9c_8e4c_00cacf86b634);
+windows_core::imp::define_interface!(IMiracastReceiverCursorImageChannelSettings, IMiracastReceiverCursorImageChannelSettings_Vtbl, 0xccdbedff_bd00_5b9c_8e4c_00cacf86b634);
 #[repr(C)]
 pub struct IMiracastReceiverCursorImageChannelSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -89,13 +89,13 @@ pub struct IMiracastReceiverCursorImageChannelSettings_Vtbl {
     #[cfg(not(feature = "Graphics"))]
     SetMaxImageSize: usize,
 }
-windows_core::imp::com_interface!(IMiracastReceiverDisconnectedEventArgs, IMiracastReceiverDisconnectedEventArgs_Vtbl, 0xd9a15e5e_5fee_57e6_b4b0_04727db93229);
+windows_core::imp::define_interface!(IMiracastReceiverDisconnectedEventArgs, IMiracastReceiverDisconnectedEventArgs_Vtbl, 0xd9a15e5e_5fee_57e6_b4b0_04727db93229);
 #[repr(C)]
 pub struct IMiracastReceiverDisconnectedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Connection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMiracastReceiverGameControllerDevice, IMiracastReceiverGameControllerDevice_Vtbl, 0x2d7171e8_bed4_5118_a058_e2477eb5888d);
+windows_core::imp::define_interface!(IMiracastReceiverGameControllerDevice, IMiracastReceiverGameControllerDevice_Vtbl, 0x2d7171e8_bed4_5118_a058_e2477eb5888d);
 #[repr(C)]
 pub struct IMiracastReceiverGameControllerDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -108,14 +108,14 @@ pub struct IMiracastReceiverGameControllerDevice_Vtbl {
     pub Changed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMiracastReceiverInputDevices, IMiracastReceiverInputDevices_Vtbl, 0xda35bb02_28aa_5ee8_96f5_a42901c66f00);
+windows_core::imp::define_interface!(IMiracastReceiverInputDevices, IMiracastReceiverInputDevices_Vtbl, 0xda35bb02_28aa_5ee8_96f5_a42901c66f00);
 #[repr(C)]
 pub struct IMiracastReceiverInputDevices_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Keyboard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GameController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMiracastReceiverKeyboardDevice, IMiracastReceiverKeyboardDevice_Vtbl, 0xbeb67272_06c0_54ff_ac96_217464ff2501);
+windows_core::imp::define_interface!(IMiracastReceiverKeyboardDevice, IMiracastReceiverKeyboardDevice_Vtbl, 0xbeb67272_06c0_54ff_ac96_217464ff2501);
 #[repr(C)]
 pub struct IMiracastReceiverKeyboardDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -126,7 +126,7 @@ pub struct IMiracastReceiverKeyboardDevice_Vtbl {
     pub Changed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMiracastReceiverMediaSourceCreatedEventArgs, IMiracastReceiverMediaSourceCreatedEventArgs_Vtbl, 0x17cf519e_1246_531d_945a_6b158e39c3aa);
+windows_core::imp::define_interface!(IMiracastReceiverMediaSourceCreatedEventArgs, IMiracastReceiverMediaSourceCreatedEventArgs_Vtbl, 0x17cf519e_1246_531d_945a_6b158e39c3aa);
 #[repr(C)]
 pub struct IMiracastReceiverMediaSourceCreatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -138,7 +138,7 @@ pub struct IMiracastReceiverMediaSourceCreatedEventArgs_Vtbl {
     pub CursorImageChannelSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMiracastReceiverSession, IMiracastReceiverSession_Vtbl, 0x1d2bcdb4_ef8b_5209_bfc9_c32116504803);
+windows_core::imp::define_interface!(IMiracastReceiverSession, IMiracastReceiverSession_Vtbl, 0x1d2bcdb4_ef8b_5209_bfc9_c32116504803);
 #[repr(C)]
 pub struct IMiracastReceiverSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -155,14 +155,14 @@ pub struct IMiracastReceiverSession_Vtbl {
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StartAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMiracastReceiverSessionStartResult, IMiracastReceiverSessionStartResult_Vtbl, 0xb7c573ee_40ca_51ff_95f2_c9de34f2e90e);
+windows_core::imp::define_interface!(IMiracastReceiverSessionStartResult, IMiracastReceiverSessionStartResult_Vtbl, 0xb7c573ee_40ca_51ff_95f2_c9de34f2e90e);
 #[repr(C)]
 pub struct IMiracastReceiverSessionStartResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MiracastReceiverSessionStartStatus) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMiracastReceiverSettings, IMiracastReceiverSettings_Vtbl, 0x57cd2f24_c55a_5fbe_9464_eb05307705dd);
+windows_core::imp::define_interface!(IMiracastReceiverSettings, IMiracastReceiverSettings_Vtbl, 0x57cd2f24_c55a_5fbe_9464_eb05307705dd);
 #[repr(C)]
 pub struct IMiracastReceiverSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -177,7 +177,7 @@ pub struct IMiracastReceiverSettings_Vtbl {
     pub RequireAuthorizationFromKnownTransmitters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetRequireAuthorizationFromKnownTransmitters: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMiracastReceiverStatus, IMiracastReceiverStatus_Vtbl, 0xc28a5591_23ab_519e_ad09_90bff6dcc87e);
+windows_core::imp::define_interface!(IMiracastReceiverStatus, IMiracastReceiverStatus_Vtbl, 0xc28a5591_23ab_519e_ad09_90bff6dcc87e);
 #[repr(C)]
 pub struct IMiracastReceiverStatus_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -190,7 +190,7 @@ pub struct IMiracastReceiverStatus_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     KnownTransmitters: usize,
 }
-windows_core::imp::com_interface!(IMiracastReceiverStreamControl, IMiracastReceiverStreamControl_Vtbl, 0x38ea2d8b_2769_5ad7_8a8a_254b9df7ba82);
+windows_core::imp::define_interface!(IMiracastReceiverStreamControl, IMiracastReceiverStreamControl_Vtbl, 0x38ea2d8b_2769_5ad7_8a8a_254b9df7ba82);
 #[repr(C)]
 pub struct IMiracastReceiverStreamControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -201,7 +201,7 @@ pub struct IMiracastReceiverStreamControl_Vtbl {
     pub MuteAudio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetMuteAudio: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMiracastReceiverVideoStreamSettings, IMiracastReceiverVideoStreamSettings_Vtbl, 0x169b5e1b_149d_52d0_b126_6f89744e4f50);
+windows_core::imp::define_interface!(IMiracastReceiverVideoStreamSettings, IMiracastReceiverVideoStreamSettings_Vtbl, 0x169b5e1b_149d_52d0_b126_6f89744e4f50);
 #[repr(C)]
 pub struct IMiracastReceiverVideoStreamSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -216,7 +216,7 @@ pub struct IMiracastReceiverVideoStreamSettings_Vtbl {
     pub Bitrate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetBitrate: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMiracastTransmitter, IMiracastTransmitter_Vtbl, 0x342d79fd_2e64_5508_8a30_833d1eac70d0);
+windows_core::imp::define_interface!(IMiracastTransmitter, IMiracastTransmitter_Vtbl, 0x342d79fd_2e64_5508_8a30_833d1eac70d0);
 #[repr(C)]
 pub struct IMiracastTransmitter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

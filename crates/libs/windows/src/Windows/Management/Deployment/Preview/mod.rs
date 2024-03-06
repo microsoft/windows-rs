@@ -1,10 +1,10 @@
-windows_core::imp::com_interface!(IClassicAppManagerStatics, IClassicAppManagerStatics_Vtbl, 0xe2fad668_882c_4f33_b035_0df7b90d67e6);
+windows_core::imp::define_interface!(IClassicAppManagerStatics, IClassicAppManagerStatics_Vtbl, 0xe2fad668_882c_4f33_b035_0df7b90d67e6);
 #[repr(C)]
 pub struct IClassicAppManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FindInstalledApp: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInstalledClassicAppInfo, IInstalledClassicAppInfo_Vtbl, 0x0a7d3da3_65d0_4086_80d6_0610d760207d);
+windows_core::imp::define_interface!(IInstalledClassicAppInfo, IInstalledClassicAppInfo_Vtbl, 0x0a7d3da3_65d0_4086_80d6_0610d760207d);
 #[repr(C)]
 pub struct IInstalledClassicAppInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

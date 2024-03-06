@@ -8,7 +8,7 @@ pub mod Policies;
 pub mod Update;
 #[cfg(feature = "Management_Workplace")]
 pub mod Workplace;
-windows_core::imp::com_interface!(IMdmAlert, IMdmAlert_Vtbl, 0xb0fbc327_28c1_4b52_a548_c5807caf70b6);
+windows_core::imp::define_interface!(IMdmAlert, IMdmAlert_Vtbl, 0xb0fbc327_28c1_4b52_a548_c5807caf70b6);
 #[repr(C)]
 pub struct IMdmAlert_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -26,7 +26,7 @@ pub struct IMdmAlert_Vtbl {
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetType: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMdmSession, IMdmSession_Vtbl, 0xfe89314c_8f64_4797_a9d7_9d88f86ae166);
+windows_core::imp::define_interface!(IMdmSession, IMdmSession_Vtbl, 0xfe89314c_8f64_4797_a9d7_9d88f86ae166);
 #[repr(C)]
 pub struct IMdmSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -45,7 +45,7 @@ pub struct IMdmSession_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     StartWithAlertsAsync: usize,
 }
-windows_core::imp::com_interface!(IMdmSessionManagerStatics, IMdmSessionManagerStatics_Vtbl, 0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b);
+windows_core::imp::define_interface!(IMdmSessionManagerStatics, IMdmSessionManagerStatics_Vtbl, 0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b);
 #[repr(C)]
 pub struct IMdmSessionManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

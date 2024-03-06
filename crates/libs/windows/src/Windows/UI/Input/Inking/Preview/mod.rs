@@ -1,9 +1,9 @@
-windows_core::imp::com_interface!(IPalmRejectionDelayZonePreview, IPalmRejectionDelayZonePreview_Vtbl, 0x62b496cb_539d_5343_a65f_41f5300ec70c);
+windows_core::imp::define_interface!(IPalmRejectionDelayZonePreview, IPalmRejectionDelayZonePreview_Vtbl, 0x62b496cb_539d_5343_a65f_41f5300ec70c);
 #[repr(C)]
 pub struct IPalmRejectionDelayZonePreview_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IPalmRejectionDelayZonePreviewStatics, IPalmRejectionDelayZonePreviewStatics_Vtbl, 0xcdef5ee0_93d0_53a9_8f0e_9a379f8f7530);
+windows_core::imp::define_interface!(IPalmRejectionDelayZonePreviewStatics, IPalmRejectionDelayZonePreviewStatics_Vtbl, 0xcdef5ee0_93d0_53a9_8f0e_9a379f8f7530);
 #[repr(C)]
 pub struct IPalmRejectionDelayZonePreviewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

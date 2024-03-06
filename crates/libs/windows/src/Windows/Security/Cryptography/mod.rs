@@ -4,7 +4,7 @@ pub mod Certificates;
 pub mod Core;
 #[cfg(feature = "Security_Cryptography_DataProtection")]
 pub mod DataProtection;
-windows_core::imp::com_interface!(ICryptographicBufferStatics, ICryptographicBufferStatics_Vtbl, 0x320b7e22_3cb0_4cdf_8663_1d28910065eb);
+windows_core::imp::define_interface!(ICryptographicBufferStatics, ICryptographicBufferStatics_Vtbl, 0x320b7e22_3cb0_4cdf_8663_1d28910065eb);
 #[repr(C)]
 pub struct ICryptographicBufferStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

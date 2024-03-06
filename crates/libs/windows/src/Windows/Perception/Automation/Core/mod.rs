@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(ICorePerceptionAutomationStatics, ICorePerceptionAutomationStatics_Vtbl, 0x0bb04541_4ce2_4923_9a76_8187ecc59112);
+windows_core::imp::define_interface!(ICorePerceptionAutomationStatics, ICorePerceptionAutomationStatics_Vtbl, 0x0bb04541_4ce2_4923_9a76_8187ecc59112);
 #[repr(C)]
 pub struct ICorePerceptionAutomationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

@@ -4,7 +4,7 @@ pub mod Analysis;
 pub mod Core;
 #[cfg(feature = "UI_Input_Inking_Preview")]
 pub mod Preview;
-windows_core::imp::com_interface!(IInkDrawingAttributes, IInkDrawingAttributes_Vtbl, 0x97a2176c_6774_48ad_84f0_48f5a9be74f9);
+windows_core::imp::define_interface!(IInkDrawingAttributes, IInkDrawingAttributes_Vtbl, 0x97a2176c_6774_48ad_84f0_48f5a9be74f9);
 #[repr(C)]
 pub struct IInkDrawingAttributes_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19,7 +19,7 @@ pub struct IInkDrawingAttributes_Vtbl {
     pub FitToCurve: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetFitToCurve: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkDrawingAttributes2, IInkDrawingAttributes2_Vtbl, 0x7cab6508_8ec4_42fd_a5a5_e4b7d1d5316d);
+windows_core::imp::define_interface!(IInkDrawingAttributes2, IInkDrawingAttributes2_Vtbl, 0x7cab6508_8ec4_42fd_a5a5_e4b7d1d5316d);
 #[repr(C)]
 pub struct IInkDrawingAttributes2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -34,40 +34,40 @@ pub struct IInkDrawingAttributes2_Vtbl {
     pub DrawAsHighlighter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetDrawAsHighlighter: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkDrawingAttributes3, IInkDrawingAttributes3_Vtbl, 0x72020002_7d5b_4690_8af4_e664cbe2b74f);
+windows_core::imp::define_interface!(IInkDrawingAttributes3, IInkDrawingAttributes3_Vtbl, 0x72020002_7d5b_4690_8af4_e664cbe2b74f);
 #[repr(C)]
 pub struct IInkDrawingAttributes3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkDrawingAttributesKind) -> windows_core::HRESULT,
     pub PencilProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkDrawingAttributes4, IInkDrawingAttributes4_Vtbl, 0xef65dc25_9f19_456d_91a3_bc3a3d91c5fb);
+windows_core::imp::define_interface!(IInkDrawingAttributes4, IInkDrawingAttributes4_Vtbl, 0xef65dc25_9f19_456d_91a3_bc3a3d91c5fb);
 #[repr(C)]
 pub struct IInkDrawingAttributes4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IgnoreTilt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIgnoreTilt: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkDrawingAttributes5, IInkDrawingAttributes5_Vtbl, 0xd11aa0bb_0775_4852_ae64_41143a7ae6c9);
+windows_core::imp::define_interface!(IInkDrawingAttributes5, IInkDrawingAttributes5_Vtbl, 0xd11aa0bb_0775_4852_ae64_41143a7ae6c9);
 #[repr(C)]
 pub struct IInkDrawingAttributes5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ModelerAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkDrawingAttributesPencilProperties, IInkDrawingAttributesPencilProperties_Vtbl, 0x4f2534cb_2d86_41bb_b0e8_e4c2a0253c52);
+windows_core::imp::define_interface!(IInkDrawingAttributesPencilProperties, IInkDrawingAttributesPencilProperties_Vtbl, 0x4f2534cb_2d86_41bb_b0e8_e4c2a0253c52);
 #[repr(C)]
 pub struct IInkDrawingAttributesPencilProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Opacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkDrawingAttributesStatics, IInkDrawingAttributesStatics_Vtbl, 0xf731e03f_1a65_4862_96cb_6e1665e17f6d);
+windows_core::imp::define_interface!(IInkDrawingAttributesStatics, IInkDrawingAttributesStatics_Vtbl, 0xf731e03f_1a65_4862_96cb_6e1665e17f6d);
 #[repr(C)]
 pub struct IInkDrawingAttributesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateForPencil: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkInputConfiguration, IInkInputConfiguration_Vtbl, 0x93a68dc4_0b7b_49d7_b34f_9901e524dcf2);
+windows_core::imp::define_interface!(IInkInputConfiguration, IInkInputConfiguration_Vtbl, 0x93a68dc4_0b7b_49d7_b34f_9901e524dcf2);
 #[repr(C)]
 pub struct IInkInputConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -76,14 +76,14 @@ pub struct IInkInputConfiguration_Vtbl {
     pub IsEraserInputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsEraserInputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkInputConfiguration2, IInkInputConfiguration2_Vtbl, 0x6ac2272e_81b4_5cc4_a36d_d057c387dfda);
+windows_core::imp::define_interface!(IInkInputConfiguration2, IInkInputConfiguration2_Vtbl, 0x6ac2272e_81b4_5cc4_a36d_d057c387dfda);
 #[repr(C)]
 pub struct IInkInputConfiguration2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsPenHapticFeedbackEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsPenHapticFeedbackEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkInputProcessingConfiguration, IInkInputProcessingConfiguration_Vtbl, 0x2778d85e_33ca_4b06_a6d3_ac3945116d37);
+windows_core::imp::define_interface!(IInkInputProcessingConfiguration, IInkInputProcessingConfiguration_Vtbl, 0x2778d85e_33ca_4b06_a6d3_ac3945116d37);
 #[repr(C)]
 pub struct IInkInputProcessingConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -92,7 +92,7 @@ pub struct IInkInputProcessingConfiguration_Vtbl {
     pub RightDragAction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkInputRightDragAction) -> windows_core::HRESULT,
     pub SetRightDragAction: unsafe extern "system" fn(*mut core::ffi::c_void, InkInputRightDragAction) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkManager, IInkManager_Vtbl, 0x4744737d_671b_4163_9c95_4e8d7a035fe1);
+windows_core::imp::define_interface!(IInkManager, IInkManager_Vtbl, 0x4744737d_671b_4163_9c95_4e8d7a035fe1);
 #[repr(C)]
 pub struct IInkManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -107,7 +107,7 @@ pub struct IInkManager_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     RecognizeAsync2: usize,
 }
-windows_core::imp::com_interface!(IInkModelerAttributes, IInkModelerAttributes_Vtbl, 0xbad31f27_0cd9_4bfd_b6f3_9e03ba8d7454);
+windows_core::imp::define_interface!(IInkModelerAttributes, IInkModelerAttributes_Vtbl, 0xbad31f27_0cd9_4bfd_b6f3_9e03ba8d7454);
 #[repr(C)]
 pub struct IInkModelerAttributes_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -116,21 +116,21 @@ pub struct IInkModelerAttributes_Vtbl {
     pub ScalingFactor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetScalingFactor: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkModelerAttributes2, IInkModelerAttributes2_Vtbl, 0x86d1d09a_4ef8_5e25_b7bc_b65424f16bb3);
+windows_core::imp::define_interface!(IInkModelerAttributes2, IInkModelerAttributes2_Vtbl, 0x86d1d09a_4ef8_5e25_b7bc_b65424f16bb3);
 #[repr(C)]
 pub struct IInkModelerAttributes2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UseVelocityBasedPressure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetUseVelocityBasedPressure: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkPoint, IInkPoint_Vtbl, 0x9f87272b_858c_46a5_9b41_d195970459fd);
+windows_core::imp::define_interface!(IInkPoint, IInkPoint_Vtbl, 0x9f87272b_858c_46a5_9b41_d195970459fd);
 #[repr(C)]
 pub struct IInkPoint_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Point) -> windows_core::HRESULT,
     pub Pressure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkPoint2, IInkPoint2_Vtbl, 0xfba9c3f7_ae56_4d5c_bd2f_0ac45f5e4af9);
+windows_core::imp::define_interface!(IInkPoint2, IInkPoint2_Vtbl, 0xfba9c3f7_ae56_4d5c_bd2f_0ac45f5e4af9);
 #[repr(C)]
 pub struct IInkPoint2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -138,7 +138,7 @@ pub struct IInkPoint2_Vtbl {
     pub TiltY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkPointFactory, IInkPointFactory_Vtbl, 0x29e5d51c_c98f_405d_9f3b_e53e31068d4d);
+windows_core::imp::define_interface!(IInkPointFactory, IInkPointFactory_Vtbl, 0x29e5d51c_c98f_405d_9f3b_e53e31068d4d);
 windows_core::imp::interface_hierarchy!(IInkPointFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IInkPointFactory {
     pub fn CreateInkPoint(&self, position: super::super::super::Foundation::Point, pressure: f32) -> windows_core::Result<InkPoint> {
@@ -157,13 +157,13 @@ pub struct IInkPointFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInkPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Point, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkPointFactory2, IInkPointFactory2_Vtbl, 0xe0145e85_daff_45f2_ad69_050d8256a209);
+windows_core::imp::define_interface!(IInkPointFactory2, IInkPointFactory2_Vtbl, 0xe0145e85_daff_45f2_ad69_050d8256a209);
 #[repr(C)]
 pub struct IInkPointFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInkPointWithTiltAndTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Point, f32, f32, f32, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkPresenter, IInkPresenter_Vtbl, 0xa69b70e2_887b_458f_b173_4fe4438930a3);
+windows_core::imp::define_interface!(IInkPresenter, IInkPresenter_Vtbl, 0xa69b70e2_887b_458f_b173_4fe4438930a3);
 #[repr(C)]
 pub struct IInkPresenter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -191,20 +191,20 @@ pub struct IInkPresenter_Vtbl {
     pub StrokesErased: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveStrokesErased: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkPresenter2, IInkPresenter2_Vtbl, 0xcf53e612_9a34_11e6_9f33_a24fc0d9649c);
+windows_core::imp::define_interface!(IInkPresenter2, IInkPresenter2_Vtbl, 0xcf53e612_9a34_11e6_9f33_a24fc0d9649c);
 #[repr(C)]
 pub struct IInkPresenter2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HighContrastAdjustment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkHighContrastAdjustment) -> windows_core::HRESULT,
     pub SetHighContrastAdjustment: unsafe extern "system" fn(*mut core::ffi::c_void, InkHighContrastAdjustment) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkPresenter3, IInkPresenter3_Vtbl, 0x51e1ce89_d37d_4a90_83fc_7f5e9dfbf217);
+windows_core::imp::define_interface!(IInkPresenter3, IInkPresenter3_Vtbl, 0x51e1ce89_d37d_4a90_83fc_7f5e9dfbf217);
 #[repr(C)]
 pub struct IInkPresenter3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InputConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkPresenterProtractor, IInkPresenterProtractor_Vtbl, 0x7de3f2aa_ef6c_4e91_a73b_5b70d56fbd17);
+windows_core::imp::define_interface!(IInkPresenterProtractor, IInkPresenterProtractor_Vtbl, 0x7de3f2aa_ef6c_4e91_a73b_5b70d56fbd17);
 #[repr(C)]
 pub struct IInkPresenterProtractor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -223,13 +223,13 @@ pub struct IInkPresenterProtractor_Vtbl {
     pub AccentColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Color) -> windows_core::HRESULT,
     pub SetAccentColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Color) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkPresenterProtractorFactory, IInkPresenterProtractorFactory_Vtbl, 0x320103c9_68fa_47e9_8127_8370711fc46c);
+windows_core::imp::define_interface!(IInkPresenterProtractorFactory, IInkPresenterProtractorFactory_Vtbl, 0x320103c9_68fa_47e9_8127_8370711fc46c);
 #[repr(C)]
 pub struct IInkPresenterProtractorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkPresenterRuler, IInkPresenterRuler_Vtbl, 0x6cda7d5a_dec7_4dd7_877a_2133f183d48a);
+windows_core::imp::define_interface!(IInkPresenterRuler, IInkPresenterRuler_Vtbl, 0x6cda7d5a_dec7_4dd7_877a_2133f183d48a);
 #[repr(C)]
 pub struct IInkPresenterRuler_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -238,7 +238,7 @@ pub struct IInkPresenterRuler_Vtbl {
     pub Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetWidth: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkPresenterRuler2, IInkPresenterRuler2_Vtbl, 0x45130dc1_bc61_44d4_a423_54712ae671c4);
+windows_core::imp::define_interface!(IInkPresenterRuler2, IInkPresenterRuler2_Vtbl, 0x45130dc1_bc61_44d4_a423_54712ae671c4);
 #[repr(C)]
 pub struct IInkPresenterRuler2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -247,7 +247,7 @@ pub struct IInkPresenterRuler2_Vtbl {
     pub IsCompassVisible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsCompassVisible: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkPresenterRulerFactory, IInkPresenterRulerFactory_Vtbl, 0x34361beb_9001_4a4b_a690_69dbaf63e501);
+windows_core::imp::define_interface!(IInkPresenterRulerFactory, IInkPresenterRulerFactory_Vtbl, 0x34361beb_9001_4a4b_a690_69dbaf63e501);
 windows_core::imp::interface_hierarchy!(IInkPresenterRulerFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IInkPresenterRulerFactory {
     pub fn Create<P0>(&self, inkpresenter: P0) -> windows_core::Result<InkPresenterRuler>
@@ -269,7 +269,7 @@ pub struct IInkPresenterRulerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkPresenterStencil, IInkPresenterStencil_Vtbl, 0x30d12d6d_3e06_4d02_b116_277fb5d8addc);
+windows_core::imp::define_interface!(IInkPresenterStencil, IInkPresenterStencil_Vtbl, 0x30d12d6d_3e06_4d02_b116_277fb5d8addc);
 windows_core::imp::interface_hierarchy!(IInkPresenterStencil, windows_core::IUnknown, windows_core::IInspectable);
 impl IInkPresenterStencil {
     pub fn Kind(&self) -> windows_core::Result<InkPresenterStencilKind> {
@@ -348,7 +348,7 @@ pub struct IInkPresenterStencil_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetTransform: usize,
 }
-windows_core::imp::com_interface!(IInkRecognitionResult, IInkRecognitionResult_Vtbl, 0x36461a94_5068_40ef_8a05_2c2fb60908a2);
+windows_core::imp::define_interface!(IInkRecognitionResult, IInkRecognitionResult_Vtbl, 0x36461a94_5068_40ef_8a05_2c2fb60908a2);
 #[repr(C)]
 pub struct IInkRecognitionResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -362,13 +362,13 @@ pub struct IInkRecognitionResult_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetStrokes: usize,
 }
-windows_core::imp::com_interface!(IInkRecognizer, IInkRecognizer_Vtbl, 0x077ccea3_904d_442a_b151_aaca3631c43b);
+windows_core::imp::define_interface!(IInkRecognizer, IInkRecognizer_Vtbl, 0x077ccea3_904d_442a_b151_aaca3631c43b);
 #[repr(C)]
 pub struct IInkRecognizer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkRecognizerContainer, IInkRecognizerContainer_Vtbl, 0xa74d9a31_8047_4698_a912_f82a5085012f);
+windows_core::imp::define_interface!(IInkRecognizerContainer, IInkRecognizerContainer_Vtbl, 0xa74d9a31_8047_4698_a912_f82a5085012f);
 windows_core::imp::interface_hierarchy!(IInkRecognizerContainer, windows_core::IUnknown, windows_core::IInspectable);
 impl IInkRecognizerContainer {
     pub fn SetDefaultRecognizer<P0>(&self, recognizer: P0) -> windows_core::Result<()>
@@ -414,7 +414,7 @@ pub struct IInkRecognizerContainer_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetRecognizers: usize,
 }
-windows_core::imp::com_interface!(IInkStroke, IInkStroke_Vtbl, 0x15144d60_cce3_4fcf_9d52_11518ab6afd4);
+windows_core::imp::define_interface!(IInkStroke, IInkStroke_Vtbl, 0x15144d60_cce3_4fcf_9d52_11518ab6afd4);
 #[repr(C)]
 pub struct IInkStroke_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -430,7 +430,7 @@ pub struct IInkStroke_Vtbl {
     GetRenderingSegments: usize,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkStroke2, IInkStroke2_Vtbl, 0x5db9e4f4_bafa_4de1_89d3_201b1ed7d89b);
+windows_core::imp::define_interface!(IInkStroke2, IInkStroke2_Vtbl, 0x5db9e4f4_bafa_4de1_89d3_201b1ed7d89b);
 #[repr(C)]
 pub struct IInkStroke2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -447,7 +447,7 @@ pub struct IInkStroke2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetInkPoints: usize,
 }
-windows_core::imp::com_interface!(IInkStroke3, IInkStroke3_Vtbl, 0x4a807374_9499_411d_a1c4_68855d03d65f);
+windows_core::imp::define_interface!(IInkStroke3, IInkStroke3_Vtbl, 0x4a807374_9499_411d_a1c4_68855d03d65f);
 #[repr(C)]
 pub struct IInkStroke3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -457,13 +457,13 @@ pub struct IInkStroke3_Vtbl {
     pub StrokeDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetStrokeDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkStroke4, IInkStroke4_Vtbl, 0xcd5b62e5_b6e9_5b91_a577_1921d2348690);
+windows_core::imp::define_interface!(IInkStroke4, IInkStroke4_Vtbl, 0xcd5b62e5_b6e9_5b91_a577_1921d2348690);
 #[repr(C)]
 pub struct IInkStroke4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PointerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkStrokeBuilder, IInkStrokeBuilder_Vtbl, 0x82bbd1dc_1c63_41dc_9e07_4b4a70ced801);
+windows_core::imp::define_interface!(IInkStrokeBuilder, IInkStrokeBuilder_Vtbl, 0x82bbd1dc_1c63_41dc_9e07_4b4a70ced801);
 #[repr(C)]
 pub struct IInkStrokeBuilder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -476,7 +476,7 @@ pub struct IInkStrokeBuilder_Vtbl {
     CreateStroke: usize,
     pub SetDefaultDrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkStrokeBuilder2, IInkStrokeBuilder2_Vtbl, 0xbd82bc27_731f_4cbc_bbbf_6d468044f1e5);
+windows_core::imp::define_interface!(IInkStrokeBuilder2, IInkStrokeBuilder2_Vtbl, 0xbd82bc27_731f_4cbc_bbbf_6d468044f1e5);
 #[repr(C)]
 pub struct IInkStrokeBuilder2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -485,7 +485,7 @@ pub struct IInkStrokeBuilder2_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Foundation_Numerics")))]
     CreateStrokeFromInkPoints: usize,
 }
-windows_core::imp::com_interface!(IInkStrokeBuilder3, IInkStrokeBuilder3_Vtbl, 0xb2c71fcd_5472_46b1_a81d_c37a3d169441);
+windows_core::imp::define_interface!(IInkStrokeBuilder3, IInkStrokeBuilder3_Vtbl, 0xb2c71fcd_5472_46b1_a81d_c37a3d169441);
 #[repr(C)]
 pub struct IInkStrokeBuilder3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -494,7 +494,7 @@ pub struct IInkStrokeBuilder3_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Foundation_Numerics")))]
     CreateStrokeFromInkPoints: usize,
 }
-windows_core::imp::com_interface!(IInkStrokeContainer, IInkStrokeContainer_Vtbl, 0x22accbc6_faa9_4f14_b68c_f6cee670ae16);
+windows_core::imp::define_interface!(IInkStrokeContainer, IInkStrokeContainer_Vtbl, 0x22accbc6_faa9_4f14_b68c_f6cee670ae16);
 windows_core::imp::interface_hierarchy!(IInkStrokeContainer, windows_core::IUnknown, windows_core::IInspectable);
 impl IInkStrokeContainer {
     pub fn BoundingRect(&self) -> windows_core::Result<super::super::super::Foundation::Rect> {
@@ -647,7 +647,7 @@ pub struct IInkStrokeContainer_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetRecognitionResults: usize,
 }
-windows_core::imp::com_interface!(IInkStrokeContainer2, IInkStrokeContainer2_Vtbl, 0x8901d364_da36_4bcf_9e5c_d195825995b4);
+windows_core::imp::define_interface!(IInkStrokeContainer2, IInkStrokeContainer2_Vtbl, 0x8901d364_da36_4bcf_9e5c_d195825995b4);
 #[repr(C)]
 pub struct IInkStrokeContainer2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -657,7 +657,7 @@ pub struct IInkStrokeContainer2_Vtbl {
     AddStrokes: usize,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkStrokeContainer3, IInkStrokeContainer3_Vtbl, 0x3d07bea5_baea_4c82_a719_7b83da1067d2);
+windows_core::imp::define_interface!(IInkStrokeContainer3, IInkStrokeContainer3_Vtbl, 0x3d07bea5_baea_4c82_a719_7b83da1067d2);
 #[repr(C)]
 pub struct IInkStrokeContainer3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -667,7 +667,7 @@ pub struct IInkStrokeContainer3_Vtbl {
     SaveWithFormatAsync: usize,
     pub GetStrokeById: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkStrokeInput, IInkStrokeInput_Vtbl, 0xcf2ffe7b_5e10_43c6_a080_88f26e1dc67d);
+windows_core::imp::define_interface!(IInkStrokeInput, IInkStrokeInput_Vtbl, 0xcf2ffe7b_5e10_43c6_a080_88f26e1dc67d);
 #[repr(C)]
 pub struct IInkStrokeInput_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -693,7 +693,7 @@ pub struct IInkStrokeInput_Vtbl {
     pub RemoveStrokeCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub InkPresenter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkStrokeRenderingSegment, IInkStrokeRenderingSegment_Vtbl, 0x68510f1f_88e3_477a_a2fa_569f5f1f9bd5);
+windows_core::imp::define_interface!(IInkStrokeRenderingSegment, IInkStrokeRenderingSegment_Vtbl, 0x68510f1f_88e3_477a_a2fa_569f5f1f9bd5);
 #[repr(C)]
 pub struct IInkStrokeRenderingSegment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -705,7 +705,7 @@ pub struct IInkStrokeRenderingSegment_Vtbl {
     pub TiltY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub Twist: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkStrokesCollectedEventArgs, IInkStrokesCollectedEventArgs_Vtbl, 0xc4f3f229_1938_495c_b4d9_6de4b08d4811);
+windows_core::imp::define_interface!(IInkStrokesCollectedEventArgs, IInkStrokesCollectedEventArgs_Vtbl, 0xc4f3f229_1938_495c_b4d9_6de4b08d4811);
 #[repr(C)]
 pub struct IInkStrokesCollectedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -714,7 +714,7 @@ pub struct IInkStrokesCollectedEventArgs_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Strokes: usize,
 }
-windows_core::imp::com_interface!(IInkStrokesErasedEventArgs, IInkStrokesErasedEventArgs_Vtbl, 0xa4216a22_1503_4ebf_8ff5_2de84584a8aa);
+windows_core::imp::define_interface!(IInkStrokesErasedEventArgs, IInkStrokesErasedEventArgs_Vtbl, 0xa4216a22_1503_4ebf_8ff5_2de84584a8aa);
 #[repr(C)]
 pub struct IInkStrokesErasedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -723,7 +723,7 @@ pub struct IInkStrokesErasedEventArgs_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Strokes: usize,
 }
-windows_core::imp::com_interface!(IInkSynchronizer, IInkSynchronizer_Vtbl, 0x9b9ea160_ae9b_45f9_8407_4b493b163661);
+windows_core::imp::define_interface!(IInkSynchronizer, IInkSynchronizer_Vtbl, 0x9b9ea160_ae9b_45f9_8407_4b493b163661);
 #[repr(C)]
 pub struct IInkSynchronizer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -733,7 +733,7 @@ pub struct IInkSynchronizer_Vtbl {
     BeginDry: usize,
     pub EndDry: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInkUnprocessedInput, IInkUnprocessedInput_Vtbl, 0xdb4445e0_8398_4921_ac3b_ab978c5ba256);
+windows_core::imp::define_interface!(IInkUnprocessedInput, IInkUnprocessedInput_Vtbl, 0xdb4445e0_8398_4921_ac3b_ab978c5ba256);
 #[repr(C)]
 pub struct IInkUnprocessedInput_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -774,7 +774,7 @@ pub struct IInkUnprocessedInput_Vtbl {
     pub RemovePointerLost: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub InkPresenter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPenAndInkSettings, IPenAndInkSettings_Vtbl, 0xbc2ceb8f_0066_44a8_bb7a_b839b3deb8f5);
+windows_core::imp::define_interface!(IPenAndInkSettings, IPenAndInkSettings_Vtbl, 0xbc2ceb8f_0066_44a8_bb7a_b839b3deb8f5);
 #[repr(C)]
 pub struct IPenAndInkSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -785,13 +785,13 @@ pub struct IPenAndInkSettings_Vtbl {
     pub UserConsentsToHandwritingTelemetryCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsTouchHandwritingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPenAndInkSettings2, IPenAndInkSettings2_Vtbl, 0x3262da53_1f44_55e2_9929_ebf77e5481b8);
+windows_core::imp::define_interface!(IPenAndInkSettings2, IPenAndInkSettings2_Vtbl, 0x3262da53_1f44_55e2_9929_ebf77e5481b8);
 #[repr(C)]
 pub struct IPenAndInkSettings2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetPenHandedness: unsafe extern "system" fn(*mut core::ffi::c_void, PenHandedness) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPenAndInkSettingsStatics, IPenAndInkSettingsStatics_Vtbl, 0xed6dd036_5708_5c3c_96db_f2f552eab641);
+windows_core::imp::define_interface!(IPenAndInkSettingsStatics, IPenAndInkSettingsStatics_Vtbl, 0xed6dd036_5708_5c3c_96db_f2f552eab641);
 #[repr(C)]
 pub struct IPenAndInkSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

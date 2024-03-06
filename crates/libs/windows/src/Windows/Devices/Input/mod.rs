@@ -1,12 +1,12 @@
 #[cfg(feature = "Devices_Input_Preview")]
 pub mod Preview;
-windows_core::imp::com_interface!(IKeyboardCapabilities, IKeyboardCapabilities_Vtbl, 0x3a3f9b56_6798_4bbc_833e_0f34b17c65ff);
+windows_core::imp::define_interface!(IKeyboardCapabilities, IKeyboardCapabilities_Vtbl, 0x3a3f9b56_6798_4bbc_833e_0f34b17c65ff);
 #[repr(C)]
 pub struct IKeyboardCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub KeyboardPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMouseCapabilities, IMouseCapabilities_Vtbl, 0xbca5e023_7dd9_4b6b_9a92_55d43cb38f73);
+windows_core::imp::define_interface!(IMouseCapabilities, IMouseCapabilities_Vtbl, 0xbca5e023_7dd9_4b6b_9a92_55d43cb38f73);
 #[repr(C)]
 pub struct IMouseCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16,26 +16,26 @@ pub struct IMouseCapabilities_Vtbl {
     pub SwapButtons: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub NumberOfButtons: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMouseDevice, IMouseDevice_Vtbl, 0x88edf458_f2c8_49f4_be1f_c256b388bc11);
+windows_core::imp::define_interface!(IMouseDevice, IMouseDevice_Vtbl, 0x88edf458_f2c8_49f4_be1f_c256b388bc11);
 #[repr(C)]
 pub struct IMouseDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MouseMoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveMouseMoved: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMouseDeviceStatics, IMouseDeviceStatics_Vtbl, 0x484a9045_6d70_49db_8e68_46ffbd17d38d);
+windows_core::imp::define_interface!(IMouseDeviceStatics, IMouseDeviceStatics_Vtbl, 0x484a9045_6d70_49db_8e68_46ffbd17d38d);
 #[repr(C)]
 pub struct IMouseDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMouseEventArgs, IMouseEventArgs_Vtbl, 0xf625aa5d_2354_4cc7_9230_96941c969fde);
+windows_core::imp::define_interface!(IMouseEventArgs, IMouseEventArgs_Vtbl, 0xf625aa5d_2354_4cc7_9230_96941c969fde);
 #[repr(C)]
 pub struct IMouseEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MouseDelta: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MouseDelta) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPenButtonListener, IPenButtonListener_Vtbl, 0x8245c376_1ee3_53f7_b1f7_8334a16f2815);
+windows_core::imp::define_interface!(IPenButtonListener, IPenButtonListener_Vtbl, 0x8245c376_1ee3_53f7_b1f7_8334a16f2815);
 #[repr(C)]
 pub struct IPenButtonListener_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -49,19 +49,19 @@ pub struct IPenButtonListener_Vtbl {
     pub TailButtonLongPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveTailButtonLongPressed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPenButtonListenerStatics, IPenButtonListenerStatics_Vtbl, 0x19a8a584_862f_5f69_bfea_05f6584f133f);
+windows_core::imp::define_interface!(IPenButtonListenerStatics, IPenButtonListenerStatics_Vtbl, 0x19a8a584_862f_5f69_bfea_05f6584f133f);
 #[repr(C)]
 pub struct IPenButtonListenerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPenDevice, IPenDevice_Vtbl, 0x31856eba_a738_5a8c_b8f6_f97ef68d18ef);
+windows_core::imp::define_interface!(IPenDevice, IPenDevice_Vtbl, 0x31856eba_a738_5a8c_b8f6_f97ef68d18ef);
 #[repr(C)]
 pub struct IPenDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PenId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPenDevice2, IPenDevice2_Vtbl, 0x0207d327_7fb8_5566_8c34_f8342037b7f9);
+windows_core::imp::define_interface!(IPenDevice2, IPenDevice2_Vtbl, 0x0207d327_7fb8_5566_8c34_f8342037b7f9);
 #[repr(C)]
 pub struct IPenDevice2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -70,13 +70,13 @@ pub struct IPenDevice2_Vtbl {
     #[cfg(not(feature = "Devices_Haptics"))]
     SimpleHapticsController: usize,
 }
-windows_core::imp::com_interface!(IPenDeviceStatics, IPenDeviceStatics_Vtbl, 0x9dfbbe01_0966_5180_bcb4_b85060e39479);
+windows_core::imp::define_interface!(IPenDeviceStatics, IPenDeviceStatics_Vtbl, 0x9dfbbe01_0966_5180_bcb4_b85060e39479);
 #[repr(C)]
 pub struct IPenDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetFromPointerId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPenDockListener, IPenDockListener_Vtbl, 0x759f4d90_1dc0_55cb_ad18_b9101456f592);
+windows_core::imp::define_interface!(IPenDockListener, IPenDockListener_Vtbl, 0x759f4d90_1dc0_55cb_ad18_b9101456f592);
 #[repr(C)]
 pub struct IPenDockListener_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -88,38 +88,38 @@ pub struct IPenDockListener_Vtbl {
     pub Undocked: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveUndocked: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPenDockListenerStatics, IPenDockListenerStatics_Vtbl, 0xcab75e9a_0016_5c72_969e_a97e11992a93);
+windows_core::imp::define_interface!(IPenDockListenerStatics, IPenDockListenerStatics_Vtbl, 0xcab75e9a_0016_5c72_969e_a97e11992a93);
 #[repr(C)]
 pub struct IPenDockListenerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPenDockedEventArgs, IPenDockedEventArgs_Vtbl, 0xfd4277c6_ca63_5d4e_9ed3_a28a54521c8c);
+windows_core::imp::define_interface!(IPenDockedEventArgs, IPenDockedEventArgs_Vtbl, 0xfd4277c6_ca63_5d4e_9ed3_a28a54521c8c);
 #[repr(C)]
 pub struct IPenDockedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IPenTailButtonClickedEventArgs, IPenTailButtonClickedEventArgs_Vtbl, 0x5d2fb7b6_6ad3_5d3e_ab29_05ea2410e390);
+windows_core::imp::define_interface!(IPenTailButtonClickedEventArgs, IPenTailButtonClickedEventArgs_Vtbl, 0x5d2fb7b6_6ad3_5d3e_ab29_05ea2410e390);
 #[repr(C)]
 pub struct IPenTailButtonClickedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IPenTailButtonDoubleClickedEventArgs, IPenTailButtonDoubleClickedEventArgs_Vtbl, 0x846321a2_618a_5478_b04c_b358231da4a7);
+windows_core::imp::define_interface!(IPenTailButtonDoubleClickedEventArgs, IPenTailButtonDoubleClickedEventArgs_Vtbl, 0x846321a2_618a_5478_b04c_b358231da4a7);
 #[repr(C)]
 pub struct IPenTailButtonDoubleClickedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IPenTailButtonLongPressedEventArgs, IPenTailButtonLongPressedEventArgs_Vtbl, 0xf37c606e_c60a_5f42_b818_a53112406c13);
+windows_core::imp::define_interface!(IPenTailButtonLongPressedEventArgs, IPenTailButtonLongPressedEventArgs_Vtbl, 0xf37c606e_c60a_5f42_b818_a53112406c13);
 #[repr(C)]
 pub struct IPenTailButtonLongPressedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IPenUndockedEventArgs, IPenUndockedEventArgs_Vtbl, 0xccd09150_261b_59e6_a5d4_c1964cd03feb);
+windows_core::imp::define_interface!(IPenUndockedEventArgs, IPenUndockedEventArgs_Vtbl, 0xccd09150_261b_59e6_a5d4_c1964cd03feb);
 #[repr(C)]
 pub struct IPenUndockedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IPointerDevice, IPointerDevice_Vtbl, 0x93c9bafc_ebcb_467e_82c6_276feae36b5a);
+windows_core::imp::define_interface!(IPointerDevice, IPointerDevice_Vtbl, 0x93c9bafc_ebcb_467e_82c6_276feae36b5a);
 #[repr(C)]
 pub struct IPointerDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -133,13 +133,13 @@ pub struct IPointerDevice_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SupportedUsages: usize,
 }
-windows_core::imp::com_interface!(IPointerDevice2, IPointerDevice2_Vtbl, 0xf8a6d2a0_c484_489f_ae3e_30d2ee1ffd3e);
+windows_core::imp::define_interface!(IPointerDevice2, IPointerDevice2_Vtbl, 0xf8a6d2a0_c484_489f_ae3e_30d2ee1ffd3e);
 #[repr(C)]
 pub struct IPointerDevice2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxPointersWithZDistance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPointerDeviceStatics, IPointerDeviceStatics_Vtbl, 0xd8b89aa1_d1c6_416e_bd8d_5790914dc563);
+windows_core::imp::define_interface!(IPointerDeviceStatics, IPointerDeviceStatics_Vtbl, 0xd8b89aa1_d1c6_416e_bd8d_5790914dc563);
 #[repr(C)]
 pub struct IPointerDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -149,7 +149,7 @@ pub struct IPointerDeviceStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetPointerDevices: usize,
 }
-windows_core::imp::com_interface!(ITouchCapabilities, ITouchCapabilities_Vtbl, 0x20dd55f9_13f1_46c8_9285_2c05fa3eda6f);
+windows_core::imp::define_interface!(ITouchCapabilities, ITouchCapabilities_Vtbl, 0x20dd55f9_13f1_46c8_9285_2c05fa3eda6f);
 #[repr(C)]
 pub struct ITouchCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

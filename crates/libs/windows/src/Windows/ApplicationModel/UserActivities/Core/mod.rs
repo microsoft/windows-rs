@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(ICoreUserActivityManagerStatics, ICoreUserActivityManagerStatics_Vtbl, 0xca3adb02_a4be_4d4d_bfa8_6795f4264efb);
+windows_core::imp::define_interface!(ICoreUserActivityManagerStatics, ICoreUserActivityManagerStatics_Vtbl, 0xca3adb02_a4be_4d4d_bfa8_6795f4264efb);
 #[repr(C)]
 pub struct ICoreUserActivityManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

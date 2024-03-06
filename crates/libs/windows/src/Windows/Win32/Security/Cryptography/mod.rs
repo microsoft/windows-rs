@@ -2843,7 +2843,7 @@ where
     VerifyHash(hcrypto, phash.len().try_into().unwrap(), core::mem::transmute(phash.as_ptr()), hashalgoid.into_param().abi(), psig.len().try_into().unwrap(), core::mem::transmute(psig.as_ptr()), &mut result__).map(|| result__)
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ICertSrvSetup, ICertSrvSetup_Vtbl, 0xb760a1bb_4784_44c0_8f12_555f0780ff25);
+windows_core::imp::define_interface!(ICertSrvSetup, ICertSrvSetup_Vtbl, 0xb760a1bb_4784_44c0_8f12_555f0780ff25);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ICertSrvSetup, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2993,7 +2993,7 @@ pub struct ICertSrvSetup_Vtbl {
     pub PostUnInstall: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ICertSrvSetupKeyInformation, ICertSrvSetupKeyInformation_Vtbl, 0x6ba73778_36da_4c39_8a85_bcfa7d000793);
+windows_core::imp::define_interface!(ICertSrvSetupKeyInformation, ICertSrvSetupKeyInformation_Vtbl, 0x6ba73778_36da_4c39_8a85_bcfa7d000793);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ICertSrvSetupKeyInformation, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3074,7 +3074,7 @@ pub struct ICertSrvSetupKeyInformation_Vtbl {
     pub SetExistingCACertificate: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ICertSrvSetupKeyInformationCollection, ICertSrvSetupKeyInformationCollection_Vtbl, 0xe65c8b00_e58f_41f9_a9ec_a28d7427c844);
+windows_core::imp::define_interface!(ICertSrvSetupKeyInformationCollection, ICertSrvSetupKeyInformationCollection_Vtbl, 0xe65c8b00_e58f_41f9_a9ec_a28d7427c844);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ICertSrvSetupKeyInformationCollection, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3112,7 +3112,7 @@ pub struct ICertSrvSetupKeyInformationCollection_Vtbl {
     Add: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ICertificateEnrollmentPolicyServerSetup, ICertificateEnrollmentPolicyServerSetup_Vtbl, 0x859252cc_238c_4a88_b8fd_a37e7d04e68b);
+windows_core::imp::define_interface!(ICertificateEnrollmentPolicyServerSetup, ICertificateEnrollmentPolicyServerSetup_Vtbl, 0x859252cc_238c_4a88_b8fd_a37e7d04e68b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ICertificateEnrollmentPolicyServerSetup, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3150,7 +3150,7 @@ pub struct ICertificateEnrollmentPolicyServerSetup_Vtbl {
     pub UnInstall: unsafe extern "system" fn(*mut core::ffi::c_void, *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ICertificateEnrollmentServerSetup, ICertificateEnrollmentServerSetup_Vtbl, 0x70027fdb_9dd9_4921_8944_b35cb31bd2ec);
+windows_core::imp::define_interface!(ICertificateEnrollmentServerSetup, ICertificateEnrollmentServerSetup_Vtbl, 0x70027fdb_9dd9_4921_8944_b35cb31bd2ec);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ICertificateEnrollmentServerSetup, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3196,7 +3196,7 @@ pub struct ICertificateEnrollmentServerSetup_Vtbl {
     pub UnInstall: unsafe extern "system" fn(*mut core::ffi::c_void, *const std::mem::MaybeUninit<windows_core::VARIANT>, *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSCEPSetup, IMSCEPSetup_Vtbl, 0x4f7761bb_9f3b_4592_9ee0_9a73259c313e);
+windows_core::imp::define_interface!(IMSCEPSetup, IMSCEPSetup_Vtbl, 0x4f7761bb_9f3b_4592_9ee0_9a73259c313e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSCEPSetup, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]

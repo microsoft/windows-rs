@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IGameListEntry, IGameListEntry_Vtbl, 0x735924d3_811f_4494_b69c_c641a0c61543);
+windows_core::imp::define_interface!(IGameListEntry, IGameListEntry_Vtbl, 0x735924d3_811f_4494_b69c_c641a0c61543);
 windows_core::imp::interface_hierarchy!(IGameListEntry, windows_core::IUnknown, windows_core::IInspectable);
 impl IGameListEntry {
     #[cfg(feature = "ApplicationModel")]
@@ -57,7 +57,7 @@ pub struct IGameListEntry_Vtbl {
     Properties: usize,
     pub SetCategoryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, GameListCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGameListEntry2, IGameListEntry2_Vtbl, 0xd84a8f8b_8749_4a25_90d3_f6c5a427886d);
+windows_core::imp::define_interface!(IGameListEntry2, IGameListEntry2_Vtbl, 0xd84a8f8b_8749_4a25_90d3_f6c5a427886d);
 #[repr(C)]
 pub struct IGameListEntry2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -79,7 +79,7 @@ pub struct IGameListEntry2_Vtbl {
     pub SetTitleIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GameModeConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGameListStatics, IGameListStatics_Vtbl, 0x2ddd0f6f_9c66_4b05_945c_d6ed78491b8c);
+windows_core::imp::define_interface!(IGameListStatics, IGameListStatics_Vtbl, 0x2ddd0f6f_9c66_4b05_945c_d6ed78491b8c);
 #[repr(C)]
 pub struct IGameListStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -98,7 +98,7 @@ pub struct IGameListStatics_Vtbl {
     pub GameUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveGameUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGameListStatics2, IGameListStatics2_Vtbl, 0x395f2098_ea1a_45aa_9268_a83905686f27);
+windows_core::imp::define_interface!(IGameListStatics2, IGameListStatics2_Vtbl, 0x395f2098_ea1a_45aa_9268_a83905686f27);
 #[repr(C)]
 pub struct IGameListStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -108,7 +108,7 @@ pub struct IGameListStatics2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     UnmergeEntryAsync: usize,
 }
-windows_core::imp::com_interface!(IGameModeConfiguration, IGameModeConfiguration_Vtbl, 0x78e591af_b142_4ef0_8830_55bc2be4f5ea);
+windows_core::imp::define_interface!(IGameModeConfiguration, IGameModeConfiguration_Vtbl, 0x78e591af_b142_4ef0_8830_55bc2be4f5ea);
 #[repr(C)]
 pub struct IGameModeConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -134,7 +134,7 @@ pub struct IGameModeConfiguration_Vtbl {
     pub SetAffinitizeToExclusiveCpus: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub SaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGameModeUserConfiguration, IGameModeUserConfiguration_Vtbl, 0x72d34af4_756b_470f_a0c2_ba62a90795db);
+windows_core::imp::define_interface!(IGameModeUserConfiguration, IGameModeUserConfiguration_Vtbl, 0x72d34af4_756b_470f_a0c2_ba62a90795db);
 #[repr(C)]
 pub struct IGameModeUserConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -144,7 +144,7 @@ pub struct IGameModeUserConfiguration_Vtbl {
     GamingRelatedProcessNames: usize,
     pub SaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGameModeUserConfigurationStatics, IGameModeUserConfigurationStatics_Vtbl, 0x6e50d97c_66ea_478e_a4a1_f57c0e8d00e7);
+windows_core::imp::define_interface!(IGameModeUserConfigurationStatics, IGameModeUserConfigurationStatics_Vtbl, 0x6e50d97c_66ea_478e_a4a1_f57c0e8d00e7);
 #[repr(C)]
 pub struct IGameModeUserConfigurationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -579,7 +579,7 @@ impl core::fmt::Debug for GameListEntryLaunchableState {
 impl windows_core::RuntimeType for GameListEntryLaunchableState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListEntryLaunchableState;i4)");
 }
-windows_core::imp::com_interface!(GameListChangedEventHandler, GameListChangedEventHandler_Vtbl, 0x25f6a421_d8f5_4d91_b40e_53d5e86fde64);
+windows_core::imp::define_interface!(GameListChangedEventHandler, GameListChangedEventHandler_Vtbl, 0x25f6a421_d8f5_4d91_b40e_53d5e86fde64);
 impl GameListChangedEventHandler {
     pub fn new<F: FnMut(Option<&GameListEntry>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = GameListChangedEventHandlerBox::<F> { vtable: &GameListChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
@@ -639,7 +639,7 @@ pub struct GameListChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(GameListRemovedEventHandler, GameListRemovedEventHandler_Vtbl, 0x10c5648f_6c8f_4712_9b38_474bc22e76d8);
+windows_core::imp::define_interface!(GameListRemovedEventHandler, GameListRemovedEventHandler_Vtbl, 0x10c5648f_6c8f_4712_9b38_474bc22e76d8);
 impl GameListRemovedEventHandler {
     pub fn new<F: FnMut(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = GameListRemovedEventHandlerBox::<F> { vtable: &GameListRemovedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };

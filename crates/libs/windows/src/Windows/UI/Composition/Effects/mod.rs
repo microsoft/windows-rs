@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(ISceneLightingEffect, ISceneLightingEffect_Vtbl, 0x91bb5e52_95d1_4f8b_9a5a_6408b24b8c6a);
+windows_core::imp::define_interface!(ISceneLightingEffect, ISceneLightingEffect_Vtbl, 0x91bb5e52_95d1_4f8b_9a5a_6408b24b8c6a);
 #[repr(C)]
 pub struct ISceneLightingEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19,7 +19,7 @@ pub struct ISceneLightingEffect_Vtbl {
     pub SpecularShine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetSpecularShine: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISceneLightingEffect2, ISceneLightingEffect2_Vtbl, 0x9e270e81_72f0_4c5c_95f8_8a6e0024f409);
+windows_core::imp::define_interface!(ISceneLightingEffect2, ISceneLightingEffect2_Vtbl, 0x9e270e81_72f0_4c5c_95f8_8a6e0024f409);
 #[repr(C)]
 pub struct ISceneLightingEffect2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

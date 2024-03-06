@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IRadio, IRadio_Vtbl, 0x252118df_b33e_416a_875f_1cf38ae2d83e);
+windows_core::imp::define_interface!(IRadio, IRadio_Vtbl, 0x252118df_b33e_416a_875f_1cf38ae2d83e);
 #[repr(C)]
 pub struct IRadio_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9,7 +9,7 @@ pub struct IRadio_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RadioKind) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IRadioStatics, IRadioStatics_Vtbl, 0x5fb6a12e_67cb_46ae_aae9_65919f86eff4);
+windows_core::imp::define_interface!(IRadioStatics, IRadioStatics_Vtbl, 0x5fb6a12e_67cb_46ae_aae9_65919f86eff4);
 #[repr(C)]
 pub struct IRadioStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

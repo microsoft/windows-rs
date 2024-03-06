@@ -2,7 +2,7 @@
 pub mod LicenseManagement;
 #[cfg(feature = "ApplicationModel_Store_Preview")]
 pub mod Preview;
-windows_core::imp::com_interface!(ICurrentApp, ICurrentApp_Vtbl, 0xd52dc065_da3f_4685_995e_9b482eb5e603);
+windows_core::imp::define_interface!(ICurrentApp, ICurrentApp_Vtbl, 0xd52dc065_da3f_4685_995e_9b482eb5e603);
 #[repr(C)]
 pub struct ICurrentApp_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -18,14 +18,14 @@ pub struct ICurrentApp_Vtbl {
     pub GetAppReceiptAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetProductReceiptAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICurrentApp2Statics, ICurrentApp2Statics_Vtbl, 0xdf4e6e2d_3171_4ad3_8614_2c61244373cb);
+windows_core::imp::define_interface!(ICurrentApp2Statics, ICurrentApp2Statics_Vtbl, 0xdf4e6e2d_3171_4ad3_8614_2c61244373cb);
 #[repr(C)]
 pub struct ICurrentApp2Statics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCustomerPurchaseIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCustomerCollectionsIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICurrentAppSimulator, ICurrentAppSimulator_Vtbl, 0xf17f9db1_74cd_4787_9787_19866e9a5559);
+windows_core::imp::define_interface!(ICurrentAppSimulator, ICurrentAppSimulator_Vtbl, 0xf17f9db1_74cd_4787_9787_19866e9a5559);
 #[repr(C)]
 pub struct ICurrentAppSimulator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -45,7 +45,7 @@ pub struct ICurrentAppSimulator_Vtbl {
     #[cfg(not(feature = "Storage"))]
     ReloadSimulatorAsync: usize,
 }
-windows_core::imp::com_interface!(ICurrentAppSimulatorStaticsWithFiltering, ICurrentAppSimulatorStaticsWithFiltering_Vtbl, 0x617e70e2_f86f_4b54_9666_dde285092c68);
+windows_core::imp::define_interface!(ICurrentAppSimulatorStaticsWithFiltering, ICurrentAppSimulatorStaticsWithFiltering_Vtbl, 0x617e70e2_f86f_4b54_9666_dde285092c68);
 #[repr(C)]
 pub struct ICurrentAppSimulatorStaticsWithFiltering_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -58,13 +58,13 @@ pub struct ICurrentAppSimulatorStaticsWithFiltering_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     LoadListingInformationByKeywordsAsync: usize,
 }
-windows_core::imp::com_interface!(ICurrentAppSimulatorWithCampaignId, ICurrentAppSimulatorWithCampaignId_Vtbl, 0x84678a43_df00_4672_a43f_b25b1441cfcf);
+windows_core::imp::define_interface!(ICurrentAppSimulatorWithCampaignId, ICurrentAppSimulatorWithCampaignId_Vtbl, 0x84678a43_df00_4672_a43f_b25b1441cfcf);
 #[repr(C)]
 pub struct ICurrentAppSimulatorWithCampaignId_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAppPurchaseCampaignIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICurrentAppSimulatorWithConsumables, ICurrentAppSimulatorWithConsumables_Vtbl, 0x4e51f0ab_20e7_4412_9b85_59bb78388667);
+windows_core::imp::define_interface!(ICurrentAppSimulatorWithConsumables, ICurrentAppSimulatorWithConsumables_Vtbl, 0x4e51f0ab_20e7_4412_9b85_59bb78388667);
 #[repr(C)]
 pub struct ICurrentAppSimulatorWithConsumables_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -76,7 +76,7 @@ pub struct ICurrentAppSimulatorWithConsumables_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetUnfulfilledConsumablesAsync: usize,
 }
-windows_core::imp::com_interface!(ICurrentAppStaticsWithFiltering, ICurrentAppStaticsWithFiltering_Vtbl, 0xd36d6542_9085_438e_97ba_a25c976be2fd);
+windows_core::imp::define_interface!(ICurrentAppStaticsWithFiltering, ICurrentAppStaticsWithFiltering_Vtbl, 0xd36d6542_9085_438e_97ba_a25c976be2fd);
 #[repr(C)]
 pub struct ICurrentAppStaticsWithFiltering_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -90,13 +90,13 @@ pub struct ICurrentAppStaticsWithFiltering_Vtbl {
     LoadListingInformationByKeywordsAsync: usize,
     pub ReportProductFulfillment: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICurrentAppWithCampaignId, ICurrentAppWithCampaignId_Vtbl, 0x312f4cd0_36c1_44a6_b32b_432d608e4dd6);
+windows_core::imp::define_interface!(ICurrentAppWithCampaignId, ICurrentAppWithCampaignId_Vtbl, 0x312f4cd0_36c1_44a6_b32b_432d608e4dd6);
 #[repr(C)]
 pub struct ICurrentAppWithCampaignId_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAppPurchaseCampaignIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICurrentAppWithConsumables, ICurrentAppWithConsumables_Vtbl, 0x844e0071_9e4f_4f79_995a_5f91172e6cef);
+windows_core::imp::define_interface!(ICurrentAppWithConsumables, ICurrentAppWithConsumables_Vtbl, 0x844e0071_9e4f_4f79_995a_5f91172e6cef);
 #[repr(C)]
 pub struct ICurrentAppWithConsumables_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -108,7 +108,7 @@ pub struct ICurrentAppWithConsumables_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetUnfulfilledConsumablesAsync: usize,
 }
-windows_core::imp::com_interface!(ILicenseInformation, ILicenseInformation_Vtbl, 0x8eb7dc30_f170_4ed5_8e21_1516da3fd367);
+windows_core::imp::define_interface!(ILicenseInformation, ILicenseInformation_Vtbl, 0x8eb7dc30_f170_4ed5_8e21_1516da3fd367);
 #[repr(C)]
 pub struct ILicenseInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -122,7 +122,7 @@ pub struct ILicenseInformation_Vtbl {
     pub LicenseChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveLicenseChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IListingInformation, IListingInformation_Vtbl, 0x588b4abf_bc74_4383_b78c_99606323dece);
+windows_core::imp::define_interface!(IListingInformation, IListingInformation_Vtbl, 0x588b4abf_bc74_4383_b78c_99606323dece);
 #[repr(C)]
 pub struct IListingInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -136,7 +136,7 @@ pub struct IListingInformation_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub AgeRating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IListingInformation2, IListingInformation2_Vtbl, 0xc0fd2c1d_b30e_4384_84ea_72fefa82223e);
+windows_core::imp::define_interface!(IListingInformation2, IListingInformation2_Vtbl, 0xc0fd2c1d_b30e_4384_84ea_72fefa82223e);
 #[repr(C)]
 pub struct IListingInformation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -145,7 +145,7 @@ pub struct IListingInformation2_Vtbl {
     pub IsOnSale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub CurrencyCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IProductLicense, IProductLicense_Vtbl, 0x363308c7_2bcf_4c0e_8f2f_e808aaa8f99d);
+windows_core::imp::define_interface!(IProductLicense, IProductLicense_Vtbl, 0x363308c7_2bcf_4c0e_8f2f_e808aaa8f99d);
 #[repr(C)]
 pub struct IProductLicense_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -153,13 +153,13 @@ pub struct IProductLicense_Vtbl {
     pub IsActive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ExpirationDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IProductLicenseWithFulfillment, IProductLicenseWithFulfillment_Vtbl, 0xfc535c8a_f667_40f3_ba3c_045a63abb3ac);
+windows_core::imp::define_interface!(IProductLicenseWithFulfillment, IProductLicenseWithFulfillment_Vtbl, 0xfc535c8a_f667_40f3_ba3c_045a63abb3ac);
 #[repr(C)]
 pub struct IProductLicenseWithFulfillment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsConsumable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IProductListing, IProductListing_Vtbl, 0x45a7d6ad_c750_4d9c_947c_b00dcbf9e9c2);
+windows_core::imp::define_interface!(IProductListing, IProductListing_Vtbl, 0x45a7d6ad_c750_4d9c_947c_b00dcbf9e9c2);
 #[repr(C)]
 pub struct IProductListing_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -167,7 +167,7 @@ pub struct IProductListing_Vtbl {
     pub FormattedPrice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IProductListing2, IProductListing2_Vtbl, 0xf89e290f_73fe_494d_a939_08a9b2495abe);
+windows_core::imp::define_interface!(IProductListing2, IProductListing2_Vtbl, 0xf89e290f_73fe_494d_a939_08a9b2495abe);
 #[repr(C)]
 pub struct IProductListing2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -176,13 +176,13 @@ pub struct IProductListing2_Vtbl {
     pub IsOnSale: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub CurrencyCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IProductListingWithConsumables, IProductListingWithConsumables_Vtbl, 0xeb9e9790_8f6b_481f_93a7_5c3a63068149);
+windows_core::imp::define_interface!(IProductListingWithConsumables, IProductListingWithConsumables_Vtbl, 0xeb9e9790_8f6b_481f_93a7_5c3a63068149);
 #[repr(C)]
 pub struct IProductListingWithConsumables_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProductType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProductType) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IProductListingWithMetadata, IProductListingWithMetadata_Vtbl, 0x124da567_23f8_423e_9532_189943c40ace);
+windows_core::imp::define_interface!(IProductListingWithMetadata, IProductListingWithMetadata_Vtbl, 0x124da567_23f8_423e_9532_189943c40ace);
 #[repr(C)]
 pub struct IProductListingWithMetadata_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -195,7 +195,7 @@ pub struct IProductListingWithMetadata_Vtbl {
     pub Tag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub ImageUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IProductPurchaseDisplayProperties, IProductPurchaseDisplayProperties_Vtbl, 0xd70b7420_bc92_401b_a809_c9b2e5dbbdaf);
+windows_core::imp::define_interface!(IProductPurchaseDisplayProperties, IProductPurchaseDisplayProperties_Vtbl, 0xd70b7420_bc92_401b_a809_c9b2e5dbbdaf);
 #[repr(C)]
 pub struct IProductPurchaseDisplayProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -206,13 +206,13 @@ pub struct IProductPurchaseDisplayProperties_Vtbl {
     pub Image: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IProductPurchaseDisplayPropertiesFactory, IProductPurchaseDisplayPropertiesFactory_Vtbl, 0x6f491df4_32d6_4b40_b474_b83038a4d9cf);
+windows_core::imp::define_interface!(IProductPurchaseDisplayPropertiesFactory, IProductPurchaseDisplayPropertiesFactory_Vtbl, 0x6f491df4_32d6_4b40_b474_b83038a4d9cf);
 #[repr(C)]
 pub struct IProductPurchaseDisplayPropertiesFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateProductPurchaseDisplayProperties: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPurchaseResults, IPurchaseResults_Vtbl, 0xed50b37e_8656_4f65_b8c8_ac7e0cb1a1c2);
+windows_core::imp::define_interface!(IPurchaseResults, IPurchaseResults_Vtbl, 0xed50b37e_8656_4f65_b8c8_ac7e0cb1a1c2);
 #[repr(C)]
 pub struct IPurchaseResults_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -221,7 +221,7 @@ pub struct IPurchaseResults_Vtbl {
     pub ReceiptXml: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub OfferId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IUnfulfilledConsumable, IUnfulfilledConsumable_Vtbl, 0x2df7fbbb_1cdd_4cb8_a014_7b9cf8986927);
+windows_core::imp::define_interface!(IUnfulfilledConsumable, IUnfulfilledConsumable_Vtbl, 0x2df7fbbb_1cdd_4cb8_a014_7b9cf8986927);
 #[repr(C)]
 pub struct IUnfulfilledConsumable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1033,7 +1033,7 @@ impl core::fmt::Debug for ProductType {
 impl windows_core::RuntimeType for ProductType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.ProductType;i4)");
 }
-windows_core::imp::com_interface!(LicenseChangedEventHandler, LicenseChangedEventHandler_Vtbl, 0xd4a50255_1369_4c36_832f_6f2d88e3659b);
+windows_core::imp::define_interface!(LicenseChangedEventHandler, LicenseChangedEventHandler_Vtbl, 0xd4a50255_1369_4c36_832f_6f2d88e3659b);
 impl LicenseChangedEventHandler {
     pub fn new<F: FnMut() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = LicenseChangedEventHandlerBox::<F> { vtable: &LicenseChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };

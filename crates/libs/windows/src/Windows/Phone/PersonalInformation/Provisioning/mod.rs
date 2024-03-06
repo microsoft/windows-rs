@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IContactPartnerProvisioningManagerStatics, IContactPartnerProvisioningManagerStatics_Vtbl, 0xc0d79a21_01af_4fd3_98cd_b3d656de15f4);
+windows_core::imp::define_interface!(IContactPartnerProvisioningManagerStatics, IContactPartnerProvisioningManagerStatics_Vtbl, 0xc0d79a21_01af_4fd3_98cd_b3d656de15f4);
 #[repr(C)]
 pub struct IContactPartnerProvisioningManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,13 +8,13 @@ pub struct IContactPartnerProvisioningManagerStatics_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     ImportVcardToSystemAsync: usize,
 }
-windows_core::imp::com_interface!(IContactPartnerProvisioningManagerStatics2, IContactPartnerProvisioningManagerStatics2_Vtbl, 0xc26155f7_55ed_475d_9334_c5d484c30f1a);
+windows_core::imp::define_interface!(IContactPartnerProvisioningManagerStatics2, IContactPartnerProvisioningManagerStatics2_Vtbl, 0xc26155f7_55ed_475d_9334_c5d484c30f1a);
 #[repr(C)]
 pub struct IContactPartnerProvisioningManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AssociateSocialNetworkAccountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMessagePartnerProvisioningManagerStatics, IMessagePartnerProvisioningManagerStatics_Vtbl, 0x8a1b0850_73c5_457c_bc59_ed7d615c05a4);
+windows_core::imp::define_interface!(IMessagePartnerProvisioningManagerStatics, IMessagePartnerProvisioningManagerStatics_Vtbl, 0x8a1b0850_73c5_457c_bc59_ed7d615c05a4);
 #[repr(C)]
 pub struct IMessagePartnerProvisioningManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

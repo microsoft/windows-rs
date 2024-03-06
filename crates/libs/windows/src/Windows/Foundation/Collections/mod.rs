@@ -661,7 +661,7 @@ where
     pub RemoveVectorChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::EventRegistrationToken) -> windows_core::HRESULT,
     pub T: core::marker::PhantomData<T>,
 }
-windows_core::imp::com_interface!(IPropertySet, IPropertySet_Vtbl, 0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
+windows_core::imp::define_interface!(IPropertySet, IPropertySet_Vtbl, 0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
 windows_core::imp::interface_hierarchy!(IPropertySet, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IPropertySet, IIterable < IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > >, IMap < windows_core::HSTRING , windows_core::IInspectable >, IObservableMap < windows_core::HSTRING , windows_core::IInspectable >);
 impl IPropertySet {
@@ -907,7 +907,7 @@ where
     pub ReplaceAll: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::AbiType<T>) -> windows_core::HRESULT,
     pub T: core::marker::PhantomData<T>,
 }
-windows_core::imp::com_interface!(IVectorChangedEventArgs, IVectorChangedEventArgs_Vtbl, 0x575933df_34fe_4480_af15_07691f3d5d9b);
+windows_core::imp::define_interface!(IVectorChangedEventArgs, IVectorChangedEventArgs_Vtbl, 0x575933df_34fe_4480_af15_07691f3d5d9b);
 windows_core::imp::interface_hierarchy!(IVectorChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl IVectorChangedEventArgs {
     pub fn CollectionChange(&self) -> windows_core::Result<CollectionChange> {

@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IHtmlUtilities, IHtmlUtilities_Vtbl, 0xfec00add_2399_4fac_b5a7_05e9acd7181d);
+windows_core::imp::define_interface!(IHtmlUtilities, IHtmlUtilities_Vtbl, 0xfec00add_2399_4fac_b5a7_05e9acd7181d);
 #[repr(C)]
 pub struct IHtmlUtilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

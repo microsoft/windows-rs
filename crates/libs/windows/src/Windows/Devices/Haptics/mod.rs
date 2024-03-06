@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IKnownSimpleHapticsControllerWaveformsStatics, IKnownSimpleHapticsControllerWaveformsStatics_Vtbl, 0x3d577ef7_4cee_11e6_b535_001bdc06ab3b);
+windows_core::imp::define_interface!(IKnownSimpleHapticsControllerWaveformsStatics, IKnownSimpleHapticsControllerWaveformsStatics_Vtbl, 0x3d577ef7_4cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
 pub struct IKnownSimpleHapticsControllerWaveformsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,7 +8,7 @@ pub struct IKnownSimpleHapticsControllerWaveformsStatics_Vtbl {
     pub Press: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKnownSimpleHapticsControllerWaveformsStatics2, IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl, 0xa7d24c27_b79d_510a_bf79_ff6d49173e1d);
+windows_core::imp::define_interface!(IKnownSimpleHapticsControllerWaveformsStatics2, IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl, 0xa7d24c27_b79d_510a_bf79_ff6d49173e1d);
 #[repr(C)]
 pub struct IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -23,7 +23,7 @@ pub struct IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl {
     pub PencilContinuous: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub Success: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISimpleHapticsController, ISimpleHapticsController_Vtbl, 0x3d577ef9_4cee_11e6_b535_001bdc06ab3b);
+windows_core::imp::define_interface!(ISimpleHapticsController, ISimpleHapticsController_Vtbl, 0x3d577ef9_4cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
 pub struct ISimpleHapticsController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -42,21 +42,21 @@ pub struct ISimpleHapticsController_Vtbl {
     pub SendHapticFeedbackForDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f64, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub SendHapticFeedbackForPlayCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f64, i32, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISimpleHapticsControllerFeedback, ISimpleHapticsControllerFeedback_Vtbl, 0x3d577ef8_4cee_11e6_b535_001bdc06ab3b);
+windows_core::imp::define_interface!(ISimpleHapticsControllerFeedback, ISimpleHapticsControllerFeedback_Vtbl, 0x3d577ef8_4cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
 pub struct ISimpleHapticsControllerFeedback_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Waveform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IVibrationDevice, IVibrationDevice_Vtbl, 0x40f21a3e_8844_47ff_b312_06185a3844da);
+windows_core::imp::define_interface!(IVibrationDevice, IVibrationDevice_Vtbl, 0x40f21a3e_8844_47ff_b312_06185a3844da);
 #[repr(C)]
 pub struct IVibrationDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SimpleHapticsController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IVibrationDeviceStatics, IVibrationDeviceStatics_Vtbl, 0x53e2eded_2290_4ac9_8eb3_1a84122eb71c);
+windows_core::imp::define_interface!(IVibrationDeviceStatics, IVibrationDeviceStatics_Vtbl, 0x53e2eded_2290_4ac9_8eb3_1a84122eb71c);
 #[repr(C)]
 pub struct IVibrationDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

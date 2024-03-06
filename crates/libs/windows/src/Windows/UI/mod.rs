@@ -26,29 +26,29 @@ pub mod ViewManagement;
 pub mod WebUI;
 #[cfg(feature = "UI_WindowManagement")]
 pub mod WindowManagement;
-windows_core::imp::com_interface!(IColorHelper, IColorHelper_Vtbl, 0x193cfbe7_65c7_4540_ad08_6283ba76879a);
+windows_core::imp::define_interface!(IColorHelper, IColorHelper_Vtbl, 0x193cfbe7_65c7_4540_ad08_6283ba76879a);
 #[repr(C)]
 pub struct IColorHelper_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IColorHelperStatics, IColorHelperStatics_Vtbl, 0x8504dbea_fb6a_4144_a6c2_33499c9284f5);
+windows_core::imp::define_interface!(IColorHelperStatics, IColorHelperStatics_Vtbl, 0x8504dbea_fb6a_4144_a6c2_33499c9284f5);
 #[repr(C)]
 pub struct IColorHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromArgb: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, u8, u8, *mut Color) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IColorHelperStatics2, IColorHelperStatics2_Vtbl, 0x24d9af02_6eb0_4b94_855c_fcf0818d9a16);
+windows_core::imp::define_interface!(IColorHelperStatics2, IColorHelperStatics2_Vtbl, 0x24d9af02_6eb0_4b94_855c_fcf0818d9a16);
 #[repr(C)]
 pub struct IColorHelperStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ToDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, Color, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IColors, IColors_Vtbl, 0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc);
+windows_core::imp::define_interface!(IColors, IColors_Vtbl, 0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc);
 #[repr(C)]
 pub struct IColors_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IColorsStatics, IColorsStatics_Vtbl, 0xcff52e04_cca6_4614_a17e_754910c84a99);
+windows_core::imp::define_interface!(IColorsStatics, IColorsStatics_Vtbl, 0xcff52e04_cca6_4614_a17e_754910c84a99);
 #[repr(C)]
 pub struct IColorsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -194,13 +194,13 @@ pub struct IColorsStatics_Vtbl {
     pub Yellow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Color) -> windows_core::HRESULT,
     pub YellowGreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Color) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IUIContentRoot, IUIContentRoot_Vtbl, 0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378);
+windows_core::imp::define_interface!(IUIContentRoot, IUIContentRoot_Vtbl, 0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378);
 #[repr(C)]
 pub struct IUIContentRoot_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UIContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IUIContext, IUIContext_Vtbl, 0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243);
+windows_core::imp::define_interface!(IUIContext, IUIContext_Vtbl, 0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243);
 #[repr(C)]
 pub struct IUIContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

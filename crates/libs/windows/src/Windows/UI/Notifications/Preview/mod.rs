@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IToastOcclusionManagerPreviewStatics, IToastOcclusionManagerPreviewStatics_Vtbl, 0x507e5c83_50f9_5412_8953_b65c18cfab12);
+windows_core::imp::define_interface!(IToastOcclusionManagerPreviewStatics, IToastOcclusionManagerPreviewStatics_Vtbl, 0x507e5c83_50f9_5412_8953_b65c18cfab12);
 #[repr(C)]
 pub struct IToastOcclusionManagerPreviewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

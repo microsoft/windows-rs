@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IEnhancedStorageACT, IEnhancedStorageACT_Vtbl, 0x6e7781f4_e0f2_4239_b976_a01abab52930);
+windows_core::imp::define_interface!(IEnhancedStorageACT, IEnhancedStorageACT_Vtbl, 0x6e7781f4_e0f2_4239_b976_a01abab52930);
 windows_core::imp::interface_hierarchy!(IEnhancedStorageACT, windows_core::IUnknown);
 impl IEnhancedStorageACT {
     pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> windows_core::Result<()> {
@@ -33,7 +33,7 @@ pub struct IEnhancedStorageACT_Vtbl {
     pub GetUniqueIdentity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetSilos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut Option<IEnhancedStorageSilo>, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IEnhancedStorageACT2, IEnhancedStorageACT2_Vtbl, 0x4da57d2e_8eb3_41f6_a07e_98b52b88242b);
+windows_core::imp::define_interface!(IEnhancedStorageACT2, IEnhancedStorageACT2_Vtbl, 0x4da57d2e_8eb3_41f6_a07e_98b52b88242b);
 windows_core::imp::interface_hierarchy!(IEnhancedStorageACT2, windows_core::IUnknown, IEnhancedStorageACT);
 impl IEnhancedStorageACT2 {
     pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> windows_core::Result<()> {
@@ -72,7 +72,7 @@ pub struct IEnhancedStorageACT2_Vtbl {
     pub GetDeviceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub IsDeviceRemovable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IEnhancedStorageACT3, IEnhancedStorageACT3_Vtbl, 0x022150a1_113d_11df_bb61_001aa01bbc58);
+windows_core::imp::define_interface!(IEnhancedStorageACT3, IEnhancedStorageACT3_Vtbl, 0x022150a1_113d_11df_bb61_001aa01bbc58);
 windows_core::imp::interface_hierarchy!(IEnhancedStorageACT3, windows_core::IUnknown, IEnhancedStorageACT, IEnhancedStorageACT2);
 impl IEnhancedStorageACT3 {
     pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> windows_core::Result<()> {
@@ -123,7 +123,7 @@ pub struct IEnhancedStorageACT3_Vtbl {
     pub IsQueueFrozen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetShellExtSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IEnhancedStorageSilo, IEnhancedStorageSilo_Vtbl, 0x5aef78c6_2242_4703_bf49_44b29357a359);
+windows_core::imp::define_interface!(IEnhancedStorageSilo, IEnhancedStorageSilo_Vtbl, 0x5aef78c6_2242_4703_bf49_44b29357a359);
 windows_core::imp::interface_hierarchy!(IEnhancedStorageSilo, windows_core::IUnknown);
 impl IEnhancedStorageSilo {
     pub unsafe fn GetInfo(&self) -> windows_core::Result<SILO_INFO> {
@@ -158,7 +158,7 @@ pub struct IEnhancedStorageSilo_Vtbl {
     GetPortableDevice: usize,
     pub GetDevicePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IEnhancedStorageSiloAction, IEnhancedStorageSiloAction_Vtbl, 0xb6f7f311_206f_4ff8_9c4b_27efee77a86f);
+windows_core::imp::define_interface!(IEnhancedStorageSiloAction, IEnhancedStorageSiloAction_Vtbl, 0xb6f7f311_206f_4ff8_9c4b_27efee77a86f);
 windows_core::imp::interface_hierarchy!(IEnhancedStorageSiloAction, windows_core::IUnknown);
 impl IEnhancedStorageSiloAction {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -180,7 +180,7 @@ pub struct IEnhancedStorageSiloAction_Vtbl {
     pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IEnumEnhancedStorageACT, IEnumEnhancedStorageACT_Vtbl, 0x09b224bd_1335_4631_a7ff_cfd3a92646d7);
+windows_core::imp::define_interface!(IEnumEnhancedStorageACT, IEnumEnhancedStorageACT_Vtbl, 0x09b224bd_1335_4631_a7ff_cfd3a92646d7);
 windows_core::imp::interface_hierarchy!(IEnumEnhancedStorageACT, windows_core::IUnknown);
 impl IEnumEnhancedStorageACT {
     pub unsafe fn GetACTs(&self, pppienhancedstorageacts: *mut *mut Option<IEnhancedStorageACT>, pcenhancedstorageacts: *mut u32) -> windows_core::Result<()> {

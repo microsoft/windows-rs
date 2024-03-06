@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IApplicationProfileStatics, IApplicationProfileStatics_Vtbl, 0xd5008ab4_7e7a_11e1_a7f2_b0a14824019b);
+windows_core::imp::define_interface!(IApplicationProfileStatics, IApplicationProfileStatics_Vtbl, 0xd5008ab4_7e7a_11e1_a7f2_b0a14824019b);
 #[repr(C)]
 pub struct IApplicationProfileStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

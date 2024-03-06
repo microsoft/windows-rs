@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IInjectedInputGamepadInfo, IInjectedInputGamepadInfo_Vtbl, 0x20ae9a3f_df11_4572_a9ab_d75b8a5e48ad);
+windows_core::imp::define_interface!(IInjectedInputGamepadInfo, IInjectedInputGamepadInfo_Vtbl, 0x20ae9a3f_df11_4572_a9ab_d75b8a5e48ad);
 #[repr(C)]
 pub struct IInjectedInputGamepadInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -23,7 +23,7 @@ pub struct IInjectedInputGamepadInfo_Vtbl {
     pub RightTrigger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetRightTrigger: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInjectedInputGamepadInfoFactory, IInjectedInputGamepadInfoFactory_Vtbl, 0x59596876_6c39_4ec4_8b2a_29ef7de18aca);
+windows_core::imp::define_interface!(IInjectedInputGamepadInfoFactory, IInjectedInputGamepadInfoFactory_Vtbl, 0x59596876_6c39_4ec4_8b2a_29ef7de18aca);
 #[repr(C)]
 pub struct IInjectedInputGamepadInfoFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -32,7 +32,7 @@ pub struct IInjectedInputGamepadInfoFactory_Vtbl {
     #[cfg(not(feature = "Gaming_Input"))]
     CreateInstanceFromGamepadReading: usize,
 }
-windows_core::imp::com_interface!(IInjectedInputKeyboardInfo, IInjectedInputKeyboardInfo_Vtbl, 0x4b46d140_2b6a_5ffa_7eae_bd077b052acd);
+windows_core::imp::define_interface!(IInjectedInputKeyboardInfo, IInjectedInputKeyboardInfo_Vtbl, 0x4b46d140_2b6a_5ffa_7eae_bd077b052acd);
 #[repr(C)]
 pub struct IInjectedInputKeyboardInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -43,7 +43,7 @@ pub struct IInjectedInputKeyboardInfo_Vtbl {
     pub VirtualKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub SetVirtualKey: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInjectedInputMouseInfo, IInjectedInputMouseInfo_Vtbl, 0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d);
+windows_core::imp::define_interface!(IInjectedInputMouseInfo, IInjectedInputMouseInfo_Vtbl, 0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d);
 #[repr(C)]
 pub struct IInjectedInputMouseInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -58,7 +58,7 @@ pub struct IInjectedInputMouseInfo_Vtbl {
     pub TimeOffsetInMilliseconds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetTimeOffsetInMilliseconds: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInjectedInputPenInfo, IInjectedInputPenInfo_Vtbl, 0x6b40ad03_ca1e_5527_7e02_2828540bb1d4);
+windows_core::imp::define_interface!(IInjectedInputPenInfo, IInjectedInputPenInfo_Vtbl, 0x6b40ad03_ca1e_5527_7e02_2828540bb1d4);
 #[repr(C)]
 pub struct IInjectedInputPenInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -77,7 +77,7 @@ pub struct IInjectedInputPenInfo_Vtbl {
     pub TiltY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetTiltY: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInjectedInputTouchInfo, IInjectedInputTouchInfo_Vtbl, 0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28);
+windows_core::imp::define_interface!(IInjectedInputTouchInfo, IInjectedInputTouchInfo_Vtbl, 0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28);
 #[repr(C)]
 pub struct IInjectedInputTouchInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -92,7 +92,7 @@ pub struct IInjectedInputTouchInfo_Vtbl {
     pub TouchParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InjectedInputTouchParameters) -> windows_core::HRESULT,
     pub SetTouchParameters: unsafe extern "system" fn(*mut core::ffi::c_void, InjectedInputTouchParameters) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInputInjector, IInputInjector_Vtbl, 0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18);
+windows_core::imp::define_interface!(IInputInjector, IInputInjector_Vtbl, 0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18);
 #[repr(C)]
 pub struct IInputInjector_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -115,7 +115,7 @@ pub struct IInputInjector_Vtbl {
     pub UninitializePenInjection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InjectShortcut: unsafe extern "system" fn(*mut core::ffi::c_void, InjectedInputShortcut) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInputInjector2, IInputInjector2_Vtbl, 0x8e7a905d_1453_43a7_9bcb_06d6d7b305f7);
+windows_core::imp::define_interface!(IInputInjector2, IInputInjector2_Vtbl, 0x8e7a905d_1453_43a7_9bcb_06d6d7b305f7);
 #[repr(C)]
 pub struct IInputInjector2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -123,13 +123,13 @@ pub struct IInputInjector2_Vtbl {
     pub InjectGamepadInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UninitializeGamepadInjection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInputInjectorStatics, IInputInjectorStatics_Vtbl, 0xdeae6943_7402_4141_a5c6_0c01aa57b16a);
+windows_core::imp::define_interface!(IInputInjectorStatics, IInputInjectorStatics_Vtbl, 0xdeae6943_7402_4141_a5c6_0c01aa57b16a);
 #[repr(C)]
 pub struct IInputInjectorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryCreate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInputInjectorStatics2, IInputInjectorStatics2_Vtbl, 0xa4db38fb_dd8c_414f_95ea_f87ef4c0ae6c);
+windows_core::imp::define_interface!(IInputInjectorStatics2, IInputInjectorStatics2_Vtbl, 0xa4db38fb_dd8c_414f_95ea_f87ef4c0ae6c);
 #[repr(C)]
 pub struct IInputInjectorStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

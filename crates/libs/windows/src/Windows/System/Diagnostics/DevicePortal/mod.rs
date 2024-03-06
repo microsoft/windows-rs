@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IDevicePortalConnection, IDevicePortalConnection_Vtbl, 0x0f447f51_1198_4da1_8d54_bdef393e09b6);
+windows_core::imp::define_interface!(IDevicePortalConnection, IDevicePortalConnection_Vtbl, 0x0f447f51_1198_4da1_8d54_bdef393e09b6);
 #[repr(C)]
 pub struct IDevicePortalConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7,13 +7,13 @@ pub struct IDevicePortalConnection_Vtbl {
     pub RequestReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveRequestReceived: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDevicePortalConnectionClosedEventArgs, IDevicePortalConnectionClosedEventArgs_Vtbl, 0xfcf70e38_7032_428c_9f50_945c15a9f0cb);
+windows_core::imp::define_interface!(IDevicePortalConnectionClosedEventArgs, IDevicePortalConnectionClosedEventArgs_Vtbl, 0xfcf70e38_7032_428c_9f50_945c15a9f0cb);
 #[repr(C)]
 pub struct IDevicePortalConnectionClosedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DevicePortalConnectionClosedReason) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDevicePortalConnectionRequestReceivedEventArgs, IDevicePortalConnectionRequestReceivedEventArgs_Vtbl, 0x64dae045_6fda_4459_9ebd_ecce22e38559);
+windows_core::imp::define_interface!(IDevicePortalConnectionRequestReceivedEventArgs, IDevicePortalConnectionRequestReceivedEventArgs_Vtbl, 0x64dae045_6fda_4459_9ebd_ecce22e38559);
 #[repr(C)]
 pub struct IDevicePortalConnectionRequestReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -26,7 +26,7 @@ pub struct IDevicePortalConnectionRequestReceivedEventArgs_Vtbl {
     #[cfg(not(feature = "Web_Http"))]
     ResponseMessage: usize,
 }
-windows_core::imp::com_interface!(IDevicePortalConnectionStatics, IDevicePortalConnectionStatics_Vtbl, 0x4bbe31e7_e9b9_4645_8fed_a53eea0edbd6);
+windows_core::imp::define_interface!(IDevicePortalConnectionStatics, IDevicePortalConnectionStatics_Vtbl, 0x4bbe31e7_e9b9_4645_8fed_a53eea0edbd6);
 #[repr(C)]
 pub struct IDevicePortalConnectionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -35,7 +35,7 @@ pub struct IDevicePortalConnectionStatics_Vtbl {
     #[cfg(not(feature = "ApplicationModel_AppService"))]
     GetForAppServiceConnection: usize,
 }
-windows_core::imp::com_interface!(IDevicePortalWebSocketConnection, IDevicePortalWebSocketConnection_Vtbl, 0x67657920_d65a_42f0_aef4_787808098b7b);
+windows_core::imp::define_interface!(IDevicePortalWebSocketConnection, IDevicePortalWebSocketConnection_Vtbl, 0x67657920_d65a_42f0_aef4_787808098b7b);
 #[repr(C)]
 pub struct IDevicePortalWebSocketConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -60,7 +60,7 @@ pub struct IDevicePortalWebSocketConnection_Vtbl {
     #[cfg(not(all(feature = "Networking_Sockets", feature = "Web_Http")))]
     GetServerStreamWebSocketForRequest2: usize,
 }
-windows_core::imp::com_interface!(IDevicePortalWebSocketConnectionRequestReceivedEventArgs, IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl, 0x79fdcaba_175c_4739_9f74_dda797c35b3f);
+windows_core::imp::define_interface!(IDevicePortalWebSocketConnectionRequestReceivedEventArgs, IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl, 0x79fdcaba_175c_4739_9f74_dda797c35b3f);
 #[repr(C)]
 pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

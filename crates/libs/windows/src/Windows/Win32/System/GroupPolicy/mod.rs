@@ -266,7 +266,7 @@ where
     windows_targets::link!("userenv.dll" "system" fn UnregisterGPNotification(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     UnregisterGPNotification(hevent.into_param().abi()).ok()
 }
-windows_core::imp::com_interface!(IGPEInformation, IGPEInformation_Vtbl, 0x8fc0b735_a0e1_11d1_a7d3_0000f87571e3);
+windows_core::imp::define_interface!(IGPEInformation, IGPEInformation_Vtbl, 0x8fc0b735_a0e1_11d1_a7d3_0000f87571e3);
 windows_core::imp::interface_hierarchy!(IGPEInformation, windows_core::IUnknown);
 impl IGPEInformation {
     pub unsafe fn GetName(&self, pszname: &mut [u16]) -> windows_core::Result<()> {
@@ -319,7 +319,7 @@ pub struct IGPEInformation_Vtbl {
     pub PolicyChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut windows_core::GUID, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPM, IGPM_Vtbl, 0xf5fae809_3bd6_4da9_a65e_17665b41d763);
+windows_core::imp::define_interface!(IGPM, IGPM_Vtbl, 0xf5fae809_3bd6_4da9_a65e_17665b41d763);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPM, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -462,7 +462,7 @@ pub struct IGPM_Vtbl {
     pub InitializeReporting: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPM2, IGPM2_Vtbl, 0x00238f8a_3d86_41ac_8f5e_06a6638a634a);
+windows_core::imp::define_interface!(IGPM2, IGPM2_Vtbl, 0x00238f8a_3d86_41ac_8f5e_06a6638a634a);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPM2, windows_core::IUnknown, super::Com::IDispatch, IGPM);
 #[cfg(feature = "Win32_System_Com")]
@@ -579,7 +579,7 @@ pub struct IGPM2_Vtbl {
     pub InitializeReportingEx: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMAsyncCancel, IGPMAsyncCancel_Vtbl, 0xddc67754_be67_4541_8166_f48166868c9c);
+windows_core::imp::define_interface!(IGPMAsyncCancel, IGPMAsyncCancel_Vtbl, 0xddc67754_be67_4541_8166_f48166868c9c);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMAsyncCancel, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -595,7 +595,7 @@ pub struct IGPMAsyncCancel_Vtbl {
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMAsyncProgress, IGPMAsyncProgress_Vtbl, 0x6aac29f8_5948_4324_bf70_423818942dbc);
+windows_core::imp::define_interface!(IGPMAsyncProgress, IGPMAsyncProgress_Vtbl, 0x6aac29f8_5948_4324_bf70_423818942dbc);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMAsyncProgress, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -618,7 +618,7 @@ pub struct IGPMAsyncProgress_Vtbl {
     Status: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMBackup, IGPMBackup_Vtbl, 0xd8a16a35_3b0d_416b_8d02_4df6f95a7119);
+windows_core::imp::define_interface!(IGPMBackup, IGPMBackup_Vtbl, 0xd8a16a35_3b0d_416b_8d02_4df6f95a7119);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMBackup, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -690,7 +690,7 @@ pub struct IGPMBackup_Vtbl {
     GenerateReportToFile: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMBackupCollection, IGPMBackupCollection_Vtbl, 0xc786fc0f_26d8_4bab_a745_39ca7e800cac);
+windows_core::imp::define_interface!(IGPMBackupCollection, IGPMBackupCollection_Vtbl, 0xc786fc0f_26d8_4bab_a745_39ca7e800cac);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMBackupCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -721,7 +721,7 @@ pub struct IGPMBackupCollection_Vtbl {
     _NewEnum: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMBackupDir, IGPMBackupDir_Vtbl, 0xb1568bed_0a93_4acc_810f_afe7081019b9);
+windows_core::imp::define_interface!(IGPMBackupDir, IGPMBackupDir_Vtbl, 0xb1568bed_0a93_4acc_810f_afe7081019b9);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMBackupDir, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -762,7 +762,7 @@ pub struct IGPMBackupDir_Vtbl {
     SearchBackups: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMBackupDirEx, IGPMBackupDirEx_Vtbl, 0xf8dc55ed_3ba0_4864_aad4_d365189ee1d5);
+windows_core::imp::define_interface!(IGPMBackupDirEx, IGPMBackupDirEx_Vtbl, 0xf8dc55ed_3ba0_4864_aad4_d365189ee1d5);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMBackupDirEx, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -804,7 +804,7 @@ pub struct IGPMBackupDirEx_Vtbl {
     SearchBackups: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMCSECollection, IGPMCSECollection_Vtbl, 0x2e52a97d_0a4a_4a6f_85db_201622455da0);
+windows_core::imp::define_interface!(IGPMCSECollection, IGPMCSECollection_Vtbl, 0x2e52a97d_0a4a_4a6f_85db_201622455da0);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMCSECollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -835,7 +835,7 @@ pub struct IGPMCSECollection_Vtbl {
     _NewEnum: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMClientSideExtension, IGPMClientSideExtension_Vtbl, 0x69da7488_b8db_415e_9266_901be4d49928);
+windows_core::imp::define_interface!(IGPMClientSideExtension, IGPMClientSideExtension_Vtbl, 0x69da7488_b8db_415e_9266_901be4d49928);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMClientSideExtension, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -867,7 +867,7 @@ pub struct IGPMClientSideExtension_Vtbl {
     pub IsComputerEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMConstants, IGPMConstants_Vtbl, 0x50ef73e6_d35c_4c8d_be63_7ea5d2aac5c4);
+windows_core::imp::define_interface!(IGPMConstants, IGPMConstants_Vtbl, 0x50ef73e6_d35c_4c8d_be63_7ea5d2aac5c4);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMConstants, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1188,7 +1188,7 @@ pub struct IGPMConstants_Vtbl {
     pub RsopPlanningAssumeCompWQLFilterTrue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMConstants2, IGPMConstants2_Vtbl, 0x05ae21b0_ac09_4032_a26f_9e7da786dc19);
+windows_core::imp::define_interface!(IGPMConstants2, IGPMConstants2_Vtbl, 0x05ae21b0_ac09_4032_a26f_9e7da786dc19);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMConstants2, windows_core::IUnknown, super::Com::IDispatch, IGPMConstants);
 #[cfg(feature = "Win32_System_Com")]
@@ -1524,7 +1524,7 @@ pub struct IGPMConstants2_Vtbl {
     pub ReportComments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GPMReportingOptions) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMDomain, IGPMDomain_Vtbl, 0x6b21cc14_5a00_4f44_a738_feec8a94c7e3);
+windows_core::imp::define_interface!(IGPMDomain, IGPMDomain_Vtbl, 0x6b21cc14_5a00_4f44_a738_feec8a94c7e3);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMDomain, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1639,7 +1639,7 @@ pub struct IGPMDomain_Vtbl {
     SearchWMIFilters: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMDomain2, IGPMDomain2_Vtbl, 0x7ca6bb8b_f1eb_490a_938d_3c4e51c768e6);
+windows_core::imp::define_interface!(IGPMDomain2, IGPMDomain2_Vtbl, 0x7ca6bb8b_f1eb_490a_938d_3c4e51c768e6);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMDomain2, windows_core::IUnknown, super::Com::IDispatch, IGPMDomain);
 #[cfg(feature = "Win32_System_Com")]
@@ -1790,7 +1790,7 @@ pub struct IGPMDomain2_Vtbl {
     RestoreStarterGPO: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMDomain3, IGPMDomain3_Vtbl, 0x0077fdfe_88c7_4acf_a11d_d10a7c310a03);
+windows_core::imp::define_interface!(IGPMDomain3, IGPMDomain3_Vtbl, 0x0077fdfe_88c7_4acf_a11d_d10a7c310a03);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMDomain3, windows_core::IUnknown, super::Com::IDispatch, IGPMDomain, IGPMDomain2);
 #[cfg(feature = "Win32_System_Com")]
@@ -1942,7 +1942,7 @@ pub struct IGPMDomain3_Vtbl {
     pub SetInfrastructureFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMGPO, IGPMGPO_Vtbl, 0x58cc4352_1ca3_48e5_9864_1da4d6e0d60f);
+windows_core::imp::define_interface!(IGPMGPO, IGPMGPO_Vtbl, 0x58cc4352_1ca3_48e5_9864_1da4d6e0d60f);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMGPO, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2166,7 +2166,7 @@ pub struct IGPMGPO_Vtbl {
     pub MakeACLConsistent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMGPO2, IGPMGPO2_Vtbl, 0x8a66a210_b78b_4d99_88e2_c306a817c925);
+windows_core::imp::define_interface!(IGPMGPO2, IGPMGPO2_Vtbl, 0x8a66a210_b78b_4d99_88e2_c306a817c925);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMGPO2, windows_core::IUnknown, super::Com::IDispatch, IGPMGPO);
 #[cfg(feature = "Win32_System_Com")]
@@ -2340,7 +2340,7 @@ pub struct IGPMGPO2_Vtbl {
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMGPO3, IGPMGPO3_Vtbl, 0x7cf123a1_f94a_4112_bfae_6aa1db9cb248);
+windows_core::imp::define_interface!(IGPMGPO3, IGPMGPO3_Vtbl, 0x7cf123a1_f94a_4112_bfae_6aa1db9cb248);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMGPO3, windows_core::IUnknown, super::Com::IDispatch, IGPMGPO, IGPMGPO2);
 #[cfg(feature = "Win32_System_Com")]
@@ -2528,7 +2528,7 @@ pub struct IGPMGPO3_Vtbl {
     pub SetInfrastructureFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMGPOCollection, IGPMGPOCollection_Vtbl, 0xf0f0d5cf_70ca_4c39_9e29_b642f8726c01);
+windows_core::imp::define_interface!(IGPMGPOCollection, IGPMGPOCollection_Vtbl, 0xf0f0d5cf_70ca_4c39_9e29_b642f8726c01);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMGPOCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2559,7 +2559,7 @@ pub struct IGPMGPOCollection_Vtbl {
     _NewEnum: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMGPOLink, IGPMGPOLink_Vtbl, 0x434b99bd_5de7_478a_809c_c251721df70c);
+windows_core::imp::define_interface!(IGPMGPOLink, IGPMGPOLink_Vtbl, 0x434b99bd_5de7_478a_809c_c251721df70c);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMGPOLink, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2623,7 +2623,7 @@ pub struct IGPMGPOLink_Vtbl {
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMGPOLinksCollection, IGPMGPOLinksCollection_Vtbl, 0x189d7b68_16bd_4d0d_a2ec_2e6aa2288c7f);
+windows_core::imp::define_interface!(IGPMGPOLinksCollection, IGPMGPOLinksCollection_Vtbl, 0x189d7b68_16bd_4d0d_a2ec_2e6aa2288c7f);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMGPOLinksCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2654,7 +2654,7 @@ pub struct IGPMGPOLinksCollection_Vtbl {
     _NewEnum: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMMapEntry, IGPMMapEntry_Vtbl, 0x8e79ad06_2381_4444_be4c_ff693e6e6f2b);
+windows_core::imp::define_interface!(IGPMMapEntry, IGPMMapEntry_Vtbl, 0x8e79ad06_2381_4444_be4c_ff693e6e6f2b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMMapEntry, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2686,7 +2686,7 @@ pub struct IGPMMapEntry_Vtbl {
     pub EntryType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GPMEntryType) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMMapEntryCollection, IGPMMapEntryCollection_Vtbl, 0xbb0bf49b_e53f_443f_b807_8be22bfb6d42);
+windows_core::imp::define_interface!(IGPMMapEntryCollection, IGPMMapEntryCollection_Vtbl, 0xbb0bf49b_e53f_443f_b807_8be22bfb6d42);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMMapEntryCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2717,7 +2717,7 @@ pub struct IGPMMapEntryCollection_Vtbl {
     _NewEnum: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMMigrationTable, IGPMMigrationTable_Vtbl, 0x48f823b1_efaf_470b_b6ed_40d14ee1a4ec);
+windows_core::imp::define_interface!(IGPMMigrationTable, IGPMMigrationTable_Vtbl, 0x48f823b1_efaf_470b_b6ed_40d14ee1a4ec);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMMigrationTable, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2804,7 +2804,7 @@ pub struct IGPMMigrationTable_Vtbl {
     GetEntries: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMPermission, IGPMPermission_Vtbl, 0x35ebca40_e1a1_4a02_8905_d79416fb464a);
+windows_core::imp::define_interface!(IGPMPermission, IGPMPermission_Vtbl, 0x35ebca40_e1a1_4a02_8905_d79416fb464a);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMPermission, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2845,7 +2845,7 @@ pub struct IGPMPermission_Vtbl {
     Trustee: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMRSOP, IGPMRSOP_Vtbl, 0x49ed785a_3237_4ff2_b1f0_fdf5a8d5a1ee);
+windows_core::imp::define_interface!(IGPMRSOP, IGPMRSOP_Vtbl, 0x49ed785a_3237_4ff2_b1f0_fdf5a8d5a1ee);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMRSOP, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3063,7 +3063,7 @@ pub struct IGPMRSOP_Vtbl {
     GenerateReportToFile: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMResult, IGPMResult_Vtbl, 0x86dff7e9_f76f_42ab_9570_cebc6be8a52d);
+windows_core::imp::define_interface!(IGPMResult, IGPMResult_Vtbl, 0x86dff7e9_f76f_42ab_9570_cebc6be8a52d);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMResult, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3093,7 +3093,7 @@ pub struct IGPMResult_Vtbl {
     pub OverallStatus: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMSOM, IGPMSOM_Vtbl, 0xc0a7f09e_05a1_4f0c_8158_9e5c33684f6b);
+windows_core::imp::define_interface!(IGPMSOM, IGPMSOM_Vtbl, 0xc0a7f09e_05a1_4f0c_8158_9e5c33684f6b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMSOM, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3182,7 +3182,7 @@ pub struct IGPMSOM_Vtbl {
     SetSecurityInfo: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMSOMCollection, IGPMSOMCollection_Vtbl, 0xadc1688e_00e4_4495_abba_bed200df0cab);
+windows_core::imp::define_interface!(IGPMSOMCollection, IGPMSOMCollection_Vtbl, 0xadc1688e_00e4_4495_abba_bed200df0cab);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMSOMCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3213,7 +3213,7 @@ pub struct IGPMSOMCollection_Vtbl {
     _NewEnum: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMSearchCriteria, IGPMSearchCriteria_Vtbl, 0xd6f11c42_829b_48d4_83f5_3615b67dfc22);
+windows_core::imp::define_interface!(IGPMSearchCriteria, IGPMSearchCriteria_Vtbl, 0xd6f11c42_829b_48d4_83f5_3615b67dfc22);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMSearchCriteria, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3232,7 +3232,7 @@ pub struct IGPMSearchCriteria_Vtbl {
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, GPMSearchProperty, GPMSearchOperation, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMSecurityInfo, IGPMSecurityInfo_Vtbl, 0xb6c31ed4_1c93_4d3e_ae84_eb6d61161b60);
+windows_core::imp::define_interface!(IGPMSecurityInfo, IGPMSecurityInfo_Vtbl, 0xb6c31ed4_1c93_4d3e_ae84_eb6d61161b60);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMSecurityInfo, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3292,7 +3292,7 @@ pub struct IGPMSecurityInfo_Vtbl {
     pub RemoveTrustee: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMSitesContainer, IGPMSitesContainer_Vtbl, 0x4725a899_2782_4d27_a6bb_d499246ffd72);
+windows_core::imp::define_interface!(IGPMSitesContainer, IGPMSitesContainer_Vtbl, 0x4725a899_2782_4d27_a6bb_d499246ffd72);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMSitesContainer, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3343,7 +3343,7 @@ pub struct IGPMSitesContainer_Vtbl {
     SearchSites: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMStarterGPO, IGPMStarterGPO_Vtbl, 0xdfc3f61b_8880_4490_9337_d29c7ba8c2f0);
+windows_core::imp::define_interface!(IGPMStarterGPO, IGPMStarterGPO_Vtbl, 0xdfc3f61b_8880_4490_9337_d29c7ba8c2f0);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMStarterGPO, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3505,7 +3505,7 @@ pub struct IGPMStarterGPO_Vtbl {
     SetSecurityInfo: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMStarterGPOBackup, IGPMStarterGPOBackup_Vtbl, 0x51d98eda_a87e_43dd_b80a_0b66ef1938d6);
+windows_core::imp::define_interface!(IGPMStarterGPOBackup, IGPMStarterGPOBackup_Vtbl, 0x51d98eda_a87e_43dd_b80a_0b66ef1938d6);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMStarterGPOBackup, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3582,7 +3582,7 @@ pub struct IGPMStarterGPOBackup_Vtbl {
     GenerateReportToFile: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMStarterGPOBackupCollection, IGPMStarterGPOBackupCollection_Vtbl, 0xc998031d_add0_4bb5_8dea_298505d8423b);
+windows_core::imp::define_interface!(IGPMStarterGPOBackupCollection, IGPMStarterGPOBackupCollection_Vtbl, 0xc998031d_add0_4bb5_8dea_298505d8423b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMStarterGPOBackupCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3613,7 +3613,7 @@ pub struct IGPMStarterGPOBackupCollection_Vtbl {
     _NewEnum: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMStarterGPOCollection, IGPMStarterGPOCollection_Vtbl, 0x2e522729_2219_44ad_933a_64dfd650c423);
+windows_core::imp::define_interface!(IGPMStarterGPOCollection, IGPMStarterGPOCollection_Vtbl, 0x2e522729_2219_44ad_933a_64dfd650c423);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMStarterGPOCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3644,7 +3644,7 @@ pub struct IGPMStarterGPOCollection_Vtbl {
     _NewEnum: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMStatusMessage, IGPMStatusMessage_Vtbl, 0x8496c22f_f3de_4a1f_8f58_603caaa93d7b);
+windows_core::imp::define_interface!(IGPMStatusMessage, IGPMStatusMessage_Vtbl, 0x8496c22f_f3de_4a1f_8f58_603caaa93d7b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMStatusMessage, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3684,7 +3684,7 @@ pub struct IGPMStatusMessage_Vtbl {
     pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMStatusMsgCollection, IGPMStatusMsgCollection_Vtbl, 0x9b6e1af0_1a92_40f3_a59d_f36ac1f728b7);
+windows_core::imp::define_interface!(IGPMStatusMsgCollection, IGPMStatusMsgCollection_Vtbl, 0x9b6e1af0_1a92_40f3_a59d_f36ac1f728b7);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMStatusMsgCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3715,7 +3715,7 @@ pub struct IGPMStatusMsgCollection_Vtbl {
     _NewEnum: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMTrustee, IGPMTrustee_Vtbl, 0x3b466da8_c1a4_4b2a_999a_befcdd56cefb);
+windows_core::imp::define_interface!(IGPMTrustee, IGPMTrustee_Vtbl, 0x3b466da8_c1a4_4b2a_999a_befcdd56cefb);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMTrustee, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3752,7 +3752,7 @@ pub struct IGPMTrustee_Vtbl {
     pub TrusteeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMWMIFilter, IGPMWMIFilter_Vtbl, 0xef2ff9b4_3c27_459a_b979_038305cec75d);
+windows_core::imp::define_interface!(IGPMWMIFilter, IGPMWMIFilter_Vtbl, 0xef2ff9b4_3c27_459a_b979_038305cec75d);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMWMIFilter, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3818,7 +3818,7 @@ pub struct IGPMWMIFilter_Vtbl {
     SetSecurityInfo: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IGPMWMIFilterCollection, IGPMWMIFilterCollection_Vtbl, 0x5782d582_1a36_4661_8a94_c3c32551945b);
+windows_core::imp::define_interface!(IGPMWMIFilterCollection, IGPMWMIFilterCollection_Vtbl, 0x5782d582_1a36_4661_8a94_c3c32551945b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMWMIFilterCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3848,7 +3848,7 @@ pub struct IGPMWMIFilterCollection_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
 }
-windows_core::imp::com_interface!(IGroupPolicyObject, IGroupPolicyObject_Vtbl, 0xea502723_a23d_11d1_a7d3_0000f87571e3);
+windows_core::imp::define_interface!(IGroupPolicyObject, IGroupPolicyObject_Vtbl, 0xea502723_a23d_11d1_a7d3_0000f87571e3);
 windows_core::imp::interface_hierarchy!(IGroupPolicyObject, windows_core::IUnknown);
 impl IGroupPolicyObject {
     pub unsafe fn New<P0, P1>(&self, pszdomainname: P0, pszdisplayname: P1, dwflags: u32) -> windows_core::Result<()>
@@ -3953,7 +3953,7 @@ pub struct IGroupPolicyObject_Vtbl {
     #[cfg(not(feature = "Win32_UI_Controls"))]
     GetPropertySheetPages: usize,
 }
-windows_core::imp::com_interface!(IRSOPInformation, IRSOPInformation_Vtbl, 0x9a5a81b5_d9c7_49ef_9d11_ddf50968c48d);
+windows_core::imp::define_interface!(IRSOPInformation, IRSOPInformation_Vtbl, 0x9a5a81b5_d9c7_49ef_9d11_ddf50968c48d);
 windows_core::imp::interface_hierarchy!(IRSOPInformation, windows_core::IUnknown);
 impl IRSOPInformation {
     pub unsafe fn GetNamespace(&self, dwsection: u32, pszname: &mut [u16]) -> windows_core::Result<()> {

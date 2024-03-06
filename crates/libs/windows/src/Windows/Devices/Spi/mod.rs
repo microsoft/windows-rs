@@ -1,6 +1,6 @@
 #[cfg(feature = "Devices_Spi_Provider")]
 pub mod Provider;
-windows_core::imp::com_interface!(ISpiBusInfo, ISpiBusInfo_Vtbl, 0x9929444a_54f2_48c6_b952_9c32fc02c669);
+windows_core::imp::define_interface!(ISpiBusInfo, ISpiBusInfo_Vtbl, 0x9929444a_54f2_48c6_b952_9c32fc02c669);
 #[repr(C)]
 pub struct ISpiBusInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12,7 +12,7 @@ pub struct ISpiBusInfo_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SupportedDataBitLengths: usize,
 }
-windows_core::imp::com_interface!(ISpiConnectionSettings, ISpiConnectionSettings_Vtbl, 0x5283a37f_f935_4b9f_a7a7_3a7890afa5ce);
+windows_core::imp::define_interface!(ISpiConnectionSettings, ISpiConnectionSettings_Vtbl, 0x5283a37f_f935_4b9f_a7a7_3a7890afa5ce);
 #[repr(C)]
 pub struct ISpiConnectionSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -27,19 +27,19 @@ pub struct ISpiConnectionSettings_Vtbl {
     pub SharingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpiSharingMode) -> windows_core::HRESULT,
     pub SetSharingMode: unsafe extern "system" fn(*mut core::ffi::c_void, SpiSharingMode) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpiConnectionSettingsFactory, ISpiConnectionSettingsFactory_Vtbl, 0xff99081e_10c4_44b7_9fea_a748b5a46f31);
+windows_core::imp::define_interface!(ISpiConnectionSettingsFactory, ISpiConnectionSettingsFactory_Vtbl, 0xff99081e_10c4_44b7_9fea_a748b5a46f31);
 #[repr(C)]
 pub struct ISpiConnectionSettingsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpiController, ISpiController_Vtbl, 0xa8d3c829_9895_4159_a934_8741f1ee6d27);
+windows_core::imp::define_interface!(ISpiController, ISpiController_Vtbl, 0xa8d3c829_9895_4159_a934_8741f1ee6d27);
 #[repr(C)]
 pub struct ISpiController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpiControllerStatics, ISpiControllerStatics_Vtbl, 0x0d5229e2_138b_4e48_b964_4f2f79b9c5a2);
+windows_core::imp::define_interface!(ISpiControllerStatics, ISpiControllerStatics_Vtbl, 0x0d5229e2_138b_4e48_b964_4f2f79b9c5a2);
 #[repr(C)]
 pub struct ISpiControllerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -49,7 +49,7 @@ pub struct ISpiControllerStatics_Vtbl {
     #[cfg(not(all(feature = "Devices_Spi_Provider", feature = "Foundation_Collections")))]
     GetControllersAsync: usize,
 }
-windows_core::imp::com_interface!(ISpiDevice, ISpiDevice_Vtbl, 0x05d5356d_11b6_4d39_84d5_95dfb4c9f2ce);
+windows_core::imp::define_interface!(ISpiDevice, ISpiDevice_Vtbl, 0x05d5356d_11b6_4d39_84d5_95dfb4c9f2ce);
 #[repr(C)]
 pub struct ISpiDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -60,7 +60,7 @@ pub struct ISpiDevice_Vtbl {
     pub TransferSequential: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8) -> windows_core::HRESULT,
     pub TransferFullDuplex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpiDeviceStatics, ISpiDeviceStatics_Vtbl, 0xa278e559_5720_4d3f_bd93_56f5ff5a5879);
+windows_core::imp::define_interface!(ISpiDeviceStatics, ISpiDeviceStatics_Vtbl, 0xa278e559_5720_4d3f_bd93_56f5ff5a5879);
 windows_core::imp::interface_hierarchy!(ISpiDeviceStatics, windows_core::IUnknown, windows_core::IInspectable);
 impl ISpiDeviceStatics {
     pub fn GetDeviceSelector(&self) -> windows_core::Result<windows_core::HSTRING> {

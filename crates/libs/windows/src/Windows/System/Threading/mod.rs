@@ -1,6 +1,6 @@
 #[cfg(feature = "System_Threading_Core")]
 pub mod Core;
-windows_core::imp::com_interface!(IThreadPoolStatics, IThreadPoolStatics_Vtbl, 0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91);
+windows_core::imp::define_interface!(IThreadPoolStatics, IThreadPoolStatics_Vtbl, 0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91);
 #[repr(C)]
 pub struct IThreadPoolStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,7 +8,7 @@ pub struct IThreadPoolStatics_Vtbl {
     pub RunWithPriorityAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WorkItemPriority, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RunWithPriorityAndOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WorkItemPriority, WorkItemOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IThreadPoolTimer, IThreadPoolTimer_Vtbl, 0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2);
+windows_core::imp::define_interface!(IThreadPoolTimer, IThreadPoolTimer_Vtbl, 0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2);
 #[repr(C)]
 pub struct IThreadPoolTimer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16,7 +16,7 @@ pub struct IThreadPoolTimer_Vtbl {
     pub Delay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IThreadPoolTimerStatics, IThreadPoolTimerStatics_Vtbl, 0x1a8a9d02_e482_461b_b8c7_8efad1cce590);
+windows_core::imp::define_interface!(IThreadPoolTimerStatics, IThreadPoolTimerStatics_Vtbl, 0x1a8a9d02_e482_461b_b8c7_8efad1cce590);
 #[repr(C)]
 pub struct IThreadPoolTimerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -212,7 +212,7 @@ impl core::fmt::Debug for WorkItemPriority {
 impl windows_core::RuntimeType for WorkItemPriority {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Threading.WorkItemPriority;i4)");
 }
-windows_core::imp::com_interface!(TimerDestroyedHandler, TimerDestroyedHandler_Vtbl, 0x34ed19fa_8384_4eb9_8209_fb5094eeec35);
+windows_core::imp::define_interface!(TimerDestroyedHandler, TimerDestroyedHandler_Vtbl, 0x34ed19fa_8384_4eb9_8209_fb5094eeec35);
 impl TimerDestroyedHandler {
     pub fn new<F: FnMut(Option<&ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = TimerDestroyedHandlerBox::<F> { vtable: &TimerDestroyedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
@@ -272,7 +272,7 @@ pub struct TimerDestroyedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(TimerElapsedHandler, TimerElapsedHandler_Vtbl, 0xfaaea667_fbeb_49cb_adb2_71184c556e43);
+windows_core::imp::define_interface!(TimerElapsedHandler, TimerElapsedHandler_Vtbl, 0xfaaea667_fbeb_49cb_adb2_71184c556e43);
 impl TimerElapsedHandler {
     pub fn new<F: FnMut(Option<&ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = TimerElapsedHandlerBox::<F> { vtable: &TimerElapsedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
@@ -332,7 +332,7 @@ pub struct TimerElapsedHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(WorkItemHandler, WorkItemHandler_Vtbl, 0x1d1a8b8b_fa66_414f_9cbd_b65fc99d17fa);
+windows_core::imp::define_interface!(WorkItemHandler, WorkItemHandler_Vtbl, 0x1d1a8b8b_fa66_414f_9cbd_b65fc99d17fa);
 impl WorkItemHandler {
     pub fn new<F: FnMut(Option<&super::super::Foundation::IAsyncAction>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = WorkItemHandlerBox::<F> { vtable: &WorkItemHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };

@@ -51,7 +51,7 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             let iid = writer.guid_literal(metadata::type_def_guid(def));
             tokens.combine(&quote! {
                 #features
-                windows_core::imp::com_interface!(#ident, #vtbl_ident, #iid);
+                windows_core::imp::define_interface!(#ident, #vtbl_ident, #iid);
             });
         } else {
             tokens.combine(&quote! {
@@ -64,7 +64,7 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     } else {
         tokens.combine(&quote! {
             #features
-            windows_core::imp::interface!(#ident, #vtbl_ident);
+            windows_core::imp::define_interface!(#ident, #vtbl_ident);
         });
     }
 

@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IGraphicsCaptureItemInterop, IGraphicsCaptureItemInterop_Vtbl, 0x3628e81b_3cac_4c60_b7f4_23ce0e0c3356);
+windows_core::imp::define_interface!(IGraphicsCaptureItemInterop, IGraphicsCaptureItemInterop_Vtbl, 0x3628e81b_3cac_4c60_b7f4_23ce0e0c3356);
 windows_core::imp::interface_hierarchy!(IGraphicsCaptureItemInterop, windows_core::IUnknown);
 impl IGraphicsCaptureItemInterop {
     pub unsafe fn CreateForWindow<P0, T>(&self, window: P0) -> windows_core::Result<T>

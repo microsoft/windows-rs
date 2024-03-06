@@ -66,7 +66,7 @@ where
     let mut result__ = std::mem::zeroed();
     CreateXmlWriterOutputWithEncodingName(poutputstream.into_param().abi(), pmalloc.into_param().abi(), pwszencodingname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
-windows_core::imp::com_interface!(IXmlReader, IXmlReader_Vtbl, 0x7279fc81_709d_4095_b63d_69fe4b0d9030);
+windows_core::imp::define_interface!(IXmlReader, IXmlReader_Vtbl, 0x7279fc81_709d_4095_b63d_69fe4b0d9030);
 windows_core::imp::interface_hierarchy!(IXmlReader, windows_core::IUnknown);
 impl IXmlReader {
     pub unsafe fn SetInput<P0>(&self, pinput: P0) -> windows_core::Result<()>
@@ -179,7 +179,7 @@ pub struct IXmlReader_Vtbl {
     pub GetDepth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub IsEOF: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::super::Foundation::BOOL,
 }
-windows_core::imp::com_interface!(IXmlResolver, IXmlResolver_Vtbl, 0x7279fc82_709d_4095_b63d_69fe4b0d9030);
+windows_core::imp::define_interface!(IXmlResolver, IXmlResolver_Vtbl, 0x7279fc82_709d_4095_b63d_69fe4b0d9030);
 windows_core::imp::interface_hierarchy!(IXmlResolver, windows_core::IUnknown);
 impl IXmlResolver {
     pub unsafe fn ResolveUri<P0, P1, P2>(&self, pwszbaseuri: P0, pwszpublicidentifier: P1, pwszsystemidentifier: P2) -> windows_core::Result<windows_core::IUnknown>
@@ -197,7 +197,7 @@ pub struct IXmlResolver_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ResolveUri: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IXmlWriter, IXmlWriter_Vtbl, 0x7279fc88_709d_4095_b63d_69fe4b0d9030);
+windows_core::imp::define_interface!(IXmlWriter, IXmlWriter_Vtbl, 0x7279fc88_709d_4095_b63d_69fe4b0d9030);
 windows_core::imp::interface_hierarchy!(IXmlWriter, windows_core::IUnknown);
 impl IXmlWriter {
     pub unsafe fn SetOutput<P0>(&self, poutput: P0) -> windows_core::Result<()>
@@ -392,7 +392,7 @@ pub struct IXmlWriter_Vtbl {
     pub WriteWhitespace: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IXmlWriterLite, IXmlWriterLite_Vtbl, 0x862494c6_1310_4aad_b3cd_2dbeebf670d3);
+windows_core::imp::define_interface!(IXmlWriterLite, IXmlWriterLite_Vtbl, 0x862494c6_1310_4aad_b3cd_2dbeebf670d3);
 windows_core::imp::interface_hierarchy!(IXmlWriterLite, windows_core::IUnknown);
 impl IXmlWriterLite {
     pub unsafe fn SetOutput<P0>(&self, poutput: P0) -> windows_core::Result<()>

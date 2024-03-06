@@ -1,6 +1,6 @@
 #[cfg(feature = "ApplicationModel_Search_Core")]
 pub mod Core;
-windows_core::imp::com_interface!(ILocalContentSuggestionSettings, ILocalContentSuggestionSettings_Vtbl, 0xeeaeb062_743d_456e_84a3_23f06f2d15d7);
+windows_core::imp::define_interface!(ILocalContentSuggestionSettings, ILocalContentSuggestionSettings_Vtbl, 0xeeaeb062_743d_456e_84a3_23f06f2d15d7);
 #[repr(C)]
 pub struct ILocalContentSuggestionSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -18,7 +18,7 @@ pub struct ILocalContentSuggestionSettings_Vtbl {
     PropertiesToMatch: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(ISearchPane, ISearchPane_Vtbl, 0xfdacec38_3700_4d73_91a1_2f998674238a);
+windows_core::imp::define_interface!(ISearchPane, ISearchPane_Vtbl, 0xfdacec38_3700_4d73_91a1_2f998674238a);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPane_Vtbl {
@@ -125,7 +125,7 @@ pub struct ISearchPane_Vtbl {
     TrySetQueryText: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(ISearchPaneQueryChangedEventArgs, ISearchPaneQueryChangedEventArgs_Vtbl, 0x3c064fe9_2351_4248_a529_7110f464a785);
+windows_core::imp::define_interface!(ISearchPaneQueryChangedEventArgs, ISearchPaneQueryChangedEventArgs_Vtbl, 0x3c064fe9_2351_4248_a529_7110f464a785);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(ISearchPaneQueryChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -176,7 +176,7 @@ pub struct ISearchPaneQueryChangedEventArgs_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     LinguisticDetails: usize,
 }
-windows_core::imp::com_interface!(ISearchPaneQueryLinguisticDetails, ISearchPaneQueryLinguisticDetails_Vtbl, 0x82fb460e_0940_4b6d_b8d0_642b30989e15);
+windows_core::imp::define_interface!(ISearchPaneQueryLinguisticDetails, ISearchPaneQueryLinguisticDetails_Vtbl, 0x82fb460e_0940_4b6d_b8d0_642b30989e15);
 #[repr(C)]
 pub struct ISearchPaneQueryLinguisticDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -188,7 +188,7 @@ pub struct ISearchPaneQueryLinguisticDetails_Vtbl {
     pub QueryTextCompositionLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(ISearchPaneQuerySubmittedEventArgs, ISearchPaneQuerySubmittedEventArgs_Vtbl, 0x143ba4fc_e9c5_4736_91b2_e8eb9cb88356);
+windows_core::imp::define_interface!(ISearchPaneQuerySubmittedEventArgs, ISearchPaneQuerySubmittedEventArgs_Vtbl, 0x143ba4fc_e9c5_4736_91b2_e8eb9cb88356);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneQuerySubmittedEventArgs_Vtbl {
@@ -203,7 +203,7 @@ pub struct ISearchPaneQuerySubmittedEventArgs_Vtbl {
     Language: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails, ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Vtbl, 0x460c92e5_4c32_4538_a4d4_b6b4400d140f);
+windows_core::imp::define_interface!(ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails, ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Vtbl, 0x460c92e5_4c32_4538_a4d4_b6b4400d140f);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Vtbl {
@@ -214,7 +214,7 @@ pub struct ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Vtbl {
     LinguisticDetails: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(ISearchPaneResultSuggestionChosenEventArgs, ISearchPaneResultSuggestionChosenEventArgs_Vtbl, 0xc8316cc0_aed2_41e0_bce0_c26ca74f85ec);
+windows_core::imp::define_interface!(ISearchPaneResultSuggestionChosenEventArgs, ISearchPaneResultSuggestionChosenEventArgs_Vtbl, 0xc8316cc0_aed2_41e0_bce0_c26ca74f85ec);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneResultSuggestionChosenEventArgs_Vtbl {
@@ -225,7 +225,7 @@ pub struct ISearchPaneResultSuggestionChosenEventArgs_Vtbl {
     Tag: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(ISearchPaneStatics, ISearchPaneStatics_Vtbl, 0x9572adf1_8f1d_481f_a15b_c61655f16a0e);
+windows_core::imp::define_interface!(ISearchPaneStatics, ISearchPaneStatics_Vtbl, 0x9572adf1_8f1d_481f_a15b_c61655f16a0e);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneStatics_Vtbl {
@@ -236,7 +236,7 @@ pub struct ISearchPaneStatics_Vtbl {
     GetForCurrentView: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(ISearchPaneStaticsWithHideThisApplication, ISearchPaneStaticsWithHideThisApplication_Vtbl, 0x00732830_50f1_4d03_99ac_c6644c8ed8b5);
+windows_core::imp::define_interface!(ISearchPaneStaticsWithHideThisApplication, ISearchPaneStaticsWithHideThisApplication_Vtbl, 0x00732830_50f1_4d03_99ac_c6644c8ed8b5);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneStaticsWithHideThisApplication_Vtbl {
@@ -247,7 +247,7 @@ pub struct ISearchPaneStaticsWithHideThisApplication_Vtbl {
     HideThisApplication: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(ISearchPaneSuggestionsRequest, ISearchPaneSuggestionsRequest_Vtbl, 0x81b10b1c_e561_4093_9b4d_2ad482794a53);
+windows_core::imp::define_interface!(ISearchPaneSuggestionsRequest, ISearchPaneSuggestionsRequest_Vtbl, 0x81b10b1c_e561_4093_9b4d_2ad482794a53);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneSuggestionsRequest_Vtbl {
@@ -266,7 +266,7 @@ pub struct ISearchPaneSuggestionsRequest_Vtbl {
     GetDeferral: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(ISearchPaneSuggestionsRequestDeferral, ISearchPaneSuggestionsRequestDeferral_Vtbl, 0xa0d009f7_8748_4ee2_ad44_afa6be997c51);
+windows_core::imp::define_interface!(ISearchPaneSuggestionsRequestDeferral, ISearchPaneSuggestionsRequestDeferral_Vtbl, 0xa0d009f7_8748_4ee2_ad44_afa6be997c51);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneSuggestionsRequestDeferral_Vtbl {
@@ -277,7 +277,7 @@ pub struct ISearchPaneSuggestionsRequestDeferral_Vtbl {
     Complete: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(ISearchPaneSuggestionsRequestedEventArgs, ISearchPaneSuggestionsRequestedEventArgs_Vtbl, 0xc89b8a2f_ac56_4460_8d2f_80023bec4fc5);
+windows_core::imp::define_interface!(ISearchPaneSuggestionsRequestedEventArgs, ISearchPaneSuggestionsRequestedEventArgs_Vtbl, 0xc89b8a2f_ac56_4460_8d2f_80023bec4fc5);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneSuggestionsRequestedEventArgs_Vtbl {
@@ -288,7 +288,7 @@ pub struct ISearchPaneSuggestionsRequestedEventArgs_Vtbl {
     Request: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(ISearchPaneVisibilityChangedEventArgs, ISearchPaneVisibilityChangedEventArgs_Vtbl, 0x3c4d3046_ac4b_49f2_97d6_020e6182cb9c);
+windows_core::imp::define_interface!(ISearchPaneVisibilityChangedEventArgs, ISearchPaneVisibilityChangedEventArgs_Vtbl, 0x3c4d3046_ac4b_49f2_97d6_020e6182cb9c);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneVisibilityChangedEventArgs_Vtbl {
@@ -298,7 +298,7 @@ pub struct ISearchPaneVisibilityChangedEventArgs_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     Visible: usize,
 }
-windows_core::imp::com_interface!(ISearchQueryLinguisticDetails, ISearchQueryLinguisticDetails_Vtbl, 0x46a1205b_69c9_4745_b72f_a8a4fc8f24ae);
+windows_core::imp::define_interface!(ISearchQueryLinguisticDetails, ISearchQueryLinguisticDetails_Vtbl, 0x46a1205b_69c9_4745_b72f_a8a4fc8f24ae);
 #[repr(C)]
 pub struct ISearchQueryLinguisticDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -309,7 +309,7 @@ pub struct ISearchQueryLinguisticDetails_Vtbl {
     pub QueryTextCompositionStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub QueryTextCompositionLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISearchQueryLinguisticDetailsFactory, ISearchQueryLinguisticDetailsFactory_Vtbl, 0xcac6c3b8_3c64_4dfd_ad9f_479e4d4065a4);
+windows_core::imp::define_interface!(ISearchQueryLinguisticDetailsFactory, ISearchQueryLinguisticDetailsFactory_Vtbl, 0xcac6c3b8_3c64_4dfd_ad9f_479e4d4065a4);
 #[repr(C)]
 pub struct ISearchQueryLinguisticDetailsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -318,7 +318,7 @@ pub struct ISearchQueryLinguisticDetailsFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateInstance: usize,
 }
-windows_core::imp::com_interface!(ISearchSuggestionCollection, ISearchSuggestionCollection_Vtbl, 0x323a8a4b_fbea_4446_abbc_3da7915fdd3a);
+windows_core::imp::define_interface!(ISearchSuggestionCollection, ISearchSuggestionCollection_Vtbl, 0x323a8a4b_fbea_4446_abbc_3da7915fdd3a);
 #[repr(C)]
 pub struct ISearchSuggestionCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -334,7 +334,7 @@ pub struct ISearchSuggestionCollection_Vtbl {
     AppendResultSuggestion: usize,
     pub AppendSearchSeparator: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISearchSuggestionsRequest, ISearchSuggestionsRequest_Vtbl, 0x4e4e26a7_44e5_4039_9099_6000ead1f0c6);
+windows_core::imp::define_interface!(ISearchSuggestionsRequest, ISearchSuggestionsRequest_Vtbl, 0x4e4e26a7_44e5_4039_9099_6000ead1f0c6);
 #[repr(C)]
 pub struct ISearchSuggestionsRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -342,7 +342,7 @@ pub struct ISearchSuggestionsRequest_Vtbl {
     pub SearchSuggestionCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISearchSuggestionsRequestDeferral, ISearchSuggestionsRequestDeferral_Vtbl, 0xb71598a9_c065_456d_a845_1eccec5dc28b);
+windows_core::imp::define_interface!(ISearchSuggestionsRequestDeferral, ISearchSuggestionsRequestDeferral_Vtbl, 0xb71598a9_c065_456d_a845_1eccec5dc28b);
 #[repr(C)]
 pub struct ISearchSuggestionsRequestDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

@@ -3422,7 +3422,7 @@ pub unsafe fn GdiplusStartup(token: *mut usize, input: *const GdiplusStartupInpu
     windows_targets::link!("gdiplus.dll" "system" fn GdiplusStartup(token : *mut usize, input : *const GdiplusStartupInput, output : *mut GdiplusStartupOutput) -> Status);
     GdiplusStartup(token, input, output)
 }
-windows_core::imp::interface!(GdiplusAbort, GdiplusAbort_Vtbl);
+windows_core::imp::define_interface!(GdiplusAbort, GdiplusAbort_Vtbl);
 impl GdiplusAbort {
     pub unsafe fn Abort(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)).ok()
@@ -3432,7 +3432,7 @@ impl GdiplusAbort {
 pub struct GdiplusAbort_Vtbl {
     pub Abort: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IImageBytes, IImageBytes_Vtbl, 0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc);
+windows_core::imp::define_interface!(IImageBytes, IImageBytes_Vtbl, 0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc);
 windows_core::imp::interface_hierarchy!(IImageBytes, windows_core::IUnknown);
 impl IImageBytes {
     pub unsafe fn CountBytes(&self, pcb: *mut u32) -> windows_core::Result<()> {

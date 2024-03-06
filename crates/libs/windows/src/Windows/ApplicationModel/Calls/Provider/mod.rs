@@ -1,5 +1,5 @@
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IPhoneCallOrigin, IPhoneCallOrigin_Vtbl, 0x20613479_0ef9_4454_871c_afb66a14b6a5);
+windows_core::imp::define_interface!(IPhoneCallOrigin, IPhoneCallOrigin_Vtbl, 0x20613479_0ef9_4454_871c_afb66a14b6a5);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPhoneCallOrigin_Vtbl {
@@ -30,7 +30,7 @@ pub struct IPhoneCallOrigin_Vtbl {
     SetLocation: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IPhoneCallOrigin2, IPhoneCallOrigin2_Vtbl, 0x04c7e980_9ac2_4768_b536_b68da4957d02);
+windows_core::imp::define_interface!(IPhoneCallOrigin2, IPhoneCallOrigin2_Vtbl, 0x04c7e980_9ac2_4768_b536_b68da4957d02);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPhoneCallOrigin2_Vtbl {
@@ -45,7 +45,7 @@ pub struct IPhoneCallOrigin2_Vtbl {
     SetDisplayName: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IPhoneCallOrigin3, IPhoneCallOrigin3_Vtbl, 0x49330fb4_d1a7_43a2_aeee_c07b6dbaf068);
+windows_core::imp::define_interface!(IPhoneCallOrigin3, IPhoneCallOrigin3_Vtbl, 0x49330fb4_d1a7_43a2_aeee_c07b6dbaf068);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPhoneCallOrigin3_Vtbl {
@@ -60,7 +60,7 @@ pub struct IPhoneCallOrigin3_Vtbl {
     SetDisplayPicture: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IPhoneCallOriginManagerStatics, IPhoneCallOriginManagerStatics_Vtbl, 0xccfc5a0a_9af7_6149_39d0_e076fcce1395);
+windows_core::imp::define_interface!(IPhoneCallOriginManagerStatics, IPhoneCallOriginManagerStatics_Vtbl, 0xccfc5a0a_9af7_6149_39d0_e076fcce1395);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPhoneCallOriginManagerStatics_Vtbl {
@@ -79,7 +79,7 @@ pub struct IPhoneCallOriginManagerStatics_Vtbl {
     SetCallOrigin: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IPhoneCallOriginManagerStatics2, IPhoneCallOriginManagerStatics2_Vtbl, 0x8bf3ee3f_40f4_4380_8c7c_aea2c9b8dd7a);
+windows_core::imp::define_interface!(IPhoneCallOriginManagerStatics2, IPhoneCallOriginManagerStatics2_Vtbl, 0x8bf3ee3f_40f4_4380_8c7c_aea2c9b8dd7a);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPhoneCallOriginManagerStatics2_Vtbl {
@@ -90,7 +90,7 @@ pub struct IPhoneCallOriginManagerStatics2_Vtbl {
     RequestSetAsActiveCallOriginAppAsync: usize,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IPhoneCallOriginManagerStatics3, IPhoneCallOriginManagerStatics3_Vtbl, 0x2ed69764_a6e3_50f0_b76a_d67cb39bdfde);
+windows_core::imp::define_interface!(IPhoneCallOriginManagerStatics3, IPhoneCallOriginManagerStatics3_Vtbl, 0x2ed69764_a6e3_50f0_b76a_d67cb39bdfde);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPhoneCallOriginManagerStatics3_Vtbl {

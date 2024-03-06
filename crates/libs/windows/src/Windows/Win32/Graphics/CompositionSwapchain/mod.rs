@@ -6,7 +6,7 @@ where
     windows_targets::link!("dcomp.dll" "system" fn CreatePresentationFactory(d3ddevice : * mut core::ffi::c_void, riid : *const windows_core::GUID, presentationfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     CreatePresentationFactory(d3ddevice.into_param().abi(), riid, presentationfactory).ok()
 }
-windows_core::imp::com_interface!(ICompositionFramePresentStatistics, ICompositionFramePresentStatistics_Vtbl, 0xab41d127_c101_4c0a_911d_f9f2e9d08e64);
+windows_core::imp::define_interface!(ICompositionFramePresentStatistics, ICompositionFramePresentStatistics_Vtbl, 0xab41d127_c101_4c0a_911d_f9f2e9d08e64);
 windows_core::imp::interface_hierarchy!(ICompositionFramePresentStatistics, windows_core::IUnknown, IPresentStatistics);
 impl ICompositionFramePresentStatistics {
     pub unsafe fn GetPresentId(&self) -> u64 {
@@ -36,7 +36,7 @@ pub struct ICompositionFramePresentStatistics_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDisplayInstanceArray: usize,
 }
-windows_core::imp::com_interface!(IIndependentFlipFramePresentStatistics, IIndependentFlipFramePresentStatistics_Vtbl, 0x8c93be27_ad94_4da0_8fd4_2413132d124e);
+windows_core::imp::define_interface!(IIndependentFlipFramePresentStatistics, IIndependentFlipFramePresentStatistics_Vtbl, 0x8c93be27_ad94_4da0_8fd4_2413132d124e);
 windows_core::imp::interface_hierarchy!(IIndependentFlipFramePresentStatistics, windows_core::IUnknown, IPresentStatistics);
 impl IIndependentFlipFramePresentStatistics {
     pub unsafe fn GetPresentId(&self) -> u64 {
@@ -76,7 +76,7 @@ pub struct IIndependentFlipFramePresentStatistics_Vtbl {
     pub GetDisplayedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SystemInterruptTime),
     pub GetPresentDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SystemInterruptTime),
 }
-windows_core::imp::com_interface!(IPresentStatistics, IPresentStatistics_Vtbl, 0xb44b8bda_7282_495d_9dd7_ceadd8b4bb86);
+windows_core::imp::define_interface!(IPresentStatistics, IPresentStatistics_Vtbl, 0xb44b8bda_7282_495d_9dd7_ceadd8b4bb86);
 windows_core::imp::interface_hierarchy!(IPresentStatistics, windows_core::IUnknown);
 impl IPresentStatistics {
     pub unsafe fn GetPresentId(&self) -> u64 {
@@ -92,7 +92,7 @@ pub struct IPresentStatistics_Vtbl {
     pub GetPresentId: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
     pub GetKind: unsafe extern "system" fn(*mut core::ffi::c_void) -> PresentStatisticsKind,
 }
-windows_core::imp::com_interface!(IPresentStatusPresentStatistics, IPresentStatusPresentStatistics_Vtbl, 0xc9ed2a41_79cb_435e_964e_c8553055420c);
+windows_core::imp::define_interface!(IPresentStatusPresentStatistics, IPresentStatusPresentStatistics_Vtbl, 0xc9ed2a41_79cb_435e_964e_c8553055420c);
 windows_core::imp::interface_hierarchy!(IPresentStatusPresentStatistics, windows_core::IUnknown, IPresentStatistics);
 impl IPresentStatusPresentStatistics {
     pub unsafe fn GetPresentId(&self) -> u64 {
@@ -114,7 +114,7 @@ pub struct IPresentStatusPresentStatistics_Vtbl {
     pub GetCompositionFrameId: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
     pub GetPresentStatus: unsafe extern "system" fn(*mut core::ffi::c_void) -> PresentStatus,
 }
-windows_core::imp::com_interface!(IPresentationBuffer, IPresentationBuffer_Vtbl, 0x2e217d3a_5abb_4138_9a13_a775593c89ca);
+windows_core::imp::define_interface!(IPresentationBuffer, IPresentationBuffer_Vtbl, 0x2e217d3a_5abb_4138_9a13_a775593c89ca);
 windows_core::imp::interface_hierarchy!(IPresentationBuffer, windows_core::IUnknown);
 impl IPresentationBuffer {
     pub unsafe fn GetAvailableEvent(&self) -> windows_core::Result<super::super::Foundation::HANDLE> {
@@ -132,7 +132,7 @@ pub struct IPresentationBuffer_Vtbl {
     pub GetAvailableEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT,
     pub IsAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPresentationContent, IPresentationContent_Vtbl, 0x5668bb79_3d8e_415c_b215_f38020f2d252);
+windows_core::imp::define_interface!(IPresentationContent, IPresentationContent_Vtbl, 0x5668bb79_3d8e_415c_b215_f38020f2d252);
 windows_core::imp::interface_hierarchy!(IPresentationContent, windows_core::IUnknown);
 impl IPresentationContent {
     pub unsafe fn SetTag(&self, tag: usize) {
@@ -144,7 +144,7 @@ pub struct IPresentationContent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetTag: unsafe extern "system" fn(*mut core::ffi::c_void, usize),
 }
-windows_core::imp::com_interface!(IPresentationFactory, IPresentationFactory_Vtbl, 0x8fb37b58_1d74_4f64_a49c_1f97a80a2ec0);
+windows_core::imp::define_interface!(IPresentationFactory, IPresentationFactory_Vtbl, 0x8fb37b58_1d74_4f64_a49c_1f97a80a2ec0);
 windows_core::imp::interface_hierarchy!(IPresentationFactory, windows_core::IUnknown);
 impl IPresentationFactory {
     pub unsafe fn IsPresentationSupported(&self) -> u8 {
@@ -165,7 +165,7 @@ pub struct IPresentationFactory_Vtbl {
     pub IsPresentationSupportedWithIndependentFlip: unsafe extern "system" fn(*mut core::ffi::c_void) -> u8,
     pub CreatePresentationManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPresentationManager, IPresentationManager_Vtbl, 0xfb562f82_6292_470a_88b1_843661e7f20c);
+windows_core::imp::define_interface!(IPresentationManager, IPresentationManager_Vtbl, 0xfb562f82_6292_470a_88b1_843661e7f20c);
 windows_core::imp::interface_hierarchy!(IPresentationManager, windows_core::IUnknown);
 impl IPresentationManager {
     pub unsafe fn AddBufferFromResource<P0>(&self, resource: P0) -> windows_core::Result<IPresentationBuffer>
@@ -237,7 +237,7 @@ pub struct IPresentationManager_Vtbl {
     pub EnablePresentStatisticsKind: unsafe extern "system" fn(*mut core::ffi::c_void, PresentStatisticsKind, u8) -> windows_core::HRESULT,
     pub GetNextPresentStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPresentationSurface, IPresentationSurface_Vtbl, 0x956710fb_ea40_4eba_a3eb_4375a0eb4edc);
+windows_core::imp::define_interface!(IPresentationSurface, IPresentationSurface_Vtbl, 0x956710fb_ea40_4eba_a3eb_4375a0eb4edc);
 windows_core::imp::interface_hierarchy!(IPresentationSurface, windows_core::IUnknown, IPresentationContent);
 impl IPresentationSurface {
     pub unsafe fn SetTag(&self, tag: usize) {

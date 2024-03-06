@@ -1,6 +1,6 @@
 #[cfg(feature = "Graphics_Display_Core")]
 pub mod Core;
-windows_core::imp::com_interface!(IAdvancedColorInfo, IAdvancedColorInfo_Vtbl, 0x8797dcfb_b229_4081_ae9a_2cc85e34ad6a);
+windows_core::imp::define_interface!(IAdvancedColorInfo, IAdvancedColorInfo_Vtbl, 0x8797dcfb_b229_4081_ae9a_2cc85e34ad6a);
 #[repr(C)]
 pub struct IAdvancedColorInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16,7 +16,7 @@ pub struct IAdvancedColorInfo_Vtbl {
     pub IsHdrMetadataFormatCurrentlySupported: unsafe extern "system" fn(*mut core::ffi::c_void, HdrMetadataFormat, *mut bool) -> windows_core::HRESULT,
     pub IsAdvancedColorKindAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, AdvancedColorKind, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBrightnessOverride, IBrightnessOverride_Vtbl, 0x96c9621a_c143_4392_bedd_4a7e9574c8fd);
+windows_core::imp::define_interface!(IBrightnessOverride, IBrightnessOverride_Vtbl, 0x96c9621a_c143_4392_bedd_4a7e9574c8fd);
 #[repr(C)]
 pub struct IBrightnessOverride_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -35,14 +35,14 @@ pub struct IBrightnessOverride_Vtbl {
     pub BrightnessLevelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveBrightnessLevelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBrightnessOverrideSettings, IBrightnessOverrideSettings_Vtbl, 0xd112ab2a_7604_4dba_bcf8_4b6f49502cb0);
+windows_core::imp::define_interface!(IBrightnessOverrideSettings, IBrightnessOverrideSettings_Vtbl, 0xd112ab2a_7604_4dba_bcf8_4b6f49502cb0);
 #[repr(C)]
 pub struct IBrightnessOverrideSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DesiredLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub DesiredNits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBrightnessOverrideSettingsStatics, IBrightnessOverrideSettingsStatics_Vtbl, 0xd487dc90_6f74_440b_b383_5fe96cf00b0f);
+windows_core::imp::define_interface!(IBrightnessOverrideSettingsStatics, IBrightnessOverrideSettingsStatics_Vtbl, 0xd487dc90_6f74_440b_b383_5fe96cf00b0f);
 #[repr(C)]
 pub struct IBrightnessOverrideSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -50,7 +50,7 @@ pub struct IBrightnessOverrideSettingsStatics_Vtbl {
     pub CreateFromNits: unsafe extern "system" fn(*mut core::ffi::c_void, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFromDisplayBrightnessOverrideScenario: unsafe extern "system" fn(*mut core::ffi::c_void, DisplayBrightnessOverrideScenario, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBrightnessOverrideStatics, IBrightnessOverrideStatics_Vtbl, 0x03a7b9ed_e1f1_4a68_a11f_946ad8ce5393);
+windows_core::imp::define_interface!(IBrightnessOverrideStatics, IBrightnessOverrideStatics_Vtbl, 0x03a7b9ed_e1f1_4a68_a11f_946ad8ce5393);
 #[repr(C)]
 pub struct IBrightnessOverrideStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -58,19 +58,19 @@ pub struct IBrightnessOverrideStatics_Vtbl {
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SaveForSystemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IColorOverrideSettings, IColorOverrideSettings_Vtbl, 0xfbefa134_4a81_4c4d_a5b6_7d1b5c4bd00b);
+windows_core::imp::define_interface!(IColorOverrideSettings, IColorOverrideSettings_Vtbl, 0xfbefa134_4a81_4c4d_a5b6_7d1b5c4bd00b);
 #[repr(C)]
 pub struct IColorOverrideSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DesiredDisplayColorOverrideScenario: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayColorOverrideScenario) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IColorOverrideSettingsStatics, IColorOverrideSettingsStatics_Vtbl, 0xb068e05f_c41f_4ac9_afab_827ab6248f9a);
+windows_core::imp::define_interface!(IColorOverrideSettingsStatics, IColorOverrideSettingsStatics_Vtbl, 0xb068e05f_c41f_4ac9_afab_827ab6248f9a);
 #[repr(C)]
 pub struct IColorOverrideSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromDisplayColorOverrideScenario: unsafe extern "system" fn(*mut core::ffi::c_void, DisplayColorOverrideScenario, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDisplayEnhancementOverride, IDisplayEnhancementOverride_Vtbl, 0x429594cf_d97a_4b02_a428_5c4292f7f522);
+windows_core::imp::define_interface!(IDisplayEnhancementOverride, IDisplayEnhancementOverride_Vtbl, 0x429594cf_d97a_4b02_a428_5c4292f7f522);
 #[repr(C)]
 pub struct IDisplayEnhancementOverride_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -90,7 +90,7 @@ pub struct IDisplayEnhancementOverride_Vtbl {
     pub DisplayEnhancementOverrideCapabilitiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveDisplayEnhancementOverrideCapabilitiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDisplayEnhancementOverrideCapabilities, IDisplayEnhancementOverrideCapabilities_Vtbl, 0x457060de_ee5a_47b7_9918_1e51e812ccc8);
+windows_core::imp::define_interface!(IDisplayEnhancementOverrideCapabilities, IDisplayEnhancementOverrideCapabilities_Vtbl, 0x457060de_ee5a_47b7_9918_1e51e812ccc8);
 #[repr(C)]
 pub struct IDisplayEnhancementOverrideCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -101,19 +101,19 @@ pub struct IDisplayEnhancementOverrideCapabilities_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetSupportedNitRanges: usize,
 }
-windows_core::imp::com_interface!(IDisplayEnhancementOverrideCapabilitiesChangedEventArgs, IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl, 0xdb61e664_15fa_49da_8b77_07dbd2af585d);
+windows_core::imp::define_interface!(IDisplayEnhancementOverrideCapabilitiesChangedEventArgs, IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl, 0xdb61e664_15fa_49da_8b77_07dbd2af585d);
 #[repr(C)]
 pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Capabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDisplayEnhancementOverrideStatics, IDisplayEnhancementOverrideStatics_Vtbl, 0xcf5b7ec1_9791_4453_b013_29b6f778e519);
+windows_core::imp::define_interface!(IDisplayEnhancementOverrideStatics, IDisplayEnhancementOverrideStatics_Vtbl, 0xcf5b7ec1_9791_4453_b013_29b6f778e519);
 #[repr(C)]
 pub struct IDisplayEnhancementOverrideStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDisplayInformation, IDisplayInformation_Vtbl, 0xbed112ae_adc3_4dc9_ae65_851f4d7d4799);
+windows_core::imp::define_interface!(IDisplayInformation, IDisplayInformation_Vtbl, 0xbed112ae_adc3_4dc9_ae65_851f4d7d4799);
 #[repr(C)]
 pub struct IDisplayInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -137,26 +137,26 @@ pub struct IDisplayInformation_Vtbl {
     pub ColorProfileChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveColorProfileChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDisplayInformation2, IDisplayInformation2_Vtbl, 0x4dcd0021_fad1_4b8e_8edf_775887b8bf19);
+windows_core::imp::define_interface!(IDisplayInformation2, IDisplayInformation2_Vtbl, 0x4dcd0021_fad1_4b8e_8edf_775887b8bf19);
 #[repr(C)]
 pub struct IDisplayInformation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RawPixelsPerViewPixel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDisplayInformation3, IDisplayInformation3_Vtbl, 0xdb15011d_0f09_4466_8ff3_11de9a3c929a);
+windows_core::imp::define_interface!(IDisplayInformation3, IDisplayInformation3_Vtbl, 0xdb15011d_0f09_4466_8ff3_11de9a3c929a);
 #[repr(C)]
 pub struct IDisplayInformation3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DiagonalSizeInInches: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDisplayInformation4, IDisplayInformation4_Vtbl, 0xc972ce2f_1242_46be_b536_e1aafe9e7acf);
+windows_core::imp::define_interface!(IDisplayInformation4, IDisplayInformation4_Vtbl, 0xc972ce2f_1242_46be_b536_e1aafe9e7acf);
 #[repr(C)]
 pub struct IDisplayInformation4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ScreenWidthInRawPixels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub ScreenHeightInRawPixels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDisplayInformation5, IDisplayInformation5_Vtbl, 0x3a5442dc_2cde_4a8d_80d1_21dc5adcc1aa);
+windows_core::imp::define_interface!(IDisplayInformation5, IDisplayInformation5_Vtbl, 0x3a5442dc_2cde_4a8d_80d1_21dc5adcc1aa);
 #[repr(C)]
 pub struct IDisplayInformation5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -164,7 +164,7 @@ pub struct IDisplayInformation5_Vtbl {
     pub AdvancedColorInfoChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveAdvancedColorInfoChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDisplayInformationStatics, IDisplayInformationStatics_Vtbl, 0xc6a02a6c_d452_44dc_ba07_96f3c6adf9d1);
+windows_core::imp::define_interface!(IDisplayInformationStatics, IDisplayInformationStatics_Vtbl, 0xc6a02a6c_d452_44dc_ba07_96f3c6adf9d1);
 #[repr(C)]
 pub struct IDisplayInformationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -175,7 +175,7 @@ pub struct IDisplayInformationStatics_Vtbl {
     pub RemoveDisplayContentsInvalidated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(IDisplayPropertiesStatics, IDisplayPropertiesStatics_Vtbl, 0x6937ed8d_30ea_4ded_8271_4553ff02f68a);
+windows_core::imp::define_interface!(IDisplayPropertiesStatics, IDisplayPropertiesStatics_Vtbl, 0x6937ed8d_30ea_4ded_8271_4553ff02f68a);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IDisplayPropertiesStatics_Vtbl {
@@ -253,12 +253,12 @@ pub struct IDisplayPropertiesStatics_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     RemoveDisplayContentsInvalidated: usize,
 }
-windows_core::imp::com_interface!(IDisplayServices, IDisplayServices_Vtbl, 0x1b54f32b_890d_5747_bd26_fdbdeb0c8a71);
+windows_core::imp::define_interface!(IDisplayServices, IDisplayServices_Vtbl, 0x1b54f32b_890d_5747_bd26_fdbdeb0c8a71);
 #[repr(C)]
 pub struct IDisplayServices_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IDisplayServicesStatics, IDisplayServicesStatics_Vtbl, 0xdc2096bf_730a_5560_b461_91c13d692e0c);
+windows_core::imp::define_interface!(IDisplayServicesStatics, IDisplayServicesStatics_Vtbl, 0xdc2096bf_730a_5560_b461_91c13d692e0c);
 #[repr(C)]
 pub struct IDisplayServicesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1418,7 +1418,7 @@ impl Default for NitRange {
     }
 }
 #[cfg(feature = "deprecated")]
-windows_core::imp::com_interface!(DisplayPropertiesEventHandler, DisplayPropertiesEventHandler_Vtbl, 0xdbdd8b01_f1a1_46d1_9ee3_543bcc995980);
+windows_core::imp::define_interface!(DisplayPropertiesEventHandler, DisplayPropertiesEventHandler_Vtbl, 0xdbdd8b01_f1a1_46d1_9ee3_543bcc995980);
 #[cfg(feature = "deprecated")]
 impl DisplayPropertiesEventHandler {
     pub fn new<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {

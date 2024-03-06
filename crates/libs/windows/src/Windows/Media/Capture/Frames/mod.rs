@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IAudioMediaFrame, IAudioMediaFrame_Vtbl, 0xa3a9feff_8021_441b_9a46_e7f0137b7981);
+windows_core::imp::define_interface!(IAudioMediaFrame, IAudioMediaFrame_Vtbl, 0xa3a9feff_8021_441b_9a46_e7f0137b7981);
 #[repr(C)]
 pub struct IAudioMediaFrame_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9,7 +9,7 @@ pub struct IAudioMediaFrame_Vtbl {
     AudioEncodingProperties: usize,
     pub GetAudioFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBufferMediaFrame, IBufferMediaFrame_Vtbl, 0xb5b153c7_9b84_4062_b79c_a365b2596854);
+windows_core::imp::define_interface!(IBufferMediaFrame, IBufferMediaFrame_Vtbl, 0xb5b153c7_9b84_4062_b79c_a365b2596854);
 #[repr(C)]
 pub struct IBufferMediaFrame_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19,7 +19,7 @@ pub struct IBufferMediaFrame_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Buffer: usize,
 }
-windows_core::imp::com_interface!(IDepthMediaFrame, IDepthMediaFrame_Vtbl, 0x47135e4f_8549_45c0_925b_80d35efdb10a);
+windows_core::imp::define_interface!(IDepthMediaFrame, IDepthMediaFrame_Vtbl, 0x47135e4f_8549_45c0_925b_80d35efdb10a);
 #[repr(C)]
 pub struct IDepthMediaFrame_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -31,21 +31,21 @@ pub struct IDepthMediaFrame_Vtbl {
     #[cfg(not(all(feature = "Media_Devices_Core", feature = "Perception_Spatial")))]
     TryCreateCoordinateMapper: usize,
 }
-windows_core::imp::com_interface!(IDepthMediaFrame2, IDepthMediaFrame2_Vtbl, 0x6cca473d_c4a4_4176_b0cd_33eae3b35aa3);
+windows_core::imp::define_interface!(IDepthMediaFrame2, IDepthMediaFrame2_Vtbl, 0x6cca473d_c4a4_4176_b0cd_33eae3b35aa3);
 #[repr(C)]
 pub struct IDepthMediaFrame2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxReliableDepth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub MinReliableDepth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDepthMediaFrameFormat, IDepthMediaFrameFormat_Vtbl, 0xc312cf40_d729_453e_8780_2e04f140d28e);
+windows_core::imp::define_interface!(IDepthMediaFrameFormat, IDepthMediaFrameFormat_Vtbl, 0xc312cf40_d729_453e_8780_2e04f140d28e);
 #[repr(C)]
 pub struct IDepthMediaFrameFormat_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub VideoFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DepthScaleInMeters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IInfraredMediaFrame, IInfraredMediaFrame_Vtbl, 0x3fd13503_004b_4f0e_91ac_465299b41658);
+windows_core::imp::define_interface!(IInfraredMediaFrame, IInfraredMediaFrame_Vtbl, 0x3fd13503_004b_4f0e_91ac_465299b41658);
 #[repr(C)]
 pub struct IInfraredMediaFrame_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -53,12 +53,12 @@ pub struct IInfraredMediaFrame_Vtbl {
     pub VideoMediaFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsIlluminated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMediaFrameArrivedEventArgs, IMediaFrameArrivedEventArgs_Vtbl, 0x0b430add_a490_4435_ada1_9affd55239f7);
+windows_core::imp::define_interface!(IMediaFrameArrivedEventArgs, IMediaFrameArrivedEventArgs_Vtbl, 0x0b430add_a490_4435_ada1_9affd55239f7);
 #[repr(C)]
 pub struct IMediaFrameArrivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IMediaFrameFormat, IMediaFrameFormat_Vtbl, 0x71902b4e_b279_4a97_a9db_bd5a2fb78f39);
+windows_core::imp::define_interface!(IMediaFrameFormat, IMediaFrameFormat_Vtbl, 0x71902b4e_b279_4a97_a9db_bd5a2fb78f39);
 #[repr(C)]
 pub struct IMediaFrameFormat_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -74,7 +74,7 @@ pub struct IMediaFrameFormat_Vtbl {
     Properties: usize,
     pub VideoFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMediaFrameFormat2, IMediaFrameFormat2_Vtbl, 0x63856340_5e87_4c10_86d1_6df097a6c6a8);
+windows_core::imp::define_interface!(IMediaFrameFormat2, IMediaFrameFormat2_Vtbl, 0x63856340_5e87_4c10_86d1_6df097a6c6a8);
 #[repr(C)]
 pub struct IMediaFrameFormat2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -83,7 +83,7 @@ pub struct IMediaFrameFormat2_Vtbl {
     #[cfg(not(feature = "Media_MediaProperties"))]
     AudioEncodingProperties: usize,
 }
-windows_core::imp::com_interface!(IMediaFrameReader, IMediaFrameReader_Vtbl, 0xe4c94395_2028_48ed_90b0_d1c1b162e24c);
+windows_core::imp::define_interface!(IMediaFrameReader, IMediaFrameReader_Vtbl, 0xe4c94395_2028_48ed_90b0_d1c1b162e24c);
 #[repr(C)]
 pub struct IMediaFrameReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -93,14 +93,14 @@ pub struct IMediaFrameReader_Vtbl {
     pub StartAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StopAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMediaFrameReader2, IMediaFrameReader2_Vtbl, 0x871127b3_8531_4050_87cc_a13733cf3e9b);
+windows_core::imp::define_interface!(IMediaFrameReader2, IMediaFrameReader2_Vtbl, 0x871127b3_8531_4050_87cc_a13733cf3e9b);
 #[repr(C)]
 pub struct IMediaFrameReader2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetAcquisitionMode: unsafe extern "system" fn(*mut core::ffi::c_void, MediaFrameReaderAcquisitionMode) -> windows_core::HRESULT,
     pub AcquisitionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaFrameReaderAcquisitionMode) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMediaFrameReference, IMediaFrameReference_Vtbl, 0xf6b88641_f0dc_4044_8dc9_961cedd05bad);
+windows_core::imp::define_interface!(IMediaFrameReference, IMediaFrameReference_Vtbl, 0xf6b88641_f0dc_4044_8dc9_961cedd05bad);
 #[repr(C)]
 pub struct IMediaFrameReference_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -119,13 +119,13 @@ pub struct IMediaFrameReference_Vtbl {
     #[cfg(not(feature = "Perception_Spatial"))]
     CoordinateSystem: usize,
 }
-windows_core::imp::com_interface!(IMediaFrameReference2, IMediaFrameReference2_Vtbl, 0xddbc3ecc_d5b2_49ef_836a_947d989b80c1);
+windows_core::imp::define_interface!(IMediaFrameReference2, IMediaFrameReference2_Vtbl, 0xddbc3ecc_d5b2_49ef_836a_947d989b80c1);
 #[repr(C)]
 pub struct IMediaFrameReference2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AudioMediaFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMediaFrameSource, IMediaFrameSource_Vtbl, 0xd6782953_90db_46a8_8add_2aa884a8d253);
+windows_core::imp::define_interface!(IMediaFrameSource, IMediaFrameSource_Vtbl, 0xd6782953_90db_46a8_8add_2aa884a8d253);
 #[repr(C)]
 pub struct IMediaFrameSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -144,7 +144,7 @@ pub struct IMediaFrameSource_Vtbl {
     #[cfg(not(feature = "Media_Devices_Core"))]
     TryGetCameraIntrinsics: usize,
 }
-windows_core::imp::com_interface!(IMediaFrameSourceController, IMediaFrameSourceController_Vtbl, 0x6d076635_316d_4b8f_b7b6_eeb04a8c6525);
+windows_core::imp::define_interface!(IMediaFrameSourceController, IMediaFrameSourceController_Vtbl, 0x6d076635_316d_4b8f_b7b6_eeb04a8c6525);
 #[repr(C)]
 pub struct IMediaFrameSourceController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -155,14 +155,14 @@ pub struct IMediaFrameSourceController_Vtbl {
     #[cfg(not(feature = "Media_Devices"))]
     VideoDeviceController: usize,
 }
-windows_core::imp::com_interface!(IMediaFrameSourceController2, IMediaFrameSourceController2_Vtbl, 0xefc49fd4_fcf2_4a03_b4e4_ac9628739bee);
+windows_core::imp::define_interface!(IMediaFrameSourceController2, IMediaFrameSourceController2_Vtbl, 0xefc49fd4_fcf2_4a03_b4e4_ac9628739bee);
 #[repr(C)]
 pub struct IMediaFrameSourceController2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetPropertyByExtendedIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPropertyByExtendedIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMediaFrameSourceController3, IMediaFrameSourceController3_Vtbl, 0x1f0cf815_2464_4651_b1e8_4a82dbdb54de);
+windows_core::imp::define_interface!(IMediaFrameSourceController3, IMediaFrameSourceController3_Vtbl, 0x1f0cf815_2464_4651_b1e8_4a82dbdb54de);
 #[repr(C)]
 pub struct IMediaFrameSourceController3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -171,14 +171,14 @@ pub struct IMediaFrameSourceController3_Vtbl {
     #[cfg(not(feature = "Media_Devices"))]
     AudioDeviceController: usize,
 }
-windows_core::imp::com_interface!(IMediaFrameSourceGetPropertyResult, IMediaFrameSourceGetPropertyResult_Vtbl, 0x088616c2_3a64_4bd5_bd2b_e7c898d2f37a);
+windows_core::imp::define_interface!(IMediaFrameSourceGetPropertyResult, IMediaFrameSourceGetPropertyResult_Vtbl, 0x088616c2_3a64_4bd5_bd2b_e7c898d2f37a);
 #[repr(C)]
 pub struct IMediaFrameSourceGetPropertyResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaFrameSourceGetPropertyStatus) -> windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMediaFrameSourceGroup, IMediaFrameSourceGroup_Vtbl, 0x7f605b87_4832_4b5f_ae3d_412faab37d34);
+windows_core::imp::define_interface!(IMediaFrameSourceGroup, IMediaFrameSourceGroup_Vtbl, 0x7f605b87_4832_4b5f_ae3d_412faab37d34);
 #[repr(C)]
 pub struct IMediaFrameSourceGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -189,7 +189,7 @@ pub struct IMediaFrameSourceGroup_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SourceInfos: usize,
 }
-windows_core::imp::com_interface!(IMediaFrameSourceGroupStatics, IMediaFrameSourceGroupStatics_Vtbl, 0x1c48bfc5_436f_4508_94cf_d5d8b7326445);
+windows_core::imp::define_interface!(IMediaFrameSourceGroupStatics, IMediaFrameSourceGroupStatics_Vtbl, 0x1c48bfc5_436f_4508_94cf_d5d8b7326445);
 #[repr(C)]
 pub struct IMediaFrameSourceGroupStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -200,7 +200,7 @@ pub struct IMediaFrameSourceGroupStatics_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMediaFrameSourceInfo, IMediaFrameSourceInfo_Vtbl, 0x87bdc9cd_4601_408f_91cf_038318cd0af3);
+windows_core::imp::define_interface!(IMediaFrameSourceInfo, IMediaFrameSourceInfo_Vtbl, 0x87bdc9cd_4601_408f_91cf_038318cd0af3);
 #[repr(C)]
 pub struct IMediaFrameSourceInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -221,7 +221,7 @@ pub struct IMediaFrameSourceInfo_Vtbl {
     #[cfg(not(feature = "Perception_Spatial"))]
     CoordinateSystem: usize,
 }
-windows_core::imp::com_interface!(IMediaFrameSourceInfo2, IMediaFrameSourceInfo2_Vtbl, 0x195a7855_6457_42c6_a769_19b65bd32e6e);
+windows_core::imp::define_interface!(IMediaFrameSourceInfo2, IMediaFrameSourceInfo2_Vtbl, 0x195a7855_6457_42c6_a769_19b65bd32e6e);
 #[repr(C)]
 pub struct IMediaFrameSourceInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -231,7 +231,7 @@ pub struct IMediaFrameSourceInfo2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     VideoProfileMediaDescription: usize,
 }
-windows_core::imp::com_interface!(IMediaFrameSourceInfo3, IMediaFrameSourceInfo3_Vtbl, 0xca824ab6_66ea_5885_a2b6_26c0eeec3c7b);
+windows_core::imp::define_interface!(IMediaFrameSourceInfo3, IMediaFrameSourceInfo3_Vtbl, 0xca824ab6_66ea_5885_a2b6_26c0eeec3c7b);
 #[repr(C)]
 pub struct IMediaFrameSourceInfo3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -240,18 +240,18 @@ pub struct IMediaFrameSourceInfo3_Vtbl {
     #[cfg(not(all(feature = "Devices_Enumeration", feature = "UI_WindowManagement")))]
     GetRelativePanel: usize,
 }
-windows_core::imp::com_interface!(IMediaFrameSourceInfo4, IMediaFrameSourceInfo4_Vtbl, 0x4817d721_85eb_470c_8f37_43ca5498e41d);
+windows_core::imp::define_interface!(IMediaFrameSourceInfo4, IMediaFrameSourceInfo4_Vtbl, 0x4817d721_85eb_470c_8f37_43ca5498e41d);
 #[repr(C)]
 pub struct IMediaFrameSourceInfo4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsShareable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMultiSourceMediaFrameArrivedEventArgs, IMultiSourceMediaFrameArrivedEventArgs_Vtbl, 0x63115e01_cf51_48fd_aab0_6d693eb48127);
+windows_core::imp::define_interface!(IMultiSourceMediaFrameArrivedEventArgs, IMultiSourceMediaFrameArrivedEventArgs_Vtbl, 0x63115e01_cf51_48fd_aab0_6d693eb48127);
 #[repr(C)]
 pub struct IMultiSourceMediaFrameArrivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IMultiSourceMediaFrameReader, IMultiSourceMediaFrameReader_Vtbl, 0x8d144402_f763_488d_98f2_b437bcf075e7);
+windows_core::imp::define_interface!(IMultiSourceMediaFrameReader, IMultiSourceMediaFrameReader_Vtbl, 0x8d144402_f763_488d_98f2_b437bcf075e7);
 #[repr(C)]
 pub struct IMultiSourceMediaFrameReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -261,20 +261,20 @@ pub struct IMultiSourceMediaFrameReader_Vtbl {
     pub StartAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StopAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMultiSourceMediaFrameReader2, IMultiSourceMediaFrameReader2_Vtbl, 0xef5c8abd_fc5c_4c6b_9d81_3cb9cc637c26);
+windows_core::imp::define_interface!(IMultiSourceMediaFrameReader2, IMultiSourceMediaFrameReader2_Vtbl, 0xef5c8abd_fc5c_4c6b_9d81_3cb9cc637c26);
 #[repr(C)]
 pub struct IMultiSourceMediaFrameReader2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetAcquisitionMode: unsafe extern "system" fn(*mut core::ffi::c_void, MediaFrameReaderAcquisitionMode) -> windows_core::HRESULT,
     pub AcquisitionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaFrameReaderAcquisitionMode) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMultiSourceMediaFrameReference, IMultiSourceMediaFrameReference_Vtbl, 0x21964b1a_7fe2_44d6_92e5_298e6d2810e9);
+windows_core::imp::define_interface!(IMultiSourceMediaFrameReference, IMultiSourceMediaFrameReference_Vtbl, 0x21964b1a_7fe2_44d6_92e5_298e6d2810e9);
 #[repr(C)]
 pub struct IMultiSourceMediaFrameReference_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryGetFrameReferenceBySourceId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IVideoMediaFrame, IVideoMediaFrame_Vtbl, 0x00dd4ccb_32bd_4fe1_a013_7cc13cf5dbcf);
+windows_core::imp::define_interface!(IVideoMediaFrame, IVideoMediaFrame_Vtbl, 0x00dd4ccb_32bd_4fe1_a013_7cc13cf5dbcf);
 #[repr(C)]
 pub struct IVideoMediaFrame_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -296,7 +296,7 @@ pub struct IVideoMediaFrame_Vtbl {
     pub DepthMediaFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetVideoFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IVideoMediaFrameFormat, IVideoMediaFrameFormat_Vtbl, 0x46027fc0_d71b_45c7_8f14_6d9a0ae604e4);
+windows_core::imp::define_interface!(IVideoMediaFrameFormat, IVideoMediaFrameFormat_Vtbl, 0x46027fc0_d71b_45c7_8f14_6d9a0ae604e4);
 #[repr(C)]
 pub struct IVideoMediaFrameFormat_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

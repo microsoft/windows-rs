@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IIsolatedEnvironmentInterop, IIsolatedEnvironmentInterop_Vtbl, 0x85713c2e_8e62_46c5_8de2_c647e1d54636);
+windows_core::imp::define_interface!(IIsolatedEnvironmentInterop, IIsolatedEnvironmentInterop_Vtbl, 0x85713c2e_8e62_46c5_8de2_c647e1d54636);
 windows_core::imp::interface_hierarchy!(IIsolatedEnvironmentInterop, windows_core::IUnknown);
 impl IIsolatedEnvironmentInterop {
     pub unsafe fn GetHostHwndInterop<P0>(&self, containerhwnd: P0) -> windows_core::Result<super::super::super::Foundation::HWND>

@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IGeolocationProvider, IGeolocationProvider_Vtbl, 0xe4cf071d_3f64_509f_8dc2_0b74a059829d);
+windows_core::imp::define_interface!(IGeolocationProvider, IGeolocationProvider_Vtbl, 0xe4cf071d_3f64_509f_8dc2_0b74a059829d);
 #[repr(C)]
 pub struct IGeolocationProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

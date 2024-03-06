@@ -5,7 +5,7 @@
     dead_code,
     clippy::all
 )]
-windows_core::imp::com_interface!(IParams, IParams_Vtbl, 0);
+windows_core::imp::define_interface!(IParams, IParams_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(
     IParams,
     windows_core::IUnknown,
