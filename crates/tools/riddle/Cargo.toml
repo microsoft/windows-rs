@@ -11,5 +11,5 @@ readme = "readme.md"
 
 [dependencies.windows-bindgen]
 path = "../../libs/bindgen"
-version = "0.54.0"
+version = "0.55.0"
 default-features = false
