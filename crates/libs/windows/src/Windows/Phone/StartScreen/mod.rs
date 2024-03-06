@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IDualSimTile, IDualSimTile_Vtbl, 0x143ab213_d05f_4041_a18c_3e3fcb75b41e);
+windows_core::imp::define_interface!(IDualSimTile, IDualSimTile_Vtbl, 0x143ab213_d05f_4041_a18c_3e3fcb75b41e);
 #[repr(C)]
 pub struct IDualSimTile_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9,7 +9,7 @@ pub struct IDualSimTile_Vtbl {
     pub UpdateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeleteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDualSimTileStatics, IDualSimTileStatics_Vtbl, 0x50567c9e_c58f_4dc9_b6e8_fa6777eeeb37);
+windows_core::imp::define_interface!(IDualSimTileStatics, IDualSimTileStatics_Vtbl, 0x50567c9e_c58f_4dc9_b6e8_fa6777eeeb37);
 #[repr(C)]
 pub struct IDualSimTileStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -40,7 +40,7 @@ pub struct IDualSimTileStatics_Vtbl {
     #[cfg(not(feature = "UI_Notifications"))]
     CreateToastNotifierForSim2: usize,
 }
-windows_core::imp::com_interface!(IToastNotificationManagerStatics3, IToastNotificationManagerStatics3_Vtbl, 0x2717f54b_50df_4455_8e6e_41e0fc8e13ce);
+windows_core::imp::define_interface!(IToastNotificationManagerStatics3, IToastNotificationManagerStatics3_Vtbl, 0x2717f54b_50df_4455_8e6e_41e0fc8e13ce);
 windows_core::imp::interface_hierarchy!(IToastNotificationManagerStatics3, windows_core::IUnknown, windows_core::IInspectable);
 impl IToastNotificationManagerStatics3 {
     #[cfg(feature = "UI_Notifications")]

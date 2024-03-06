@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(ICompressor, ICompressor_Vtbl, 0x0ac3645a_57ac_4ee1_b702_84d39d5424e0);
+windows_core::imp::define_interface!(ICompressor, ICompressor_Vtbl, 0x0ac3645a_57ac_4ee1_b702_84d39d5424e0);
 #[repr(C)]
 pub struct ICompressor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,7 +8,7 @@ pub struct ICompressor_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     DetachStream: usize,
 }
-windows_core::imp::com_interface!(ICompressorFactory, ICompressorFactory_Vtbl, 0x5f3d96a4_2cfb_442c_a8ba_d7d11b039da0);
+windows_core::imp::define_interface!(ICompressorFactory, ICompressorFactory_Vtbl, 0x5f3d96a4_2cfb_442c_a8ba_d7d11b039da0);
 #[repr(C)]
 pub struct ICompressorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -21,7 +21,7 @@ pub struct ICompressorFactory_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateCompressorEx: usize,
 }
-windows_core::imp::com_interface!(IDecompressor, IDecompressor_Vtbl, 0xb883fe46_d68a_4c8b_ada0_4ee813fc5283);
+windows_core::imp::define_interface!(IDecompressor, IDecompressor_Vtbl, 0xb883fe46_d68a_4c8b_ada0_4ee813fc5283);
 #[repr(C)]
 pub struct IDecompressor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -30,7 +30,7 @@ pub struct IDecompressor_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     DetachStream: usize,
 }
-windows_core::imp::com_interface!(IDecompressorFactory, IDecompressorFactory_Vtbl, 0x5337e252_1da2_42e1_8834_0379d28d742f);
+windows_core::imp::define_interface!(IDecompressorFactory, IDecompressorFactory_Vtbl, 0x5337e252_1da2_42e1_8834_0379d28d742f);
 #[repr(C)]
 pub struct IDecompressorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

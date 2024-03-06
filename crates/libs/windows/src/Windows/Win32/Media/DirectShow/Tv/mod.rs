@@ -1,5 +1,5 @@
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IATSCChannelTuneRequest, IATSCChannelTuneRequest_Vtbl, 0x0369b4e1_45b6_11d3_b650_00c04f79498e);
+windows_core::imp::define_interface!(IATSCChannelTuneRequest, IATSCChannelTuneRequest_Vtbl, 0x0369b4e1_45b6_11d3_b650_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IATSCChannelTuneRequest, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuneRequest, IChannelTuneRequest);
 #[cfg(feature = "Win32_System_Com")]
@@ -54,7 +54,7 @@ pub struct IATSCChannelTuneRequest_Vtbl {
     pub SetMinorChannel: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IATSCComponentType, IATSCComponentType_Vtbl, 0xfc189e4d_7bd4_4125_b3b3_3a76a332cc96);
+windows_core::imp::define_interface!(IATSCComponentType, IATSCComponentType_Vtbl, 0xfc189e4d_7bd4_4125_b3b3_3a76a332cc96);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IATSCComponentType, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IComponentType, ILanguageComponentType, IMPEG2ComponentType);
 #[cfg(feature = "Win32_System_Com")]
@@ -161,7 +161,7 @@ pub struct IATSCComponentType_Vtbl {
     pub SetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IATSCLocator, IATSCLocator_Vtbl, 0xbf8d986f_8c2b_4131_94d7_4d3d9fcc21ef);
+windows_core::imp::define_interface!(IATSCLocator, IATSCLocator_Vtbl, 0xbf8d986f_8c2b_4131_94d7_4d3d9fcc21ef);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IATSCLocator, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator);
 #[cfg(feature = "Win32_System_Com")]
@@ -245,7 +245,7 @@ pub struct IATSCLocator_Vtbl {
     pub SetTSID: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IATSCLocator2, IATSCLocator2_Vtbl, 0x612aa885_66cf_4090_ba0a_566f5312e4ca);
+windows_core::imp::define_interface!(IATSCLocator2, IATSCLocator2_Vtbl, 0x612aa885_66cf_4090_ba0a_566f5312e4ca);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IATSCLocator2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator, IATSCLocator);
 #[cfg(feature = "Win32_System_Com")]
@@ -334,7 +334,7 @@ pub struct IATSCLocator2_Vtbl {
     pub SetProgramNumber: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IATSCTuningSpace, IATSCTuningSpace_Vtbl, 0x0369b4e2_45b6_11d3_b650_00c04f79498e);
+windows_core::imp::define_interface!(IATSCTuningSpace, IATSCTuningSpace_Vtbl, 0x0369b4e2_45b6_11d3_b650_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IATSCTuningSpace, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace, IAnalogTVTuningSpace);
 #[cfg(feature = "Win32_System_Com")]
@@ -504,7 +504,7 @@ pub struct IATSCTuningSpace_Vtbl {
     pub MaxPhysicalChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetMaxPhysicalChannel: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IATSC_EIT, IATSC_EIT_Vtbl, 0xd7c212d7_76a2_4b4b_aa56_846879a80096);
+windows_core::imp::define_interface!(IATSC_EIT, IATSC_EIT_Vtbl, 0xd7c212d7_76a2_4b4b_aa56_846879a80096);
 windows_core::imp::interface_hierarchy!(IATSC_EIT, windows_core::IUnknown);
 impl IATSC_EIT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -578,7 +578,7 @@ pub struct IATSC_EIT_Vtbl {
     pub GetRecordDescriptorByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRecordDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IATSC_ETT, IATSC_ETT_Vtbl, 0x5a142cc9_b8cf_4a86_a040_e9cadf3ef3e7);
+windows_core::imp::define_interface!(IATSC_ETT, IATSC_ETT_Vtbl, 0x5a142cc9_b8cf_4a86_a040_e9cadf3ef3e7);
 windows_core::imp::interface_hierarchy!(IATSC_ETT, windows_core::IUnknown);
 impl IATSC_ETT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -613,7 +613,7 @@ pub struct IATSC_ETT_Vtbl {
     pub GetEtmId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetExtendedMessageText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IATSC_MGT, IATSC_MGT_Vtbl, 0x8877dabd_c137_4073_97e3_779407a5d87a);
+windows_core::imp::define_interface!(IATSC_MGT, IATSC_MGT_Vtbl, 0x8877dabd_c137_4073_97e3_779407a5d87a);
 windows_core::imp::interface_hierarchy!(IATSC_MGT, windows_core::IUnknown);
 impl IATSC_MGT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -686,7 +686,7 @@ pub struct IATSC_MGT_Vtbl {
     pub GetTableDescriptorByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetTableDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IATSC_STT, IATSC_STT_Vtbl, 0x6bf42423_217d_4d6f_81e1_3a7b360ec896);
+windows_core::imp::define_interface!(IATSC_STT, IATSC_STT_Vtbl, 0x6bf42423_217d_4d6f_81e1_3a7b360ec896);
 windows_core::imp::interface_hierarchy!(IATSC_STT, windows_core::IUnknown);
 impl IATSC_STT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -736,7 +736,7 @@ pub struct IATSC_STT_Vtbl {
     pub GetTableDescriptorByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetTableDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IATSC_VCT, IATSC_VCT_Vtbl, 0x26879a18_32f9_46c6_91f0_fb6479270e8c);
+windows_core::imp::define_interface!(IATSC_VCT, IATSC_VCT_Vtbl, 0x26879a18_32f9_46c6_91f0_fb6479270e8c);
 windows_core::imp::interface_hierarchy!(IATSC_VCT, windows_core::IUnknown);
 impl IATSC_VCT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -875,7 +875,7 @@ pub struct IATSC_VCT_Vtbl {
     pub GetTableDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IAnalogAudioComponentType, IAnalogAudioComponentType_Vtbl, 0x2cfeb2a8_1787_4a24_a941_c6eaec39c842);
+windows_core::imp::define_interface!(IAnalogAudioComponentType, IAnalogAudioComponentType_Vtbl, 0x2cfeb2a8_1787_4a24_a941_c6eaec39c842);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IAnalogAudioComponentType, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IComponentType);
 #[cfg(feature = "Win32_System_Com")]
@@ -968,7 +968,7 @@ pub struct IAnalogAudioComponentType_Vtbl {
     pub SetAnalogAudioMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::TVAudioMode) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IAnalogLocator, IAnalogLocator_Vtbl, 0x34d1f26b_e339_430d_abce_738cb48984dc);
+windows_core::imp::define_interface!(IAnalogLocator, IAnalogLocator_Vtbl, 0x34d1f26b_e339_430d_abce_738cb48984dc);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IAnalogLocator, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator);
 #[cfg(feature = "Win32_System_Com")]
@@ -1043,7 +1043,7 @@ pub struct IAnalogLocator_Vtbl {
     pub SetVideoStandard: unsafe extern "system" fn(*mut core::ffi::c_void, super::AnalogVideoStandard) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IAnalogRadioTuningSpace, IAnalogRadioTuningSpace_Vtbl, 0x2a6e293b_2595_11d3_b64c_00c04f79498e);
+windows_core::imp::define_interface!(IAnalogRadioTuningSpace, IAnalogRadioTuningSpace_Vtbl, 0x2a6e293b_2595_11d3_b64c_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IAnalogRadioTuningSpace, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace);
 #[cfg(feature = "Win32_System_Com")]
@@ -1177,7 +1177,7 @@ pub struct IAnalogRadioTuningSpace_Vtbl {
     pub SetStep: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IAnalogRadioTuningSpace2, IAnalogRadioTuningSpace2_Vtbl, 0x39dd45da_2da8_46ba_8a8a_87e2b73d983a);
+windows_core::imp::define_interface!(IAnalogRadioTuningSpace2, IAnalogRadioTuningSpace2_Vtbl, 0x39dd45da_2da8_46ba_8a8a_87e2b73d983a);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IAnalogRadioTuningSpace2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace, IAnalogRadioTuningSpace);
 #[cfg(feature = "Win32_System_Com")]
@@ -1314,7 +1314,7 @@ pub struct IAnalogRadioTuningSpace2_Vtbl {
     pub SetCountryCode: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IAnalogTVTuningSpace, IAnalogTVTuningSpace_Vtbl, 0x2a6e293c_2595_11d3_b64c_00c04f79498e);
+windows_core::imp::define_interface!(IAnalogTVTuningSpace, IAnalogTVTuningSpace_Vtbl, 0x2a6e293c_2595_11d3_b64c_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IAnalogTVTuningSpace, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace);
 #[cfg(feature = "Win32_System_Com")]
@@ -1456,7 +1456,7 @@ pub struct IAnalogTVTuningSpace_Vtbl {
     pub CountryCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetCountryCode: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAtscContentAdvisoryDescriptor, IAtscContentAdvisoryDescriptor_Vtbl, 0xff76e60c_0283_43ea_ba32_b422238547ee);
+windows_core::imp::define_interface!(IAtscContentAdvisoryDescriptor, IAtscContentAdvisoryDescriptor_Vtbl, 0xff76e60c_0283_43ea_ba32_b422238547ee);
 windows_core::imp::interface_hierarchy!(IAtscContentAdvisoryDescriptor, windows_core::IUnknown);
 impl IAtscContentAdvisoryDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -1503,7 +1503,7 @@ pub struct IAtscContentAdvisoryDescriptor_Vtbl {
     pub GetRecordRatingValue: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, *mut u8) -> windows_core::HRESULT,
     pub GetRecordRatingDescriptionText: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8, *mut *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAtscPsipParser, IAtscPsipParser_Vtbl, 0xb2c98995_5eb2_4fb1_b406_f3e8e2026a9a);
+windows_core::imp::define_interface!(IAtscPsipParser, IAtscPsipParser_Vtbl, 0xb2c98995_5eb2_4fb1_b406_f3e8e2026a9a);
 windows_core::imp::interface_hierarchy!(IAtscPsipParser, windows_core::IUnknown);
 impl IAtscPsipParser {
     pub unsafe fn Initialize<P0>(&self, punkmpeg2data: P0) -> windows_core::Result<()>
@@ -1571,7 +1571,7 @@ pub struct IAtscPsipParser_Vtbl {
     pub GetSTT: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetEAS: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAttributeGet, IAttributeGet_Vtbl, 0x52dbd1ec_e48f_4528_9232_f442a68f0ae1);
+windows_core::imp::define_interface!(IAttributeGet, IAttributeGet_Vtbl, 0x52dbd1ec_e48f_4528_9232_f442a68f0ae1);
 windows_core::imp::interface_hierarchy!(IAttributeGet, windows_core::IUnknown);
 impl IAttributeGet {
     pub unsafe fn GetCount(&self) -> windows_core::Result<i32> {
@@ -1592,7 +1592,7 @@ pub struct IAttributeGet_Vtbl {
     pub GetAttribIndexed: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut windows_core::GUID, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetAttrib: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAttributeSet, IAttributeSet_Vtbl, 0x583ec3cc_4960_4857_982b_41a33ea0a006);
+windows_core::imp::define_interface!(IAttributeSet, IAttributeSet_Vtbl, 0x583ec3cc_4960_4857_982b_41a33ea0a006);
 windows_core::imp::interface_hierarchy!(IAttributeSet, windows_core::IUnknown);
 impl IAttributeSet {
     pub unsafe fn SetAttrib(&self, guidattribute: windows_core::GUID, pbattribute: *const u8, dwattributelength: u32) -> windows_core::Result<()> {
@@ -1605,7 +1605,7 @@ pub struct IAttributeSet_Vtbl {
     pub SetAttrib: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *const u8, u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IAuxInTuningSpace, IAuxInTuningSpace_Vtbl, 0xe48244b8_7e17_4f76_a763_5090ff1e2f30);
+windows_core::imp::define_interface!(IAuxInTuningSpace, IAuxInTuningSpace_Vtbl, 0xe48244b8_7e17_4f76_a763_5090ff1e2f30);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IAuxInTuningSpace, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace);
 #[cfg(feature = "Win32_System_Com")]
@@ -1712,7 +1712,7 @@ pub struct IAuxInTuningSpace_Vtbl {
     pub base__: ITuningSpace_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IAuxInTuningSpace2, IAuxInTuningSpace2_Vtbl, 0xb10931ed_8bfe_4ab0_9dce_e469c29a9729);
+windows_core::imp::define_interface!(IAuxInTuningSpace2, IAuxInTuningSpace2_Vtbl, 0xb10931ed_8bfe_4ab0_9dce_e469c29a9729);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IAuxInTuningSpace2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace, IAuxInTuningSpace);
 #[cfg(feature = "Win32_System_Com")]
@@ -1827,7 +1827,7 @@ pub struct IAuxInTuningSpace2_Vtbl {
     pub CountryCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetCountryCode: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBDAComparable, IBDAComparable_Vtbl, 0xb34505e0_2f0e_497b_80bc_d43f3b24ed7f);
+windows_core::imp::define_interface!(IBDAComparable, IBDAComparable_Vtbl, 0xb34505e0_2f0e_497b_80bc_d43f3b24ed7f);
 windows_core::imp::interface_hierarchy!(IBDAComparable, windows_core::IUnknown);
 impl IBDAComparable {
     #[cfg(feature = "Win32_System_Com")]
@@ -1879,7 +1879,7 @@ pub struct IBDAComparable_Vtbl {
     pub HashEquivalent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut i64) -> windows_core::HRESULT,
     pub HashEquivalentIncremental: unsafe extern "system" fn(*mut core::ffi::c_void, i64, u32, *mut i64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBDACreateTuneRequestEx, IBDACreateTuneRequestEx_Vtbl, 0xc0a4a1d4_2b3c_491a_ba22_499fbadd4d12);
+windows_core::imp::define_interface!(IBDACreateTuneRequestEx, IBDACreateTuneRequestEx_Vtbl, 0xc0a4a1d4_2b3c_491a_ba22_499fbadd4d12);
 windows_core::imp::interface_hierarchy!(IBDACreateTuneRequestEx, windows_core::IUnknown);
 impl IBDACreateTuneRequestEx {
     #[cfg(feature = "Win32_System_Com")]
@@ -1896,7 +1896,7 @@ pub struct IBDACreateTuneRequestEx_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateTuneRequestEx: usize,
 }
-windows_core::imp::com_interface!(IBDA_TIF_REGISTRATION, IBDA_TIF_REGISTRATION_Vtbl, 0xdfef4a68_ee61_415f_9ccb_cd95f2f98a3a);
+windows_core::imp::define_interface!(IBDA_TIF_REGISTRATION, IBDA_TIF_REGISTRATION_Vtbl, 0xdfef4a68_ee61_415f_9ccb_cd95f2f98a3a);
 windows_core::imp::interface_hierarchy!(IBDA_TIF_REGISTRATION, windows_core::IUnknown);
 impl IBDA_TIF_REGISTRATION {
     pub unsafe fn RegisterTIFEx<P0>(&self, ptifinputpin: P0, ppvregistrationcontext: *mut u32, ppmpeg2datacontrol: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
@@ -1915,7 +1915,7 @@ pub struct IBDA_TIF_REGISTRATION_Vtbl {
     pub RegisterTIFEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnregisterTIF: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICAT, ICAT_Vtbl, 0x7c6995fb_2a31_4bd7_953e_b1ad7fb7d31c);
+windows_core::imp::define_interface!(ICAT, ICAT_Vtbl, 0x7c6995fb_2a31_4bd7_953e_b1ad7fb7d31c);
 windows_core::imp::interface_hierarchy!(ICAT, windows_core::IUnknown);
 impl ICAT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -1973,7 +1973,7 @@ pub struct ICAT_Vtbl {
     pub RegisterForWhenCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
     pub ConvertNextToCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICaptionServiceDescriptor, ICaptionServiceDescriptor_Vtbl, 0x40834007_6834_46f0_bd45_d5f6a6be258c);
+windows_core::imp::define_interface!(ICaptionServiceDescriptor, ICaptionServiceDescriptor_Vtbl, 0x40834007_6834_46f0_bd45_d5f6a6be258c);
 windows_core::imp::interface_hierarchy!(ICaptionServiceDescriptor, windows_core::IUnknown);
 impl ICaptionServiceDescriptor {
     pub unsafe fn GetNumberOfServices(&self) -> windows_core::Result<u8> {
@@ -2011,7 +2011,7 @@ pub struct ICaptionServiceDescriptor_Vtbl {
     pub GetWideAspectRatio: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IChannelIDTuneRequest, IChannelIDTuneRequest_Vtbl, 0x156eff60_86f4_4e28_89fc_109799fd57ee);
+windows_core::imp::define_interface!(IChannelIDTuneRequest, IChannelIDTuneRequest_Vtbl, 0x156eff60_86f4_4e28_89fc_109799fd57ee);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IChannelIDTuneRequest, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuneRequest);
 #[cfg(feature = "Win32_System_Com")]
@@ -2062,7 +2062,7 @@ pub struct IChannelIDTuneRequest_Vtbl {
     pub SetChannelID: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IChannelTuneRequest, IChannelTuneRequest_Vtbl, 0x0369b4e0_45b6_11d3_b650_00c04f79498e);
+windows_core::imp::define_interface!(IChannelTuneRequest, IChannelTuneRequest_Vtbl, 0x0369b4e0_45b6_11d3_b650_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IChannelTuneRequest, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuneRequest);
 #[cfg(feature = "Win32_System_Com")]
@@ -2110,7 +2110,7 @@ pub struct IChannelTuneRequest_Vtbl {
     pub SetChannel: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IComponent, IComponent_Vtbl, 0x1a5576fc_0e19_11d3_9d8e_00c04f72d980);
+windows_core::imp::define_interface!(IComponent, IComponent_Vtbl, 0x1a5576fc_0e19_11d3_9d8e_00c04f72d980);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IComponent, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2181,7 +2181,7 @@ pub struct IComponent_Vtbl {
     Clone: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IComponentType, IComponentType_Vtbl, 0x6a340dc0_0311_11d3_9d8e_00c04f72d980);
+windows_core::imp::define_interface!(IComponentType, IComponentType_Vtbl, 0x6a340dc0_0311_11d3_9d8e_00c04f72d980);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IComponentType, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2291,7 +2291,7 @@ pub struct IComponentType_Vtbl {
     Clone: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IComponentTypes, IComponentTypes_Vtbl, 0x0dc13d4a_0313_11d3_9d8e_00c04f72d980);
+windows_core::imp::define_interface!(IComponentTypes, IComponentTypes_Vtbl, 0x0dc13d4a_0313_11d3_9d8e_00c04f72d980);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IComponentTypes, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2374,7 +2374,7 @@ pub struct IComponentTypes_Vtbl {
     Clone: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IComponents, IComponents_Vtbl, 0x39a48091_fffe_4182_a161_3ff802640e26);
+windows_core::imp::define_interface!(IComponents, IComponents_Vtbl, 0x39a48091_fffe_4182_a161_3ff802640e26);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IComponents, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2457,7 +2457,7 @@ pub struct IComponents_Vtbl {
     put_Item: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IComponentsOld, IComponentsOld_Vtbl, 0xfcd01846_0e19_11d3_9d8e_00c04f72d980);
+windows_core::imp::define_interface!(IComponentsOld, IComponentsOld_Vtbl, 0xfcd01846_0e19_11d3_9d8e_00c04f72d980);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IComponentsOld, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2527,7 +2527,7 @@ pub struct IComponentsOld_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
-windows_core::imp::com_interface!(ICreatePropBagOnRegKey, ICreatePropBagOnRegKey_Vtbl, 0x8a674b48_1f63_11d3_b64c_00c04f79498e);
+windows_core::imp::define_interface!(ICreatePropBagOnRegKey, ICreatePropBagOnRegKey_Vtbl, 0x8a674b48_1f63_11d3_b64c_00c04f79498e);
 windows_core::imp::interface_hierarchy!(ICreatePropBagOnRegKey, windows_core::IUnknown);
 impl ICreatePropBagOnRegKey {
     #[cfg(feature = "Win32_System_Registry")]
@@ -2547,7 +2547,7 @@ pub struct ICreatePropBagOnRegKey_Vtbl {
     #[cfg(not(feature = "Win32_System_Registry"))]
     Create: usize,
 }
-windows_core::imp::com_interface!(IDTFilter, IDTFilter_Vtbl, 0xc4c4c4b2_0049_4e2b_98fb_9537f6ce516d);
+windows_core::imp::define_interface!(IDTFilter, IDTFilter_Vtbl, 0xc4c4c4b2_0049_4e2b_98fb_9537f6ce516d);
 windows_core::imp::interface_hierarchy!(IDTFilter, windows_core::IUnknown);
 impl IDTFilter {
     pub unsafe fn EvalRatObjOK(&self) -> windows_core::Result<windows_core::HRESULT> {
@@ -2594,7 +2594,7 @@ pub struct IDTFilter_Vtbl {
     pub BlockUnRatedDelay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetBlockUnRatedDelay: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDTFilter2, IDTFilter2_Vtbl, 0xc4c4c4b4_0049_4e2b_98fb_9537f6ce516d);
+windows_core::imp::define_interface!(IDTFilter2, IDTFilter2_Vtbl, 0xc4c4c4b4_0049_4e2b_98fb_9537f6ce516d);
 windows_core::imp::interface_hierarchy!(IDTFilter2, windows_core::IUnknown, IDTFilter);
 impl IDTFilter2 {
     pub unsafe fn EvalRatObjOK(&self) -> windows_core::Result<windows_core::HRESULT> {
@@ -2647,7 +2647,7 @@ pub struct IDTFilter2_Vtbl {
     pub GetCurrLicenseExpDate: unsafe extern "system" fn(*mut core::ffi::c_void, *const ProtType, *mut i32) -> windows_core::HRESULT,
     pub GetLastErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDTFilter3, IDTFilter3_Vtbl, 0x513998cc_e929_4cdf_9fbd_bad1e0314866);
+windows_core::imp::define_interface!(IDTFilter3, IDTFilter3_Vtbl, 0x513998cc_e929_4cdf_9fbd_bad1e0314866);
 windows_core::imp::interface_hierarchy!(IDTFilter3, windows_core::IUnknown, IDTFilter, IDTFilter2);
 impl IDTFilter3 {
     pub unsafe fn EvalRatObjOK(&self) -> windows_core::Result<windows_core::HRESULT> {
@@ -2714,7 +2714,7 @@ pub struct IDTFilter3_Vtbl {
     pub LicenseHasExpirationDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub SetRights: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDTFilterConfig, IDTFilterConfig_Vtbl, 0xc4c4c4d2_0049_4e2b_98fb_9537f6ce516d);
+windows_core::imp::define_interface!(IDTFilterConfig, IDTFilterConfig_Vtbl, 0xc4c4c4d2_0049_4e2b_98fb_9537f6ce516d);
 windows_core::imp::interface_hierarchy!(IDTFilterConfig, windows_core::IUnknown);
 impl IDTFilterConfig {
     pub unsafe fn GetSecureChannelObject(&self) -> windows_core::Result<windows_core::IUnknown> {
@@ -2728,7 +2728,7 @@ pub struct IDTFilterConfig_Vtbl {
     pub GetSecureChannelObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IDTFilterEvents, IDTFilterEvents_Vtbl, 0xc4c4c4c2_0049_4e2b_98fb_9537f6ce516d);
+windows_core::imp::define_interface!(IDTFilterEvents, IDTFilterEvents_Vtbl, 0xc4c4c4c2_0049_4e2b_98fb_9537f6ce516d);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDTFilterEvents, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2738,7 +2738,7 @@ impl IDTFilterEvents {}
 pub struct IDTFilterEvents_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
-windows_core::imp::com_interface!(IDTFilterLicenseRenewal, IDTFilterLicenseRenewal_Vtbl, 0x8a78b317_e405_4a43_994a_620d8f5ce25e);
+windows_core::imp::define_interface!(IDTFilterLicenseRenewal, IDTFilterLicenseRenewal_Vtbl, 0x8a78b317_e405_4a43_994a_620d8f5ce25e);
 windows_core::imp::interface_hierarchy!(IDTFilterLicenseRenewal, windows_core::IUnknown);
 impl IDTFilterLicenseRenewal {
     pub unsafe fn GetLicenseRenewalData(&self, ppwszfilename: *mut windows_core::PWSTR, ppwszexpiredkid: *mut windows_core::PWSTR, ppwsztunerid: *mut windows_core::PWSTR) -> windows_core::Result<()> {
@@ -2751,7 +2751,7 @@ pub struct IDTFilterLicenseRenewal_Vtbl {
     pub GetLicenseRenewalData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, *mut windows_core::PWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IDVBCLocator, IDVBCLocator_Vtbl, 0x6e42f36e_1dd2_43c4_9f78_69d25ae39034);
+windows_core::imp::define_interface!(IDVBCLocator, IDVBCLocator_Vtbl, 0x6e42f36e_1dd2_43c4_9f78_69d25ae39034);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDVBCLocator, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator);
 #[cfg(feature = "Win32_System_Com")]
@@ -2817,7 +2817,7 @@ pub struct IDVBCLocator_Vtbl {
     pub base__: IDigitalLocator_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IDVBSLocator, IDVBSLocator_Vtbl, 0x3d7c353c_0d04_45f1_a742_f97cc1188dc8);
+windows_core::imp::define_interface!(IDVBSLocator, IDVBSLocator_Vtbl, 0x3d7c353c_0d04_45f1_a742_f97cc1188dc8);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDVBSLocator, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator);
 #[cfg(feature = "Win32_System_Com")]
@@ -2931,7 +2931,7 @@ pub struct IDVBSLocator_Vtbl {
     pub SetElevation: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IDVBSLocator2, IDVBSLocator2_Vtbl, 0x6044634a_1733_4f99_b982_5fb12afce4f0);
+windows_core::imp::define_interface!(IDVBSLocator2, IDVBSLocator2_Vtbl, 0x6044634a_1733_4f99_b982_5fb12afce4f0);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDVBSLocator2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator, IDVBSLocator);
 #[cfg(feature = "Win32_System_Com")]
@@ -3098,7 +3098,7 @@ pub struct IDVBSLocator2_Vtbl {
     pub SetSignalPilot: unsafe extern "system" fn(*mut core::ffi::c_void, super::Pilot) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IDVBSTuningSpace, IDVBSTuningSpace_Vtbl, 0xcdf7be60_d954_42fd_a972_78971958e470);
+windows_core::imp::define_interface!(IDVBSTuningSpace, IDVBSTuningSpace_Vtbl, 0xcdf7be60_d954_42fd_a972_78971958e470);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDVBSTuningSpace, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace, IDVBTuningSpace, IDVBTuningSpace2);
 #[cfg(feature = "Win32_System_Com")]
@@ -3267,7 +3267,7 @@ pub struct IDVBSTuningSpace_Vtbl {
     pub SetSpectralInversion: unsafe extern "system" fn(*mut core::ffi::c_void, super::SpectralInversion) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IDVBTLocator, IDVBTLocator_Vtbl, 0x8664da16_dda2_42ac_926a_c18f9127c302);
+windows_core::imp::define_interface!(IDVBTLocator, IDVBTLocator_Vtbl, 0x8664da16_dda2_42ac_926a_c18f9127c302);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDVBTLocator, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator);
 #[cfg(feature = "Win32_System_Com")]
@@ -3399,7 +3399,7 @@ pub struct IDVBTLocator_Vtbl {
     pub SetOtherFrequencyInUse: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IDVBTLocator2, IDVBTLocator2_Vtbl, 0x448a2edf_ae95_4b43_a3cc_747843c453d4);
+windows_core::imp::define_interface!(IDVBTLocator2, IDVBTLocator2_Vtbl, 0x448a2edf_ae95_4b43_a3cc_747843c453d4);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDVBTLocator2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator, IDVBTLocator);
 #[cfg(feature = "Win32_System_Com")]
@@ -3526,7 +3526,7 @@ pub struct IDVBTLocator2_Vtbl {
     pub SetPhysicalLayerPipeId: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IDVBTuneRequest, IDVBTuneRequest_Vtbl, 0x0d6f567e_a636_42bb_83ba_ce4c1704afa2);
+windows_core::imp::define_interface!(IDVBTuneRequest, IDVBTuneRequest_Vtbl, 0x0d6f567e_a636_42bb_83ba_ce4c1704afa2);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDVBTuneRequest, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuneRequest);
 #[cfg(feature = "Win32_System_Com")]
@@ -3592,7 +3592,7 @@ pub struct IDVBTuneRequest_Vtbl {
     pub SetSID: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IDVBTuningSpace, IDVBTuningSpace_Vtbl, 0xada0b268_3b19_4e5b_acc4_49f852be13ba);
+windows_core::imp::define_interface!(IDVBTuningSpace, IDVBTuningSpace_Vtbl, 0xada0b268_3b19_4e5b_acc4_49f852be13ba);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDVBTuningSpace, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace);
 #[cfg(feature = "Win32_System_Com")]
@@ -3708,7 +3708,7 @@ pub struct IDVBTuningSpace_Vtbl {
     pub SetSystemType: unsafe extern "system" fn(*mut core::ffi::c_void, super::DVBSystemType) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IDVBTuningSpace2, IDVBTuningSpace2_Vtbl, 0x843188b4_ce62_43db_966b_8145a094e040);
+windows_core::imp::define_interface!(IDVBTuningSpace2, IDVBTuningSpace2_Vtbl, 0x843188b4_ce62_43db_966b_8145a094e040);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDVBTuningSpace2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace, IDVBTuningSpace);
 #[cfg(feature = "Win32_System_Com")]
@@ -3830,7 +3830,7 @@ pub struct IDVBTuningSpace2_Vtbl {
     pub NetworkID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetNetworkID: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDVB_BAT, IDVB_BAT_Vtbl, 0xece9bb0c_43b6_4558_a0ec_1812c34cd6ca);
+windows_core::imp::define_interface!(IDVB_BAT, IDVB_BAT_Vtbl, 0xece9bb0c_43b6_4558_a0ec_1812c34cd6ca);
 windows_core::imp::interface_hierarchy!(IDVB_BAT, windows_core::IUnknown);
 impl IDVB_BAT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -3921,7 +3921,7 @@ pub struct IDVB_BAT_Vtbl {
     pub RegisterForWhenCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
     pub ConvertNextToCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDVB_DIT, IDVB_DIT_Vtbl, 0x91bffdf9_9432_410f_86ef_1c228ed0ad70);
+windows_core::imp::define_interface!(IDVB_DIT, IDVB_DIT_Vtbl, 0x91bffdf9_9432_410f_86ef_1c228ed0ad70);
 windows_core::imp::interface_hierarchy!(IDVB_DIT, windows_core::IUnknown);
 impl IDVB_DIT {
     pub unsafe fn Initialize<P0>(&self, psectionlist: P0) -> windows_core::Result<()>
@@ -3941,7 +3941,7 @@ pub struct IDVB_DIT_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetTransitionFlag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDVB_EIT, IDVB_EIT_Vtbl, 0x442db029_02cb_4495_8b92_1c13375bce99);
+windows_core::imp::define_interface!(IDVB_EIT, IDVB_EIT_Vtbl, 0x442db029_02cb_4495_8b92_1c13375bce99);
 windows_core::imp::interface_hierarchy!(IDVB_EIT, windows_core::IUnknown);
 impl IDVB_EIT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -4059,7 +4059,7 @@ pub struct IDVB_EIT_Vtbl {
     pub ConvertNextToCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetVersionHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDVB_EIT2, IDVB_EIT2_Vtbl, 0x61a389e0_9b9e_4ba0_aeea_5ddd159820ea);
+windows_core::imp::define_interface!(IDVB_EIT2, IDVB_EIT2_Vtbl, 0x61a389e0_9b9e_4ba0_aeea_5ddd159820ea);
 windows_core::imp::interface_hierarchy!(IDVB_EIT2, windows_core::IUnknown, IDVB_EIT);
 impl IDVB_EIT2 {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -4165,7 +4165,7 @@ pub struct IDVB_EIT2_Vtbl {
     pub GetSegmentInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u8) -> windows_core::HRESULT,
     pub GetRecordSection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDVB_NIT, IDVB_NIT_Vtbl, 0xc64935f4_29e4_4e22_911a_63f7f55cb097);
+windows_core::imp::define_interface!(IDVB_NIT, IDVB_NIT_Vtbl, 0xc64935f4_29e4_4e22_911a_63f7f55cb097);
 windows_core::imp::interface_hierarchy!(IDVB_NIT, windows_core::IUnknown);
 impl IDVB_NIT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -4262,7 +4262,7 @@ pub struct IDVB_NIT_Vtbl {
     pub ConvertNextToCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetVersionHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDVB_RST, IDVB_RST_Vtbl, 0xf47dcd04_1e23_4fb7_9f96_b40eead10b2b);
+windows_core::imp::define_interface!(IDVB_RST, IDVB_RST_Vtbl, 0xf47dcd04_1e23_4fb7_9f96_b40eead10b2b);
 windows_core::imp::interface_hierarchy!(IDVB_RST, windows_core::IUnknown);
 impl IDVB_RST {
     pub unsafe fn Initialize<P0>(&self, psectionlist: P0) -> windows_core::Result<()>
@@ -4307,7 +4307,7 @@ pub struct IDVB_RST_Vtbl {
     pub GetRecordEventId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u16) -> windows_core::HRESULT,
     pub GetRecordRunningStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDVB_SDT, IDVB_SDT_Vtbl, 0x02cad8d3_fe43_48e2_90bd_450ed9a8a5fd);
+windows_core::imp::define_interface!(IDVB_SDT, IDVB_SDT_Vtbl, 0x02cad8d3_fe43_48e2_90bd_450ed9a8a5fd);
 windows_core::imp::interface_hierarchy!(IDVB_SDT, windows_core::IUnknown);
 impl IDVB_SDT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -4410,7 +4410,7 @@ pub struct IDVB_SDT_Vtbl {
     pub ConvertNextToCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetVersionHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDVB_SIT, IDVB_SIT_Vtbl, 0x68cdce53_8bea_45c2_9d9d_acf575a089b5);
+windows_core::imp::define_interface!(IDVB_SIT, IDVB_SIT_Vtbl, 0x68cdce53_8bea_45c2_9d9d_acf575a089b5);
 windows_core::imp::interface_hierarchy!(IDVB_SIT, windows_core::IUnknown);
 impl IDVB_SIT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -4497,7 +4497,7 @@ pub struct IDVB_SIT_Vtbl {
     pub RegisterForWhenCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
     pub ConvertNextToCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDVB_ST, IDVB_ST_Vtbl, 0x4d5b9f23_2a02_45de_bcda_5d5dbfbfbe62);
+windows_core::imp::define_interface!(IDVB_ST, IDVB_ST_Vtbl, 0x4d5b9f23_2a02_45de_bcda_5d5dbfbfbe62);
 windows_core::imp::interface_hierarchy!(IDVB_ST, windows_core::IUnknown);
 impl IDVB_ST {
     pub unsafe fn Initialize<P0>(&self, psectionlist: P0) -> windows_core::Result<()>
@@ -4522,7 +4522,7 @@ pub struct IDVB_ST_Vtbl {
     pub GetDataLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDVB_TDT, IDVB_TDT_Vtbl, 0x0780dc7d_d55c_4aef_97e6_6b75906e2796);
+windows_core::imp::define_interface!(IDVB_TDT, IDVB_TDT_Vtbl, 0x0780dc7d_d55c_4aef_97e6_6b75906e2796);
 windows_core::imp::interface_hierarchy!(IDVB_TDT, windows_core::IUnknown);
 impl IDVB_TDT {
     pub unsafe fn Initialize<P0>(&self, psectionlist: P0) -> windows_core::Result<()>
@@ -4542,7 +4542,7 @@ pub struct IDVB_TDT_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetUTCTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MPEG_DATE_AND_TIME) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDVB_TOT, IDVB_TOT_Vtbl, 0x83295d6a_faba_4ee1_9b15_8067696910ae);
+windows_core::imp::define_interface!(IDVB_TOT, IDVB_TOT_Vtbl, 0x83295d6a_faba_4ee1_9b15_8067696910ae);
 windows_core::imp::interface_hierarchy!(IDVB_TOT, windows_core::IUnknown);
 impl IDVB_TOT {
     pub unsafe fn Initialize<P0>(&self, psectionlist: P0) -> windows_core::Result<()>
@@ -4577,7 +4577,7 @@ pub struct IDVB_TOT_Vtbl {
     pub GetTableDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IDigitalCableLocator, IDigitalCableLocator_Vtbl, 0x48f66a11_171a_419a_9525_beeecd51584c);
+windows_core::imp::define_interface!(IDigitalCableLocator, IDigitalCableLocator_Vtbl, 0x48f66a11_171a_419a_9525_beeecd51584c);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDigitalCableLocator, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator, IATSCLocator, IATSCLocator2);
 #[cfg(feature = "Win32_System_Com")]
@@ -4664,7 +4664,7 @@ pub struct IDigitalCableLocator_Vtbl {
     pub base__: IATSCLocator2_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IDigitalCableTuneRequest, IDigitalCableTuneRequest_Vtbl, 0xbad7753b_6b37_4810_ae57_3ce0c4a9e6cb);
+windows_core::imp::define_interface!(IDigitalCableTuneRequest, IDigitalCableTuneRequest_Vtbl, 0xbad7753b_6b37_4810_ae57_3ce0c4a9e6cb);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDigitalCableTuneRequest, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuneRequest, IChannelTuneRequest, IATSCChannelTuneRequest);
 #[cfg(feature = "Win32_System_Com")]
@@ -4735,7 +4735,7 @@ pub struct IDigitalCableTuneRequest_Vtbl {
     pub SetSourceID: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IDigitalCableTuningSpace, IDigitalCableTuningSpace_Vtbl, 0x013f9f9c_b449_4ec7_a6d2_9d4f2fc70ae5);
+windows_core::imp::define_interface!(IDigitalCableTuningSpace, IDigitalCableTuningSpace_Vtbl, 0x013f9f9c_b449_4ec7_a6d2_9d4f2fc70ae5);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDigitalCableTuningSpace, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace, IAnalogTVTuningSpace, IATSCTuningSpace);
 #[cfg(feature = "Win32_System_Com")]
@@ -4934,7 +4934,7 @@ pub struct IDigitalCableTuningSpace_Vtbl {
     pub SetMaxSourceID: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IDigitalLocator, IDigitalLocator_Vtbl, 0x19b595d8_839a_47f0_96df_4f194f3c768c);
+windows_core::imp::define_interface!(IDigitalLocator, IDigitalLocator_Vtbl, 0x19b595d8_839a_47f0_96df_4f194f3c768c);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDigitalLocator, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator);
 #[cfg(feature = "Win32_System_Com")]
@@ -4999,7 +4999,7 @@ impl IDigitalLocator {
 pub struct IDigitalLocator_Vtbl {
     pub base__: ILocator_Vtbl,
 }
-windows_core::imp::com_interface!(IDvbCableDeliverySystemDescriptor, IDvbCableDeliverySystemDescriptor_Vtbl, 0xdfb98e36_9e1a_4862_9946_993a4e59017b);
+windows_core::imp::define_interface!(IDvbCableDeliverySystemDescriptor, IDvbCableDeliverySystemDescriptor_Vtbl, 0xdfb98e36_9e1a_4862_9946_993a4e59017b);
 windows_core::imp::interface_hierarchy!(IDvbCableDeliverySystemDescriptor, windows_core::IUnknown);
 impl IDvbCableDeliverySystemDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5042,7 +5042,7 @@ pub struct IDvbCableDeliverySystemDescriptor_Vtbl {
     pub GetSymbolRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetFECInner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbComponentDescriptor, IDvbComponentDescriptor_Vtbl, 0x91e405cf_80e7_457f_9096_1b9d1ce32141);
+windows_core::imp::define_interface!(IDvbComponentDescriptor, IDvbComponentDescriptor_Vtbl, 0x91e405cf_80e7_457f_9096_1b9d1ce32141);
 windows_core::imp::interface_hierarchy!(IDvbComponentDescriptor, windows_core::IUnknown);
 impl IDvbComponentDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5084,7 +5084,7 @@ pub struct IDvbComponentDescriptor_Vtbl {
     pub GetLanguageCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetTextW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbContentDescriptor, IDvbContentDescriptor_Vtbl, 0x2e883881_a467_412a_9d63_6f2b6da05bf0);
+windows_core::imp::define_interface!(IDvbContentDescriptor, IDvbContentDescriptor_Vtbl, 0x2e883881_a467_412a_9d63_6f2b6da05bf0);
 windows_core::imp::interface_hierarchy!(IDvbContentDescriptor, windows_core::IUnknown);
 impl IDvbContentDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5115,7 +5115,7 @@ pub struct IDvbContentDescriptor_Vtbl {
     pub GetRecordContentNibbles: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8, *mut u8) -> windows_core::HRESULT,
     pub GetRecordUserNibbles: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbContentIdentifierDescriptor, IDvbContentIdentifierDescriptor_Vtbl, 0x05e0c1ea_f661_4053_9fbf_d93b28359838);
+windows_core::imp::define_interface!(IDvbContentIdentifierDescriptor, IDvbContentIdentifierDescriptor_Vtbl, 0x05e0c1ea_f661_4053_9fbf_d93b28359838);
 windows_core::imp::interface_hierarchy!(IDvbContentIdentifierDescriptor, windows_core::IUnknown);
 impl IDvbContentIdentifierDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5142,7 +5142,7 @@ pub struct IDvbContentIdentifierDescriptor_Vtbl {
     pub GetCountOfRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetRecordCrid: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8, *mut u8, *mut u8, *mut *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbDataBroadcastDescriptor, IDvbDataBroadcastDescriptor_Vtbl, 0xd1ebc1d6_8b60_4c20_9caf_e59382e7c400);
+windows_core::imp::define_interface!(IDvbDataBroadcastDescriptor, IDvbDataBroadcastDescriptor_Vtbl, 0xd1ebc1d6_8b60_4c20_9caf_e59382e7c400);
 windows_core::imp::interface_hierarchy!(IDvbDataBroadcastDescriptor, windows_core::IUnknown);
 impl IDvbDataBroadcastDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5193,7 +5193,7 @@ pub struct IDvbDataBroadcastDescriptor_Vtbl {
     pub GetTextLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbDataBroadcastIDDescriptor, IDvbDataBroadcastIDDescriptor_Vtbl, 0x5f26f518_65c8_4048_91f2_9290f59f7b90);
+windows_core::imp::define_interface!(IDvbDataBroadcastIDDescriptor, IDvbDataBroadcastIDDescriptor_Vtbl, 0x5f26f518_65c8_4048_91f2_9290f59f7b90);
 windows_core::imp::interface_hierarchy!(IDvbDataBroadcastIDDescriptor, windows_core::IUnknown);
 impl IDvbDataBroadcastIDDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5220,7 +5220,7 @@ pub struct IDvbDataBroadcastIDDescriptor_Vtbl {
     pub GetDataBroadcastID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetIDSelectorBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbDefaultAuthorityDescriptor, IDvbDefaultAuthorityDescriptor_Vtbl, 0x05ec24d1_3a31_44e7_b408_67c60a352276);
+windows_core::imp::define_interface!(IDvbDefaultAuthorityDescriptor, IDvbDefaultAuthorityDescriptor_Vtbl, 0x05ec24d1_3a31_44e7_b408_67c60a352276);
 windows_core::imp::interface_hierarchy!(IDvbDefaultAuthorityDescriptor, windows_core::IUnknown);
 impl IDvbDefaultAuthorityDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5242,7 +5242,7 @@ pub struct IDvbDefaultAuthorityDescriptor_Vtbl {
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetDefaultAuthority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbExtendedEventDescriptor, IDvbExtendedEventDescriptor_Vtbl, 0xc9b22eca_85f4_499f_b1db_efa93a91ee57);
+windows_core::imp::define_interface!(IDvbExtendedEventDescriptor, IDvbExtendedEventDescriptor_Vtbl, 0xc9b22eca_85f4_499f_b1db_efa93a91ee57);
 windows_core::imp::interface_hierarchy!(IDvbExtendedEventDescriptor, windows_core::IUnknown);
 impl IDvbExtendedEventDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5307,7 +5307,7 @@ pub struct IDvbExtendedEventDescriptor_Vtbl {
     pub GetConcatenatedTextW: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetRecordItemRawBytes: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut *mut u8, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbFrequencyListDescriptor, IDvbFrequencyListDescriptor_Vtbl, 0x1cadb613_e1dd_4512_afa8_bb7a007ef8b1);
+windows_core::imp::define_interface!(IDvbFrequencyListDescriptor, IDvbFrequencyListDescriptor_Vtbl, 0x1cadb613_e1dd_4512_afa8_bb7a007ef8b1);
 windows_core::imp::interface_hierarchy!(IDvbFrequencyListDescriptor, windows_core::IUnknown);
 impl IDvbFrequencyListDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5340,7 +5340,7 @@ pub struct IDvbFrequencyListDescriptor_Vtbl {
     pub GetCountOfRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetRecordCentreFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbHDSimulcastLogicalChannelDescriptor, IDvbHDSimulcastLogicalChannelDescriptor_Vtbl, 0x1ea8b738_a307_4680_9e26_d0a908c824f4);
+windows_core::imp::define_interface!(IDvbHDSimulcastLogicalChannelDescriptor, IDvbHDSimulcastLogicalChannelDescriptor_Vtbl, 0x1ea8b738_a307_4680_9e26_d0a908c824f4);
 windows_core::imp::interface_hierarchy!(IDvbHDSimulcastLogicalChannelDescriptor, windows_core::IUnknown, IDvbLogicalChannelDescriptor, IDvbLogicalChannelDescriptor2);
 impl IDvbHDSimulcastLogicalChannelDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5372,7 +5372,7 @@ impl IDvbHDSimulcastLogicalChannelDescriptor {
 pub struct IDvbHDSimulcastLogicalChannelDescriptor_Vtbl {
     pub base__: IDvbLogicalChannelDescriptor2_Vtbl,
 }
-windows_core::imp::com_interface!(IDvbLinkageDescriptor, IDvbLinkageDescriptor_Vtbl, 0x1cdf8b31_994a_46fc_acfd_6a6be8934dd5);
+windows_core::imp::define_interface!(IDvbLinkageDescriptor, IDvbLinkageDescriptor_Vtbl, 0x1cdf8b31_994a_46fc_acfd_6a6be8934dd5);
 windows_core::imp::interface_hierarchy!(IDvbLinkageDescriptor, windows_core::IUnknown);
 impl IDvbLinkageDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5419,7 +5419,7 @@ pub struct IDvbLinkageDescriptor_Vtbl {
     pub GetPrivateDataLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbLogicalChannel2Descriptor, IDvbLogicalChannel2Descriptor_Vtbl, 0xf69c3747_8a30_4980_998c_01fe7f0ba35a);
+windows_core::imp::define_interface!(IDvbLogicalChannel2Descriptor, IDvbLogicalChannel2Descriptor_Vtbl, 0xf69c3747_8a30_4980_998c_01fe7f0ba35a);
 windows_core::imp::interface_hierarchy!(IDvbLogicalChannel2Descriptor, windows_core::IUnknown, IDvbLogicalChannelDescriptor, IDvbLogicalChannelDescriptor2);
 impl IDvbLogicalChannel2Descriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5490,7 +5490,7 @@ pub struct IDvbLogicalChannel2Descriptor_Vtbl {
     pub GetListRecordLogicalChannelNumber: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, *mut u16) -> windows_core::HRESULT,
     pub GetListRecordLogicalChannelAndVisibility: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbLogicalChannelDescriptor, IDvbLogicalChannelDescriptor_Vtbl, 0xcf1edaff_3ffd_4cf7_8201_35756acbf85f);
+windows_core::imp::define_interface!(IDvbLogicalChannelDescriptor, IDvbLogicalChannelDescriptor_Vtbl, 0xcf1edaff_3ffd_4cf7_8201_35756acbf85f);
 windows_core::imp::interface_hierarchy!(IDvbLogicalChannelDescriptor, windows_core::IUnknown);
 impl IDvbLogicalChannelDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5523,7 +5523,7 @@ pub struct IDvbLogicalChannelDescriptor_Vtbl {
     pub GetRecordServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u16) -> windows_core::HRESULT,
     pub GetRecordLogicalChannelNumber: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbLogicalChannelDescriptor2, IDvbLogicalChannelDescriptor2_Vtbl, 0x43aca974_4be8_4b98_bc17_9eafd788b1d7);
+windows_core::imp::define_interface!(IDvbLogicalChannelDescriptor2, IDvbLogicalChannelDescriptor2_Vtbl, 0x43aca974_4be8_4b98_bc17_9eafd788b1d7);
 windows_core::imp::interface_hierarchy!(IDvbLogicalChannelDescriptor2, windows_core::IUnknown, IDvbLogicalChannelDescriptor);
 impl IDvbLogicalChannelDescriptor2 {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5556,7 +5556,7 @@ pub struct IDvbLogicalChannelDescriptor2_Vtbl {
     pub base__: IDvbLogicalChannelDescriptor_Vtbl,
     pub GetRecordLogicalChannelAndVisibility: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbMultilingualServiceNameDescriptor, IDvbMultilingualServiceNameDescriptor_Vtbl, 0x2d80433b_b32c_47ef_987f_e78ebb773e34);
+windows_core::imp::define_interface!(IDvbMultilingualServiceNameDescriptor, IDvbMultilingualServiceNameDescriptor_Vtbl, 0x2d80433b_b32c_47ef_987f_e78ebb773e34);
 windows_core::imp::interface_hierarchy!(IDvbMultilingualServiceNameDescriptor, windows_core::IUnknown);
 impl IDvbMultilingualServiceNameDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5594,7 +5594,7 @@ pub struct IDvbMultilingualServiceNameDescriptor_Vtbl {
     pub GetRecordServiceProviderNameW: unsafe extern "system" fn(*mut core::ffi::c_void, u8, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetRecordServiceNameW: unsafe extern "system" fn(*mut core::ffi::c_void, u8, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbNetworkNameDescriptor, IDvbNetworkNameDescriptor_Vtbl, 0x5b2a80cf_35b9_446c_b3e4_048b761dbc51);
+windows_core::imp::define_interface!(IDvbNetworkNameDescriptor, IDvbNetworkNameDescriptor_Vtbl, 0x5b2a80cf_35b9_446c_b3e4_048b761dbc51);
 windows_core::imp::interface_hierarchy!(IDvbNetworkNameDescriptor, windows_core::IUnknown);
 impl IDvbNetworkNameDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5622,7 +5622,7 @@ pub struct IDvbNetworkNameDescriptor_Vtbl {
     pub GetNetworkName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8) -> windows_core::HRESULT,
     pub GetNetworkNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbParentalRatingDescriptor, IDvbParentalRatingDescriptor_Vtbl, 0x3ad9dde1_fb1b_4186_937f_22e6b5a72a10);
+windows_core::imp::define_interface!(IDvbParentalRatingDescriptor, IDvbParentalRatingDescriptor_Vtbl, 0x3ad9dde1_fb1b_4186_937f_22e6b5a72a10);
 windows_core::imp::interface_hierarchy!(IDvbParentalRatingDescriptor, windows_core::IUnknown);
 impl IDvbParentalRatingDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5649,7 +5649,7 @@ pub struct IDvbParentalRatingDescriptor_Vtbl {
     pub GetCountOfRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetRecordRating: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbPrivateDataSpecifierDescriptor, IDvbPrivateDataSpecifierDescriptor_Vtbl, 0x5660a019_e75a_4b82_9b4c_ed2256d165a2);
+windows_core::imp::define_interface!(IDvbPrivateDataSpecifierDescriptor, IDvbPrivateDataSpecifierDescriptor_Vtbl, 0x5660a019_e75a_4b82_9b4c_ed2256d165a2);
 windows_core::imp::interface_hierarchy!(IDvbPrivateDataSpecifierDescriptor, windows_core::IUnknown);
 impl IDvbPrivateDataSpecifierDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5672,7 +5672,7 @@ pub struct IDvbPrivateDataSpecifierDescriptor_Vtbl {
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetPrivateDataSpecifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbSatelliteDeliverySystemDescriptor, IDvbSatelliteDeliverySystemDescriptor_Vtbl, 0x02f2225a_805b_4ec5_a9a6_f9b5913cd470);
+windows_core::imp::define_interface!(IDvbSatelliteDeliverySystemDescriptor, IDvbSatelliteDeliverySystemDescriptor_Vtbl, 0x02f2225a_805b_4ec5_a9a6_f9b5913cd470);
 windows_core::imp::interface_hierarchy!(IDvbSatelliteDeliverySystemDescriptor, windows_core::IUnknown);
 impl IDvbSatelliteDeliverySystemDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5725,7 +5725,7 @@ pub struct IDvbSatelliteDeliverySystemDescriptor_Vtbl {
     pub GetSymbolRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetFECInner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbServiceAttributeDescriptor, IDvbServiceAttributeDescriptor_Vtbl, 0x0f37bd92_d6a1_4854_b950_3a969d27f30e);
+windows_core::imp::define_interface!(IDvbServiceAttributeDescriptor, IDvbServiceAttributeDescriptor_Vtbl, 0x0f37bd92_d6a1_4854_b950_3a969d27f30e);
 windows_core::imp::interface_hierarchy!(IDvbServiceAttributeDescriptor, windows_core::IUnknown);
 impl IDvbServiceAttributeDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5763,7 +5763,7 @@ pub struct IDvbServiceAttributeDescriptor_Vtbl {
     pub GetRecordNumericSelectionFlag: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetRecordVisibleServiceFlag: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbServiceDescriptor, IDvbServiceDescriptor_Vtbl, 0xf9c7fbcf_e2d6_464d_b32d_2ef526e49290);
+windows_core::imp::define_interface!(IDvbServiceDescriptor, IDvbServiceDescriptor_Vtbl, 0xf9c7fbcf_e2d6_464d_b32d_2ef526e49290);
 windows_core::imp::interface_hierarchy!(IDvbServiceDescriptor, windows_core::IUnknown);
 impl IDvbServiceDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5811,7 +5811,7 @@ pub struct IDvbServiceDescriptor_Vtbl {
     pub GetProcessedServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetServiceNameEmphasized: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbServiceDescriptor2, IDvbServiceDescriptor2_Vtbl, 0xd6c76506_85ab_487c_9b2b_36416511e4a2);
+windows_core::imp::define_interface!(IDvbServiceDescriptor2, IDvbServiceDescriptor2_Vtbl, 0xd6c76506_85ab_487c_9b2b_36416511e4a2);
 windows_core::imp::interface_hierarchy!(IDvbServiceDescriptor2, windows_core::IUnknown, IDvbServiceDescriptor);
 impl IDvbServiceDescriptor2 {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5861,7 +5861,7 @@ pub struct IDvbServiceDescriptor2_Vtbl {
     pub GetServiceProviderNameW2: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetServiceNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbServiceListDescriptor, IDvbServiceListDescriptor_Vtbl, 0x05db0d8f_6008_491a_acd3_7090952707d0);
+windows_core::imp::define_interface!(IDvbServiceListDescriptor, IDvbServiceListDescriptor_Vtbl, 0x05db0d8f_6008_491a_acd3_7090952707d0);
 windows_core::imp::interface_hierarchy!(IDvbServiceListDescriptor, windows_core::IUnknown);
 impl IDvbServiceListDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5894,7 +5894,7 @@ pub struct IDvbServiceListDescriptor_Vtbl {
     pub GetRecordServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u16) -> windows_core::HRESULT,
     pub GetRecordServiceType: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbShortEventDescriptor, IDvbShortEventDescriptor_Vtbl, 0xb170be92_5b75_458e_9c6e_b0008231491a);
+windows_core::imp::define_interface!(IDvbShortEventDescriptor, IDvbShortEventDescriptor_Vtbl, 0xb170be92_5b75_458e_9c6e_b0008231491a);
 windows_core::imp::interface_hierarchy!(IDvbShortEventDescriptor, windows_core::IUnknown);
 impl IDvbShortEventDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -5926,7 +5926,7 @@ pub struct IDvbShortEventDescriptor_Vtbl {
     pub GetEventNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetTextW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbSiParser, IDvbSiParser_Vtbl, 0xb758a7bd_14dc_449d_b828_35909acb3b1e);
+windows_core::imp::define_interface!(IDvbSiParser, IDvbSiParser_Vtbl, 0xb758a7bd_14dc_449d_b828_35909acb3b1e);
 windows_core::imp::interface_hierarchy!(IDvbSiParser, windows_core::IUnknown);
 impl IDvbSiParser {
     pub unsafe fn Initialize<P0>(&self, punkmpeg2data: P0) -> windows_core::Result<()>
@@ -6011,7 +6011,7 @@ pub struct IDvbSiParser_Vtbl {
     pub GetDIT: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSIT: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbSiParser2, IDvbSiParser2_Vtbl, 0x0ac5525f_f816_42f4_93ba_4c0f32f46e54);
+windows_core::imp::define_interface!(IDvbSiParser2, IDvbSiParser2_Vtbl, 0x0ac5525f_f816_42f4_93ba_4c0f32f46e54);
 windows_core::imp::interface_hierarchy!(IDvbSiParser2, windows_core::IUnknown, IDvbSiParser);
 impl IDvbSiParser2 {
     pub unsafe fn Initialize<P0>(&self, punkmpeg2data: P0) -> windows_core::Result<()>
@@ -6086,7 +6086,7 @@ pub struct IDvbSiParser2_Vtbl {
     pub base__: IDvbSiParser_Vtbl,
     pub GetEIT2: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *const u16, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbSubtitlingDescriptor, IDvbSubtitlingDescriptor_Vtbl, 0x9b25fe1d_fa23_4e50_9784_6df8b26f8a49);
+windows_core::imp::define_interface!(IDvbSubtitlingDescriptor, IDvbSubtitlingDescriptor_Vtbl, 0x9b25fe1d_fa23_4e50_9784_6df8b26f8a49);
 windows_core::imp::interface_hierarchy!(IDvbSubtitlingDescriptor, windows_core::IUnknown);
 impl IDvbSubtitlingDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -6129,7 +6129,7 @@ pub struct IDvbSubtitlingDescriptor_Vtbl {
     pub GetRecordCompositionPageID: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u16) -> windows_core::HRESULT,
     pub GetRecordAncillaryPageID: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbTeletextDescriptor, IDvbTeletextDescriptor_Vtbl, 0x9cd29d47_69c6_4f92_98a9_210af1b7303a);
+windows_core::imp::define_interface!(IDvbTeletextDescriptor, IDvbTeletextDescriptor_Vtbl, 0x9cd29d47_69c6_4f92_98a9_210af1b7303a);
 windows_core::imp::interface_hierarchy!(IDvbTeletextDescriptor, windows_core::IUnknown);
 impl IDvbTeletextDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -6172,7 +6172,7 @@ pub struct IDvbTeletextDescriptor_Vtbl {
     pub GetRecordMagazineNumber: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
     pub GetRecordPageNumber: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbTerrestrial2DeliverySystemDescriptor, IDvbTerrestrial2DeliverySystemDescriptor_Vtbl, 0x20ee9be9_cd57_49ab_8f6e_1d07aeb8e482);
+windows_core::imp::define_interface!(IDvbTerrestrial2DeliverySystemDescriptor, IDvbTerrestrial2DeliverySystemDescriptor_Vtbl, 0x20ee9be9_cd57_49ab_8f6e_1d07aeb8e482);
 windows_core::imp::interface_hierarchy!(IDvbTerrestrial2DeliverySystemDescriptor, windows_core::IUnknown);
 impl IDvbTerrestrial2DeliverySystemDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -6245,7 +6245,7 @@ pub struct IDvbTerrestrial2DeliverySystemDescriptor_Vtbl {
     pub GetOtherFrequencyFlag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetTFSFlag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDvbTerrestrialDeliverySystemDescriptor, IDvbTerrestrialDeliverySystemDescriptor_Vtbl, 0xed7e1b91_d12e_420c_b41d_a49d84fe1823);
+windows_core::imp::define_interface!(IDvbTerrestrialDeliverySystemDescriptor, IDvbTerrestrialDeliverySystemDescriptor_Vtbl, 0xed7e1b91_d12e_420c_b41d_a49d84fe1823);
 windows_core::imp::interface_hierarchy!(IDvbTerrestrialDeliverySystemDescriptor, windows_core::IUnknown);
 impl IDvbTerrestrialDeliverySystemDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -6308,7 +6308,7 @@ pub struct IDvbTerrestrialDeliverySystemDescriptor_Vtbl {
     pub GetTransmissionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetOtherFrequencyFlag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IESCloseMmiEvent, IESCloseMmiEvent_Vtbl, 0x6b80e96f_55e2_45aa_b754_0c23c8e7d5c1);
+windows_core::imp::define_interface!(IESCloseMmiEvent, IESCloseMmiEvent_Vtbl, 0x6b80e96f_55e2_45aa_b754_0c23c8e7d5c1);
 windows_core::imp::interface_hierarchy!(IESCloseMmiEvent, windows_core::IUnknown, super::IESEvent);
 impl IESCloseMmiEvent {
     pub unsafe fn GetEventId(&self) -> windows_core::Result<u32> {
@@ -6341,7 +6341,7 @@ pub struct IESCloseMmiEvent_Vtbl {
     pub base__: super::IESEvent_Vtbl,
     pub GetDialogNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IESEventFactory, IESEventFactory_Vtbl, 0x506a09b8_7f86_4e04_ac05_3303bfe8fc49);
+windows_core::imp::define_interface!(IESEventFactory, IESEventFactory_Vtbl, 0x506a09b8_7f86_4e04_ac05_3303bfe8fc49);
 windows_core::imp::interface_hierarchy!(IESEventFactory, windows_core::IUnknown);
 impl IESEventFactory {
     pub unsafe fn CreateESEvent<P0, P1, P2>(&self, pserviceprovider: P0, dweventid: u32, guideventtype: windows_core::GUID, peventdata: &[u8], bstrbaseurl: P1, pinitcontext: P2) -> windows_core::Result<super::IESEvent>
@@ -6359,7 +6359,7 @@ pub struct IESEventFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateESEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::GUID, u32, *const u8, std::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IESEventService, IESEventService_Vtbl, 0xed89a619_4c06_4b2f_99eb_c7669b13047c);
+windows_core::imp::define_interface!(IESEventService, IESEventService_Vtbl, 0xed89a619_4c06_4b2f_99eb_c7669b13047c);
 windows_core::imp::interface_hierarchy!(IESEventService, windows_core::IUnknown);
 impl IESEventService {
     pub unsafe fn FireESEvent<P0>(&self, pesevent: P0) -> windows_core::Result<()>
@@ -6374,7 +6374,7 @@ pub struct IESEventService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FireESEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IESEventServiceConfiguration, IESEventServiceConfiguration_Vtbl, 0x33b9daae_9309_491d_a051_bcad2a70cd66);
+windows_core::imp::define_interface!(IESEventServiceConfiguration, IESEventServiceConfiguration_Vtbl, 0x33b9daae_9309_491d_a051_bcad2a70cd66);
 windows_core::imp::interface_hierarchy!(IESEventServiceConfiguration, windows_core::IUnknown);
 impl IESEventServiceConfiguration {
     pub unsafe fn SetParent<P0>(&self, peventservice: P0) -> windows_core::Result<()>
@@ -6418,7 +6418,7 @@ pub struct IESEventServiceConfiguration_Vtbl {
     pub SetGraph: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveGraph: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IESFileExpiryDateEvent, IESFileExpiryDateEvent_Vtbl, 0xba9edcb6_4d36_4cfe_8c56_87a6b0ca48e1);
+windows_core::imp::define_interface!(IESFileExpiryDateEvent, IESFileExpiryDateEvent_Vtbl, 0xba9edcb6_4d36_4cfe_8c56_87a6b0ca48e1);
 windows_core::imp::interface_hierarchy!(IESFileExpiryDateEvent, windows_core::IUnknown, super::IESEvent);
 impl IESFileExpiryDateEvent {
     pub unsafe fn GetEventId(&self) -> windows_core::Result<u32> {
@@ -6476,7 +6476,7 @@ pub struct IESFileExpiryDateEvent_Vtbl {
     pub IsEntitlementTokenPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub DoesExpireAfterFirstUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IESIsdbCasResponseEvent, IESIsdbCasResponseEvent_Vtbl, 0x2017cb03_dc0f_4c24_83ca_36307b2cd19f);
+windows_core::imp::define_interface!(IESIsdbCasResponseEvent, IESIsdbCasResponseEvent_Vtbl, 0x2017cb03_dc0f_4c24_83ca_36307b2cd19f);
 windows_core::imp::interface_hierarchy!(IESIsdbCasResponseEvent, windows_core::IUnknown, super::IESEvent);
 impl IESIsdbCasResponseEvent {
     pub unsafe fn GetEventId(&self) -> windows_core::Result<u32> {
@@ -6528,7 +6528,7 @@ pub struct IESIsdbCasResponseEvent_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetResponseData: usize,
 }
-windows_core::imp::com_interface!(IESLicenseRenewalResultEvent, IESLicenseRenewalResultEvent_Vtbl, 0xd5a48ef5_a81b_4df0_acaa_5e35e7ea45d4);
+windows_core::imp::define_interface!(IESLicenseRenewalResultEvent, IESLicenseRenewalResultEvent_Vtbl, 0xd5a48ef5_a81b_4df0_acaa_5e35e7ea45d4);
 windows_core::imp::interface_hierarchy!(IESLicenseRenewalResultEvent, windows_core::IUnknown, super::IESEvent);
 impl IESLicenseRenewalResultEvent {
     pub unsafe fn GetEventId(&self) -> windows_core::Result<u32> {
@@ -6615,7 +6615,7 @@ pub struct IESLicenseRenewalResultEvent_Vtbl {
     GetEntitlementToken: usize,
     pub GetExpiryDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IESOpenMmiEvent, IESOpenMmiEvent_Vtbl, 0xba4b6526_1a35_4635_8b56_3ec612746a8c);
+windows_core::imp::define_interface!(IESOpenMmiEvent, IESOpenMmiEvent_Vtbl, 0xba4b6526_1a35_4635_8b56_3ec612746a8c);
 windows_core::imp::interface_hierarchy!(IESOpenMmiEvent, windows_core::IUnknown, super::IESEvent);
 impl IESOpenMmiEvent {
     pub unsafe fn GetEventId(&self) -> windows_core::Result<u32> {
@@ -6667,7 +6667,7 @@ pub struct IESOpenMmiEvent_Vtbl {
     GetDialogData: usize,
     pub GetDialogStringData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IESRequestTunerEvent, IESRequestTunerEvent_Vtbl, 0x54c7a5e8_c3bb_4f51_af14_e0e2c0e34c6d);
+windows_core::imp::define_interface!(IESRequestTunerEvent, IESRequestTunerEvent_Vtbl, 0x54c7a5e8_c3bb_4f51_af14_e0e2c0e34c6d);
 windows_core::imp::interface_hierarchy!(IESRequestTunerEvent, windows_core::IUnknown, super::IESEvent);
 impl IESRequestTunerEvent {
     pub unsafe fn GetEventId(&self) -> windows_core::Result<u32> {
@@ -6715,7 +6715,7 @@ pub struct IESRequestTunerEvent_Vtbl {
     pub GetConsequences: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetEstimatedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IESValueUpdatedEvent, IESValueUpdatedEvent_Vtbl, 0x8a24c46e_bb63_4664_8602_5d9c718c146d);
+windows_core::imp::define_interface!(IESValueUpdatedEvent, IESValueUpdatedEvent_Vtbl, 0x8a24c46e_bb63_4664_8602_5d9c718c146d);
 windows_core::imp::interface_hierarchy!(IESValueUpdatedEvent, windows_core::IUnknown, super::IESEvent);
 impl IESValueUpdatedEvent {
     pub unsafe fn GetEventId(&self) -> windows_core::Result<u32> {
@@ -6752,7 +6752,7 @@ pub struct IESValueUpdatedEvent_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetValueNames: usize,
 }
-windows_core::imp::com_interface!(IETFilter, IETFilter_Vtbl, 0xc4c4c4b1_0049_4e2b_98fb_9537f6ce516d);
+windows_core::imp::define_interface!(IETFilter, IETFilter_Vtbl, 0xc4c4c4b1_0049_4e2b_98fb_9537f6ce516d);
 windows_core::imp::interface_hierarchy!(IETFilter, windows_core::IUnknown);
 impl IETFilter {
     pub unsafe fn EvalRatObjOK(&self) -> windows_core::Result<windows_core::HRESULT> {
@@ -6785,7 +6785,7 @@ pub struct IETFilter_Vtbl {
     pub GetLastErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetRecordingOn: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IETFilterConfig, IETFilterConfig_Vtbl, 0xc4c4c4d1_0049_4e2b_98fb_9537f6ce516d);
+windows_core::imp::define_interface!(IETFilterConfig, IETFilterConfig_Vtbl, 0xc4c4c4d1_0049_4e2b_98fb_9537f6ce516d);
 windows_core::imp::interface_hierarchy!(IETFilterConfig, windows_core::IUnknown);
 impl IETFilterConfig {
     pub unsafe fn InitLicense(&self, licenseid: i32) -> windows_core::Result<()> {
@@ -6803,7 +6803,7 @@ pub struct IETFilterConfig_Vtbl {
     pub GetSecureChannelObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IETFilterEvents, IETFilterEvents_Vtbl, 0xc4c4c4c1_0049_4e2b_98fb_9537f6ce516d);
+windows_core::imp::define_interface!(IETFilterEvents, IETFilterEvents_Vtbl, 0xc4c4c4c1_0049_4e2b_98fb_9537f6ce516d);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IETFilterEvents, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6813,7 +6813,7 @@ impl IETFilterEvents {}
 pub struct IETFilterEvents_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
-windows_core::imp::com_interface!(IEnumComponentTypes, IEnumComponentTypes_Vtbl, 0x8a674b4a_1f63_11d3_b64c_00c04f79498e);
+windows_core::imp::define_interface!(IEnumComponentTypes, IEnumComponentTypes_Vtbl, 0x8a674b4a_1f63_11d3_b64c_00c04f79498e);
 windows_core::imp::interface_hierarchy!(IEnumComponentTypes, windows_core::IUnknown);
 impl IEnumComponentTypes {
     #[cfg(feature = "Win32_System_Com")]
@@ -6842,7 +6842,7 @@ pub struct IEnumComponentTypes_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IEnumComponents, IEnumComponents_Vtbl, 0x2a6e2939_2595_11d3_b64c_00c04f79498e);
+windows_core::imp::define_interface!(IEnumComponents, IEnumComponents_Vtbl, 0x2a6e2939_2595_11d3_b64c_00c04f79498e);
 windows_core::imp::interface_hierarchy!(IEnumComponents, windows_core::IUnknown);
 impl IEnumComponents {
     #[cfg(feature = "Win32_System_Com")]
@@ -6871,7 +6871,7 @@ pub struct IEnumComponents_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IEnumGuideDataProperties, IEnumGuideDataProperties_Vtbl, 0xae44423b_4571_475c_ad2c_f40a771d80ef);
+windows_core::imp::define_interface!(IEnumGuideDataProperties, IEnumGuideDataProperties_Vtbl, 0xae44423b_4571_475c_ad2c_f40a771d80ef);
 windows_core::imp::interface_hierarchy!(IEnumGuideDataProperties, windows_core::IUnknown);
 impl IEnumGuideDataProperties {
     pub unsafe fn Next(&self, celt: u32, ppprop: *mut Option<IGuideDataProperty>, pcelt: *mut u32) -> windows_core::Result<()> {
@@ -6896,7 +6896,7 @@ pub struct IEnumGuideDataProperties_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IEnumMSVidGraphSegment, IEnumMSVidGraphSegment_Vtbl, 0x3dd2903e_e0aa_11d2_b63a_00c04f79498e);
+windows_core::imp::define_interface!(IEnumMSVidGraphSegment, IEnumMSVidGraphSegment_Vtbl, 0x3dd2903e_e0aa_11d2_b63a_00c04f79498e);
 windows_core::imp::interface_hierarchy!(IEnumMSVidGraphSegment, windows_core::IUnknown);
 impl IEnumMSVidGraphSegment {
     #[cfg(feature = "Win32_System_Com")]
@@ -6925,7 +6925,7 @@ pub struct IEnumMSVidGraphSegment_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IEnumStreamBufferRecordingAttrib, IEnumStreamBufferRecordingAttrib_Vtbl, 0xc18a9162_1e82_4142_8c73_5690fa62fe33);
+windows_core::imp::define_interface!(IEnumStreamBufferRecordingAttrib, IEnumStreamBufferRecordingAttrib_Vtbl, 0xc18a9162_1e82_4142_8c73_5690fa62fe33);
 windows_core::imp::interface_hierarchy!(IEnumStreamBufferRecordingAttrib, windows_core::IUnknown);
 impl IEnumStreamBufferRecordingAttrib {
     pub unsafe fn Next(&self, pstreambufferattribute: &mut [STREAMBUFFER_ATTRIBUTE], pcreceived: *mut u32) -> windows_core::Result<()> {
@@ -6950,7 +6950,7 @@ pub struct IEnumStreamBufferRecordingAttrib_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IEnumTuneRequests, IEnumTuneRequests_Vtbl, 0x1993299c_ced6_4788_87a3_420067dce0c7);
+windows_core::imp::define_interface!(IEnumTuneRequests, IEnumTuneRequests_Vtbl, 0x1993299c_ced6_4788_87a3_420067dce0c7);
 windows_core::imp::interface_hierarchy!(IEnumTuneRequests, windows_core::IUnknown);
 impl IEnumTuneRequests {
     #[cfg(feature = "Win32_System_Com")]
@@ -6979,7 +6979,7 @@ pub struct IEnumTuneRequests_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IEnumTuningSpaces, IEnumTuningSpaces_Vtbl, 0x8b8eb248_fc2b_11d2_9d8c_00c04f72d980);
+windows_core::imp::define_interface!(IEnumTuningSpaces, IEnumTuningSpaces_Vtbl, 0x8b8eb248_fc2b_11d2_9d8c_00c04f72d980);
 windows_core::imp::interface_hierarchy!(IEnumTuningSpaces, windows_core::IUnknown);
 impl IEnumTuningSpaces {
     #[cfg(feature = "Win32_System_Com")]
@@ -7009,7 +7009,7 @@ pub struct IEnumTuningSpaces_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IEvalRat, IEvalRat_Vtbl, 0xc5c5c5b1_3abc_11d6_b25b_00c04fa0c026);
+windows_core::imp::define_interface!(IEvalRat, IEvalRat_Vtbl, 0xc5c5c5b1_3abc_11d6_b25b_00c04fa0c026);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IEvalRat, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -7049,7 +7049,7 @@ pub struct IEvalRat_Vtbl {
     pub MostRestrictiveRating: unsafe extern "system" fn(*mut core::ffi::c_void, EnTvRat_System, EnTvRat_GenericLevel, i32, EnTvRat_System, EnTvRat_GenericLevel, i32, *mut EnTvRat_System, *mut EnTvRat_GenericLevel, *mut i32) -> windows_core::HRESULT,
     pub TestRating: unsafe extern "system" fn(*mut core::ffi::c_void, EnTvRat_System, EnTvRat_GenericLevel, i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGenericDescriptor, IGenericDescriptor_Vtbl, 0x6a5918f8_a77a_4f61_aed0_5702bdcda3e6);
+windows_core::imp::define_interface!(IGenericDescriptor, IGenericDescriptor_Vtbl, 0x6a5918f8_a77a_4f61_aed0_5702bdcda3e6);
 windows_core::imp::interface_hierarchy!(IGenericDescriptor, windows_core::IUnknown);
 impl IGenericDescriptor {
     pub unsafe fn Initialize(&self, pbdesc: *const u8, bcount: i32) -> windows_core::Result<()> {
@@ -7076,7 +7076,7 @@ pub struct IGenericDescriptor_Vtbl {
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetBody: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGenericDescriptor2, IGenericDescriptor2_Vtbl, 0xbf02fb7e_9792_4e10_a68d_033a2cc246a5);
+windows_core::imp::define_interface!(IGenericDescriptor2, IGenericDescriptor2_Vtbl, 0xbf02fb7e_9792_4e10_a68d_033a2cc246a5);
 windows_core::imp::interface_hierarchy!(IGenericDescriptor2, windows_core::IUnknown, IGenericDescriptor);
 impl IGenericDescriptor2 {
     pub unsafe fn Initialize(&self, pbdesc: *const u8, bcount: i32) -> windows_core::Result<()> {
@@ -7108,7 +7108,7 @@ pub struct IGenericDescriptor2_Vtbl {
     pub Initialize2: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u16) -> windows_core::HRESULT,
     pub GetLength2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGpnvsCommonBase, IGpnvsCommonBase_Vtbl, 0x907e0b5c_e42d_4f04_91f0_26f401f36907);
+windows_core::imp::define_interface!(IGpnvsCommonBase, IGpnvsCommonBase_Vtbl, 0x907e0b5c_e42d_4f04_91f0_26f401f36907);
 windows_core::imp::interface_hierarchy!(IGpnvsCommonBase, windows_core::IUnknown);
 impl IGpnvsCommonBase {
     pub unsafe fn GetValueUpdateName(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -7121,7 +7121,7 @@ pub struct IGpnvsCommonBase_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetValueUpdateName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGuideData, IGuideData_Vtbl, 0x61571138_5b01_43cd_aeaf_60b784a0bf93);
+windows_core::imp::define_interface!(IGuideData, IGuideData_Vtbl, 0x61571138_5b01_43cd_aeaf_60b784a0bf93);
 windows_core::imp::interface_hierarchy!(IGuideData, windows_core::IUnknown);
 impl IGuideData {
     pub unsafe fn GetServices(&self) -> windows_core::Result<IEnumTuneRequests> {
@@ -7180,7 +7180,7 @@ pub struct IGuideData_Vtbl {
     GetScheduleEntryIDs: usize,
     pub GetScheduleEntryProperties: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGuideDataEvent, IGuideDataEvent_Vtbl, 0xefda0c80_f395_42c3_9b3c_56b37dec7bb7);
+windows_core::imp::define_interface!(IGuideDataEvent, IGuideDataEvent_Vtbl, 0xefda0c80_f395_42c3_9b3c_56b37dec7bb7);
 windows_core::imp::interface_hierarchy!(IGuideDataEvent, windows_core::IUnknown);
 impl IGuideDataEvent {
     pub unsafe fn GuideDataAcquired(&self) -> windows_core::Result<()> {
@@ -7234,7 +7234,7 @@ pub struct IGuideDataEvent_Vtbl {
     pub ServiceDeleted: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
     pub ScheduleDeleted: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGuideDataLoader, IGuideDataLoader_Vtbl, 0x4764ff7c_fa95_4525_af4d_d32236db9e38);
+windows_core::imp::define_interface!(IGuideDataLoader, IGuideDataLoader_Vtbl, 0x4764ff7c_fa95_4525_af4d_d32236db9e38);
 windows_core::imp::interface_hierarchy!(IGuideDataLoader, windows_core::IUnknown);
 impl IGuideDataLoader {
     pub unsafe fn Init<P0>(&self, pguidestore: P0) -> windows_core::Result<()>
@@ -7253,7 +7253,7 @@ pub struct IGuideDataLoader_Vtbl {
     pub Init: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Terminate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGuideDataProperty, IGuideDataProperty_Vtbl, 0x88ec5e58_bb73_41d6_99ce_66c524b8b591);
+windows_core::imp::define_interface!(IGuideDataProperty, IGuideDataProperty_Vtbl, 0x88ec5e58_bb73_41d6_99ce_66c524b8b591);
 windows_core::imp::interface_hierarchy!(IGuideDataProperty, windows_core::IUnknown);
 impl IGuideDataProperty {
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -7277,7 +7277,7 @@ pub struct IGuideDataProperty_Vtbl {
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IISDBSLocator, IISDBSLocator_Vtbl, 0xc9897087_e29c_473f_9e4b_7072123dea14);
+windows_core::imp::define_interface!(IISDBSLocator, IISDBSLocator_Vtbl, 0xc9897087_e29c_473f_9e4b_7072123dea14);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IISDBSLocator, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator, IDVBSLocator);
 #[cfg(feature = "Win32_System_Com")]
@@ -7380,7 +7380,7 @@ impl IISDBSLocator {
 pub struct IISDBSLocator_Vtbl {
     pub base__: IDVBSLocator_Vtbl,
 }
-windows_core::imp::com_interface!(IISDB_BIT, IISDB_BIT_Vtbl, 0x537cd71e_0e46_4173_9001_ba043f3e49e2);
+windows_core::imp::define_interface!(IISDB_BIT, IISDB_BIT_Vtbl, 0x537cd71e_0e46_4173_9001_ba043f3e49e2);
 windows_core::imp::interface_hierarchy!(IISDB_BIT, windows_core::IUnknown);
 impl IISDB_BIT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -7454,7 +7454,7 @@ pub struct IISDB_BIT_Vtbl {
     pub GetRecordDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetVersionHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IISDB_CDT, IISDB_CDT_Vtbl, 0x25fa92c2_8b80_4787_a841_3a0e8f17984b);
+windows_core::imp::define_interface!(IISDB_CDT, IISDB_CDT_Vtbl, 0x25fa92c2_8b80_4787_a841_3a0e8f17984b);
 windows_core::imp::interface_hierarchy!(IISDB_CDT, windows_core::IUnknown);
 impl IISDB_CDT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1, bsectionnumber: u8) -> windows_core::Result<()>
@@ -7524,7 +7524,7 @@ pub struct IISDB_CDT_Vtbl {
     pub GetDataModule: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8) -> windows_core::HRESULT,
     pub GetVersionHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IISDB_EMM, IISDB_EMM_Vtbl, 0x0edb556d_43ad_4938_9668_321b2ffecfd3);
+windows_core::imp::define_interface!(IISDB_EMM, IISDB_EMM_Vtbl, 0x0edb556d_43ad_4938_9668_321b2ffecfd3);
 windows_core::imp::interface_hierarchy!(IISDB_EMM, windows_core::IUnknown);
 impl IISDB_EMM {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -7570,7 +7570,7 @@ pub struct IISDB_EMM_Vtbl {
     pub GetIndividualEmmMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u16, *mut *mut u8) -> windows_core::HRESULT,
     pub GetVersionHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IISDB_LDT, IISDB_LDT_Vtbl, 0x141a546b_02ff_4fb9_a3a3_2f074b74a9a9);
+windows_core::imp::define_interface!(IISDB_LDT, IISDB_LDT_Vtbl, 0x141a546b_02ff_4fb9_a3a3_2f074b74a9a9);
 windows_core::imp::interface_hierarchy!(IISDB_LDT, windows_core::IUnknown);
 impl IISDB_LDT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -7635,7 +7635,7 @@ pub struct IISDB_LDT_Vtbl {
     pub GetRecordDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetVersionHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IISDB_NBIT, IISDB_NBIT_Vtbl, 0x1b1863ef_08f1_40b7_a559_3b1eff8cafa6);
+windows_core::imp::define_interface!(IISDB_NBIT, IISDB_NBIT_Vtbl, 0x1b1863ef_08f1_40b7_a559_3b1eff8cafa6);
 windows_core::imp::interface_hierarchy!(IISDB_NBIT, windows_core::IUnknown);
 impl IISDB_NBIT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -7720,7 +7720,7 @@ pub struct IISDB_NBIT_Vtbl {
     pub GetRecordDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetVersionHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IISDB_SDT, IISDB_SDT_Vtbl, 0x3f3dc9a2_bb32_4fb9_ae9e_d856848927a3);
+windows_core::imp::define_interface!(IISDB_SDT, IISDB_SDT_Vtbl, 0x3f3dc9a2_bb32_4fb9_ae9e_d856848927a3);
 windows_core::imp::interface_hierarchy!(IISDB_SDT, windows_core::IUnknown, IDVB_SDT);
 impl IISDB_SDT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -7810,7 +7810,7 @@ pub struct IISDB_SDT_Vtbl {
     pub base__: IDVB_SDT_Vtbl,
     pub GetRecordEITUserDefinedFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IISDB_SDTT, IISDB_SDTT_Vtbl, 0xee60ef2d_813a_4dc7_bf92_ea13dac85313);
+windows_core::imp::define_interface!(IISDB_SDTT, IISDB_SDTT_Vtbl, 0xee60ef2d_813a_4dc7_bf92_ea13dac85313);
 windows_core::imp::interface_hierarchy!(IISDB_SDTT, windows_core::IUnknown);
 impl IISDB_SDTT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -7920,7 +7920,7 @@ pub struct IISDB_SDTT_Vtbl {
     pub GetRecordDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetVersionHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsdbAudioComponentDescriptor, IIsdbAudioComponentDescriptor_Vtbl, 0x679d2002_2425_4be4_a4c7_d6632a574f4d);
+windows_core::imp::define_interface!(IIsdbAudioComponentDescriptor, IIsdbAudioComponentDescriptor_Vtbl, 0x679d2002_2425_4be4_a4c7_d6632a574f4d);
 windows_core::imp::interface_hierarchy!(IIsdbAudioComponentDescriptor, windows_core::IUnknown);
 impl IIsdbAudioComponentDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -7996,7 +7996,7 @@ pub struct IIsdbAudioComponentDescriptor_Vtbl {
     pub GetLanguageCode2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetTextW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsdbCAContractInformationDescriptor, IIsdbCAContractInformationDescriptor_Vtbl, 0x08e18b25_a28f_4e92_821e_4fced5cc2291);
+windows_core::imp::define_interface!(IIsdbCAContractInformationDescriptor, IIsdbCAContractInformationDescriptor_Vtbl, 0x08e18b25_a28f_4e92_821e_4fced5cc2291);
 windows_core::imp::interface_hierarchy!(IIsdbCAContractInformationDescriptor, windows_core::IUnknown);
 impl IIsdbCAContractInformationDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -8049,7 +8049,7 @@ pub struct IIsdbCAContractInformationDescriptor_Vtbl {
     pub GetContractVerificationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
     pub GetFeeNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsdbCADescriptor, IIsdbCADescriptor_Vtbl, 0x0570aa47_52bc_42ae_8ca5_969f41e81aea);
+windows_core::imp::define_interface!(IIsdbCADescriptor, IIsdbCADescriptor_Vtbl, 0x0570aa47_52bc_42ae_8ca5_969f41e81aea);
 windows_core::imp::interface_hierarchy!(IIsdbCADescriptor, windows_core::IUnknown);
 impl IIsdbCADescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -8086,7 +8086,7 @@ pub struct IIsdbCADescriptor_Vtbl {
     pub GetCAPID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetPrivateDataBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsdbCAServiceDescriptor, IIsdbCAServiceDescriptor_Vtbl, 0x39cbeb97_ff0b_42a7_9ab9_7b9cfe70a77a);
+windows_core::imp::define_interface!(IIsdbCAServiceDescriptor, IIsdbCAServiceDescriptor_Vtbl, 0x39cbeb97_ff0b_42a7_9ab9_7b9cfe70a77a);
 windows_core::imp::interface_hierarchy!(IIsdbCAServiceDescriptor, windows_core::IUnknown);
 impl IIsdbCAServiceDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -8123,7 +8123,7 @@ pub struct IIsdbCAServiceDescriptor_Vtbl {
     pub GetMessageControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetServiceIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsdbComponentGroupDescriptor, IIsdbComponentGroupDescriptor_Vtbl, 0xa494f17f_c592_47d8_8943_64c9a34be7b9);
+windows_core::imp::define_interface!(IIsdbComponentGroupDescriptor, IIsdbComponentGroupDescriptor_Vtbl, 0xa494f17f_c592_47d8_8943_64c9a34be7b9);
 windows_core::imp::interface_hierarchy!(IIsdbComponentGroupDescriptor, windows_core::IUnknown);
 impl IIsdbComponentGroupDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -8186,7 +8186,7 @@ pub struct IIsdbComponentGroupDescriptor_Vtbl {
     pub GetRecordTotalBitRate: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
     pub GetRecordTextW: unsafe extern "system" fn(*mut core::ffi::c_void, u8, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsdbDataContentDescriptor, IIsdbDataContentDescriptor_Vtbl, 0xa428100a_e646_4bd6_aa14_6087bdc08cd5);
+windows_core::imp::define_interface!(IIsdbDataContentDescriptor, IIsdbDataContentDescriptor_Vtbl, 0xa428100a_e646_4bd6_aa14_6087bdc08cd5);
 windows_core::imp::interface_hierarchy!(IIsdbDataContentDescriptor, windows_core::IUnknown);
 impl IIsdbDataContentDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -8243,7 +8243,7 @@ pub struct IIsdbDataContentDescriptor_Vtbl {
     pub GetLanguageCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetTextW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsdbDigitalCopyControlDescriptor, IIsdbDigitalCopyControlDescriptor_Vtbl, 0x1a28417e_266a_4bb8_a4bd_d782bcfb8161);
+windows_core::imp::define_interface!(IIsdbDigitalCopyControlDescriptor, IIsdbDigitalCopyControlDescriptor_Vtbl, 0x1a28417e_266a_4bb8_a4bd_d782bcfb8161);
 windows_core::imp::interface_hierarchy!(IIsdbDigitalCopyControlDescriptor, windows_core::IUnknown);
 impl IIsdbDigitalCopyControlDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -8274,7 +8274,7 @@ pub struct IIsdbDigitalCopyControlDescriptor_Vtbl {
     pub GetCountOfRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetRecordCopyControl: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8, *mut u8, *mut u8, *mut u8, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsdbDownloadContentDescriptor, IIsdbDownloadContentDescriptor_Vtbl, 0x5298661e_cb88_4f5f_a1de_5f440c185b92);
+windows_core::imp::define_interface!(IIsdbDownloadContentDescriptor, IIsdbDownloadContentDescriptor_Vtbl, 0x5298661e_cb88_4f5f_a1de_5f440c185b92);
 windows_core::imp::interface_hierarchy!(IIsdbDownloadContentDescriptor, windows_core::IUnknown);
 impl IIsdbDownloadContentDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -8365,7 +8365,7 @@ pub struct IIsdbDownloadContentDescriptor_Vtbl {
     pub GetTextLanguageCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetTextW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsdbEmergencyInformationDescriptor, IIsdbEmergencyInformationDescriptor_Vtbl, 0xba6fa681_b973_4da1_9207_ac3e7f0341eb);
+windows_core::imp::define_interface!(IIsdbEmergencyInformationDescriptor, IIsdbEmergencyInformationDescriptor_Vtbl, 0xba6fa681_b973_4da1_9207_ac3e7f0341eb);
 windows_core::imp::interface_hierarchy!(IIsdbEmergencyInformationDescriptor, windows_core::IUnknown);
 impl IIsdbEmergencyInformationDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -8407,7 +8407,7 @@ pub struct IIsdbEmergencyInformationDescriptor_Vtbl {
     pub GetSignalLevel: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
     pub GetAreaCode: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut *mut u16, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsdbEventGroupDescriptor, IIsdbEventGroupDescriptor_Vtbl, 0x94b06780_2e2a_44dc_a966_cc56fdabc6c2);
+windows_core::imp::define_interface!(IIsdbEventGroupDescriptor, IIsdbEventGroupDescriptor_Vtbl, 0x94b06780_2e2a_44dc_a966_cc56fdabc6c2);
 windows_core::imp::interface_hierarchy!(IIsdbEventGroupDescriptor, windows_core::IUnknown);
 impl IIsdbEventGroupDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -8448,7 +8448,7 @@ pub struct IIsdbEventGroupDescriptor_Vtbl {
     pub GetCountOfRefRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetRefRecordEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u16, *mut u16, *mut u16, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsdbHierarchicalTransmissionDescriptor, IIsdbHierarchicalTransmissionDescriptor_Vtbl, 0xb7b3ae90_ee0b_446d_8769_f7e2aa266aa6);
+windows_core::imp::define_interface!(IIsdbHierarchicalTransmissionDescriptor, IIsdbHierarchicalTransmissionDescriptor_Vtbl, 0xb7b3ae90_ee0b_446d_8769_f7e2aa266aa6);
 windows_core::imp::interface_hierarchy!(IIsdbHierarchicalTransmissionDescriptor, windows_core::IUnknown);
 impl IIsdbHierarchicalTransmissionDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -8486,7 +8486,7 @@ pub struct IIsdbHierarchicalTransmissionDescriptor_Vtbl {
     pub GetFutureUse2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetReferencePid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsdbLogoTransmissionDescriptor, IIsdbLogoTransmissionDescriptor_Vtbl, 0xe0103f49_4ae1_4f07_9098_756db1fa88cd);
+windows_core::imp::define_interface!(IIsdbLogoTransmissionDescriptor, IIsdbLogoTransmissionDescriptor_Vtbl, 0xe0103f49_4ae1_4f07_9098_756db1fa88cd);
 windows_core::imp::interface_hierarchy!(IIsdbLogoTransmissionDescriptor, windows_core::IUnknown);
 impl IIsdbLogoTransmissionDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -8529,7 +8529,7 @@ pub struct IIsdbLogoTransmissionDescriptor_Vtbl {
     pub GetDownloadDataId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetLogoCharW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsdbSIParameterDescriptor, IIsdbSIParameterDescriptor_Vtbl, 0xf837dc36_867c_426a_9111_f62093951a45);
+windows_core::imp::define_interface!(IIsdbSIParameterDescriptor, IIsdbSIParameterDescriptor_Vtbl, 0xf837dc36_867c_426a_9111_f62093951a45);
 windows_core::imp::interface_hierarchy!(IIsdbSIParameterDescriptor, windows_core::IUnknown);
 impl IIsdbSIParameterDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -8576,7 +8576,7 @@ pub struct IIsdbSIParameterDescriptor_Vtbl {
     pub GetTableDescriptionLength: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
     pub GetTableDescriptionBytes: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsdbSeriesDescriptor, IIsdbSeriesDescriptor_Vtbl, 0x07ef6370_1660_4f26_87fc_614adab24b11);
+windows_core::imp::define_interface!(IIsdbSeriesDescriptor, IIsdbSeriesDescriptor_Vtbl, 0x07ef6370_1660_4f26_87fc_614adab24b11);
 windows_core::imp::interface_hierarchy!(IIsdbSeriesDescriptor, windows_core::IUnknown);
 impl IIsdbSeriesDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -8628,7 +8628,7 @@ pub struct IIsdbSeriesDescriptor_Vtbl {
     pub GetLastEpisodeNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetSeriesNameW: unsafe extern "system" fn(*mut core::ffi::c_void, DVB_STRCONV_MODE, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsdbSiParser2, IIsdbSiParser2_Vtbl, 0x900e4bb7_18cd_453f_98be_3be6aa211772);
+windows_core::imp::define_interface!(IIsdbSiParser2, IIsdbSiParser2_Vtbl, 0x900e4bb7_18cd_453f_98be_3be6aa211772);
 windows_core::imp::interface_hierarchy!(IIsdbSiParser2, windows_core::IUnknown, IDvbSiParser, IDvbSiParser2);
 impl IIsdbSiParser2 {
     pub unsafe fn Initialize<P0>(&self, punkmpeg2data: P0) -> windows_core::Result<()>
@@ -8737,7 +8737,7 @@ pub struct IIsdbSiParser2_Vtbl {
     pub GetCDT: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, *const u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetEMM: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsdbTSInformationDescriptor, IIsdbTSInformationDescriptor_Vtbl, 0xd7ad183e_38f5_4210_b55f_ec8d601bbd47);
+windows_core::imp::define_interface!(IIsdbTSInformationDescriptor, IIsdbTSInformationDescriptor_Vtbl, 0xd7ad183e_38f5_4210_b55f_ec8d601bbd47);
 windows_core::imp::interface_hierarchy!(IIsdbTSInformationDescriptor, windows_core::IUnknown);
 impl IIsdbTSInformationDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -8785,7 +8785,7 @@ pub struct IIsdbTSInformationDescriptor_Vtbl {
     pub GetRecordNumberOfServices: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
     pub GetRecordServiceIdByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IIsdbTerrestrialDeliverySystemDescriptor, IIsdbTerrestrialDeliverySystemDescriptor_Vtbl, 0x39fae0a6_d151_44dd_a28a_765de5991670);
+windows_core::imp::define_interface!(IIsdbTerrestrialDeliverySystemDescriptor, IIsdbTerrestrialDeliverySystemDescriptor_Vtbl, 0x39fae0a6_d151_44dd_a28a_765de5991670);
 windows_core::imp::interface_hierarchy!(IIsdbTerrestrialDeliverySystemDescriptor, windows_core::IUnknown);
 impl IIsdbTerrestrialDeliverySystemDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -8829,7 +8829,7 @@ pub struct IIsdbTerrestrialDeliverySystemDescriptor_Vtbl {
     pub GetRecordFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ILanguageComponentType, ILanguageComponentType_Vtbl, 0xb874c8ba_0fa2_11d3_9d8e_00c04f72d980);
+windows_core::imp::define_interface!(ILanguageComponentType, ILanguageComponentType_Vtbl, 0xb874c8ba_0fa2_11d3_9d8e_00c04f72d980);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ILanguageComponentType, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IComponentType);
 #[cfg(feature = "Win32_System_Com")]
@@ -8922,7 +8922,7 @@ pub struct ILanguageComponentType_Vtbl {
     pub SetLangID: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ILocator, ILocator_Vtbl, 0x286d7f89_760c_4f89_80c4_66841d2507aa);
+windows_core::imp::define_interface!(ILocator, ILocator_Vtbl, 0x286d7f89_760c_4f89_80c4_66841d2507aa);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ILocator, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -9006,7 +9006,7 @@ pub struct ILocator_Vtbl {
     Clone: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMPEG2Component, IMPEG2Component_Vtbl, 0x1493e353_1eb6_473c_802d_8e6b8ec9d2a9);
+windows_core::imp::define_interface!(IMPEG2Component, IMPEG2Component_Vtbl, 0x1493e353_1eb6_473c_802d_8e6b8ec9d2a9);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMPEG2Component, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IComponent);
 #[cfg(feature = "Win32_System_Com")]
@@ -9086,7 +9086,7 @@ pub struct IMPEG2Component_Vtbl {
     pub SetProgramNumber: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMPEG2ComponentType, IMPEG2ComponentType_Vtbl, 0x2c073d84_b51c_48c9_aa9f_68971e1f6e38);
+windows_core::imp::define_interface!(IMPEG2ComponentType, IMPEG2ComponentType_Vtbl, 0x2c073d84_b51c_48c9_aa9f_68971e1f6e38);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMPEG2ComponentType, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IComponentType, ILanguageComponentType);
 #[cfg(feature = "Win32_System_Com")]
@@ -9186,7 +9186,7 @@ pub struct IMPEG2ComponentType_Vtbl {
     pub SetStreamType: unsafe extern "system" fn(*mut core::ffi::c_void, super::MPEG2StreamType) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMPEG2TuneRequest, IMPEG2TuneRequest_Vtbl, 0xeb7d987f_8a01_42ad_b8ae_574deee44d1a);
+windows_core::imp::define_interface!(IMPEG2TuneRequest, IMPEG2TuneRequest_Vtbl, 0xeb7d987f_8a01_42ad_b8ae_574deee44d1a);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMPEG2TuneRequest, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuneRequest);
 #[cfg(feature = "Win32_System_Com")]
@@ -9243,7 +9243,7 @@ pub struct IMPEG2TuneRequest_Vtbl {
     pub SetProgNo: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMPEG2TuneRequestFactory, IMPEG2TuneRequestFactory_Vtbl, 0x14e11abd_ee37_4893_9ea1_6964de933e39);
+windows_core::imp::define_interface!(IMPEG2TuneRequestFactory, IMPEG2TuneRequestFactory_Vtbl, 0x14e11abd_ee37_4893_9ea1_6964de933e39);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMPEG2TuneRequestFactory, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -9266,14 +9266,14 @@ pub struct IMPEG2TuneRequestFactory_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateTuneRequest: usize,
 }
-windows_core::imp::com_interface!(IMPEG2TuneRequestSupport, IMPEG2TuneRequestSupport_Vtbl, 0x1b9d5fc3_5bbc_4b6c_bb18_b9d10e3eeebf);
+windows_core::imp::define_interface!(IMPEG2TuneRequestSupport, IMPEG2TuneRequestSupport_Vtbl, 0x1b9d5fc3_5bbc_4b6c_bb18_b9d10e3eeebf);
 windows_core::imp::interface_hierarchy!(IMPEG2TuneRequestSupport, windows_core::IUnknown);
 impl IMPEG2TuneRequestSupport {}
 #[repr(C)]
 pub struct IMPEG2TuneRequestSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
-windows_core::imp::com_interface!(IMPEG2_TIF_CONTROL, IMPEG2_TIF_CONTROL_Vtbl, 0xf9bac2f9_4149_4916_b2ef_faa202326862);
+windows_core::imp::define_interface!(IMPEG2_TIF_CONTROL, IMPEG2_TIF_CONTROL_Vtbl, 0xf9bac2f9_4149_4916_b2ef_faa202326862);
 windows_core::imp::interface_hierarchy!(IMPEG2_TIF_CONTROL, windows_core::IUnknown);
 impl IMPEG2_TIF_CONTROL {
     pub unsafe fn RegisterTIF<P0>(&self, punktif: P0, ppvregistrationcontext: *mut u32) -> windows_core::Result<()>
@@ -9310,7 +9310,7 @@ pub struct IMPEG2_TIF_CONTROL_Vtbl {
     pub GetPIDs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSEventBinder, IMSEventBinder_Vtbl, 0xc3a9f406_2222_436d_86d5_ba3229279efb);
+windows_core::imp::define_interface!(IMSEventBinder, IMSEventBinder_Vtbl, 0xc3a9f406_2222_436d_86d5_ba3229279efb);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSEventBinder, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -9340,7 +9340,7 @@ pub struct IMSEventBinder_Vtbl {
     pub Unbind: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidAnalogTuner, IMSVidAnalogTuner_Vtbl, 0x1c15d47e_911d_11d2_b632_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidAnalogTuner, IMSVidAnalogTuner_Vtbl, 0x1c15d47e_911d_11d2_b632_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidAnalogTuner, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice, IMSVidVideoInputDevice, IMSVidTuner);
 #[cfg(feature = "Win32_System_Com")]
@@ -9470,7 +9470,7 @@ pub struct IMSVidAnalogTuner_Vtbl {
     pub ChannelAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidAnalogTuner2, IMSVidAnalogTuner2_Vtbl, 0x37647bf7_3dde_4cc8_a4dc_0d534d3d0037);
+windows_core::imp::define_interface!(IMSVidAnalogTuner2, IMSVidAnalogTuner2_Vtbl, 0x37647bf7_3dde_4cc8_a4dc_0d534d3d0037);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidAnalogTuner2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice, IMSVidVideoInputDevice, IMSVidTuner, IMSVidAnalogTuner);
 #[cfg(feature = "Win32_System_Com")]
@@ -9606,7 +9606,7 @@ pub struct IMSVidAnalogTuner2_Vtbl {
     pub NumAuxInputs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidAnalogTunerEvent, IMSVidAnalogTunerEvent_Vtbl, 0x1c15d486_911d_11d2_b632_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidAnalogTunerEvent, IMSVidAnalogTunerEvent_Vtbl, 0x1c15d486_911d_11d2_b632_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidAnalogTunerEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent, IMSVidTunerEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -9625,7 +9625,7 @@ pub struct IMSVidAnalogTunerEvent_Vtbl {
     pub base__: IMSVidTunerEvent_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidAudioRenderer, IMSVidAudioRenderer_Vtbl, 0x37b0353f_a4c8_11d2_b634_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidAudioRenderer, IMSVidAudioRenderer_Vtbl, 0x37b0353f_a4c8_11d2_b634_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidAudioRenderer, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice);
 #[cfg(feature = "Win32_System_Com")]
@@ -9697,7 +9697,7 @@ pub struct IMSVidAudioRenderer_Vtbl {
     pub Balance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidAudioRendererDevices, IMSVidAudioRendererDevices_Vtbl, 0xc5702cd4_9b79_11d3_b654_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidAudioRendererDevices, IMSVidAudioRendererDevices_Vtbl, 0xc5702cd4_9b79_11d3_b654_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidAudioRendererDevices, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -9753,7 +9753,7 @@ pub struct IMSVidAudioRendererDevices_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidAudioRendererEvent, IMSVidAudioRendererEvent_Vtbl, 0x37b03541_a4c8_11d2_b634_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidAudioRendererEvent, IMSVidAudioRendererEvent_Vtbl, 0x37b03541_a4c8_11d2_b634_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidAudioRendererEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -9772,7 +9772,7 @@ pub struct IMSVidAudioRendererEvent_Vtbl {
     pub base__: IMSVidOutputDeviceEvent_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidAudioRendererEvent2, IMSVidAudioRendererEvent2_Vtbl, 0xe3f55729_353b_4c43_a028_50f79aa9a907);
+windows_core::imp::define_interface!(IMSVidAudioRendererEvent2, IMSVidAudioRendererEvent2_Vtbl, 0xe3f55729_353b_4c43_a028_50f79aa9a907);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidAudioRendererEvent2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent, IMSVidAudioRendererEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -9823,7 +9823,7 @@ pub struct IMSVidAudioRendererEvent2_Vtbl {
     pub AVDecCommonOutputFormat: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidClosedCaptioning, IMSVidClosedCaptioning_Vtbl, 0x99652ea1_c1f7_414f_bb7b_1c967de75983);
+windows_core::imp::define_interface!(IMSVidClosedCaptioning, IMSVidClosedCaptioning_Vtbl, 0x99652ea1_c1f7_414f_bb7b_1c967de75983);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidClosedCaptioning, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidFeature);
 #[cfg(feature = "Win32_System_Com")]
@@ -9889,7 +9889,7 @@ pub struct IMSVidClosedCaptioning_Vtbl {
     pub SetEnable: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidClosedCaptioning2, IMSVidClosedCaptioning2_Vtbl, 0xe00cb864_a029_4310_9987_a873f5887d97);
+windows_core::imp::define_interface!(IMSVidClosedCaptioning2, IMSVidClosedCaptioning2_Vtbl, 0xe00cb864_a029_4310_9987_a873f5887d97);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidClosedCaptioning2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidFeature, IMSVidClosedCaptioning);
 #[cfg(feature = "Win32_System_Com")]
@@ -9962,7 +9962,7 @@ pub struct IMSVidClosedCaptioning2_Vtbl {
     pub SetService: unsafe extern "system" fn(*mut core::ffi::c_void, MSVidCCService) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidClosedCaptioning3, IMSVidClosedCaptioning3_Vtbl, 0xc8638e8a_7625_4c51_9366_2f40a9831fc0);
+windows_core::imp::define_interface!(IMSVidClosedCaptioning3, IMSVidClosedCaptioning3_Vtbl, 0xc8638e8a_7625_4c51_9366_2f40a9831fc0);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidClosedCaptioning3, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidFeature, IMSVidClosedCaptioning, IMSVidClosedCaptioning2);
 #[cfg(feature = "Win32_System_Com")]
@@ -10038,7 +10038,7 @@ pub struct IMSVidClosedCaptioning3_Vtbl {
     pub TeleTextFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidCompositionSegment, IMSVidCompositionSegment_Vtbl, 0x1c15d483_911d_11d2_b632_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidCompositionSegment, IMSVidCompositionSegment_Vtbl, 0x1c15d483_911d_11d2_b632_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidCompositionSegment, windows_core::IUnknown, super::super::super::System::Com::IPersist, IMSVidGraphSegment);
 #[cfg(feature = "Win32_System_Com")]
@@ -10141,7 +10141,7 @@ pub struct IMSVidCompositionSegment_Vtbl {
     Down: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidCtl, IMSVidCtl_Vtbl, 0xb0edf162_910a_11d2_b632_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidCtl, IMSVidCtl_Vtbl, 0xb0edf162_910a_11d2_b632_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidCtl, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -10447,7 +10447,7 @@ pub struct IMSVidCtl_Vtbl {
     pub ViewNext: unsafe extern "system" fn(*mut core::ffi::c_void, *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidDataServices, IMSVidDataServices_Vtbl, 0x334125c1_77e5_11d3_b653_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidDataServices, IMSVidDataServices_Vtbl, 0x334125c1_77e5_11d3_b653_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidDataServices, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidFeature);
 #[cfg(feature = "Win32_System_Com")]
@@ -10501,7 +10501,7 @@ pub struct IMSVidDataServices_Vtbl {
     pub base__: IMSVidFeature_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidDataServicesEvent, IMSVidDataServicesEvent_Vtbl, 0x334125c2_77e5_11d3_b653_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidDataServicesEvent, IMSVidDataServicesEvent_Vtbl, 0x334125c2_77e5_11d3_b653_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidDataServicesEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -10520,7 +10520,7 @@ pub struct IMSVidDataServicesEvent_Vtbl {
     pub base__: IMSVidDeviceEvent_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidDevice, IMSVidDevice_Vtbl, 0x1c15d47c_911d_11d2_b632_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidDevice, IMSVidDevice_Vtbl, 0x1c15d47c_911d_11d2_b632_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidDevice, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -10585,7 +10585,7 @@ pub struct IMSVidDevice_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     IsEqualDevice: usize,
 }
-windows_core::imp::com_interface!(IMSVidDevice2, IMSVidDevice2_Vtbl, 0x87bd2783_ebc0_478c_b4a0_e8e7f43ab78e);
+windows_core::imp::define_interface!(IMSVidDevice2, IMSVidDevice2_Vtbl, 0x87bd2783_ebc0_478c_b4a0_e8e7f43ab78e);
 windows_core::imp::interface_hierarchy!(IMSVidDevice2, windows_core::IUnknown);
 impl IMSVidDevice2 {
     pub unsafe fn DevicePath(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -10599,7 +10599,7 @@ pub struct IMSVidDevice2_Vtbl {
     pub DevicePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidDeviceEvent, IMSVidDeviceEvent_Vtbl, 0x1c15d480_911d_11d2_b632_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidDeviceEvent, IMSVidDeviceEvent_Vtbl, 0x1c15d480_911d_11d2_b632_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidDeviceEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -10622,7 +10622,7 @@ pub struct IMSVidDeviceEvent_Vtbl {
     StateChange: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidEVR, IMSVidEVR_Vtbl, 0x15e496ae_82a8_4cf9_a6b6_c561dc60398f);
+windows_core::imp::define_interface!(IMSVidEVR, IMSVidEVR_Vtbl, 0x15e496ae_82a8_4cf9_a6b6_c561dc60398f);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidEVR, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice, IMSVidVideoRenderer);
 #[cfg(feature = "Win32_System_Com")]
@@ -10852,7 +10852,7 @@ pub struct IMSVidEVR_Vtbl {
     pub SuppressEffects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidEVREvent, IMSVidEVREvent_Vtbl, 0x349abb10_883c_4f22_8714_cecaeee45d62);
+windows_core::imp::define_interface!(IMSVidEVREvent, IMSVidEVREvent_Vtbl, 0x349abb10_883c_4f22_8714_cecaeee45d62);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidEVREvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -10875,7 +10875,7 @@ pub struct IMSVidEVREvent_Vtbl {
     pub OnUserEvent: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidEncoder, IMSVidEncoder_Vtbl, 0xc0020fd4_bee7_43d9_a495_9f213117103d);
+windows_core::imp::define_interface!(IMSVidEncoder, IMSVidEncoder_Vtbl, 0xc0020fd4_bee7_43d9_a495_9f213117103d);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidEncoder, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidFeature);
 #[cfg(feature = "Win32_System_Com")]
@@ -10939,7 +10939,7 @@ pub struct IMSVidEncoder_Vtbl {
     pub AudioEncoderInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidFeature, IMSVidFeature_Vtbl, 0x37b03547_a4c8_11d2_b634_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidFeature, IMSVidFeature_Vtbl, 0x37b03547_a4c8_11d2_b634_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidFeature, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice);
 #[cfg(feature = "Win32_System_Com")]
@@ -10993,7 +10993,7 @@ pub struct IMSVidFeature_Vtbl {
     pub base__: IMSVidDevice_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidFeatureEvent, IMSVidFeatureEvent_Vtbl, 0x3dd2903c_e0aa_11d2_b63a_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidFeatureEvent, IMSVidFeatureEvent_Vtbl, 0x3dd2903c_e0aa_11d2_b63a_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidFeatureEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -11012,7 +11012,7 @@ pub struct IMSVidFeatureEvent_Vtbl {
     pub base__: IMSVidDeviceEvent_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidFeatures, IMSVidFeatures_Vtbl, 0xc5702cd5_9b79_11d3_b654_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidFeatures, IMSVidFeatures_Vtbl, 0xc5702cd5_9b79_11d3_b654_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidFeatures, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -11068,7 +11068,7 @@ pub struct IMSVidFeatures_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidFilePlayback, IMSVidFilePlayback_Vtbl, 0x37b03539_a4c8_11d2_b634_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidFilePlayback, IMSVidFilePlayback_Vtbl, 0x37b03539_a4c8_11d2_b634_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidFilePlayback, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice, IMSVidPlayback);
 #[cfg(feature = "Win32_System_Com")]
@@ -11195,7 +11195,7 @@ pub struct IMSVidFilePlayback_Vtbl {
     pub SetFileName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidFilePlayback2, IMSVidFilePlayback2_Vtbl, 0x2f7e44af_6e52_4660_bc08_d8d542587d72);
+windows_core::imp::define_interface!(IMSVidFilePlayback2, IMSVidFilePlayback2_Vtbl, 0x2f7e44af_6e52_4660_bc08_d8d542587d72);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidFilePlayback2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice, IMSVidPlayback, IMSVidFilePlayback);
 #[cfg(feature = "Win32_System_Com")]
@@ -11331,7 +11331,7 @@ pub struct IMSVidFilePlayback2_Vtbl {
     pub Set__SourceFilter: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidFilePlaybackEvent, IMSVidFilePlaybackEvent_Vtbl, 0x37b0353a_a4c8_11d2_b634_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidFilePlaybackEvent, IMSVidFilePlaybackEvent_Vtbl, 0x37b0353a_a4c8_11d2_b634_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidFilePlaybackEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent, IMSVidPlaybackEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -11350,7 +11350,7 @@ pub struct IMSVidFilePlaybackEvent_Vtbl {
     pub base__: IMSVidPlaybackEvent_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidGenericSink, IMSVidGenericSink_Vtbl, 0x6c29b41d_455b_4c33_963a_0d28e5e555ea);
+windows_core::imp::define_interface!(IMSVidGenericSink, IMSVidGenericSink_Vtbl, 0x6c29b41d_455b_4c33_963a_0d28e5e555ea);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidGenericSink, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice);
 #[cfg(feature = "Win32_System_Com")]
@@ -11420,7 +11420,7 @@ pub struct IMSVidGenericSink_Vtbl {
     pub SetSinkStreams: unsafe extern "system" fn(*mut core::ffi::c_void, MSVidSinkStreams) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidGenericSink2, IMSVidGenericSink2_Vtbl, 0x6b5a28f3_47f1_4092_b168_60cabec08f1c);
+windows_core::imp::define_interface!(IMSVidGenericSink2, IMSVidGenericSink2_Vtbl, 0x6b5a28f3_47f1_4092_b168_60cabec08f1c);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidGenericSink2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice, IMSVidGenericSink);
 #[cfg(feature = "Win32_System_Com")]
@@ -11498,7 +11498,7 @@ pub struct IMSVidGenericSink2_Vtbl {
     pub ResetFilterList: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidGraphSegment, IMSVidGraphSegment_Vtbl, 0x238dec54_adeb_4005_a349_f772b9afebc4);
+windows_core::imp::define_interface!(IMSVidGraphSegment, IMSVidGraphSegment_Vtbl, 0x238dec54_adeb_4005_a349_f772b9afebc4);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidGraphSegment, windows_core::IUnknown, super::super::super::System::Com::IPersist);
 #[cfg(feature = "Win32_System_Com")]
@@ -11585,7 +11585,7 @@ pub struct IMSVidGraphSegment_Vtbl {
     pub OnEventNotify: unsafe extern "system" fn(*mut core::ffi::c_void, i32, isize, isize) -> windows_core::HRESULT,
     pub Decompose: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMSVidGraphSegmentContainer, IMSVidGraphSegmentContainer_Vtbl, 0x3dd2903d_e0aa_11d2_b63a_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidGraphSegmentContainer, IMSVidGraphSegmentContainer_Vtbl, 0x3dd2903d_e0aa_11d2_b63a_00c04f79498e);
 windows_core::imp::interface_hierarchy!(IMSVidGraphSegmentContainer, windows_core::IUnknown);
 impl IMSVidGraphSegmentContainer {
     pub unsafe fn Graph(&self) -> windows_core::Result<super::IGraphBuilder> {
@@ -11664,7 +11664,7 @@ pub struct IMSVidGraphSegmentContainer_Vtbl {
     pub IsWindowless: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFocus: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMSVidGraphSegmentUserInput, IMSVidGraphSegmentUserInput_Vtbl, 0x301c060e_20d9_4587_9b03_f82ed9a9943c);
+windows_core::imp::define_interface!(IMSVidGraphSegmentUserInput, IMSVidGraphSegmentUserInput_Vtbl, 0x301c060e_20d9_4587_9b03_f82ed9a9943c);
 windows_core::imp::interface_hierarchy!(IMSVidGraphSegmentUserInput, windows_core::IUnknown);
 impl IMSVidGraphSegmentUserInput {
     pub unsafe fn Click(&self) -> windows_core::Result<()> {
@@ -11705,7 +11705,7 @@ pub struct IMSVidGraphSegmentUserInput_Vtbl {
     pub MouseUp: unsafe extern "system" fn(*mut core::ffi::c_void, i16, i16, i32, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidInputDevice, IMSVidInputDevice_Vtbl, 0x37b0353d_a4c8_11d2_b634_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidInputDevice, IMSVidInputDevice_Vtbl, 0x37b0353d_a4c8_11d2_b634_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidInputDevice, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice);
 #[cfg(feature = "Win32_System_Com")]
@@ -11768,7 +11768,7 @@ pub struct IMSVidInputDevice_Vtbl {
     pub View: unsafe extern "system" fn(*mut core::ffi::c_void, *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidInputDeviceEvent, IMSVidInputDeviceEvent_Vtbl, 0x37b0353e_a4c8_11d2_b634_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidInputDeviceEvent, IMSVidInputDeviceEvent_Vtbl, 0x37b0353e_a4c8_11d2_b634_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidInputDeviceEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -11779,7 +11779,7 @@ pub struct IMSVidInputDeviceEvent_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidInputDevices, IMSVidInputDevices_Vtbl, 0xc5702cd1_9b79_11d3_b654_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidInputDevices, IMSVidInputDevices_Vtbl, 0xc5702cd1_9b79_11d3_b654_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidInputDevices, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -11835,7 +11835,7 @@ pub struct IMSVidInputDevices_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidOutputDevice, IMSVidOutputDevice_Vtbl, 0x37b03546_a4c8_11d2_b634_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidOutputDevice, IMSVidOutputDevice_Vtbl, 0x37b03546_a4c8_11d2_b634_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidOutputDevice, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice);
 #[cfg(feature = "Win32_System_Com")]
@@ -11889,7 +11889,7 @@ pub struct IMSVidOutputDevice_Vtbl {
     pub base__: IMSVidDevice_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidOutputDeviceEvent, IMSVidOutputDeviceEvent_Vtbl, 0x2e6a14e2_571c_11d3_b652_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidOutputDeviceEvent, IMSVidOutputDeviceEvent_Vtbl, 0x2e6a14e2_571c_11d3_b652_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidOutputDeviceEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -11908,7 +11908,7 @@ pub struct IMSVidOutputDeviceEvent_Vtbl {
     pub base__: IMSVidDeviceEvent_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidOutputDevices, IMSVidOutputDevices_Vtbl, 0xc5702cd2_9b79_11d3_b654_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidOutputDevices, IMSVidOutputDevices_Vtbl, 0xc5702cd2_9b79_11d3_b654_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidOutputDevices, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -11964,7 +11964,7 @@ pub struct IMSVidOutputDevices_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidPlayback, IMSVidPlayback_Vtbl, 0x37b03538_a4c8_11d2_b634_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidPlayback, IMSVidPlayback_Vtbl, 0x37b03538_a4c8_11d2_b634_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidPlayback, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice);
 #[cfg(feature = "Win32_System_Com")]
@@ -12093,7 +12093,7 @@ pub struct IMSVidPlayback_Vtbl {
     pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidPlaybackEvent, IMSVidPlaybackEvent_Vtbl, 0x37b0353b_a4c8_11d2_b634_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidPlaybackEvent, IMSVidPlaybackEvent_Vtbl, 0x37b0353b_a4c8_11d2_b634_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidPlaybackEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -12116,7 +12116,7 @@ pub struct IMSVidPlaybackEvent_Vtbl {
     EndOfMedia: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidRect, IMSVidRect_Vtbl, 0x7f5000a6_a440_47ca_8acc_c0e75531a2c2);
+windows_core::imp::define_interface!(IMSVidRect, IMSVidRect_Vtbl, 0x7f5000a6_a440_47ca_8acc_c0e75531a2c2);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidRect, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -12187,7 +12187,7 @@ pub struct IMSVidRect_Vtbl {
     SetRect: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidStreamBufferRecordingControl, IMSVidStreamBufferRecordingControl_Vtbl, 0x160621aa_bbbc_4326_a824_c395aebc6e74);
+windows_core::imp::define_interface!(IMSVidStreamBufferRecordingControl, IMSVidStreamBufferRecordingControl_Vtbl, 0x160621aa_bbbc_4326_a824_c395aebc6e74);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidStreamBufferRecordingControl, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -12237,7 +12237,7 @@ pub struct IMSVidStreamBufferRecordingControl_Vtbl {
     pub RecordingAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidStreamBufferSink, IMSVidStreamBufferSink_Vtbl, 0x159dbb45_cd1b_4dab_83ea_5cb1f4f21d07);
+windows_core::imp::define_interface!(IMSVidStreamBufferSink, IMSVidStreamBufferSink_Vtbl, 0x159dbb45_cd1b_4dab_83ea_5cb1f4f21d07);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSink, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice);
 #[cfg(feature = "Win32_System_Com")]
@@ -12336,7 +12336,7 @@ pub struct IMSVidStreamBufferSink_Vtbl {
     pub SBESink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidStreamBufferSink2, IMSVidStreamBufferSink2_Vtbl, 0x2ca9fc63_c131_4e5a_955a_544a47c67146);
+windows_core::imp::define_interface!(IMSVidStreamBufferSink2, IMSVidStreamBufferSink2_Vtbl, 0x2ca9fc63_c131_4e5a_955a_544a47c67146);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSink2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice, IMSVidStreamBufferSink);
 #[cfg(feature = "Win32_System_Com")]
@@ -12427,7 +12427,7 @@ pub struct IMSVidStreamBufferSink2_Vtbl {
     pub UnlockProfile: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidStreamBufferSink3, IMSVidStreamBufferSink3_Vtbl, 0x4f8721d7_7d59_4d8b_99f5_a77775586bd5);
+windows_core::imp::define_interface!(IMSVidStreamBufferSink3, IMSVidStreamBufferSink3_Vtbl, 0x4f8721d7_7d59_4d8b_99f5_a77775586bd5);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSink3, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice, IMSVidStreamBufferSink, IMSVidStreamBufferSink2);
 #[cfg(feature = "Win32_System_Com")]
@@ -12610,7 +12610,7 @@ pub struct IMSVidStreamBufferSink3_Vtbl {
     pub LicenseErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidStreamBufferSinkEvent, IMSVidStreamBufferSinkEvent_Vtbl, 0xf798a36b_b05b_4bbe_9703_eaea7d61cd51);
+windows_core::imp::define_interface!(IMSVidStreamBufferSinkEvent, IMSVidStreamBufferSinkEvent_Vtbl, 0xf798a36b_b05b_4bbe_9703_eaea7d61cd51);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSinkEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -12641,7 +12641,7 @@ pub struct IMSVidStreamBufferSinkEvent_Vtbl {
     pub WriteFailure: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidStreamBufferSinkEvent2, IMSVidStreamBufferSinkEvent2_Vtbl, 0x3d7a5166_72d7_484b_a06f_286187b80ca1);
+windows_core::imp::define_interface!(IMSVidStreamBufferSinkEvent2, IMSVidStreamBufferSinkEvent2_Vtbl, 0x3d7a5166_72d7_484b_a06f_286187b80ca1);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSinkEvent2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent, IMSVidStreamBufferSinkEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -12677,7 +12677,7 @@ pub struct IMSVidStreamBufferSinkEvent2_Vtbl {
     pub EncryptionOff: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidStreamBufferSinkEvent3, IMSVidStreamBufferSinkEvent3_Vtbl, 0x735ad8d5_c259_48e9_81e7_d27953665b23);
+windows_core::imp::define_interface!(IMSVidStreamBufferSinkEvent3, IMSVidStreamBufferSinkEvent3_Vtbl, 0x735ad8d5_c259_48e9_81e7_d27953665b23);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSinkEvent3, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent, IMSVidStreamBufferSinkEvent, IMSVidStreamBufferSinkEvent2);
 #[cfg(feature = "Win32_System_Com")]
@@ -12715,7 +12715,7 @@ pub struct IMSVidStreamBufferSinkEvent3_Vtbl {
     pub LicenseChange: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidStreamBufferSinkEvent4, IMSVidStreamBufferSinkEvent4_Vtbl, 0x1b01dcb0_daf0_412c_a5d1_590c7f62e2b8);
+windows_core::imp::define_interface!(IMSVidStreamBufferSinkEvent4, IMSVidStreamBufferSinkEvent4_Vtbl, 0x1b01dcb0_daf0_412c_a5d1_590c7f62e2b8);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSinkEvent4, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent, IMSVidStreamBufferSinkEvent, IMSVidStreamBufferSinkEvent2, IMSVidStreamBufferSinkEvent3);
 #[cfg(feature = "Win32_System_Com")]
@@ -12756,7 +12756,7 @@ pub struct IMSVidStreamBufferSinkEvent4_Vtbl {
     pub WriteFailureClear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidStreamBufferSource, IMSVidStreamBufferSource_Vtbl, 0xeb0c8cf9_6950_4772_87b1_47d11cf3a02f);
+windows_core::imp::define_interface!(IMSVidStreamBufferSource, IMSVidStreamBufferSource_Vtbl, 0xeb0c8cf9_6950_4772_87b1_47d11cf3a02f);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSource, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice, IMSVidPlayback, IMSVidFilePlayback);
 #[cfg(feature = "Win32_System_Com")]
@@ -12915,7 +12915,7 @@ pub struct IMSVidStreamBufferSource_Vtbl {
     pub SBESource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidStreamBufferSource2, IMSVidStreamBufferSource2_Vtbl, 0xe4ba9059_b1ce_40d8_b9a0_d4ea4a9989d3);
+windows_core::imp::define_interface!(IMSVidStreamBufferSource2, IMSVidStreamBufferSource2_Vtbl, 0xe4ba9059_b1ce_40d8_b9a0_d4ea4a9989d3);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSource2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice, IMSVidPlayback, IMSVidFilePlayback, IMSVidStreamBufferSource);
 #[cfg(feature = "Win32_System_Com")]
@@ -13091,7 +13091,7 @@ pub struct IMSVidStreamBufferSource2_Vtbl {
     pub WSTCounter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidStreamBufferSourceEvent, IMSVidStreamBufferSourceEvent_Vtbl, 0x50ce8a7d_9c28_4da8_9042_cdfa7116f979);
+windows_core::imp::define_interface!(IMSVidStreamBufferSourceEvent, IMSVidStreamBufferSourceEvent_Vtbl, 0x50ce8a7d_9c28_4da8_9042_cdfa7116f979);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSourceEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent, IMSVidPlaybackEvent, IMSVidFilePlaybackEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -13146,7 +13146,7 @@ pub struct IMSVidStreamBufferSourceEvent_Vtbl {
     pub StaleFileDeleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidStreamBufferSourceEvent2, IMSVidStreamBufferSourceEvent2_Vtbl, 0x7aef50ce_8e22_4ba8_bc06_a92a458b4ef2);
+windows_core::imp::define_interface!(IMSVidStreamBufferSourceEvent2, IMSVidStreamBufferSourceEvent2_Vtbl, 0x7aef50ce_8e22_4ba8_bc06_a92a458b4ef2);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSourceEvent2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent, IMSVidPlaybackEvent, IMSVidFilePlaybackEvent, IMSVidStreamBufferSourceEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -13196,7 +13196,7 @@ pub struct IMSVidStreamBufferSourceEvent2_Vtbl {
     pub RateChange: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidStreamBufferSourceEvent3, IMSVidStreamBufferSourceEvent3_Vtbl, 0xceabd6ab_9b90_4570_adf1_3ce76e00a763);
+windows_core::imp::define_interface!(IMSVidStreamBufferSourceEvent3, IMSVidStreamBufferSourceEvent3_Vtbl, 0xceabd6ab_9b90_4570_adf1_3ce76e00a763);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSourceEvent3, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent, IMSVidPlaybackEvent, IMSVidFilePlaybackEvent, IMSVidStreamBufferSourceEvent, IMSVidStreamBufferSourceEvent2);
 #[cfg(feature = "Win32_System_Com")]
@@ -13271,7 +13271,7 @@ pub struct IMSVidStreamBufferSourceEvent3_Vtbl {
     pub ContentPrimarilyAudio: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidStreamBufferV2SourceEvent, IMSVidStreamBufferV2SourceEvent_Vtbl, 0x49c771f9_41b2_4cf7_9f9a_a313a8f6027e);
+windows_core::imp::define_interface!(IMSVidStreamBufferV2SourceEvent, IMSVidStreamBufferV2SourceEvent_Vtbl, 0x49c771f9_41b2_4cf7_9f9a_a313a8f6027e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidStreamBufferV2SourceEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent, IMSVidPlaybackEvent, IMSVidFilePlaybackEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -13332,7 +13332,7 @@ pub struct IMSVidStreamBufferV2SourceEvent_Vtbl {
     pub ContentPrimarilyAudio: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidTuner, IMSVidTuner_Vtbl, 0x1c15d47d_911d_11d2_b632_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidTuner, IMSVidTuner_Vtbl, 0x1c15d47d_911d_11d2_b632_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidTuner, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice, IMSVidVideoInputDevice);
 #[cfg(feature = "Win32_System_Com")]
@@ -13433,7 +13433,7 @@ pub struct IMSVidTuner_Vtbl {
     SetTuningSpace: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidTunerEvent, IMSVidTunerEvent_Vtbl, 0x1c15d485_911d_11d2_b632_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidTunerEvent, IMSVidTunerEvent_Vtbl, 0x1c15d485_911d_11d2_b632_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidTunerEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -13456,7 +13456,7 @@ pub struct IMSVidTunerEvent_Vtbl {
     TuneChanged: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidVMR9, IMSVidVMR9_Vtbl, 0xd58b0015_ebef_44bb_bbdd_3f3699d76ea1);
+windows_core::imp::define_interface!(IMSVidVMR9, IMSVidVMR9_Vtbl, 0xd58b0015_ebef_44bb_bbdd_3f3699d76ea1);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidVMR9, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice, IMSVidVideoRenderer);
 #[cfg(feature = "Win32_System_Com")]
@@ -13683,7 +13683,7 @@ pub struct IMSVidVMR9_Vtbl {
     pub Allocator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidVRGraphSegment, IMSVidVRGraphSegment_Vtbl, 0xdd47de3f_9874_4f7b_8b22_7cb2688461e7);
+windows_core::imp::define_interface!(IMSVidVRGraphSegment, IMSVidVRGraphSegment_Vtbl, 0xdd47de3f_9874_4f7b_8b22_7cb2688461e7);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidVRGraphSegment, windows_core::IUnknown, super::super::super::System::Com::IPersist, IMSVidGraphSegment);
 #[cfg(feature = "Win32_System_Com")]
@@ -13867,7 +13867,7 @@ pub struct IMSVidVRGraphSegment_Vtbl {
     RePaint: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidVideoInputDevice, IMSVidVideoInputDevice_Vtbl, 0x1c15d47f_911d_11d2_b632_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidVideoInputDevice, IMSVidVideoInputDevice_Vtbl, 0x1c15d47f_911d_11d2_b632_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidVideoInputDevice, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice);
 #[cfg(feature = "Win32_System_Com")]
@@ -13928,7 +13928,7 @@ pub struct IMSVidVideoInputDevice_Vtbl {
     pub base__: IMSVidInputDevice_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidVideoRenderer, IMSVidVideoRenderer_Vtbl, 0x37b03540_a4c8_11d2_b634_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidVideoRenderer, IMSVidVideoRenderer_Vtbl, 0x37b03540_a4c8_11d2_b634_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidVideoRenderer, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice);
 #[cfg(feature = "Win32_System_Com")]
@@ -14192,7 +14192,7 @@ pub struct IMSVidVideoRenderer_Vtbl {
     pub SetDecimateInput: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidVideoRenderer2, IMSVidVideoRenderer2_Vtbl, 0x6bdd5c1e_2810_4159_94bc_05511ae8549b);
+windows_core::imp::define_interface!(IMSVidVideoRenderer2, IMSVidVideoRenderer2_Vtbl, 0x6bdd5c1e_2810_4159_94bc_05511ae8549b);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidVideoRenderer2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice, IMSVidVideoRenderer);
 #[cfg(feature = "Win32_System_Com")]
@@ -14431,7 +14431,7 @@ pub struct IMSVidVideoRenderer2_Vtbl {
     pub SuppressEffects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidVideoRendererDevices, IMSVidVideoRendererDevices_Vtbl, 0xc5702cd3_9b79_11d3_b654_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidVideoRendererDevices, IMSVidVideoRendererDevices_Vtbl, 0xc5702cd3_9b79_11d3_b654_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidVideoRendererDevices, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -14487,7 +14487,7 @@ pub struct IMSVidVideoRendererDevices_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidVideoRendererEvent, IMSVidVideoRendererEvent_Vtbl, 0x37b03545_a4c8_11d2_b634_00c04f79498e);
+windows_core::imp::define_interface!(IMSVidVideoRendererEvent, IMSVidVideoRendererEvent_Vtbl, 0x37b03545_a4c8_11d2_b634_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidVideoRendererEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -14510,7 +14510,7 @@ pub struct IMSVidVideoRendererEvent_Vtbl {
     pub OverlayUnavailable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidVideoRendererEvent2, IMSVidVideoRendererEvent2_Vtbl, 0x7145ed66_4730_4fdb_8a53_fde7508d3e5e);
+windows_core::imp::define_interface!(IMSVidVideoRendererEvent2, IMSVidVideoRendererEvent2_Vtbl, 0x7145ed66_4730_4fdb_8a53_fde7508d3e5e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidVideoRendererEvent2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -14533,7 +14533,7 @@ pub struct IMSVidVideoRendererEvent2_Vtbl {
     pub OverlayUnavailable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidWebDVD, IMSVidWebDVD_Vtbl, 0xcf45f88b_ac56_4ee2_a73a_ed04e2885d3c);
+windows_core::imp::define_interface!(IMSVidWebDVD, IMSVidWebDVD_Vtbl, 0xcf45f88b_ac56_4ee2_a73a_ed04e2885d3c);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidWebDVD, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice, IMSVidPlayback);
 #[cfg(feature = "Win32_System_Com")]
@@ -15133,7 +15133,7 @@ pub struct IMSVidWebDVD_Vtbl {
     SetDVDScreenInMouseCoordinates: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidWebDVD2, IMSVidWebDVD2_Vtbl, 0x7027212f_ee9a_4a7c_8b67_f023714cdaff);
+windows_core::imp::define_interface!(IMSVidWebDVD2, IMSVidWebDVD2_Vtbl, 0x7027212f_ee9a_4a7c_8b67_f023714cdaff);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidWebDVD2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice, IMSVidPlayback, IMSVidWebDVD);
 #[cfg(feature = "Win32_System_Com")]
@@ -15634,7 +15634,7 @@ pub struct IMSVidWebDVD2_Vtbl {
     pub put_Bookmark: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidWebDVDAdm, IMSVidWebDVDAdm_Vtbl, 0xb8be681a_eb2c_47f0_b415_94d5452f0e05);
+windows_core::imp::define_interface!(IMSVidWebDVDAdm, IMSVidWebDVDAdm_Vtbl, 0xb8be681a_eb2c_47f0_b415_94d5452f0e05);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidWebDVDAdm, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -15729,7 +15729,7 @@ pub struct IMSVidWebDVDAdm_Vtbl {
     pub SetBookmarkOnStop: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidWebDVDEvent, IMSVidWebDVDEvent_Vtbl, 0xb4f7a674_9b83_49cb_a357_c63b871be958);
+windows_core::imp::define_interface!(IMSVidWebDVDEvent, IMSVidWebDVDEvent_Vtbl, 0xb4f7a674_9b83_49cb_a357_c63b871be958);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidWebDVDEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent, IMSVidPlaybackEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -15910,7 +15910,7 @@ pub struct IMSVidWebDVDEvent_Vtbl {
     pub ChangeVideoPresMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidXDS, IMSVidXDS_Vtbl, 0x11ebc158_e712_4d1f_8bb3_01ed5274c4ce);
+windows_core::imp::define_interface!(IMSVidXDS, IMSVidXDS_Vtbl, 0x11ebc158_e712_4d1f_8bb3_01ed5274c4ce);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidXDS, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidFeature);
 #[cfg(feature = "Win32_System_Com")]
@@ -15969,7 +15969,7 @@ pub struct IMSVidXDS_Vtbl {
     pub ChannelChangeInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IMSVidXDSEvent, IMSVidXDSEvent_Vtbl, 0x6db2317d_3b23_41ec_ba4b_701f407eaf3a);
+windows_core::imp::define_interface!(IMSVidXDSEvent, IMSVidXDSEvent_Vtbl, 0x6db2317d_3b23_41ec_ba4b_701f407eaf3a);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSVidXDSEvent, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidFeatureEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -15991,7 +15991,7 @@ pub struct IMSVidXDSEvent_Vtbl {
     pub base__: IMSVidFeatureEvent_Vtbl,
     pub RatingChange: unsafe extern "system" fn(*mut core::ffi::c_void, EnTvRat_System, EnTvRat_GenericLevel, BfEnTvRat_GenericAttributes, EnTvRat_System, EnTvRat_GenericLevel, BfEnTvRat_GenericAttributes) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMceBurnerControl, IMceBurnerControl_Vtbl, 0x5a86b91a_e71e_46c1_88a9_9bb338710552);
+windows_core::imp::define_interface!(IMceBurnerControl, IMceBurnerControl_Vtbl, 0x5a86b91a_e71e_46c1_88a9_9bb338710552);
 windows_core::imp::interface_hierarchy!(IMceBurnerControl, windows_core::IUnknown);
 impl IMceBurnerControl {
     pub unsafe fn GetBurnerNoDecryption(&self) -> windows_core::Result<()> {
@@ -16003,7 +16003,7 @@ pub struct IMceBurnerControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBurnerNoDecryption: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMpeg2Data, IMpeg2Data_Vtbl, 0x9b396d40_f380_4e3c_a514_1a82bf6ebfe6);
+windows_core::imp::define_interface!(IMpeg2Data, IMpeg2Data_Vtbl, 0x9b396d40_f380_4e3c_a514_1a82bf6ebfe6);
 windows_core::imp::interface_hierarchy!(IMpeg2Data, windows_core::IUnknown);
 impl IMpeg2Data {
     pub unsafe fn GetSection(&self, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, dwtimeout: u32) -> windows_core::Result<ISectionList> {
@@ -16029,7 +16029,7 @@ pub struct IMpeg2Data_Vtbl {
     pub GetTable: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u8, *const MPEG2_FILTER, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetStreamOfSections: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u8, *const MPEG2_FILTER, super::super::super::Foundation::HANDLE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMpeg2Stream, IMpeg2Stream_Vtbl, 0x400cc286_32a0_4ce4_9041_39571125a635);
+windows_core::imp::define_interface!(IMpeg2Stream, IMpeg2Stream_Vtbl, 0x400cc286_32a0_4ce4_9041_39571125a635);
 windows_core::imp::interface_hierarchy!(IMpeg2Stream, windows_core::IUnknown);
 impl IMpeg2Stream {
     pub unsafe fn Initialize<P0, P1>(&self, requesttype: MPEG_REQUEST_TYPE, pmpeg2data: P0, pcontext: *const MPEG_CONTEXT, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, hdatareadyevent: P1) -> windows_core::Result<()>
@@ -16049,7 +16049,7 @@ pub struct IMpeg2Stream_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, MPEG_REQUEST_TYPE, *mut core::ffi::c_void, *const MPEG_CONTEXT, u16, u8, *const MPEG2_FILTER, super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
     pub SupplyDataBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *const MPEG_STREAM_BUFFER) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IMpeg2TableFilter, IMpeg2TableFilter_Vtbl, 0xbdcdd913_9ecd_4fb2_81ae_adf747ea75a5);
+windows_core::imp::define_interface!(IMpeg2TableFilter, IMpeg2TableFilter_Vtbl, 0xbdcdd913_9ecd_4fb2_81ae_adf747ea75a5);
 windows_core::imp::interface_hierarchy!(IMpeg2TableFilter, windows_core::IUnknown);
 impl IMpeg2TableFilter {
     pub unsafe fn AddPID(&self, p: u16) -> windows_core::Result<()> {
@@ -16081,7 +16081,7 @@ pub struct IMpeg2TableFilter_Vtbl {
     pub RemoveTable: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u8) -> windows_core::HRESULT,
     pub RemoveExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u8, u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPAT, IPAT_Vtbl, 0x6623b511_4b5f_43c3_9a01_e8ff84188060);
+windows_core::imp::define_interface!(IPAT, IPAT_Vtbl, 0x6623b511_4b5f_43c3_9a01_e8ff84188060);
 windows_core::imp::interface_hierarchy!(IPAT, windows_core::IUnknown);
 impl IPAT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -16150,7 +16150,7 @@ pub struct IPAT_Vtbl {
     pub RegisterForWhenCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
     pub ConvertNextToCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPBDAAttributesDescriptor, IPBDAAttributesDescriptor_Vtbl, 0x313b3620_3263_45a6_9533_968befbeac03);
+windows_core::imp::define_interface!(IPBDAAttributesDescriptor, IPBDAAttributesDescriptor_Vtbl, 0x313b3620_3263_45a6_9533_968befbeac03);
 windows_core::imp::interface_hierarchy!(IPBDAAttributesDescriptor, windows_core::IUnknown);
 impl IPBDAAttributesDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -16172,7 +16172,7 @@ pub struct IPBDAAttributesDescriptor_Vtbl {
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetAttributePayload: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPBDAEntitlementDescriptor, IPBDAEntitlementDescriptor_Vtbl, 0x22632497_0de3_4587_aadc_d8d99017e760);
+windows_core::imp::define_interface!(IPBDAEntitlementDescriptor, IPBDAEntitlementDescriptor_Vtbl, 0x22632497_0de3_4587_aadc_d8d99017e760);
 windows_core::imp::interface_hierarchy!(IPBDAEntitlementDescriptor, windows_core::IUnknown);
 impl IPBDAEntitlementDescriptor {
     pub unsafe fn GetTag(&self) -> windows_core::Result<u8> {
@@ -16194,7 +16194,7 @@ pub struct IPBDAEntitlementDescriptor_Vtbl {
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPBDASiParser, IPBDASiParser_Vtbl, 0x9de49a74_aba2_4a18_93e1_21f17f95c3c3);
+windows_core::imp::define_interface!(IPBDASiParser, IPBDASiParser_Vtbl, 0x9de49a74_aba2_4a18_93e1_21f17f95c3c3);
 windows_core::imp::interface_hierarchy!(IPBDASiParser, windows_core::IUnknown);
 impl IPBDASiParser {
     pub unsafe fn Initialize<P0>(&self, punk: P0) -> windows_core::Result<()>
@@ -16219,7 +16219,7 @@ pub struct IPBDASiParser_Vtbl {
     pub GetEIT: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetServices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPBDA_EIT, IPBDA_EIT_Vtbl, 0xa35f2dea_098f_4ebd_984c_2bd4c3c8ce0a);
+windows_core::imp::define_interface!(IPBDA_EIT, IPBDA_EIT_Vtbl, 0xa35f2dea_098f_4ebd_984c_2bd4c3c8ce0a);
 windows_core::imp::interface_hierarchy!(IPBDA_EIT, windows_core::IUnknown);
 impl IPBDA_EIT {
     pub unsafe fn Initialize(&self, pbuffer: &[u8]) -> windows_core::Result<()> {
@@ -16280,7 +16280,7 @@ pub struct IPBDA_EIT_Vtbl {
     pub GetRecordDescriptorByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRecordDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPBDA_Services, IPBDA_Services_Vtbl, 0x944eab37_eed4_4850_afd2_77e7efeb4427);
+windows_core::imp::define_interface!(IPBDA_Services, IPBDA_Services_Vtbl, 0x944eab37_eed4_4850_afd2_77e7efeb4427);
 windows_core::imp::interface_hierarchy!(IPBDA_Services, windows_core::IUnknown);
 impl IPBDA_Services {
     pub unsafe fn Initialize(&self, pbuffer: &[u8]) -> windows_core::Result<()> {
@@ -16302,7 +16302,7 @@ pub struct IPBDA_Services_Vtbl {
     pub GetCountOfRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetRecordByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPMT, IPMT_Vtbl, 0x01f3b398_9527_4736_94db_5195878e97a8);
+windows_core::imp::define_interface!(IPMT, IPMT_Vtbl, 0x01f3b398_9527_4736_94db_5195878e97a8);
 windows_core::imp::interface_hierarchy!(IPMT, windows_core::IUnknown);
 impl IPMT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -16407,7 +16407,7 @@ pub struct IPMT_Vtbl {
     pub RegisterForWhenCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
     pub ConvertNextToCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPSITables, IPSITables_Vtbl, 0x919f24c5_7b14_42ac_a4b0_2ae08daf00ac);
+windows_core::imp::define_interface!(IPSITables, IPSITables_Vtbl, 0x919f24c5_7b14_42ac_a4b0_2ae08daf00ac);
 windows_core::imp::interface_hierarchy!(IPSITables, windows_core::IUnknown);
 impl IPSITables {
     pub unsafe fn GetTable(&self, dwtsid: u32, dwtid_pid: u32, dwhashedver: u32, dwpara4: u32) -> windows_core::Result<windows_core::IUnknown> {
@@ -16420,7 +16420,7 @@ pub struct IPSITables_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPTFilterLicenseRenewal, IPTFilterLicenseRenewal_Vtbl, 0x26d836a5_0c15_44c7_ac59_b0da8728f240);
+windows_core::imp::define_interface!(IPTFilterLicenseRenewal, IPTFilterLicenseRenewal_Vtbl, 0x26d836a5_0c15_44c7_ac59_b0da8728f240);
 windows_core::imp::interface_hierarchy!(IPTFilterLicenseRenewal, windows_core::IUnknown);
 impl IPTFilterLicenseRenewal {
     pub unsafe fn RenewLicenses<P0, P1, P2>(&self, wszfilename: P0, wszexpiredkid: P1, dwcallersid: u32, bhighpriority: P2) -> windows_core::Result<()>
@@ -16442,7 +16442,7 @@ pub struct IPTFilterLicenseRenewal_Vtbl {
     pub CancelLicenseRenewal: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IPersistTuneXml, IPersistTuneXml_Vtbl, 0x0754cd31_8d15_47a9_8215_d20064157244);
+windows_core::imp::define_interface!(IPersistTuneXml, IPersistTuneXml_Vtbl, 0x0754cd31_8d15_47a9_8215_d20064157244);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IPersistTuneXml, windows_core::IUnknown, super::super::super::System::Com::IPersist);
 #[cfg(feature = "Win32_System_Com")]
@@ -16474,7 +16474,7 @@ pub struct IPersistTuneXml_Vtbl {
     pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
     pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPersistTuneXmlUtility, IPersistTuneXmlUtility_Vtbl, 0x990237ae_ac11_4614_be8f_dd217a4cb4cb);
+windows_core::imp::define_interface!(IPersistTuneXmlUtility, IPersistTuneXmlUtility_Vtbl, 0x990237ae_ac11_4614_be8f_dd217a4cb4cb);
 windows_core::imp::interface_hierarchy!(IPersistTuneXmlUtility, windows_core::IUnknown);
 impl IPersistTuneXmlUtility {
     pub unsafe fn Deserialize<P0>(&self, varvalue: P0) -> windows_core::Result<windows_core::IUnknown>
@@ -16490,7 +16490,7 @@ pub struct IPersistTuneXmlUtility_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Deserialize: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPersistTuneXmlUtility2, IPersistTuneXmlUtility2_Vtbl, 0x992e165f_ea24_4b2f_9a1d_009d92120451);
+windows_core::imp::define_interface!(IPersistTuneXmlUtility2, IPersistTuneXmlUtility2_Vtbl, 0x992e165f_ea24_4b2f_9a1d_009d92120451);
 windows_core::imp::interface_hierarchy!(IPersistTuneXmlUtility2, windows_core::IUnknown, IPersistTuneXmlUtility);
 impl IPersistTuneXmlUtility2 {
     pub unsafe fn Deserialize<P0>(&self, varvalue: P0) -> windows_core::Result<windows_core::IUnknown>
@@ -16517,7 +16517,7 @@ pub struct IPersistTuneXmlUtility2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Serialize: usize,
 }
-windows_core::imp::com_interface!(IRegisterTuner, IRegisterTuner_Vtbl, 0x359b3901_572c_4854_bb49_cdef66606a25);
+windows_core::imp::define_interface!(IRegisterTuner, IRegisterTuner_Vtbl, 0x359b3901_572c_4854_bb49_cdef66606a25);
 windows_core::imp::interface_hierarchy!(IRegisterTuner, windows_core::IUnknown);
 impl IRegisterTuner {
     pub unsafe fn Register<P0, P1>(&self, ptuner: P0, pgraph: P1) -> windows_core::Result<()>
@@ -16537,7 +16537,7 @@ pub struct IRegisterTuner_Vtbl {
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Unregister: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISBE2Crossbar, ISBE2Crossbar_Vtbl, 0x547b6d26_3226_487e_8253_8aa168749434);
+windows_core::imp::define_interface!(ISBE2Crossbar, ISBE2Crossbar_Vtbl, 0x547b6d26_3226_487e_8253_8aa168749434);
 windows_core::imp::interface_hierarchy!(ISBE2Crossbar, windows_core::IUnknown);
 impl ISBE2Crossbar {
     pub unsafe fn EnableDefaultMode(&self, defaultflags: u32) -> windows_core::Result<()> {
@@ -16566,7 +16566,7 @@ pub struct ISBE2Crossbar_Vtbl {
     pub SetOutputProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumStreams: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISBE2EnumStream, ISBE2EnumStream_Vtbl, 0xf7611092_9fbc_46ec_a7c7_548ea78b71a4);
+windows_core::imp::define_interface!(ISBE2EnumStream, ISBE2EnumStream_Vtbl, 0xf7611092_9fbc_46ec_a7c7_548ea78b71a4);
 windows_core::imp::interface_hierarchy!(ISBE2EnumStream, windows_core::IUnknown);
 impl ISBE2EnumStream {
     pub unsafe fn Next(&self, pstreamdesc: &mut [SBE2_STREAM_DESC], pcreceived: *mut u32) -> windows_core::Result<()> {
@@ -16591,7 +16591,7 @@ pub struct ISBE2EnumStream_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISBE2FileScan, ISBE2FileScan_Vtbl, 0x3e2bf5a5_4f96_4899_a1a3_75e8be9a5ac0);
+windows_core::imp::define_interface!(ISBE2FileScan, ISBE2FileScan_Vtbl, 0x3e2bf5a5_4f96_4899_a1a3_75e8be9a5ac0);
 windows_core::imp::interface_hierarchy!(ISBE2FileScan, windows_core::IUnknown);
 impl ISBE2FileScan {
     pub unsafe fn RepairFile<P0>(&self, filename: P0) -> windows_core::Result<()>
@@ -16606,7 +16606,7 @@ pub struct ISBE2FileScan_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RepairFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISBE2GlobalEvent, ISBE2GlobalEvent_Vtbl, 0xcaede759_b6b1_11db_a578_0018f3fa24c6);
+windows_core::imp::define_interface!(ISBE2GlobalEvent, ISBE2GlobalEvent_Vtbl, 0xcaede759_b6b1_11db_a578_0018f3fa24c6);
 windows_core::imp::interface_hierarchy!(ISBE2GlobalEvent, windows_core::IUnknown);
 impl ISBE2GlobalEvent {
     pub unsafe fn GetEvent(&self, idevt: *const windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut super::super::super::Foundation::BOOL, pcb: *mut u32, pb: *mut u8) -> windows_core::Result<()> {
@@ -16618,7 +16618,7 @@ pub struct ISBE2GlobalEvent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32, u32, u32, *mut super::super::super::Foundation::BOOL, *mut u32, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISBE2GlobalEvent2, ISBE2GlobalEvent2_Vtbl, 0x6d8309bf_00fe_4506_8b03_f8c65b5c9b39);
+windows_core::imp::define_interface!(ISBE2GlobalEvent2, ISBE2GlobalEvent2_Vtbl, 0x6d8309bf_00fe_4506_8b03_f8c65b5c9b39);
 windows_core::imp::interface_hierarchy!(ISBE2GlobalEvent2, windows_core::IUnknown, ISBE2GlobalEvent);
 impl ISBE2GlobalEvent2 {
     pub unsafe fn GetEvent(&self, idevt: *const windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut super::super::super::Foundation::BOOL, pcb: *mut u32, pb: *mut u8) -> windows_core::Result<()> {
@@ -16633,7 +16633,7 @@ pub struct ISBE2GlobalEvent2_Vtbl {
     pub base__: ISBE2GlobalEvent_Vtbl,
     pub GetEventEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32, u32, u32, *mut super::super::super::Foundation::BOOL, *mut u32, *mut u8, *mut i64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISBE2MediaTypeProfile, ISBE2MediaTypeProfile_Vtbl, 0xf238267d_4671_40d7_997e_25dc32cfed2a);
+windows_core::imp::define_interface!(ISBE2MediaTypeProfile, ISBE2MediaTypeProfile_Vtbl, 0xf238267d_4671_40d7_997e_25dc32cfed2a);
 windows_core::imp::interface_hierarchy!(ISBE2MediaTypeProfile, windows_core::IUnknown);
 impl ISBE2MediaTypeProfile {
     pub unsafe fn GetStreamCount(&self) -> windows_core::Result<u32> {
@@ -16667,7 +16667,7 @@ pub struct ISBE2MediaTypeProfile_Vtbl {
     AddStream: usize,
     pub DeleteStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISBE2SpanningEvent, ISBE2SpanningEvent_Vtbl, 0xcaede760_b6b1_11db_a578_0018f3fa24c6);
+windows_core::imp::define_interface!(ISBE2SpanningEvent, ISBE2SpanningEvent_Vtbl, 0xcaede760_b6b1_11db_a578_0018f3fa24c6);
 windows_core::imp::interface_hierarchy!(ISBE2SpanningEvent, windows_core::IUnknown);
 impl ISBE2SpanningEvent {
     pub unsafe fn GetEvent(&self, idevt: *const windows_core::GUID, streamid: u32, pcb: *mut u32, pb: *mut u8) -> windows_core::Result<()> {
@@ -16679,7 +16679,7 @@ pub struct ISBE2SpanningEvent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *mut u32, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISBE2StreamMap, ISBE2StreamMap_Vtbl, 0x667c7745_85b1_4c55_ae55_4e25056159fc);
+windows_core::imp::define_interface!(ISBE2StreamMap, ISBE2StreamMap_Vtbl, 0x667c7745_85b1_4c55_ae55_4e25056159fc);
 windows_core::imp::interface_hierarchy!(ISBE2StreamMap, windows_core::IUnknown);
 impl ISBE2StreamMap {
     pub unsafe fn MapStream(&self, stream: u32) -> windows_core::Result<()> {
@@ -16700,7 +16700,7 @@ pub struct ISBE2StreamMap_Vtbl {
     pub UnmapStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub EnumMappedStreams: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISCTE_EAS, ISCTE_EAS_Vtbl, 0x1ff544d6_161d_4fae_9faa_4f9f492ae999);
+windows_core::imp::define_interface!(ISCTE_EAS, ISCTE_EAS_Vtbl, 0x1ff544d6_161d_4fae_9faa_4f9f492ae999);
 windows_core::imp::interface_hierarchy!(ISCTE_EAS, windows_core::IUnknown);
 impl ISCTE_EAS {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -16859,7 +16859,7 @@ pub struct ISCTE_EAS_Vtbl {
     pub GetTableDescriptorByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetTableDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISIInbandEPG, ISIInbandEPG_Vtbl, 0xf90ad9d0_b854_4b68_9cc1_b2cc96119d85);
+windows_core::imp::define_interface!(ISIInbandEPG, ISIInbandEPG_Vtbl, 0xf90ad9d0_b854_4b68_9cc1_b2cc96119d85);
 windows_core::imp::interface_hierarchy!(ISIInbandEPG, windows_core::IUnknown);
 impl ISIInbandEPG {
     pub unsafe fn StartSIEPGScan(&self) -> windows_core::Result<()> {
@@ -16880,7 +16880,7 @@ pub struct ISIInbandEPG_Vtbl {
     pub StopSIEPGScan: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsSIEPGScanRunning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISIInbandEPGEvent, ISIInbandEPGEvent_Vtbl, 0x7e47913a_5a89_423d_9a2b_e15168858934);
+windows_core::imp::define_interface!(ISIInbandEPGEvent, ISIInbandEPGEvent_Vtbl, 0x7e47913a_5a89_423d_9a2b_e15168858934);
 windows_core::imp::interface_hierarchy!(ISIInbandEPGEvent, windows_core::IUnknown);
 impl ISIInbandEPGEvent {
     pub unsafe fn SIObjectEvent<P0>(&self, pidvb_eit: P0, dwtable_id: u32, dwservice_id: u32) -> windows_core::Result<()>
@@ -16895,7 +16895,7 @@ pub struct ISIInbandEPGEvent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SIObjectEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IScanningTuner, IScanningTuner_Vtbl, 0x1dfd0a5c_0284_11d3_9d8e_00c04f72d980);
+windows_core::imp::define_interface!(IScanningTuner, IScanningTuner_Vtbl, 0x1dfd0a5c_0284_11d3_9d8e_00c04f72d980);
 windows_core::imp::interface_hierarchy!(IScanningTuner, windows_core::IUnknown, ITuner);
 impl IScanningTuner {
     #[cfg(feature = "Win32_System_Com")]
@@ -16977,7 +16977,7 @@ pub struct IScanningTuner_Vtbl {
     pub ScanDown: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub AutoProgram: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IScanningTunerEx, IScanningTunerEx_Vtbl, 0x04bbd195_0e2d_4593_9bd5_4f908bc33cf5);
+windows_core::imp::define_interface!(IScanningTunerEx, IScanningTunerEx_Vtbl, 0x04bbd195_0e2d_4593_9bd5_4f908bc33cf5);
 windows_core::imp::interface_hierarchy!(IScanningTunerEx, windows_core::IUnknown, ITuner, IScanningTuner);
 impl IScanningTunerEx {
     #[cfg(feature = "Win32_System_Com")]
@@ -17094,7 +17094,7 @@ pub struct IScanningTunerEx_Vtbl {
     pub GetCurrentTunerStandardCapability: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub SetScanSignalTypeFilter: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISectionList, ISectionList_Vtbl, 0xafec1eb5_2a64_46c6_bf4b_ae3ccb6afdb0);
+windows_core::imp::define_interface!(ISectionList, ISectionList_Vtbl, 0xafec1eb5_2a64_46c6_bf4b_ae3ccb6afdb0);
 windows_core::imp::interface_hierarchy!(ISectionList, windows_core::IUnknown);
 impl ISectionList {
     pub unsafe fn Initialize<P0, P1>(&self, requesttype: MPEG_REQUEST_TYPE, pmpeg2data: P0, pcontext: *const MPEG_CONTEXT, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, timeout: u32, hdoneevent: P1) -> windows_core::Result<()>
@@ -17135,7 +17135,7 @@ pub struct ISectionList_Vtbl {
     pub GetProgramIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16) -> windows_core::HRESULT,
     pub GetTableIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IServiceLocationDescriptor, IServiceLocationDescriptor_Vtbl, 0x58c3c827_9d91_4215_bff3_820a49f0904c);
+windows_core::imp::define_interface!(IServiceLocationDescriptor, IServiceLocationDescriptor_Vtbl, 0x58c3c827_9d91_4215_bff3_820a49f0904c);
 windows_core::imp::interface_hierarchy!(IServiceLocationDescriptor, windows_core::IUnknown);
 impl IServiceLocationDescriptor {
     pub unsafe fn GetPCR_PID(&self) -> windows_core::Result<u16> {
@@ -17167,7 +17167,7 @@ pub struct IServiceLocationDescriptor_Vtbl {
     pub GetElementPID: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u16) -> windows_core::HRESULT,
     pub GetElementLanguageCode: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStreamBufferConfigure, IStreamBufferConfigure_Vtbl, 0xce14dfae_4098_4af7_bbf7_d6511f835414);
+windows_core::imp::define_interface!(IStreamBufferConfigure, IStreamBufferConfigure_Vtbl, 0xce14dfae_4098_4af7_bbf7_d6511f835414);
 windows_core::imp::interface_hierarchy!(IStreamBufferConfigure, windows_core::IUnknown);
 impl IStreamBufferConfigure {
     pub unsafe fn SetDirectory<P0>(&self, pszdirectoryname: P0) -> windows_core::Result<()>
@@ -17204,7 +17204,7 @@ pub struct IStreamBufferConfigure_Vtbl {
     pub SetBackingFileDuration: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetBackingFileDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStreamBufferConfigure2, IStreamBufferConfigure2_Vtbl, 0x53e037bf_3992_4282_ae34_2487b4dae06b);
+windows_core::imp::define_interface!(IStreamBufferConfigure2, IStreamBufferConfigure2_Vtbl, 0x53e037bf_3992_4282_ae34_2487b4dae06b);
 windows_core::imp::interface_hierarchy!(IStreamBufferConfigure2, windows_core::IUnknown, IStreamBufferConfigure);
 impl IStreamBufferConfigure2 {
     pub unsafe fn SetDirectory<P0>(&self, pszdirectoryname: P0) -> windows_core::Result<()>
@@ -17252,7 +17252,7 @@ pub struct IStreamBufferConfigure2_Vtbl {
     pub SetFFTransitionRates: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub GetFFTransitionRates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStreamBufferConfigure3, IStreamBufferConfigure3_Vtbl, 0x7e2d2a1e_7192_4bd7_80c1_061fd1d10402);
+windows_core::imp::define_interface!(IStreamBufferConfigure3, IStreamBufferConfigure3_Vtbl, 0x7e2d2a1e_7192_4bd7_80c1_061fd1d10402);
 windows_core::imp::interface_hierarchy!(IStreamBufferConfigure3, windows_core::IUnknown, IStreamBufferConfigure, IStreamBufferConfigure2);
 impl IStreamBufferConfigure3 {
     pub unsafe fn SetDirectory<P0>(&self, pszdirectoryname: P0) -> windows_core::Result<()>
@@ -17320,7 +17320,7 @@ pub struct IStreamBufferConfigure3_Vtbl {
     pub SetNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStreamBufferDataCounters, IStreamBufferDataCounters_Vtbl, 0x9d2a2563_31ab_402e_9a6b_adb903489440);
+windows_core::imp::define_interface!(IStreamBufferDataCounters, IStreamBufferDataCounters_Vtbl, 0x9d2a2563_31ab_402e_9a6b_adb903489440);
 windows_core::imp::interface_hierarchy!(IStreamBufferDataCounters, windows_core::IUnknown);
 impl IStreamBufferDataCounters {
     pub unsafe fn GetData(&self, ppindata: *mut SBE_PIN_DATA) -> windows_core::Result<()> {
@@ -17336,7 +17336,7 @@ pub struct IStreamBufferDataCounters_Vtbl {
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SBE_PIN_DATA) -> windows_core::HRESULT,
     pub ResetData: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStreamBufferInitialize, IStreamBufferInitialize_Vtbl, 0x9ce50f2d_6ba7_40fb_a034_50b1a674ec78);
+windows_core::imp::define_interface!(IStreamBufferInitialize, IStreamBufferInitialize_Vtbl, 0x9ce50f2d_6ba7_40fb_a034_50b1a674ec78);
 windows_core::imp::interface_hierarchy!(IStreamBufferInitialize, windows_core::IUnknown);
 impl IStreamBufferInitialize {
     #[cfg(feature = "Win32_System_Registry")]
@@ -17359,7 +17359,7 @@ pub struct IStreamBufferInitialize_Vtbl {
     SetHKEY: usize,
     pub SetSIDs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::super::Foundation::PSID) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStreamBufferMediaSeeking, IStreamBufferMediaSeeking_Vtbl, 0xf61f5c26_863d_4afa_b0ba_2f81dc978596);
+windows_core::imp::define_interface!(IStreamBufferMediaSeeking, IStreamBufferMediaSeeking_Vtbl, 0xf61f5c26_863d_4afa_b0ba_2f81dc978596);
 windows_core::imp::interface_hierarchy!(IStreamBufferMediaSeeking, windows_core::IUnknown, super::IMediaSeeking);
 impl IStreamBufferMediaSeeking {
     pub unsafe fn GetCapabilities(&self) -> windows_core::Result<u32> {
@@ -17426,7 +17426,7 @@ impl IStreamBufferMediaSeeking {
 pub struct IStreamBufferMediaSeeking_Vtbl {
     pub base__: super::IMediaSeeking_Vtbl,
 }
-windows_core::imp::com_interface!(IStreamBufferMediaSeeking2, IStreamBufferMediaSeeking2_Vtbl, 0x3a439ab0_155f_470a_86a6_9ea54afd6eaf);
+windows_core::imp::define_interface!(IStreamBufferMediaSeeking2, IStreamBufferMediaSeeking2_Vtbl, 0x3a439ab0_155f_470a_86a6_9ea54afd6eaf);
 windows_core::imp::interface_hierarchy!(IStreamBufferMediaSeeking2, windows_core::IUnknown, super::IMediaSeeking, IStreamBufferMediaSeeking);
 impl IStreamBufferMediaSeeking2 {
     pub unsafe fn GetCapabilities(&self) -> windows_core::Result<u32> {
@@ -17497,7 +17497,7 @@ pub struct IStreamBufferMediaSeeking2_Vtbl {
     pub base__: IStreamBufferMediaSeeking_Vtbl,
     pub SetRateEx: unsafe extern "system" fn(*mut core::ffi::c_void, f64, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStreamBufferRecComp, IStreamBufferRecComp_Vtbl, 0x9e259a9b_8815_42ae_b09f_221970b154fd);
+windows_core::imp::define_interface!(IStreamBufferRecComp, IStreamBufferRecComp_Vtbl, 0x9e259a9b_8815_42ae_b09f_221970b154fd);
 windows_core::imp::interface_hierarchy!(IStreamBufferRecComp, windows_core::IUnknown);
 impl IStreamBufferRecComp {
     pub unsafe fn Initialize<P0, P1>(&self, psztargetfilename: P0, pszsbrecprofileref: P1) -> windows_core::Result<()>
@@ -17540,7 +17540,7 @@ pub struct IStreamBufferRecComp_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStreamBufferRecordControl, IStreamBufferRecordControl_Vtbl, 0xba9b6c99_f3c7_4ff2_92db_cfdd4851bf31);
+windows_core::imp::define_interface!(IStreamBufferRecordControl, IStreamBufferRecordControl_Vtbl, 0xba9b6c99_f3c7_4ff2_92db_cfdd4851bf31);
 windows_core::imp::interface_hierarchy!(IStreamBufferRecordControl, windows_core::IUnknown);
 impl IStreamBufferRecordControl {
     pub unsafe fn Start(&self, prtstart: *mut i64) -> windows_core::Result<()> {
@@ -17560,7 +17560,7 @@ pub struct IStreamBufferRecordControl_Vtbl {
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub GetRecordingStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, *mut super::super::super::Foundation::BOOL, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStreamBufferRecordingAttribute, IStreamBufferRecordingAttribute_Vtbl, 0x16ca4e03_fe69_4705_bd41_5b7dfc0c95f3);
+windows_core::imp::define_interface!(IStreamBufferRecordingAttribute, IStreamBufferRecordingAttribute_Vtbl, 0x16ca4e03_fe69_4705_bd41_5b7dfc0c95f3);
 windows_core::imp::interface_hierarchy!(IStreamBufferRecordingAttribute, windows_core::IUnknown);
 impl IStreamBufferRecordingAttribute {
     pub unsafe fn SetAttribute<P0>(&self, ulreserved: u32, pszattributename: P0, streambufferattributetype: STREAMBUFFER_ATTR_DATATYPE, pbattribute: &[u8]) -> windows_core::Result<()>
@@ -17596,7 +17596,7 @@ pub struct IStreamBufferRecordingAttribute_Vtbl {
     pub GetAttributeByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *const u32, windows_core::PWSTR, *mut u16, *mut STREAMBUFFER_ATTR_DATATYPE, *mut u8, *mut u16) -> windows_core::HRESULT,
     pub EnumAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStreamBufferSink, IStreamBufferSink_Vtbl, 0xafd1f242_7efd_45ee_ba4e_407a25c9a77a);
+windows_core::imp::define_interface!(IStreamBufferSink, IStreamBufferSink_Vtbl, 0xafd1f242_7efd_45ee_ba4e_407a25c9a77a);
 windows_core::imp::interface_hierarchy!(IStreamBufferSink, windows_core::IUnknown);
 impl IStreamBufferSink {
     pub unsafe fn LockProfile<P0>(&self, pszstreambufferfilename: P0) -> windows_core::Result<()>
@@ -17623,7 +17623,7 @@ pub struct IStreamBufferSink_Vtbl {
     pub CreateRecorder: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsProfileLocked: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStreamBufferSink2, IStreamBufferSink2_Vtbl, 0xdb94a660_f4fb_4bfa_bcc6_fe159a4eea93);
+windows_core::imp::define_interface!(IStreamBufferSink2, IStreamBufferSink2_Vtbl, 0xdb94a660_f4fb_4bfa_bcc6_fe159a4eea93);
 windows_core::imp::interface_hierarchy!(IStreamBufferSink2, windows_core::IUnknown, IStreamBufferSink);
 impl IStreamBufferSink2 {
     pub unsafe fn LockProfile<P0>(&self, pszstreambufferfilename: P0) -> windows_core::Result<()>
@@ -17651,7 +17651,7 @@ pub struct IStreamBufferSink2_Vtbl {
     pub base__: IStreamBufferSink_Vtbl,
     pub UnlockProfile: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStreamBufferSink3, IStreamBufferSink3_Vtbl, 0x974723f2_887a_4452_9366_2cff3057bc8f);
+windows_core::imp::define_interface!(IStreamBufferSink3, IStreamBufferSink3_Vtbl, 0x974723f2_887a_4452_9366_2cff3057bc8f);
 windows_core::imp::interface_hierarchy!(IStreamBufferSink3, windows_core::IUnknown, IStreamBufferSink, IStreamBufferSink2);
 impl IStreamBufferSink3 {
     pub unsafe fn LockProfile<P0>(&self, pszstreambufferfilename: P0) -> windows_core::Result<()>
@@ -17682,7 +17682,7 @@ pub struct IStreamBufferSink3_Vtbl {
     pub base__: IStreamBufferSink2_Vtbl,
     pub SetAvailableFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStreamBufferSource, IStreamBufferSource_Vtbl, 0x1c5bd776_6ced_4f44_8164_5eab0e98db12);
+windows_core::imp::define_interface!(IStreamBufferSource, IStreamBufferSource_Vtbl, 0x1c5bd776_6ced_4f44_8164_5eab0e98db12);
 windows_core::imp::interface_hierarchy!(IStreamBufferSource, windows_core::IUnknown);
 impl IStreamBufferSource {
     pub unsafe fn SetStreamSink<P0>(&self, pistreambuffersink: P0) -> windows_core::Result<()>
@@ -17697,7 +17697,7 @@ pub struct IStreamBufferSource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetStreamSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ITSDT, ITSDT_Vtbl, 0xd19bdb43_405b_4a7c_a791_c89110c33165);
+windows_core::imp::define_interface!(ITSDT, ITSDT_Vtbl, 0xd19bdb43_405b_4a7c_a791_c89110c33165);
 windows_core::imp::interface_hierarchy!(ITSDT, windows_core::IUnknown);
 impl ITSDT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> windows_core::Result<()>
@@ -17756,7 +17756,7 @@ pub struct ITSDT_Vtbl {
     pub ConvertNextToCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ITuneRequest, ITuneRequest_Vtbl, 0x07ddc146_fc3d_11d2_9d8c_00c04f72d980);
+windows_core::imp::define_interface!(ITuneRequest, ITuneRequest_Vtbl, 0x07ddc146_fc3d_11d2_9d8c_00c04f72d980);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ITuneRequest, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -17814,7 +17814,7 @@ pub struct ITuneRequest_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetLocator: usize,
 }
-windows_core::imp::com_interface!(ITuneRequestInfo, ITuneRequestInfo_Vtbl, 0xa3b152df_7a90_4218_ac54_9830bee8c0b6);
+windows_core::imp::define_interface!(ITuneRequestInfo, ITuneRequestInfo_Vtbl, 0xa3b152df_7a90_4218_ac54_9830bee8c0b6);
 windows_core::imp::interface_hierarchy!(ITuneRequestInfo, windows_core::IUnknown);
 impl ITuneRequestInfo {
     #[cfg(feature = "Win32_System_Com")]
@@ -17903,7 +17903,7 @@ pub struct ITuneRequestInfo_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetPreviousLocator: usize,
 }
-windows_core::imp::com_interface!(ITuneRequestInfoEx, ITuneRequestInfoEx_Vtbl, 0xee957c52_b0d0_4e78_8dd1_b87a08bfd893);
+windows_core::imp::define_interface!(ITuneRequestInfoEx, ITuneRequestInfoEx_Vtbl, 0xee957c52_b0d0_4e78_8dd1_b87a08bfd893);
 windows_core::imp::interface_hierarchy!(ITuneRequestInfoEx, windows_core::IUnknown, ITuneRequestInfo);
 impl ITuneRequestInfoEx {
     #[cfg(feature = "Win32_System_Com")]
@@ -17976,7 +17976,7 @@ pub struct ITuneRequestInfoEx_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateComponentListEx: usize,
 }
-windows_core::imp::com_interface!(ITuner, ITuner_Vtbl, 0x28c52640_018a_11d3_9d8e_00c04f72d980);
+windows_core::imp::define_interface!(ITuner, ITuner_Vtbl, 0x28c52640_018a_11d3_9d8e_00c04f72d980);
 windows_core::imp::interface_hierarchy!(ITuner, windows_core::IUnknown);
 impl ITuner {
     #[cfg(feature = "Win32_System_Com")]
@@ -18069,7 +18069,7 @@ pub struct ITuner_Vtbl {
     pub SignalStrength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub TriggerSignalEvents: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ITunerCap, ITunerCap_Vtbl, 0xe60dfa45_8d56_4e65_a8ab_d6be9412c249);
+windows_core::imp::define_interface!(ITunerCap, ITunerCap_Vtbl, 0xe60dfa45_8d56_4e65_a8ab_d6be9412c249);
 windows_core::imp::interface_hierarchy!(ITunerCap, windows_core::IUnknown);
 impl ITunerCap {
     pub unsafe fn get_SupportedNetworkTypes(&self, ulcnetworktypesmax: u32, pulcnetworktypes: *mut u32, pguidnetworktypes: *mut windows_core::GUID) -> windows_core::Result<()> {
@@ -18089,7 +18089,7 @@ pub struct ITunerCap_Vtbl {
     pub get_SupportedVideoFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub get_AuxInputCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ITunerCapEx, ITunerCapEx_Vtbl, 0xed3e0c66_18c8_4ea6_9300_f6841fdd35dc);
+windows_core::imp::define_interface!(ITunerCapEx, ITunerCapEx_Vtbl, 0xed3e0c66_18c8_4ea6_9300_f6841fdd35dc);
 windows_core::imp::interface_hierarchy!(ITunerCapEx, windows_core::IUnknown);
 impl ITunerCapEx {
     pub unsafe fn Has608_708Caption(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
@@ -18103,7 +18103,7 @@ pub struct ITunerCapEx_Vtbl {
     pub Has608_708Caption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ITuningSpace, ITuningSpace_Vtbl, 0x061c6e30_e622_11d2_9493_00c04f72d980);
+windows_core::imp::define_interface!(ITuningSpace, ITuningSpace_Vtbl, 0x061c6e30_e622_11d2_9493_00c04f72d980);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ITuningSpace, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -18253,7 +18253,7 @@ pub struct ITuningSpace_Vtbl {
     Clone: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ITuningSpaceContainer, ITuningSpaceContainer_Vtbl, 0x5b692e84_e2f1_11d2_9493_00c04f72d980);
+windows_core::imp::define_interface!(ITuningSpaceContainer, ITuningSpaceContainer_Vtbl, 0x5b692e84_e2f1_11d2_9493_00c04f72d980);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ITuningSpaceContainer, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -18381,7 +18381,7 @@ pub struct ITuningSpaceContainer_Vtbl {
     pub SetMaxCount: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(ITuningSpaces, ITuningSpaces_Vtbl, 0x901284e4_33fe_4b69_8d63_634a596f3756);
+windows_core::imp::define_interface!(ITuningSpaces, ITuningSpaces_Vtbl, 0x901284e4_33fe_4b69_8d63_634a596f3756);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ITuningSpaces, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -18423,7 +18423,7 @@ pub struct ITuningSpaces_Vtbl {
     get_Item: usize,
     pub EnumTuningSpaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IXDSCodec, IXDSCodec_Vtbl, 0xc4c4c4b3_0049_4e2b_98fb_9537f6ce516d);
+windows_core::imp::define_interface!(IXDSCodec, IXDSCodec_Vtbl, 0xc4c4c4b3_0049_4e2b_98fb_9537f6ce516d);
 windows_core::imp::interface_hierarchy!(IXDSCodec, windows_core::IUnknown);
 impl IXDSCodec {
     pub unsafe fn XDSToRatObjOK(&self) -> windows_core::Result<windows_core::HRESULT> {
@@ -18462,7 +18462,7 @@ pub struct IXDSCodec_Vtbl {
     pub GetCurrLicenseExpDate: unsafe extern "system" fn(*mut core::ffi::c_void, *const ProtType, *mut i32) -> windows_core::HRESULT,
     pub GetLastErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IXDSCodecConfig, IXDSCodecConfig_Vtbl, 0xc4c4c4d3_0049_4e2b_98fb_9537f6ce516d);
+windows_core::imp::define_interface!(IXDSCodecConfig, IXDSCodecConfig_Vtbl, 0xc4c4c4d3_0049_4e2b_98fb_9537f6ce516d);
 windows_core::imp::interface_hierarchy!(IXDSCodecConfig, windows_core::IUnknown);
 impl IXDSCodecConfig {
     pub unsafe fn GetSecureChannelObject(&self) -> windows_core::Result<windows_core::IUnknown> {
@@ -18480,7 +18480,7 @@ pub struct IXDSCodecConfig_Vtbl {
     pub SetPauseBufferTime: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IXDSCodecEvents, IXDSCodecEvents_Vtbl, 0xc4c4c4c3_0049_4e2b_98fb_9537f6ce516d);
+windows_core::imp::define_interface!(IXDSCodecEvents, IXDSCodecEvents_Vtbl, 0xc4c4c4c3_0049_4e2b_98fb_9537f6ce516d);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IXDSCodecEvents, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -18491,7 +18491,7 @@ pub struct IXDSCodecEvents_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(IXDSToRat, IXDSToRat_Vtbl, 0xc5c5c5b0_3abc_11d6_b25b_00c04fa0c026);
+windows_core::imp::define_interface!(IXDSToRat, IXDSToRat_Vtbl, 0xc5c5c5b0_3abc_11d6_b25b_00c04fa0c026);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IXDSToRat, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -18511,7 +18511,7 @@ pub struct IXDSToRat_Vtbl {
     pub ParseXDSBytePair: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, *mut EnTvRat_System, *mut EnTvRat_GenericLevel, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::com_interface!(_IMSVidCtlEvents, _IMSVidCtlEvents_Vtbl, 0xb0edf164_910a_11d2_b632_00c04f79498e);
+windows_core::imp::define_interface!(_IMSVidCtlEvents, _IMSVidCtlEvents_Vtbl, 0xb0edf164_910a_11d2_b632_00c04f79498e);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(_IMSVidCtlEvents, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]

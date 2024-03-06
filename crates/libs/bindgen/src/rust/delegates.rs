@@ -69,7 +69,7 @@ fn gen_win_delegate(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         let iid = writer.guid_literal(metadata::type_def_guid(def));
         quote! {
             #features
-            windows_core::imp::com_interface!(#ident, #vtbl, #iid);
+            windows_core::imp::define_interface!(#ident, #vtbl, #iid);
         }
     } else {
         quote! {

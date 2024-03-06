@@ -1,10 +1,10 @@
-windows_core::imp::com_interface!(IUserDataAvailabilityStateChangedEventArgs, IUserDataAvailabilityStateChangedEventArgs_Vtbl, 0xa76582c9_06a2_4273_a803_834c9f87fbeb);
+windows_core::imp::define_interface!(IUserDataAvailabilityStateChangedEventArgs, IUserDataAvailabilityStateChangedEventArgs_Vtbl, 0xa76582c9_06a2_4273_a803_834c9f87fbeb);
 #[repr(C)]
 pub struct IUserDataAvailabilityStateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IUserDataBufferUnprotectResult, IUserDataBufferUnprotectResult_Vtbl, 0x8efd0e90_fa9a_46a4_a377_01cebf1e74d8);
+windows_core::imp::define_interface!(IUserDataBufferUnprotectResult, IUserDataBufferUnprotectResult_Vtbl, 0x8efd0e90_fa9a_46a4_a377_01cebf1e74d8);
 #[repr(C)]
 pub struct IUserDataBufferUnprotectResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14,7 +14,7 @@ pub struct IUserDataBufferUnprotectResult_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     UnprotectedBuffer: usize,
 }
-windows_core::imp::com_interface!(IUserDataProtectionManager, IUserDataProtectionManager_Vtbl, 0x1f13237d_b42e_4a88_9480_0f240924c876);
+windows_core::imp::define_interface!(IUserDataProtectionManager, IUserDataProtectionManager_Vtbl, 0x1f13237d_b42e_4a88_9480_0f240924c876);
 #[repr(C)]
 pub struct IUserDataProtectionManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -38,7 +38,7 @@ pub struct IUserDataProtectionManager_Vtbl {
     pub DataAvailabilityStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveDataAvailabilityStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IUserDataProtectionManagerStatics, IUserDataProtectionManagerStatics_Vtbl, 0x977780e8_6dce_4fae_af85_782ac2cf4572);
+windows_core::imp::define_interface!(IUserDataProtectionManagerStatics, IUserDataProtectionManagerStatics_Vtbl, 0x977780e8_6dce_4fae_af85_782ac2cf4572);
 #[repr(C)]
 pub struct IUserDataProtectionManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -48,7 +48,7 @@ pub struct IUserDataProtectionManagerStatics_Vtbl {
     #[cfg(not(feature = "System"))]
     TryGetForUser: usize,
 }
-windows_core::imp::com_interface!(IUserDataStorageItemProtectionInfo, IUserDataStorageItemProtectionInfo_Vtbl, 0x5b6680f6_e87f_40a1_b19d_a6187a0c662f);
+windows_core::imp::define_interface!(IUserDataStorageItemProtectionInfo, IUserDataStorageItemProtectionInfo_Vtbl, 0x5b6680f6_e87f_40a1_b19d_a6187a0c662f);
 #[repr(C)]
 pub struct IUserDataStorageItemProtectionInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

@@ -1,6 +1,6 @@
 #[cfg(feature = "UI_Input_Preview_Injection")]
 pub mod Injection;
-windows_core::imp::com_interface!(IInputActivationListenerPreviewStatics, IInputActivationListenerPreviewStatics_Vtbl, 0xf0551ce5_0de6_5be0_a589_f737201a4582);
+windows_core::imp::define_interface!(IInputActivationListenerPreviewStatics, IInputActivationListenerPreviewStatics_Vtbl, 0xf0551ce5_0de6_5be0_a589_f737201a4582);
 #[repr(C)]
 pub struct IInputActivationListenerPreviewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

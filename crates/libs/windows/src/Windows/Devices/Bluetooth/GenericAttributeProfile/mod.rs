@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IGattCharacteristic, IGattCharacteristic_Vtbl, 0x59cb50c1_5934_4f68_a198_eb864fa44e6b);
+windows_core::imp::define_interface!(IGattCharacteristic, IGattCharacteristic_Vtbl, 0x59cb50c1_5934_4f68_a198_eb864fa44e6b);
 #[repr(C)]
 pub struct IGattCharacteristic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -31,7 +31,7 @@ pub struct IGattCharacteristic_Vtbl {
     pub ValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattCharacteristic2, IGattCharacteristic2_Vtbl, 0xae1ab578_ec06_4764_b780_9835a1d35d6e);
+windows_core::imp::define_interface!(IGattCharacteristic2, IGattCharacteristic2_Vtbl, 0xae1ab578_ec06_4764_b780_9835a1d35d6e);
 #[repr(C)]
 pub struct IGattCharacteristic2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -41,7 +41,7 @@ pub struct IGattCharacteristic2_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     GetAllDescriptors: usize,
 }
-windows_core::imp::com_interface!(IGattCharacteristic3, IGattCharacteristic3_Vtbl, 0x3f3c663e_93d4_406b_b817_db81f8ed53b3);
+windows_core::imp::define_interface!(IGattCharacteristic3, IGattCharacteristic3_Vtbl, 0x3f3c663e_93d4_406b_b817_db81f8ed53b3);
 #[repr(C)]
 pub struct IGattCharacteristic3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -59,7 +59,7 @@ pub struct IGattCharacteristic3_Vtbl {
     WriteValueWithResultAndOptionAsync: usize,
     pub WriteClientCharacteristicConfigurationDescriptorWithResultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, GattClientCharacteristicConfigurationDescriptorValue, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattCharacteristicStatics, IGattCharacteristicStatics_Vtbl, 0x59cb50c3_5934_4f68_a198_eb864fa44e6b);
+windows_core::imp::define_interface!(IGattCharacteristicStatics, IGattCharacteristicStatics_Vtbl, 0x59cb50c3_5934_4f68_a198_eb864fa44e6b);
 #[repr(C)]
 pub struct IGattCharacteristicStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -68,7 +68,7 @@ pub struct IGattCharacteristicStatics_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     ConvertShortIdToUuid: usize,
 }
-windows_core::imp::com_interface!(IGattCharacteristicUuidsStatics, IGattCharacteristicUuidsStatics_Vtbl, 0x58fa4586_b1de_470c_b7de_0d11ff44f4b7);
+windows_core::imp::define_interface!(IGattCharacteristicUuidsStatics, IGattCharacteristicUuidsStatics_Vtbl, 0x58fa4586_b1de_470c_b7de_0d11ff44f4b7);
 #[repr(C)]
 pub struct IGattCharacteristicUuidsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -94,7 +94,7 @@ pub struct IGattCharacteristicUuidsStatics_Vtbl {
     pub TemperatureMeasurement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub TemperatureType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattCharacteristicUuidsStatics2, IGattCharacteristicUuidsStatics2_Vtbl, 0x1855b425_d46e_4a2c_9c3f_ed6dea29e7be);
+windows_core::imp::define_interface!(IGattCharacteristicUuidsStatics2, IGattCharacteristicUuidsStatics2_Vtbl, 0x1855b425_d46e_4a2c_9c3f_ed6dea29e7be);
 #[repr(C)]
 pub struct IGattCharacteristicUuidsStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -159,7 +159,7 @@ pub struct IGattCharacteristicUuidsStatics2_Vtbl {
     pub TxPowerLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub UnreadAlertStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattCharacteristicsResult, IGattCharacteristicsResult_Vtbl, 0x1194945c_b257_4f3e_9db7_f68bc9a9aef2);
+windows_core::imp::define_interface!(IGattCharacteristicsResult, IGattCharacteristicsResult_Vtbl, 0x1194945c_b257_4f3e_9db7_f68bc9a9aef2);
 #[repr(C)]
 pub struct IGattCharacteristicsResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -170,7 +170,7 @@ pub struct IGattCharacteristicsResult_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Characteristics: usize,
 }
-windows_core::imp::com_interface!(IGattClientNotificationResult, IGattClientNotificationResult_Vtbl, 0x506d5599_0112_419a_8e3b_ae21afabd2c2);
+windows_core::imp::define_interface!(IGattClientNotificationResult, IGattClientNotificationResult_Vtbl, 0x506d5599_0112_419a_8e3b_ae21afabd2c2);
 #[repr(C)]
 pub struct IGattClientNotificationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -178,13 +178,13 @@ pub struct IGattClientNotificationResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattCommunicationStatus) -> windows_core::HRESULT,
     pub ProtocolError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattClientNotificationResult2, IGattClientNotificationResult2_Vtbl, 0x8faec497_45e0_497e_9582_29a1fe281ad5);
+windows_core::imp::define_interface!(IGattClientNotificationResult2, IGattClientNotificationResult2_Vtbl, 0x8faec497_45e0_497e_9582_29a1fe281ad5);
 #[repr(C)]
 pub struct IGattClientNotificationResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BytesSent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattDescriptor, IGattDescriptor_Vtbl, 0x92055f2b_8084_4344_b4c2_284de19a8506);
+windows_core::imp::define_interface!(IGattDescriptor, IGattDescriptor_Vtbl, 0x92055f2b_8084_4344_b4c2_284de19a8506);
 #[repr(C)]
 pub struct IGattDescriptor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -199,7 +199,7 @@ pub struct IGattDescriptor_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     WriteValueAsync: usize,
 }
-windows_core::imp::com_interface!(IGattDescriptor2, IGattDescriptor2_Vtbl, 0x8f563d39_d630_406c_ba11_10cdd16b0e5e);
+windows_core::imp::define_interface!(IGattDescriptor2, IGattDescriptor2_Vtbl, 0x8f563d39_d630_406c_ba11_10cdd16b0e5e);
 #[repr(C)]
 pub struct IGattDescriptor2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -208,7 +208,7 @@ pub struct IGattDescriptor2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     WriteValueWithResultAsync: usize,
 }
-windows_core::imp::com_interface!(IGattDescriptorStatics, IGattDescriptorStatics_Vtbl, 0x92055f2d_8084_4344_b4c2_284de19a8506);
+windows_core::imp::define_interface!(IGattDescriptorStatics, IGattDescriptorStatics_Vtbl, 0x92055f2d_8084_4344_b4c2_284de19a8506);
 #[repr(C)]
 pub struct IGattDescriptorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -217,7 +217,7 @@ pub struct IGattDescriptorStatics_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     ConvertShortIdToUuid: usize,
 }
-windows_core::imp::com_interface!(IGattDescriptorUuidsStatics, IGattDescriptorUuidsStatics_Vtbl, 0xa6f862ce_9cfc_42f1_9185_ff37b75181d3);
+windows_core::imp::define_interface!(IGattDescriptorUuidsStatics, IGattDescriptorUuidsStatics_Vtbl, 0xa6f862ce_9cfc_42f1_9185_ff37b75181d3);
 #[repr(C)]
 pub struct IGattDescriptorUuidsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -228,7 +228,7 @@ pub struct IGattDescriptorUuidsStatics_Vtbl {
     pub ClientCharacteristicConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub ServerCharacteristicConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattDescriptorsResult, IGattDescriptorsResult_Vtbl, 0x9bc091f3_95e7_4489_8d25_ff81955a57b9);
+windows_core::imp::define_interface!(IGattDescriptorsResult, IGattDescriptorsResult_Vtbl, 0x9bc091f3_95e7_4489_8d25_ff81955a57b9);
 #[repr(C)]
 pub struct IGattDescriptorsResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -239,7 +239,7 @@ pub struct IGattDescriptorsResult_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Descriptors: usize,
 }
-windows_core::imp::com_interface!(IGattDeviceService, IGattDeviceService_Vtbl, 0xac7b7c05_b33c_47cf_990f_6b8f5577df71);
+windows_core::imp::define_interface!(IGattDeviceService, IGattDeviceService_Vtbl, 0xac7b7c05_b33c_47cf_990f_6b8f5577df71);
 #[repr(C)]
 pub struct IGattDeviceService_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -255,7 +255,7 @@ pub struct IGattDeviceService_Vtbl {
     pub Uuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub AttributeHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattDeviceService2, IGattDeviceService2_Vtbl, 0xfc54520b_0b0d_4708_bae0_9ffd9489bc59);
+windows_core::imp::define_interface!(IGattDeviceService2, IGattDeviceService2_Vtbl, 0xfc54520b_0b0d_4708_bae0_9ffd9489bc59);
 #[repr(C)]
 pub struct IGattDeviceService2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -276,7 +276,7 @@ pub struct IGattDeviceService2_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     GetAllIncludedServices: usize,
 }
-windows_core::imp::com_interface!(IGattDeviceService3, IGattDeviceService3_Vtbl, 0xb293a950_0c53_437c_a9b3_5c3210c6e569);
+windows_core::imp::define_interface!(IGattDeviceService3, IGattDeviceService3_Vtbl, 0xb293a950_0c53_437c_a9b3_5c3210c6e569);
 #[repr(C)]
 pub struct IGattDeviceService3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -300,7 +300,7 @@ pub struct IGattDeviceService3_Vtbl {
     pub GetIncludedServicesForUuidAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetIncludedServicesForUuidWithCacheModeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, super::BluetoothCacheMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattDeviceServiceStatics, IGattDeviceServiceStatics_Vtbl, 0x196d0022_faad_45dc_ae5b_2ac3184e84db);
+windows_core::imp::define_interface!(IGattDeviceServiceStatics, IGattDeviceServiceStatics_Vtbl, 0x196d0022_faad_45dc_ae5b_2ac3184e84db);
 #[repr(C)]
 pub struct IGattDeviceServiceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -315,7 +315,7 @@ pub struct IGattDeviceServiceStatics_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     ConvertShortIdToUuid: usize,
 }
-windows_core::imp::com_interface!(IGattDeviceServiceStatics2, IGattDeviceServiceStatics2_Vtbl, 0x0604186e_24a6_4b0d_a2f2_30cc01545d25);
+windows_core::imp::define_interface!(IGattDeviceServiceStatics2, IGattDeviceServiceStatics2_Vtbl, 0x0604186e_24a6_4b0d_a2f2_30cc01545d25);
 #[repr(C)]
 pub struct IGattDeviceServiceStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -325,7 +325,7 @@ pub struct IGattDeviceServiceStatics2_Vtbl {
     pub GetDeviceSelectorForBluetoothDeviceIdAndUuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::GUID, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::GUID, super::BluetoothCacheMode, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattDeviceServicesResult, IGattDeviceServicesResult_Vtbl, 0x171dd3ee_016d_419d_838a_576cf475a3d8);
+windows_core::imp::define_interface!(IGattDeviceServicesResult, IGattDeviceServicesResult_Vtbl, 0x171dd3ee_016d_419d_838a_576cf475a3d8);
 #[repr(C)]
 pub struct IGattDeviceServicesResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -336,7 +336,7 @@ pub struct IGattDeviceServicesResult_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Services: usize,
 }
-windows_core::imp::com_interface!(IGattLocalCharacteristic, IGattLocalCharacteristic_Vtbl, 0xaede376d_5412_4d74_92a8_8deb8526829c);
+windows_core::imp::define_interface!(IGattLocalCharacteristic, IGattLocalCharacteristic_Vtbl, 0xaede376d_5412_4d74_92a8_8deb8526829c);
 #[repr(C)]
 pub struct IGattLocalCharacteristic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -377,7 +377,7 @@ pub struct IGattLocalCharacteristic_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     NotifyValueForSubscribedClientAsync: usize,
 }
-windows_core::imp::com_interface!(IGattLocalCharacteristicParameters, IGattLocalCharacteristicParameters_Vtbl, 0xfaf73db4_4cff_44c7_8445_040e6ead0063);
+windows_core::imp::define_interface!(IGattLocalCharacteristicParameters, IGattLocalCharacteristicParameters_Vtbl, 0xfaf73db4_4cff_44c7_8445_040e6ead0063);
 #[repr(C)]
 pub struct IGattLocalCharacteristicParameters_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -402,14 +402,14 @@ pub struct IGattLocalCharacteristicParameters_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     PresentationFormats: usize,
 }
-windows_core::imp::com_interface!(IGattLocalCharacteristicResult, IGattLocalCharacteristicResult_Vtbl, 0x7975de9b_0170_4397_9666_92f863f12ee6);
+windows_core::imp::define_interface!(IGattLocalCharacteristicResult, IGattLocalCharacteristicResult_Vtbl, 0x7975de9b_0170_4397_9666_92f863f12ee6);
 #[repr(C)]
 pub struct IGattLocalCharacteristicResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Characteristic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothError) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattLocalDescriptor, IGattLocalDescriptor_Vtbl, 0xf48ebe06_789d_4a4b_8652_bd017b5d2fc6);
+windows_core::imp::define_interface!(IGattLocalDescriptor, IGattLocalDescriptor_Vtbl, 0xf48ebe06_789d_4a4b_8652_bd017b5d2fc6);
 #[repr(C)]
 pub struct IGattLocalDescriptor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -425,7 +425,7 @@ pub struct IGattLocalDescriptor_Vtbl {
     pub WriteRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveWriteRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattLocalDescriptorParameters, IGattLocalDescriptorParameters_Vtbl, 0x5fdede6a_f3c1_4b66_8c4b_e3d2293b40e9);
+windows_core::imp::define_interface!(IGattLocalDescriptorParameters, IGattLocalDescriptorParameters_Vtbl, 0x5fdede6a_f3c1_4b66_8c4b_e3d2293b40e9);
 #[repr(C)]
 pub struct IGattLocalDescriptorParameters_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -442,14 +442,14 @@ pub struct IGattLocalDescriptorParameters_Vtbl {
     pub SetWriteProtectionLevel: unsafe extern "system" fn(*mut core::ffi::c_void, GattProtectionLevel) -> windows_core::HRESULT,
     pub WriteProtectionLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattProtectionLevel) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattLocalDescriptorResult, IGattLocalDescriptorResult_Vtbl, 0x375791be_321f_4366_bfc1_3bc6b82c79f8);
+windows_core::imp::define_interface!(IGattLocalDescriptorResult, IGattLocalDescriptorResult_Vtbl, 0x375791be_321f_4366_bfc1_3bc6b82c79f8);
 #[repr(C)]
 pub struct IGattLocalDescriptorResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Descriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothError) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattLocalService, IGattLocalService_Vtbl, 0xf513e258_f7f7_4902_b803_57fcc7d6fe83);
+windows_core::imp::define_interface!(IGattLocalService, IGattLocalService_Vtbl, 0xf513e258_f7f7_4902_b803_57fcc7d6fe83);
 #[repr(C)]
 pub struct IGattLocalService_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -460,7 +460,7 @@ pub struct IGattLocalService_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Characteristics: usize,
 }
-windows_core::imp::com_interface!(IGattPresentationFormat, IGattPresentationFormat_Vtbl, 0x196d0021_faad_45dc_ae5b_2ac3184e84db);
+windows_core::imp::define_interface!(IGattPresentationFormat, IGattPresentationFormat_Vtbl, 0x196d0021_faad_45dc_ae5b_2ac3184e84db);
 #[repr(C)]
 pub struct IGattPresentationFormat_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -470,19 +470,19 @@ pub struct IGattPresentationFormat_Vtbl {
     pub Namespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattPresentationFormatStatics, IGattPresentationFormatStatics_Vtbl, 0x196d0020_faad_45dc_ae5b_2ac3184e84db);
+windows_core::imp::define_interface!(IGattPresentationFormatStatics, IGattPresentationFormatStatics_Vtbl, 0x196d0020_faad_45dc_ae5b_2ac3184e84db);
 #[repr(C)]
 pub struct IGattPresentationFormatStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BluetoothSigAssignedNumbers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattPresentationFormatStatics2, IGattPresentationFormatStatics2_Vtbl, 0xa9c21713_b82f_435e_b634_21fd85a43c07);
+windows_core::imp::define_interface!(IGattPresentationFormatStatics2, IGattPresentationFormatStatics2_Vtbl, 0xa9c21713_b82f_435e_b634_21fd85a43c07);
 #[repr(C)]
 pub struct IGattPresentationFormatStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromParts: unsafe extern "system" fn(*mut core::ffi::c_void, u8, i32, u16, u8, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattPresentationFormatTypesStatics, IGattPresentationFormatTypesStatics_Vtbl, 0xfaf1ba0a_30ba_409c_bef7_cffb6d03b8fb);
+windows_core::imp::define_interface!(IGattPresentationFormatTypesStatics, IGattPresentationFormatTypesStatics_Vtbl, 0xfaf1ba0a_30ba_409c_bef7_cffb6d03b8fb);
 #[repr(C)]
 pub struct IGattPresentationFormatTypesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -514,7 +514,7 @@ pub struct IGattPresentationFormatTypesStatics_Vtbl {
     pub Utf16: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub Struct: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattProtocolErrorStatics, IGattProtocolErrorStatics_Vtbl, 0xca46c5c5_0ecc_4809_bea3_cf79bc991e37);
+windows_core::imp::define_interface!(IGattProtocolErrorStatics, IGattProtocolErrorStatics_Vtbl, 0xca46c5c5_0ecc_4809_bea3_cf79bc991e37);
 #[repr(C)]
 pub struct IGattProtocolErrorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -536,20 +536,20 @@ pub struct IGattProtocolErrorStatics_Vtbl {
     pub UnsupportedGroupType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub InsufficientResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattReadClientCharacteristicConfigurationDescriptorResult, IGattReadClientCharacteristicConfigurationDescriptorResult_Vtbl, 0x63a66f09_1aea_4c4c_a50f_97bae474b348);
+windows_core::imp::define_interface!(IGattReadClientCharacteristicConfigurationDescriptorResult, IGattReadClientCharacteristicConfigurationDescriptorResult_Vtbl, 0x63a66f09_1aea_4c4c_a50f_97bae474b348);
 #[repr(C)]
 pub struct IGattReadClientCharacteristicConfigurationDescriptorResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattCommunicationStatus) -> windows_core::HRESULT,
     pub ClientCharacteristicConfigurationDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattClientCharacteristicConfigurationDescriptorValue) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattReadClientCharacteristicConfigurationDescriptorResult2, IGattReadClientCharacteristicConfigurationDescriptorResult2_Vtbl, 0x1bf1a59d_ba4d_4622_8651_f4ee150d0a5d);
+windows_core::imp::define_interface!(IGattReadClientCharacteristicConfigurationDescriptorResult2, IGattReadClientCharacteristicConfigurationDescriptorResult2_Vtbl, 0x1bf1a59d_ba4d_4622_8651_f4ee150d0a5d);
 #[repr(C)]
 pub struct IGattReadClientCharacteristicConfigurationDescriptorResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProtocolError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattReadRequest, IGattReadRequest_Vtbl, 0xf1dd6535_6acd_42a6_a4bb_d789dae0043e);
+windows_core::imp::define_interface!(IGattReadRequest, IGattReadRequest_Vtbl, 0xf1dd6535_6acd_42a6_a4bb_d789dae0043e);
 #[repr(C)]
 pub struct IGattReadRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -564,7 +564,7 @@ pub struct IGattReadRequest_Vtbl {
     RespondWithValue: usize,
     pub RespondWithProtocolError: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattReadRequestedEventArgs, IGattReadRequestedEventArgs_Vtbl, 0x93497243_f39c_484b_8ab6_996ba486cfa3);
+windows_core::imp::define_interface!(IGattReadRequestedEventArgs, IGattReadRequestedEventArgs_Vtbl, 0x93497243_f39c_484b_8ab6_996ba486cfa3);
 #[repr(C)]
 pub struct IGattReadRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -572,7 +572,7 @@ pub struct IGattReadRequestedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattReadResult, IGattReadResult_Vtbl, 0x63a66f08_1aea_4c4c_a50f_97bae474b348);
+windows_core::imp::define_interface!(IGattReadResult, IGattReadResult_Vtbl, 0x63a66f08_1aea_4c4c_a50f_97bae474b348);
 #[repr(C)]
 pub struct IGattReadResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -582,13 +582,13 @@ pub struct IGattReadResult_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Value: usize,
 }
-windows_core::imp::com_interface!(IGattReadResult2, IGattReadResult2_Vtbl, 0xa10f50a0_fb43_48af_baaa_638a5c6329fe);
+windows_core::imp::define_interface!(IGattReadResult2, IGattReadResult2_Vtbl, 0xa10f50a0_fb43_48af_baaa_638a5c6329fe);
 #[repr(C)]
 pub struct IGattReadResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProtocolError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattReliableWriteTransaction, IGattReliableWriteTransaction_Vtbl, 0x63a66f07_1aea_4c4c_a50f_97bae474b348);
+windows_core::imp::define_interface!(IGattReliableWriteTransaction, IGattReliableWriteTransaction_Vtbl, 0x63a66f07_1aea_4c4c_a50f_97bae474b348);
 #[repr(C)]
 pub struct IGattReliableWriteTransaction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -598,20 +598,20 @@ pub struct IGattReliableWriteTransaction_Vtbl {
     WriteValue: usize,
     pub CommitAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattReliableWriteTransaction2, IGattReliableWriteTransaction2_Vtbl, 0x51113987_ef12_462f_9fb2_a1a43a679416);
+windows_core::imp::define_interface!(IGattReliableWriteTransaction2, IGattReliableWriteTransaction2_Vtbl, 0x51113987_ef12_462f_9fb2_a1a43a679416);
 #[repr(C)]
 pub struct IGattReliableWriteTransaction2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CommitWithResultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattRequestStateChangedEventArgs, IGattRequestStateChangedEventArgs_Vtbl, 0xe834d92c_27be_44b3_9d0d_4fc6e808dd3f);
+windows_core::imp::define_interface!(IGattRequestStateChangedEventArgs, IGattRequestStateChangedEventArgs_Vtbl, 0xe834d92c_27be_44b3_9d0d_4fc6e808dd3f);
 #[repr(C)]
 pub struct IGattRequestStateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattRequestState) -> windows_core::HRESULT,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothError) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattServiceProvider, IGattServiceProvider_Vtbl, 0x7822b3cd_2889_4f86_a051_3f0aed1c2760);
+windows_core::imp::define_interface!(IGattServiceProvider, IGattServiceProvider_Vtbl, 0x7822b3cd_2889_4f86_a051_3f0aed1c2760);
 #[repr(C)]
 pub struct IGattServiceProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -623,14 +623,14 @@ pub struct IGattServiceProvider_Vtbl {
     pub StartAdvertisingWithParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StopAdvertising: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattServiceProviderAdvertisementStatusChangedEventArgs, IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl, 0x59a5aa65_fa21_4ffc_b155_04d928012686);
+windows_core::imp::define_interface!(IGattServiceProviderAdvertisementStatusChangedEventArgs, IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl, 0x59a5aa65_fa21_4ffc_b155_04d928012686);
 #[repr(C)]
 pub struct IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothError) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattServiceProviderAdvertisementStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattServiceProviderAdvertisingParameters, IGattServiceProviderAdvertisingParameters_Vtbl, 0xe2ce31ab_6315_4c22_9bd7_781dbc3d8d82);
+windows_core::imp::define_interface!(IGattServiceProviderAdvertisingParameters, IGattServiceProviderAdvertisingParameters_Vtbl, 0xe2ce31ab_6315_4c22_9bd7_781dbc3d8d82);
 #[repr(C)]
 pub struct IGattServiceProviderAdvertisingParameters_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -639,7 +639,7 @@ pub struct IGattServiceProviderAdvertisingParameters_Vtbl {
     pub SetIsDiscoverable: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub IsDiscoverable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattServiceProviderAdvertisingParameters2, IGattServiceProviderAdvertisingParameters2_Vtbl, 0xff68468d_ca92_4434_9743_0e90988ad879);
+windows_core::imp::define_interface!(IGattServiceProviderAdvertisingParameters2, IGattServiceProviderAdvertisingParameters2_Vtbl, 0xff68468d_ca92_4434_9743_0e90988ad879);
 #[repr(C)]
 pub struct IGattServiceProviderAdvertisingParameters2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -652,20 +652,20 @@ pub struct IGattServiceProviderAdvertisingParameters2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     ServiceData: usize,
 }
-windows_core::imp::com_interface!(IGattServiceProviderResult, IGattServiceProviderResult_Vtbl, 0x764696d8_c53e_428c_8a48_67afe02c3ae6);
+windows_core::imp::define_interface!(IGattServiceProviderResult, IGattServiceProviderResult_Vtbl, 0x764696d8_c53e_428c_8a48_67afe02c3ae6);
 #[repr(C)]
 pub struct IGattServiceProviderResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothError) -> windows_core::HRESULT,
     pub ServiceProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattServiceProviderStatics, IGattServiceProviderStatics_Vtbl, 0x31794063_5256_4054_a4f4_7bbe7755a57e);
+windows_core::imp::define_interface!(IGattServiceProviderStatics, IGattServiceProviderStatics_Vtbl, 0x31794063_5256_4054_a4f4_7bbe7755a57e);
 #[repr(C)]
 pub struct IGattServiceProviderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattServiceUuidsStatics, IGattServiceUuidsStatics_Vtbl, 0x6dc57058_9aba_4417_b8f2_dce016d34ee2);
+windows_core::imp::define_interface!(IGattServiceUuidsStatics, IGattServiceUuidsStatics_Vtbl, 0x6dc57058_9aba_4417_b8f2_dce016d34ee2);
 #[repr(C)]
 pub struct IGattServiceUuidsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -679,7 +679,7 @@ pub struct IGattServiceUuidsStatics_Vtbl {
     pub HeartRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub RunningSpeedAndCadence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattServiceUuidsStatics2, IGattServiceUuidsStatics2_Vtbl, 0xd2ae94f5_3d15_4f79_9c0c_eaafa675155c);
+windows_core::imp::define_interface!(IGattServiceUuidsStatics2, IGattServiceUuidsStatics2_Vtbl, 0xd2ae94f5_3d15_4f79_9c0c_eaafa675155c);
 #[repr(C)]
 pub struct IGattServiceUuidsStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -697,7 +697,7 @@ pub struct IGattServiceUuidsStatics2_Vtbl {
     pub ScanParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub TxPower: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattSession, IGattSession_Vtbl, 0xd23b5143_e04e_4c24_999c_9c256f9856b1);
+windows_core::imp::define_interface!(IGattSession, IGattSession_Vtbl, 0xd23b5143_e04e_4c24_999c_9c256f9856b1);
 #[repr(C)]
 pub struct IGattSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -712,20 +712,20 @@ pub struct IGattSession_Vtbl {
     pub SessionStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveSessionStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattSessionStatics, IGattSessionStatics_Vtbl, 0x2e65b95c_539f_4db7_82a8_73bdbbf73ebf);
+windows_core::imp::define_interface!(IGattSessionStatics, IGattSessionStatics_Vtbl, 0x2e65b95c_539f_4db7_82a8_73bdbbf73ebf);
 #[repr(C)]
 pub struct IGattSessionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromDeviceIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattSessionStatusChangedEventArgs, IGattSessionStatusChangedEventArgs_Vtbl, 0x7605b72e_837f_404c_ab34_3163f39ddf32);
+windows_core::imp::define_interface!(IGattSessionStatusChangedEventArgs, IGattSessionStatusChangedEventArgs_Vtbl, 0x7605b72e_837f_404c_ab34_3163f39ddf32);
 #[repr(C)]
 pub struct IGattSessionStatusChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothError) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattSessionStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattSubscribedClient, IGattSubscribedClient_Vtbl, 0x736e9001_15a4_4ec2_9248_e3f20d463be9);
+windows_core::imp::define_interface!(IGattSubscribedClient, IGattSubscribedClient_Vtbl, 0x736e9001_15a4_4ec2_9248_e3f20d463be9);
 #[repr(C)]
 pub struct IGattSubscribedClient_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -734,7 +734,7 @@ pub struct IGattSubscribedClient_Vtbl {
     pub MaxNotificationSizeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveMaxNotificationSizeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattValueChangedEventArgs, IGattValueChangedEventArgs_Vtbl, 0xd21bdb54_06e3_4ed8_a263_acfac8ba7313);
+windows_core::imp::define_interface!(IGattValueChangedEventArgs, IGattValueChangedEventArgs_Vtbl, 0xd21bdb54_06e3_4ed8_a263_acfac8ba7313);
 #[repr(C)]
 pub struct IGattValueChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -744,7 +744,7 @@ pub struct IGattValueChangedEventArgs_Vtbl {
     CharacteristicValue: usize,
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattWriteRequest, IGattWriteRequest_Vtbl, 0xaeb6a9ed_de2f_4fc2_a9a8_94ea7844f13d);
+windows_core::imp::define_interface!(IGattWriteRequest, IGattWriteRequest_Vtbl, 0xaeb6a9ed_de2f_4fc2_a9a8_94ea7844f13d);
 #[repr(C)]
 pub struct IGattWriteRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -760,7 +760,7 @@ pub struct IGattWriteRequest_Vtbl {
     pub Respond: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RespondWithProtocolError: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattWriteRequestedEventArgs, IGattWriteRequestedEventArgs_Vtbl, 0x2dec8bbe_a73a_471a_94d5_037deadd0806);
+windows_core::imp::define_interface!(IGattWriteRequestedEventArgs, IGattWriteRequestedEventArgs_Vtbl, 0x2dec8bbe_a73a_471a_94d5_037deadd0806);
 #[repr(C)]
 pub struct IGattWriteRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -768,7 +768,7 @@ pub struct IGattWriteRequestedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IGattWriteResult, IGattWriteResult_Vtbl, 0x4991ddb1_cb2b_44f7_99fc_d29a2871dc9b);
+windows_core::imp::define_interface!(IGattWriteResult, IGattWriteResult_Vtbl, 0x4991ddb1_cb2b_44f7_99fc_d29a2871dc9b);
 #[repr(C)]
 pub struct IGattWriteResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

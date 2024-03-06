@@ -1,6 +1,6 @@
 #[cfg(feature = "UI_WindowManagement_Preview")]
 pub mod Preview;
-windows_core::imp::com_interface!(IAppWindow, IAppWindow_Vtbl, 0x663014a6_b75e_5dbd_995c_f0117fa3fb61);
+windows_core::imp::define_interface!(IAppWindow, IAppWindow_Vtbl, 0x663014a6_b75e_5dbd_995c_f0117fa3fb61);
 #[repr(C)]
 pub struct IAppWindow_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -40,7 +40,7 @@ pub struct IAppWindow_Vtbl {
     pub CloseRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveCloseRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAppWindowChangedEventArgs, IAppWindowChangedEventArgs_Vtbl, 0x1de1f3be_a655_55ad_b2b6_eb240f880356);
+windows_core::imp::define_interface!(IAppWindowChangedEventArgs, IAppWindowChangedEventArgs_Vtbl, 0x1de1f3be_a655_55ad_b2b6_eb240f880356);
 #[repr(C)]
 pub struct IAppWindowChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -53,7 +53,7 @@ pub struct IAppWindowChangedEventArgs_Vtbl {
     pub DidWindowingEnvironmentChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub DidWindowPresentationChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAppWindowCloseRequestedEventArgs, IAppWindowCloseRequestedEventArgs_Vtbl, 0xe9ff01da_e7a2_57a8_8b5e_39c4003afdbb);
+windows_core::imp::define_interface!(IAppWindowCloseRequestedEventArgs, IAppWindowCloseRequestedEventArgs_Vtbl, 0xe9ff01da_e7a2_57a8_8b5e_39c4003afdbb);
 #[repr(C)]
 pub struct IAppWindowCloseRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -61,13 +61,13 @@ pub struct IAppWindowCloseRequestedEventArgs_Vtbl {
     pub SetCancel: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAppWindowClosedEventArgs, IAppWindowClosedEventArgs_Vtbl, 0xcc7df816_9520_5a06_821e_456ad8b358aa);
+windows_core::imp::define_interface!(IAppWindowClosedEventArgs, IAppWindowClosedEventArgs_Vtbl, 0xcc7df816_9520_5a06_821e_456ad8b358aa);
 #[repr(C)]
 pub struct IAppWindowClosedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppWindowClosedReason) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAppWindowFrame, IAppWindowFrame_Vtbl, 0x9ee22601_7e5d_52af_846b_01dc6c296567);
+windows_core::imp::define_interface!(IAppWindowFrame, IAppWindowFrame_Vtbl, 0x9ee22601_7e5d_52af_846b_01dc6c296567);
 #[repr(C)]
 pub struct IAppWindowFrame_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -76,14 +76,14 @@ pub struct IAppWindowFrame_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Composition")))]
     DragRegionVisuals: usize,
 }
-windows_core::imp::com_interface!(IAppWindowFrameStyle, IAppWindowFrameStyle_Vtbl, 0xac412946_e1ac_5230_944a_c60873dcf4a9);
+windows_core::imp::define_interface!(IAppWindowFrameStyle, IAppWindowFrameStyle_Vtbl, 0xac412946_e1ac_5230_944a_c60873dcf4a9);
 #[repr(C)]
 pub struct IAppWindowFrameStyle_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetFrameStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppWindowFrameStyle) -> windows_core::HRESULT,
     pub SetFrameStyle: unsafe extern "system" fn(*mut core::ffi::c_void, AppWindowFrameStyle) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAppWindowPlacement, IAppWindowPlacement_Vtbl, 0x03dc815e_e7a9_5857_9c03_7d670594410e);
+windows_core::imp::define_interface!(IAppWindowPlacement, IAppWindowPlacement_Vtbl, 0x03dc815e_e7a9_5857_9c03_7d670594410e);
 #[repr(C)]
 pub struct IAppWindowPlacement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -91,18 +91,18 @@ pub struct IAppWindowPlacement_Vtbl {
     pub Offset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Point) -> windows_core::HRESULT,
     pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Size) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAppWindowPresentationConfiguration, IAppWindowPresentationConfiguration_Vtbl, 0xb5a43ee3_df33_5e67_bd31_1072457300df);
+windows_core::imp::define_interface!(IAppWindowPresentationConfiguration, IAppWindowPresentationConfiguration_Vtbl, 0xb5a43ee3_df33_5e67_bd31_1072457300df);
 #[repr(C)]
 pub struct IAppWindowPresentationConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppWindowPresentationKind) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAppWindowPresentationConfigurationFactory, IAppWindowPresentationConfigurationFactory_Vtbl, 0xfd3606a6_7875_5de8_84ff_6351ee13dd0d);
+windows_core::imp::define_interface!(IAppWindowPresentationConfigurationFactory, IAppWindowPresentationConfigurationFactory_Vtbl, 0xfd3606a6_7875_5de8_84ff_6351ee13dd0d);
 #[repr(C)]
 pub struct IAppWindowPresentationConfigurationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IAppWindowPresenter, IAppWindowPresenter_Vtbl, 0x5ae9ed73_e1fd_5317_ad78_5a3ed271bbde);
+windows_core::imp::define_interface!(IAppWindowPresenter, IAppWindowPresenter_Vtbl, 0x5ae9ed73_e1fd_5317_ad78_5a3ed271bbde);
 #[repr(C)]
 pub struct IAppWindowPresenter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -111,7 +111,7 @@ pub struct IAppWindowPresenter_Vtbl {
     pub RequestPresentation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub RequestPresentationByKind: unsafe extern "system" fn(*mut core::ffi::c_void, AppWindowPresentationKind, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAppWindowStatics, IAppWindowStatics_Vtbl, 0xff1f3ea3_b769_50ef_9873_108cd0e89746);
+windows_core::imp::define_interface!(IAppWindowStatics, IAppWindowStatics_Vtbl, 0xff1f3ea3_b769_50ef_9873_108cd0e89746);
 #[repr(C)]
 pub struct IAppWindowStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -119,7 +119,7 @@ pub struct IAppWindowStatics_Vtbl {
     pub ClearAllPersistedState: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClearPersistedState: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAppWindowTitleBar, IAppWindowTitleBar_Vtbl, 0x6e932c84_f644_541d_a2d7_0c262437842d);
+windows_core::imp::define_interface!(IAppWindowTitleBar, IAppWindowTitleBar_Vtbl, 0x6e932c84_f644_541d_a2d7_0c262437842d);
 #[repr(C)]
 pub struct IAppWindowTitleBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -155,30 +155,30 @@ pub struct IAppWindowTitleBar_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetTitleBarOcclusions: usize,
 }
-windows_core::imp::com_interface!(IAppWindowTitleBarOcclusion, IAppWindowTitleBarOcclusion_Vtbl, 0xfea3cffd_2ccf_5fc3_aeae_f843876bf37e);
+windows_core::imp::define_interface!(IAppWindowTitleBarOcclusion, IAppWindowTitleBarOcclusion_Vtbl, 0xfea3cffd_2ccf_5fc3_aeae_f843876bf37e);
 #[repr(C)]
 pub struct IAppWindowTitleBarOcclusion_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OccludingRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IAppWindowTitleBarVisibility, IAppWindowTitleBarVisibility_Vtbl, 0xa215a4e3_6e7e_5651_8c3b_624819528154);
+windows_core::imp::define_interface!(IAppWindowTitleBarVisibility, IAppWindowTitleBarVisibility_Vtbl, 0xa215a4e3_6e7e_5651_8c3b_624819528154);
 #[repr(C)]
 pub struct IAppWindowTitleBarVisibility_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetPreferredVisibility: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppWindowTitleBarVisibility) -> windows_core::HRESULT,
     pub SetPreferredVisibility: unsafe extern "system" fn(*mut core::ffi::c_void, AppWindowTitleBarVisibility) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ICompactOverlayPresentationConfiguration, ICompactOverlayPresentationConfiguration_Vtbl, 0xa7e5750f_5730_56c6_8e1f_d63ff4d7980d);
+windows_core::imp::define_interface!(ICompactOverlayPresentationConfiguration, ICompactOverlayPresentationConfiguration_Vtbl, 0xa7e5750f_5730_56c6_8e1f_d63ff4d7980d);
 #[repr(C)]
 pub struct ICompactOverlayPresentationConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IDefaultPresentationConfiguration, IDefaultPresentationConfiguration_Vtbl, 0xd8c2b53b_2168_5703_a853_d525589fe2b9);
+windows_core::imp::define_interface!(IDefaultPresentationConfiguration, IDefaultPresentationConfiguration_Vtbl, 0xd8c2b53b_2168_5703_a853_d525589fe2b9);
 #[repr(C)]
 pub struct IDefaultPresentationConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IDisplayRegion, IDisplayRegion_Vtbl, 0xdb50c3a2_4094_5f47_8cb1_ea01ddafaa94);
+windows_core::imp::define_interface!(IDisplayRegion, IDisplayRegion_Vtbl, 0xdb50c3a2_4094_5f47_8cb1_ea01ddafaa94);
 #[repr(C)]
 pub struct IDisplayRegion_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -190,14 +190,14 @@ pub struct IDisplayRegion_Vtbl {
     pub Changed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IFullScreenPresentationConfiguration, IFullScreenPresentationConfiguration_Vtbl, 0x43d3dcd8_d2a8_503d_a626_15533d6d5f62);
+windows_core::imp::define_interface!(IFullScreenPresentationConfiguration, IFullScreenPresentationConfiguration_Vtbl, 0x43d3dcd8_d2a8_503d_a626_15533d6d5f62);
 #[repr(C)]
 pub struct IFullScreenPresentationConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsExclusive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsExclusive: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWindowServicesStatics, IWindowServicesStatics_Vtbl, 0xcff4d519_50a6_5c64_97f6_c2d96add7f42);
+windows_core::imp::define_interface!(IWindowServicesStatics, IWindowServicesStatics_Vtbl, 0xcff4d519_50a6_5c64_97f6_c2d96add7f42);
 #[repr(C)]
 pub struct IWindowServicesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -206,7 +206,7 @@ pub struct IWindowServicesStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     FindAllTopLevelWindowIds: usize,
 }
-windows_core::imp::com_interface!(IWindowingEnvironment, IWindowingEnvironment_Vtbl, 0x264363c0_2a49_5417_b3ae_48a71c63a3bd);
+windows_core::imp::define_interface!(IWindowingEnvironment, IWindowingEnvironment_Vtbl, 0x264363c0_2a49_5417_b3ae_48a71c63a3bd);
 #[repr(C)]
 pub struct IWindowingEnvironment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -219,24 +219,24 @@ pub struct IWindowingEnvironment_Vtbl {
     pub Changed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWindowingEnvironmentAddedEventArgs, IWindowingEnvironmentAddedEventArgs_Vtbl, 0xff2a5b7f_f183_5c66_99b2_429082069299);
+windows_core::imp::define_interface!(IWindowingEnvironmentAddedEventArgs, IWindowingEnvironmentAddedEventArgs_Vtbl, 0xff2a5b7f_f183_5c66_99b2_429082069299);
 #[repr(C)]
 pub struct IWindowingEnvironmentAddedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub WindowingEnvironment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWindowingEnvironmentChangedEventArgs, IWindowingEnvironmentChangedEventArgs_Vtbl, 0x4160cfc6_023d_5e9a_b431_350e67dc978a);
+windows_core::imp::define_interface!(IWindowingEnvironmentChangedEventArgs, IWindowingEnvironmentChangedEventArgs_Vtbl, 0x4160cfc6_023d_5e9a_b431_350e67dc978a);
 #[repr(C)]
 pub struct IWindowingEnvironmentChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::com_interface!(IWindowingEnvironmentRemovedEventArgs, IWindowingEnvironmentRemovedEventArgs_Vtbl, 0x2e5b5473_beff_5e53_9316_7e775fe568b3);
+windows_core::imp::define_interface!(IWindowingEnvironmentRemovedEventArgs, IWindowingEnvironmentRemovedEventArgs_Vtbl, 0x2e5b5473_beff_5e53_9316_7e775fe568b3);
 #[repr(C)]
 pub struct IWindowingEnvironmentRemovedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub WindowingEnvironment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWindowingEnvironmentStatics, IWindowingEnvironmentStatics_Vtbl, 0x874e9fb7_c642_55ab_8aa2_162f734a9a72);
+windows_core::imp::define_interface!(IWindowingEnvironmentStatics, IWindowingEnvironmentStatics_Vtbl, 0x874e9fb7_c642_55ab_8aa2_162f734a9a72);
 #[repr(C)]
 pub struct IWindowingEnvironmentStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

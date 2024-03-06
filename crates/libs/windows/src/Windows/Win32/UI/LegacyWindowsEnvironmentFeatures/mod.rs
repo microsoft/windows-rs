@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IADesktopP2, IADesktopP2_Vtbl, 0xb22754e2_4574_11d1_9888_006097deacf9);
+windows_core::imp::define_interface!(IADesktopP2, IADesktopP2_Vtbl, 0xb22754e2_4574_11d1_9888_006097deacf9);
 windows_core::imp::interface_hierarchy!(IADesktopP2, windows_core::IUnknown);
 impl IADesktopP2 {
     pub unsafe fn ReReadWallpaper(&self) -> windows_core::Result<()> {
@@ -29,7 +29,7 @@ pub struct IADesktopP2_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     MakeDynamicChanges: usize,
 }
-windows_core::imp::com_interface!(IActiveDesktopP, IActiveDesktopP_Vtbl, 0x52502ee0_ec80_11d0_89ab_00c04fc2972d);
+windows_core::imp::define_interface!(IActiveDesktopP, IActiveDesktopP_Vtbl, 0x52502ee0_ec80_11d0_89ab_00c04fc2972d);
 windows_core::imp::interface_hierarchy!(IActiveDesktopP, windows_core::IUnknown);
 impl IActiveDesktopP {
     pub unsafe fn SetSafeMode(&self, dwflags: u32) -> windows_core::Result<()> {
@@ -56,7 +56,7 @@ pub struct IActiveDesktopP_Vtbl {
     pub SetScheme: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
     pub GetScheme: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, *mut u32, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBriefcaseInitiator, IBriefcaseInitiator_Vtbl, 0x99180164_da16_101a_935c_444553540000);
+windows_core::imp::define_interface!(IBriefcaseInitiator, IBriefcaseInitiator_Vtbl, 0x99180164_da16_101a_935c_444553540000);
 windows_core::imp::interface_hierarchy!(IBriefcaseInitiator, windows_core::IUnknown);
 impl IBriefcaseInitiator {
     #[cfg(feature = "Win32_System_Com")]
@@ -75,7 +75,7 @@ pub struct IBriefcaseInitiator_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     IsMonikerInBriefcase: usize,
 }
-windows_core::imp::com_interface!(IEmptyVolumeCache, IEmptyVolumeCache_Vtbl, 0x8fce5227_04da_11d1_a004_00805f8abe06);
+windows_core::imp::define_interface!(IEmptyVolumeCache, IEmptyVolumeCache_Vtbl, 0x8fce5227_04da_11d1_a004_00805f8abe06);
 windows_core::imp::interface_hierarchy!(IEmptyVolumeCache, windows_core::IUnknown);
 impl IEmptyVolumeCache {
     #[cfg(feature = "Win32_System_Registry")]
@@ -121,7 +121,7 @@ pub struct IEmptyVolumeCache_Vtbl {
     pub ShowProperties: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
     pub Deactivate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EMPTY_VOLUME_CACHE_FLAGS) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IEmptyVolumeCache2, IEmptyVolumeCache2_Vtbl, 0x02b7e3ba_4db3_11d2_b2d9_00c04f8eec8c);
+windows_core::imp::define_interface!(IEmptyVolumeCache2, IEmptyVolumeCache2_Vtbl, 0x02b7e3ba_4db3_11d2_b2d9_00c04f8eec8c);
 windows_core::imp::interface_hierarchy!(IEmptyVolumeCache2, windows_core::IUnknown, IEmptyVolumeCache);
 impl IEmptyVolumeCache2 {
     #[cfg(feature = "Win32_System_Registry")]
@@ -172,7 +172,7 @@ pub struct IEmptyVolumeCache2_Vtbl {
     #[cfg(not(feature = "Win32_System_Registry"))]
     InitializeEx: usize,
 }
-windows_core::imp::com_interface!(IEmptyVolumeCacheCallBack, IEmptyVolumeCacheCallBack_Vtbl, 0x6e793361_73c6_11d0_8469_00aa00442901);
+windows_core::imp::define_interface!(IEmptyVolumeCacheCallBack, IEmptyVolumeCacheCallBack_Vtbl, 0x6e793361_73c6_11d0_8469_00aa00442901);
 windows_core::imp::interface_hierarchy!(IEmptyVolumeCacheCallBack, windows_core::IUnknown);
 impl IEmptyVolumeCacheCallBack {
     pub unsafe fn ScanProgress<P0>(&self, dwlspaceused: u64, dwflags: u32, pcwszstatus: P0) -> windows_core::Result<()>
@@ -194,7 +194,7 @@ pub struct IEmptyVolumeCacheCallBack_Vtbl {
     pub ScanProgress: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub PurgeProgress: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IReconcilableObject, IReconcilableObject_Vtbl, 0x99180162_da16_101a_935c_444553540000);
+windows_core::imp::define_interface!(IReconcilableObject, IReconcilableObject_Vtbl, 0x99180162_da16_101a_935c_444553540000);
 windows_core::imp::interface_hierarchy!(IReconcilableObject, windows_core::IUnknown);
 impl IReconcilableObject {
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -221,7 +221,7 @@ pub struct IReconcilableObject_Vtbl {
     Reconcile: usize,
     pub GetProgressFeedbackMaxEstimate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IReconcileInitiator, IReconcileInitiator_Vtbl, 0x99180161_da16_101a_935c_444553540000);
+windows_core::imp::define_interface!(IReconcileInitiator, IReconcileInitiator_Vtbl, 0x99180161_da16_101a_935c_444553540000);
 windows_core::imp::interface_hierarchy!(IReconcileInitiator, windows_core::IUnknown);
 impl IReconcileInitiator {
     pub unsafe fn SetAbortCallback<P0>(&self, punkforabort: P0) -> windows_core::Result<()>

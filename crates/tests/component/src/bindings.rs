@@ -6,7 +6,11 @@
     clippy::all
 )]
 pub mod Nested {
-    windows_core::imp::com_interface!(IThing, IThing_Vtbl, 0x5448be22_9873_5ae6_9106_f6e8455d2fdd);
+    windows_core::imp::define_interface!(
+        IThing,
+        IThing_Vtbl,
+        0x5448be22_9873_5ae6_9106_f6e8455d2fdd
+    );
     windows_core::imp::interface_hierarchy!(
         IThing,
         windows_core::IUnknown,
@@ -65,7 +69,7 @@ pub mod Nested {
         }
     }
 }
-windows_core::imp::com_interface!(IClass, IClass_Vtbl, 0x97540591_1323_59c0_9ae0_f510cae62e54);
+windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x97540591_1323_59c0_9ae0_f510cae62e54);
 #[repr(C)]
 pub struct IClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -287,7 +291,7 @@ impl windows_core::RuntimeType for Flags {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"enum(test_component.Flags;u4)");
 }
-windows_core::imp::com_interface!(
+windows_core::imp::define_interface!(
     Callback,
     Callback_Vtbl,
     0xe39afc7e_93f1_5a1d_92ef_bd5f71c62cb8

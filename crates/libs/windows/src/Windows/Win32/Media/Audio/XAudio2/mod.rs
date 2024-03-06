@@ -26,7 +26,7 @@ pub unsafe fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut Option<IXAudio2>, fla
     windows_targets::link!("xaudio2_8.dll" "system" fn XAudio2CreateWithVersionInfo(ppxaudio2 : *mut * mut core::ffi::c_void, flags : u32, xaudio2processor : u32, ntddiversion : u32) -> windows_core::HRESULT);
     XAudio2CreateWithVersionInfo(core::mem::transmute(ppxaudio2), flags, xaudio2processor, ntddiversion).ok()
 }
-windows_core::imp::com_interface!(IXAPO, IXAPO_Vtbl, 0xa410b984_9839_4819_a0be_2856ae6b3adb);
+windows_core::imp::define_interface!(IXAPO, IXAPO_Vtbl, 0xa410b984_9839_4819_a0be_2856ae6b3adb);
 windows_core::imp::interface_hierarchy!(IXAPO, windows_core::IUnknown);
 impl IXAPO {
     pub unsafe fn GetRegistrationProperties(&self) -> windows_core::Result<*mut XAPO_REGISTRATION_PROPERTIES> {
@@ -78,7 +78,7 @@ pub struct IXAPO_Vtbl {
     pub CalcInputFrames: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub CalcOutputFrames: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
 }
-windows_core::imp::com_interface!(IXAPOHrtfParameters, IXAPOHrtfParameters_Vtbl, 0x15b3cd66_e9de_4464_b6e6_2bc3cf63d455);
+windows_core::imp::define_interface!(IXAPOHrtfParameters, IXAPOHrtfParameters_Vtbl, 0x15b3cd66_e9de_4464_b6e6_2bc3cf63d455);
 windows_core::imp::interface_hierarchy!(IXAPOHrtfParameters, windows_core::IUnknown);
 impl IXAPOHrtfParameters {
     pub unsafe fn SetSourcePosition(&self, position: *const HrtfPosition) -> windows_core::Result<()> {
@@ -102,7 +102,7 @@ pub struct IXAPOHrtfParameters_Vtbl {
     pub SetSourceGain: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub SetEnvironment: unsafe extern "system" fn(*mut core::ffi::c_void, HrtfEnvironment) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IXAPOParameters, IXAPOParameters_Vtbl, 0x26d95c66_80f2_499a_ad54_5ae7f01c6d98);
+windows_core::imp::define_interface!(IXAPOParameters, IXAPOParameters_Vtbl, 0x26d95c66_80f2_499a_ad54_5ae7f01c6d98);
 windows_core::imp::interface_hierarchy!(IXAPOParameters, windows_core::IUnknown);
 impl IXAPOParameters {
     pub unsafe fn SetParameters(&self, pparameters: *const core::ffi::c_void, parameterbytesize: u32) {
@@ -118,7 +118,7 @@ pub struct IXAPOParameters_Vtbl {
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32),
     pub GetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32),
 }
-windows_core::imp::com_interface!(IXAudio2, IXAudio2_Vtbl, 0x2b02e3cf_2e0b_4ec3_be45_1b2a3fe7210d);
+windows_core::imp::define_interface!(IXAudio2, IXAudio2_Vtbl, 0x2b02e3cf_2e0b_4ec3_be45_1b2a3fe7210d);
 windows_core::imp::interface_hierarchy!(IXAudio2, windows_core::IUnknown);
 impl IXAudio2 {
     pub unsafe fn RegisterForCallbacks<P0>(&self, pcallback: P0) -> windows_core::Result<()>
@@ -178,7 +178,7 @@ pub struct IXAudio2_Vtbl {
     pub GetPerformanceData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XAUDIO2_PERFORMANCE_DATA),
     pub SetDebugConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *const XAUDIO2_DEBUG_CONFIGURATION, *const core::ffi::c_void),
 }
-windows_core::imp::interface!(IXAudio2EngineCallback, IXAudio2EngineCallback_Vtbl);
+windows_core::imp::define_interface!(IXAudio2EngineCallback, IXAudio2EngineCallback_Vtbl);
 impl IXAudio2EngineCallback {
     pub unsafe fn OnProcessingPassStart(&self) {
         (windows_core::Interface::vtable(self).OnProcessingPassStart)(windows_core::Interface::as_raw(self))
@@ -196,7 +196,7 @@ pub struct IXAudio2EngineCallback_Vtbl {
     pub OnProcessingPassEnd: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub OnCriticalError: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT),
 }
-windows_core::imp::com_interface!(IXAudio2Extension, IXAudio2Extension_Vtbl, 0x84ac29bb_d619_44d2_b197_e4acf7df3ed6);
+windows_core::imp::define_interface!(IXAudio2Extension, IXAudio2Extension_Vtbl, 0x84ac29bb_d619_44d2_b197_e4acf7df3ed6);
 windows_core::imp::interface_hierarchy!(IXAudio2Extension, windows_core::IUnknown);
 impl IXAudio2Extension {
     pub unsafe fn GetProcessingQuantum(&self, quantumnumerator: *mut u32, quantumdenominator: *mut u32) {
@@ -212,7 +212,7 @@ pub struct IXAudio2Extension_Vtbl {
     pub GetProcessingQuantum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32),
     pub GetProcessor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32),
 }
-windows_core::imp::interface!(IXAudio2MasteringVoice, IXAudio2MasteringVoice_Vtbl);
+windows_core::imp::define_interface!(IXAudio2MasteringVoice, IXAudio2MasteringVoice_Vtbl);
 windows_core::imp::interface_hierarchy!(IXAudio2MasteringVoice, IXAudio2Voice);
 impl IXAudio2MasteringVoice {
     pub unsafe fn GetVoiceDetails(&self) -> XAUDIO2_VOICE_DETAILS {
@@ -306,7 +306,7 @@ pub struct IXAudio2MasteringVoice_Vtbl {
     pub base__: IXAudio2Voice_Vtbl,
     pub GetChannelMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::interface!(IXAudio2SourceVoice, IXAudio2SourceVoice_Vtbl);
+windows_core::imp::define_interface!(IXAudio2SourceVoice, IXAudio2SourceVoice_Vtbl);
 windows_core::imp::interface_hierarchy!(IXAudio2SourceVoice, IXAudio2Voice);
 impl IXAudio2SourceVoice {
     pub unsafe fn GetVoiceDetails(&self) -> XAUDIO2_VOICE_DETAILS {
@@ -437,7 +437,7 @@ pub struct IXAudio2SourceVoice_Vtbl {
     pub GetFrequencyRatio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32),
     pub SetSourceSampleRate: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::interface!(IXAudio2SubmixVoice, IXAudio2SubmixVoice_Vtbl);
+windows_core::imp::define_interface!(IXAudio2SubmixVoice, IXAudio2SubmixVoice_Vtbl);
 windows_core::imp::interface_hierarchy!(IXAudio2SubmixVoice, IXAudio2Voice);
 impl IXAudio2SubmixVoice {
     pub unsafe fn GetVoiceDetails(&self) -> XAUDIO2_VOICE_DETAILS {
@@ -526,7 +526,7 @@ impl IXAudio2SubmixVoice {
 pub struct IXAudio2SubmixVoice_Vtbl {
     pub base__: IXAudio2Voice_Vtbl,
 }
-windows_core::imp::interface!(IXAudio2Voice, IXAudio2Voice_Vtbl);
+windows_core::imp::define_interface!(IXAudio2Voice, IXAudio2Voice_Vtbl);
 impl IXAudio2Voice {
     pub unsafe fn GetVoiceDetails(&self) -> XAUDIO2_VOICE_DETAILS {
         let mut result__ = std::mem::zeroed();
@@ -632,7 +632,7 @@ pub struct IXAudio2Voice_Vtbl {
     pub GetOutputMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut f32),
     pub DestroyVoice: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
-windows_core::imp::interface!(IXAudio2VoiceCallback, IXAudio2VoiceCallback_Vtbl);
+windows_core::imp::define_interface!(IXAudio2VoiceCallback, IXAudio2VoiceCallback_Vtbl);
 impl IXAudio2VoiceCallback {
     pub unsafe fn OnVoiceProcessingPassStart(&self, bytesrequired: u32) {
         (windows_core::Interface::vtable(self).OnVoiceProcessingPassStart)(windows_core::Interface::as_raw(self), bytesrequired)

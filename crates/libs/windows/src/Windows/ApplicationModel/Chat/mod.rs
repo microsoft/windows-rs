@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IChatCapabilities, IChatCapabilities_Vtbl, 0x3aff77bc_39c9_4dd1_ad2d_3964dd9d403f);
+windows_core::imp::define_interface!(IChatCapabilities, IChatCapabilities_Vtbl, 0x3aff77bc_39c9_4dd1_ad2d_3964dd9d403f);
 #[repr(C)]
 pub struct IChatCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,21 +8,21 @@ pub struct IChatCapabilities_Vtbl {
     pub IsGeoLocationPushCapable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsIntegratedMessagingCapable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatCapabilitiesManagerStatics, IChatCapabilitiesManagerStatics_Vtbl, 0xb57a2f30_7041_458e_b0cf_7c0d9fea333a);
+windows_core::imp::define_interface!(IChatCapabilitiesManagerStatics, IChatCapabilitiesManagerStatics_Vtbl, 0xb57a2f30_7041_458e_b0cf_7c0d9fea333a);
 #[repr(C)]
 pub struct IChatCapabilitiesManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCachedCapabilitiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCapabilitiesFromNetworkAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatCapabilitiesManagerStatics2, IChatCapabilitiesManagerStatics2_Vtbl, 0xe30d4274_d5c1_4ac9_9ffc_40e69184fec8);
+windows_core::imp::define_interface!(IChatCapabilitiesManagerStatics2, IChatCapabilitiesManagerStatics2_Vtbl, 0xe30d4274_d5c1_4ac9_9ffc_40e69184fec8);
 #[repr(C)]
 pub struct IChatCapabilitiesManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCachedCapabilitiesForTransportAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCapabilitiesFromNetworkForTransportAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatConversation, IChatConversation_Vtbl, 0xa58c080d_1a6f_46dc_8f3d_f5028660b6ee);
+windows_core::imp::define_interface!(IChatConversation, IChatConversation_Vtbl, 0xa58c080d_1a6f_46dc_8f3d_f5028660b6ee);
 #[repr(C)]
 pub struct IChatConversation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -48,14 +48,14 @@ pub struct IChatConversation_Vtbl {
     pub RemoteParticipantComposingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveRemoteParticipantComposingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatConversation2, IChatConversation2_Vtbl, 0x0a030cd1_983a_47aa_9a90_ee48ee997b59);
+windows_core::imp::define_interface!(IChatConversation2, IChatConversation2_Vtbl, 0x0a030cd1_983a_47aa_9a90_ee48ee997b59);
 #[repr(C)]
 pub struct IChatConversation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CanModifyParticipants: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetCanModifyParticipants: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatConversationReader, IChatConversationReader_Vtbl, 0x055136d2_de32_4a47_a93a_b3dc0833852b);
+windows_core::imp::define_interface!(IChatConversationReader, IChatConversationReader_Vtbl, 0x055136d2_de32_4a47_a93a_b3dc0833852b);
 #[repr(C)]
 pub struct IChatConversationReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -68,7 +68,7 @@ pub struct IChatConversationReader_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ReadBatchWithCountAsync: usize,
 }
-windows_core::imp::com_interface!(IChatConversationThreadingInfo, IChatConversationThreadingInfo_Vtbl, 0x331c21dc_7a07_4422_a32c_24be7c6dab24);
+windows_core::imp::define_interface!(IChatConversationThreadingInfo, IChatConversationThreadingInfo_Vtbl, 0x331c21dc_7a07_4422_a32c_24be7c6dab24);
 #[repr(C)]
 pub struct IChatConversationThreadingInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -85,7 +85,7 @@ pub struct IChatConversationThreadingInfo_Vtbl {
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatConversationThreadingKind) -> windows_core::HRESULT,
     pub SetKind: unsafe extern "system" fn(*mut core::ffi::c_void, ChatConversationThreadingKind) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatItem, IChatItem_Vtbl, 0x8751d000_ceb1_4243_b803_15d45a1dd428);
+windows_core::imp::define_interface!(IChatItem, IChatItem_Vtbl, 0x8751d000_ceb1_4243_b803_15d45a1dd428);
 windows_core::imp::interface_hierarchy!(IChatItem, windows_core::IUnknown, windows_core::IInspectable);
 impl IChatItem {
     pub fn ItemKind(&self) -> windows_core::Result<ChatItemKind> {
@@ -104,7 +104,7 @@ pub struct IChatItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ItemKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatItemKind) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessage, IChatMessage_Vtbl, 0x4b39052a_1142_5089_76da_f2db3d17cd05);
+windows_core::imp::define_interface!(IChatMessage, IChatMessage_Vtbl, 0x4b39052a_1142_5089_76da_f2db3d17cd05);
 #[repr(C)]
 pub struct IChatMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -135,7 +135,7 @@ pub struct IChatMessage_Vtbl {
     pub TransportId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetTransportId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessage2, IChatMessage2_Vtbl, 0x86668332_543f_49f5_ac71_6c2afc6565fd);
+windows_core::imp::define_interface!(IChatMessage2, IChatMessage2_Vtbl, 0x86668332_543f_49f5_ac71_6c2afc6565fd);
 #[repr(C)]
 pub struct IChatMessage2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -171,20 +171,20 @@ pub struct IChatMessage2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     RecipientsDeliveryInfos: usize,
 }
-windows_core::imp::com_interface!(IChatMessage3, IChatMessage3_Vtbl, 0x74eb2fb0_3ba7_459f_8e0b_e8af0febd9ad);
+windows_core::imp::define_interface!(IChatMessage3, IChatMessage3_Vtbl, 0x74eb2fb0_3ba7_459f_8e0b_e8af0febd9ad);
 #[repr(C)]
 pub struct IChatMessage3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemoteId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessage4, IChatMessage4_Vtbl, 0x2d144b0f_d2bf_460c_aa68_6d3f8483c9bf);
+windows_core::imp::define_interface!(IChatMessage4, IChatMessage4_Vtbl, 0x2d144b0f_d2bf_460c_aa68_6d3f8483c9bf);
 #[repr(C)]
 pub struct IChatMessage4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SyncId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetSyncId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageAttachment, IChatMessageAttachment_Vtbl, 0xc7c4fd74_bf63_58eb_508c_8b863ff16b67);
+windows_core::imp::define_interface!(IChatMessageAttachment, IChatMessageAttachment_Vtbl, 0xc7c4fd74_bf63_58eb_508c_8b863ff16b67);
 #[repr(C)]
 pub struct IChatMessageAttachment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -203,7 +203,7 @@ pub struct IChatMessageAttachment_Vtbl {
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageAttachment2, IChatMessageAttachment2_Vtbl, 0x5ed99270_7dd1_4a87_a8ce_acdd87d80dc8);
+windows_core::imp::define_interface!(IChatMessageAttachment2, IChatMessageAttachment2_Vtbl, 0x5ed99270_7dd1_4a87_a8ce_acdd87d80dc8);
 #[repr(C)]
 pub struct IChatMessageAttachment2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -220,7 +220,7 @@ pub struct IChatMessageAttachment2_Vtbl {
     pub OriginalFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetOriginalFileName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageAttachmentFactory, IChatMessageAttachmentFactory_Vtbl, 0x205852a2_a356_5b71_6ca9_66c985b7d0d5);
+windows_core::imp::define_interface!(IChatMessageAttachmentFactory, IChatMessageAttachmentFactory_Vtbl, 0x205852a2_a356_5b71_6ca9_66c985b7d0d5);
 #[repr(C)]
 pub struct IChatMessageAttachmentFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -229,20 +229,20 @@ pub struct IChatMessageAttachmentFactory_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateChatMessageAttachment: usize,
 }
-windows_core::imp::com_interface!(IChatMessageBlockingStatic, IChatMessageBlockingStatic_Vtbl, 0xf6b9a380_cdea_11e4_8830_0800200c9a66);
+windows_core::imp::define_interface!(IChatMessageBlockingStatic, IChatMessageBlockingStatic_Vtbl, 0xf6b9a380_cdea_11e4_8830_0800200c9a66);
 #[repr(C)]
 pub struct IChatMessageBlockingStatic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MarkMessageAsBlockedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageChange, IChatMessageChange_Vtbl, 0x1c18c355_421e_54b8_6d38_6b3a6c82fccc);
+windows_core::imp::define_interface!(IChatMessageChange, IChatMessageChange_Vtbl, 0x1c18c355_421e_54b8_6d38_6b3a6c82fccc);
 #[repr(C)]
 pub struct IChatMessageChange_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChangeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatMessageChangeType) -> windows_core::HRESULT,
     pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageChangeReader, IChatMessageChangeReader_Vtbl, 0x14267020_28ce_5f26_7b05_9a5c7cce87ca);
+windows_core::imp::define_interface!(IChatMessageChangeReader, IChatMessageChangeReader_Vtbl, 0x14267020_28ce_5f26_7b05_9a5c7cce87ca);
 #[repr(C)]
 pub struct IChatMessageChangeReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -253,7 +253,7 @@ pub struct IChatMessageChangeReader_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ReadBatchAsync: usize,
 }
-windows_core::imp::com_interface!(IChatMessageChangeTracker, IChatMessageChangeTracker_Vtbl, 0x60b7f066_70a0_5224_508c_242ef7c1d06f);
+windows_core::imp::define_interface!(IChatMessageChangeTracker, IChatMessageChangeTracker_Vtbl, 0x60b7f066_70a0_5224_508c_242ef7c1d06f);
 #[repr(C)]
 pub struct IChatMessageChangeTracker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -261,26 +261,26 @@ pub struct IChatMessageChangeTracker_Vtbl {
     pub GetChangeReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageChangedDeferral, IChatMessageChangedDeferral_Vtbl, 0xfbc6b30c_788c_4dcc_ace7_6282382968cf);
+windows_core::imp::define_interface!(IChatMessageChangedDeferral, IChatMessageChangedDeferral_Vtbl, 0xfbc6b30c_788c_4dcc_ace7_6282382968cf);
 #[repr(C)]
 pub struct IChatMessageChangedDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageChangedEventArgs, IChatMessageChangedEventArgs_Vtbl, 0xb6b73e2d_691c_4edf_8660_6eb9896892e3);
+windows_core::imp::define_interface!(IChatMessageChangedEventArgs, IChatMessageChangedEventArgs_Vtbl, 0xb6b73e2d_691c_4edf_8660_6eb9896892e3);
 #[repr(C)]
 pub struct IChatMessageChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageManager2Statics, IChatMessageManager2Statics_Vtbl, 0x1d45390f_9f4f_4e35_964e_1b9ca61ac044);
+windows_core::imp::define_interface!(IChatMessageManager2Statics, IChatMessageManager2Statics_Vtbl, 0x1d45390f_9f4f_4e35_964e_1b9ca61ac044);
 #[repr(C)]
 pub struct IChatMessageManager2Statics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RegisterTransportAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetTransportAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageManagerStatic, IChatMessageManagerStatic_Vtbl, 0xf15c60f7_d5e8_5e92_556d_e03b60253104);
+windows_core::imp::define_interface!(IChatMessageManagerStatic, IChatMessageManagerStatic_Vtbl, 0xf15c60f7_d5e8_5e92_556d_e03b60253104);
 #[repr(C)]
 pub struct IChatMessageManagerStatic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -292,19 +292,19 @@ pub struct IChatMessageManagerStatic_Vtbl {
     pub ShowComposeSmsMessageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShowSmsSettings: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageManagerStatics3, IChatMessageManagerStatics3_Vtbl, 0x208b830d_6755_48cc_9ab3_fd03c463fc92);
+windows_core::imp::define_interface!(IChatMessageManagerStatics3, IChatMessageManagerStatics3_Vtbl, 0x208b830d_6755_48cc_9ab3_fd03c463fc92);
 #[repr(C)]
 pub struct IChatMessageManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestSyncManagerAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageNotificationTriggerDetails, IChatMessageNotificationTriggerDetails_Vtbl, 0xfd344dfb_3063_4e17_8586_c6c08262e6c0);
+windows_core::imp::define_interface!(IChatMessageNotificationTriggerDetails, IChatMessageNotificationTriggerDetails_Vtbl, 0xfd344dfb_3063_4e17_8586_c6c08262e6c0);
 #[repr(C)]
 pub struct IChatMessageNotificationTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChatMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageNotificationTriggerDetails2, IChatMessageNotificationTriggerDetails2_Vtbl, 0x6bb522e0_aa07_4fd1_9471_77934fb75ee6);
+windows_core::imp::define_interface!(IChatMessageNotificationTriggerDetails2, IChatMessageNotificationTriggerDetails2_Vtbl, 0x6bb522e0_aa07_4fd1_9471_77934fb75ee6);
 #[repr(C)]
 pub struct IChatMessageNotificationTriggerDetails2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -313,7 +313,7 @@ pub struct IChatMessageNotificationTriggerDetails2_Vtbl {
     pub ShouldUpdateBadge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ShouldUpdateActionCenter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageReader, IChatMessageReader_Vtbl, 0xb6ea78ce_4489_56f9_76aa_e204682514cf);
+windows_core::imp::define_interface!(IChatMessageReader, IChatMessageReader_Vtbl, 0xb6ea78ce_4489_56f9_76aa_e204682514cf);
 #[repr(C)]
 pub struct IChatMessageReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -322,7 +322,7 @@ pub struct IChatMessageReader_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ReadBatchAsync: usize,
 }
-windows_core::imp::com_interface!(IChatMessageReader2, IChatMessageReader2_Vtbl, 0x89643683_64bb_470d_9df4_0de8be1a05bf);
+windows_core::imp::define_interface!(IChatMessageReader2, IChatMessageReader2_Vtbl, 0x89643683_64bb_470d_9df4_0de8be1a05bf);
 #[repr(C)]
 pub struct IChatMessageReader2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -331,7 +331,7 @@ pub struct IChatMessageReader2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ReadBatchWithCountAsync: usize,
 }
-windows_core::imp::com_interface!(IChatMessageStore, IChatMessageStore_Vtbl, 0x31f2fd01_ccf6_580b_4976_0a07dd5d3b47);
+windows_core::imp::define_interface!(IChatMessageStore, IChatMessageStore_Vtbl, 0x31f2fd01_ccf6_580b_4976_0a07dd5d3b47);
 #[repr(C)]
 pub struct IChatMessageStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -348,7 +348,7 @@ pub struct IChatMessageStore_Vtbl {
     pub MessageChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveMessageChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageStore2, IChatMessageStore2_Vtbl, 0xad4dc4ee_3ad4_491b_b311_abdf9bb22768);
+windows_core::imp::define_interface!(IChatMessageStore2, IChatMessageStore2_Vtbl, 0xad4dc4ee_3ad4_491b_b311_abdf9bb22768);
 #[repr(C)]
 pub struct IChatMessageStore2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -385,20 +385,20 @@ pub struct IChatMessageStore2_Vtbl {
     pub StoreChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveStoreChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageStore3, IChatMessageStore3_Vtbl, 0x9adbbb09_4345_4ec1_8b74_b7338243719c);
+windows_core::imp::define_interface!(IChatMessageStore3, IChatMessageStore3_Vtbl, 0x9adbbb09_4345_4ec1_8b74_b7338243719c);
 #[repr(C)]
 pub struct IChatMessageStore3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetMessageBySyncIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageStoreChangedEventArgs, IChatMessageStoreChangedEventArgs_Vtbl, 0x65c66fac_fe8c_46d4_9119_57b8410311d5);
+windows_core::imp::define_interface!(IChatMessageStoreChangedEventArgs, IChatMessageStoreChangedEventArgs_Vtbl, 0x65c66fac_fe8c_46d4_9119_57b8410311d5);
 #[repr(C)]
 pub struct IChatMessageStoreChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatStoreChangedEventKind) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageTransport, IChatMessageTransport_Vtbl, 0x63a9dbf8_e6b3_5c9a_5f85_d47925b9bd18);
+windows_core::imp::define_interface!(IChatMessageTransport, IChatMessageTransport_Vtbl, 0x63a9dbf8_e6b3_5c9a_5f85_d47925b9bd18);
 #[repr(C)]
 pub struct IChatMessageTransport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -408,14 +408,14 @@ pub struct IChatMessageTransport_Vtbl {
     pub TransportId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub RequestSetAsNotificationProviderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageTransport2, IChatMessageTransport2_Vtbl, 0x90a75622_d84a_4c22_a94d_544444edc8a1);
+windows_core::imp::define_interface!(IChatMessageTransport2, IChatMessageTransport2_Vtbl, 0x90a75622_d84a_4c22_a94d_544444edc8a1);
 #[repr(C)]
 pub struct IChatMessageTransport2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Configuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TransportKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatMessageTransportKind) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatMessageTransportConfiguration, IChatMessageTransportConfiguration_Vtbl, 0x879ff725_1a08_4aca_a075_3355126312e6);
+windows_core::imp::define_interface!(IChatMessageTransportConfiguration, IChatMessageTransportConfiguration_Vtbl, 0x879ff725_1a08_4aca_a075_3355126312e6);
 #[repr(C)]
 pub struct IChatMessageTransportConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -431,7 +431,7 @@ pub struct IChatMessageTransportConfiguration_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ExtendedProperties: usize,
 }
-windows_core::imp::com_interface!(IChatMessageValidationResult, IChatMessageValidationResult_Vtbl, 0x25e93a03_28ec_5889_569b_7e486b126f18);
+windows_core::imp::define_interface!(IChatMessageValidationResult, IChatMessageValidationResult_Vtbl, 0x25e93a03_28ec_5889_569b_7e486b126f18);
 #[repr(C)]
 pub struct IChatMessageValidationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -440,14 +440,14 @@ pub struct IChatMessageValidationResult_Vtbl {
     pub RemainingCharacterCountInPart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatMessageValidationStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatQueryOptions, IChatQueryOptions_Vtbl, 0x2fd364a6_bf36_42f7_b7e7_923c0aabfe16);
+windows_core::imp::define_interface!(IChatQueryOptions, IChatQueryOptions_Vtbl, 0x2fd364a6_bf36_42f7_b7e7_923c0aabfe16);
 #[repr(C)]
 pub struct IChatQueryOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SearchString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetSearchString: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatRecipientDeliveryInfo, IChatRecipientDeliveryInfo_Vtbl, 0xffc7b2a2_283c_4c0a_8a0e_8c33bdbf0545);
+windows_core::imp::define_interface!(IChatRecipientDeliveryInfo, IChatRecipientDeliveryInfo_Vtbl, 0xffc7b2a2_283c_4c0a_8a0e_8c33bdbf0545);
 #[repr(C)]
 pub struct IChatRecipientDeliveryInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -463,7 +463,7 @@ pub struct IChatRecipientDeliveryInfo_Vtbl {
     pub IsErrorPermanent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatMessageStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatSearchReader, IChatSearchReader_Vtbl, 0x4665fe49_9020_4752_980d_39612325f589);
+windows_core::imp::define_interface!(IChatSearchReader, IChatSearchReader_Vtbl, 0x4665fe49_9020_4752_980d_39612325f589);
 #[repr(C)]
 pub struct IChatSearchReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -476,7 +476,7 @@ pub struct IChatSearchReader_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ReadBatchWithCountAsync: usize,
 }
-windows_core::imp::com_interface!(IChatSyncConfiguration, IChatSyncConfiguration_Vtbl, 0x09f869b2_69f4_4aff_82b6_06992ff402d2);
+windows_core::imp::define_interface!(IChatSyncConfiguration, IChatSyncConfiguration_Vtbl, 0x09f869b2_69f4_4aff_82b6_06992ff402d2);
 #[repr(C)]
 pub struct IChatSyncConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -485,7 +485,7 @@ pub struct IChatSyncConfiguration_Vtbl {
     pub RestoreHistorySpan: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatRestoreHistorySpan) -> windows_core::HRESULT,
     pub SetRestoreHistorySpan: unsafe extern "system" fn(*mut core::ffi::c_void, ChatRestoreHistorySpan) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IChatSyncManager, IChatSyncManager_Vtbl, 0x7ba52c63_2650_486f_b4b4_6bd9d3d63c84);
+windows_core::imp::define_interface!(IChatSyncManager, IChatSyncManager_Vtbl, 0x7ba52c63_2650_486f_b4b4_6bd9d3d63c84);
 #[repr(C)]
 pub struct IChatSyncManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -502,7 +502,7 @@ pub struct IChatSyncManager_Vtbl {
     pub StartSync: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetConfigurationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IRcsEndUserMessage, IRcsEndUserMessage_Vtbl, 0xd7cda5eb_cbd7_4f3b_8526_b506dec35c53);
+windows_core::imp::define_interface!(IRcsEndUserMessage, IRcsEndUserMessage_Vtbl, 0xd7cda5eb_cbd7_4f3b_8526_b506dec35c53);
 #[repr(C)]
 pub struct IRcsEndUserMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -517,34 +517,34 @@ pub struct IRcsEndUserMessage_Vtbl {
     pub SendResponseAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SendResponseWithPinAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IRcsEndUserMessageAction, IRcsEndUserMessageAction_Vtbl, 0x92378737_9b42_46d3_9d5e_3c1b2dae7cb8);
+windows_core::imp::define_interface!(IRcsEndUserMessageAction, IRcsEndUserMessageAction_Vtbl, 0x92378737_9b42_46d3_9d5e_3c1b2dae7cb8);
 #[repr(C)]
 pub struct IRcsEndUserMessageAction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IRcsEndUserMessageAvailableEventArgs, IRcsEndUserMessageAvailableEventArgs_Vtbl, 0x2d45ae01_3f89_41ea_9702_9e9ed411aa98);
+windows_core::imp::define_interface!(IRcsEndUserMessageAvailableEventArgs, IRcsEndUserMessageAvailableEventArgs_Vtbl, 0x2d45ae01_3f89_41ea_9702_9e9ed411aa98);
 #[repr(C)]
 pub struct IRcsEndUserMessageAvailableEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsMessageAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IRcsEndUserMessageAvailableTriggerDetails, IRcsEndUserMessageAvailableTriggerDetails_Vtbl, 0x5b97742d_351f_4692_b41e_1b035dc18986);
+windows_core::imp::define_interface!(IRcsEndUserMessageAvailableTriggerDetails, IRcsEndUserMessageAvailableTriggerDetails_Vtbl, 0x5b97742d_351f_4692_b41e_1b035dc18986);
 #[repr(C)]
 pub struct IRcsEndUserMessageAvailableTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IRcsEndUserMessageManager, IRcsEndUserMessageManager_Vtbl, 0x3054ae5a_4d1f_4b59_9433_126c734e86a6);
+windows_core::imp::define_interface!(IRcsEndUserMessageManager, IRcsEndUserMessageManager_Vtbl, 0x3054ae5a_4d1f_4b59_9433_126c734e86a6);
 #[repr(C)]
 pub struct IRcsEndUserMessageManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MessageAvailableChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveMessageAvailableChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IRcsManagerStatics, IRcsManagerStatics_Vtbl, 0x7d270ac5_0abd_4f31_9b99_a59e71a7b731);
+windows_core::imp::define_interface!(IRcsManagerStatics, IRcsManagerStatics_Vtbl, 0x7d270ac5_0abd_4f31_9b99_a59e71a7b731);
 #[repr(C)]
 pub struct IRcsManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -556,20 +556,20 @@ pub struct IRcsManagerStatics_Vtbl {
     pub GetTransportAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LeaveConversationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IRcsManagerStatics2, IRcsManagerStatics2_Vtbl, 0xcd49ad18_ad8a_42aa_8eeb_a798a8808959);
+windows_core::imp::define_interface!(IRcsManagerStatics2, IRcsManagerStatics2_Vtbl, 0xcd49ad18_ad8a_42aa_8eeb_a798a8808959);
 #[repr(C)]
 pub struct IRcsManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TransportListChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveTransportListChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IRcsServiceKindSupportedChangedEventArgs, IRcsServiceKindSupportedChangedEventArgs_Vtbl, 0xf47ea244_e783_4866_b3a7_4e5ccf023070);
+windows_core::imp::define_interface!(IRcsServiceKindSupportedChangedEventArgs, IRcsServiceKindSupportedChangedEventArgs_Vtbl, 0xf47ea244_e783_4866_b3a7_4e5ccf023070);
 #[repr(C)]
 pub struct IRcsServiceKindSupportedChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServiceKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RcsServiceKind) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IRcsTransport, IRcsTransport_Vtbl, 0xfea34759_f37c_4319_8546_ec84d21d30ff);
+windows_core::imp::define_interface!(IRcsTransport, IRcsTransport_Vtbl, 0xfea34759_f37c_4319_8546_ec84d21d30ff);
 #[repr(C)]
 pub struct IRcsTransport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -586,7 +586,7 @@ pub struct IRcsTransport_Vtbl {
     pub ServiceKindSupportedChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveServiceKindSupportedChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IRcsTransportConfiguration, IRcsTransportConfiguration_Vtbl, 0x1fccb102_2472_4bb9_9988_c1211c83e8a9);
+windows_core::imp::define_interface!(IRcsTransportConfiguration, IRcsTransportConfiguration_Vtbl, 0x1fccb102_2472_4bb9_9988_c1211c83e8a9);
 #[repr(C)]
 pub struct IRcsTransportConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -597,7 +597,7 @@ pub struct IRcsTransportConfiguration_Vtbl {
     pub MaxFileSizeInKilobytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub WarningFileSizeInKilobytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IRemoteParticipantComposingChangedEventArgs, IRemoteParticipantComposingChangedEventArgs_Vtbl, 0x1ec045a7_cfc9_45c9_9876_449f2bc180f5);
+windows_core::imp::define_interface!(IRemoteParticipantComposingChangedEventArgs, IRemoteParticipantComposingChangedEventArgs_Vtbl, 0x1ec045a7_cfc9_45c9_9876_449f2bc180f5);
 #[repr(C)]
 pub struct IRemoteParticipantComposingChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

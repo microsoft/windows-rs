@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(ISpatialGraphInteropFrameOfReferencePreview, ISpatialGraphInteropFrameOfReferencePreview_Vtbl, 0xa8271b23_735f_5729_a98e_e64ed189abc5);
+windows_core::imp::define_interface!(ISpatialGraphInteropFrameOfReferencePreview, ISpatialGraphInteropFrameOfReferencePreview_Vtbl, 0xa8271b23_735f_5729_a98e_e64ed189abc5);
 #[repr(C)]
 pub struct ISpatialGraphInteropFrameOfReferencePreview_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9,7 +9,7 @@ pub struct ISpatialGraphInteropFrameOfReferencePreview_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     CoordinateSystemToNodeTransform: usize,
 }
-windows_core::imp::com_interface!(ISpatialGraphInteropPreviewStatics, ISpatialGraphInteropPreviewStatics_Vtbl, 0xc042644c_20d8_4ed0_aef7_6805b8e53f55);
+windows_core::imp::define_interface!(ISpatialGraphInteropPreviewStatics, ISpatialGraphInteropPreviewStatics_Vtbl, 0xc042644c_20d8_4ed0_aef7_6805b8e53f55);
 #[repr(C)]
 pub struct ISpatialGraphInteropPreviewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -24,7 +24,7 @@ pub struct ISpatialGraphInteropPreviewStatics_Vtbl {
     CreateCoordinateSystemForNodeWithPositionAndOrientation: usize,
     pub CreateLocatorForNode: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISpatialGraphInteropPreviewStatics2, ISpatialGraphInteropPreviewStatics2_Vtbl, 0x2490b15f_6cbd_4b1e_b765_31e462a32df2);
+windows_core::imp::define_interface!(ISpatialGraphInteropPreviewStatics2, ISpatialGraphInteropPreviewStatics2_Vtbl, 0x2490b15f_6cbd_4b1e_b765_31e462a32df2);
 #[repr(C)]
 pub struct ISpatialGraphInteropPreviewStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

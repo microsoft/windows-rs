@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IRadialControllerIndependentInputSource, IRadialControllerIndependentInputSource_Vtbl, 0x3d577ef6_4cee_11e6_b535_001bdc06ab3b);
+windows_core::imp::define_interface!(IRadialControllerIndependentInputSource, IRadialControllerIndependentInputSource_Vtbl, 0x3d577ef6_4cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
 pub struct IRadialControllerIndependentInputSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,7 +8,7 @@ pub struct IRadialControllerIndependentInputSource_Vtbl {
     #[cfg(not(feature = "UI_Core"))]
     Dispatcher: usize,
 }
-windows_core::imp::com_interface!(IRadialControllerIndependentInputSource2, IRadialControllerIndependentInputSource2_Vtbl, 0x7073aad8_35f3_4eeb_8751_be4d0a66faf4);
+windows_core::imp::define_interface!(IRadialControllerIndependentInputSource2, IRadialControllerIndependentInputSource2_Vtbl, 0x7073aad8_35f3_4eeb_8751_be4d0a66faf4);
 #[repr(C)]
 pub struct IRadialControllerIndependentInputSource2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -17,7 +17,7 @@ pub struct IRadialControllerIndependentInputSource2_Vtbl {
     #[cfg(not(feature = "System"))]
     DispatcherQueue: usize,
 }
-windows_core::imp::com_interface!(IRadialControllerIndependentInputSourceStatics, IRadialControllerIndependentInputSourceStatics_Vtbl, 0x3d577ef5_4cee_11e6_b535_001bdc06ab3b);
+windows_core::imp::define_interface!(IRadialControllerIndependentInputSourceStatics, IRadialControllerIndependentInputSourceStatics_Vtbl, 0x3d577ef5_4cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
 pub struct IRadialControllerIndependentInputSourceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

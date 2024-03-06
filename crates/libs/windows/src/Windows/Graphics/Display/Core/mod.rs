@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IHdmiDisplayInformation, IHdmiDisplayInformation_Vtbl, 0x130b3c0a_f565_476e_abd5_ea05aee74c69);
+windows_core::imp::define_interface!(IHdmiDisplayInformation, IHdmiDisplayInformation_Vtbl, 0x130b3c0a_f565_476e_abd5_ea05aee74c69);
 #[repr(C)]
 pub struct IHdmiDisplayInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14,13 +14,13 @@ pub struct IHdmiDisplayInformation_Vtbl {
     pub DisplayModesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveDisplayModesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IHdmiDisplayInformationStatics, IHdmiDisplayInformationStatics_Vtbl, 0x6ce6b260_f42a_4a15_914c_7b8e2a5a65df);
+windows_core::imp::define_interface!(IHdmiDisplayInformationStatics, IHdmiDisplayInformationStatics_Vtbl, 0x6ce6b260_f42a_4a15_914c_7b8e2a5a65df);
 #[repr(C)]
 pub struct IHdmiDisplayInformationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IHdmiDisplayMode, IHdmiDisplayMode_Vtbl, 0x0c06d5ad_1b90_4f51_9981_ef5a1c0ddf66);
+windows_core::imp::define_interface!(IHdmiDisplayMode, IHdmiDisplayMode_Vtbl, 0x0c06d5ad_1b90_4f51_9981_ef5a1c0ddf66);
 #[repr(C)]
 pub struct IHdmiDisplayMode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -36,7 +36,7 @@ pub struct IHdmiDisplayMode_Vtbl {
     pub IsSmpte2084Supported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Is2086MetadataSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IHdmiDisplayMode2, IHdmiDisplayMode2_Vtbl, 0x07cd4e9f_4b3c_42b8_84e7_895368718af2);
+windows_core::imp::define_interface!(IHdmiDisplayMode2, IHdmiDisplayMode2_Vtbl, 0x07cd4e9f_4b3c_42b8_84e7_895368718af2);
 #[repr(C)]
 pub struct IHdmiDisplayMode2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

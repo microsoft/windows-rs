@@ -2,7 +2,7 @@
 pub mod Management;
 #[cfg(feature = "UI_Notifications_Preview")]
 pub mod Preview;
-windows_core::imp::com_interface!(IAdaptiveNotificationContent, IAdaptiveNotificationContent_Vtbl, 0xeb0dbe66_7448_448d_9db8_d78acd2abba9);
+windows_core::imp::define_interface!(IAdaptiveNotificationContent, IAdaptiveNotificationContent_Vtbl, 0xeb0dbe66_7448_448d_9db8_d78acd2abba9);
 windows_core::imp::interface_hierarchy!(IAdaptiveNotificationContent, windows_core::IUnknown, windows_core::IInspectable);
 impl IAdaptiveNotificationContent {
     pub fn Kind(&self) -> windows_core::Result<AdaptiveNotificationContentKind> {
@@ -33,7 +33,7 @@ pub struct IAdaptiveNotificationContent_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Hints: usize,
 }
-windows_core::imp::com_interface!(IAdaptiveNotificationText, IAdaptiveNotificationText_Vtbl, 0x46d4a3be_609a_4326_a40b_bfde872034a3);
+windows_core::imp::define_interface!(IAdaptiveNotificationText, IAdaptiveNotificationText_Vtbl, 0x46d4a3be_609a_4326_a40b_bfde872034a3);
 #[repr(C)]
 pub struct IAdaptiveNotificationText_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -42,7 +42,7 @@ pub struct IAdaptiveNotificationText_Vtbl {
     pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBadgeNotification, IBadgeNotification_Vtbl, 0x075cb4ca_d08a_4e2f_9233_7e289c1f7722);
+windows_core::imp::define_interface!(IBadgeNotification, IBadgeNotification_Vtbl, 0x075cb4ca_d08a_4e2f_9233_7e289c1f7722);
 #[repr(C)]
 pub struct IBadgeNotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -53,7 +53,7 @@ pub struct IBadgeNotification_Vtbl {
     pub SetExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IBadgeNotificationFactory, IBadgeNotificationFactory_Vtbl, 0xedf255ce_0618_4d59_948a_5a61040c52f9);
+windows_core::imp::define_interface!(IBadgeNotificationFactory, IBadgeNotificationFactory_Vtbl, 0xedf255ce_0618_4d59_948a_5a61040c52f9);
 #[repr(C)]
 pub struct IBadgeNotificationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -62,7 +62,7 @@ pub struct IBadgeNotificationFactory_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     CreateBadgeNotification: usize,
 }
-windows_core::imp::com_interface!(IBadgeUpdateManagerForUser, IBadgeUpdateManagerForUser_Vtbl, 0x996b21bc_0386_44e5_ba8d_0c1077a62e92);
+windows_core::imp::define_interface!(IBadgeUpdateManagerForUser, IBadgeUpdateManagerForUser_Vtbl, 0x996b21bc_0386_44e5_ba8d_0c1077a62e92);
 #[repr(C)]
 pub struct IBadgeUpdateManagerForUser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -74,7 +74,7 @@ pub struct IBadgeUpdateManagerForUser_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::com_interface!(IBadgeUpdateManagerStatics, IBadgeUpdateManagerStatics_Vtbl, 0x33400faa_6dd5_4105_aebc_9b50fca492da);
+windows_core::imp::define_interface!(IBadgeUpdateManagerStatics, IBadgeUpdateManagerStatics_Vtbl, 0x33400faa_6dd5_4105_aebc_9b50fca492da);
 #[repr(C)]
 pub struct IBadgeUpdateManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -86,7 +86,7 @@ pub struct IBadgeUpdateManagerStatics_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     GetTemplateContent: usize,
 }
-windows_core::imp::com_interface!(IBadgeUpdateManagerStatics2, IBadgeUpdateManagerStatics2_Vtbl, 0x979a35ce_f940_48bf_94e8_ca244d400b41);
+windows_core::imp::define_interface!(IBadgeUpdateManagerStatics2, IBadgeUpdateManagerStatics2_Vtbl, 0x979a35ce_f940_48bf_94e8_ca244d400b41);
 #[repr(C)]
 pub struct IBadgeUpdateManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -95,7 +95,7 @@ pub struct IBadgeUpdateManagerStatics2_Vtbl {
     #[cfg(not(feature = "System"))]
     GetForUser: usize,
 }
-windows_core::imp::com_interface!(IBadgeUpdater, IBadgeUpdater_Vtbl, 0xb5fa1fd4_7562_4f6c_bfa3_1b6ed2e57f2f);
+windows_core::imp::define_interface!(IBadgeUpdater, IBadgeUpdater_Vtbl, 0xb5fa1fd4_7562_4f6c_bfa3_1b6ed2e57f2f);
 #[repr(C)]
 pub struct IBadgeUpdater_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -105,7 +105,7 @@ pub struct IBadgeUpdater_Vtbl {
     pub StartPeriodicUpdateAtTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::DateTime, PeriodicUpdateRecurrence) -> windows_core::HRESULT,
     pub StopPeriodicUpdate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKnownAdaptiveNotificationHintsStatics, IKnownAdaptiveNotificationHintsStatics_Vtbl, 0x06206598_d496_497d_8692_4f7d7c2770df);
+windows_core::imp::define_interface!(IKnownAdaptiveNotificationHintsStatics, IKnownAdaptiveNotificationHintsStatics_Vtbl, 0x06206598_d496_497d_8692_4f7d7c2770df);
 #[repr(C)]
 pub struct IKnownAdaptiveNotificationHintsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -116,7 +116,7 @@ pub struct IKnownAdaptiveNotificationHintsStatics_Vtbl {
     pub TextStacking: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Align: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKnownAdaptiveNotificationTextStylesStatics, IKnownAdaptiveNotificationTextStylesStatics_Vtbl, 0x202192d7_8996_45aa_8ba1_d461d72c2a1b);
+windows_core::imp::define_interface!(IKnownAdaptiveNotificationTextStylesStatics, IKnownAdaptiveNotificationTextStylesStatics_Vtbl, 0x202192d7_8996_45aa_8ba1_d461d72c2a1b);
 #[repr(C)]
 pub struct IKnownAdaptiveNotificationTextStylesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -140,13 +140,13 @@ pub struct IKnownAdaptiveNotificationTextStylesStatics_Vtbl {
     pub HeaderSubtle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub HeaderNumeralSubtle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IKnownNotificationBindingsStatics, IKnownNotificationBindingsStatics_Vtbl, 0x79427bae_a8b7_4d58_89ea_76a7b7bccded);
+windows_core::imp::define_interface!(IKnownNotificationBindingsStatics, IKnownNotificationBindingsStatics_Vtbl, 0x79427bae_a8b7_4d58_89ea_76a7b7bccded);
 #[repr(C)]
 pub struct IKnownNotificationBindingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ToastGeneric: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(INotification, INotification_Vtbl, 0x108037fe_eb76_4f82_97bc_da07530a2e20);
+windows_core::imp::define_interface!(INotification, INotification_Vtbl, 0x108037fe_eb76_4f82_97bc_da07530a2e20);
 #[repr(C)]
 pub struct INotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -155,7 +155,7 @@ pub struct INotification_Vtbl {
     pub Visual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(INotificationBinding, INotificationBinding_Vtbl, 0xf29e4b85_0370_4ad3_b4ea_da9e35e7eabf);
+windows_core::imp::define_interface!(INotificationBinding, INotificationBinding_Vtbl, 0xf29e4b85_0370_4ad3_b4ea_da9e35e7eabf);
 #[repr(C)]
 pub struct INotificationBinding_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -172,7 +172,7 @@ pub struct INotificationBinding_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetTextElements: usize,
 }
-windows_core::imp::com_interface!(INotificationData, INotificationData_Vtbl, 0x9ffd2312_9d6a_4aaf_b6ac_ff17f0c1f280);
+windows_core::imp::define_interface!(INotificationData, INotificationData_Vtbl, 0x9ffd2312_9d6a_4aaf_b6ac_ff17f0c1f280);
 #[repr(C)]
 pub struct INotificationData_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -183,7 +183,7 @@ pub struct INotificationData_Vtbl {
     pub SequenceNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetSequenceNumber: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(INotificationDataFactory, INotificationDataFactory_Vtbl, 0x23c1e33a_1c10_46fb_8040_dec384621cf8);
+windows_core::imp::define_interface!(INotificationDataFactory, INotificationDataFactory_Vtbl, 0x23c1e33a_1c10_46fb_8040_dec384621cf8);
 #[repr(C)]
 pub struct INotificationDataFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -196,7 +196,7 @@ pub struct INotificationDataFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateNotificationDataWithValues: usize,
 }
-windows_core::imp::com_interface!(INotificationVisual, INotificationVisual_Vtbl, 0x68835b8e_aa56_4e11_86d3_5f9a6957bc5b);
+windows_core::imp::define_interface!(INotificationVisual, INotificationVisual_Vtbl, 0x68835b8e_aa56_4e11_86d3_5f9a6957bc5b);
 #[repr(C)]
 pub struct INotificationVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -208,7 +208,7 @@ pub struct INotificationVisual_Vtbl {
     Bindings: usize,
     pub GetBinding: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IScheduledTileNotification, IScheduledTileNotification_Vtbl, 0x0abca6d5_99dc_4c78_a11c_c9e7f86d7ef7);
+windows_core::imp::define_interface!(IScheduledTileNotification, IScheduledTileNotification_Vtbl, 0x0abca6d5_99dc_4c78_a11c_c9e7f86d7ef7);
 #[repr(C)]
 pub struct IScheduledTileNotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -224,7 +224,7 @@ pub struct IScheduledTileNotification_Vtbl {
     pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IScheduledTileNotificationFactory, IScheduledTileNotificationFactory_Vtbl, 0x3383138a_98c0_4c3b_bbd6_4a633c7cfc29);
+windows_core::imp::define_interface!(IScheduledTileNotificationFactory, IScheduledTileNotificationFactory_Vtbl, 0x3383138a_98c0_4c3b_bbd6_4a633c7cfc29);
 #[repr(C)]
 pub struct IScheduledTileNotificationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -233,7 +233,7 @@ pub struct IScheduledTileNotificationFactory_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     CreateScheduledTileNotification: usize,
 }
-windows_core::imp::com_interface!(IScheduledToastNotification, IScheduledToastNotification_Vtbl, 0x79f577f8_0de7_48cd_9740_9b370490c838);
+windows_core::imp::define_interface!(IScheduledToastNotification, IScheduledToastNotification_Vtbl, 0x79f577f8_0de7_48cd_9740_9b370490c838);
 #[repr(C)]
 pub struct IScheduledToastNotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -247,7 +247,7 @@ pub struct IScheduledToastNotification_Vtbl {
     pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IScheduledToastNotification2, IScheduledToastNotification2_Vtbl, 0xa66ea09c_31b4_43b0_b5dd_7a40e85363b1);
+windows_core::imp::define_interface!(IScheduledToastNotification2, IScheduledToastNotification2_Vtbl, 0xa66ea09c_31b4_43b0_b5dd_7a40e85363b1);
 #[repr(C)]
 pub struct IScheduledToastNotification2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -258,7 +258,7 @@ pub struct IScheduledToastNotification2_Vtbl {
     pub SetSuppressPopup: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub SuppressPopup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IScheduledToastNotification3, IScheduledToastNotification3_Vtbl, 0x98429e8b_bd32_4a3b_9d15_22aea49462a1);
+windows_core::imp::define_interface!(IScheduledToastNotification3, IScheduledToastNotification3_Vtbl, 0x98429e8b_bd32_4a3b_9d15_22aea49462a1);
 #[repr(C)]
 pub struct IScheduledToastNotification3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -267,14 +267,14 @@ pub struct IScheduledToastNotification3_Vtbl {
     pub RemoteId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetRemoteId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IScheduledToastNotification4, IScheduledToastNotification4_Vtbl, 0x1d4761fd_bdef_4e4a_96be_0101369b58d2);
+windows_core::imp::define_interface!(IScheduledToastNotification4, IScheduledToastNotification4_Vtbl, 0x1d4761fd_bdef_4e4a_96be_0101369b58d2);
 #[repr(C)]
 pub struct IScheduledToastNotification4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IScheduledToastNotificationFactory, IScheduledToastNotificationFactory_Vtbl, 0xe7bed191_0bb9_4189_8394_31761b476fd7);
+windows_core::imp::define_interface!(IScheduledToastNotificationFactory, IScheduledToastNotificationFactory_Vtbl, 0xe7bed191_0bb9_4189_8394_31761b476fd7);
 #[repr(C)]
 pub struct IScheduledToastNotificationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -287,7 +287,7 @@ pub struct IScheduledToastNotificationFactory_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     CreateScheduledToastNotificationRecurring: usize,
 }
-windows_core::imp::com_interface!(IScheduledToastNotificationShowingEventArgs, IScheduledToastNotificationShowingEventArgs_Vtbl, 0x6173f6b4_412a_5e2c_a6ed_a0209aef9a09);
+windows_core::imp::define_interface!(IScheduledToastNotificationShowingEventArgs, IScheduledToastNotificationShowingEventArgs_Vtbl, 0x6173f6b4_412a_5e2c_a6ed_a0209aef9a09);
 #[repr(C)]
 pub struct IScheduledToastNotificationShowingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -296,13 +296,13 @@ pub struct IScheduledToastNotificationShowingEventArgs_Vtbl {
     pub ScheduledToastNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IShownTileNotification, IShownTileNotification_Vtbl, 0x342d8988_5af2_481a_a6a3_f2fdc78de88e);
+windows_core::imp::define_interface!(IShownTileNotification, IShownTileNotification_Vtbl, 0x342d8988_5af2_481a_a6a3_f2fdc78de88e);
 #[repr(C)]
 pub struct IShownTileNotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ITileFlyoutNotification, ITileFlyoutNotification_Vtbl, 0x9a53b261_c70c_42be_b2f3_f42aa97d34e5);
+windows_core::imp::define_interface!(ITileFlyoutNotification, ITileFlyoutNotification_Vtbl, 0x9a53b261_c70c_42be_b2f3_f42aa97d34e5);
 #[repr(C)]
 pub struct ITileFlyoutNotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -313,7 +313,7 @@ pub struct ITileFlyoutNotification_Vtbl {
     pub SetExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ITileFlyoutNotificationFactory, ITileFlyoutNotificationFactory_Vtbl, 0xef556ff5_5226_4f2b_b278_88a35dfe569f);
+windows_core::imp::define_interface!(ITileFlyoutNotificationFactory, ITileFlyoutNotificationFactory_Vtbl, 0xef556ff5_5226_4f2b_b278_88a35dfe569f);
 #[repr(C)]
 pub struct ITileFlyoutNotificationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -322,7 +322,7 @@ pub struct ITileFlyoutNotificationFactory_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     CreateTileFlyoutNotification: usize,
 }
-windows_core::imp::com_interface!(ITileFlyoutUpdateManagerStatics, ITileFlyoutUpdateManagerStatics_Vtbl, 0x04363b0b_1ac0_4b99_88e7_ada83e953d48);
+windows_core::imp::define_interface!(ITileFlyoutUpdateManagerStatics, ITileFlyoutUpdateManagerStatics_Vtbl, 0x04363b0b_1ac0_4b99_88e7_ada83e953d48);
 #[repr(C)]
 pub struct ITileFlyoutUpdateManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -334,7 +334,7 @@ pub struct ITileFlyoutUpdateManagerStatics_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     GetTemplateContent: usize,
 }
-windows_core::imp::com_interface!(ITileFlyoutUpdater, ITileFlyoutUpdater_Vtbl, 0x8d40c76a_c465_4052_a740_5c2654c1a089);
+windows_core::imp::define_interface!(ITileFlyoutUpdater, ITileFlyoutUpdater_Vtbl, 0x8d40c76a_c465_4052_a740_5c2654c1a089);
 #[repr(C)]
 pub struct ITileFlyoutUpdater_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -345,7 +345,7 @@ pub struct ITileFlyoutUpdater_Vtbl {
     pub StopPeriodicUpdate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Setting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NotificationSetting) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ITileNotification, ITileNotification_Vtbl, 0xebaec8fa_50ec_4c18_b4d0_3af02e5540ab);
+windows_core::imp::define_interface!(ITileNotification, ITileNotification_Vtbl, 0xebaec8fa_50ec_4c18_b4d0_3af02e5540ab);
 #[repr(C)]
 pub struct ITileNotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -358,7 +358,7 @@ pub struct ITileNotification_Vtbl {
     pub SetTag: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Tag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ITileNotificationFactory, ITileNotificationFactory_Vtbl, 0xc6abdd6e_4928_46c8_bdbf_81a047dea0d4);
+windows_core::imp::define_interface!(ITileNotificationFactory, ITileNotificationFactory_Vtbl, 0xc6abdd6e_4928_46c8_bdbf_81a047dea0d4);
 #[repr(C)]
 pub struct ITileNotificationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -367,7 +367,7 @@ pub struct ITileNotificationFactory_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     CreateTileNotification: usize,
 }
-windows_core::imp::com_interface!(ITileUpdateManagerForUser, ITileUpdateManagerForUser_Vtbl, 0x55141348_2ee2_4e2d_9cc1_216a20decc9f);
+windows_core::imp::define_interface!(ITileUpdateManagerForUser, ITileUpdateManagerForUser_Vtbl, 0x55141348_2ee2_4e2d_9cc1_216a20decc9f);
 #[repr(C)]
 pub struct ITileUpdateManagerForUser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -379,7 +379,7 @@ pub struct ITileUpdateManagerForUser_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::com_interface!(ITileUpdateManagerStatics, ITileUpdateManagerStatics_Vtbl, 0xda159e5d_3ea9_4986_8d84_b09d5e12276d);
+windows_core::imp::define_interface!(ITileUpdateManagerStatics, ITileUpdateManagerStatics_Vtbl, 0xda159e5d_3ea9_4986_8d84_b09d5e12276d);
 #[repr(C)]
 pub struct ITileUpdateManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -391,7 +391,7 @@ pub struct ITileUpdateManagerStatics_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     GetTemplateContent: usize,
 }
-windows_core::imp::com_interface!(ITileUpdateManagerStatics2, ITileUpdateManagerStatics2_Vtbl, 0x731c1ddc_8e14_4b7c_a34b_9d22de76c84d);
+windows_core::imp::define_interface!(ITileUpdateManagerStatics2, ITileUpdateManagerStatics2_Vtbl, 0x731c1ddc_8e14_4b7c_a34b_9d22de76c84d);
 #[repr(C)]
 pub struct ITileUpdateManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -400,7 +400,7 @@ pub struct ITileUpdateManagerStatics2_Vtbl {
     #[cfg(not(feature = "System"))]
     GetForUser: usize,
 }
-windows_core::imp::com_interface!(ITileUpdater, ITileUpdater_Vtbl, 0x0942a48b_1d91_44ec_9243_c1e821c29a20);
+windows_core::imp::define_interface!(ITileUpdater, ITileUpdater_Vtbl, 0x0942a48b_1d91_44ec_9243_c1e821c29a20);
 #[repr(C)]
 pub struct ITileUpdater_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -426,7 +426,7 @@ pub struct ITileUpdater_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     StartPeriodicUpdateBatchAtTime: usize,
 }
-windows_core::imp::com_interface!(ITileUpdater2, ITileUpdater2_Vtbl, 0xa2266e12_15ee_43ed_83f5_65b352bb1a84);
+windows_core::imp::define_interface!(ITileUpdater2, ITileUpdater2_Vtbl, 0xa2266e12_15ee_43ed_83f5_65b352bb1a84);
 #[repr(C)]
 pub struct ITileUpdater2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -434,13 +434,13 @@ pub struct ITileUpdater2_Vtbl {
     pub EnableNotificationQueueForWide310x150: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub EnableNotificationQueueForSquare310x310: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastActivatedEventArgs, IToastActivatedEventArgs_Vtbl, 0xe3bf92f3_c197_436f_8265_0625824f8dac);
+windows_core::imp::define_interface!(IToastActivatedEventArgs, IToastActivatedEventArgs_Vtbl, 0xe3bf92f3_c197_436f_8265_0625824f8dac);
 #[repr(C)]
 pub struct IToastActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastActivatedEventArgs2, IToastActivatedEventArgs2_Vtbl, 0xab7da512_cc61_568e_81be_304ac31038fa);
+windows_core::imp::define_interface!(IToastActivatedEventArgs2, IToastActivatedEventArgs2_Vtbl, 0xab7da512_cc61_568e_81be_304ac31038fa);
 #[repr(C)]
 pub struct IToastActivatedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -449,7 +449,7 @@ pub struct IToastActivatedEventArgs2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     UserInput: usize,
 }
-windows_core::imp::com_interface!(IToastCollection, IToastCollection_Vtbl, 0x0a8bc3b0_e0be_4858_bc2a_89dfe0b32863);
+windows_core::imp::define_interface!(IToastCollection, IToastCollection_Vtbl, 0x0a8bc3b0_e0be_4858_bc2a_89dfe0b32863);
 #[repr(C)]
 pub struct IToastCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -461,13 +461,13 @@ pub struct IToastCollection_Vtbl {
     pub Icon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastCollectionFactory, IToastCollectionFactory_Vtbl, 0x164dd3d7_73c4_44f7_b4ff_fb6d4bf1f4c6);
+windows_core::imp::define_interface!(IToastCollectionFactory, IToastCollectionFactory_Vtbl, 0x164dd3d7_73c4_44f7_b4ff_fb6d4bf1f4c6);
 #[repr(C)]
 pub struct IToastCollectionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastCollectionManager, IToastCollectionManager_Vtbl, 0x2a1821fe_179d_49bc_b79d_a527920d3665);
+windows_core::imp::define_interface!(IToastCollectionManager, IToastCollectionManager_Vtbl, 0x2a1821fe_179d_49bc_b79d_a527920d3665);
 #[repr(C)]
 pub struct IToastCollectionManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -485,19 +485,19 @@ pub struct IToastCollectionManager_Vtbl {
     User: usize,
     pub AppId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastDismissedEventArgs, IToastDismissedEventArgs_Vtbl, 0x3f89d935_d9cb_4538_a0f0_ffe7659938f8);
+windows_core::imp::define_interface!(IToastDismissedEventArgs, IToastDismissedEventArgs_Vtbl, 0x3f89d935_d9cb_4538_a0f0_ffe7659938f8);
 #[repr(C)]
 pub struct IToastDismissedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ToastDismissalReason) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastFailedEventArgs, IToastFailedEventArgs_Vtbl, 0x35176862_cfd4_44f8_ad64_f500fd896c3b);
+windows_core::imp::define_interface!(IToastFailedEventArgs, IToastFailedEventArgs_Vtbl, 0x35176862_cfd4_44f8_ad64_f500fd896c3b);
 #[repr(C)]
 pub struct IToastFailedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastNotification, IToastNotification_Vtbl, 0x997e2675_059e_4e60_8b06_1760917c8b80);
+windows_core::imp::define_interface!(IToastNotification, IToastNotification_Vtbl, 0x997e2675_059e_4e60_8b06_1760917c8b80);
 #[repr(C)]
 pub struct IToastNotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -514,7 +514,7 @@ pub struct IToastNotification_Vtbl {
     pub Failed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveFailed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastNotification2, IToastNotification2_Vtbl, 0x9dfb9fd1_143a_490e_90bf_b9fba7132de7);
+windows_core::imp::define_interface!(IToastNotification2, IToastNotification2_Vtbl, 0x9dfb9fd1_143a_490e_90bf_b9fba7132de7);
 #[repr(C)]
 pub struct IToastNotification2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -525,7 +525,7 @@ pub struct IToastNotification2_Vtbl {
     pub SetSuppressPopup: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub SuppressPopup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastNotification3, IToastNotification3_Vtbl, 0x31e8aed8_8141_4f99_bc0a_c4ed21297d77);
+windows_core::imp::define_interface!(IToastNotification3, IToastNotification3_Vtbl, 0x31e8aed8_8141_4f99_bc0a_c4ed21297d77);
 #[repr(C)]
 pub struct IToastNotification3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -534,7 +534,7 @@ pub struct IToastNotification3_Vtbl {
     pub RemoteId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetRemoteId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastNotification4, IToastNotification4_Vtbl, 0x15154935_28ea_4727_88e9_c58680e2d118);
+windows_core::imp::define_interface!(IToastNotification4, IToastNotification4_Vtbl, 0x15154935_28ea_4727_88e9_c58680e2d118);
 #[repr(C)]
 pub struct IToastNotification4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -543,14 +543,14 @@ pub struct IToastNotification4_Vtbl {
     pub Priority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ToastNotificationPriority) -> windows_core::HRESULT,
     pub SetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, ToastNotificationPriority) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastNotification6, IToastNotification6_Vtbl, 0x43ebfe53_89ae_5c1e_a279_3aecfe9b6f54);
+windows_core::imp::define_interface!(IToastNotification6, IToastNotification6_Vtbl, 0x43ebfe53_89ae_5c1e_a279_3aecfe9b6f54);
 #[repr(C)]
 pub struct IToastNotification6_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExpiresOnReboot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetExpiresOnReboot: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastNotificationActionTriggerDetail, IToastNotificationActionTriggerDetail_Vtbl, 0x9445135a_38f3_42f6_96aa_7955b0f03da2);
+windows_core::imp::define_interface!(IToastNotificationActionTriggerDetail, IToastNotificationActionTriggerDetail_Vtbl, 0x9445135a_38f3_42f6_96aa_7955b0f03da2);
 #[repr(C)]
 pub struct IToastNotificationActionTriggerDetail_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -560,7 +560,7 @@ pub struct IToastNotificationActionTriggerDetail_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     UserInput: usize,
 }
-windows_core::imp::com_interface!(IToastNotificationFactory, IToastNotificationFactory_Vtbl, 0x04124b20_82c6_4229_b109_fd9ed4662b53);
+windows_core::imp::define_interface!(IToastNotificationFactory, IToastNotificationFactory_Vtbl, 0x04124b20_82c6_4229_b109_fd9ed4662b53);
 #[repr(C)]
 pub struct IToastNotificationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -569,7 +569,7 @@ pub struct IToastNotificationFactory_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     CreateToastNotification: usize,
 }
-windows_core::imp::com_interface!(IToastNotificationHistory, IToastNotificationHistory_Vtbl, 0x5caddc63_01d3_4c97_986f_0533483fee14);
+windows_core::imp::define_interface!(IToastNotificationHistory, IToastNotificationHistory_Vtbl, 0x5caddc63_01d3_4c97_986f_0533483fee14);
 #[repr(C)]
 pub struct IToastNotificationHistory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -581,7 +581,7 @@ pub struct IToastNotificationHistory_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClearWithId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastNotificationHistory2, IToastNotificationHistory2_Vtbl, 0x3bc3d253_2f31_4092_9129_8ad5abf067da);
+windows_core::imp::define_interface!(IToastNotificationHistory2, IToastNotificationHistory2_Vtbl, 0x3bc3d253_2f31_4092_9129_8ad5abf067da);
 #[repr(C)]
 pub struct IToastNotificationHistory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -594,19 +594,19 @@ pub struct IToastNotificationHistory2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetHistoryWithId: usize,
 }
-windows_core::imp::com_interface!(IToastNotificationHistoryChangedTriggerDetail, IToastNotificationHistoryChangedTriggerDetail_Vtbl, 0xdb037ffa_0068_412c_9c83_267c37f65670);
+windows_core::imp::define_interface!(IToastNotificationHistoryChangedTriggerDetail, IToastNotificationHistoryChangedTriggerDetail_Vtbl, 0xdb037ffa_0068_412c_9c83_267c37f65670);
 #[repr(C)]
 pub struct IToastNotificationHistoryChangedTriggerDetail_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChangeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ToastHistoryChangedType) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastNotificationHistoryChangedTriggerDetail2, IToastNotificationHistoryChangedTriggerDetail2_Vtbl, 0x0b36e982_c871_49fb_babb_25bdbc4cc45b);
+windows_core::imp::define_interface!(IToastNotificationHistoryChangedTriggerDetail2, IToastNotificationHistoryChangedTriggerDetail2_Vtbl, 0x0b36e982_c871_49fb_babb_25bdbc4cc45b);
 #[repr(C)]
 pub struct IToastNotificationHistoryChangedTriggerDetail2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CollectionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastNotificationManagerForUser, IToastNotificationManagerForUser_Vtbl, 0x79ab57f6_43fe_487b_8a7f_99567200ae94);
+windows_core::imp::define_interface!(IToastNotificationManagerForUser, IToastNotificationManagerForUser_Vtbl, 0x79ab57f6_43fe_487b_8a7f_99567200ae94);
 #[repr(C)]
 pub struct IToastNotificationManagerForUser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -618,7 +618,7 @@ pub struct IToastNotificationManagerForUser_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::com_interface!(IToastNotificationManagerForUser2, IToastNotificationManagerForUser2_Vtbl, 0x679c64b7_81ab_42c2_8819_c958767753f4);
+windows_core::imp::define_interface!(IToastNotificationManagerForUser2, IToastNotificationManagerForUser2_Vtbl, 0x679c64b7_81ab_42c2_8819_c958767753f4);
 #[repr(C)]
 pub struct IToastNotificationManagerForUser2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -627,7 +627,7 @@ pub struct IToastNotificationManagerForUser2_Vtbl {
     pub GetToastCollectionManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetToastCollectionManagerWithAppId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastNotificationManagerForUser3, IToastNotificationManagerForUser3_Vtbl, 0x3efcb176_6cc1_56dc_973b_251f7aacb1c5);
+windows_core::imp::define_interface!(IToastNotificationManagerForUser3, IToastNotificationManagerForUser3_Vtbl, 0x3efcb176_6cc1_56dc_973b_251f7aacb1c5);
 #[repr(C)]
 pub struct IToastNotificationManagerForUser3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -635,7 +635,7 @@ pub struct IToastNotificationManagerForUser3_Vtbl {
     pub NotificationModeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveNotificationModeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastNotificationManagerStatics, IToastNotificationManagerStatics_Vtbl, 0x50ac103f_d235_4598_bbef_98fe4d1a3ad4);
+windows_core::imp::define_interface!(IToastNotificationManagerStatics, IToastNotificationManagerStatics_Vtbl, 0x50ac103f_d235_4598_bbef_98fe4d1a3ad4);
 #[repr(C)]
 pub struct IToastNotificationManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -646,13 +646,13 @@ pub struct IToastNotificationManagerStatics_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     GetTemplateContent: usize,
 }
-windows_core::imp::com_interface!(IToastNotificationManagerStatics2, IToastNotificationManagerStatics2_Vtbl, 0x7ab93c52_0e48_4750_ba9d_1a4113981847);
+windows_core::imp::define_interface!(IToastNotificationManagerStatics2, IToastNotificationManagerStatics2_Vtbl, 0x7ab93c52_0e48_4750_ba9d_1a4113981847);
 #[repr(C)]
 pub struct IToastNotificationManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub History: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastNotificationManagerStatics4, IToastNotificationManagerStatics4_Vtbl, 0x8f993fd3_e516_45fb_8130_398e93fa52c3);
+windows_core::imp::define_interface!(IToastNotificationManagerStatics4, IToastNotificationManagerStatics4_Vtbl, 0x8f993fd3_e516_45fb_8130_398e93fa52c3);
 #[repr(C)]
 pub struct IToastNotificationManagerStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -662,13 +662,13 @@ pub struct IToastNotificationManagerStatics4_Vtbl {
     GetForUser: usize,
     pub ConfigureNotificationMirroring: unsafe extern "system" fn(*mut core::ffi::c_void, NotificationMirroring) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastNotificationManagerStatics5, IToastNotificationManagerStatics5_Vtbl, 0xd6f5f569_d40d_407c_8989_88cab42cfd14);
+windows_core::imp::define_interface!(IToastNotificationManagerStatics5, IToastNotificationManagerStatics5_Vtbl, 0xd6f5f569_d40d_407c_8989_88cab42cfd14);
 #[repr(C)]
 pub struct IToastNotificationManagerStatics5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastNotifier, IToastNotifier_Vtbl, 0x75927b93_03f3_41ec_91d3_6e5bac1b38e7);
+windows_core::imp::define_interface!(IToastNotifier, IToastNotifier_Vtbl, 0x75927b93_03f3_41ec_91d3_6e5bac1b38e7);
 #[repr(C)]
 pub struct IToastNotifier_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -682,21 +682,21 @@ pub struct IToastNotifier_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetScheduledToastNotifications: usize,
 }
-windows_core::imp::com_interface!(IToastNotifier2, IToastNotifier2_Vtbl, 0x354389c6_7c01_4bd5_9c20_604340cd2b74);
+windows_core::imp::define_interface!(IToastNotifier2, IToastNotifier2_Vtbl, 0x354389c6_7c01_4bd5_9c20_604340cd2b74);
 #[repr(C)]
 pub struct IToastNotifier2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UpdateWithTagAndGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut NotificationUpdateResult) -> windows_core::HRESULT,
     pub UpdateWithTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut NotificationUpdateResult) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IToastNotifier3, IToastNotifier3_Vtbl, 0xae75a04a_3b0c_51ad_b7e8_b08ab6052549);
+windows_core::imp::define_interface!(IToastNotifier3, IToastNotifier3_Vtbl, 0xae75a04a_3b0c_51ad_b7e8_b08ab6052549);
 #[repr(C)]
 pub struct IToastNotifier3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ScheduledToastNotificationShowing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveScheduledToastNotificationShowing: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IUserNotification, IUserNotification_Vtbl, 0xadf7e52f_4e53_42d5_9c33_eb5ea515b23e);
+windows_core::imp::define_interface!(IUserNotification, IUserNotification_Vtbl, 0xadf7e52f_4e53_42d5_9c33_eb5ea515b23e);
 #[repr(C)]
 pub struct IUserNotification_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -708,7 +708,7 @@ pub struct IUserNotification_Vtbl {
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub CreationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IUserNotificationChangedEventArgs, IUserNotificationChangedEventArgs_Vtbl, 0xb6bd6839_79cf_4b25_82c0_0ce1eef81f8c);
+windows_core::imp::define_interface!(IUserNotificationChangedEventArgs, IUserNotificationChangedEventArgs_Vtbl, 0xb6bd6839_79cf_4b25_82c0_0ce1eef81f8c);
 #[repr(C)]
 pub struct IUserNotificationChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

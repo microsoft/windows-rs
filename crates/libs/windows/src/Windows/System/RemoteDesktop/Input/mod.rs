@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IRemoteTextConnection, IRemoteTextConnection_Vtbl, 0x4e7bb02a_183e_5e66_b5e4_3e6e5c570cf1);
+windows_core::imp::define_interface!(IRemoteTextConnection, IRemoteTextConnection_Vtbl, 0x4e7bb02a_183e_5e66_b5e4_3e6e5c570cf1);
 #[repr(C)]
 pub struct IRemoteTextConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,7 +8,7 @@ pub struct IRemoteTextConnection_Vtbl {
     pub UnregisterThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub ReportDataReceived: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IRemoteTextConnectionFactory, IRemoteTextConnectionFactory_Vtbl, 0x88e075c2_0cae_596c_850f_78d345cd728b);
+windows_core::imp::define_interface!(IRemoteTextConnectionFactory, IRemoteTextConnectionFactory_Vtbl, 0x88e075c2_0cae_596c_850f_78d345cd728b);
 #[repr(C)]
 pub struct IRemoteTextConnectionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -74,7 +74,7 @@ impl windows_core::RuntimeName for RemoteTextConnection {
 }
 unsafe impl Send for RemoteTextConnection {}
 unsafe impl Sync for RemoteTextConnection {}
-windows_core::imp::com_interface!(RemoteTextConnectionDataHandler, RemoteTextConnectionDataHandler_Vtbl, 0x099ffbc8_8bcb_41b5_b056_57e77021bf1b);
+windows_core::imp::define_interface!(RemoteTextConnectionDataHandler, RemoteTextConnectionDataHandler_Vtbl, 0x099ffbc8_8bcb_41b5_b056_57e77021bf1b);
 impl RemoteTextConnectionDataHandler {
     pub fn new<F: FnMut(&[u8]) -> windows_core::Result<bool> + Send + 'static>(invoke: F) -> Self {
         let com = RemoteTextConnectionDataHandlerBox::<F> { vtable: &RemoteTextConnectionDataHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };

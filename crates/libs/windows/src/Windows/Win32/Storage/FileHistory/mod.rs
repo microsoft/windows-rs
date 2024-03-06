@@ -64,7 +64,7 @@ where
     windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceUnblockBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
     FhServiceUnblockBackup(pipe.into_param().abi()).ok()
 }
-windows_core::imp::com_interface!(IFhConfigMgr, IFhConfigMgr_Vtbl, 0x6a5fea5b_bf8f_4ee5_b8c3_44d8a0d7331c);
+windows_core::imp::define_interface!(IFhConfigMgr, IFhConfigMgr_Vtbl, 0x6a5fea5b_bf8f_4ee5_b8c3_44d8a0d7331c);
 windows_core::imp::interface_hierarchy!(IFhConfigMgr, windows_core::IUnknown);
 impl IFhConfigMgr {
     pub unsafe fn LoadConfiguration(&self) -> windows_core::Result<()> {
@@ -153,7 +153,7 @@ pub struct IFhConfigMgr_Vtbl {
     pub ChangeDefaultTargetRecommendation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub QueryProtectionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IFhReassociation, IFhReassociation_Vtbl, 0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee);
+windows_core::imp::define_interface!(IFhReassociation, IFhReassociation_Vtbl, 0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee);
 windows_core::imp::interface_hierarchy!(IFhReassociation, windows_core::IUnknown);
 impl IFhReassociation {
     pub unsafe fn ValidateTarget<P0>(&self, targeturl: P0) -> windows_core::Result<FH_DEVICE_VALIDATION_RESULT>
@@ -191,7 +191,7 @@ pub struct IFhReassociation_Vtbl {
     pub SelectConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub PerformReassociation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IFhScopeIterator, IFhScopeIterator_Vtbl, 0x3197abce_532a_44c6_8615_f3666566a720);
+windows_core::imp::define_interface!(IFhScopeIterator, IFhScopeIterator_Vtbl, 0x3197abce_532a_44c6_8615_f3666566a720);
 windows_core::imp::interface_hierarchy!(IFhScopeIterator, windows_core::IUnknown);
 impl IFhScopeIterator {
     pub unsafe fn MoveToNextItem(&self) -> windows_core::Result<()> {
@@ -208,7 +208,7 @@ pub struct IFhScopeIterator_Vtbl {
     pub MoveToNextItem: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IFhTarget, IFhTarget_Vtbl, 0xd87965fd_2bad_4657_bd3b_9567eb300ced);
+windows_core::imp::define_interface!(IFhTarget, IFhTarget_Vtbl, 0xd87965fd_2bad_4657_bd3b_9567eb300ced);
 windows_core::imp::interface_hierarchy!(IFhTarget, windows_core::IUnknown);
 impl IFhTarget {
     pub unsafe fn GetStringProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> windows_core::Result<windows_core::BSTR> {

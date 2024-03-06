@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IDeviceServicingDetails, IDeviceServicingDetails_Vtbl, 0x4aabee29_2344_4ac4_8527_4a8ef6905645);
+windows_core::imp::define_interface!(IDeviceServicingDetails, IDeviceServicingDetails_Vtbl, 0x4aabee29_2344_4ac4_8527_4a8ef6905645);
 #[repr(C)]
 pub struct IDeviceServicingDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6,7 +6,7 @@ pub struct IDeviceServicingDetails_Vtbl {
     pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub ExpectedDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDeviceUseDetails, IDeviceUseDetails_Vtbl, 0x7d565141_557e_4154_b994_e4f7a11fb323);
+windows_core::imp::define_interface!(IDeviceUseDetails, IDeviceUseDetails_Vtbl, 0x7d565141_557e_4154_b994_e4f7a11fb323);
 #[repr(C)]
 pub struct IDeviceUseDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

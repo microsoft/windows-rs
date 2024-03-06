@@ -4,26 +4,26 @@ pub mod Automation;
 pub mod People;
 #[cfg(feature = "Perception_Spatial")]
 pub mod Spatial;
-windows_core::imp::com_interface!(IPerceptionTimestamp, IPerceptionTimestamp_Vtbl, 0x87c24804_a22e_4adb_ba26_d78ef639bcf4);
+windows_core::imp::define_interface!(IPerceptionTimestamp, IPerceptionTimestamp_Vtbl, 0x87c24804_a22e_4adb_ba26_d78ef639bcf4);
 #[repr(C)]
 pub struct IPerceptionTimestamp_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TargetTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::DateTime) -> windows_core::HRESULT,
     pub PredictionAmount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPerceptionTimestamp2, IPerceptionTimestamp2_Vtbl, 0xe354b7ed_2bd1_41b7_9ed0_74a15c354537);
+windows_core::imp::define_interface!(IPerceptionTimestamp2, IPerceptionTimestamp2_Vtbl, 0xe354b7ed_2bd1_41b7_9ed0_74a15c354537);
 #[repr(C)]
 pub struct IPerceptionTimestamp2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SystemRelativeTargetTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPerceptionTimestampHelperStatics, IPerceptionTimestampHelperStatics_Vtbl, 0x47a611d4_a9df_4edc_855d_f4d339d967ac);
+windows_core::imp::define_interface!(IPerceptionTimestampHelperStatics, IPerceptionTimestampHelperStatics_Vtbl, 0x47a611d4_a9df_4edc_855d_f4d339d967ac);
 #[repr(C)]
 pub struct IPerceptionTimestampHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromHistoricalTargetTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPerceptionTimestampHelperStatics2, IPerceptionTimestampHelperStatics2_Vtbl, 0x73d1a7fe_3fb9_4571_87d4_3c920a5e86eb);
+windows_core::imp::define_interface!(IPerceptionTimestampHelperStatics2, IPerceptionTimestampHelperStatics2_Vtbl, 0x73d1a7fe_3fb9_4571_87d4_3c920a5e86eb);
 #[repr(C)]
 pub struct IPerceptionTimestampHelperStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

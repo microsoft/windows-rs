@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(INamedResource, INamedResource_Vtbl, 0x1c98c219_0b13_4240_89a5_d495dc189a00);
+windows_core::imp::define_interface!(INamedResource, INamedResource_Vtbl, 0x1c98c219_0b13_4240_89a5_d495dc189a00);
 #[repr(C)]
 pub struct INamedResource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -18,7 +18,7 @@ pub struct INamedResource_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ResolveAllForContext: usize,
 }
-windows_core::imp::com_interface!(IResourceCandidate, IResourceCandidate_Vtbl, 0xaf5207d9_c433_4764_b3fd_8fa6bfbcbadc);
+windows_core::imp::define_interface!(IResourceCandidate, IResourceCandidate_Vtbl, 0xaf5207d9_c433_4764_b3fd_8fa6bfbcbadc);
 #[repr(C)]
 pub struct IResourceCandidate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -36,7 +36,7 @@ pub struct IResourceCandidate_Vtbl {
     GetValueAsFileAsync: usize,
     pub GetQualifierValue: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IResourceCandidate2, IResourceCandidate2_Vtbl, 0x69e5b468_f6fc_4013_aaa2_d53f1757d3b5);
+windows_core::imp::define_interface!(IResourceCandidate2, IResourceCandidate2_Vtbl, 0x69e5b468_f6fc_4013_aaa2_d53f1757d3b5);
 #[repr(C)]
 pub struct IResourceCandidate2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -45,13 +45,13 @@ pub struct IResourceCandidate2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     GetValueAsStreamAsync: usize,
 }
-windows_core::imp::com_interface!(IResourceCandidate3, IResourceCandidate3_Vtbl, 0x08ae97f8_517a_4674_958c_4a3c7cd2cc6b);
+windows_core::imp::define_interface!(IResourceCandidate3, IResourceCandidate3_Vtbl, 0x08ae97f8_517a_4674_958c_4a3c7cd2cc6b);
 #[repr(C)]
 pub struct IResourceCandidate3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ResourceCandidateKind) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IResourceContext, IResourceContext_Vtbl, 0x2fa22f4b_707e_4b27_ad0d_d0d8cd468fd2);
+windows_core::imp::define_interface!(IResourceContext, IResourceContext_Vtbl, 0x2fa22f4b_707e_4b27_ad0d_d0d8cd468fd2);
 #[repr(C)]
 pub struct IResourceContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -78,7 +78,7 @@ pub struct IResourceContext_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SetLanguages: usize,
 }
-windows_core::imp::com_interface!(IResourceContextStatics, IResourceContextStatics_Vtbl, 0x98be9d6c_6338_4b31_99df_b2b442f17149);
+windows_core::imp::define_interface!(IResourceContextStatics, IResourceContextStatics_Vtbl, 0x98be9d6c_6338_4b31_99df_b2b442f17149);
 #[repr(C)]
 pub struct IResourceContextStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -87,7 +87,7 @@ pub struct IResourceContextStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateMatchingContext: usize,
 }
-windows_core::imp::com_interface!(IResourceContextStatics2, IResourceContextStatics2_Vtbl, 0x41f752ef_12af_41b9_ab36_b1eb4b512460);
+windows_core::imp::define_interface!(IResourceContextStatics2, IResourceContextStatics2_Vtbl, 0x41f752ef_12af_41b9_ab36_b1eb4b512460);
 #[repr(C)]
 pub struct IResourceContextStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -100,13 +100,13 @@ pub struct IResourceContextStatics2_Vtbl {
     ResetGlobalQualifierValuesForSpecifiedQualifiers: usize,
     pub GetForViewIndependentUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IResourceContextStatics3, IResourceContextStatics3_Vtbl, 0x20cf492c_af0f_450b_9da6_106dd0c29a39);
+windows_core::imp::define_interface!(IResourceContextStatics3, IResourceContextStatics3_Vtbl, 0x20cf492c_af0f_450b_9da6_106dd0c29a39);
 #[repr(C)]
 pub struct IResourceContextStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetGlobalQualifierValueWithPersistence: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, ResourceQualifierPersistence) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IResourceContextStatics4, IResourceContextStatics4_Vtbl, 0x22eb9ccd_fb31_4bfa_b86b_df9d9d7bdc39);
+windows_core::imp::define_interface!(IResourceContextStatics4, IResourceContextStatics4_Vtbl, 0x22eb9ccd_fb31_4bfa_b86b_df9d9d7bdc39);
 #[repr(C)]
 pub struct IResourceContextStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -115,7 +115,7 @@ pub struct IResourceContextStatics4_Vtbl {
     #[cfg(not(feature = "UI"))]
     GetForUIContext: usize,
 }
-windows_core::imp::com_interface!(IResourceManager, IResourceManager_Vtbl, 0xf744d97b_9988_44fb_abd6_5378844cfa8b);
+windows_core::imp::define_interface!(IResourceManager, IResourceManager_Vtbl, 0xf744d97b_9988_44fb_abd6_5378844cfa8b);
 #[repr(C)]
 pub struct IResourceManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -134,7 +134,7 @@ pub struct IResourceManager_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
     UnloadPriFiles: usize,
 }
-windows_core::imp::com_interface!(IResourceManager2, IResourceManager2_Vtbl, 0x9d66fe6c_a4d7_4c23_9e85_675f304c252d);
+windows_core::imp::define_interface!(IResourceManager2, IResourceManager2_Vtbl, 0x9d66fe6c_a4d7_4c23_9e85_675f304c252d);
 #[repr(C)]
 pub struct IResourceManager2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -147,14 +147,14 @@ pub struct IResourceManager2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAllSubtreesForPackage: usize,
 }
-windows_core::imp::com_interface!(IResourceManagerStatics, IResourceManagerStatics_Vtbl, 0x1cc0fdfc_69ee_4e43_9901_47f12687baf7);
+windows_core::imp::define_interface!(IResourceManagerStatics, IResourceManagerStatics_Vtbl, 0x1cc0fdfc_69ee_4e43_9901_47f12687baf7);
 #[repr(C)]
 pub struct IResourceManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsResourceReference: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IResourceMap, IResourceMap_Vtbl, 0x72284824_db8c_42f8_b08c_53ff357dad82);
+windows_core::imp::define_interface!(IResourceMap, IResourceMap_Vtbl, 0x72284824_db8c_42f8_b08c_53ff357dad82);
 #[repr(C)]
 pub struct IResourceMap_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -163,7 +163,7 @@ pub struct IResourceMap_Vtbl {
     pub GetValueForContext: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSubtree: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IResourceQualifier, IResourceQualifier_Vtbl, 0x785da5b2_4afd_4376_a888_c5f9a6b7a05c);
+windows_core::imp::define_interface!(IResourceQualifier, IResourceQualifier_Vtbl, 0x785da5b2_4afd_4376_a888_c5f9a6b7a05c);
 #[repr(C)]
 pub struct IResourceQualifier_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

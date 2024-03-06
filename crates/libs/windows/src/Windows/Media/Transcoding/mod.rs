@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IMediaTranscoder, IMediaTranscoder_Vtbl, 0x190c99d2_a0aa_4d34_86bc_eed1b12c2f5b);
+windows_core::imp::define_interface!(IMediaTranscoder, IMediaTranscoder_Vtbl, 0x190c99d2_a0aa_4d34_86bc_eed1b12c2f5b);
 #[repr(C)]
 pub struct IMediaTranscoder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -30,7 +30,7 @@ pub struct IMediaTranscoder_Vtbl {
     #[cfg(not(all(feature = "Media_MediaProperties", feature = "Storage_Streams")))]
     PrepareStreamTranscodeAsync: usize,
 }
-windows_core::imp::com_interface!(IMediaTranscoder2, IMediaTranscoder2_Vtbl, 0x40531d74_35e0_4f04_8574_ca8bc4e5a082);
+windows_core::imp::define_interface!(IMediaTranscoder2, IMediaTranscoder2_Vtbl, 0x40531d74_35e0_4f04_8574_ca8bc4e5a082);
 #[repr(C)]
 pub struct IMediaTranscoder2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -41,7 +41,7 @@ pub struct IMediaTranscoder2_Vtbl {
     pub SetVideoProcessingAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, MediaVideoProcessingAlgorithm) -> windows_core::HRESULT,
     pub VideoProcessingAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaVideoProcessingAlgorithm) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IPrepareTranscodeResult, IPrepareTranscodeResult_Vtbl, 0x05f25dce_994f_4a34_9d68_97ccce1730d6);
+windows_core::imp::define_interface!(IPrepareTranscodeResult, IPrepareTranscodeResult_Vtbl, 0x05f25dce_994f_4a34_9d68_97ccce1730d6);
 #[repr(C)]
 pub struct IPrepareTranscodeResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

@@ -26,7 +26,7 @@ where
     windows_targets::link!("aclui.dll" "system" fn EditSecurityAdvanced(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void, usipage : SI_PAGE_TYPE) -> windows_core::HRESULT);
     EditSecurityAdvanced(hwndowner.into_param().abi(), psi.into_param().abi(), usipage).ok()
 }
-windows_core::imp::com_interface!(IEffectivePermission, IEffectivePermission_Vtbl, 0x3853dc76_9f35_407c_88a1_d19344365fbc);
+windows_core::imp::define_interface!(IEffectivePermission, IEffectivePermission_Vtbl, 0x3853dc76_9f35_407c_88a1_d19344365fbc);
 windows_core::imp::interface_hierarchy!(IEffectivePermission, windows_core::IUnknown);
 impl IEffectivePermission {
     pub unsafe fn GetEffectivePermission<P0, P1, P2>(&self, pguidobjecttype: *const windows_core::GUID, pusersid: P0, pszservername: P1, psd: P2, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> windows_core::Result<()>
@@ -43,7 +43,7 @@ pub struct IEffectivePermission_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEffectivePermission: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::super::super::Foundation::PSID, windows_core::PCWSTR, super::super::PSECURITY_DESCRIPTOR, *mut *mut super::super::OBJECT_TYPE_LIST, *mut u32, *mut *mut u32, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IEffectivePermission2, IEffectivePermission2_Vtbl, 0x941fabca_dd47_4fca_90bb_b0e10255f20d);
+windows_core::imp::define_interface!(IEffectivePermission2, IEffectivePermission2_Vtbl, 0x941fabca_dd47_4fca_90bb_b0e10255f20d);
 windows_core::imp::interface_hierarchy!(IEffectivePermission2, windows_core::IUnknown);
 impl IEffectivePermission2 {
     pub unsafe fn ComputeEffectivePermissionWithSecondarySecurity<P0, P1, P2>(
@@ -93,7 +93,7 @@ pub struct IEffectivePermission2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ComputeEffectivePermissionWithSecondarySecurity: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::PSID, super::super::super::Foundation::PSID, windows_core::PCWSTR, *mut SECURITY_OBJECT, u32, *const super::super::TOKEN_GROUPS, *const super::AUTHZ_SID_OPERATION, *const super::super::TOKEN_GROUPS, *const super::AUTHZ_SID_OPERATION, *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION, *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION, *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION, *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION, *mut EFFPERM_RESULT_LIST) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISecurityInformation, ISecurityInformation_Vtbl, 0x965fc360_16ff_11d0_91cb_00aa00bbb723);
+windows_core::imp::define_interface!(ISecurityInformation, ISecurityInformation_Vtbl, 0x965fc360_16ff_11d0_91cb_00aa00bbb723);
 windows_core::imp::interface_hierarchy!(ISecurityInformation, windows_core::IUnknown);
 impl ISecurityInformation {
     pub unsafe fn GetObjectInformation(&self, pobjectinfo: *mut SI_OBJECT_INFO) -> windows_core::Result<()> {
@@ -142,7 +142,7 @@ pub struct ISecurityInformation_Vtbl {
     #[cfg(not(feature = "Win32_UI_Controls"))]
     PropertySheetPageCallback: usize,
 }
-windows_core::imp::com_interface!(ISecurityInformation2, ISecurityInformation2_Vtbl, 0xc3ccfdb4_6f88_11d2_a3ce_00c04fb1782a);
+windows_core::imp::define_interface!(ISecurityInformation2, ISecurityInformation2_Vtbl, 0xc3ccfdb4_6f88_11d2_a3ce_00c04fb1782a);
 windows_core::imp::interface_hierarchy!(ISecurityInformation2, windows_core::IUnknown);
 impl ISecurityInformation2 {
     pub unsafe fn IsDaclCanonical(&self, pdacl: *const super::super::ACL) -> super::super::super::Foundation::BOOL {
@@ -163,7 +163,7 @@ pub struct ISecurityInformation2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     LookupSids: usize,
 }
-windows_core::imp::com_interface!(ISecurityInformation3, ISecurityInformation3_Vtbl, 0xe2cdc9cc_31bd_4f8f_8c8b_b641af516a1a);
+windows_core::imp::define_interface!(ISecurityInformation3, ISecurityInformation3_Vtbl, 0xe2cdc9cc_31bd_4f8f_8c8b_b641af516a1a);
 windows_core::imp::interface_hierarchy!(ISecurityInformation3, windows_core::IUnknown);
 impl ISecurityInformation3 {
     pub unsafe fn GetFullResourceName(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -183,7 +183,7 @@ pub struct ISecurityInformation3_Vtbl {
     pub GetFullResourceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub OpenElevatedEditor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, SI_PAGE_TYPE) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISecurityInformation4, ISecurityInformation4_Vtbl, 0xea961070_cd14_4621_ace4_f63c03e583e4);
+windows_core::imp::define_interface!(ISecurityInformation4, ISecurityInformation4_Vtbl, 0xea961070_cd14_4621_ace4_f63c03e583e4);
 windows_core::imp::interface_hierarchy!(ISecurityInformation4, windows_core::IUnknown);
 impl ISecurityInformation4 {
     pub unsafe fn GetSecondarySecurity(&self, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> windows_core::Result<()> {
@@ -195,7 +195,7 @@ pub struct ISecurityInformation4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSecondarySecurity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut SECURITY_OBJECT, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISecurityObjectTypeInfo, ISecurityObjectTypeInfo_Vtbl, 0xfc3066eb_79ef_444b_9111_d18a75ebf2fa);
+windows_core::imp::define_interface!(ISecurityObjectTypeInfo, ISecurityObjectTypeInfo_Vtbl, 0xfc3066eb_79ef_444b_9111_d18a75ebf2fa);
 windows_core::imp::interface_hierarchy!(ISecurityObjectTypeInfo, windows_core::IUnknown);
 impl ISecurityObjectTypeInfo {
     pub unsafe fn GetInheritSource(&self, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> windows_core::Result<()> {

@@ -4,13 +4,13 @@ pub mod Power;
 pub mod Profile;
 #[cfg(feature = "Phone_System_UserProfile")]
 pub mod UserProfile;
-windows_core::imp::com_interface!(ISystemProtectionStatics, ISystemProtectionStatics_Vtbl, 0x49c36560_97e1_4d99_8bfb_befeaa6ace6d);
+windows_core::imp::define_interface!(ISystemProtectionStatics, ISystemProtectionStatics_Vtbl, 0x49c36560_97e1_4d99_8bfb_befeaa6ace6d);
 #[repr(C)]
 pub struct ISystemProtectionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ScreenLocked: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(ISystemProtectionUnlockStatics, ISystemProtectionUnlockStatics_Vtbl, 0x0692fa3f_8f11_4c4b_aa0d_87d7af7b1779);
+windows_core::imp::define_interface!(ISystemProtectionUnlockStatics, ISystemProtectionUnlockStatics_Vtbl, 0x0692fa3f_8f11_4c4b_aa0d_87d7af7b1779);
 #[repr(C)]
 pub struct ISystemProtectionUnlockStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

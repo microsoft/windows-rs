@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IFileInformationFactory, IFileInformationFactory_Vtbl, 0x401d88be_960f_4d6d_a7d0_1a3861e76c83);
+windows_core::imp::define_interface!(IFileInformationFactory, IFileInformationFactory_Vtbl, 0x401d88be_960f_4d6d_a7d0_1a3861e76c83);
 #[repr(C)]
 pub struct IFileInformationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -30,7 +30,7 @@ pub struct IFileInformationFactory_Vtbl {
     pub GetVirtualizedFilesVector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetVirtualizedFoldersVector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IFileInformationFactoryFactory, IFileInformationFactoryFactory_Vtbl, 0x84ea0e7d_e4a2_4f00_8afa_af5e0f826bd5);
+windows_core::imp::define_interface!(IFileInformationFactoryFactory, IFileInformationFactoryFactory_Vtbl, 0x84ea0e7d_e4a2_4f00_8afa_af5e0f826bd5);
 #[repr(C)]
 pub struct IFileInformationFactoryFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -51,7 +51,7 @@ pub struct IFileInformationFactoryFactory_Vtbl {
     #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))]
     CreateWithModeAndSizeAndOptionsAndFlags: usize,
 }
-windows_core::imp::com_interface!(IStorageItemInformation, IStorageItemInformation_Vtbl, 0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa);
+windows_core::imp::define_interface!(IStorageItemInformation, IStorageItemInformation_Vtbl, 0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa);
 windows_core::imp::interface_hierarchy!(IStorageItemInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageItemInformation {
     #[cfg(feature = "Storage_FileProperties")]

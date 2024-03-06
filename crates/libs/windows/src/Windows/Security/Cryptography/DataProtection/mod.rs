@@ -1,4 +1,4 @@
-windows_core::imp::com_interface!(IDataProtectionProvider, IDataProtectionProvider_Vtbl, 0x09639948_ed22_4270_bd1c_6d72c00f8787);
+windows_core::imp::define_interface!(IDataProtectionProvider, IDataProtectionProvider_Vtbl, 0x09639948_ed22_4270_bd1c_6d72c00f8787);
 #[repr(C)]
 pub struct IDataProtectionProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19,7 +19,7 @@ pub struct IDataProtectionProvider_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     UnprotectStreamAsync: usize,
 }
-windows_core::imp::com_interface!(IDataProtectionProviderFactory, IDataProtectionProviderFactory_Vtbl, 0xadf33dac_4932_4cdf_ac41_7214333514ca);
+windows_core::imp::define_interface!(IDataProtectionProviderFactory, IDataProtectionProviderFactory_Vtbl, 0xadf33dac_4932_4cdf_ac41_7214333514ca);
 #[repr(C)]
 pub struct IDataProtectionProviderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

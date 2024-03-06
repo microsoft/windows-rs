@@ -1,19 +1,19 @@
 #[cfg(feature = "ApplicationModel_Store_Preview_InstallControl")]
 pub mod InstallControl;
-windows_core::imp::com_interface!(IDeliveryOptimizationSettings, IDeliveryOptimizationSettings_Vtbl, 0x1810fda0_e853_565e_b874_7a8a7b9a0e0f);
+windows_core::imp::define_interface!(IDeliveryOptimizationSettings, IDeliveryOptimizationSettings_Vtbl, 0x1810fda0_e853_565e_b874_7a8a7b9a0e0f);
 #[repr(C)]
 pub struct IDeliveryOptimizationSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DownloadMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DeliveryOptimizationDownloadMode) -> windows_core::HRESULT,
     pub DownloadModeSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DeliveryOptimizationDownloadModeSource) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IDeliveryOptimizationSettingsStatics, IDeliveryOptimizationSettingsStatics_Vtbl, 0x5c817caf_aed5_5999_b4c9_8c60898bc4f3);
+windows_core::imp::define_interface!(IDeliveryOptimizationSettingsStatics, IDeliveryOptimizationSettingsStatics_Vtbl, 0x5c817caf_aed5_5999_b4c9_8c60898bc4f3);
 #[repr(C)]
 pub struct IDeliveryOptimizationSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCurrentSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStoreConfigurationStatics, IStoreConfigurationStatics_Vtbl, 0x728f7fc0_8628_42ec_84a2_07780eb44d8b);
+windows_core::imp::define_interface!(IStoreConfigurationStatics, IStoreConfigurationStatics_Vtbl, 0x728f7fc0_8628_42ec_84a2_07780eb44d8b);
 #[repr(C)]
 pub struct IStoreConfigurationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -27,14 +27,14 @@ pub struct IStoreConfigurationStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     FilterUnsupportedSystemFeaturesAsync: usize,
 }
-windows_core::imp::com_interface!(IStoreConfigurationStatics2, IStoreConfigurationStatics2_Vtbl, 0x657c4595_c8b7_4fe9_9f4c_4d71027d347e);
+windows_core::imp::define_interface!(IStoreConfigurationStatics2, IStoreConfigurationStatics2_Vtbl, 0x657c4595_c8b7_4fe9_9f4c_4d71027d347e);
 #[repr(C)]
 pub struct IStoreConfigurationStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PurchasePromptingPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetPurchasePromptingPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStoreConfigurationStatics3, IStoreConfigurationStatics3_Vtbl, 0x6d45f57c_f144_4cb5_9d3f_4eb05e30b6d3);
+windows_core::imp::define_interface!(IStoreConfigurationStatics3, IStoreConfigurationStatics3_Vtbl, 0x6d45f57c_f144_4cb5_9d3f_4eb05e30b6d3);
 #[repr(C)]
 pub struct IStoreConfigurationStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -64,7 +64,7 @@ pub struct IStoreConfigurationStatics3_Vtbl {
     #[cfg(not(feature = "System"))]
     SetPurchasePromptingPolicyForUser: usize,
 }
-windows_core::imp::com_interface!(IStoreConfigurationStatics4, IStoreConfigurationStatics4_Vtbl, 0x20ff56d2_4ee3_4cf0_9b12_552c03310f75);
+windows_core::imp::define_interface!(IStoreConfigurationStatics4, IStoreConfigurationStatics4_Vtbl, 0x20ff56d2_4ee3_4cf0_9b12_552c03310f75);
 #[repr(C)]
 pub struct IStoreConfigurationStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -89,7 +89,7 @@ pub struct IStoreConfigurationStatics4_Vtbl {
     #[cfg(not(feature = "System"))]
     ShouldRestrictToEnterpriseStoreOnlyForUser: usize,
 }
-windows_core::imp::com_interface!(IStoreConfigurationStatics5, IStoreConfigurationStatics5_Vtbl, 0xf7613191_8fa9_49db_822b_0160e7e4e5c5);
+windows_core::imp::define_interface!(IStoreConfigurationStatics5, IStoreConfigurationStatics5_Vtbl, 0xf7613191_8fa9_49db_822b_0160e7e4e5c5);
 #[repr(C)]
 pub struct IStoreConfigurationStatics5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -102,7 +102,7 @@ pub struct IStoreConfigurationStatics5_Vtbl {
     #[cfg(not(feature = "System"))]
     PinToDesktopForUser: usize,
 }
-windows_core::imp::com_interface!(IStoreHardwareManufacturerInfo, IStoreHardwareManufacturerInfo_Vtbl, 0xf292dc08_c654_43ac_a21f_34801c9d3388);
+windows_core::imp::define_interface!(IStoreHardwareManufacturerInfo, IStoreHardwareManufacturerInfo_Vtbl, 0xf292dc08_c654_43ac_a21f_34801c9d3388);
 #[repr(C)]
 pub struct IStoreHardwareManufacturerInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -111,7 +111,7 @@ pub struct IStoreHardwareManufacturerInfo_Vtbl {
     pub ModelName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub ManufacturerName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorePreview, IStorePreview_Vtbl, 0x8a157241_840e_49a9_bc01_5d5b01fbc8e9);
+windows_core::imp::define_interface!(IStorePreview, IStorePreview_Vtbl, 0x8a157241_840e_49a9_bc01_5d5b01fbc8e9);
 #[repr(C)]
 pub struct IStorePreview_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -121,7 +121,7 @@ pub struct IStorePreview_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     LoadAddOnProductInfosAsync: usize,
 }
-windows_core::imp::com_interface!(IStorePreviewProductInfo, IStorePreviewProductInfo_Vtbl, 0x1937dbb3_6c01_4c9d_85cd_5babaac2b351);
+windows_core::imp::define_interface!(IStorePreviewProductInfo, IStorePreviewProductInfo_Vtbl, 0x1937dbb3_6c01_4c9d_85cd_5babaac2b351);
 #[repr(C)]
 pub struct IStorePreviewProductInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -134,13 +134,13 @@ pub struct IStorePreviewProductInfo_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SkuInfoList: usize,
 }
-windows_core::imp::com_interface!(IStorePreviewPurchaseResults, IStorePreviewPurchaseResults_Vtbl, 0xb0daaed1_d6c5_4e53_a043_fba0d8e61231);
+windows_core::imp::define_interface!(IStorePreviewPurchaseResults, IStorePreviewPurchaseResults_Vtbl, 0xb0daaed1_d6c5_4e53_a043_fba0d8e61231);
 #[repr(C)]
 pub struct IStorePreviewPurchaseResults_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProductPurchaseStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StorePreviewProductPurchaseStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IStorePreviewSkuInfo, IStorePreviewSkuInfo_Vtbl, 0x81fd76e2_0b26_48d9_98ce_27461c669d6c);
+windows_core::imp::define_interface!(IStorePreviewSkuInfo, IStorePreviewSkuInfo_Vtbl, 0x81fd76e2_0b26_48d9_98ce_27461c669d6c);
 #[repr(C)]
 pub struct IStorePreviewSkuInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -154,7 +154,7 @@ pub struct IStorePreviewSkuInfo_Vtbl {
     pub FormattedListPrice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub ExtendedData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-windows_core::imp::com_interface!(IWebAuthenticationCoreManagerHelper, IWebAuthenticationCoreManagerHelper_Vtbl, 0x06a50525_e715_4123_9276_9d6f865ba55f);
+windows_core::imp::define_interface!(IWebAuthenticationCoreManagerHelper, IWebAuthenticationCoreManagerHelper_Vtbl, 0x06a50525_e715_4123_9276_9d6f865ba55f);
 #[repr(C)]
 pub struct IWebAuthenticationCoreManagerHelper_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

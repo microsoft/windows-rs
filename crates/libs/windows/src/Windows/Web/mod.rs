@@ -6,7 +6,7 @@ pub mod Http;
 pub mod Syndication;
 #[cfg(feature = "Web_UI")]
 pub mod UI;
-windows_core::imp::com_interface!(IUriToStreamResolver, IUriToStreamResolver_Vtbl, 0xb0aba86a_9aeb_4d3a_9590_003e3ca7e290);
+windows_core::imp::define_interface!(IUriToStreamResolver, IUriToStreamResolver_Vtbl, 0xb0aba86a_9aeb_4d3a_9590_003e3ca7e290);
 windows_core::imp::interface_hierarchy!(IUriToStreamResolver, windows_core::IUnknown, windows_core::IInspectable);
 impl IUriToStreamResolver {
     #[cfg(feature = "Storage_Streams")]
@@ -32,7 +32,7 @@ pub struct IUriToStreamResolver_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     UriToStreamAsync: usize,
 }
-windows_core::imp::com_interface!(IWebErrorStatics, IWebErrorStatics_Vtbl, 0xfe616766_bf27_4064_87b7_6563bb11ce2e);
+windows_core::imp::define_interface!(IWebErrorStatics, IWebErrorStatics_Vtbl, 0xfe616766_bf27_4064_87b7_6563bb11ce2e);
 #[repr(C)]
 pub struct IWebErrorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
