@@ -18,9 +18,9 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [dependencies.windows-targets]
-version = "0.52.4"
+version = "0.52"
 path = "../targets"
 
 [dev-dependencies.windows-bindgen]
-version = "0.55.0"
+version = "0.55"
 path = "../bindgen"
