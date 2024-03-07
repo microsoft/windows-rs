@@ -107,14 +107,15 @@ jobs:
           cargo test -p test_dispatch &&
           cargo test -p test_does_not_return &&
           cargo test -p test_enums &&
-          cargo clean &&
           cargo test -p test_error &&
+          cargo clean &&
           cargo test -p test_event &&
           cargo test -p test_extensions &&
           cargo test -p test_handles &&
           cargo test -p test_helpers &&
           cargo test -p test_implement &&
           cargo test -p test_interface &&
+          cargo test -p test_interface_core &&
           cargo test -p test_interop &&
           cargo test -p test_lib &&
           cargo test -p test_literals &&
