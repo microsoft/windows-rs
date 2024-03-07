@@ -3,13 +3,7 @@ impl From<IDispatch> for windows_core::VARIANT {
         unsafe {
             Self::from_raw(windows_core::imp::VARIANT {
                 Anonymous: windows_core::imp::VARIANT_0 {
-                    Anonymous: windows_core::imp::VARIANT_0_0 {
-                        vt: 9,
-                        wReserved1: 0,
-                        wReserved2: 0,
-                        wReserved3: 0,
-                        Anonymous: windows_core::imp::VARIANT_0_0_0 { pdispVal: std::mem::transmute(value) },
-                    },
+                    Anonymous: windows_core::imp::VARIANT_0_0 { vt: 9, wReserved1: 0, wReserved2: 0, wReserved3: 0, Anonymous: windows_core::imp::VARIANT_0_0_0 { pdispVal: std::mem::transmute(value) } },
                 },
             })
         }
@@ -21,13 +15,7 @@ impl From<IDispatch> for windows_core::PROPVARIANT {
         unsafe {
             Self::from_raw(windows_core::imp::PROPVARIANT {
                 Anonymous: windows_core::imp::PROPVARIANT_0 {
-                    Anonymous: windows_core::imp::PROPVARIANT_0_0 {
-                        vt: 9,
-                        wReserved1: 0,
-                        wReserved2: 0,
-                        wReserved3: 0,
-                        Anonymous: windows_core::imp::PROPVARIANT_0_0_0 { pdispVal: std::mem::transmute(value) },
-                    },
+                    Anonymous: windows_core::imp::PROPVARIANT_0_0 { vt: 9, wReserved1: 0, wReserved2: 0, wReserved3: 0, Anonymous: windows_core::imp::PROPVARIANT_0_0_0 { pdispVal: std::mem::transmute(value) } },
                 },
             })
         }

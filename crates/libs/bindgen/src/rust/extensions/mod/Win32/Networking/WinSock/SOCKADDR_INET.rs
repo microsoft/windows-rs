@@ -1,4 +1,3 @@
-
 impl From<std::net::SocketAddrV4> for SOCKADDR_INET {
     fn from(addr: std::net::SocketAddrV4) -> Self {
         SOCKADDR_INET { Ipv4: addr.into() }

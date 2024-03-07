@@ -16,11 +16,7 @@ where
         unsafe {
             // TODO: ideally we can do an AddRef rather than a QI here (via cast)...
             // and then we can get rid of the unsafe as well.
-            Ok(StockVectorViewIterator {
-                owner: self.cast()?,
-                current: 0.into(),
-            }
-            .into())
+            Ok(StockVectorViewIterator { owner: self.cast()?, current: 0.into() }.into())
         }
     }
 }
@@ -31,10 +27,7 @@ where
     T::Default: Clone + PartialEq,
 {
     fn GetAt(&self, index: u32) -> windows_core::Result<T> {
-        let item = self
-            .values
-            .get(index as usize)
-            .ok_or_else(|| windows_core::Error::from(windows_core::imp::E_BOUNDS))?;
+        let item = self.values.get(index as usize).ok_or_else(|| windows_core::Error::from(windows_core::imp::E_BOUNDS))?;
         T::from_default(item)
     }
     fn Size(&self) -> windows_core::Result<u32> {
@@ -99,8 +92,7 @@ where
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
 
         if current < owner.values.len() {
-            self.current
-                .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+            self.current.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
         }
 
         Ok(owner.values.len() > current + 1)
@@ -113,8 +105,7 @@ where
         let actual = std::cmp::min(owner.values.len() - current, values.len());
         let (values, _) = values.split_at_mut(actual);
         values.clone_from_slice(&owner.values[current..current + actual]);
-        self.current
-            .fetch_add(actual, std::sync::atomic::Ordering::Relaxed);
+        self.current.fetch_add(actual, std::sync::atomic::Ordering::Relaxed);
         Ok(actual as u32)
     }
 }
