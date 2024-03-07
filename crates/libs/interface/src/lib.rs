@@ -98,11 +98,11 @@ impl Interface {
             #(#docs)*
             #vis struct #name(#parent);
             #implementation
-            unsafe impl ::windows::core::Interface for #name {
+            unsafe impl ::windows_core::Interface for #name {
                 type Vtable = #vtable_name;
-                const IID: ::windows::core::GUID = #guid;
+                const IID: ::windows_core::GUID = #guid;
             }
-            impl ::windows::core::RuntimeName for #name {}
+            impl ::windows_core::RuntimeName for #name {}
 
             #com_trait
             #vtable
@@ -132,7 +132,7 @@ impl Interface {
                 let ret = &m.ret;
                 quote! {
                     #vis unsafe fn #name(&self, #(#args),*) #ret {
-                        (::windows::core::Interface::vtable(self).#name)(::windows::core::Interface::as_raw(self), #(#params),*)
+                        (::windows_core::Interface::vtable(self).#name)(::windows_core::Interface::as_raw(self), #(#params),*)
                     }
                 }
             })
@@ -211,7 +211,7 @@ impl Interface {
                 let ret = &m.ret;
                 if parent_vtable.is_some() {
                     quote! {
-                        unsafe extern "system" fn #name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #trait_name, const OFFSET: isize>(this: *mut ::core::ffi::c_void, #(#args),*) #ret {
+                        unsafe extern "system" fn #name<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: #trait_name, const OFFSET: isize>(this: *mut ::core::ffi::c_void, #(#args),*) #ret {
                             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
                             let this = (*this).get_impl();
                             this.#name(#(#params),*).into()
@@ -220,7 +220,7 @@ impl Interface {
                 } else {
                     quote! {
                         unsafe extern "system" fn #name<Impl: #trait_name>(this: *mut ::core::ffi::c_void, #(#args),*) #ret {
-                            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+                            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows_core::ScopedHeap;
                             let this = (*this).this as *const Impl;
                             (*this).#name(#(#params),*).into()
                         }
@@ -255,13 +255,13 @@ impl Interface {
                     #(#vtable_entries)*
                 }
                 impl #vtable_name {
-                    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #trait_name, const OFFSET: isize>() -> Self {
+                    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: #trait_name, const OFFSET: isize>() -> Self {
                         #(#functions)*
                         Self { base__: #parent_vtable::new::<#parent_vtable_generics>(), #(#entries),* }
                     }
 
-                    pub fn matches(iid: &windows::core::GUID) -> bool {
-                        iid == &<#name as ::windows::core::Interface>::IID
+                    pub fn matches(iid: &windows_core::GUID) -> bool {
+                        iid == &<#name as ::windows_core::Interface>::IID
                     }
                 }
             }
@@ -283,10 +283,10 @@ impl Interface {
                     const VTABLE: #vtable_name = #vtable_name::new::<T>();
                 }
                 impl #name {
-                    fn new<'a, T: #trait_name>(this: &'a T) -> ::windows::core::ScopedInterface<'a, #name> {
-                        let this = ::windows::core::ScopedHeap { vtable: &#implvtbl_name::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+                    fn new<'a, T: #trait_name>(this: &'a T) -> ::windows_core::ScopedInterface<'a, #name> {
+                        let this = ::windows_core::ScopedHeap { vtable: &#implvtbl_name::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
                         let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
-                        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
+                        unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
                     }
                 }
             }
@@ -298,12 +298,12 @@ impl Interface {
         let name = &self.name;
         let name_string = format!("{name}");
         quote! {
-            impl ::core::convert::From<#name> for ::windows::core::IUnknown {
+            impl ::core::convert::From<#name> for ::windows_core::IUnknown {
                 fn from(value: #name) -> Self {
                     unsafe { ::core::mem::transmute(value) }
                 }
             }
-            impl ::core::convert::From<&#name> for ::windows::core::IUnknown {
+            impl ::core::convert::From<&#name> for ::windows_core::IUnknown {
                 fn from(value: &#name) -> Self {
                     ::core::convert::From::from(::core::clone::Clone::clone(value))
                 }
@@ -460,7 +460,7 @@ impl Guid {
             let data4_7 = hex_lit(data4_7);
             let data4_8 = hex_lit(data4_8);
             Ok(quote! {
-                ::windows::core::GUID {
+                ::windows_core::GUID {
                     data1: #data1,
                     data2: #data2,
                     data3: #data3,
@@ -469,7 +469,7 @@ impl Guid {
             })
         } else {
             Ok(quote! {
-                ::windows::core::GUID::zeroed()
+                ::windows_core::GUID::zeroed()
             })
         }
     }

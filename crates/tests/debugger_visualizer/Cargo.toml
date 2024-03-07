@@ -12,6 +12,9 @@ features = [
     "Win32_Foundation",
 ]
 
+[dependencies.windows-core]
+path = "../../libs/core"
+
 [dev-dependencies]
 debugger_test = "0.1.0"
 debugger_test_parser = "0.1.0"

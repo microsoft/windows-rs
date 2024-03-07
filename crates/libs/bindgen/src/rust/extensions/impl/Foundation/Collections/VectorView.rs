@@ -1,4 +1,4 @@
-#[::windows_implement::implement(IVectorView<T>, IIterable<T>)]
+#[windows_core::implement(IVectorView<T>, IIterable<T>)]
 struct StockVectorView<T>
 where
     T: windows_core::RuntimeType + 'static,
@@ -61,7 +61,7 @@ where
     }
 }
 
-#[::windows_implement::implement(IIterator<T>)]
+#[windows_core::implement(IIterator<T>)]
 struct StockVectorViewIterator<T>
 where
     T: windows_core::RuntimeType + 'static,

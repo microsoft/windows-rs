@@ -85,7 +85,6 @@ pub trait IUnknownImpl {
     unsafe fn GetTrustLevel(&self, value: *mut i32) -> HRESULT;
 }
 
-#[cfg(feature = "implement")]
 impl IUnknown_Vtbl {
     pub const fn new<T: IUnknownImpl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<T: IUnknownImpl, const OFFSET: isize>(this: *mut std::ffi::c_void, iid: *const GUID, interface: *mut *mut std::ffi::c_void) -> HRESULT {

@@ -1,0 +1,8 @@
+[package]
+name = "test_interface_core"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies.windows-core]
+path = "../../libs/core"

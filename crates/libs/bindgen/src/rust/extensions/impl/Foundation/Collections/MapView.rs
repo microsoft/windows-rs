@@ -1,4 +1,4 @@
-#[::windows_implement::implement(IMapView<K, V>, IIterable<IKeyValuePair<K, V>>)]
+#[windows_core::implement(IMapView<K, V>, IIterable<IKeyValuePair<K, V>>)]
 struct StockMapView<K, V>
 where
     K: windows_core::RuntimeType + 'static,
@@ -60,7 +60,7 @@ where
     }
 }
 
-#[::windows_implement::implement(IIterator<IKeyValuePair<K, V>>)]
+#[windows_core::implement(IIterator<IKeyValuePair<K, V>>)]
 struct StockMapViewIterator<'a, K, V>
 where
     K: windows_core::RuntimeType + 'static,
@@ -129,7 +129,7 @@ where
     }
 }
 
-#[::windows_implement::implement(IKeyValuePair<K, V>)]
+#[windows_core::implement(IKeyValuePair<K, V>)]
 struct StockKeyValuePair<K, V>
 where
     K: windows_core::RuntimeType + 'static,

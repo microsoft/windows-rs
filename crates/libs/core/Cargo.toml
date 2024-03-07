@@ -25,6 +25,6 @@ path = "../targets"
 version = "0.1.0"
 path = "../result"
 
-[features]
-default = []
-implement = []
+[dependencies]
+windows-implement = { path = "../implement",  version = "0.53.0" }
+windows-interface = { path = "../interface",  version = "0.53.0" }

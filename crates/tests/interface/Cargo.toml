@@ -16,3 +16,6 @@ features = [
     "Win32_System_Com",
     "Win32_System_SystemInformation",
 ]
+
+[dependencies.windows-core]
+path = "../../libs/core"

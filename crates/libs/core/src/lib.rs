@@ -44,6 +44,8 @@ pub use strings::*;
 pub use unknown::*;
 pub use variant::*;
 pub use weak::*;
+pub use windows_implement::implement;
+pub use windows_interface::interface;
 pub use windows_result::*;
 
 /// Attempts to load the factory object for the given WinRT class.

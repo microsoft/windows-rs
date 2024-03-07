@@ -107,6 +107,7 @@ jobs:
           cargo clippy -p test_helpers &&
           cargo clippy -p test_implement &&
           cargo clippy -p test_interface &&
+          cargo clippy -p test_interface_core &&
           cargo clippy -p test_interop &&
           cargo clippy -p test_lib &&
           cargo clippy -p test_literals &&

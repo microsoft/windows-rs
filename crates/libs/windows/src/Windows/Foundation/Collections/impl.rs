@@ -708,7 +708,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
         iid == &<IVectorView<T> as windows_core::Interface>::IID
     }
 }
-#[::windows_implement::implement(IIterable<T>)]
+#[windows_core::implement(IIterable<T>)]
 struct StockIterable<T>
 where
     T: windows_core::RuntimeType + 'static,
@@ -731,7 +731,7 @@ where
     }
 }
 
-#[::windows_implement::implement(IIterator<T>)]
+#[windows_core::implement(IIterator<T>)]
 struct StockIterator<T>
 where
     T: windows_core::RuntimeType + 'static,
@@ -798,7 +798,7 @@ where
         Ok(StockIterable { values }.into())
     }
 }
-#[::windows_implement::implement(IMapView<K, V>, IIterable<IKeyValuePair<K, V>>)]
+#[windows_core::implement(IMapView<K, V>, IIterable<IKeyValuePair<K, V>>)]
 struct StockMapView<K, V>
 where
     K: windows_core::RuntimeType + 'static,
@@ -849,7 +849,7 @@ where
     }
 }
 
-#[::windows_implement::implement(IIterator<IKeyValuePair<K, V>>)]
+#[windows_core::implement(IIterator<IKeyValuePair<K, V>>)]
 struct StockMapViewIterator<'a, K, V>
 where
     K: windows_core::RuntimeType + 'static,
@@ -908,7 +908,7 @@ where
     }
 }
 
-#[::windows_implement::implement(IKeyValuePair<K, V>)]
+#[windows_core::implement(IKeyValuePair<K, V>)]
 struct StockKeyValuePair<K, V>
 where
     K: windows_core::RuntimeType + 'static,
@@ -948,7 +948,7 @@ where
         Ok(StockMapView { map }.into())
     }
 }
-#[::windows_implement::implement(IVectorView<T>, IIterable<T>)]
+#[windows_core::implement(IVectorView<T>, IIterable<T>)]
 struct StockVectorView<T>
 where
     T: windows_core::RuntimeType + 'static,
@@ -1004,7 +1004,7 @@ where
     }
 }
 
-#[::windows_implement::implement(IIterator<T>)]
+#[windows_core::implement(IIterator<T>)]
 struct StockVectorViewIterator<T>
 where
     T: windows_core::RuntimeType + 'static,
