@@ -1,6 +1,6 @@
 [package]
 name = "test_arch_feature"
-version = "0.0.0"
+
 edition = "2021"
 publish = false
 

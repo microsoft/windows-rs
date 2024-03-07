@@ -1,6 +1,6 @@
 [package]
 name = "sample_thread_pool_work_sys"
-version = "0.0.0"
+
 edition = "2021"
 publish = false
 

@@ -1,6 +1,6 @@
 [package]
 name = "sample_simple"
-version = "0.0.0"
+
 edition = "2021"
 publish = false
 
