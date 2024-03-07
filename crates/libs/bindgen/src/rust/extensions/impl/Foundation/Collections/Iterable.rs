@@ -16,11 +16,7 @@ where
         unsafe {
             // TODO: ideally we can do an AddRef rather than a QI here (via cast)...
             // and then we can get rid of the unsafe as well.
-            Ok(StockIterator {
-                owner: self.cast()?,
-                current: 0.into(),
-            }
-            .into())
+            Ok(StockIterator { owner: self.cast()?, current: 0.into() }.into())
         }
     }
 }
@@ -63,8 +59,7 @@ where
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
 
         if current < owner.values.len() {
-            self.current
-                .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+            self.current.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
         }
 
         Ok(owner.values.len() > current + 1)
@@ -77,8 +72,7 @@ where
         let actual = std::cmp::min(owner.values.len() - current, values.len());
         let (values, _) = values.split_at_mut(actual);
         values.clone_from_slice(&owner.values[current..current + actual]);
-        self.current
-            .fetch_add(actual, std::sync::atomic::Ordering::Relaxed);
+        self.current.fetch_add(actual, std::sync::atomic::Ordering::Relaxed);
         Ok(actual as u32)
     }
 }
