@@ -18,13 +18,13 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [dependencies.windows-targets]
-version = "0.52.4"
+version = "0.52"
 path = "../targets"
 
 [dependencies.windows-result]
-version = "0.1.0"
+version = "0.1"
 path = "../result"
 
 [dependencies]
-windows-implement = { path = "../implement",  version = "0.53.0" }
-windows-interface = { path = "../interface",  version = "0.53.0" }
+windows-implement = { path = "../implement",  version = "0.53" }
+windows-interface = { path = "../interface",  version = "0.53" }

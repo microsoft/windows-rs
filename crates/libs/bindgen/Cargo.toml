@@ -21,7 +21,7 @@ default = ["metadata"]
 metadata = []
 
 [dependencies]
-windows-metadata = { path = "../metadata", version = "0.55.0" }
+windows-metadata = { path = "../metadata", version = "0.55" }
 rayon = "1.7"
 
 [dependencies.syn]
@@ -33,8 +33,8 @@ version = "1.0"
 features = ["span-locations"]
 
 [dependencies.serde]
-version = "1.0.196"
+version = "1.0"
 features = ["derive"]
 
 [dependencies.serde_json]
-version = "1.0.113"
+version = "1.0"

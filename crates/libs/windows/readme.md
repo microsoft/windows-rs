@@ -59,7 +59,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-sys]
-version = "0.52.0"
+version = "0.52"
 features = [
     "Win32_Foundation",
     "Win32_Security",
