@@ -1,6 +1,6 @@
 [package]
 name = "test_debugger_visualizer"
-
+version = "0.0.0"
 edition = "2021"
 publish = false
 
