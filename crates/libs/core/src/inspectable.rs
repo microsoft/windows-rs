@@ -50,7 +50,6 @@ impl RuntimeType for IInspectable {
 
 impl RuntimeName for IInspectable {}
 
-#[cfg(feature = "implement")]
 impl IInspectable_Vtbl {
     pub const fn new<Identity: IUnknownImpl, Name: RuntimeName, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetIids(_: *mut std::ffi::c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT {

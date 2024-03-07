@@ -12,3 +12,6 @@ features = [
     "Globalization",
     "Win32_Foundation",
 ]
+
+[dependencies.windows-core]
+path = "../../libs/core"

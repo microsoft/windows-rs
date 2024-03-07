@@ -15,6 +15,9 @@ features = [
     "Win32_Media_Audio",
 ]
 
+[dependencies.windows-core]
+path = "../../libs/core"
+
 [dependencies.windows-targets]
 path = "../../libs/targets"
 

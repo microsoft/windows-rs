@@ -13,14 +13,6 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 #[allow(unused_extern_crates)]
 extern crate self as windows;
 
-pub mod core {
-    pub use windows_core::*;
-
-    #[cfg(feature = "implement")]
-    pub use windows_implement::implement;
-
-    #[cfg(feature = "implement")]
-    pub use windows_interface::interface;
-}
+pub use windows_core as core;
 
 include!("Windows/mod.rs");
