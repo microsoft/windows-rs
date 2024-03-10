@@ -191,6 +191,12 @@ impl Ord for HSTRING {
     }
 }
 
+impl std::hash::Hash for HSTRING {
+    fn hash<H: std::hash::Hasher>(&self, hasher: &mut H) {
+        self.as_wide().hash(hasher)
+    }
+}
+
 impl PartialOrd for HSTRING {
     fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
         Some(self.cmp(other))
