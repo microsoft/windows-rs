@@ -122,6 +122,50 @@ fn hstring_to_os_string() {
 }
 
 #[test]
+fn hstring_hashing_equal_strings() {
+    // Checks if two strings of identical contents have the same hash
+    use std::hash::{DefaultHasher, Hash, Hasher};
+
+    let hstring_1 = HSTRING::from("Hello World");
+    let hstring_2 = HSTRING::from("Hello World");
+
+    assert_eq!(hstring_1, hstring_2);
+
+    let mut hasher_1 = DefaultHasher::new();
+    let mut hasher_2 = DefaultHasher::new();
+
+    hstring_1.hash(&mut hasher_1);
+    hstring_2.hash(&mut hasher_2);
+
+    let h1_hash = hasher_1.finish();
+    let h2_hash = hasher_2.finish();
+
+    assert_eq!(h1_hash, h2_hash);
+}
+
+#[test]
+fn hstring_hashing_different_strings() {
+    // Checks if two strings of different contents have the same hash
+    use std::hash::{DefaultHasher, Hash, Hasher};
+
+    let hstring_1 = HSTRING::from("Hello World");
+    let hstring_2 = HSTRING::from("Hello World 2");
+
+    assert_ne!(hstring_1, hstring_2);
+
+    let mut hasher_1 = DefaultHasher::new();
+    let mut hasher_2 = DefaultHasher::new();
+
+    hstring_1.hash(&mut hasher_1);
+    hstring_2.hash(&mut hasher_2);
+
+    let h1_hash = hasher_1.finish();
+    let h2_hash = hasher_2.finish();
+
+    assert_ne!(h1_hash, h2_hash);
+}
+
+#[test]
 fn hstring_equality_combinations() {
     let h = HSTRING::from("test");
     let s = String::from("test");
