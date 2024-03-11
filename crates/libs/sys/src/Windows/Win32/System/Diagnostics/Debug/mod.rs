@@ -187,14 +187,14 @@ windows_targets::link!("kernel32.dll" "system" fn RtlUnwind(targetframe : *const
 windows_targets::link!("kernel32.dll" "system" fn RtlUnwindEx(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : *const EXCEPTION_RECORD, returnvalue : *const core::ffi::c_void, contextrecord : *const CONTEXT, historytable : *const UNWIND_HISTORY_TABLE));
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase : usize, controlpc : usize, functionentry : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord : *mut CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut usize, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> super::super::Kernel:: EXCEPTION_ROUTINE);
+windows_targets::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase : usize, controlpc : usize, functionentry : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord : *mut CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut usize, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel:: EXCEPTION_ROUTINE);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 windows_targets::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase : u64, controlpc : u64, functionentry : *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord : *mut CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut u64, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel:: EXCEPTION_ROUTINE);
 windows_targets::link!("dbghelp.dll" "system" fn SearchTreeForFile(rootpath : windows_sys::core::PCSTR, inputpathname : windows_sys::core::PCSTR, outputpathbuffer : windows_sys::core::PSTR) -> super::super::super::Foundation:: BOOL);
 windows_targets::link!("dbghelp.dll" "system" fn SearchTreeForFileW(rootpath : windows_sys::core::PCWSTR, inputpathname : windows_sys::core::PCWSTR, outputpathbuffer : windows_sys::core::PWSTR) -> super::super::super::Foundation:: BOOL);
 windows_targets::link!("dbghelp.dll" "system" fn SetCheckUserInterruptShared(lpstartaddress : LPCALL_BACK_USER_INTERRUPT_ROUTINE));
-windows_targets::link!("kernel32.dll" "system" fn SetErrorMode(umode : THREAD_ERROR_MODE) -> u32);
+windows_targets::link!("kernel32.dll" "system" fn SetErrorMode(umode : THREAD_ERROR_MODE) -> THREAD_ERROR_MODE);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 windows_targets::link!("imagehlp.dll" "system" fn SetImageConfigInformation(loadedimage : *mut LOADED_IMAGE, imageconfiginformation : *const IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation:: BOOL);
@@ -3514,6 +3514,31 @@ pub struct KDHELP64 {
     pub Reserved0: [u64; 2],
 }
 #[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[derive(Clone, Copy)]
+pub struct KNONVOLATILE_CONTEXT_POINTERS {
+    pub X19: *mut u64,
+    pub X20: *mut u64,
+    pub X21: *mut u64,
+    pub X22: *mut u64,
+    pub X23: *mut u64,
+    pub X24: *mut u64,
+    pub X25: *mut u64,
+    pub X26: *mut u64,
+    pub X27: *mut u64,
+    pub X28: *mut u64,
+    pub Fp: *mut u64,
+    pub Lr: *mut u64,
+    pub D8: *mut u64,
+    pub D9: *mut u64,
+    pub D10: *mut u64,
+    pub D11: *mut u64,
+    pub D12: *mut u64,
+    pub D13: *mut u64,
+    pub D14: *mut u64,
+    pub D15: *mut u64,
+}
+#[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
@@ -3581,31 +3606,6 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
 #[derive(Clone, Copy)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Dummy: u32,
-}
-#[repr(C)]
-#[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy)]
-pub struct KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
-    pub X19: *mut u64,
-    pub X20: *mut u64,
-    pub X21: *mut u64,
-    pub X22: *mut u64,
-    pub X23: *mut u64,
-    pub X24: *mut u64,
-    pub X25: *mut u64,
-    pub X26: *mut u64,
-    pub X27: *mut u64,
-    pub X28: *mut u64,
-    pub Fp: *mut u64,
-    pub Lr: *mut u64,
-    pub D8: *mut u64,
-    pub D9: *mut u64,
-    pub D10: *mut u64,
-    pub D11: *mut u64,
-    pub D12: *mut u64,
-    pub D13: *mut u64,
-    pub D14: *mut u64,
-    pub D15: *mut u64,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

@@ -6759,13 +6759,16 @@ impl Default for TOKEN_BNO_ISOLATION_INFORMATION {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_SID_INFORMATION {
-    pub Sid: super::super::Foundation::PSID,
+    pub Sid: super::super::Security::PSID,
 }
+#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for TOKEN_SID_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for TOKEN_SID_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

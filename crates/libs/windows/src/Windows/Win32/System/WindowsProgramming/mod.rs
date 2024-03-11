@@ -3294,28 +3294,19 @@ impl FEATURE_STATE_CHANGE_SUBSCRIPTION {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for FEATURE_STATE_CHANGE_SUBSCRIPTION {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            UnsubscribeFeatureStateChangeNotification(*self);
+        }
+    }
+}
 impl Default for FEATURE_STATE_CHANGE_SUBSCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 impl windows_core::TypeKind for FEATURE_STATE_CHANGE_SUBSCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct FH_SERVICE_PIPE_HANDLE(pub isize);
-impl FH_SERVICE_PIPE_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl Default for FH_SERVICE_PIPE_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FH_SERVICE_PIPE_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]

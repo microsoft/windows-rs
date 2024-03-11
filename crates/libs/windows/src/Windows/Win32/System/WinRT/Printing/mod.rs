@@ -1,3 +1,41 @@
+windows_core::imp::define_interface!(IPrintDocumentPageSource, IPrintDocumentPageSource_Vtbl, 0xa96bb1db_172e_4667_82b5_ad97a252318f);
+impl std::ops::Deref for IPrintDocumentPageSource {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IPrintDocumentPageSource, windows_core::IUnknown);
+impl IPrintDocumentPageSource {
+    #[cfg(feature = "Win32_Storage_Xps_Printing")]
+    pub unsafe fn GetPreviewPageCollection<P0>(&self, docpackagetarget: P0) -> windows_core::Result<IPrintPreviewPageCollection>
+    where
+        P0: windows_core::Param<super::super::super::Storage::Xps::Printing::IPrintDocumentPackageTarget>,
+    {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetPreviewPageCollection)(windows_core::Interface::as_raw(self), docpackagetarget.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
+    #[cfg(feature = "Win32_Storage_Xps_Printing")]
+    pub unsafe fn MakeDocument<P0, P1>(&self, printtaskoptions: P0, docpackagetarget: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<super::super::super::Storage::Xps::Printing::IPrintDocumentPackageTarget>,
+    {
+        (windows_core::Interface::vtable(self).MakeDocument)(windows_core::Interface::as_raw(self), printtaskoptions.param().abi(), docpackagetarget.param().abi()).ok()
+    }
+}
+#[repr(C)]
+pub struct IPrintDocumentPageSource_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    #[cfg(feature = "Win32_Storage_Xps_Printing")]
+    pub GetPreviewPageCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Storage_Xps_Printing"))]
+    GetPreviewPageCollection: usize,
+    #[cfg(feature = "Win32_Storage_Xps_Printing")]
+    pub MakeDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Storage_Xps_Printing"))]
+    MakeDocument: usize,
+}
 windows_core::imp::define_interface!(IPrintManagerInterop, IPrintManagerInterop_Vtbl, 0xc5435a42_8d43_4e7b_a68a_ef311e392087);
 impl std::ops::Deref for IPrintManagerInterop {
     type Target = windows_core::IInspectable;
@@ -29,6 +67,31 @@ pub struct IPrintManagerInterop_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShowPrintUIForWindowAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintPreviewPageCollection, IPrintPreviewPageCollection_Vtbl, 0x0b31cc62_d7ec_4747_9d6e_f2537d870f2b);
+impl std::ops::Deref for IPrintPreviewPageCollection {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IPrintPreviewPageCollection, windows_core::IUnknown);
+impl IPrintPreviewPageCollection {
+    pub unsafe fn Paginate<P0>(&self, currentjobpage: u32, printtaskoptions: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+    {
+        (windows_core::Interface::vtable(self).Paginate)(windows_core::Interface::as_raw(self), currentjobpage, printtaskoptions.param().abi()).ok()
+    }
+    pub unsafe fn MakePage(&self, desiredjobpage: u32, width: f32, height: f32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).MakePage)(windows_core::Interface::as_raw(self), desiredjobpage, width, height).ok()
+    }
+}
+#[repr(C)]
+pub struct IPrintPreviewPageCollection_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Paginate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub MakePage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f32, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintWorkflowConfigurationNative, IPrintWorkflowConfigurationNative_Vtbl, 0xc056be0a_9ee2_450a_9823_964f0006f2bb);
 impl std::ops::Deref for IPrintWorkflowConfigurationNative {

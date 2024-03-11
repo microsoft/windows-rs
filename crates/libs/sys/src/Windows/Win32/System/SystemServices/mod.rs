@@ -4317,9 +4317,10 @@ pub struct TOKEN_BNO_ISOLATION_INFORMATION {
     pub IsolationEnabled: super::super::Foundation::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct TOKEN_SID_INFORMATION {
-    pub Sid: super::super::Foundation::PSID,
+    pub Sid: super::super::Security::PSID,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

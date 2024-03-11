@@ -11965,6 +11965,13 @@ impl HDPA {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HDPA {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DPA_Destroy(*self);
+        }
+    }
+}
 impl Default for HDPA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11979,6 +11986,13 @@ pub struct HDSA(pub isize);
 impl HDSA {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HDSA {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DSA_Destroy(*self);
+        }
     }
 }
 impl Default for HDSA {
@@ -12069,6 +12083,13 @@ pub struct HSYNTHETICPOINTERDEVICE(pub isize);
 impl HSYNTHETICPOINTERDEVICE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HSYNTHETICPOINTERDEVICE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            DestroySyntheticPointerDevice(*self);
+        }
     }
 }
 impl Default for HSYNTHETICPOINTERDEVICE {

@@ -9585,6 +9585,13 @@ impl HUIAEVENT {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HUIAEVENT {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = UiaRemoveEvent(*self);
+        }
+    }
+}
 impl Default for HUIAEVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9599,6 +9606,13 @@ pub struct HUIANODE(pub isize);
 impl HUIANODE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HUIANODE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = UiaNodeRelease(*self);
+        }
     }
 }
 impl Default for HUIANODE {
@@ -9617,6 +9631,13 @@ impl HUIAPATTERNOBJECT {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HUIAPATTERNOBJECT {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = UiaPatternRelease(*self);
+        }
+    }
+}
 impl Default for HUIAPATTERNOBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9631,6 +9652,13 @@ pub struct HUIATEXTRANGE(pub isize);
 impl HUIATEXTRANGE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HUIATEXTRANGE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = UiaTextRangeRelease(*self);
+        }
     }
 }
 impl Default for HUIATEXTRANGE {

@@ -1,17 +1,10 @@
-#[cfg(feature = "Win32_System_WindowsProgramming")]
-windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceBlockBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_WindowsProgramming")]
-windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceClosePipe(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_WindowsProgramming")]
-windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceOpenPipe(startserviceifstopped : super::super::Foundation:: BOOL, pipe : *mut super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_WindowsProgramming")]
-windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceReloadConfiguration(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_WindowsProgramming")]
-windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStartBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE, lowpriorityio : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_WindowsProgramming")]
-windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStopBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE, stoptracking : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_WindowsProgramming")]
-windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceUnblockBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> windows_sys::core::HRESULT);
+windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceBlockBackup(pipe : FH_SERVICE_PIPE_HANDLE) -> windows_sys::core::HRESULT);
+windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceClosePipe(pipe : FH_SERVICE_PIPE_HANDLE) -> windows_sys::core::HRESULT);
+windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceOpenPipe(startserviceifstopped : super::super::Foundation:: BOOL, pipe : *mut FH_SERVICE_PIPE_HANDLE) -> windows_sys::core::HRESULT);
+windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceReloadConfiguration(pipe : FH_SERVICE_PIPE_HANDLE) -> windows_sys::core::HRESULT);
+windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStartBackup(pipe : FH_SERVICE_PIPE_HANDLE, lowpriorityio : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStopBackup(pipe : FH_SERVICE_PIPE_HANDLE, stoptracking : super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceUnblockBackup(pipe : FH_SERVICE_PIPE_HANDLE) -> windows_sys::core::HRESULT);
 pub const BackupCancelled: FhBackupStopReason = 4i32;
 pub const BackupInvalidStopReason: FhBackupStopReason = 0i32;
 pub const BackupLimitUserBusyMachineOnAC: FhBackupStopReason = 1i32;
@@ -99,5 +92,6 @@ pub type FH_RETENTION_TYPES = i32;
 pub type FH_TARGET_DRIVE_TYPES = i32;
 pub type FH_TARGET_PROPERTY_TYPE = i32;
 pub type FhBackupStopReason = i32;
+pub type FH_SERVICE_PIPE_HANDLE = isize;
 pub const FhConfigMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xed43bb3c_09e9_498a_9df6_2177244c6db4);
 pub const FhReassociation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4d728e35_16fa_4320_9e8b_bfd7100a8846);

@@ -627,6 +627,7 @@ impl IEnumTfInputProcessorProfiles {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
+    #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn Next(&self, pprofile: &mut [TF_INPUTPROCESSORPROFILE], pcfetch: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pprofile.len().try_into().unwrap(), core::mem::transmute(pprofile.as_ptr()), pcfetch).ok()
     }
@@ -641,7 +642,10 @@ impl IEnumTfInputProcessorProfiles {
 pub struct IEnumTfInputProcessorProfiles_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut TF_INPUTPROCESSORPROFILE, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_Input_KeyboardAndMouse"))]
+    Next: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
@@ -3266,9 +3270,10 @@ impl std::ops::Deref for ITfInputProcessorProfileActivationSink {
 }
 windows_core::imp::interface_hierarchy!(ITfInputProcessorProfileActivationSink, windows_core::IUnknown);
 impl ITfInputProcessorProfileActivationSink {
+    #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn OnActivated<P0>(&self, dwprofiletype: u32, langid: u16, clsid: *const windows_core::GUID, catid: *const windows_core::GUID, guidprofile: *const windows_core::GUID, hkl: P0, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<HKL>,
+        P0: windows_core::Param<super::Input::KeyboardAndMouse::HKL>,
     {
         (windows_core::Interface::vtable(self).OnActivated)(windows_core::Interface::as_raw(self), dwprofiletype, langid, clsid, catid, guidprofile, hkl.param().abi(), dwflags).ok()
     }
@@ -3276,7 +3281,10 @@ impl ITfInputProcessorProfileActivationSink {
 #[repr(C)]
 pub struct ITfInputProcessorProfileActivationSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub OnActivated: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u16, *const windows_core::GUID, *const windows_core::GUID, *const windows_core::GUID, HKL, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+    pub OnActivated: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u16, *const windows_core::GUID, *const windows_core::GUID, *const windows_core::GUID, super::Input::KeyboardAndMouse::HKL, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_Input_KeyboardAndMouse"))]
+    OnActivated: usize,
 }
 windows_core::imp::define_interface!(ITfInputProcessorProfileMgr, ITfInputProcessorProfileMgr_Vtbl, 0x71c6e74c_0f28_11d8_a82a_00065b84435c);
 impl std::ops::Deref for ITfInputProcessorProfileMgr {
@@ -3287,21 +3295,24 @@ impl std::ops::Deref for ITfInputProcessorProfileMgr {
 }
 windows_core::imp::interface_hierarchy!(ITfInputProcessorProfileMgr, windows_core::IUnknown);
 impl ITfInputProcessorProfileMgr {
+    #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn ActivateProfile<P0>(&self, dwprofiletype: u32, langid: u16, clsid: *const windows_core::GUID, guidprofile: *const windows_core::GUID, hkl: P0, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<HKL>,
+        P0: windows_core::Param<super::Input::KeyboardAndMouse::HKL>,
     {
         (windows_core::Interface::vtable(self).ActivateProfile)(windows_core::Interface::as_raw(self), dwprofiletype, langid, clsid, guidprofile, hkl.param().abi(), dwflags).ok()
     }
+    #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn DeactivateProfile<P0>(&self, dwprofiletype: u32, langid: u16, clsid: *const windows_core::GUID, guidprofile: *const windows_core::GUID, hkl: P0, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<HKL>,
+        P0: windows_core::Param<super::Input::KeyboardAndMouse::HKL>,
     {
         (windows_core::Interface::vtable(self).DeactivateProfile)(windows_core::Interface::as_raw(self), dwprofiletype, langid, clsid, guidprofile, hkl.param().abi(), dwflags).ok()
     }
+    #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn GetProfile<P0>(&self, dwprofiletype: u32, langid: u16, clsid: *const windows_core::GUID, guidprofile: *const windows_core::GUID, hkl: P0, pprofile: *mut TF_INPUTPROCESSORPROFILE) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<HKL>,
+        P0: windows_core::Param<super::Input::KeyboardAndMouse::HKL>,
     {
         (windows_core::Interface::vtable(self).GetProfile)(windows_core::Interface::as_raw(self), dwprofiletype, langid, clsid, guidprofile, hkl.param().abi(), pprofile).ok()
     }
@@ -3312,9 +3323,10 @@ impl ITfInputProcessorProfileMgr {
     pub unsafe fn ReleaseInputProcessor(&self, rclsid: *const windows_core::GUID, dwflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ReleaseInputProcessor)(windows_core::Interface::as_raw(self), rclsid, dwflags).ok()
     }
+    #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn RegisterProfile<P0, P1>(&self, rclsid: *const windows_core::GUID, langid: u16, guidprofile: *const windows_core::GUID, pchdesc: &[u16], pchiconfile: &[u16], uiconindex: u32, hklsubstitute: P0, dwpreferredlayout: u32, benabledbydefault: P1, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<HKL>,
+        P0: windows_core::Param<super::Input::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         (windows_core::Interface::vtable(self).RegisterProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, core::mem::transmute(pchdesc.as_ptr()), pchdesc.len().try_into().unwrap(), core::mem::transmute(pchiconfile.as_ptr()), pchiconfile.len().try_into().unwrap(), uiconindex, hklsubstitute.param().abi(), dwpreferredlayout, benabledbydefault.param().abi(), dwflags).ok()
@@ -3322,6 +3334,7 @@ impl ITfInputProcessorProfileMgr {
     pub unsafe fn UnregisterProfile(&self, rclsid: *const windows_core::GUID, langid: u16, guidprofile: *const windows_core::GUID, dwflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnregisterProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, dwflags).ok()
     }
+    #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn GetActiveProfile(&self, catid: *const windows_core::GUID, pprofile: *mut TF_INPUTPROCESSORPROFILE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetActiveProfile)(windows_core::Interface::as_raw(self), catid, pprofile).ok()
     }
@@ -3329,14 +3342,29 @@ impl ITfInputProcessorProfileMgr {
 #[repr(C)]
 pub struct ITfInputProcessorProfileMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub ActivateProfile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u16, *const windows_core::GUID, *const windows_core::GUID, HKL, u32) -> windows_core::HRESULT,
-    pub DeactivateProfile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u16, *const windows_core::GUID, *const windows_core::GUID, HKL, u32) -> windows_core::HRESULT,
-    pub GetProfile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u16, *const windows_core::GUID, *const windows_core::GUID, HKL, *mut TF_INPUTPROCESSORPROFILE) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+    pub ActivateProfile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u16, *const windows_core::GUID, *const windows_core::GUID, super::Input::KeyboardAndMouse::HKL, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_Input_KeyboardAndMouse"))]
+    ActivateProfile: usize,
+    #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+    pub DeactivateProfile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u16, *const windows_core::GUID, *const windows_core::GUID, super::Input::KeyboardAndMouse::HKL, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_Input_KeyboardAndMouse"))]
+    DeactivateProfile: usize,
+    #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+    pub GetProfile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u16, *const windows_core::GUID, *const windows_core::GUID, super::Input::KeyboardAndMouse::HKL, *mut TF_INPUTPROCESSORPROFILE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_Input_KeyboardAndMouse"))]
+    GetProfile: usize,
     pub EnumProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReleaseInputProcessor: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32) -> windows_core::HRESULT,
-    pub RegisterProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u16, *const windows_core::GUID, windows_core::PCWSTR, u32, windows_core::PCWSTR, u32, u32, HKL, u32, super::super::Foundation::BOOL, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+    pub RegisterProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u16, *const windows_core::GUID, windows_core::PCWSTR, u32, windows_core::PCWSTR, u32, u32, super::Input::KeyboardAndMouse::HKL, u32, super::super::Foundation::BOOL, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_Input_KeyboardAndMouse"))]
+    RegisterProfile: usize,
     pub UnregisterProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u16, *const windows_core::GUID, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub GetActiveProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut TF_INPUTPROCESSORPROFILE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_Input_KeyboardAndMouse"))]
+    GetActiveProfile: usize,
 }
 windows_core::imp::define_interface!(ITfInputProcessorProfileSubstituteLayout, ITfInputProcessorProfileSubstituteLayout_Vtbl, 0x4fd67194_1002_4513_bff2_c0ddf6258552);
 impl std::ops::Deref for ITfInputProcessorProfileSubstituteLayout {
@@ -3347,7 +3375,8 @@ impl std::ops::Deref for ITfInputProcessorProfileSubstituteLayout {
 }
 windows_core::imp::interface_hierarchy!(ITfInputProcessorProfileSubstituteLayout, windows_core::IUnknown);
 impl ITfInputProcessorProfileSubstituteLayout {
-    pub unsafe fn GetSubstituteKeyboardLayout(&self, rclsid: *const windows_core::GUID, langid: u16, guidprofile: *const windows_core::GUID) -> windows_core::Result<HKL> {
+    #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+    pub unsafe fn GetSubstituteKeyboardLayout(&self, rclsid: *const windows_core::GUID, langid: u16, guidprofile: *const windows_core::GUID) -> windows_core::Result<super::Input::KeyboardAndMouse::HKL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSubstituteKeyboardLayout)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, &mut result__).map(|| result__)
     }
@@ -3355,7 +3384,10 @@ impl ITfInputProcessorProfileSubstituteLayout {
 #[repr(C)]
 pub struct ITfInputProcessorProfileSubstituteLayout_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetSubstituteKeyboardLayout: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u16, *const windows_core::GUID, *mut HKL) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+    pub GetSubstituteKeyboardLayout: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u16, *const windows_core::GUID, *mut super::Input::KeyboardAndMouse::HKL) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_Input_KeyboardAndMouse"))]
+    GetSubstituteKeyboardLayout: usize,
 }
 windows_core::imp::define_interface!(ITfInputProcessorProfiles, ITfInputProcessorProfiles_Vtbl, 0x1f02b6c5_7842_4ee6_8a0b_9a24183a95ca);
 impl std::ops::Deref for ITfInputProcessorProfiles {
@@ -3429,9 +3461,10 @@ impl ITfInputProcessorProfiles {
     {
         (windows_core::Interface::vtable(self).EnableLanguageProfileByDefault)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, fenable.param().abi()).ok()
     }
+    #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
     pub unsafe fn SubstituteKeyboardLayout<P0>(&self, rclsid: *const windows_core::GUID, langid: u16, guidprofile: *const windows_core::GUID, hkl: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<HKL>,
+        P0: windows_core::Param<super::Input::KeyboardAndMouse::HKL>,
     {
         (windows_core::Interface::vtable(self).SubstituteKeyboardLayout)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, hkl.param().abi()).ok()
     }
@@ -3459,7 +3492,10 @@ pub struct ITfInputProcessorProfiles_Vtbl {
     pub EnableLanguageProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u16, *const windows_core::GUID, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub IsEnabledLanguageProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u16, *const windows_core::GUID, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub EnableLanguageProfileByDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u16, *const windows_core::GUID, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub SubstituteKeyboardLayout: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u16, *const windows_core::GUID, HKL) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+    pub SubstituteKeyboardLayout: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u16, *const windows_core::GUID, super::Input::KeyboardAndMouse::HKL) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_Input_KeyboardAndMouse"))]
+    SubstituteKeyboardLayout: usize,
 }
 windows_core::imp::define_interface!(ITfInputProcessorProfilesEx, ITfInputProcessorProfilesEx_Vtbl, 0x892f230f_fe00_4a41_a98e_fcd6de0d35ef);
 impl std::ops::Deref for ITfInputProcessorProfilesEx {
@@ -6793,22 +6829,6 @@ pub const AccDictionary: windows_core::GUID = windows_core::GUID::from_u128(0x65
 pub const AccServerDocMgr: windows_core::GUID = windows_core::GUID::from_u128(0x6089a37e_eb8a_482d_bd6f_f9f46904d16d);
 pub const AccStore: windows_core::GUID = windows_core::GUID::from_u128(0x5440837f_4bff_4ae5_a1b1_7722ecc6332a);
 pub const DocWrap: windows_core::GUID = windows_core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HKL(pub isize);
-impl HKL {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl Default for HKL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HKL {
-    type TypeKind = windows_core::CopyType;
-}
 pub const MSAAControl: windows_core::GUID = windows_core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6877,6 +6897,7 @@ impl Default for TF_HALTCOND {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TF_INPUTPROCESSORPROFILE {
     pub dwProfileType: u32,
@@ -6884,14 +6905,16 @@ pub struct TF_INPUTPROCESSORPROFILE {
     pub clsid: windows_core::GUID,
     pub guidProfile: windows_core::GUID,
     pub catid: windows_core::GUID,
-    pub hklSubstitute: HKL,
+    pub hklSubstitute: super::Input::KeyboardAndMouse::HKL,
     pub dwCaps: u32,
-    pub hkl: HKL,
+    pub hkl: super::Input::KeyboardAndMouse::HKL,
     pub dwFlags: u32,
 }
+#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 impl windows_core::TypeKind for TF_INPUTPROCESSORPROFILE {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 impl Default for TF_INPUTPROCESSORPROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

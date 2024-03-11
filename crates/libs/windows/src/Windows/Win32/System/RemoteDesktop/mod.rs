@@ -80,6 +80,7 @@ where
     windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateListenersW(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plisteners : *mut *mut u16, pcount : *mut u32) -> super::super::Foundation:: BOOL);
     WTSEnumerateListenersW(hserver.param().abi(), preserved, reserved, core::mem::transmute(plisteners.unwrap_or(std::ptr::null_mut())), pcount).ok()
 }
+#[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn WTSEnumerateProcessesA<P0>(hserver: P0, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOA, pcount: *mut u32) -> windows_core::Result<()>
 where
@@ -104,6 +105,7 @@ where
     windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateProcessesExW(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, sessionid : u32, ppprocessinfo : *mut windows_core::PWSTR, pcount : *mut u32) -> super::super::Foundation:: BOOL);
     WTSEnumerateProcessesExW(hserver.param().abi(), plevel, sessionid, ppprocessinfo, pcount).ok()
 }
+#[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn WTSEnumerateProcessesW<P0>(hserver: P0, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOW, pcount: *mut u32) -> windows_core::Result<()>
 where
@@ -7092,44 +7094,51 @@ impl Default for WTS_POLICY_DATA {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_PROCESS_INFOA {
     pub SessionId: u32,
     pub ProcessId: u32,
     pub pProcessName: windows_core::PSTR,
-    pub pUserSid: super::super::Foundation::PSID,
+    pub pUserSid: super::super::Security::PSID,
 }
+#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for WTS_PROCESS_INFOA {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for WTS_PROCESS_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_PROCESS_INFOW {
     pub SessionId: u32,
     pub ProcessId: u32,
     pub pProcessName: windows_core::PWSTR,
-    pub pUserSid: super::super::Foundation::PSID,
+    pub pUserSid: super::super::Security::PSID,
 }
+#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for WTS_PROCESS_INFOW {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for WTS_PROCESS_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_PROCESS_INFO_EXA {
     pub SessionId: u32,
     pub ProcessId: u32,
     pub pProcessName: windows_core::PSTR,
-    pub pUserSid: super::super::Foundation::PSID,
+    pub pUserSid: super::super::Security::PSID,
     pub NumberOfThreads: u32,
     pub HandleCount: u32,
     pub PagefileUsage: u32,
@@ -7139,21 +7148,24 @@ pub struct WTS_PROCESS_INFO_EXA {
     pub UserTime: i64,
     pub KernelTime: i64,
 }
+#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for WTS_PROCESS_INFO_EXA {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for WTS_PROCESS_INFO_EXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_PROCESS_INFO_EXW {
     pub SessionId: u32,
     pub ProcessId: u32,
     pub pProcessName: windows_core::PWSTR,
-    pub pUserSid: super::super::Foundation::PSID,
+    pub pUserSid: super::super::Security::PSID,
     pub NumberOfThreads: u32,
     pub HandleCount: u32,
     pub PagefileUsage: u32,
@@ -7163,9 +7175,11 @@ pub struct WTS_PROCESS_INFO_EXW {
     pub UserTime: i64,
     pub KernelTime: i64,
 }
+#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for WTS_PROCESS_INFO_EXW {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for WTS_PROCESS_INFO_EXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

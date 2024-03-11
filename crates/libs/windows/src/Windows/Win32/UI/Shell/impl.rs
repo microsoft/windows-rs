@@ -14175,7 +14175,7 @@ pub trait IShellFolder_Impl: Sized {
     fn EnumObjects(&self, hwnd: super::super::Foundation::HWND, grfflags: u32, ppenumidlist: *mut Option<IEnumIDList>) -> windows_core::HRESULT;
     fn BindToObject(&self, pidl: *const Common::ITEMIDLIST, pbc: Option<&super::super::System::Com::IBindCtx>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn BindToStorage(&self, pidl: *const Common::ITEMIDLIST, pbc: Option<&super::super::System::Com::IBindCtx>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CompareIDs(&self, lparam: super::super::Foundation::LPARAM, pidl1: *const Common::ITEMIDLIST, pidl2: *const Common::ITEMIDLIST) -> windows_core::Result<()>;
+    fn CompareIDs(&self, lparam: super::super::Foundation::LPARAM, pidl1: *const Common::ITEMIDLIST, pidl2: *const Common::ITEMIDLIST) -> windows_core::HRESULT;
     fn CreateViewObject(&self, hwndowner: super::super::Foundation::HWND, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetAttributesOf(&self, cidl: u32, apidl: *const *const Common::ITEMIDLIST, rgfinout: *mut u32) -> windows_core::Result<()>;
     fn GetUIObjectOf(&self, hwndowner: super::super::Foundation::HWND, cidl: u32, apidl: *const *const Common::ITEMIDLIST, riid: *const windows_core::GUID, rgfreserved: *const u32, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -14210,7 +14210,7 @@ impl IShellFolder_Vtbl {
         unsafe extern "system" fn CompareIDs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lparam: super::super::Foundation::LPARAM, pidl1: *const Common::ITEMIDLIST, pidl2: *const Common::ITEMIDLIST) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            IShellFolder_Impl::CompareIDs(this, core::mem::transmute_copy(&lparam), core::mem::transmute_copy(&pidl1), core::mem::transmute_copy(&pidl2)).into()
+            IShellFolder_Impl::CompareIDs(this, core::mem::transmute_copy(&lparam), core::mem::transmute_copy(&pidl1), core::mem::transmute_copy(&pidl2))
         }
         unsafe extern "system" fn CreateViewObject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndowner: super::super::Foundation::HWND, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -14260,7 +14260,7 @@ pub trait IShellFolder2_Impl: Sized + IShellFolder_Impl {
     fn GetDefaultSearchGUID(&self) -> windows_core::Result<windows_core::GUID>;
     fn EnumSearches(&self) -> windows_core::Result<IEnumExtraSearch>;
     fn GetDefaultColumn(&self, dwres: u32, psort: *mut u32, pdisplay: *mut u32) -> windows_core::Result<()>;
-    fn GetDefaultColumnState(&self, icolumn: u32) -> windows_core::Result<u32>;
+    fn GetDefaultColumnState(&self, icolumn: u32) -> windows_core::Result<Common::SHCOLSTATE>;
     fn GetDetailsEx(&self, pidl: *const Common::ITEMIDLIST, pscid: *const PropertiesSystem::PROPERTYKEY) -> windows_core::Result<windows_core::VARIANT>;
     fn GetDetailsOf(&self, pidl: *const Common::ITEMIDLIST, icolumn: u32, psd: *mut Common::SHELLDETAILS) -> windows_core::Result<()>;
     fn MapColumnToSCID(&self, icolumn: u32, pscid: *mut PropertiesSystem::PROPERTYKEY) -> windows_core::Result<()>;
@@ -14297,7 +14297,7 @@ impl IShellFolder2_Vtbl {
             let this = (*this).get_impl();
             IShellFolder2_Impl::GetDefaultColumn(this, core::mem::transmute_copy(&dwres), core::mem::transmute_copy(&psort), core::mem::transmute_copy(&pdisplay)).into()
         }
-        unsafe extern "system" fn GetDefaultColumnState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, icolumn: u32, pcsflags: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDefaultColumnState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolder2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, icolumn: u32, pcsflags: *mut Common::SHCOLSTATE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match IShellFolder2_Impl::GetDefaultColumnState(this, core::mem::transmute_copy(&icolumn)) {

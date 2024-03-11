@@ -720,6 +720,13 @@ impl HGESTUREINFO {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HGESTUREINFO {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = CloseGestureInfoHandle(*self);
+        }
+    }
+}
 impl Default for HGESTUREINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -734,6 +741,13 @@ pub struct HTOUCHINPUT(pub isize);
 impl HTOUCHINPUT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HTOUCHINPUT {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = CloseTouchInputHandle(*self);
+        }
     }
 }
 impl Default for HTOUCHINPUT {

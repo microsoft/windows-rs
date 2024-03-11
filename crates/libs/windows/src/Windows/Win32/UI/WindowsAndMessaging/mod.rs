@@ -3993,6 +3993,7 @@ pub const IDC_SIZENESW: windows_core::PCWSTR = windows_core::PCWSTR(32643u16 as 
 pub const IDC_SIZENS: windows_core::PCWSTR = windows_core::PCWSTR(32645u16 as _);
 pub const IDC_SIZENWSE: windows_core::PCWSTR = windows_core::PCWSTR(32642u16 as _);
 pub const IDC_SIZEWE: windows_core::PCWSTR = windows_core::PCWSTR(32644u16 as _);
+pub const IDC_STATIC: i32 = -1i32;
 pub const IDC_UPARROW: windows_core::PCWSTR = windows_core::PCWSTR(32516u16 as _);
 pub const IDC_WAIT: windows_core::PCWSTR = windows_core::PCWSTR(32514u16 as _);
 pub const IDHELP: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(9i32);
@@ -4565,7 +4566,7 @@ pub const RT_FONT: windows_core::PCWSTR = windows_core::PCWSTR(8u16 as _);
 pub const RT_FONTDIR: windows_core::PCWSTR = windows_core::PCWSTR(7u16 as _);
 pub const RT_HTML: windows_core::PCWSTR = windows_core::PCWSTR(23u16 as _);
 pub const RT_ICON: windows_core::PCWSTR = windows_core::PCWSTR(3u16 as _);
-pub const RT_MANIFEST: u32 = 24u32;
+pub const RT_MANIFEST: windows_core::PCWSTR = windows_core::PCWSTR(24u16 as _);
 pub const RT_MENU: windows_core::PCWSTR = windows_core::PCWSTR(4u16 as _);
 pub const RT_MESSAGETABLE: windows_core::PCWSTR = windows_core::PCWSTR(11u16 as _);
 pub const RT_PLUGPLAY: windows_core::PCWSTR = windows_core::PCWSTR(19u16 as _);
@@ -5200,6 +5201,7 @@ pub const WINEVENT_SKIPOWNPROCESS: u32 = 2u32;
 pub const WINEVENT_SKIPOWNTHREAD: u32 = 1u32;
 pub const WINSTA_ACCESSCLIPBOARD: i32 = 4i32;
 pub const WINSTA_ACCESSGLOBALATOMS: i32 = 32i32;
+pub const WINSTA_ALL_ACCESS: i32 = 895i32;
 pub const WINSTA_CREATEDESKTOP: i32 = 8i32;
 pub const WINSTA_ENUMDESKTOPS: i32 = 1i32;
 pub const WINSTA_ENUMERATE: i32 = 256i32;
@@ -5545,6 +5547,7 @@ pub const WVR_ALIGNLEFT: u32 = 32u32;
 pub const WVR_ALIGNRIGHT: u32 = 128u32;
 pub const WVR_ALIGNTOP: u32 = 16u32;
 pub const WVR_HREDRAW: u32 = 256u32;
+pub const WVR_REDRAW: u32 = 768u32;
 pub const WVR_VALIDRECTS: u32 = 1024u32;
 pub const WVR_VREDRAW: u32 = 512u32;
 pub const XBUTTON1: u16 = 1u16;
@@ -7596,7 +7599,7 @@ pub struct CREATESTRUCTA {
     pub style: i32,
     pub lpszName: windows_core::PCSTR,
     pub lpszClass: windows_core::PCSTR,
-    pub dwExStyle: u32,
+    pub dwExStyle: WINDOW_EX_STYLE,
 }
 impl windows_core::TypeKind for CREATESTRUCTA {
     type TypeKind = windows_core::CopyType;
@@ -7620,7 +7623,7 @@ pub struct CREATESTRUCTW {
     pub style: i32,
     pub lpszName: windows_core::PCWSTR,
     pub lpszClass: windows_core::PCWSTR,
-    pub dwExStyle: u32,
+    pub dwExStyle: WINDOW_EX_STYLE,
 }
 impl windows_core::TypeKind for CREATESTRUCTW {
     type TypeKind = windows_core::CopyType;

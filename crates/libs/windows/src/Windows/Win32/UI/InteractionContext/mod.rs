@@ -603,6 +603,13 @@ impl HINTERACTIONCONTEXT {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HINTERACTIONCONTEXT {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DestroyInteractionContext(*self);
+        }
+    }
+}
 impl Default for HINTERACTIONCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

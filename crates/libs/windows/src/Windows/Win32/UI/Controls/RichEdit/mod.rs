@@ -1502,14 +1502,14 @@ impl ITextHost {
     pub unsafe fn TxNotify(&self, inotify: u32, pv: *mut core::ffi::c_void) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).TxNotify)(windows_core::Interface::as_raw(self), inotify, pv).ok()
     }
-    #[cfg(feature = "Win32_Globalization")]
-    pub unsafe fn TxImmGetContext(&self) -> super::super::super::Globalization::HIMC {
+    #[cfg(feature = "Win32_UI_Input_Ime")]
+    pub unsafe fn TxImmGetContext(&self) -> super::super::Input::Ime::HIMC {
         (windows_core::Interface::vtable(self).TxImmGetContext)(windows_core::Interface::as_raw(self))
     }
-    #[cfg(feature = "Win32_Globalization")]
+    #[cfg(feature = "Win32_UI_Input_Ime")]
     pub unsafe fn TxImmReleaseContext<P0>(&self, himc: P0)
     where
-        P0: windows_core::Param<super::super::super::Globalization::HIMC>,
+        P0: windows_core::Param<super::super::Input::Ime::HIMC>,
     {
         (windows_core::Interface::vtable(self).TxImmReleaseContext)(windows_core::Interface::as_raw(self), himc.param().abi())
     }
@@ -1583,13 +1583,13 @@ pub struct ITextHost_Vtbl {
     pub OnTxParaFormatChange: unsafe extern "system" fn(*mut core::ffi::c_void, *const PARAFORMAT) -> windows_core::HRESULT,
     pub TxGetPropertyBits: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub TxNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_Globalization")]
-    pub TxImmGetContext: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::super::Globalization::HIMC,
-    #[cfg(not(feature = "Win32_Globalization"))]
+    #[cfg(feature = "Win32_UI_Input_Ime")]
+    pub TxImmGetContext: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Input::Ime::HIMC,
+    #[cfg(not(feature = "Win32_UI_Input_Ime"))]
     TxImmGetContext: usize,
-    #[cfg(feature = "Win32_Globalization")]
-    pub TxImmReleaseContext: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Globalization::HIMC),
-    #[cfg(not(feature = "Win32_Globalization"))]
+    #[cfg(feature = "Win32_UI_Input_Ime")]
+    pub TxImmReleaseContext: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Input::Ime::HIMC),
+    #[cfg(not(feature = "Win32_UI_Input_Ime"))]
     TxImmReleaseContext: usize,
     pub TxGetSelectionBarWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }

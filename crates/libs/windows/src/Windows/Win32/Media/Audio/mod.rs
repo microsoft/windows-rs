@@ -2524,8 +2524,9 @@ impl IMMDevice {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetState(&self, pdwstate: *mut u32) -> DEVICE_STATE {
-        (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), pdwstate)
+    pub unsafe fn GetState(&self) -> windows_core::Result<DEVICE_STATE> {
+        let mut result__ = std::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -2540,7 +2541,7 @@ pub struct IMMDevice_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem")))]
     OpenPropertyStore: usize,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> DEVICE_STATE,
+    pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEVICE_STATE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMMDeviceActivator, IMMDeviceActivator_Vtbl, 0x3b0d0ea4_d0a9_4b0e_935b_09516746fac0);
 impl std::ops::Deref for IMMDeviceActivator {
@@ -5448,6 +5449,13 @@ impl HACMDRIVER {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HACMDRIVER {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = acmDriverClose(*self, 0);
+        }
+    }
+}
 impl Default for HACMDRIVER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5496,6 +5504,13 @@ impl HACMSTREAM {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HACMSTREAM {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = acmStreamClose(*self, 0);
+        }
+    }
+}
 impl Default for HACMSTREAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5528,6 +5543,13 @@ impl HMIDIIN {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HMIDIIN {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = midiInClose(*self);
+        }
+    }
+}
 impl Default for HMIDIIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5542,6 +5564,13 @@ pub struct HMIDIOUT(pub isize);
 impl HMIDIOUT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HMIDIOUT {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = midiOutClose(*self);
+        }
     }
 }
 impl Default for HMIDIOUT {
@@ -5560,6 +5589,13 @@ impl HMIDISTRM {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HMIDISTRM {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = midiStreamClose(*self);
+        }
+    }
+}
 impl Default for HMIDISTRM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5574,6 +5610,13 @@ pub struct HMIXER(pub isize);
 impl HMIXER {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HMIXER {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = mixerClose(*self);
+        }
     }
 }
 impl Default for HMIXER {
@@ -5624,6 +5667,13 @@ impl HWAVEIN {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HWAVEIN {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = waveInClose(*self);
+        }
+    }
+}
 impl Default for HWAVEIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5638,6 +5688,13 @@ pub struct HWAVEOUT(pub isize);
 impl HWAVEOUT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HWAVEOUT {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = waveOutClose(*self);
+        }
     }
 }
 impl Default for HWAVEOUT {

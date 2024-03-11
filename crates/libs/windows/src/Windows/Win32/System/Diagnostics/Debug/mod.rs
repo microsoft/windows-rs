@@ -893,8 +893,8 @@ pub unsafe fn RtlUnwindEx(targetframe: Option<*const core::ffi::c_void>, targeti
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut core::ffi::c_void, establisherframe: *mut usize, contextpointers: Option<*mut KNONVOLATILE_CONTEXT_POINTERS_ARM64>) -> super::super::Kernel::EXCEPTION_ROUTINE {
-    windows_targets::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase : usize, controlpc : usize, functionentry : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord : *mut CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut usize, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> super::super::Kernel:: EXCEPTION_ROUTINE);
+pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut core::ffi::c_void, establisherframe: *mut usize, contextpointers: Option<*mut KNONVOLATILE_CONTEXT_POINTERS>) -> super::super::Kernel::EXCEPTION_ROUTINE {
+    windows_targets::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase : usize, controlpc : usize, functionentry : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord : *mut CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut usize, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel:: EXCEPTION_ROUTINE);
     RtlVirtualUnwind(handlertype, imagebase, controlpc, functionentry, contextrecord, handlerdata, establisherframe, core::mem::transmute(contextpointers.unwrap_or(std::ptr::null_mut())))
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -928,8 +928,8 @@ pub unsafe fn SetCheckUserInterruptShared(lpstartaddress: LPCALL_BACK_USER_INTER
     SetCheckUserInterruptShared(lpstartaddress)
 }
 #[inline]
-pub unsafe fn SetErrorMode(umode: THREAD_ERROR_MODE) -> u32 {
-    windows_targets::link!("kernel32.dll" "system" fn SetErrorMode(umode : THREAD_ERROR_MODE) -> u32);
+pub unsafe fn SetErrorMode(umode: THREAD_ERROR_MODE) -> THREAD_ERROR_MODE {
+    windows_targets::link!("kernel32.dll" "system" fn SetErrorMode(umode : THREAD_ERROR_MODE) -> THREAD_ERROR_MODE);
     SetErrorMode(umode)
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -7927,6 +7927,41 @@ impl Default for KDHELP64 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[derive(Clone, Copy)]
+pub struct KNONVOLATILE_CONTEXT_POINTERS {
+    pub X19: *mut u64,
+    pub X20: *mut u64,
+    pub X21: *mut u64,
+    pub X22: *mut u64,
+    pub X23: *mut u64,
+    pub X24: *mut u64,
+    pub X25: *mut u64,
+    pub X26: *mut u64,
+    pub X27: *mut u64,
+    pub X28: *mut u64,
+    pub Fp: *mut u64,
+    pub Lr: *mut u64,
+    pub D8: *mut u64,
+    pub D9: *mut u64,
+    pub D10: *mut u64,
+    pub D11: *mut u64,
+    pub D12: *mut u64,
+    pub D13: *mut u64,
+    pub D14: *mut u64,
+    pub D15: *mut u64,
+}
+#[cfg(target_arch = "aarch64")]
+impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "aarch64")]
+impl Default for KNONVOLATILE_CONTEXT_POINTERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
@@ -8051,41 +8086,6 @@ impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS {
 }
 #[cfg(target_arch = "x86")]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
-    pub X19: *mut u64,
-    pub X20: *mut u64,
-    pub X21: *mut u64,
-    pub X22: *mut u64,
-    pub X23: *mut u64,
-    pub X24: *mut u64,
-    pub X25: *mut u64,
-    pub X26: *mut u64,
-    pub X27: *mut u64,
-    pub X28: *mut u64,
-    pub Fp: *mut u64,
-    pub Lr: *mut u64,
-    pub D8: *mut u64,
-    pub D9: *mut u64,
-    pub D10: *mut u64,
-    pub D11: *mut u64,
-    pub D12: *mut u64,
-    pub D13: *mut u64,
-    pub D14: *mut u64,
-    pub D15: *mut u64,
-}
-#[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "aarch64")]
-impl Default for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

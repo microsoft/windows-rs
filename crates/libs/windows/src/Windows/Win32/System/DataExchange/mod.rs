@@ -1009,6 +1009,13 @@ impl HCONV {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HCONV {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DdeDisconnect(*self);
+        }
+    }
+}
 impl Default for HCONV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1025,6 +1032,13 @@ impl HCONVLIST {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HCONVLIST {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DdeDisconnectList(*self);
+        }
+    }
+}
 impl Default for HCONVLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1039,6 +1053,13 @@ pub struct HDDEDATA(pub isize);
 impl HDDEDATA {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
+    }
+}
+impl windows_core::Free for HDDEDATA {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DdeFreeDataHandle(*self);
+        }
     }
 }
 impl Default for HDDEDATA {

@@ -67,7 +67,9 @@ windows_targets::link!("dsparse.dll" "system" fn DsCrackUnquotedMangledRdnA(pszr
 windows_targets::link!("dsparse.dll" "system" fn DsCrackUnquotedMangledRdnW(pszrdn : windows_sys::core::PCWSTR, cchrdn : u32, pguid : *mut windows_sys::core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
 windows_targets::link!("netapi32.dll" "system" fn DsDeregisterDnsHostRecordsA(servername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, domainguid : *const windows_sys::core::GUID, dsaguid : *const windows_sys::core::GUID, dnshostname : windows_sys::core::PCSTR) -> u32);
 windows_targets::link!("netapi32.dll" "system" fn DsDeregisterDnsHostRecordsW(servername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, domainguid : *const windows_sys::core::GUID, dsaguid : *const windows_sys::core::GUID, dnshostname : windows_sys::core::PCWSTR) -> u32);
+#[cfg(feature = "Win32_Security")]
 windows_targets::link!("netapi32.dll" "system" fn DsEnumerateDomainTrustsA(servername : windows_sys::core::PCSTR, flags : u32, domains : *mut *mut DS_DOMAIN_TRUSTSA, domaincount : *mut u32) -> u32);
+#[cfg(feature = "Win32_Security")]
 windows_targets::link!("netapi32.dll" "system" fn DsEnumerateDomainTrustsW(servername : windows_sys::core::PCWSTR, flags : u32, domains : *mut *mut DS_DOMAIN_TRUSTSW, domaincount : *mut u32) -> u32);
 windows_targets::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoA(infolevel : u32, cinfo : u32, pinfo : *const core::ffi::c_void));
 windows_targets::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoW(infolevel : u32, cinfo : u32, pinfo : *const core::ffi::c_void));
@@ -1866,6 +1868,7 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
     pub NtdsDsaObjectGuid: windows_sys::core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct DS_DOMAIN_TRUSTSA {
     pub NetbiosDomainName: windows_sys::core::PSTR,
@@ -1874,10 +1877,11 @@ pub struct DS_DOMAIN_TRUSTSA {
     pub ParentIndex: u32,
     pub TrustType: u32,
     pub TrustAttributes: u32,
-    pub DomainSid: super::super::Foundation::PSID,
+    pub DomainSid: super::super::Security::PSID,
     pub DomainGuid: windows_sys::core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct DS_DOMAIN_TRUSTSW {
     pub NetbiosDomainName: windows_sys::core::PWSTR,
@@ -1886,7 +1890,7 @@ pub struct DS_DOMAIN_TRUSTSW {
     pub ParentIndex: u32,
     pub TrustType: u32,
     pub TrustAttributes: u32,
-    pub DomainSid: super::super::Foundation::PSID,
+    pub DomainSid: super::super::Security::PSID,
     pub DomainGuid: windows_sys::core::GUID,
 }
 #[repr(C)]

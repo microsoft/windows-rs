@@ -6918,6 +6918,13 @@ impl HIC {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HIC {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = ICClose(*self);
+        }
+    }
+}
 impl Default for HIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

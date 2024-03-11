@@ -1176,6 +1176,13 @@ impl HSWDEVICE {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HSWDEVICE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            SwDeviceClose(*self);
+        }
+    }
+}
 impl Default for HSWDEVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

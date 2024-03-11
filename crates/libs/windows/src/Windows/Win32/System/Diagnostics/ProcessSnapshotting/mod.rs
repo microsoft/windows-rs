@@ -413,6 +413,13 @@ impl HPSSWALK {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HPSSWALK {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = PssWalkMarkerFree(*self);
+        }
+    }
+}
 impl Default for HPSSWALK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

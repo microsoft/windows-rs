@@ -1842,7 +1842,7 @@ pub trait IMMDevice_Impl: Sized {
     fn Activate(&self, iid: *const windows_core::GUID, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: *const windows_core::PROPVARIANT, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn OpenPropertyStore(&self, stgmaccess: super::super::System::Com::STGM) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
     fn GetId(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetState(&self, pdwstate: *mut u32) -> DEVICE_STATE;
+    fn GetState(&self) -> windows_core::Result<DEVICE_STATE>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl windows_core::RuntimeName for IMMDevice {}
@@ -1876,10 +1876,16 @@ impl IMMDevice_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstate: *mut u32) -> DEVICE_STATE {
+        unsafe extern "system" fn GetState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstate: *mut DEVICE_STATE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            IMMDevice_Impl::GetState(this, core::mem::transmute_copy(&pdwstate))
+            match IMMDevice_Impl::GetState(this) {
+                Ok(ok__) => {
+                    core::ptr::write(pdwstate, core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

@@ -20705,14 +20705,14 @@ impl IStreamBufferDataCounters_Vtbl {
         iid == &<IStreamBufferDataCounters as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Registry")]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 pub trait IStreamBufferInitialize_Impl: Sized {
     fn SetHKEY(&self, hkeyroot: super::super::super::System::Registry::HKEY) -> windows_core::Result<()>;
-    fn SetSIDs(&self, csids: u32, ppsid: *mut super::super::super::Foundation::PSID) -> windows_core::Result<()>;
+    fn SetSIDs(&self, csids: u32, ppsid: *mut super::super::super::Security::PSID) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Registry")]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 impl windows_core::RuntimeName for IStreamBufferInitialize {}
-#[cfg(feature = "Win32_System_Registry")]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 impl IStreamBufferInitialize_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStreamBufferInitialize_Impl, const OFFSET: isize>() -> IStreamBufferInitialize_Vtbl {
         unsafe extern "system" fn SetHKEY<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStreamBufferInitialize_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hkeyroot: super::super::super::System::Registry::HKEY) -> windows_core::HRESULT {
@@ -20720,7 +20720,7 @@ impl IStreamBufferInitialize_Vtbl {
             let this = (*this).get_impl();
             IStreamBufferInitialize_Impl::SetHKEY(this, core::mem::transmute_copy(&hkeyroot)).into()
         }
-        unsafe extern "system" fn SetSIDs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStreamBufferInitialize_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, csids: u32, ppsid: *mut super::super::super::Foundation::PSID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSIDs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStreamBufferInitialize_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, csids: u32, ppsid: *mut super::super::super::Security::PSID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             IStreamBufferInitialize_Impl::SetSIDs(this, core::mem::transmute_copy(&csids), core::mem::transmute_copy(&ppsid)).into()

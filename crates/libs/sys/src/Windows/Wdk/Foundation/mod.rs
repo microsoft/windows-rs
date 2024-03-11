@@ -724,7 +724,7 @@ pub struct IO_STACK_LOCATION_0_20 {
 #[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_21 {
     pub Length: u32,
-    pub StartSid: super::super::Win32::Foundation::PSID,
+    pub StartSid: windows_sys::core::PSID,
     pub SidList: *mut super::Storage::FileSystem::FILE_GET_QUOTA_INFORMATION,
     pub SidListLength: u32,
 }

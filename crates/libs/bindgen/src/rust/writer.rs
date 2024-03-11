@@ -185,6 +185,10 @@ impl Writer {
                 let crate_name = self.crate_name();
                 quote! { #crate_name PWSTR }
             }
+            metadata::Type::Name(metadata::TypeName::PSID) => {
+                let crate_name = self.crate_name();
+                quote! { #crate_name PSID }
+            }
             metadata::Type::Const(metadata::TypeName::PSTR) => {
                 let crate_name = self.crate_name();
                 quote! { #crate_name PCSTR }

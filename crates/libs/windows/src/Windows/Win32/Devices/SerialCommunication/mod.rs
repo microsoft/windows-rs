@@ -158,6 +158,13 @@ impl HCOMDB {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HCOMDB {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = ComDBClose(*self);
+        }
+    }
+}
 impl Default for HCOMDB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

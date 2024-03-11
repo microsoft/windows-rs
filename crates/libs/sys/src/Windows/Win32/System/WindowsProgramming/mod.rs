@@ -1180,7 +1180,6 @@ pub struct FEATURE_ERROR {
     pub originName: windows_sys::core::PCSTR,
 }
 pub type FEATURE_STATE_CHANGE_SUBSCRIPTION = isize;
-pub type FH_SERVICE_PIPE_HANDLE = isize;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_CASE_SENSITIVE_INFO {

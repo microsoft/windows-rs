@@ -1646,6 +1646,13 @@ impl HSTRING_BUFFER {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HSTRING_BUFFER {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = WindowsDeleteStringBuffer(*self);
+        }
+    }
+}
 impl Default for HSTRING_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1670,22 +1677,6 @@ impl Default for HSTRING_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct ROPARAMIIDHANDLE(pub isize);
-impl ROPARAMIIDHANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl Default for ROPARAMIIDHANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for ROPARAMIIDHANDLE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

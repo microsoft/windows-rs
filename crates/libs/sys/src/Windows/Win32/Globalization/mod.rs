@@ -4571,8 +4571,6 @@ pub struct GOFFSET {
     pub du: i32,
     pub dv: i32,
 }
-pub type HIMC = isize;
-pub type HIMCC = isize;
 pub type HSAVEDUILANGUAGES = isize;
 #[repr(C)]
 #[derive(Clone, Copy)]

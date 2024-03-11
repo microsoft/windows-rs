@@ -4820,37 +4820,40 @@ impl ISecurityIdentityColl_Vtbl {
         iid == &<ISecurityIdentityColl as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Security")]
 pub trait ISecurityProperty_Impl: Sized {
-    fn GetDirectCreatorSID(&self, psid: *mut super::super::Foundation::PSID) -> windows_core::Result<()>;
-    fn GetOriginalCreatorSID(&self, psid: *mut super::super::Foundation::PSID) -> windows_core::Result<()>;
-    fn GetDirectCallerSID(&self, psid: *mut super::super::Foundation::PSID) -> windows_core::Result<()>;
-    fn GetOriginalCallerSID(&self, psid: *mut super::super::Foundation::PSID) -> windows_core::Result<()>;
-    fn ReleaseSID(&self, psid: super::super::Foundation::PSID) -> windows_core::Result<()>;
+    fn GetDirectCreatorSID(&self, psid: *mut super::super::Security::PSID) -> windows_core::Result<()>;
+    fn GetOriginalCreatorSID(&self, psid: *mut super::super::Security::PSID) -> windows_core::Result<()>;
+    fn GetDirectCallerSID(&self, psid: *mut super::super::Security::PSID) -> windows_core::Result<()>;
+    fn GetOriginalCallerSID(&self, psid: *mut super::super::Security::PSID) -> windows_core::Result<()>;
+    fn ReleaseSID(&self, psid: super::super::Security::PSID) -> windows_core::Result<()>;
 }
+#[cfg(feature = "Win32_Security")]
 impl windows_core::RuntimeName for ISecurityProperty {}
+#[cfg(feature = "Win32_Security")]
 impl ISecurityProperty_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISecurityProperty_Impl, const OFFSET: isize>() -> ISecurityProperty_Vtbl {
-        unsafe extern "system" fn GetDirectCreatorSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISecurityProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psid: *mut super::super::Foundation::PSID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDirectCreatorSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISecurityProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psid: *mut super::super::Security::PSID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISecurityProperty_Impl::GetDirectCreatorSID(this, core::mem::transmute_copy(&psid)).into()
         }
-        unsafe extern "system" fn GetOriginalCreatorSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISecurityProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psid: *mut super::super::Foundation::PSID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOriginalCreatorSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISecurityProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psid: *mut super::super::Security::PSID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISecurityProperty_Impl::GetOriginalCreatorSID(this, core::mem::transmute_copy(&psid)).into()
         }
-        unsafe extern "system" fn GetDirectCallerSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISecurityProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psid: *mut super::super::Foundation::PSID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDirectCallerSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISecurityProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psid: *mut super::super::Security::PSID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISecurityProperty_Impl::GetDirectCallerSID(this, core::mem::transmute_copy(&psid)).into()
         }
-        unsafe extern "system" fn GetOriginalCallerSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISecurityProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psid: *mut super::super::Foundation::PSID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOriginalCallerSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISecurityProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psid: *mut super::super::Security::PSID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISecurityProperty_Impl::GetOriginalCallerSID(this, core::mem::transmute_copy(&psid)).into()
         }
-        unsafe extern "system" fn ReleaseSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISecurityProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psid: super::super::Foundation::PSID) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReleaseSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISecurityProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psid: super::super::Security::PSID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ISecurityProperty_Impl::ReleaseSID(this, core::mem::transmute_copy(&psid)).into()

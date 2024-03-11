@@ -243,7 +243,7 @@ impl ICompositorInterop_Vtbl {
 #[cfg(feature = "UI_Composition")]
 pub trait ICompositorInterop2_Impl: Sized {
     fn CheckCompositionTextureSupport(&self, renderingdevice: Option<&windows_core::IUnknown>) -> windows_core::Result<super::super::super::Foundation::BOOL>;
-    fn CreateCompositionTexture(&self, d3dtexture: Option<&windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionTexture>;
+    fn CreateCompositionTexture(&self, d3dtexture: Option<&windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionTexture>;
 }
 #[cfg(feature = "UI_Composition")]
 impl windows_core::RuntimeName for ICompositorInterop2 {}

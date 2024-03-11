@@ -6189,18 +6189,7 @@ pub const RPC_NT_WRONG_KIND_OF_BINDING: NTSTATUS = NTSTATUS(0xC0020002_u32 as _)
 pub const RPC_NT_WRONG_PIPE_VERSION: NTSTATUS = NTSTATUS(0xC003005E_u32 as _);
 pub const RPC_NT_WRONG_STUB_VERSION: NTSTATUS = NTSTATUS(0xC003005B_u32 as _);
 pub const RPC_NT_ZERO_DIVIDE: NTSTATUS = NTSTATUS(0xC0020044_u32 as _);
-pub const RPC_S_ACCESS_DENIED: i32 = -1073741790i32;
-pub const RPC_S_ASYNC_CALL_PENDING: i32 = 259i32;
-pub const RPC_S_BUFFER_TOO_SMALL: i32 = -1073741789i32;
 pub const RPC_S_CALLPENDING: windows_core::HRESULT = windows_core::HRESULT(0x80010115_u32 as _);
-pub const RPC_S_INVALID_ARG: i32 = -1073741811i32;
-pub const RPC_S_INVALID_LEVEL: i32 = -1073741811i32;
-pub const RPC_S_INVALID_SECURITY_DESC: i32 = -1073741703i32;
-pub const RPC_S_NOT_ENOUGH_QUOTA: i32 = -1073741756i32;
-pub const RPC_S_OUT_OF_MEMORY: i32 = -1073741801i32;
-pub const RPC_S_OUT_OF_THREADS: i32 = -1073741801i32;
-pub const RPC_S_SERVER_OUT_OF_MEMORY: i32 = -1073741307i32;
-pub const RPC_S_UNKNOWN_PRINCIPAL: i32 = -1073741709i32;
 pub const RPC_S_WAITONTIMER: windows_core::HRESULT = windows_core::HRESULT(0x80010116_u32 as _);
 pub const RPC_X_BAD_STUB_DATA: i32 = 1783i32;
 pub const RPC_X_BYTE_COUNT_TOO_SMALL: i32 = 1782i32;
@@ -10953,22 +10942,6 @@ impl Default for POINTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSID(pub *mut core::ffi::c_void);
-impl PSID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PSID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

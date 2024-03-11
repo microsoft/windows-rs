@@ -431,14 +431,15 @@ where
     windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupAdd(servername : windows_core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
     NetLocalGroupAdd(servername.param().abi(), level, buf, core::mem::transmute(parm_err.unwrap_or(std::ptr::null_mut())))
 }
+#[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn NetLocalGroupAddMember<P0, P1, P2>(servername: P0, groupname: P1, membersid: P2) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::PSID>,
+    P2: windows_core::Param<super::super::Security::PSID>,
 {
-    windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupAddMember(servername : windows_core::PCWSTR, groupname : windows_core::PCWSTR, membersid : super::super::Foundation:: PSID) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupAddMember(servername : windows_core::PCWSTR, groupname : windows_core::PCWSTR, membersid : super::super::Security:: PSID) -> u32);
     NetLocalGroupAddMember(servername.param().abi(), groupname.param().abi(), membersid.param().abi())
 }
 #[inline]
@@ -459,14 +460,15 @@ where
     windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupDel(servername : windows_core::PCWSTR, groupname : windows_core::PCWSTR) -> u32);
     NetLocalGroupDel(servername.param().abi(), groupname.param().abi())
 }
+#[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn NetLocalGroupDelMember<P0, P1, P2>(servername: P0, groupname: P1, membersid: P2) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::PSID>,
+    P2: windows_core::Param<super::super::Security::PSID>,
 {
-    windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupDelMember(servername : windows_core::PCWSTR, groupname : windows_core::PCWSTR, membersid : super::super::Foundation:: PSID) -> u32);
+    windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupDelMember(servername : windows_core::PCWSTR, groupname : windows_core::PCWSTR, membersid : super::super::Security:: PSID) -> u32);
     NetLocalGroupDelMember(servername.param().abi(), groupname.param().abi(), membersid.param().abi())
 }
 #[inline]
@@ -5810,16 +5812,19 @@ impl Default for GROUP_INFO_2 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_INFO_3 {
     pub grpi3_name: windows_core::PWSTR,
     pub grpi3_comment: windows_core::PWSTR,
-    pub grpi3_group_sid: super::super::Foundation::PSID,
+    pub grpi3_group_sid: super::super::Security::PSID,
     pub grpi3_attributes: u32,
 }
+#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for GROUP_INFO_3 {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for GROUP_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5922,13 +5927,16 @@ impl Default for LOCALGROUP_INFO_1002 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOCALGROUP_MEMBERS_INFO_0 {
-    pub lgrmi0_sid: super::super::Foundation::PSID,
+    pub lgrmi0_sid: super::super::Security::PSID,
 }
+#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for LOCALGROUP_MEMBERS_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for LOCALGROUP_MEMBERS_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5938,7 +5946,7 @@ impl Default for LOCALGROUP_MEMBERS_INFO_0 {
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOCALGROUP_MEMBERS_INFO_1 {
-    pub lgrmi1_sid: super::super::Foundation::PSID,
+    pub lgrmi1_sid: super::super::Security::PSID,
     pub lgrmi1_sidusage: super::super::Security::SID_NAME_USE,
     pub lgrmi1_name: windows_core::PWSTR,
 }
@@ -5956,7 +5964,7 @@ impl Default for LOCALGROUP_MEMBERS_INFO_1 {
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOCALGROUP_MEMBERS_INFO_2 {
-    pub lgrmi2_sid: super::super::Foundation::PSID,
+    pub lgrmi2_sid: super::super::Security::PSID,
     pub lgrmi2_sidusage: super::super::Security::SID_NAME_USE,
     pub lgrmi2_domainandname: windows_core::PWSTR,
 }
@@ -8847,34 +8855,40 @@ impl Default for USER_INFO_22 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_INFO_23 {
     pub usri23_name: windows_core::PWSTR,
     pub usri23_full_name: windows_core::PWSTR,
     pub usri23_comment: windows_core::PWSTR,
     pub usri23_flags: USER_ACCOUNT_FLAGS,
-    pub usri23_user_sid: super::super::Foundation::PSID,
+    pub usri23_user_sid: super::super::Security::PSID,
 }
+#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for USER_INFO_23 {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for USER_INFO_23 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_INFO_24 {
     pub usri24_internet_identity: super::super::Foundation::BOOL,
     pub usri24_flags: u32,
     pub usri24_internet_provider_name: windows_core::PWSTR,
     pub usri24_internet_principal_name: windows_core::PWSTR,
-    pub usri24_user_sid: super::super::Foundation::PSID,
+    pub usri24_user_sid: super::super::Security::PSID,
 }
+#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for USER_INFO_24 {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for USER_INFO_24 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8922,6 +8936,7 @@ impl Default for USER_INFO_3 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_INFO_4 {
     pub usri4_name: windows_core::PWSTR,
@@ -8948,15 +8963,17 @@ pub struct USER_INFO_4 {
     pub usri4_logon_server: windows_core::PWSTR,
     pub usri4_country_code: u32,
     pub usri4_code_page: u32,
-    pub usri4_user_sid: super::super::Foundation::PSID,
+    pub usri4_user_sid: super::super::Security::PSID,
     pub usri4_primary_group_id: u32,
     pub usri4_profile: windows_core::PWSTR,
     pub usri4_home_dir_drive: windows_core::PWSTR,
     pub usri4_password_expired: u32,
 }
+#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for USER_INFO_4 {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for USER_INFO_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9085,14 +9102,17 @@ impl Default for USER_MODALS_INFO_1007 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_MODALS_INFO_2 {
     pub usrmod2_domain_name: windows_core::PWSTR,
-    pub usrmod2_domain_id: super::super::Foundation::PSID,
+    pub usrmod2_domain_id: super::super::Security::PSID,
 }
+#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for USER_MODALS_INFO_2 {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for USER_MODALS_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

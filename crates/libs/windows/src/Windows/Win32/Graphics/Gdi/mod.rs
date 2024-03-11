@@ -8661,6 +8661,13 @@ impl HGDIOBJ {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HGDIOBJ {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DeleteObject(*self);
+        }
+    }
+}
 impl Default for HGDIOBJ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

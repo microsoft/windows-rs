@@ -61,13 +61,14 @@ pub unsafe fn EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS,
     windows_targets::link!("advapi32.dll" "system" fn EnumerateTraceGuidsEx(tracequeryinfoclass : TRACE_QUERY_INFO_CLASS, inbuffer : *const core::ffi::c_void, inbuffersize : u32, outbuffer : *mut core::ffi::c_void, outbuffersize : u32, returnlength : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
     EnumerateTraceGuidsEx(tracequeryinfoclass, core::mem::transmute(inbuffer.unwrap_or(std::ptr::null())), inbuffersize, core::mem::transmute(outbuffer.unwrap_or(std::ptr::null_mut())), outbuffersize, returnlength)
 }
+#[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn EventAccessControl<P0, P1>(guid: *const windows_core::GUID, operation: u32, sid: P0, rights: u32, allowordeny: P1) -> u32
 where
-    P0: windows_core::Param<super::super::super::Foundation::PSID>,
+    P0: windows_core::Param<super::super::super::Security::PSID>,
     P1: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
 {
-    windows_targets::link!("advapi32.dll" "system" fn EventAccessControl(guid : *const windows_core::GUID, operation : u32, sid : super::super::super::Foundation:: PSID, rights : u32, allowordeny : super::super::super::Foundation:: BOOLEAN) -> u32);
+    windows_targets::link!("advapi32.dll" "system" fn EventAccessControl(guid : *const windows_core::GUID, operation : u32, sid : super::super::super::Security:: PSID, rights : u32, allowordeny : super::super::super::Foundation:: BOOLEAN) -> u32);
     EventAccessControl(guid, operation, sid.param().abi(), rights, allowordeny.param().abi())
 }
 #[cfg(feature = "Win32_Security")]
@@ -87,14 +88,20 @@ pub unsafe fn EventActivityIdControl(controlcode: u32, activityid: *mut windows_
     EventActivityIdControl(controlcode, activityid)
 }
 #[inline]
-pub unsafe fn EventEnabled(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN {
-    windows_targets::link!("advapi32.dll" "system" fn EventEnabled(reghandle : u64, eventdescriptor : *const EVENT_DESCRIPTOR) -> super::super::super::Foundation:: BOOLEAN);
-    EventEnabled(reghandle, eventdescriptor)
+pub unsafe fn EventEnabled<P0>(reghandle: P0, eventdescriptor: *const EVENT_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN
+where
+    P0: windows_core::Param<REGHANDLE>,
+{
+    windows_targets::link!("advapi32.dll" "system" fn EventEnabled(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR) -> super::super::super::Foundation:: BOOLEAN);
+    EventEnabled(reghandle.param().abi(), eventdescriptor)
 }
 #[inline]
-pub unsafe fn EventProviderEnabled(reghandle: u64, level: u8, keyword: u64) -> super::super::super::Foundation::BOOLEAN {
-    windows_targets::link!("advapi32.dll" "system" fn EventProviderEnabled(reghandle : u64, level : u8, keyword : u64) -> super::super::super::Foundation:: BOOLEAN);
-    EventProviderEnabled(reghandle, level, keyword)
+pub unsafe fn EventProviderEnabled<P0>(reghandle: P0, level: u8, keyword: u64) -> super::super::super::Foundation::BOOLEAN
+where
+    P0: windows_core::Param<REGHANDLE>,
+{
+    windows_targets::link!("advapi32.dll" "system" fn EventProviderEnabled(reghandle : REGHANDLE, level : u8, keyword : u64) -> super::super::super::Foundation:: BOOLEAN);
+    EventProviderEnabled(reghandle.param().abi(), level, keyword)
 }
 #[inline]
 pub unsafe fn EventRegister(providerid: *const windows_core::GUID, enablecallback: PENABLECALLBACK, callbackcontext: Option<*const core::ffi::c_void>, reghandle: *mut u64) -> u32 {
@@ -102,37 +109,53 @@ pub unsafe fn EventRegister(providerid: *const windows_core::GUID, enablecallbac
     EventRegister(providerid, enablecallback, core::mem::transmute(callbackcontext.unwrap_or(std::ptr::null())), reghandle)
 }
 #[inline]
-pub unsafe fn EventSetInformation(reghandle: u64, informationclass: EVENT_INFO_CLASS, eventinformation: *const core::ffi::c_void, informationlength: u32) -> u32 {
-    windows_targets::link!("advapi32.dll" "system" fn EventSetInformation(reghandle : u64, informationclass : EVENT_INFO_CLASS, eventinformation : *const core::ffi::c_void, informationlength : u32) -> u32);
-    EventSetInformation(reghandle, informationclass, eventinformation, informationlength)
-}
-#[inline]
-pub unsafe fn EventUnregister(reghandle: u64) -> u32 {
-    windows_targets::link!("advapi32.dll" "system" fn EventUnregister(reghandle : u64) -> u32);
-    EventUnregister(reghandle)
-}
-#[inline]
-pub unsafe fn EventWrite(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
-    windows_targets::link!("advapi32.dll" "system" fn EventWrite(reghandle : u64, eventdescriptor : *const EVENT_DESCRIPTOR, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
-    EventWrite(reghandle, eventdescriptor, userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
-}
-#[inline]
-pub unsafe fn EventWriteEx(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: Option<*const windows_core::GUID>, relatedactivityid: Option<*const windows_core::GUID>, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
-    windows_targets::link!("advapi32.dll" "system" fn EventWriteEx(reghandle : u64, eventdescriptor : *const EVENT_DESCRIPTOR, filter : u64, flags : u32, activityid : *const windows_core::GUID, relatedactivityid : *const windows_core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
-    EventWriteEx(reghandle, eventdescriptor, filter, flags, core::mem::transmute(activityid.unwrap_or(std::ptr::null())), core::mem::transmute(relatedactivityid.unwrap_or(std::ptr::null())), userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
-}
-#[inline]
-pub unsafe fn EventWriteString<P0>(reghandle: u64, level: u8, keyword: u64, string: P0) -> u32
+pub unsafe fn EventSetInformation<P0>(reghandle: P0, informationclass: EVENT_INFO_CLASS, eventinformation: *const core::ffi::c_void, informationlength: u32) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<REGHANDLE>,
 {
-    windows_targets::link!("advapi32.dll" "system" fn EventWriteString(reghandle : u64, level : u8, keyword : u64, string : windows_core::PCWSTR) -> u32);
-    EventWriteString(reghandle, level, keyword, string.param().abi())
+    windows_targets::link!("advapi32.dll" "system" fn EventSetInformation(reghandle : REGHANDLE, informationclass : EVENT_INFO_CLASS, eventinformation : *const core::ffi::c_void, informationlength : u32) -> u32);
+    EventSetInformation(reghandle.param().abi(), informationclass, eventinformation, informationlength)
 }
 #[inline]
-pub unsafe fn EventWriteTransfer(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: Option<*const windows_core::GUID>, relatedactivityid: Option<*const windows_core::GUID>, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
-    windows_targets::link!("advapi32.dll" "system" fn EventWriteTransfer(reghandle : u64, eventdescriptor : *const EVENT_DESCRIPTOR, activityid : *const windows_core::GUID, relatedactivityid : *const windows_core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
-    EventWriteTransfer(reghandle, eventdescriptor, core::mem::transmute(activityid.unwrap_or(std::ptr::null())), core::mem::transmute(relatedactivityid.unwrap_or(std::ptr::null())), userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+pub unsafe fn EventUnregister<P0>(reghandle: P0) -> u32
+where
+    P0: windows_core::Param<REGHANDLE>,
+{
+    windows_targets::link!("advapi32.dll" "system" fn EventUnregister(reghandle : REGHANDLE) -> u32);
+    EventUnregister(reghandle.param().abi())
+}
+#[inline]
+pub unsafe fn EventWrite<P0>(reghandle: P0, eventdescriptor: *const EVENT_DESCRIPTOR, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32
+where
+    P0: windows_core::Param<REGHANDLE>,
+{
+    windows_targets::link!("advapi32.dll" "system" fn EventWrite(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
+    EventWrite(reghandle.param().abi(), eventdescriptor, userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+}
+#[inline]
+pub unsafe fn EventWriteEx<P0>(reghandle: P0, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: Option<*const windows_core::GUID>, relatedactivityid: Option<*const windows_core::GUID>, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32
+where
+    P0: windows_core::Param<REGHANDLE>,
+{
+    windows_targets::link!("advapi32.dll" "system" fn EventWriteEx(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, filter : u64, flags : u32, activityid : *const windows_core::GUID, relatedactivityid : *const windows_core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
+    EventWriteEx(reghandle.param().abi(), eventdescriptor, filter, flags, core::mem::transmute(activityid.unwrap_or(std::ptr::null())), core::mem::transmute(relatedactivityid.unwrap_or(std::ptr::null())), userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+}
+#[inline]
+pub unsafe fn EventWriteString<P0, P1>(reghandle: P0, level: u8, keyword: u64, string: P1) -> u32
+where
+    P0: windows_core::Param<REGHANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("advapi32.dll" "system" fn EventWriteString(reghandle : REGHANDLE, level : u8, keyword : u64, string : windows_core::PCWSTR) -> u32);
+    EventWriteString(reghandle.param().abi(), level, keyword, string.param().abi())
+}
+#[inline]
+pub unsafe fn EventWriteTransfer<P0>(reghandle: P0, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: Option<*const windows_core::GUID>, relatedactivityid: Option<*const windows_core::GUID>, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32
+where
+    P0: windows_core::Param<REGHANDLE>,
+{
+    windows_targets::link!("advapi32.dll" "system" fn EventWriteTransfer(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, activityid : *const windows_core::GUID, relatedactivityid : *const windows_core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
+    EventWriteTransfer(reghandle.param().abi(), eventdescriptor, core::mem::transmute(activityid.unwrap_or(std::ptr::null())), core::mem::transmute(relatedactivityid.unwrap_or(std::ptr::null())), userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
 pub unsafe fn FlushTraceA<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
@@ -3322,6 +3345,17 @@ impl Default for PROVIDER_FILTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct REGHANDLE(pub i64);
+impl Default for REGHANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for REGHANDLE {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

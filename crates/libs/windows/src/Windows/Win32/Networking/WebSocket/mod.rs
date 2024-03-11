@@ -248,6 +248,13 @@ impl WEB_SOCKET_HANDLE {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for WEB_SOCKET_HANDLE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            WebSocketDeleteHandle(*self);
+        }
+    }
+}
 impl Default for WEB_SOCKET_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

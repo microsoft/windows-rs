@@ -4887,6 +4887,7 @@ pub const CLSCTX_RESERVED4: CLSCTX = CLSCTX(512u32);
 pub const CLSCTX_RESERVED5: CLSCTX = CLSCTX(2048u32);
 pub const CLSCTX_RESERVED6: CLSCTX = CLSCTX(16777216u32);
 pub const CLSCTX_SERVER: CLSCTX = CLSCTX(21u32);
+pub const CLSID_GlobalOptions: windows_core::GUID = windows_core::GUID::from_u128(0x0000034b_0000_0000_c000_000000000046);
 pub const COINITBASE_MULTITHREADED: COINITBASE = COINITBASE(0i32);
 pub const COINIT_APARTMENTTHREADED: COINIT = COINIT(2i32);
 pub const COINIT_DISABLE_OLE1DDE: COINIT = COINIT(4i32);
@@ -6635,6 +6636,13 @@ impl CO_DEVICE_CATALOG_COOKIE {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for CO_DEVICE_CATALOG_COOKIE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = CoRevokeDeviceCatalog(*self);
+        }
+    }
+}
 impl Default for CO_DEVICE_CATALOG_COOKIE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6649,6 +6657,13 @@ pub struct CO_MTA_USAGE_COOKIE(pub isize);
 impl CO_MTA_USAGE_COOKIE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for CO_MTA_USAGE_COOKIE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = CoDecrementMTAUsage(*self);
+        }
     }
 }
 impl Default for CO_MTA_USAGE_COOKIE {

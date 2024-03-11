@@ -2073,10 +2073,10 @@ pub unsafe fn CryptUnregisterOIDInfo(pinfo: *const CRYPT_OID_INFO) -> super::sup
 #[inline]
 pub unsafe fn CryptUpdateProtectedState<P0, P1>(poldsid: P0, pwszoldpassword: P1, dwflags: u32, pdwsuccesscount: Option<*mut u32>, pdwfailurecount: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::PSID>,
+    P0: windows_core::Param<super::PSID>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("crypt32.dll" "system" fn CryptUpdateProtectedState(poldsid : super::super::Foundation:: PSID, pwszoldpassword : windows_core::PCWSTR, dwflags : u32, pdwsuccesscount : *mut u32, pdwfailurecount : *mut u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("crypt32.dll" "system" fn CryptUpdateProtectedState(poldsid : super:: PSID, pwszoldpassword : windows_core::PCWSTR, dwflags : u32, pdwsuccesscount : *mut u32, pdwfailurecount : *mut u32) -> super::super::Foundation:: BOOL);
     CryptUpdateProtectedState(poldsid.param().abi(), pwszoldpassword.param().abi(), dwflags, core::mem::transmute(pdwsuccesscount.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdwfailurecount.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -4486,9 +4486,11 @@ pub const CERT_SUBJECT_OCSP_AUTHORITY_INFO_ACCESS_PROP_ID: u32 = 85u32;
 pub const CERT_SUBJECT_PUBLIC_KEY_MD5_HASH_PROP_ID: u32 = 25u32;
 pub const CERT_SUBJECT_PUB_KEY_BIT_LENGTH_PROP_ID: u32 = 92u32;
 pub const CERT_SYSTEM_STORE_CURRENT_SERVICE_ID: u32 = 4u32;
+pub const CERT_SYSTEM_STORE_CURRENT_USER: u32 = 65536u32;
 pub const CERT_SYSTEM_STORE_CURRENT_USER_GROUP_POLICY_ID: u32 = 7u32;
 pub const CERT_SYSTEM_STORE_CURRENT_USER_ID: u32 = 1u32;
 pub const CERT_SYSTEM_STORE_DEFER_READ_FLAG: u32 = 536870912u32;
+pub const CERT_SYSTEM_STORE_LOCAL_MACHINE: u32 = 131072u32;
 pub const CERT_SYSTEM_STORE_LOCAL_MACHINE_ENTERPRISE_ID: u32 = 9u32;
 pub const CERT_SYSTEM_STORE_LOCAL_MACHINE_GROUP_POLICY_ID: u32 = 8u32;
 pub const CERT_SYSTEM_STORE_LOCAL_MACHINE_ID: u32 = 2u32;
@@ -8938,6 +8940,13 @@ pub struct BCRYPT_HANDLE(pub *mut core::ffi::c_void);
 impl BCRYPT_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
+    }
+}
+impl windows_core::Free for BCRYPT_HANDLE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = BCryptDestroyHash(*self);
+        }
     }
 }
 impl Default for BCRYPT_HANDLE {
@@ -14597,6 +14606,13 @@ pub struct NCRYPT_HANDLE(pub usize);
 impl NCRYPT_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
+    }
+}
+impl windows_core::Free for NCRYPT_HANDLE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = NCryptFreeObject(*self);
+        }
     }
 }
 impl Default for NCRYPT_HANDLE {

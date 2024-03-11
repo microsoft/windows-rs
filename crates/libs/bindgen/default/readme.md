@@ -5,7 +5,7 @@ like [ILSpy](https://github.com/icsharpcode/ILSpy).
 ## `Windows.Win32.winmd`
 
 - Source: <https://www.nuget.org/packages/Microsoft.Windows.SDK.Win32Metadata/>
-- Version: `58.0.18`
+- Version: `60.0.34`
 
 ## `Windows.Wdk.winmd`
 
@@ -22,5 +22,7 @@ The `Windows.winmd` file was created by merging the .winmd files from the last n
 ```sh
 mdmerge -o out -i . -n 1
 ```
+
+---
 
 As with everything else in this repo, the `.winmd` files in this folder are licensed via MIT or Apache-2.0.

@@ -2371,6 +2371,13 @@ impl HIFTIMESTAMPCHANGE {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HIFTIMESTAMPCHANGE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            UnregisterInterfaceTimestampConfigChange(*self);
+        }
+    }
+}
 impl Default for HIFTIMESTAMPCHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

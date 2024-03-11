@@ -8505,6 +8505,13 @@ impl HRECOCONTEXT {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HRECOCONTEXT {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DestroyContext(*self);
+        }
+    }
+}
 impl Default for HRECOCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8519,6 +8526,13 @@ pub struct HRECOGNIZER(pub isize);
 impl HRECOGNIZER {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HRECOGNIZER {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DestroyRecognizer(*self);
+        }
     }
 }
 impl Default for HRECOGNIZER {
@@ -8551,6 +8565,13 @@ pub struct HRECOWORDLIST(pub isize);
 impl HRECOWORDLIST {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HRECOWORDLIST {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DestroyWordList(*self);
+        }
     }
 }
 impl Default for HRECOWORDLIST {

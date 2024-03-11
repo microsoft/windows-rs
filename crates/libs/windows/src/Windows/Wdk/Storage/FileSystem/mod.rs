@@ -2157,76 +2157,74 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NtAccessCheckByTypeAndAuditAlarm<P0, P1, P2>(
+pub unsafe fn NtAccessCheckByTypeAndAuditAlarm<P0, P1>(
     subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     handleid: Option<*const core::ffi::c_void>,
     objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     securitydescriptor: P0,
-    principalselfsid: P1,
+    principalselfsid: windows_core::PSID,
     desiredaccess: u32,
     audittype: super::super::super::Win32::Security::AUDIT_EVENT_TYPE,
     flags: u32,
     objecttypelist: Option<&[super::super::super::Win32::Security::OBJECT_TYPE_LIST]>,
     genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING,
-    objectcreation: P2,
+    objectcreation: P1,
     grantedaccess: *mut u32,
     accessstatus: *mut i32,
     generateonclose: *mut super::super::super::Win32::Foundation::BOOLEAN,
 ) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P1: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
-    windows_targets::link!("ntdll.dll" "system" fn NtAccessCheckByTypeAndAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, principalselfsid : super::super::super::Win32::Foundation:: PSID, desiredaccess : u32, audittype : super::super::super::Win32::Security:: AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::super::super::Win32::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING, objectcreation : super::super::super::Win32::Foundation:: BOOLEAN, grantedaccess : *mut u32, accessstatus : *mut i32, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtAccessCheckByTypeAndAuditAlarm(subsystemname, core::mem::transmute(handleid.unwrap_or(std::ptr::null())), objecttypename, objectname, securitydescriptor.param().abi(), principalselfsid.param().abi(), desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, objectcreation.param().abi(), grantedaccess, accessstatus, generateonclose)
+    windows_targets::link!("ntdll.dll" "system" fn NtAccessCheckByTypeAndAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, principalselfsid : windows_core::PSID, desiredaccess : u32, audittype : super::super::super::Win32::Security:: AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::super::super::Win32::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING, objectcreation : super::super::super::Win32::Foundation:: BOOLEAN, grantedaccess : *mut u32, accessstatus : *mut i32, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    NtAccessCheckByTypeAndAuditAlarm(subsystemname, core::mem::transmute(handleid.unwrap_or(std::ptr::null())), objecttypename, objectname, securitydescriptor.param().abi(), core::mem::transmute(principalselfsid), desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, objectcreation.param().abi(), grantedaccess, accessstatus, generateonclose)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NtAccessCheckByTypeResultListAndAuditAlarm<P0, P1, P2>(
+pub unsafe fn NtAccessCheckByTypeResultListAndAuditAlarm<P0, P1>(
     subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     handleid: Option<*const core::ffi::c_void>,
     objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     securitydescriptor: P0,
-    principalselfsid: P1,
+    principalselfsid: windows_core::PSID,
     desiredaccess: u32,
     audittype: super::super::super::Win32::Security::AUDIT_EVENT_TYPE,
     flags: u32,
     objecttypelist: Option<*const super::super::super::Win32::Security::OBJECT_TYPE_LIST>,
     objecttypelistlength: u32,
     genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING,
-    objectcreation: P2,
+    objectcreation: P1,
     grantedaccess: *mut u32,
     accessstatus: *mut i32,
     generateonclose: *mut super::super::super::Win32::Foundation::BOOLEAN,
 ) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P1: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
-    windows_targets::link!("ntdll.dll" "system" fn NtAccessCheckByTypeResultListAndAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, principalselfsid : super::super::super::Win32::Foundation:: PSID, desiredaccess : u32, audittype : super::super::super::Win32::Security:: AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::super::super::Win32::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING, objectcreation : super::super::super::Win32::Foundation:: BOOLEAN, grantedaccess : *mut u32, accessstatus : *mut i32, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtAccessCheckByTypeResultListAndAuditAlarm(subsystemname, core::mem::transmute(handleid.unwrap_or(std::ptr::null())), objecttypename, objectname, securitydescriptor.param().abi(), principalselfsid.param().abi(), desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.unwrap_or(std::ptr::null())), objecttypelistlength, genericmapping, objectcreation.param().abi(), grantedaccess, accessstatus, generateonclose)
+    windows_targets::link!("ntdll.dll" "system" fn NtAccessCheckByTypeResultListAndAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, principalselfsid : windows_core::PSID, desiredaccess : u32, audittype : super::super::super::Win32::Security:: AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::super::super::Win32::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING, objectcreation : super::super::super::Win32::Foundation:: BOOLEAN, grantedaccess : *mut u32, accessstatus : *mut i32, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    NtAccessCheckByTypeResultListAndAuditAlarm(subsystemname, core::mem::transmute(handleid.unwrap_or(std::ptr::null())), objecttypename, objectname, securitydescriptor.param().abi(), core::mem::transmute(principalselfsid), desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.unwrap_or(std::ptr::null())), objecttypelistlength, genericmapping, objectcreation.param().abi(), grantedaccess, accessstatus, generateonclose)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NtAccessCheckByTypeResultListAndAuditAlarmByHandle<P0, P1, P2, P3>(
+pub unsafe fn NtAccessCheckByTypeResultListAndAuditAlarmByHandle<P0, P1, P2>(
     subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     handleid: Option<*const core::ffi::c_void>,
     clienttoken: P0,
     objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     securitydescriptor: P1,
-    principalselfsid: P2,
+    principalselfsid: windows_core::PSID,
     desiredaccess: u32,
     audittype: super::super::super::Win32::Security::AUDIT_EVENT_TYPE,
     flags: u32,
     objecttypelist: Option<*const super::super::super::Win32::Security::OBJECT_TYPE_LIST>,
     objecttypelistlength: u32,
     genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING,
-    objectcreation: P3,
+    objectcreation: P2,
     grantedaccess: *mut u32,
     accessstatus: *mut i32,
     generateonclose: *mut super::super::super::Win32::Foundation::BOOLEAN,
@@ -2234,11 +2232,10 @@ pub unsafe fn NtAccessCheckByTypeResultListAndAuditAlarmByHandle<P0, P1, P2, P3>
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
     P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
-    windows_targets::link!("ntdll.dll" "system" fn NtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, clienttoken : super::super::super::Win32::Foundation:: HANDLE, objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, principalselfsid : super::super::super::Win32::Foundation:: PSID, desiredaccess : u32, audittype : super::super::super::Win32::Security:: AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::super::super::Win32::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING, objectcreation : super::super::super::Win32::Foundation:: BOOLEAN, grantedaccess : *mut u32, accessstatus : *mut i32, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname, core::mem::transmute(handleid.unwrap_or(std::ptr::null())), clienttoken.param().abi(), objecttypename, objectname, securitydescriptor.param().abi(), principalselfsid.param().abi(), desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.unwrap_or(std::ptr::null())), objecttypelistlength, genericmapping, objectcreation.param().abi(), grantedaccess, accessstatus, generateonclose)
+    windows_targets::link!("ntdll.dll" "system" fn NtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, clienttoken : super::super::super::Win32::Foundation:: HANDLE, objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, principalselfsid : windows_core::PSID, desiredaccess : u32, audittype : super::super::super::Win32::Security:: AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::super::super::Win32::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING, objectcreation : super::super::super::Win32::Foundation:: BOOLEAN, grantedaccess : *mut u32, accessstatus : *mut i32, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    NtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname, core::mem::transmute(handleid.unwrap_or(std::ptr::null())), clienttoken.param().abi(), objecttypename, objectname, securitydescriptor.param().abi(), core::mem::transmute(principalselfsid), desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.unwrap_or(std::ptr::null())), objecttypelistlength, genericmapping, objectcreation.param().abi(), grantedaccess, accessstatus, generateonclose)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2512,15 +2509,14 @@ where
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn NtQueryQuotaInformationFile<P0, P1, P2, P3>(filehandle: P0, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: P1, sidlist: Option<*const core::ffi::c_void>, sidlistlength: u32, startsid: P2, restartscan: P3) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtQueryQuotaInformationFile<P0, P1, P2>(filehandle: P0, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: P1, sidlist: Option<*const core::ffi::c_void>, sidlistlength: u32, startsid: windows_core::PSID, restartscan: P2) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
     P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
-    windows_targets::link!("ntdll.dll" "system" fn NtQueryQuotaInformationFile(filehandle : super::super::super::Win32::Foundation:: HANDLE, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : super::super::super::Win32::Foundation:: BOOLEAN, sidlist : *const core::ffi::c_void, sidlistlength : u32, startsid : super::super::super::Win32::Foundation:: PSID, restartscan : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtQueryQuotaInformationFile(filehandle.param().abi(), iostatusblock, buffer, length, returnsingleentry.param().abi(), core::mem::transmute(sidlist.unwrap_or(std::ptr::null())), sidlistlength, startsid.param().abi(), restartscan.param().abi())
+    windows_targets::link!("ntdll.dll" "system" fn NtQueryQuotaInformationFile(filehandle : super::super::super::Win32::Foundation:: HANDLE, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : super::super::super::Win32::Foundation:: BOOLEAN, sidlist : *const core::ffi::c_void, sidlistlength : u32, startsid : windows_core::PSID, restartscan : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    NtQueryQuotaInformationFile(filehandle.param().abi(), iostatusblock, buffer, length, returnsingleentry.param().abi(), core::mem::transmute(sidlist.unwrap_or(std::ptr::null())), sidlistlength, core::mem::transmute(startsid), restartscan.param().abi())
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2893,21 +2889,15 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlAddAccessAllowedAce<P0>(acl: *mut super::super::super::Win32::Security::ACL, acerevision: u32, accessmask: u32, sid: P0) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn RtlAddAccessAllowedAce(acl : *mut super::super::super::Win32::Security:: ACL, acerevision : u32, accessmask : u32, sid : super::super::super::Win32::Foundation:: PSID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlAddAccessAllowedAce(acl, acerevision, accessmask, sid.param().abi())
+pub unsafe fn RtlAddAccessAllowedAce(acl: *mut super::super::super::Win32::Security::ACL, acerevision: u32, accessmask: u32, sid: windows_core::PSID) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ntdll.dll" "system" fn RtlAddAccessAllowedAce(acl : *mut super::super::super::Win32::Security:: ACL, acerevision : u32, accessmask : u32, sid : windows_core::PSID) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    RtlAddAccessAllowedAce(acl, acerevision, accessmask, core::mem::transmute(sid))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlAddAccessAllowedAceEx<P0>(acl: *mut super::super::super::Win32::Security::ACL, acerevision: u32, aceflags: u32, accessmask: u32, sid: P0) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn RtlAddAccessAllowedAceEx(acl : *mut super::super::super::Win32::Security:: ACL, acerevision : u32, aceflags : u32, accessmask : u32, sid : super::super::super::Win32::Foundation:: PSID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlAddAccessAllowedAceEx(acl, acerevision, aceflags, accessmask, sid.param().abi())
+pub unsafe fn RtlAddAccessAllowedAceEx(acl: *mut super::super::super::Win32::Security::ACL, acerevision: u32, aceflags: u32, accessmask: u32, sid: windows_core::PSID) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ntdll.dll" "system" fn RtlAddAccessAllowedAceEx(acl : *mut super::super::super::Win32::Security:: ACL, acerevision : u32, aceflags : u32, accessmask : u32, sid : windows_core::PSID) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    RtlAddAccessAllowedAceEx(acl, acerevision, aceflags, accessmask, core::mem::transmute(sid))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2917,14 +2907,14 @@ pub unsafe fn RtlAddAce(acl: *mut super::super::super::Win32::Security::ACL, ace
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlAllocateAndInitializeSid(identifierauthority: *const super::super::super::Win32::Security::SID_IDENTIFIER_AUTHORITY, subauthoritycount: u8, subauthority0: u32, subauthority1: u32, subauthority2: u32, subauthority3: u32, subauthority4: u32, subauthority5: u32, subauthority6: u32, subauthority7: u32, sid: *mut super::super::super::Win32::Foundation::PSID) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn RtlAllocateAndInitializeSid(identifierauthority : *const super::super::super::Win32::Security:: SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8, subauthority0 : u32, subauthority1 : u32, subauthority2 : u32, subauthority3 : u32, subauthority4 : u32, subauthority5 : u32, subauthority6 : u32, subauthority7 : u32, sid : *mut super::super::super::Win32::Foundation:: PSID) -> super::super::super::Win32::Foundation:: NTSTATUS);
+pub unsafe fn RtlAllocateAndInitializeSid(identifierauthority: *const super::super::super::Win32::Security::SID_IDENTIFIER_AUTHORITY, subauthoritycount: u8, subauthority0: u32, subauthority1: u32, subauthority2: u32, subauthority3: u32, subauthority4: u32, subauthority5: u32, subauthority6: u32, subauthority7: u32, sid: *mut windows_core::PSID) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ntdll.dll" "system" fn RtlAllocateAndInitializeSid(identifierauthority : *const super::super::super::Win32::Security:: SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8, subauthority0 : u32, subauthority1 : u32, subauthority2 : u32, subauthority3 : u32, subauthority4 : u32, subauthority5 : u32, subauthority6 : u32, subauthority7 : u32, sid : *mut windows_core::PSID) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlAllocateAndInitializeSid(identifierauthority, subauthoritycount, subauthority0, subauthority1, subauthority2, subauthority3, subauthority4, subauthority5, subauthority6, subauthority7, sid)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlAllocateAndInitializeSidEx(identifierauthority: *const super::super::super::Win32::Security::SID_IDENTIFIER_AUTHORITY, subauthorities: &[u32], sid: *mut super::super::super::Win32::Foundation::PSID) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn RtlAllocateAndInitializeSidEx(identifierauthority : *const super::super::super::Win32::Security:: SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8, subauthorities : *const u32, sid : *mut super::super::super::Win32::Foundation:: PSID) -> super::super::super::Win32::Foundation:: NTSTATUS);
+pub unsafe fn RtlAllocateAndInitializeSidEx(identifierauthority: *const super::super::super::Win32::Security::SID_IDENTIFIER_AUTHORITY, subauthorities: &[u32], sid: *mut windows_core::PSID) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ntdll.dll" "system" fn RtlAllocateAndInitializeSidEx(identifierauthority : *const super::super::super::Win32::Security:: SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8, subauthorities : *const u32, sid : *mut windows_core::PSID) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlAllocateAndInitializeSidEx(identifierauthority, subauthorities.len().try_into().unwrap(), core::mem::transmute(subauthorities.as_ptr()), sid)
 }
 #[inline]
@@ -2964,12 +2954,9 @@ pub unsafe fn RtlCopyLuid(destinationluid: *mut super::super::super::Win32::Foun
     RtlCopyLuid(destinationluid, sourceluid)
 }
 #[inline]
-pub unsafe fn RtlCopySid<P0>(destinationsidlength: u32, destinationsid: super::super::super::Win32::Foundation::PSID, sourcesid: P0) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn RtlCopySid(destinationsidlength : u32, destinationsid : super::super::super::Win32::Foundation:: PSID, sourcesid : super::super::super::Win32::Foundation:: PSID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlCopySid(destinationsidlength, destinationsid, sourcesid.param().abi())
+pub unsafe fn RtlCopySid(destinationsidlength: u32, destinationsid: windows_core::PSID, sourcesid: windows_core::PSID) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ntdll.dll" "system" fn RtlCopySid(destinationsidlength : u32, destinationsid : windows_core::PSID, sourcesid : windows_core::PSID) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    RtlCopySid(destinationsidlength, core::mem::transmute(destinationsid), core::mem::transmute(sourcesid))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2983,9 +2970,9 @@ pub unsafe fn RtlCreateHeap(flags: u32, heapbase: Option<*const core::ffi::c_voi
     RtlCreateHeap(flags, core::mem::transmute(heapbase.unwrap_or(std::ptr::null())), reservesize, commitsize, core::mem::transmute(lock.unwrap_or(std::ptr::null())), core::mem::transmute(parameters.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RtlCreateServiceSid(servicename: *const super::super::super::Win32::Foundation::UNICODE_STRING, servicesid: super::super::super::Win32::Foundation::PSID, servicesidlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn RtlCreateServiceSid(servicename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, servicesid : super::super::super::Win32::Foundation:: PSID, servicesidlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlCreateServiceSid(servicename, servicesid, servicesidlength)
+pub unsafe fn RtlCreateServiceSid(servicename: *const super::super::super::Win32::Foundation::UNICODE_STRING, servicesid: windows_core::PSID, servicesidlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ntdll.dll" "system" fn RtlCreateServiceSid(servicename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, servicesid : windows_core::PSID, servicesidlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    RtlCreateServiceSid(servicename, core::mem::transmute(servicesid), servicesidlength)
 }
 #[inline]
 pub unsafe fn RtlCreateSystemVolumeInformationFolder(volumerootpath: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -3001,9 +2988,9 @@ where
     RtlCreateUnicodeString(destinationstring, sourcestring.param().abi())
 }
 #[inline]
-pub unsafe fn RtlCreateVirtualAccountSid(name: *const super::super::super::Win32::Foundation::UNICODE_STRING, basesubauthority: u32, sid: super::super::super::Win32::Foundation::PSID, sidlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn RtlCreateVirtualAccountSid(name : *const super::super::super::Win32::Foundation:: UNICODE_STRING, basesubauthority : u32, sid : super::super::super::Win32::Foundation:: PSID, sidlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlCreateVirtualAccountSid(name, basesubauthority, sid, sidlength)
+pub unsafe fn RtlCreateVirtualAccountSid(name: *const super::super::super::Win32::Foundation::UNICODE_STRING, basesubauthority: u32, sid: windows_core::PSID, sidlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ntdll.dll" "system" fn RtlCreateVirtualAccountSid(name : *const super::super::super::Win32::Foundation:: UNICODE_STRING, basesubauthority : u32, sid : windows_core::PSID, sidlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    RtlCreateVirtualAccountSid(name, basesubauthority, core::mem::transmute(sid), sidlength)
 }
 #[inline]
 pub unsafe fn RtlCustomCPToUnicodeN(customcp: *const CPTABLEINFO, unicodestring: windows_core::PWSTR, maxbytesinunicodestring: u32, bytesinunicodestring: Option<*mut u32>, customcpstring: &[u8]) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -3070,22 +3057,14 @@ pub unsafe fn RtlDuplicateUnicodeString(flags: u32, stringin: *const super::supe
     RtlDuplicateUnicodeString(flags, stringin, stringout)
 }
 #[inline]
-pub unsafe fn RtlEqualPrefixSid<P0, P1>(sid1: P0, sid2: P1) -> super::super::super::Win32::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-    P1: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn RtlEqualPrefixSid(sid1 : super::super::super::Win32::Foundation:: PSID, sid2 : super::super::super::Win32::Foundation:: PSID) -> super::super::super::Win32::Foundation:: BOOLEAN);
-    RtlEqualPrefixSid(sid1.param().abi(), sid2.param().abi())
+pub unsafe fn RtlEqualPrefixSid(sid1: windows_core::PSID, sid2: windows_core::PSID) -> super::super::super::Win32::Foundation::BOOLEAN {
+    windows_targets::link!("ntdll.dll" "system" fn RtlEqualPrefixSid(sid1 : windows_core::PSID, sid2 : windows_core::PSID) -> super::super::super::Win32::Foundation:: BOOLEAN);
+    RtlEqualPrefixSid(core::mem::transmute(sid1), core::mem::transmute(sid2))
 }
 #[inline]
-pub unsafe fn RtlEqualSid<P0, P1>(sid1: P0, sid2: P1) -> super::super::super::Win32::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-    P1: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn RtlEqualSid(sid1 : super::super::super::Win32::Foundation:: PSID, sid2 : super::super::super::Win32::Foundation:: PSID) -> super::super::super::Win32::Foundation:: BOOLEAN);
-    RtlEqualSid(sid1.param().abi(), sid2.param().abi())
+pub unsafe fn RtlEqualSid(sid1: windows_core::PSID, sid2: windows_core::PSID) -> super::super::super::Win32::Foundation::BOOLEAN {
+    windows_targets::link!("ntdll.dll" "system" fn RtlEqualSid(sid1 : windows_core::PSID, sid2 : windows_core::PSID) -> super::super::super::Win32::Foundation:: BOOLEAN);
+    RtlEqualSid(core::mem::transmute(sid1), core::mem::transmute(sid2))
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
@@ -3099,12 +3078,9 @@ pub unsafe fn RtlFreeHeap(heaphandle: *const core::ffi::c_void, flags: u32, base
     RtlFreeHeap(heaphandle, flags, core::mem::transmute(baseaddress.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn RtlFreeSid<P0>(sid: P0) -> *mut core::ffi::c_void
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn RtlFreeSid(sid : super::super::super::Win32::Foundation:: PSID) -> *mut core::ffi::c_void);
-    RtlFreeSid(sid.param().abi())
+pub unsafe fn RtlFreeSid(sid: windows_core::PSID) -> *mut core::ffi::c_void {
+    windows_targets::link!("ntdll.dll" "system" fn RtlFreeSid(sid : windows_core::PSID) -> *mut core::ffi::c_void);
+    RtlFreeSid(core::mem::transmute(sid))
 }
 #[inline]
 pub unsafe fn RtlGenerate8dot3Name<P0>(name: *const super::super::super::Win32::Foundation::UNICODE_STRING, allowextendedcharacters: P0, context: *mut GENERATE_NAME_CONTEXT, name8dot3: *mut super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -3136,20 +3112,20 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlGetGroupSecurityDescriptor<P0>(securitydescriptor: P0, group: *mut super::super::super::Win32::Foundation::PSID, groupdefaulted: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlGetGroupSecurityDescriptor<P0>(securitydescriptor: P0, group: *mut windows_core::PSID, groupdefaulted: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
-    windows_targets::link!("ntdll.dll" "system" fn RtlGetGroupSecurityDescriptor(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, group : *mut super::super::super::Win32::Foundation:: PSID, groupdefaulted : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    windows_targets::link!("ntdll.dll" "system" fn RtlGetGroupSecurityDescriptor(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, group : *mut windows_core::PSID, groupdefaulted : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlGetGroupSecurityDescriptor(securitydescriptor.param().abi(), group, groupdefaulted)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlGetOwnerSecurityDescriptor<P0>(securitydescriptor: P0, owner: *mut super::super::super::Win32::Foundation::PSID, ownerdefaulted: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlGetOwnerSecurityDescriptor<P0>(securitydescriptor: P0, owner: *mut windows_core::PSID, ownerdefaulted: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
-    windows_targets::link!("ntdll.dll" "system" fn RtlGetOwnerSecurityDescriptor(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, owner : *mut super::super::super::Win32::Foundation:: PSID, ownerdefaulted : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    windows_targets::link!("ntdll.dll" "system" fn RtlGetOwnerSecurityDescriptor(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, owner : *mut windows_core::PSID, ownerdefaulted : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlGetOwnerSecurityDescriptor(securitydescriptor.param().abi(), owner, ownerdefaulted)
 }
 #[cfg(feature = "Win32_Security")]
@@ -3163,12 +3139,9 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlIdentifierAuthoritySid<P0>(sid: P0) -> *mut super::super::super::Win32::Security::SID_IDENTIFIER_AUTHORITY
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn RtlIdentifierAuthoritySid(sid : super::super::super::Win32::Foundation:: PSID) -> *mut super::super::super::Win32::Security:: SID_IDENTIFIER_AUTHORITY);
-    RtlIdentifierAuthoritySid(sid.param().abi())
+pub unsafe fn RtlIdentifierAuthoritySid(sid: windows_core::PSID) -> *mut super::super::super::Win32::Security::SID_IDENTIFIER_AUTHORITY {
+    windows_targets::link!("ntdll.dll" "system" fn RtlIdentifierAuthoritySid(sid : windows_core::PSID) -> *mut super::super::super::Win32::Security:: SID_IDENTIFIER_AUTHORITY);
+    RtlIdentifierAuthoritySid(core::mem::transmute(sid))
 }
 #[inline]
 pub unsafe fn RtlIdnToAscii<P0>(flags: u32, sourcestring: P0, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -3209,15 +3182,15 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlInitializeSid(sid: super::super::super::Win32::Foundation::PSID, identifierauthority: *const super::super::super::Win32::Security::SID_IDENTIFIER_AUTHORITY, subauthoritycount: u8) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn RtlInitializeSid(sid : super::super::super::Win32::Foundation:: PSID, identifierauthority : *const super::super::super::Win32::Security:: SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlInitializeSid(sid, identifierauthority, subauthoritycount)
+pub unsafe fn RtlInitializeSid(sid: windows_core::PSID, identifierauthority: *const super::super::super::Win32::Security::SID_IDENTIFIER_AUTHORITY, subauthoritycount: u8) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ntdll.dll" "system" fn RtlInitializeSid(sid : windows_core::PSID, identifierauthority : *const super::super::super::Win32::Security:: SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    RtlInitializeSid(core::mem::transmute(sid), identifierauthority, subauthoritycount)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlInitializeSidEx(sid: super::super::super::Win32::Foundation::PSID, identifierauthority: *const super::super::super::Win32::Security::SID_IDENTIFIER_AUTHORITY, subauthoritycount: u8) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "cdecl" fn RtlInitializeSidEx(sid : super::super::super::Win32::Foundation:: PSID, identifierauthority : *const super::super::super::Win32::Security:: SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlInitializeSidEx(sid, identifierauthority, subauthoritycount)
+pub unsafe fn RtlInitializeSidEx(sid: windows_core::PSID, identifierauthority: *const super::super::super::Win32::Security::SID_IDENTIFIER_AUTHORITY, subauthoritycount: u8) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ntdll.dll" "cdecl" fn RtlInitializeSidEx(sid : windows_core::PSID, identifierauthority : *const super::super::super::Win32::Security:: SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    RtlInitializeSidEx(core::mem::transmute(sid), identifierauthority, subauthoritycount)
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
@@ -3286,12 +3259,9 @@ pub unsafe fn RtlLengthRequiredSid(subauthoritycount: u32) -> u32 {
     RtlLengthRequiredSid(subauthoritycount)
 }
 #[inline]
-pub unsafe fn RtlLengthSid<P0>(sid: P0) -> u32
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn RtlLengthSid(sid : super::super::super::Win32::Foundation:: PSID) -> u32);
-    RtlLengthSid(sid.param().abi())
+pub unsafe fn RtlLengthSid(sid: windows_core::PSID) -> u32 {
+    windows_targets::link!("ntdll.dll" "system" fn RtlLengthSid(sid : windows_core::PSID) -> u32);
+    RtlLengthSid(core::mem::transmute(sid))
 }
 #[inline]
 pub unsafe fn RtlMultiByteToUnicodeN(unicodestring: windows_core::PWSTR, maxbytesinunicodestring: u32, bytesinunicodestring: Option<*mut u32>, multibytestring: &[u8]) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -3398,13 +3368,9 @@ pub unsafe fn RtlRemoveUnicodePrefix(prefixtable: *const UNICODE_PREFIX_TABLE, p
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlReplaceSidInSd<P0, P1>(securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, oldsid: P0, newsid: P1, numchanges: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-    P1: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn RtlReplaceSidInSd(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, oldsid : super::super::super::Win32::Foundation:: PSID, newsid : super::super::super::Win32::Foundation:: PSID, numchanges : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlReplaceSidInSd(securitydescriptor, oldsid.param().abi(), newsid.param().abi(), numchanges)
+pub unsafe fn RtlReplaceSidInSd(securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, oldsid: windows_core::PSID, newsid: windows_core::PSID, numchanges: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ntdll.dll" "system" fn RtlReplaceSidInSd(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, oldsid : windows_core::PSID, newsid : windows_core::PSID, numchanges : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    RtlReplaceSidInSd(securitydescriptor, core::mem::transmute(oldsid), core::mem::transmute(newsid), numchanges)
 }
 #[inline]
 pub unsafe fn RtlReserveChunk(compressionformat: u16, compressedbuffer: *mut *mut u8, endofcompressedbufferplus1: *const u8, chunkbuffer: *mut *mut u8, chunksize: u32) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -3427,32 +3393,30 @@ pub unsafe fn RtlSecondsSince1980ToTime(elapsedseconds: u32) -> i64 {
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlSelfRelativeToAbsoluteSD<P0>(selfrelativesecuritydescriptor: P0, absolutesecuritydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, absolutesecuritydescriptorsize: *mut u32, dacl: Option<*mut super::super::super::Win32::Security::ACL>, daclsize: *mut u32, sacl: Option<*mut super::super::super::Win32::Security::ACL>, saclsize: *mut u32, owner: super::super::super::Win32::Foundation::PSID, ownersize: *mut u32, primarygroup: super::super::super::Win32::Foundation::PSID, primarygroupsize: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlSelfRelativeToAbsoluteSD<P0>(selfrelativesecuritydescriptor: P0, absolutesecuritydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, absolutesecuritydescriptorsize: *mut u32, dacl: Option<*mut super::super::super::Win32::Security::ACL>, daclsize: *mut u32, sacl: Option<*mut super::super::super::Win32::Security::ACL>, saclsize: *mut u32, owner: windows_core::PSID, ownersize: *mut u32, primarygroup: windows_core::PSID, primarygroupsize: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
-    windows_targets::link!("ntdll.dll" "system" fn RtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, absolutesecuritydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, absolutesecuritydescriptorsize : *mut u32, dacl : *mut super::super::super::Win32::Security:: ACL, daclsize : *mut u32, sacl : *mut super::super::super::Win32::Security:: ACL, saclsize : *mut u32, owner : super::super::super::Win32::Foundation:: PSID, ownersize : *mut u32, primarygroup : super::super::super::Win32::Foundation:: PSID, primarygroupsize : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor.param().abi(), absolutesecuritydescriptor, absolutesecuritydescriptorsize, core::mem::transmute(dacl.unwrap_or(std::ptr::null_mut())), daclsize, core::mem::transmute(sacl.unwrap_or(std::ptr::null_mut())), saclsize, owner, ownersize, primarygroup, primarygroupsize)
+    windows_targets::link!("ntdll.dll" "system" fn RtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, absolutesecuritydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, absolutesecuritydescriptorsize : *mut u32, dacl : *mut super::super::super::Win32::Security:: ACL, daclsize : *mut u32, sacl : *mut super::super::super::Win32::Security:: ACL, saclsize : *mut u32, owner : windows_core::PSID, ownersize : *mut u32, primarygroup : windows_core::PSID, primarygroupsize : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    RtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor.param().abi(), absolutesecuritydescriptor, absolutesecuritydescriptorsize, core::mem::transmute(dacl.unwrap_or(std::ptr::null_mut())), daclsize, core::mem::transmute(sacl.unwrap_or(std::ptr::null_mut())), saclsize, core::mem::transmute(owner), ownersize, core::mem::transmute(primarygroup), primarygroupsize)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlSetGroupSecurityDescriptor<P0, P1>(securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, group: P0, groupdefaulted: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlSetGroupSecurityDescriptor<P0>(securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, group: windows_core::PSID, groupdefaulted: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
-    windows_targets::link!("ntdll.dll" "system" fn RtlSetGroupSecurityDescriptor(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, group : super::super::super::Win32::Foundation:: PSID, groupdefaulted : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlSetGroupSecurityDescriptor(securitydescriptor, group.param().abi(), groupdefaulted.param().abi())
+    windows_targets::link!("ntdll.dll" "system" fn RtlSetGroupSecurityDescriptor(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, group : windows_core::PSID, groupdefaulted : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    RtlSetGroupSecurityDescriptor(securitydescriptor, core::mem::transmute(group), groupdefaulted.param().abi())
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlSetOwnerSecurityDescriptor<P0, P1>(securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, owner: P0, ownerdefaulted: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlSetOwnerSecurityDescriptor<P0>(securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, owner: windows_core::PSID, ownerdefaulted: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
-    windows_targets::link!("ntdll.dll" "system" fn RtlSetOwnerSecurityDescriptor(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, owner : super::super::super::Win32::Foundation:: PSID, ownerdefaulted : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    RtlSetOwnerSecurityDescriptor(securitydescriptor, owner.param().abi(), ownerdefaulted.param().abi())
+    windows_targets::link!("ntdll.dll" "system" fn RtlSetOwnerSecurityDescriptor(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, owner : windows_core::PSID, ownerdefaulted : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    RtlSetOwnerSecurityDescriptor(securitydescriptor, core::mem::transmute(owner), ownerdefaulted.param().abi())
 }
 #[inline]
 pub unsafe fn RtlSetProcessPlaceholderCompatibilityMode(mode: i8) -> i8 {
@@ -3465,20 +3429,14 @@ pub unsafe fn RtlSetThreadPlaceholderCompatibilityMode(mode: i8) -> i8 {
     RtlSetThreadPlaceholderCompatibilityMode(mode)
 }
 #[inline]
-pub unsafe fn RtlSubAuthorityCountSid<P0>(sid: P0) -> *mut u8
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn RtlSubAuthorityCountSid(sid : super::super::super::Win32::Foundation:: PSID) -> *mut u8);
-    RtlSubAuthorityCountSid(sid.param().abi())
+pub unsafe fn RtlSubAuthorityCountSid(sid: windows_core::PSID) -> *mut u8 {
+    windows_targets::link!("ntdll.dll" "system" fn RtlSubAuthorityCountSid(sid : windows_core::PSID) -> *mut u8);
+    RtlSubAuthorityCountSid(core::mem::transmute(sid))
 }
 #[inline]
-pub unsafe fn RtlSubAuthoritySid<P0>(sid: P0, subauthority: u32) -> *mut u32
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn RtlSubAuthoritySid(sid : super::super::super::Win32::Foundation:: PSID, subauthority : u32) -> *mut u32);
-    RtlSubAuthoritySid(sid.param().abi(), subauthority)
+pub unsafe fn RtlSubAuthoritySid(sid: windows_core::PSID, subauthority: u32) -> *mut u32 {
+    windows_targets::link!("ntdll.dll" "system" fn RtlSubAuthoritySid(sid : windows_core::PSID, subauthority : u32) -> *mut u32);
+    RtlSubAuthoritySid(core::mem::transmute(sid), subauthority)
 }
 #[inline]
 pub unsafe fn RtlTimeToSecondsSince1980(time: *const i64, elapsedseconds: *mut u32) -> super::super::super::Win32::Foundation::BOOLEAN {
@@ -3549,12 +3507,9 @@ pub unsafe fn RtlUpcaseUnicodeToOemN(oemstring: &mut [u8], bytesinoemstring: Opt
     RtlUpcaseUnicodeToOemN(core::mem::transmute(oemstring.as_ptr()), oemstring.len().try_into().unwrap(), core::mem::transmute(bytesinoemstring.unwrap_or(std::ptr::null_mut())), unicodestring, bytesinunicodestring)
 }
 #[inline]
-pub unsafe fn RtlValidSid<P0>(sid: P0) -> super::super::super::Win32::Foundation::BOOLEAN
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn RtlValidSid(sid : super::super::super::Win32::Foundation:: PSID) -> super::super::super::Win32::Foundation:: BOOLEAN);
-    RtlValidSid(sid.param().abi())
+pub unsafe fn RtlValidSid(sid: windows_core::PSID) -> super::super::super::Win32::Foundation::BOOLEAN {
+    windows_targets::link!("ntdll.dll" "system" fn RtlValidSid(sid : windows_core::PSID) -> super::super::super::Win32::Foundation:: BOOLEAN);
+    RtlValidSid(core::mem::transmute(sid))
 }
 #[inline]
 pub unsafe fn RtlValidateUnicodeString(flags: u32, string: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -3961,12 +3916,9 @@ pub unsafe fn SeRegisterLogonSessionTerminatedRoutineEx(callbackroutine: PSE_LOG
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 #[inline]
-pub unsafe fn SeReportSecurityEventWithSubCategory<P0>(flags: u32, sourcename: *const super::super::super::Win32::Foundation::UNICODE_STRING, usersid: P0, auditparameters: *const super::super::super::Win32::Security::Authentication::Identity::SE_ADT_PARAMETER_ARRAY, auditsubcategoryid: u32) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-{
-    windows_targets::link!("ntoskrnl.exe" "system" fn SeReportSecurityEventWithSubCategory(flags : u32, sourcename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, usersid : super::super::super::Win32::Foundation:: PSID, auditparameters : *const super::super::super::Win32::Security::Authentication::Identity:: SE_ADT_PARAMETER_ARRAY, auditsubcategoryid : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    SeReportSecurityEventWithSubCategory(flags, sourcename, usersid.param().abi(), auditparameters, auditsubcategoryid)
+pub unsafe fn SeReportSecurityEventWithSubCategory(flags: u32, sourcename: *const super::super::super::Win32::Foundation::UNICODE_STRING, usersid: windows_core::PSID, auditparameters: *const super::super::super::Win32::Security::Authentication::Identity::SE_ADT_PARAMETER_ARRAY, auditsubcategoryid: u32) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ntoskrnl.exe" "system" fn SeReportSecurityEventWithSubCategory(flags : u32, sourcename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, usersid : windows_core::PSID, auditparameters : *const super::super::super::Win32::Security::Authentication::Identity:: SE_ADT_PARAMETER_ARRAY, auditsubcategoryid : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    SeReportSecurityEventWithSubCategory(flags, sourcename, core::mem::transmute(usersid), auditparameters, auditsubcategoryid)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
 #[inline]
@@ -4040,24 +3992,21 @@ pub unsafe fn SeUnregisterLogonSessionTerminatedRoutineEx(callbackroutine: PSE_L
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn SecLookupAccountName(name: *const super::super::super::Win32::Foundation::UNICODE_STRING, sidsize: *mut u32, sid: super::super::super::Win32::Foundation::PSID, nameuse: *mut super::super::super::Win32::Security::SID_NAME_USE, domainsize: *mut u32, referenceddomain: Option<*mut super::super::super::Win32::Foundation::UNICODE_STRING>) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ksecdd.sys" "system" fn SecLookupAccountName(name : *const super::super::super::Win32::Foundation:: UNICODE_STRING, sidsize : *mut u32, sid : super::super::super::Win32::Foundation:: PSID, nameuse : *mut super::super::super::Win32::Security:: SID_NAME_USE, domainsize : *mut u32, referenceddomain : *mut super::super::super::Win32::Foundation:: UNICODE_STRING) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    SecLookupAccountName(name, sidsize, sid, nameuse, domainsize, core::mem::transmute(referenceddomain.unwrap_or(std::ptr::null_mut())))
+pub unsafe fn SecLookupAccountName(name: *const super::super::super::Win32::Foundation::UNICODE_STRING, sidsize: *mut u32, sid: windows_core::PSID, nameuse: *mut super::super::super::Win32::Security::SID_NAME_USE, domainsize: *mut u32, referenceddomain: Option<*mut super::super::super::Win32::Foundation::UNICODE_STRING>) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ksecdd.sys" "system" fn SecLookupAccountName(name : *const super::super::super::Win32::Foundation:: UNICODE_STRING, sidsize : *mut u32, sid : windows_core::PSID, nameuse : *mut super::super::super::Win32::Security:: SID_NAME_USE, domainsize : *mut u32, referenceddomain : *mut super::super::super::Win32::Foundation:: UNICODE_STRING) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    SecLookupAccountName(name, sidsize, core::mem::transmute(sid), nameuse, domainsize, core::mem::transmute(referenceddomain.unwrap_or(std::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn SecLookupAccountSid<P0>(sid: P0, namesize: *mut u32, namebuffer: *mut super::super::super::Win32::Foundation::UNICODE_STRING, domainsize: *mut u32, domainbuffer: Option<*mut super::super::super::Win32::Foundation::UNICODE_STRING>, nameuse: *mut super::super::super::Win32::Security::SID_NAME_USE) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-{
-    windows_targets::link!("ksecdd.sys" "system" fn SecLookupAccountSid(sid : super::super::super::Win32::Foundation:: PSID, namesize : *mut u32, namebuffer : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, domainsize : *mut u32, domainbuffer : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, nameuse : *mut super::super::super::Win32::Security:: SID_NAME_USE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    SecLookupAccountSid(sid.param().abi(), namesize, namebuffer, domainsize, core::mem::transmute(domainbuffer.unwrap_or(std::ptr::null_mut())), nameuse)
+pub unsafe fn SecLookupAccountSid(sid: windows_core::PSID, namesize: *mut u32, namebuffer: *mut super::super::super::Win32::Foundation::UNICODE_STRING, domainsize: *mut u32, domainbuffer: Option<*mut super::super::super::Win32::Foundation::UNICODE_STRING>, nameuse: *mut super::super::super::Win32::Security::SID_NAME_USE) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ksecdd.sys" "system" fn SecLookupAccountSid(sid : windows_core::PSID, namesize : *mut u32, namebuffer : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, domainsize : *mut u32, domainbuffer : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, nameuse : *mut super::super::super::Win32::Security:: SID_NAME_USE) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    SecLookupAccountSid(core::mem::transmute(sid), namesize, namebuffer, domainsize, core::mem::transmute(domainbuffer.unwrap_or(std::ptr::null_mut())), nameuse)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn SecLookupWellKnownSid(sidtype: super::super::super::Win32::Security::WELL_KNOWN_SID_TYPE, sid: super::super::super::Win32::Foundation::PSID, sidbuffersize: u32, sidsize: Option<*mut u32>) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ksecdd.sys" "system" fn SecLookupWellKnownSid(sidtype : super::super::super::Win32::Security:: WELL_KNOWN_SID_TYPE, sid : super::super::super::Win32::Foundation:: PSID, sidbuffersize : u32, sidsize : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    SecLookupWellKnownSid(sidtype, sid, sidbuffersize, core::mem::transmute(sidsize.unwrap_or(std::ptr::null_mut())))
+pub unsafe fn SecLookupWellKnownSid(sidtype: super::super::super::Win32::Security::WELL_KNOWN_SID_TYPE, sid: windows_core::PSID, sidbuffersize: u32, sidsize: Option<*mut u32>) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ksecdd.sys" "system" fn SecLookupWellKnownSid(sidtype : super::super::super::Win32::Security:: WELL_KNOWN_SID_TYPE, sid : windows_core::PSID, sidbuffersize : u32, sidsize : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    SecLookupWellKnownSid(sidtype, core::mem::transmute(sid), sidbuffersize, core::mem::transmute(sidsize.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn SecMakeSPN<P0>(serviceclass: *mut super::super::super::Win32::Foundation::UNICODE_STRING, servicename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, instancename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, instanceport: u16, referrer: *mut super::super::super::Win32::Foundation::UNICODE_STRING, spn: *mut super::super::super::Win32::Foundation::UNICODE_STRING, length: *mut u32, allocate: P0) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -4392,15 +4341,14 @@ where
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn ZwQueryQuotaInformationFile<P0, P1, P2, P3>(filehandle: P0, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: P1, sidlist: Option<*const core::ffi::c_void>, sidlistlength: u32, startsid: P2, restartscan: P3) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwQueryQuotaInformationFile<P0, P1, P2>(filehandle: P0, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: P1, sidlist: Option<*const core::ffi::c_void>, sidlistlength: u32, startsid: windows_core::PSID, restartscan: P2) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
     P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
-    windows_targets::link!("ntdll.dll" "system" fn ZwQueryQuotaInformationFile(filehandle : super::super::super::Win32::Foundation:: HANDLE, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : super::super::super::Win32::Foundation:: BOOLEAN, sidlist : *const core::ffi::c_void, sidlistlength : u32, startsid : super::super::super::Win32::Foundation:: PSID, restartscan : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwQueryQuotaInformationFile(filehandle.param().abi(), iostatusblock, buffer, length, returnsingleentry.param().abi(), core::mem::transmute(sidlist.unwrap_or(std::ptr::null())), sidlistlength, startsid.param().abi(), restartscan.param().abi())
+    windows_targets::link!("ntdll.dll" "system" fn ZwQueryQuotaInformationFile(filehandle : super::super::super::Win32::Foundation:: HANDLE, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : super::super::super::Win32::Foundation:: BOOLEAN, sidlist : *const core::ffi::c_void, sidlistlength : u32, startsid : windows_core::PSID, restartscan : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    ZwQueryQuotaInformationFile(filehandle.param().abi(), iostatusblock, buffer, length, returnsingleentry.param().abi(), core::mem::transmute(sidlist.unwrap_or(std::ptr::null())), sidlistlength, core::mem::transmute(startsid), restartscan.param().abi())
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -8704,7 +8652,7 @@ impl Default for MSV1_0_GETUSERINFO_REQUEST {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_GETUSERINFO_RESPONSE {
     pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
-    pub UserSid: super::super::super::Win32::Foundation::PSID,
+    pub UserSid: windows_core::PSID,
     pub UserName: super::super::super::Win32::Foundation::UNICODE_STRING,
     pub LogonDomainName: super::super::super::Win32::Foundation::UNICODE_STRING,
     pub LogonServer: super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -10114,33 +10062,33 @@ pub struct SE_EXPORTS {
     pub SeSystemEnvironmentPrivilege: super::super::super::Win32::Foundation::LUID,
     pub SeChangeNotifyPrivilege: super::super::super::Win32::Foundation::LUID,
     pub SeRemoteShutdownPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeNullSid: super::super::super::Win32::Foundation::PSID,
-    pub SeWorldSid: super::super::super::Win32::Foundation::PSID,
-    pub SeLocalSid: super::super::super::Win32::Foundation::PSID,
-    pub SeCreatorOwnerSid: super::super::super::Win32::Foundation::PSID,
-    pub SeCreatorGroupSid: super::super::super::Win32::Foundation::PSID,
-    pub SeNtAuthoritySid: super::super::super::Win32::Foundation::PSID,
-    pub SeDialupSid: super::super::super::Win32::Foundation::PSID,
-    pub SeNetworkSid: super::super::super::Win32::Foundation::PSID,
-    pub SeBatchSid: super::super::super::Win32::Foundation::PSID,
-    pub SeInteractiveSid: super::super::super::Win32::Foundation::PSID,
-    pub SeLocalSystemSid: super::super::super::Win32::Foundation::PSID,
-    pub SeAliasAdminsSid: super::super::super::Win32::Foundation::PSID,
-    pub SeAliasUsersSid: super::super::super::Win32::Foundation::PSID,
-    pub SeAliasGuestsSid: super::super::super::Win32::Foundation::PSID,
-    pub SeAliasPowerUsersSid: super::super::super::Win32::Foundation::PSID,
-    pub SeAliasAccountOpsSid: super::super::super::Win32::Foundation::PSID,
-    pub SeAliasSystemOpsSid: super::super::super::Win32::Foundation::PSID,
-    pub SeAliasPrintOpsSid: super::super::super::Win32::Foundation::PSID,
-    pub SeAliasBackupOpsSid: super::super::super::Win32::Foundation::PSID,
-    pub SeAuthenticatedUsersSid: super::super::super::Win32::Foundation::PSID,
-    pub SeRestrictedSid: super::super::super::Win32::Foundation::PSID,
-    pub SeAnonymousLogonSid: super::super::super::Win32::Foundation::PSID,
+    pub SeNullSid: windows_core::PSID,
+    pub SeWorldSid: windows_core::PSID,
+    pub SeLocalSid: windows_core::PSID,
+    pub SeCreatorOwnerSid: windows_core::PSID,
+    pub SeCreatorGroupSid: windows_core::PSID,
+    pub SeNtAuthoritySid: windows_core::PSID,
+    pub SeDialupSid: windows_core::PSID,
+    pub SeNetworkSid: windows_core::PSID,
+    pub SeBatchSid: windows_core::PSID,
+    pub SeInteractiveSid: windows_core::PSID,
+    pub SeLocalSystemSid: windows_core::PSID,
+    pub SeAliasAdminsSid: windows_core::PSID,
+    pub SeAliasUsersSid: windows_core::PSID,
+    pub SeAliasGuestsSid: windows_core::PSID,
+    pub SeAliasPowerUsersSid: windows_core::PSID,
+    pub SeAliasAccountOpsSid: windows_core::PSID,
+    pub SeAliasSystemOpsSid: windows_core::PSID,
+    pub SeAliasPrintOpsSid: windows_core::PSID,
+    pub SeAliasBackupOpsSid: windows_core::PSID,
+    pub SeAuthenticatedUsersSid: windows_core::PSID,
+    pub SeRestrictedSid: windows_core::PSID,
+    pub SeAnonymousLogonSid: windows_core::PSID,
     pub SeUndockPrivilege: super::super::super::Win32::Foundation::LUID,
     pub SeSyncAgentPrivilege: super::super::super::Win32::Foundation::LUID,
     pub SeEnableDelegationPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeLocalServiceSid: super::super::super::Win32::Foundation::PSID,
-    pub SeNetworkServiceSid: super::super::super::Win32::Foundation::PSID,
+    pub SeLocalServiceSid: windows_core::PSID,
+    pub SeNetworkServiceSid: windows_core::PSID,
     pub SeManageVolumePrivilege: super::super::super::Win32::Foundation::LUID,
     pub SeImpersonatePrivilege: super::super::super::Win32::Foundation::LUID,
     pub SeCreateGlobalPrivilege: super::super::super::Win32::Foundation::LUID,
@@ -10149,21 +10097,21 @@ pub struct SE_EXPORTS {
     pub SeIncreaseWorkingSetPrivilege: super::super::super::Win32::Foundation::LUID,
     pub SeTimeZonePrivilege: super::super::super::Win32::Foundation::LUID,
     pub SeCreateSymbolicLinkPrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeIUserSid: super::super::super::Win32::Foundation::PSID,
-    pub SeUntrustedMandatorySid: super::super::super::Win32::Foundation::PSID,
-    pub SeLowMandatorySid: super::super::super::Win32::Foundation::PSID,
-    pub SeMediumMandatorySid: super::super::super::Win32::Foundation::PSID,
-    pub SeHighMandatorySid: super::super::super::Win32::Foundation::PSID,
-    pub SeSystemMandatorySid: super::super::super::Win32::Foundation::PSID,
-    pub SeOwnerRightsSid: super::super::super::Win32::Foundation::PSID,
-    pub SeAllAppPackagesSid: super::super::super::Win32::Foundation::PSID,
-    pub SeUserModeDriversSid: super::super::super::Win32::Foundation::PSID,
-    pub SeProcTrustWinTcbSid: super::super::super::Win32::Foundation::PSID,
-    pub SeTrustedInstallerSid: super::super::super::Win32::Foundation::PSID,
+    pub SeIUserSid: windows_core::PSID,
+    pub SeUntrustedMandatorySid: windows_core::PSID,
+    pub SeLowMandatorySid: windows_core::PSID,
+    pub SeMediumMandatorySid: windows_core::PSID,
+    pub SeHighMandatorySid: windows_core::PSID,
+    pub SeSystemMandatorySid: windows_core::PSID,
+    pub SeOwnerRightsSid: windows_core::PSID,
+    pub SeAllAppPackagesSid: windows_core::PSID,
+    pub SeUserModeDriversSid: windows_core::PSID,
+    pub SeProcTrustWinTcbSid: windows_core::PSID,
+    pub SeTrustedInstallerSid: windows_core::PSID,
     pub SeDelegateSessionUserImpersonatePrivilege: super::super::super::Win32::Foundation::LUID,
-    pub SeAppSiloSid: super::super::super::Win32::Foundation::PSID,
-    pub SeAppSiloVolumeRootMinimalCapabilitySid: super::super::super::Win32::Foundation::PSID,
-    pub SeAppSiloProfilesRootMinimalCapabilitySid: super::super::super::Win32::Foundation::PSID,
+    pub SeAppSiloSid: windows_core::PSID,
+    pub SeAppSiloVolumeRootMinimalCapabilitySid: windows_core::PSID,
+    pub SeAppSiloProfilesRootMinimalCapabilitySid: windows_core::PSID,
 }
 impl windows_core::TypeKind for SE_EXPORTS {
     type TypeKind = windows_core::CopyType;

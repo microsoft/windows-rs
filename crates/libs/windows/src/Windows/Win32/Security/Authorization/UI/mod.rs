@@ -37,7 +37,7 @@ windows_core::imp::interface_hierarchy!(IEffectivePermission, windows_core::IUnk
 impl IEffectivePermission {
     pub unsafe fn GetEffectivePermission<P0, P1, P2>(&self, pguidobjecttype: *const windows_core::GUID, pusersid: P0, pszservername: P1, psd: P2, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::PSID>,
+        P0: windows_core::Param<super::super::PSID>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<super::super::PSECURITY_DESCRIPTOR>,
     {
@@ -47,7 +47,7 @@ impl IEffectivePermission {
 #[repr(C)]
 pub struct IEffectivePermission_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetEffectivePermission: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::super::super::Foundation::PSID, windows_core::PCWSTR, super::super::PSECURITY_DESCRIPTOR, *mut *mut super::super::OBJECT_TYPE_LIST, *mut u32, *mut *mut u32, *mut u32) -> windows_core::HRESULT,
+    pub GetEffectivePermission: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::super::PSID, windows_core::PCWSTR, super::super::PSECURITY_DESCRIPTOR, *mut *mut super::super::OBJECT_TYPE_LIST, *mut u32, *mut *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEffectivePermission2, IEffectivePermission2_Vtbl, 0x941fabca_dd47_4fca_90bb_b0e10255f20d);
 impl std::ops::Deref for IEffectivePermission2 {
@@ -76,8 +76,8 @@ impl IEffectivePermission2 {
         peffpermresultlists: *mut EFFPERM_RESULT_LIST,
     ) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::PSID>,
-        P1: windows_core::Param<super::super::super::Foundation::PSID>,
+        P0: windows_core::Param<super::super::PSID>,
+        P1: windows_core::Param<super::super::PSID>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).ComputeEffectivePermissionWithSecondarySecurity)(
@@ -103,7 +103,7 @@ impl IEffectivePermission2 {
 #[repr(C)]
 pub struct IEffectivePermission2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub ComputeEffectivePermissionWithSecondarySecurity: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::PSID, super::super::super::Foundation::PSID, windows_core::PCWSTR, *mut SECURITY_OBJECT, u32, *const super::super::TOKEN_GROUPS, *const super::AUTHZ_SID_OPERATION, *const super::super::TOKEN_GROUPS, *const super::AUTHZ_SID_OPERATION, *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION, *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION, *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION, *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION, *mut EFFPERM_RESULT_LIST) -> windows_core::HRESULT,
+    pub ComputeEffectivePermissionWithSecondarySecurity: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::PSID, super::super::PSID, windows_core::PCWSTR, *mut SECURITY_OBJECT, u32, *const super::super::TOKEN_GROUPS, *const super::AUTHZ_SID_OPERATION, *const super::super::TOKEN_GROUPS, *const super::AUTHZ_SID_OPERATION, *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION, *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION, *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION, *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION, *mut EFFPERM_RESULT_LIST) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISecurityInformation, ISecurityInformation_Vtbl, 0x965fc360_16ff_11d0_91cb_00aa00bbb723);
 impl std::ops::Deref for ISecurityInformation {
@@ -173,7 +173,7 @@ impl ISecurityInformation2 {
         (windows_core::Interface::vtable(self).IsDaclCanonical)(windows_core::Interface::as_raw(self), pdacl)
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LookupSids(&self, csids: u32, rgpsids: *const super::super::super::Foundation::PSID) -> windows_core::Result<super::super::super::System::Com::IDataObject> {
+    pub unsafe fn LookupSids(&self, csids: u32, rgpsids: *const super::super::PSID) -> windows_core::Result<super::super::super::System::Com::IDataObject> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).LookupSids)(windows_core::Interface::as_raw(self), csids, rgpsids, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -183,7 +183,7 @@ pub struct ISecurityInformation2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsDaclCanonical: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::ACL) -> super::super::super::Foundation::BOOL,
     #[cfg(feature = "Win32_System_Com")]
-    pub LookupSids: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::super::Foundation::PSID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LookupSids: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::PSID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     LookupSids: usize,
 }
@@ -456,7 +456,7 @@ impl Default for SECURITY_OBJECT {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SID_INFO {
-    pub pSid: super::super::super::Foundation::PSID,
+    pub pSid: super::super::PSID,
     pub pwzCommonName: windows_core::PWSTR,
     pub pwzClass: windows_core::PWSTR,
     pub pwzUPN: windows_core::PWSTR,

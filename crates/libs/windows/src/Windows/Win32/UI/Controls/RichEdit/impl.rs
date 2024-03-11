@@ -2226,7 +2226,7 @@ impl ITextFont2_Vtbl {
         iid == &<ITextFont2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ITextFont as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait ITextHost_Impl: Sized {
     fn TxGetDC(&self) -> super::super::super::Graphics::Gdi::HDC;
     fn TxReleaseDC(&self, hdc: super::super::super::Graphics::Gdi::HDC) -> i32;
@@ -2264,13 +2264,13 @@ pub trait ITextHost_Impl: Sized {
     fn OnTxParaFormatChange(&self, ppf: *const PARAFORMAT) -> windows_core::Result<()>;
     fn TxGetPropertyBits(&self, dwmask: u32, pdwbits: *mut u32) -> windows_core::Result<()>;
     fn TxNotify(&self, inotify: u32, pv: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn TxImmGetContext(&self) -> super::super::super::Globalization::HIMC;
-    fn TxImmReleaseContext(&self, himc: super::super::super::Globalization::HIMC);
+    fn TxImmGetContext(&self) -> super::super::Input::Ime::HIMC;
+    fn TxImmReleaseContext(&self, himc: super::super::Input::Ime::HIMC);
     fn TxGetSelectionBarWidth(&self, lselbarwidth: *mut i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
 impl windows_core::RuntimeName for ITextHost {}
-#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ITextHost_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextHost_Impl, const OFFSET: isize>() -> ITextHost_Vtbl {
         unsafe extern "system" fn TxGetDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::super::Graphics::Gdi::HDC {
@@ -2459,12 +2459,12 @@ impl ITextHost_Vtbl {
             let this = (*this).get_impl();
             ITextHost_Impl::TxNotify(this, core::mem::transmute_copy(&inotify), core::mem::transmute_copy(&pv)).into()
         }
-        unsafe extern "system" fn TxImmGetContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::super::Globalization::HIMC {
+        unsafe extern "system" fn TxImmGetContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Input::Ime::HIMC {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ITextHost_Impl::TxImmGetContext(this)
         }
-        unsafe extern "system" fn TxImmReleaseContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, himc: super::super::super::Globalization::HIMC) {
+        unsafe extern "system" fn TxImmReleaseContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, himc: super::super::Input::Ime::HIMC) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             ITextHost_Impl::TxImmReleaseContext(this, core::mem::transmute_copy(&himc))
@@ -2521,7 +2521,7 @@ impl ITextHost_Vtbl {
         iid == &<ITextHost as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait ITextHost2_Impl: Sized + ITextHost_Impl {
     fn TxIsDoubleClickPending(&self) -> super::super::super::Foundation::BOOL;
     fn TxGetWindow(&self, phwnd: *mut super::super::super::Foundation::HWND) -> windows_core::Result<()>;
@@ -2536,9 +2536,9 @@ pub trait ITextHost2_Impl: Sized + ITextHost_Impl {
     fn TxDestroyCaret(&self) -> windows_core::Result<()>;
     fn TxGetHorzExtent(&self, plhorzextent: *mut i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
 impl windows_core::RuntimeName for ITextHost2 {}
-#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ITextHost2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextHost2_Impl, const OFFSET: isize>() -> ITextHost2_Vtbl {
         unsafe extern "system" fn TxIsDoubleClickPending<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::super::Foundation::BOOL {
