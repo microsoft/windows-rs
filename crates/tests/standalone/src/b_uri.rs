@@ -31,16 +31,6 @@ impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
         }
     }
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIterable<T> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = {
-        windows_core::imp::ConstBuffer::new()
-            .push_slice(b"pinterface(")
-            .push_slice(b"{faa585ea-6214-4217-afda-7f46de5869b3}")
-            .push_slice(b";")
-            .push_other(T::SIGNATURE)
-            .push_slice(b")")
-    };
-}
 impl<T: windows_core::RuntimeType> IntoIterator for IIterable<T> {
     type Item = T;
     type IntoIter = IIterator<Self::Item>;
@@ -54,6 +44,16 @@ impl<T: windows_core::RuntimeType> IntoIterator for &IIterable<T> {
     fn into_iter(self) -> Self::IntoIter {
         self.First().unwrap()
     }
+}
+impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIterable<T> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = {
+        windows_core::imp::ConstBuffer::new()
+            .push_slice(b"pinterface(")
+            .push_slice(b"{faa585ea-6214-4217-afda-7f46de5869b3}")
+            .push_slice(b";")
+            .push_other(T::SIGNATURE)
+            .push_slice(b")")
+    };
 }
 unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IIterable<T> {
     type Vtable = IIterable_Vtbl<T>;
@@ -136,16 +136,6 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
         }
     }
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIterator<T> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = {
-        windows_core::imp::ConstBuffer::new()
-            .push_slice(b"pinterface(")
-            .push_slice(b"{6a79e863-4300-459a-9966-cbb660963ee1}")
-            .push_slice(b";")
-            .push_other(T::SIGNATURE)
-            .push_slice(b")")
-    };
-}
 impl<T: windows_core::RuntimeType> Iterator for IIterator<T> {
     type Item = T;
     fn next(&mut self) -> Option<Self::Item> {
@@ -155,6 +145,16 @@ impl<T: windows_core::RuntimeType> Iterator for IIterator<T> {
         }
         result
     }
+}
+impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIterator<T> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = {
+        windows_core::imp::ConstBuffer::new()
+            .push_slice(b"pinterface(")
+            .push_slice(b"{6a79e863-4300-459a-9966-cbb660963ee1}")
+            .push_slice(b";")
+            .push_other(T::SIGNATURE)
+            .push_slice(b")")
+    };
 }
 unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IIterator<T> {
     type Vtable = IIterator_Vtbl<T>;
@@ -223,6 +223,10 @@ windows_core::imp::define_interface!(
     IUriEscapeStatics_Vtbl,
     0xc1d432ba_c824_4452_a7fd_512bc3bbe9a1
 );
+impl windows_core::RuntimeType for IUriEscapeStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUriEscapeStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -242,6 +246,10 @@ windows_core::imp::define_interface!(
     IUriRuntimeClass_Vtbl,
     0x9e365e57_48b2_4160_956f_c7385120bbfc
 );
+impl windows_core::RuntimeType for IUriRuntimeClass {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUriRuntimeClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -316,6 +324,10 @@ windows_core::imp::define_interface!(
     IUriRuntimeClassFactory_Vtbl,
     0x44a9796f_723e_4fdf_a218_033e75b0c084
 );
+impl windows_core::RuntimeType for IUriRuntimeClassFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUriRuntimeClassFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -336,6 +348,10 @@ windows_core::imp::define_interface!(
     IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl,
     0x758d9661_221c_480f_a339_50656673f46f
 );
+impl windows_core::RuntimeType for IUriRuntimeClassWithAbsoluteCanonicalUri {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -436,16 +452,6 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
         }
     }
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IVectorView<T> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = {
-        windows_core::imp::ConstBuffer::new()
-            .push_slice(b"pinterface(")
-            .push_slice(b"{bbe1fa4c-b0e3-4583-baef-1f1b2e483e56}")
-            .push_slice(b";")
-            .push_other(T::SIGNATURE)
-            .push_slice(b")")
-    };
-}
 pub struct VectorViewIterator<T: windows_core::RuntimeType + 'static> {
     vector: Option<IVectorView<T>>,
     current: u32,
@@ -480,6 +486,16 @@ impl<T: windows_core::RuntimeType> IntoIterator for &IVectorView<T> {
     fn into_iter(self) -> Self::IntoIter {
         VectorViewIterator::new(Some(Clone::clone(self)))
     }
+}
+impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IVectorView<T> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = {
+        windows_core::imp::ConstBuffer::new()
+            .push_slice(b"pinterface(")
+            .push_slice(b"{bbe1fa4c-b0e3-4583-baef-1f1b2e483e56}")
+            .push_slice(b";")
+            .push_other(T::SIGNATURE)
+            .push_slice(b")")
+    };
 }
 unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IVectorView<T> {
     type Vtable = IVectorView_Vtbl<T>;
@@ -568,6 +584,10 @@ windows_core::imp::define_interface!(
     IWwwFormUrlDecoderRuntimeClass_Vtbl,
     0xd45a0451_f225_4542_9296_0e1df5d254df
 );
+impl windows_core::RuntimeType for IWwwFormUrlDecoderRuntimeClass {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWwwFormUrlDecoderRuntimeClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -582,6 +602,10 @@ windows_core::imp::define_interface!(
     IWwwFormUrlDecoderRuntimeClassFactory_Vtbl,
     0x5b8c6b3d_24ae_41b5_a1bf_f0c3d544845b
 );
+impl windows_core::RuntimeType for IWwwFormUrlDecoderRuntimeClassFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWwwFormUrlDecoderRuntimeClassFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -898,7 +922,7 @@ impl Uri {
 }
 impl windows_core::RuntimeType for Uri {
     const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_class::<Self>();
+        windows_core::imp::ConstBuffer::for_class::<Self, IUriRuntimeClass>();
 }
 unsafe impl windows_core::Interface for Uri {
     type Vtable = IUriRuntimeClass_Vtbl;
@@ -1035,7 +1059,7 @@ impl WwwFormUrlDecoder {
 }
 impl windows_core::RuntimeType for WwwFormUrlDecoder {
     const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_class::<Self>();
+        windows_core::imp::ConstBuffer::for_class::<Self, IWwwFormUrlDecoderRuntimeClass>();
 }
 unsafe impl windows_core::Interface for WwwFormUrlDecoder {
     type Vtable = IWwwFormUrlDecoderRuntimeClass_Vtbl;

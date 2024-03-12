@@ -70,6 +70,10 @@ pub mod Nested {
     }
 }
 windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x97540591_1323_59c0_9ae0_f510cae62e54);
+impl windows_core::RuntimeType for IClass {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -229,7 +233,7 @@ impl Class {
 }
 impl windows_core::RuntimeType for Class {
     const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_class::<Self>();
+        windows_core::imp::ConstBuffer::for_class::<Self, IClass>();
 }
 unsafe impl windows_core::Interface for Class {
     type Vtable = IClass_Vtbl;
