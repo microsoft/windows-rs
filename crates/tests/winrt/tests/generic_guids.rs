@@ -220,6 +220,24 @@ fn generic_guids() {
 // Test for https://github.com/microsoft/windows-rs/issues/2922
 #[test]
 fn generic_class_guid() {
+    // First the non-generic case...
+
+    unsafe {
+        assert_eq!(
+            std::str::from_utf8_unchecked(IUriRuntimeClass::SIGNATURE.as_slice()),
+            "{9e365e57-48b2-4160-956f-c7385120bbfc}"
+        );
+
+        assert_eq!(
+            std::str::from_utf8_unchecked(Uri::SIGNATURE.as_slice()),
+            "rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})"
+        );
+    }
+
+    assert_eq!(Uri::IID, GUID::from("9E365E57-48B2-4160-956F-C7385120BBFC"));
+
+    // Then the generic case...
+
     unsafe {
         assert_eq!(std::str::from_utf8_unchecked(IVectorView::<DeviceInformation>::SIGNATURE.as_slice()), "pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Devices.Enumeration.DeviceInformation;{aba0fb95-4398-489d-8e44-e6130927011f}))");
 
