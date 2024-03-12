@@ -166,12 +166,12 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             }
         });
 
-        tokens.combine(&writer.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
         tokens.combine(&writer.async_get(def, generics, &ident, &constraints, &phantoms, &features));
         tokens.combine(&iterators::writer(writer, def, generics, &ident, &constraints, &phantoms, &cfg));
         tokens.combine(&writer.agile(def, &ident, &constraints, &features));
     }
 
+    tokens.combine(&writer.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
     tokens.combine(&writer.interface_trait(def, generics, &ident, &constraints, &features, has_unknown_base));
     tokens.combine(&writer.interface_vtbl(def, generics, &constraints, &features));
     tokens

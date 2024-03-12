@@ -656,7 +656,9 @@ impl Writer {
     pub fn interface_winrt_trait(&self, def: metadata::TypeDef, generics: &[metadata::Type], ident: &TokenStream, constraints: &TokenStream, _phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
         if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
             let type_signature = if def.kind() == metadata::TypeKind::Class {
-                quote! { windows_core::imp::ConstBuffer::for_class::<Self>() }
+                let default = metadata::type_def_default_interface(def).expect("missing default interface");
+                let default_name = self.type_name(&default);
+                quote! { windows_core::imp::ConstBuffer::for_class::<Self, #default_name>() }
             } else if generics.is_empty() {
                 quote! { windows_core::imp::ConstBuffer::for_interface::<Self>() }
             } else {
