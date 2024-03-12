@@ -5,6 +5,9 @@ pub mod Core;
 #[cfg(feature = "UI_Input_Inking_Preview")]
 pub mod Preview;
 windows_core::imp::define_interface!(IInkDrawingAttributes, IInkDrawingAttributes_Vtbl, 0x97a2176c_6774_48ad_84f0_48f5a9be74f9);
+impl windows_core::RuntimeType for IInkDrawingAttributes {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkDrawingAttributes_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -20,6 +23,9 @@ pub struct IInkDrawingAttributes_Vtbl {
     pub SetFitToCurve: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkDrawingAttributes2, IInkDrawingAttributes2_Vtbl, 0x7cab6508_8ec4_42fd_a5a5_e4b7d1d5316d);
+impl windows_core::RuntimeType for IInkDrawingAttributes2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkDrawingAttributes2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -35,6 +41,9 @@ pub struct IInkDrawingAttributes2_Vtbl {
     pub SetDrawAsHighlighter: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkDrawingAttributes3, IInkDrawingAttributes3_Vtbl, 0x72020002_7d5b_4690_8af4_e664cbe2b74f);
+impl windows_core::RuntimeType for IInkDrawingAttributes3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkDrawingAttributes3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -42,6 +51,9 @@ pub struct IInkDrawingAttributes3_Vtbl {
     pub PencilProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkDrawingAttributes4, IInkDrawingAttributes4_Vtbl, 0xef65dc25_9f19_456d_91a3_bc3a3d91c5fb);
+impl windows_core::RuntimeType for IInkDrawingAttributes4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkDrawingAttributes4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -49,12 +61,18 @@ pub struct IInkDrawingAttributes4_Vtbl {
     pub SetIgnoreTilt: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkDrawingAttributes5, IInkDrawingAttributes5_Vtbl, 0xd11aa0bb_0775_4852_ae64_41143a7ae6c9);
+impl windows_core::RuntimeType for IInkDrawingAttributes5 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkDrawingAttributes5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ModelerAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkDrawingAttributesPencilProperties, IInkDrawingAttributesPencilProperties_Vtbl, 0x4f2534cb_2d86_41bb_b0e8_e4c2a0253c52);
+impl windows_core::RuntimeType for IInkDrawingAttributesPencilProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkDrawingAttributesPencilProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -62,12 +80,18 @@ pub struct IInkDrawingAttributesPencilProperties_Vtbl {
     pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkDrawingAttributesStatics, IInkDrawingAttributesStatics_Vtbl, 0xf731e03f_1a65_4862_96cb_6e1665e17f6d);
+impl windows_core::RuntimeType for IInkDrawingAttributesStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkDrawingAttributesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateForPencil: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkInputConfiguration, IInkInputConfiguration_Vtbl, 0x93a68dc4_0b7b_49d7_b34f_9901e524dcf2);
+impl windows_core::RuntimeType for IInkInputConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkInputConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -77,6 +101,9 @@ pub struct IInkInputConfiguration_Vtbl {
     pub SetIsEraserInputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkInputConfiguration2, IInkInputConfiguration2_Vtbl, 0x6ac2272e_81b4_5cc4_a36d_d057c387dfda);
+impl windows_core::RuntimeType for IInkInputConfiguration2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkInputConfiguration2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -84,6 +111,9 @@ pub struct IInkInputConfiguration2_Vtbl {
     pub SetIsPenHapticFeedbackEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkInputProcessingConfiguration, IInkInputProcessingConfiguration_Vtbl, 0x2778d85e_33ca_4b06_a6d3_ac3945116d37);
+impl windows_core::RuntimeType for IInkInputProcessingConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkInputProcessingConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -93,6 +123,9 @@ pub struct IInkInputProcessingConfiguration_Vtbl {
     pub SetRightDragAction: unsafe extern "system" fn(*mut core::ffi::c_void, InkInputRightDragAction) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkManager, IInkManager_Vtbl, 0x4744737d_671b_4163_9c95_4e8d7a035fe1);
+impl windows_core::RuntimeType for IInkManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -108,6 +141,9 @@ pub struct IInkManager_Vtbl {
     RecognizeAsync2: usize,
 }
 windows_core::imp::define_interface!(IInkModelerAttributes, IInkModelerAttributes_Vtbl, 0xbad31f27_0cd9_4bfd_b6f3_9e03ba8d7454);
+impl windows_core::RuntimeType for IInkModelerAttributes {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkModelerAttributes_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -117,6 +153,9 @@ pub struct IInkModelerAttributes_Vtbl {
     pub SetScalingFactor: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkModelerAttributes2, IInkModelerAttributes2_Vtbl, 0x86d1d09a_4ef8_5e25_b7bc_b65424f16bb3);
+impl windows_core::RuntimeType for IInkModelerAttributes2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkModelerAttributes2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -124,6 +163,9 @@ pub struct IInkModelerAttributes2_Vtbl {
     pub SetUseVelocityBasedPressure: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkPoint, IInkPoint_Vtbl, 0x9f87272b_858c_46a5_9b41_d195970459fd);
+impl windows_core::RuntimeType for IInkPoint {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkPoint_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -131,6 +173,9 @@ pub struct IInkPoint_Vtbl {
     pub Pressure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkPoint2, IInkPoint2_Vtbl, 0xfba9c3f7_ae56_4d5c_bd2f_0ac45f5e4af9);
+impl windows_core::RuntimeType for IInkPoint2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkPoint2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -158,12 +203,18 @@ pub struct IInkPointFactory_Vtbl {
     pub CreateInkPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Point, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkPointFactory2, IInkPointFactory2_Vtbl, 0xe0145e85_daff_45f2_ad69_050d8256a209);
+impl windows_core::RuntimeType for IInkPointFactory2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkPointFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInkPointWithTiltAndTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Point, f32, f32, f32, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkPresenter, IInkPresenter_Vtbl, 0xa69b70e2_887b_458f_b173_4fe4438930a3);
+impl windows_core::RuntimeType for IInkPresenter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkPresenter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -192,6 +243,9 @@ pub struct IInkPresenter_Vtbl {
     pub RemoveStrokesErased: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkPresenter2, IInkPresenter2_Vtbl, 0xcf53e612_9a34_11e6_9f33_a24fc0d9649c);
+impl windows_core::RuntimeType for IInkPresenter2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkPresenter2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -199,12 +253,18 @@ pub struct IInkPresenter2_Vtbl {
     pub SetHighContrastAdjustment: unsafe extern "system" fn(*mut core::ffi::c_void, InkHighContrastAdjustment) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkPresenter3, IInkPresenter3_Vtbl, 0x51e1ce89_d37d_4a90_83fc_7f5e9dfbf217);
+impl windows_core::RuntimeType for IInkPresenter3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkPresenter3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InputConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkPresenterProtractor, IInkPresenterProtractor_Vtbl, 0x7de3f2aa_ef6c_4e91_a73b_5b70d56fbd17);
+impl windows_core::RuntimeType for IInkPresenterProtractor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkPresenterProtractor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -224,12 +284,18 @@ pub struct IInkPresenterProtractor_Vtbl {
     pub SetAccentColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Color) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkPresenterProtractorFactory, IInkPresenterProtractorFactory_Vtbl, 0x320103c9_68fa_47e9_8127_8370711fc46c);
+impl windows_core::RuntimeType for IInkPresenterProtractorFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkPresenterProtractorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkPresenterRuler, IInkPresenterRuler_Vtbl, 0x6cda7d5a_dec7_4dd7_877a_2133f183d48a);
+impl windows_core::RuntimeType for IInkPresenterRuler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkPresenterRuler_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -239,6 +305,9 @@ pub struct IInkPresenterRuler_Vtbl {
     pub SetWidth: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkPresenterRuler2, IInkPresenterRuler2_Vtbl, 0x45130dc1_bc61_44d4_a423_54712ae671c4);
+impl windows_core::RuntimeType for IInkPresenterRuler2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkPresenterRuler2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -349,6 +418,9 @@ pub struct IInkPresenterStencil_Vtbl {
     SetTransform: usize,
 }
 windows_core::imp::define_interface!(IInkRecognitionResult, IInkRecognitionResult_Vtbl, 0x36461a94_5068_40ef_8a05_2c2fb60908a2);
+impl windows_core::RuntimeType for IInkRecognitionResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkRecognitionResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -363,6 +435,9 @@ pub struct IInkRecognitionResult_Vtbl {
     GetStrokes: usize,
 }
 windows_core::imp::define_interface!(IInkRecognizer, IInkRecognizer_Vtbl, 0x077ccea3_904d_442a_b151_aaca3631c43b);
+impl windows_core::RuntimeType for IInkRecognizer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkRecognizer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -415,6 +490,9 @@ pub struct IInkRecognizerContainer_Vtbl {
     GetRecognizers: usize,
 }
 windows_core::imp::define_interface!(IInkStroke, IInkStroke_Vtbl, 0x15144d60_cce3_4fcf_9d52_11518ab6afd4);
+impl windows_core::RuntimeType for IInkStroke {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkStroke_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -431,6 +509,9 @@ pub struct IInkStroke_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkStroke2, IInkStroke2_Vtbl, 0x5db9e4f4_bafa_4de1_89d3_201b1ed7d89b);
+impl windows_core::RuntimeType for IInkStroke2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkStroke2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -448,6 +529,9 @@ pub struct IInkStroke2_Vtbl {
     GetInkPoints: usize,
 }
 windows_core::imp::define_interface!(IInkStroke3, IInkStroke3_Vtbl, 0x4a807374_9499_411d_a1c4_68855d03d65f);
+impl windows_core::RuntimeType for IInkStroke3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkStroke3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -458,12 +542,18 @@ pub struct IInkStroke3_Vtbl {
     pub SetStrokeDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkStroke4, IInkStroke4_Vtbl, 0xcd5b62e5_b6e9_5b91_a577_1921d2348690);
+impl windows_core::RuntimeType for IInkStroke4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkStroke4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PointerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkStrokeBuilder, IInkStrokeBuilder_Vtbl, 0x82bbd1dc_1c63_41dc_9e07_4b4a70ced801);
+impl windows_core::RuntimeType for IInkStrokeBuilder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkStrokeBuilder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -477,6 +567,9 @@ pub struct IInkStrokeBuilder_Vtbl {
     pub SetDefaultDrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkStrokeBuilder2, IInkStrokeBuilder2_Vtbl, 0xbd82bc27_731f_4cbc_bbbf_6d468044f1e5);
+impl windows_core::RuntimeType for IInkStrokeBuilder2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkStrokeBuilder2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -486,6 +579,9 @@ pub struct IInkStrokeBuilder2_Vtbl {
     CreateStrokeFromInkPoints: usize,
 }
 windows_core::imp::define_interface!(IInkStrokeBuilder3, IInkStrokeBuilder3_Vtbl, 0xb2c71fcd_5472_46b1_a81d_c37a3d169441);
+impl windows_core::RuntimeType for IInkStrokeBuilder3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkStrokeBuilder3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -648,6 +744,9 @@ pub struct IInkStrokeContainer_Vtbl {
     GetRecognitionResults: usize,
 }
 windows_core::imp::define_interface!(IInkStrokeContainer2, IInkStrokeContainer2_Vtbl, 0x8901d364_da36_4bcf_9e5c_d195825995b4);
+impl windows_core::RuntimeType for IInkStrokeContainer2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkStrokeContainer2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -658,6 +757,9 @@ pub struct IInkStrokeContainer2_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkStrokeContainer3, IInkStrokeContainer3_Vtbl, 0x3d07bea5_baea_4c82_a719_7b83da1067d2);
+impl windows_core::RuntimeType for IInkStrokeContainer3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkStrokeContainer3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -668,6 +770,9 @@ pub struct IInkStrokeContainer3_Vtbl {
     pub GetStrokeById: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkStrokeInput, IInkStrokeInput_Vtbl, 0xcf2ffe7b_5e10_43c6_a080_88f26e1dc67d);
+impl windows_core::RuntimeType for IInkStrokeInput {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkStrokeInput_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -694,6 +799,9 @@ pub struct IInkStrokeInput_Vtbl {
     pub InkPresenter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkStrokeRenderingSegment, IInkStrokeRenderingSegment_Vtbl, 0x68510f1f_88e3_477a_a2fa_569f5f1f9bd5);
+impl windows_core::RuntimeType for IInkStrokeRenderingSegment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkStrokeRenderingSegment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -706,6 +814,9 @@ pub struct IInkStrokeRenderingSegment_Vtbl {
     pub Twist: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkStrokesCollectedEventArgs, IInkStrokesCollectedEventArgs_Vtbl, 0xc4f3f229_1938_495c_b4d9_6de4b08d4811);
+impl windows_core::RuntimeType for IInkStrokesCollectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkStrokesCollectedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -715,6 +826,9 @@ pub struct IInkStrokesCollectedEventArgs_Vtbl {
     Strokes: usize,
 }
 windows_core::imp::define_interface!(IInkStrokesErasedEventArgs, IInkStrokesErasedEventArgs_Vtbl, 0xa4216a22_1503_4ebf_8ff5_2de84584a8aa);
+impl windows_core::RuntimeType for IInkStrokesErasedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkStrokesErasedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -724,6 +838,9 @@ pub struct IInkStrokesErasedEventArgs_Vtbl {
     Strokes: usize,
 }
 windows_core::imp::define_interface!(IInkSynchronizer, IInkSynchronizer_Vtbl, 0x9b9ea160_ae9b_45f9_8407_4b493b163661);
+impl windows_core::RuntimeType for IInkSynchronizer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkSynchronizer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -734,6 +851,9 @@ pub struct IInkSynchronizer_Vtbl {
     pub EndDry: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkUnprocessedInput, IInkUnprocessedInput_Vtbl, 0xdb4445e0_8398_4921_ac3b_ab978c5ba256);
+impl windows_core::RuntimeType for IInkUnprocessedInput {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkUnprocessedInput_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -775,6 +895,9 @@ pub struct IInkUnprocessedInput_Vtbl {
     pub InkPresenter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPenAndInkSettings, IPenAndInkSettings_Vtbl, 0xbc2ceb8f_0066_44a8_bb7a_b839b3deb8f5);
+impl windows_core::RuntimeType for IPenAndInkSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPenAndInkSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -786,12 +909,18 @@ pub struct IPenAndInkSettings_Vtbl {
     pub IsTouchHandwritingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPenAndInkSettings2, IPenAndInkSettings2_Vtbl, 0x3262da53_1f44_55e2_9929_ebf77e5481b8);
+impl windows_core::RuntimeType for IPenAndInkSettings2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPenAndInkSettings2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetPenHandedness: unsafe extern "system" fn(*mut core::ffi::c_void, PenHandedness) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPenAndInkSettingsStatics, IPenAndInkSettingsStatics_Vtbl, 0xed6dd036_5708_5c3c_96db_f2f552eab641);
+impl windows_core::RuntimeType for IPenAndInkSettingsStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPenAndInkSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -933,7 +1062,7 @@ impl InkDrawingAttributes {
     }
 }
 impl windows_core::RuntimeType for InkDrawingAttributes {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkDrawingAttributes>();
 }
 unsafe impl windows_core::Interface for InkDrawingAttributes {
     type Vtable = IInkDrawingAttributes_Vtbl;
@@ -962,7 +1091,7 @@ impl InkDrawingAttributesPencilProperties {
     }
 }
 impl windows_core::RuntimeType for InkDrawingAttributesPencilProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkDrawingAttributesPencilProperties>();
 }
 unsafe impl windows_core::Interface for InkDrawingAttributesPencilProperties {
     type Vtable = IInkDrawingAttributesPencilProperties_Vtbl;
@@ -1013,7 +1142,7 @@ impl InkInputConfiguration {
     }
 }
 impl windows_core::RuntimeType for InkInputConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkInputConfiguration>();
 }
 unsafe impl windows_core::Interface for InkInputConfiguration {
     type Vtable = IInkInputConfiguration_Vtbl;
@@ -1053,7 +1182,7 @@ impl InkInputProcessingConfiguration {
     }
 }
 impl windows_core::RuntimeType for InkInputProcessingConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkInputProcessingConfiguration>();
 }
 unsafe impl windows_core::Interface for InkInputProcessingConfiguration {
     type Vtable = IInkInputProcessingConfiguration_Vtbl;
@@ -1268,7 +1397,7 @@ impl InkManager {
     }
 }
 impl windows_core::RuntimeType for InkManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkManager>();
 }
 unsafe impl windows_core::Interface for InkManager {
     type Vtable = IInkManager_Vtbl;
@@ -1317,7 +1446,7 @@ impl InkModelerAttributes {
     }
 }
 impl windows_core::RuntimeType for InkModelerAttributes {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkModelerAttributes>();
 }
 unsafe impl windows_core::Interface for InkModelerAttributes {
     type Vtable = IInkModelerAttributes_Vtbl;
@@ -1392,7 +1521,7 @@ impl InkPoint {
     }
 }
 impl windows_core::RuntimeType for InkPoint {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkPoint>();
 }
 unsafe impl windows_core::Interface for InkPoint {
     type Vtable = IInkPoint_Vtbl;
@@ -1540,7 +1669,7 @@ impl InkPresenter {
     }
 }
 impl windows_core::RuntimeType for InkPresenter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkPresenter>();
 }
 unsafe impl windows_core::Interface for InkPresenter {
     type Vtable = IInkPresenter_Vtbl;
@@ -1703,7 +1832,7 @@ impl InkPresenterProtractor {
     }
 }
 impl windows_core::RuntimeType for InkPresenterProtractor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkPresenterProtractor>();
 }
 unsafe impl windows_core::Interface for InkPresenterProtractor {
     type Vtable = IInkPresenterProtractor_Vtbl;
@@ -1833,7 +1962,7 @@ impl InkPresenterRuler {
     }
 }
 impl windows_core::RuntimeType for InkPresenterRuler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkPresenterRuler>();
 }
 unsafe impl windows_core::Interface for InkPresenterRuler {
     type Vtable = IInkPresenterRuler_Vtbl;
@@ -1874,7 +2003,7 @@ impl InkRecognitionResult {
     }
 }
 impl windows_core::RuntimeType for InkRecognitionResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkRecognitionResult>();
 }
 unsafe impl windows_core::Interface for InkRecognitionResult {
     type Vtable = IInkRecognitionResult_Vtbl;
@@ -1899,7 +2028,7 @@ impl InkRecognizer {
     }
 }
 impl windows_core::RuntimeType for InkRecognizer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkRecognizer>();
 }
 unsafe impl windows_core::Interface for InkRecognizer {
     type Vtable = IInkRecognizer_Vtbl;
@@ -1949,7 +2078,7 @@ impl InkRecognizerContainer {
     }
 }
 impl windows_core::RuntimeType for InkRecognizerContainer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkRecognizerContainer>();
 }
 unsafe impl windows_core::Interface for InkRecognizerContainer {
     type Vtable = IInkRecognizerContainer_Vtbl;
@@ -2082,7 +2211,7 @@ impl InkStroke {
     }
 }
 impl windows_core::RuntimeType for InkStroke {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStroke>();
 }
 unsafe impl windows_core::Interface for InkStroke {
     type Vtable = IInkStroke_Vtbl;
@@ -2176,7 +2305,7 @@ impl InkStrokeBuilder {
     }
 }
 impl windows_core::RuntimeType for InkStrokeBuilder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStrokeBuilder>();
 }
 unsafe impl windows_core::Interface for InkStrokeBuilder {
     type Vtable = IInkStrokeBuilder_Vtbl;
@@ -2340,7 +2469,7 @@ impl InkStrokeContainer {
     }
 }
 impl windows_core::RuntimeType for InkStrokeContainer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStrokeContainer>();
 }
 unsafe impl windows_core::Interface for InkStrokeContainer {
     type Vtable = IInkStrokeContainer_Vtbl;
@@ -2423,7 +2552,7 @@ impl InkStrokeInput {
     }
 }
 impl windows_core::RuntimeType for InkStrokeInput {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStrokeInput>();
 }
 unsafe impl windows_core::Interface for InkStrokeInput {
     type Vtable = IInkStrokeInput_Vtbl;
@@ -2490,7 +2619,7 @@ impl InkStrokeRenderingSegment {
     }
 }
 impl windows_core::RuntimeType for InkStrokeRenderingSegment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStrokeRenderingSegment>();
 }
 unsafe impl windows_core::Interface for InkStrokeRenderingSegment {
     type Vtable = IInkStrokeRenderingSegment_Vtbl;
@@ -2516,7 +2645,7 @@ impl InkStrokesCollectedEventArgs {
     }
 }
 impl windows_core::RuntimeType for InkStrokesCollectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStrokesCollectedEventArgs>();
 }
 unsafe impl windows_core::Interface for InkStrokesCollectedEventArgs {
     type Vtable = IInkStrokesCollectedEventArgs_Vtbl;
@@ -2540,7 +2669,7 @@ impl InkStrokesErasedEventArgs {
     }
 }
 impl windows_core::RuntimeType for InkStrokesErasedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStrokesErasedEventArgs>();
 }
 unsafe impl windows_core::Interface for InkStrokesErasedEventArgs {
     type Vtable = IInkStrokesErasedEventArgs_Vtbl;
@@ -2568,7 +2697,7 @@ impl InkSynchronizer {
     }
 }
 impl windows_core::RuntimeType for InkSynchronizer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkSynchronizer>();
 }
 unsafe impl windows_core::Interface for InkSynchronizer {
     type Vtable = IInkSynchronizer_Vtbl;
@@ -2696,7 +2825,7 @@ impl InkUnprocessedInput {
     }
 }
 impl windows_core::RuntimeType for InkUnprocessedInput {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkUnprocessedInput>();
 }
 unsafe impl windows_core::Interface for InkUnprocessedInput {
     type Vtable = IInkUnprocessedInput_Vtbl;
@@ -2771,7 +2900,7 @@ impl PenAndInkSettings {
     }
 }
 impl windows_core::RuntimeType for PenAndInkSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenAndInkSettings>();
 }
 unsafe impl windows_core::Interface for PenAndInkSettings {
     type Vtable = IPenAndInkSettings_Vtbl;

@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IDialApp, IDialApp_Vtbl, 0x555ffbd3_45b7_49f3_bbd7_302db6084646);
+impl windows_core::RuntimeType for IDialApp {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDialApp_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,6 +11,9 @@ pub struct IDialApp_Vtbl {
     pub GetAppStateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDialAppStateDetails, IDialAppStateDetails_Vtbl, 0xddc4a4a1_f5de_400d_bea4_8c8466bb2961);
+impl windows_core::RuntimeType for IDialAppStateDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDialAppStateDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -15,6 +21,9 @@ pub struct IDialAppStateDetails_Vtbl {
     pub FullXml: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDialDevice, IDialDevice_Vtbl, 0xfff0edaf_759f_41d2_a20a_7f29ce0b3784);
+impl windows_core::RuntimeType for IDialDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDialDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -22,6 +31,9 @@ pub struct IDialDevice_Vtbl {
     pub GetDialApp: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDialDevice2, IDialDevice2_Vtbl, 0xbab7f3d5_5bfb_4eba_8b32_b57c5c5ee5c9);
+impl windows_core::RuntimeType for IDialDevice2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDialDevice2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -32,6 +44,9 @@ pub struct IDialDevice2_Vtbl {
     Thumbnail: usize,
 }
 windows_core::imp::define_interface!(IDialDevicePicker, IDialDevicePicker_Vtbl, 0xba7e520a_ff59_4f4b_bdac_d89f495ad6e1);
+impl windows_core::RuntimeType for IDialDevicePicker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDialDevicePicker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -60,6 +75,9 @@ pub struct IDialDevicePicker_Vtbl {
     pub SetDisplayStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DialDeviceDisplayStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDialDevicePickerFilter, IDialDevicePickerFilter_Vtbl, 0xc17c93ba_86c0_485d_b8d6_0f9a8f641590);
+impl windows_core::RuntimeType for IDialDevicePickerFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDialDevicePickerFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -69,12 +87,18 @@ pub struct IDialDevicePickerFilter_Vtbl {
     SupportedAppNames: usize,
 }
 windows_core::imp::define_interface!(IDialDeviceSelectedEventArgs, IDialDeviceSelectedEventArgs_Vtbl, 0x480b92ad_ac76_47eb_9c06_a19304da0247);
+impl windows_core::RuntimeType for IDialDeviceSelectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDialDeviceSelectedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SelectedDialDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDialDeviceStatics, IDialDeviceStatics_Vtbl, 0xaa69cc95_01f8_4758_8461_2bbd1cdc3cf3);
+impl windows_core::RuntimeType for IDialDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDialDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -86,12 +110,18 @@ pub struct IDialDeviceStatics_Vtbl {
     DeviceInfoSupportsDialAsync: usize,
 }
 windows_core::imp::define_interface!(IDialDisconnectButtonClickedEventArgs, IDialDisconnectButtonClickedEventArgs_Vtbl, 0x52765152_9c81_4e55_adc2_0ebe99cde3b6);
+impl windows_core::RuntimeType for IDialDisconnectButtonClickedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDialDisconnectButtonClickedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Device: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDialReceiverApp, IDialReceiverApp_Vtbl, 0xfd3e7c57_5045_470e_b304_4dd9b13e7d11);
+impl windows_core::RuntimeType for IDialReceiverApp {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDialReceiverApp_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -105,12 +135,18 @@ pub struct IDialReceiverApp_Vtbl {
     SetAdditionalDataAsync: usize,
 }
 windows_core::imp::define_interface!(IDialReceiverApp2, IDialReceiverApp2_Vtbl, 0x530c5805_9130_42ac_a504_1977dcb2ea8a);
+impl windows_core::RuntimeType for IDialReceiverApp2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDialReceiverApp2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetUniqueDeviceNameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDialReceiverAppStatics, IDialReceiverAppStatics_Vtbl, 0x53183a3c_4c36_4d02_b28a_f2a9da38ec52);
+impl windows_core::RuntimeType for IDialReceiverAppStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDialReceiverAppStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -151,7 +187,7 @@ impl DialApp {
     }
 }
 impl windows_core::RuntimeType for DialApp {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialApp>();
 }
 unsafe impl windows_core::Interface for DialApp {
     type Vtable = IDialApp_Vtbl;
@@ -183,7 +219,7 @@ impl DialAppStateDetails {
     }
 }
 impl windows_core::RuntimeType for DialAppStateDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialAppStateDetails>();
 }
 unsafe impl windows_core::Interface for DialAppStateDetails {
     type Vtable = IDialAppStateDetails_Vtbl;
@@ -257,7 +293,7 @@ impl DialDevice {
     }
 }
 impl windows_core::RuntimeType for DialDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDevice>();
 }
 unsafe impl windows_core::Interface for DialDevice {
     type Vtable = IDialDevice_Vtbl;
@@ -374,7 +410,7 @@ impl DialDevicePicker {
     }
 }
 impl windows_core::RuntimeType for DialDevicePicker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDevicePicker>();
 }
 unsafe impl windows_core::Interface for DialDevicePicker {
     type Vtable = IDialDevicePicker_Vtbl;
@@ -400,7 +436,7 @@ impl DialDevicePickerFilter {
     }
 }
 impl windows_core::RuntimeType for DialDevicePickerFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDevicePickerFilter>();
 }
 unsafe impl windows_core::Interface for DialDevicePickerFilter {
     type Vtable = IDialDevicePickerFilter_Vtbl;
@@ -425,7 +461,7 @@ impl DialDeviceSelectedEventArgs {
     }
 }
 impl windows_core::RuntimeType for DialDeviceSelectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDeviceSelectedEventArgs>();
 }
 unsafe impl windows_core::Interface for DialDeviceSelectedEventArgs {
     type Vtable = IDialDeviceSelectedEventArgs_Vtbl;
@@ -450,7 +486,7 @@ impl DialDisconnectButtonClickedEventArgs {
     }
 }
 impl windows_core::RuntimeType for DialDisconnectButtonClickedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDisconnectButtonClickedEventArgs>();
 }
 unsafe impl windows_core::Interface for DialDisconnectButtonClickedEventArgs {
     type Vtable = IDialDisconnectButtonClickedEventArgs_Vtbl;
@@ -505,7 +541,7 @@ impl DialReceiverApp {
     }
 }
 impl windows_core::RuntimeType for DialReceiverApp {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialReceiverApp>();
 }
 unsafe impl windows_core::Interface for DialReceiverApp {
     type Vtable = IDialReceiverApp_Vtbl;

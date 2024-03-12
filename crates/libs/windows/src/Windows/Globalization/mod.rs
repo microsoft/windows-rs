@@ -9,6 +9,9 @@ pub mod NumberFormatting;
 #[cfg(feature = "Globalization_PhoneNumberFormatting")]
 pub mod PhoneNumberFormatting;
 windows_core::imp::define_interface!(IApplicationLanguagesStatics, IApplicationLanguagesStatics_Vtbl, 0x75b40847_0a4c_4a92_9565_fd63c95f7aed);
+impl windows_core::RuntimeType for IApplicationLanguagesStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IApplicationLanguagesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -24,6 +27,9 @@ pub struct IApplicationLanguagesStatics_Vtbl {
     ManifestLanguages: usize,
 }
 windows_core::imp::define_interface!(IApplicationLanguagesStatics2, IApplicationLanguagesStatics2_Vtbl, 0x1df0de4f_072b_4d7b_8f06_cb2db40f2bb5);
+impl windows_core::RuntimeType for IApplicationLanguagesStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IApplicationLanguagesStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -33,6 +39,9 @@ pub struct IApplicationLanguagesStatics2_Vtbl {
     GetLanguagesForUser: usize,
 }
 windows_core::imp::define_interface!(ICalendar, ICalendar_Vtbl, 0xca30221d_86d9_40fb_a26b_d44eb7cf08ea);
+impl windows_core::RuntimeType for ICalendar {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICalendar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -139,6 +148,9 @@ pub struct ICalendar_Vtbl {
     pub IsDaylightSavingTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICalendarFactory, ICalendarFactory_Vtbl, 0x83f58412_e56b_4c75_a66e_0f63d57758a6);
+impl windows_core::RuntimeType for ICalendarFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICalendarFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -152,6 +164,9 @@ pub struct ICalendarFactory_Vtbl {
     CreateCalendar: usize,
 }
 windows_core::imp::define_interface!(ICalendarFactory2, ICalendarFactory2_Vtbl, 0xb44b378c_ca7e_4590_9e72_ea2bec1a5115);
+impl windows_core::RuntimeType for ICalendarFactory2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICalendarFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -161,6 +176,9 @@ pub struct ICalendarFactory2_Vtbl {
     CreateCalendarWithTimeZone: usize,
 }
 windows_core::imp::define_interface!(ICalendarIdentifiersStatics, ICalendarIdentifiersStatics_Vtbl, 0x80653f68_2cb2_4c1f_b590_f0f52bf4fd1a);
+impl windows_core::RuntimeType for ICalendarIdentifiersStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICalendarIdentifiersStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -175,12 +193,18 @@ pub struct ICalendarIdentifiersStatics_Vtbl {
     pub UmAlQura: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICalendarIdentifiersStatics2, ICalendarIdentifiersStatics2_Vtbl, 0x7df4d488_5fd0_42a7_95b5_7d98d823075f);
+impl windows_core::RuntimeType for ICalendarIdentifiersStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICalendarIdentifiersStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Persian: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICalendarIdentifiersStatics3, ICalendarIdentifiersStatics3_Vtbl, 0x2c225423_1fad_40c0_9334_a8eb90db04f5);
+impl windows_core::RuntimeType for ICalendarIdentifiersStatics3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICalendarIdentifiersStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -191,6 +215,9 @@ pub struct ICalendarIdentifiersStatics3_Vtbl {
     pub VietnameseLunar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IClockIdentifiersStatics, IClockIdentifiersStatics_Vtbl, 0x523805bb_12ec_4f83_bc31_b1b4376b0808);
+impl windows_core::RuntimeType for IClockIdentifiersStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IClockIdentifiersStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -198,6 +225,9 @@ pub struct IClockIdentifiersStatics_Vtbl {
     pub TwentyFourHour: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICurrencyAmount, ICurrencyAmount_Vtbl, 0x74b49942_eb75_443a_95b3_7d723f56f93c);
+impl windows_core::RuntimeType for ICurrencyAmount {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICurrencyAmount_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -205,12 +235,18 @@ pub struct ICurrencyAmount_Vtbl {
     pub Currency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICurrencyAmountFactory, ICurrencyAmountFactory_Vtbl, 0x48d7168f_ef3b_4aee_a6a1_4b036fe03ff0);
+impl windows_core::RuntimeType for ICurrencyAmountFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICurrencyAmountFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICurrencyIdentifiersStatics, ICurrencyIdentifiersStatics_Vtbl, 0x9f1d091b_d586_4913_9b6a_a9bd2dc12874);
+impl windows_core::RuntimeType for ICurrencyIdentifiersStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICurrencyIdentifiersStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -373,12 +409,18 @@ pub struct ICurrencyIdentifiersStatics_Vtbl {
     pub ZWL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICurrencyIdentifiersStatics2, ICurrencyIdentifiersStatics2_Vtbl, 0x1814797f_c3b2_4c33_9591_980011950d37);
+impl windows_core::RuntimeType for ICurrencyIdentifiersStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICurrencyIdentifiersStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BYN: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICurrencyIdentifiersStatics3, ICurrencyIdentifiersStatics3_Vtbl, 0x4fb23bfa_ed25_4f4d_857f_237f1748c21c);
+impl windows_core::RuntimeType for ICurrencyIdentifiersStatics3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICurrencyIdentifiersStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -388,6 +430,9 @@ pub struct ICurrencyIdentifiersStatics3_Vtbl {
     pub VES: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGeographicRegion, IGeographicRegion_Vtbl, 0x01e9a621_4a64_4ed9_954f_9edeb07bd903);
+impl windows_core::RuntimeType for IGeographicRegion {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGeographicRegion_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -403,18 +448,27 @@ pub struct IGeographicRegion_Vtbl {
     CurrenciesInUse: usize,
 }
 windows_core::imp::define_interface!(IGeographicRegionFactory, IGeographicRegionFactory_Vtbl, 0x53425270_77b4_426b_859f_81e19d512546);
+impl windows_core::RuntimeType for IGeographicRegionFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGeographicRegionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateGeographicRegion: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGeographicRegionStatics, IGeographicRegionStatics_Vtbl, 0x29e28974_7ad9_4ef4_8799_b3b44fadec08);
+impl windows_core::RuntimeType for IGeographicRegionStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGeographicRegionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IJapanesePhoneme, IJapanesePhoneme_Vtbl, 0x2f6a9300_e85b_43e6_897d_5d82f862df21);
+impl windows_core::RuntimeType for IJapanesePhoneme {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IJapanesePhoneme_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -423,6 +477,9 @@ pub struct IJapanesePhoneme_Vtbl {
     pub IsPhraseStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IJapanesePhoneticAnalyzerStatics, IJapanesePhoneticAnalyzerStatics_Vtbl, 0x88ab9e90_93de_41b2_b4d5_8edb227fd1c2);
+impl windows_core::RuntimeType for IJapanesePhoneticAnalyzerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IJapanesePhoneticAnalyzerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -436,6 +493,9 @@ pub struct IJapanesePhoneticAnalyzerStatics_Vtbl {
     GetWordsWithMonoRubyOption: usize,
 }
 windows_core::imp::define_interface!(ILanguage, ILanguage_Vtbl, 0xea79a752_f7c2_4265_b1bd_c4dec4e4f080);
+impl windows_core::RuntimeType for ILanguage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILanguage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -445,18 +505,27 @@ pub struct ILanguage_Vtbl {
     pub Script: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILanguage2, ILanguage2_Vtbl, 0x6a47e5b5_d94d_4886_a404_a5a5b9d5b494);
+impl windows_core::RuntimeType for ILanguage2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILanguage2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LayoutDirection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LanguageLayoutDirection) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILanguage3, ILanguage3_Vtbl, 0xc6af3d10_641a_5ba4_bb43_5e12aed75954);
+impl windows_core::RuntimeType for ILanguage3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILanguage3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AbbreviatedName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILanguageExtensionSubtags, ILanguageExtensionSubtags_Vtbl, 0x7d7daf45_368d_4364_852b_dec927037b85);
+impl windows_core::RuntimeType for ILanguageExtensionSubtags {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILanguageExtensionSubtags_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -466,12 +535,18 @@ pub struct ILanguageExtensionSubtags_Vtbl {
     GetExtensionSubtags: usize,
 }
 windows_core::imp::define_interface!(ILanguageFactory, ILanguageFactory_Vtbl, 0x9b0252ac_0c27_44f8_b792_9793fb66c63e);
+impl windows_core::RuntimeType for ILanguageFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILanguageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILanguageStatics, ILanguageStatics_Vtbl, 0xb23cd557_0865_46d4_89b8_d59be8990f0d);
+impl windows_core::RuntimeType for ILanguageStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILanguageStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -479,12 +554,18 @@ pub struct ILanguageStatics_Vtbl {
     pub CurrentInputMethodLanguageTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILanguageStatics2, ILanguageStatics2_Vtbl, 0x30199f6e_914b_4b2a_9d6e_e3b0e27dbe4f);
+impl windows_core::RuntimeType for ILanguageStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILanguageStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TrySetInputMethodLanguageTag: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILanguageStatics3, ILanguageStatics3_Vtbl, 0xd15ecb5a_71de_5752_9542_fac5b4f27261);
+impl windows_core::RuntimeType for ILanguageStatics3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILanguageStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -494,6 +575,9 @@ pub struct ILanguageStatics3_Vtbl {
     GetMuiCompatibleLanguageListFromLanguageTags: usize,
 }
 windows_core::imp::define_interface!(INumeralSystemIdentifiersStatics, INumeralSystemIdentifiersStatics_Vtbl, 0xa5c662c3_68c9_4d3d_b765_972029e21dec);
+impl windows_core::RuntimeType for INumeralSystemIdentifiersStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct INumeralSystemIdentifiersStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -535,6 +619,9 @@ pub struct INumeralSystemIdentifiersStatics_Vtbl {
     pub Vaii: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INumeralSystemIdentifiersStatics2, INumeralSystemIdentifiersStatics2_Vtbl, 0x7f003228_9ddb_4a34_9104_0260c091a7c7);
+impl windows_core::RuntimeType for INumeralSystemIdentifiersStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct INumeralSystemIdentifiersStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -552,6 +639,9 @@ pub struct INumeralSystemIdentifiersStatics2_Vtbl {
     pub ZmthMono: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITimeZoneOnCalendar, ITimeZoneOnCalendar_Vtbl, 0xbb3c25e5_46cf_4317_a3f5_02621ad54478);
+impl windows_core::RuntimeType for ITimeZoneOnCalendar {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITimeZoneOnCalendar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1300,7 +1390,7 @@ impl Calendar {
     }
 }
 impl windows_core::RuntimeType for Calendar {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICalendar>();
 }
 unsafe impl windows_core::Interface for Calendar {
     type Vtable = ICalendar_Vtbl;
@@ -1477,7 +1567,7 @@ impl CurrencyAmount {
     }
 }
 impl windows_core::RuntimeType for CurrencyAmount {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICurrencyAmount>();
 }
 unsafe impl windows_core::Interface for CurrencyAmount {
     type Vtable = ICurrencyAmount_Vtbl;
@@ -2567,7 +2657,7 @@ impl GeographicRegion {
     }
 }
 impl windows_core::RuntimeType for GeographicRegion {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeographicRegion>();
 }
 unsafe impl windows_core::Interface for GeographicRegion {
     type Vtable = IGeographicRegion_Vtbl;
@@ -2606,7 +2696,7 @@ impl JapanesePhoneme {
     }
 }
 impl windows_core::RuntimeType for JapanesePhoneme {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IJapanesePhoneme>();
 }
 unsafe impl windows_core::Interface for JapanesePhoneme {
     type Vtable = IJapanesePhoneme_Vtbl;
@@ -2751,7 +2841,7 @@ impl Language {
     }
 }
 impl windows_core::RuntimeType for Language {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanguage>();
 }
 unsafe impl windows_core::Interface for Language {
     type Vtable = ILanguage_Vtbl;

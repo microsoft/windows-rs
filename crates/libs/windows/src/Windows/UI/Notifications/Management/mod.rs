@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IUserNotificationListener, IUserNotificationListener_Vtbl, 0x62553e41_8a06_4cef_8215_6033a5be4b03);
+impl windows_core::RuntimeType for IUserNotificationListener {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserNotificationListener_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -15,6 +18,9 @@ pub struct IUserNotificationListener_Vtbl {
     pub RemoveNotification: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserNotificationListenerStatics, IUserNotificationListenerStatics_Vtbl, 0xff6123cf_4386_4aa3_b73d_b804e5b63b23);
+impl windows_core::RuntimeType for IUserNotificationListenerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserNotificationListenerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -89,7 +95,7 @@ impl UserNotificationListener {
     }
 }
 impl windows_core::RuntimeType for UserNotificationListener {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserNotificationListener>();
 }
 unsafe impl windows_core::Interface for UserNotificationListener {
     type Vtable = IUserNotificationListener_Vtbl;

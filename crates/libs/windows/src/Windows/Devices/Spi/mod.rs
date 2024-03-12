@@ -1,6 +1,9 @@
 #[cfg(feature = "Devices_Spi_Provider")]
 pub mod Provider;
 windows_core::imp::define_interface!(ISpiBusInfo, ISpiBusInfo_Vtbl, 0x9929444a_54f2_48c6_b952_9c32fc02c669);
+impl windows_core::RuntimeType for ISpiBusInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpiBusInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -13,6 +16,9 @@ pub struct ISpiBusInfo_Vtbl {
     SupportedDataBitLengths: usize,
 }
 windows_core::imp::define_interface!(ISpiConnectionSettings, ISpiConnectionSettings_Vtbl, 0x5283a37f_f935_4b9f_a7a7_3a7890afa5ce);
+impl windows_core::RuntimeType for ISpiConnectionSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpiConnectionSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -28,18 +34,27 @@ pub struct ISpiConnectionSettings_Vtbl {
     pub SetSharingMode: unsafe extern "system" fn(*mut core::ffi::c_void, SpiSharingMode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpiConnectionSettingsFactory, ISpiConnectionSettingsFactory_Vtbl, 0xff99081e_10c4_44b7_9fea_a748b5a46f31);
+impl windows_core::RuntimeType for ISpiConnectionSettingsFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpiConnectionSettingsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpiController, ISpiController_Vtbl, 0xa8d3c829_9895_4159_a934_8741f1ee6d27);
+impl windows_core::RuntimeType for ISpiController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpiController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpiControllerStatics, ISpiControllerStatics_Vtbl, 0x0d5229e2_138b_4e48_b964_4f2f79b9c5a2);
+impl windows_core::RuntimeType for ISpiControllerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpiControllerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -50,6 +65,9 @@ pub struct ISpiControllerStatics_Vtbl {
     GetControllersAsync: usize,
 }
 windows_core::imp::define_interface!(ISpiDevice, ISpiDevice_Vtbl, 0x05d5356d_11b6_4d39_84d5_95dfb4c9f2ce);
+impl windows_core::RuntimeType for ISpiDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpiDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -142,7 +160,7 @@ impl SpiBusInfo {
     }
 }
 impl windows_core::RuntimeType for SpiBusInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpiBusInfo>();
 }
 unsafe impl windows_core::Interface for SpiBusInfo {
     type Vtable = ISpiBusInfo_Vtbl;
@@ -226,7 +244,7 @@ impl SpiConnectionSettings {
     }
 }
 impl windows_core::RuntimeType for SpiConnectionSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpiConnectionSettings>();
 }
 unsafe impl windows_core::Interface for SpiConnectionSettings {
     type Vtable = ISpiConnectionSettings_Vtbl;
@@ -275,7 +293,7 @@ impl SpiController {
     }
 }
 impl windows_core::RuntimeType for SpiController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpiController>();
 }
 unsafe impl windows_core::Interface for SpiController {
     type Vtable = ISpiController_Vtbl;
@@ -360,7 +378,7 @@ impl SpiDevice {
     }
 }
 impl windows_core::RuntimeType for SpiDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpiDevice>();
 }
 unsafe impl windows_core::Interface for SpiDevice {
     type Vtable = ISpiDevice_Vtbl;

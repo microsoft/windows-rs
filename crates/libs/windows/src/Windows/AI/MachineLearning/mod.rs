@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IImageFeatureDescriptor, IImageFeatureDescriptor_Vtbl, 0x365585a5_171a_4a2a_985f_265159d3895a);
+impl windows_core::RuntimeType for IImageFeatureDescriptor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IImageFeatureDescriptor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14,12 +17,18 @@ pub struct IImageFeatureDescriptor_Vtbl {
     pub Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImageFeatureDescriptor2, IImageFeatureDescriptor2_Vtbl, 0x2b27cca7_d533_5862_bb98_1611b155b0e1);
+impl windows_core::RuntimeType for IImageFeatureDescriptor2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IImageFeatureDescriptor2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PixelRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LearningModelPixelRange) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImageFeatureValue, IImageFeatureValue_Vtbl, 0xf0414fd9_c9aa_4405_b7fb_94f87c8a3037);
+impl windows_core::RuntimeType for IImageFeatureValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IImageFeatureValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -29,6 +38,9 @@ pub struct IImageFeatureValue_Vtbl {
     VideoFrame: usize,
 }
 windows_core::imp::define_interface!(IImageFeatureValueStatics, IImageFeatureValueStatics_Vtbl, 0x1bc317fd_23cb_4610_b085_c8e1c87ebaa0);
+impl windows_core::RuntimeType for IImageFeatureValueStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IImageFeatureValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -38,6 +50,9 @@ pub struct IImageFeatureValueStatics_Vtbl {
     CreateFromVideoFrame: usize,
 }
 windows_core::imp::define_interface!(ILearningModel, ILearningModel_Vtbl, 0x5b8e4920_489f_4e86_9128_265a327b78fa);
+impl windows_core::RuntimeType for ILearningModel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILearningModel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -60,6 +75,9 @@ pub struct ILearningModel_Vtbl {
     OutputFeatures: usize,
 }
 windows_core::imp::define_interface!(ILearningModelBinding, ILearningModelBinding_Vtbl, 0xea312f20_168f_4f8c_94fe_2e7ac31b4aa8);
+impl windows_core::RuntimeType for ILearningModelBinding {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILearningModelBinding_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -71,12 +89,18 @@ pub struct ILearningModelBinding_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILearningModelBindingFactory, ILearningModelBindingFactory_Vtbl, 0xc95f7a7a_e788_475e_8917_23aa381faf0b);
+impl windows_core::RuntimeType for ILearningModelBindingFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILearningModelBindingFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILearningModelDevice, ILearningModelDevice_Vtbl, 0xf5c2c8fe_3f56_4a8c_ac5f_fdb92d8b8252);
+impl windows_core::RuntimeType for ILearningModelDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILearningModelDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -90,12 +114,18 @@ pub struct ILearningModelDevice_Vtbl {
     Direct3D11Device: usize,
 }
 windows_core::imp::define_interface!(ILearningModelDeviceFactory, ILearningModelDeviceFactory_Vtbl, 0x9cffd74d_b1e5_4f20_80ad_0a56690db06b);
+impl windows_core::RuntimeType for ILearningModelDeviceFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILearningModelDeviceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, LearningModelDeviceKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILearningModelDeviceStatics, ILearningModelDeviceStatics_Vtbl, 0x49f32107_a8bf_42bb_92c7_10b12dc5d21f);
+impl windows_core::RuntimeType for ILearningModelDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILearningModelDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -105,6 +135,9 @@ pub struct ILearningModelDeviceStatics_Vtbl {
     CreateFromDirect3D11Device: usize,
 }
 windows_core::imp::define_interface!(ILearningModelEvaluationResult, ILearningModelEvaluationResult_Vtbl, 0xb2f9bfcd_960e_49c0_8593_eb190ae3eee2);
+impl windows_core::RuntimeType for ILearningModelEvaluationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILearningModelEvaluationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -189,6 +222,9 @@ pub struct ILearningModelOperatorProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ILearningModelSession, ILearningModelSession_Vtbl, 0x8e58f8f6_b787_4c11_90f0_7129aeca74a9);
+impl windows_core::RuntimeType for ILearningModelSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILearningModelSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -210,6 +246,9 @@ pub struct ILearningModelSession_Vtbl {
     EvaluateFeatures: usize,
 }
 windows_core::imp::define_interface!(ILearningModelSessionFactory, ILearningModelSessionFactory_Vtbl, 0x0f6b881d_1c9b_47b6_bfe0_f1cf62a67579);
+impl windows_core::RuntimeType for ILearningModelSessionFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILearningModelSessionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -217,12 +256,18 @@ pub struct ILearningModelSessionFactory_Vtbl {
     pub CreateFromModelOnDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILearningModelSessionFactory2, ILearningModelSessionFactory2_Vtbl, 0x4e5c88bf_0a1f_5fec_ade0_2fd91e4ef29b);
+impl windows_core::RuntimeType for ILearningModelSessionFactory2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILearningModelSessionFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromModelOnDeviceWithSessionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILearningModelSessionOptions, ILearningModelSessionOptions_Vtbl, 0xb8f63fa1_134d_5133_8cff_3a5c3c263beb);
+impl windows_core::RuntimeType for ILearningModelSessionOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILearningModelSessionOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -230,6 +275,9 @@ pub struct ILearningModelSessionOptions_Vtbl {
     pub SetBatchSizeOverride: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILearningModelSessionOptions2, ILearningModelSessionOptions2_Vtbl, 0x6fcd1dc4_175f_5bd2_8de5_2f2006a25adf);
+impl windows_core::RuntimeType for ILearningModelSessionOptions2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILearningModelSessionOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -237,12 +285,18 @@ pub struct ILearningModelSessionOptions2_Vtbl {
     pub SetCloseModelOnSessionCreation: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILearningModelSessionOptions3, ILearningModelSessionOptions3_Vtbl, 0x58e15cee_d8c2_56fc_92e8_76d751081086);
+impl windows_core::RuntimeType for ILearningModelSessionOptions3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILearningModelSessionOptions3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OverrideNamedDimension: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILearningModelStatics, ILearningModelStatics_Vtbl, 0xe3b977e8_6952_4e47_8ef4_1f7f07897c6d);
+impl windows_core::RuntimeType for ILearningModelStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILearningModelStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -274,6 +328,9 @@ pub struct ILearningModelStatics_Vtbl {
     LoadFromStreamWithOperatorProvider: usize,
 }
 windows_core::imp::define_interface!(IMapFeatureDescriptor, IMapFeatureDescriptor_Vtbl, 0x530424bd_a257_436d_9e60_c2981f7cc5c4);
+impl windows_core::RuntimeType for IMapFeatureDescriptor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMapFeatureDescriptor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -281,6 +338,9 @@ pub struct IMapFeatureDescriptor_Vtbl {
     pub ValueDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISequenceFeatureDescriptor, ISequenceFeatureDescriptor_Vtbl, 0x84f6945a_562b_4d62_a851_739aced96668);
+impl windows_core::RuntimeType for ISequenceFeatureDescriptor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISequenceFeatureDescriptor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -326,6 +386,9 @@ pub struct ITensor_Vtbl {
     Shape: usize,
 }
 windows_core::imp::define_interface!(ITensorBoolean, ITensorBoolean_Vtbl, 0x50f311ed_29e9_4a5c_a44d_8fc512584eed);
+impl windows_core::RuntimeType for ITensorBoolean {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorBoolean_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -335,6 +398,9 @@ pub struct ITensorBoolean_Vtbl {
     GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorBooleanStatics, ITensorBooleanStatics_Vtbl, 0x2796862c_2357_49a7_b476_d0aa3dfe6866);
+impl windows_core::RuntimeType for ITensorBooleanStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorBooleanStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -353,6 +419,9 @@ pub struct ITensorBooleanStatics_Vtbl {
     CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorBooleanStatics2, ITensorBooleanStatics2_Vtbl, 0xa3a4a501_6a2d_52d7_b04b_c435baee0115);
+impl windows_core::RuntimeType for ITensorBooleanStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorBooleanStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -363,6 +432,9 @@ pub struct ITensorBooleanStatics2_Vtbl {
     CreateFromBuffer: usize,
 }
 windows_core::imp::define_interface!(ITensorDouble, ITensorDouble_Vtbl, 0x91e41252_7a8f_4f0e_a28f_9637ffc8a3d0);
+impl windows_core::RuntimeType for ITensorDouble {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorDouble_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -372,6 +444,9 @@ pub struct ITensorDouble_Vtbl {
     GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorDoubleStatics, ITensorDoubleStatics_Vtbl, 0xa86693c5_9538_44e7_a3ca_5df374a5a70c);
+impl windows_core::RuntimeType for ITensorDoubleStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorDoubleStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -390,6 +465,9 @@ pub struct ITensorDoubleStatics_Vtbl {
     CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorDoubleStatics2, ITensorDoubleStatics2_Vtbl, 0x93a570de_5e9a_5094_85c8_592c655e68ac);
+impl windows_core::RuntimeType for ITensorDoubleStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorDoubleStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -400,6 +478,9 @@ pub struct ITensorDoubleStatics2_Vtbl {
     CreateFromBuffer: usize,
 }
 windows_core::imp::define_interface!(ITensorFeatureDescriptor, ITensorFeatureDescriptor_Vtbl, 0x74455c80_946a_4310_a19c_ee0af028fce4);
+impl windows_core::RuntimeType for ITensorFeatureDescriptor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorFeatureDescriptor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -410,6 +491,9 @@ pub struct ITensorFeatureDescriptor_Vtbl {
     Shape: usize,
 }
 windows_core::imp::define_interface!(ITensorFloat, ITensorFloat_Vtbl, 0xf2282d82_aa02_42c8_a0c8_df1efc9676e1);
+impl windows_core::RuntimeType for ITensorFloat {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorFloat_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -419,6 +503,9 @@ pub struct ITensorFloat_Vtbl {
     GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorFloat16Bit, ITensorFloat16Bit_Vtbl, 0x0ab994fc_5b89_4c3c_b5e4_5282a5316c0a);
+impl windows_core::RuntimeType for ITensorFloat16Bit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorFloat16Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -428,6 +515,9 @@ pub struct ITensorFloat16Bit_Vtbl {
     GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorFloat16BitStatics, ITensorFloat16BitStatics_Vtbl, 0xa52db6f5_318a_44d4_820b_0cdc7054a84a);
+impl windows_core::RuntimeType for ITensorFloat16BitStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorFloat16BitStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -446,6 +536,9 @@ pub struct ITensorFloat16BitStatics_Vtbl {
     CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorFloat16BitStatics2, ITensorFloat16BitStatics2_Vtbl, 0x68545726_2dc7_51bf_b470_0b344cc2a1bc);
+impl windows_core::RuntimeType for ITensorFloat16BitStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorFloat16BitStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -456,6 +549,9 @@ pub struct ITensorFloat16BitStatics2_Vtbl {
     CreateFromBuffer: usize,
 }
 windows_core::imp::define_interface!(ITensorFloatStatics, ITensorFloatStatics_Vtbl, 0xdbcd395b_3ba3_452f_b10d_3c135e573fa9);
+impl windows_core::RuntimeType for ITensorFloatStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorFloatStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -474,6 +570,9 @@ pub struct ITensorFloatStatics_Vtbl {
     CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorFloatStatics2, ITensorFloatStatics2_Vtbl, 0x24610bc1_5e44_5713_b281_8f4ad4d555e8);
+impl windows_core::RuntimeType for ITensorFloatStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorFloatStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -484,6 +583,9 @@ pub struct ITensorFloatStatics2_Vtbl {
     CreateFromBuffer: usize,
 }
 windows_core::imp::define_interface!(ITensorInt16Bit, ITensorInt16Bit_Vtbl, 0x98a32d39_e6d6_44af_8afa_baebc44dc020);
+impl windows_core::RuntimeType for ITensorInt16Bit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorInt16Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -493,6 +595,9 @@ pub struct ITensorInt16Bit_Vtbl {
     GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorInt16BitStatics, ITensorInt16BitStatics_Vtbl, 0x98646293_266e_4b1a_821f_e60d70898b91);
+impl windows_core::RuntimeType for ITensorInt16BitStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorInt16BitStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -511,6 +616,9 @@ pub struct ITensorInt16BitStatics_Vtbl {
     CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorInt16BitStatics2, ITensorInt16BitStatics2_Vtbl, 0x0cd70cf4_696c_5e5f_95d8_5ebf9670148b);
+impl windows_core::RuntimeType for ITensorInt16BitStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorInt16BitStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -521,6 +629,9 @@ pub struct ITensorInt16BitStatics2_Vtbl {
     CreateFromBuffer: usize,
 }
 windows_core::imp::define_interface!(ITensorInt32Bit, ITensorInt32Bit_Vtbl, 0x2c0c28d3_207c_4486_a7d2_884522c5e589);
+impl windows_core::RuntimeType for ITensorInt32Bit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorInt32Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -530,6 +641,9 @@ pub struct ITensorInt32Bit_Vtbl {
     GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorInt32BitStatics, ITensorInt32BitStatics_Vtbl, 0x6539864b_52fa_4e35_907c_834cac417b50);
+impl windows_core::RuntimeType for ITensorInt32BitStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorInt32BitStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -548,6 +662,9 @@ pub struct ITensorInt32BitStatics_Vtbl {
     CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorInt32BitStatics2, ITensorInt32BitStatics2_Vtbl, 0x7c4b079a_e956_5ce0_a3bd_157d9d79b5ec);
+impl windows_core::RuntimeType for ITensorInt32BitStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorInt32BitStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -558,6 +675,9 @@ pub struct ITensorInt32BitStatics2_Vtbl {
     CreateFromBuffer: usize,
 }
 windows_core::imp::define_interface!(ITensorInt64Bit, ITensorInt64Bit_Vtbl, 0x499665ba_1fa2_45ad_af25_a0bd9bda4c87);
+impl windows_core::RuntimeType for ITensorInt64Bit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorInt64Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -567,6 +687,9 @@ pub struct ITensorInt64Bit_Vtbl {
     GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorInt64BitStatics, ITensorInt64BitStatics_Vtbl, 0x9648ad9d_1198_4d74_9517_783ab62b9cc2);
+impl windows_core::RuntimeType for ITensorInt64BitStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorInt64BitStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -585,6 +708,9 @@ pub struct ITensorInt64BitStatics_Vtbl {
     CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorInt64BitStatics2, ITensorInt64BitStatics2_Vtbl, 0x6d3d9dcb_ff40_5ec2_89fe_084e2b6bc6db);
+impl windows_core::RuntimeType for ITensorInt64BitStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorInt64BitStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -595,6 +721,9 @@ pub struct ITensorInt64BitStatics2_Vtbl {
     CreateFromBuffer: usize,
 }
 windows_core::imp::define_interface!(ITensorInt8Bit, ITensorInt8Bit_Vtbl, 0xcddd97c5_ffd8_4fef_aefb_30e1a485b2ee);
+impl windows_core::RuntimeType for ITensorInt8Bit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorInt8Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -604,6 +733,9 @@ pub struct ITensorInt8Bit_Vtbl {
     GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorInt8BitStatics, ITensorInt8BitStatics_Vtbl, 0xb1a12284_095c_4c76_a661_ac4cee1f3e8b);
+impl windows_core::RuntimeType for ITensorInt8BitStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorInt8BitStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -622,6 +754,9 @@ pub struct ITensorInt8BitStatics_Vtbl {
     CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorInt8BitStatics2, ITensorInt8BitStatics2_Vtbl, 0xc0d59637_c468_56fb_9535_c052bdb93dc0);
+impl windows_core::RuntimeType for ITensorInt8BitStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorInt8BitStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -632,6 +767,9 @@ pub struct ITensorInt8BitStatics2_Vtbl {
     CreateFromBuffer: usize,
 }
 windows_core::imp::define_interface!(ITensorString, ITensorString_Vtbl, 0x582335c8_bdb1_4610_bc75_35e9cbf009b7);
+impl windows_core::RuntimeType for ITensorString {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorString_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -641,6 +779,9 @@ pub struct ITensorString_Vtbl {
     GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorStringStatics, ITensorStringStatics_Vtbl, 0x83623324_cf26_4f17_a2d4_20ef8d097d53);
+impl windows_core::RuntimeType for ITensorStringStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorStringStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -659,12 +800,18 @@ pub struct ITensorStringStatics_Vtbl {
     CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorStringStatics2, ITensorStringStatics2_Vtbl, 0x9e355ed0_c8e2_5254_9137_0193a3668fd8);
+impl windows_core::RuntimeType for ITensorStringStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorStringStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const i64, u32, *const std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITensorUInt16Bit, ITensorUInt16Bit_Vtbl, 0x68140f4b_23c0_42f3_81f6_a891c011bc3f);
+impl windows_core::RuntimeType for ITensorUInt16Bit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorUInt16Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -674,6 +821,9 @@ pub struct ITensorUInt16Bit_Vtbl {
     GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt16BitStatics, ITensorUInt16BitStatics_Vtbl, 0x5df745dd_028a_481a_a27c_c7e6435e52dd);
+impl windows_core::RuntimeType for ITensorUInt16BitStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorUInt16BitStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -692,6 +842,9 @@ pub struct ITensorUInt16BitStatics_Vtbl {
     CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt16BitStatics2, ITensorUInt16BitStatics2_Vtbl, 0x8af40c64_d69f_5315_9348_490877bbd642);
+impl windows_core::RuntimeType for ITensorUInt16BitStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorUInt16BitStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -702,6 +855,9 @@ pub struct ITensorUInt16BitStatics2_Vtbl {
     CreateFromBuffer: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt32Bit, ITensorUInt32Bit_Vtbl, 0xd8c9c2ff_7511_45a3_bfac_c38f370d2237);
+impl windows_core::RuntimeType for ITensorUInt32Bit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorUInt32Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -711,6 +867,9 @@ pub struct ITensorUInt32Bit_Vtbl {
     GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt32BitStatics, ITensorUInt32BitStatics_Vtbl, 0x417c3837_e773_4378_8e7f_0cc33dbea697);
+impl windows_core::RuntimeType for ITensorUInt32BitStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorUInt32BitStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -729,6 +888,9 @@ pub struct ITensorUInt32BitStatics_Vtbl {
     CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt32BitStatics2, ITensorUInt32BitStatics2_Vtbl, 0xef1a1f1c_314e_569d_b496_5c8447d20cd2);
+impl windows_core::RuntimeType for ITensorUInt32BitStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorUInt32BitStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -739,6 +901,9 @@ pub struct ITensorUInt32BitStatics2_Vtbl {
     CreateFromBuffer: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt64Bit, ITensorUInt64Bit_Vtbl, 0x2e70ffad_04bf_4825_839a_82baef8c7886);
+impl windows_core::RuntimeType for ITensorUInt64Bit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorUInt64Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -748,6 +913,9 @@ pub struct ITensorUInt64Bit_Vtbl {
     GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt64BitStatics, ITensorUInt64BitStatics_Vtbl, 0x7a7e20eb_242f_47cb_a9c6_f602ecfbfee4);
+impl windows_core::RuntimeType for ITensorUInt64BitStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorUInt64BitStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -766,6 +934,9 @@ pub struct ITensorUInt64BitStatics_Vtbl {
     CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt64BitStatics2, ITensorUInt64BitStatics2_Vtbl, 0x085a687d_67e1_5b1e_b232_4fabe9ca20b3);
+impl windows_core::RuntimeType for ITensorUInt64BitStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorUInt64BitStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -776,6 +947,9 @@ pub struct ITensorUInt64BitStatics2_Vtbl {
     CreateFromBuffer: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt8Bit, ITensorUInt8Bit_Vtbl, 0x58e1ae27_622b_48e3_be22_d867aed1daac);
+impl windows_core::RuntimeType for ITensorUInt8Bit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorUInt8Bit_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -785,6 +959,9 @@ pub struct ITensorUInt8Bit_Vtbl {
     GetAsVectorView: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt8BitStatics, ITensorUInt8BitStatics_Vtbl, 0x05f67583_bc24_4220_8a41_2dcd8c5ed33c);
+impl windows_core::RuntimeType for ITensorUInt8BitStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorUInt8BitStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -803,6 +980,9 @@ pub struct ITensorUInt8BitStatics_Vtbl {
     CreateFromIterable: usize,
 }
 windows_core::imp::define_interface!(ITensorUInt8BitStatics2, ITensorUInt8BitStatics2_Vtbl, 0x2ba042d6_373e_5a3a_a2fc_a6c41bd52789);
+impl windows_core::RuntimeType for ITensorUInt8BitStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITensorUInt8BitStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -885,7 +1065,7 @@ impl ImageFeatureDescriptor {
     }
 }
 impl windows_core::RuntimeType for ImageFeatureDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageFeatureDescriptor>();
 }
 unsafe impl windows_core::Interface for ImageFeatureDescriptor {
     type Vtable = IImageFeatureDescriptor_Vtbl;
@@ -934,7 +1114,7 @@ impl ImageFeatureValue {
     }
 }
 impl windows_core::RuntimeType for ImageFeatureValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageFeatureValue>();
 }
 unsafe impl windows_core::Interface for ImageFeatureValue {
     type Vtable = IImageFeatureValue_Vtbl;
@@ -1099,7 +1279,7 @@ impl LearningModel {
     }
 }
 impl windows_core::RuntimeType for LearningModel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModel>();
 }
 unsafe impl windows_core::Interface for LearningModel {
     type Vtable = ILearningModel_Vtbl;
@@ -1190,7 +1370,7 @@ impl LearningModelBinding {
     }
 }
 impl windows_core::RuntimeType for LearningModelBinding {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelBinding>();
 }
 unsafe impl windows_core::Interface for LearningModelBinding {
     type Vtable = ILearningModelBinding_Vtbl;
@@ -1266,7 +1446,7 @@ impl LearningModelDevice {
     }
 }
 impl windows_core::RuntimeType for LearningModelDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelDevice>();
 }
 unsafe impl windows_core::Interface for LearningModelDevice {
     type Vtable = ILearningModelDevice_Vtbl;
@@ -1313,7 +1493,7 @@ impl LearningModelEvaluationResult {
     }
 }
 impl windows_core::RuntimeType for LearningModelEvaluationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelEvaluationResult>();
 }
 unsafe impl windows_core::Interface for LearningModelEvaluationResult {
     type Vtable = ILearningModelEvaluationResult_Vtbl;
@@ -1440,7 +1620,7 @@ impl LearningModelSession {
     }
 }
 impl windows_core::RuntimeType for LearningModelSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelSession>();
 }
 unsafe impl windows_core::Interface for LearningModelSession {
     type Vtable = ILearningModelSession_Vtbl;
@@ -1491,7 +1671,7 @@ impl LearningModelSessionOptions {
     }
 }
 impl windows_core::RuntimeType for LearningModelSessionOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelSessionOptions>();
 }
 unsafe impl windows_core::Interface for LearningModelSessionOptions {
     type Vtable = ILearningModelSessionOptions_Vtbl;
@@ -1552,7 +1732,7 @@ impl MapFeatureDescriptor {
     }
 }
 impl windows_core::RuntimeType for MapFeatureDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapFeatureDescriptor>();
 }
 unsafe impl windows_core::Interface for MapFeatureDescriptor {
     type Vtable = IMapFeatureDescriptor_Vtbl;
@@ -1606,7 +1786,7 @@ impl SequenceFeatureDescriptor {
     }
 }
 impl windows_core::RuntimeType for SequenceFeatureDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISequenceFeatureDescriptor>();
 }
 unsafe impl windows_core::Interface for SequenceFeatureDescriptor {
     type Vtable = ISequenceFeatureDescriptor_Vtbl;
@@ -1729,7 +1909,7 @@ impl TensorBoolean {
     }
 }
 impl windows_core::RuntimeType for TensorBoolean {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorBoolean>();
 }
 unsafe impl windows_core::Interface for TensorBoolean {
     type Vtable = ITensorBoolean_Vtbl;
@@ -1852,7 +2032,7 @@ impl TensorDouble {
     }
 }
 impl windows_core::RuntimeType for TensorDouble {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorDouble>();
 }
 unsafe impl windows_core::Interface for TensorDouble {
     type Vtable = ITensorDouble_Vtbl;
@@ -1914,7 +2094,7 @@ impl TensorFeatureDescriptor {
     }
 }
 impl windows_core::RuntimeType for TensorFeatureDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorFeatureDescriptor>();
 }
 unsafe impl windows_core::Interface for TensorFeatureDescriptor {
     type Vtable = ITensorFeatureDescriptor_Vtbl;
@@ -2037,7 +2217,7 @@ impl TensorFloat {
     }
 }
 impl windows_core::RuntimeType for TensorFloat {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorFloat>();
 }
 unsafe impl windows_core::Interface for TensorFloat {
     type Vtable = ITensorFloat_Vtbl;
@@ -2160,7 +2340,7 @@ impl TensorFloat16Bit {
     }
 }
 impl windows_core::RuntimeType for TensorFloat16Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorFloat16Bit>();
 }
 unsafe impl windows_core::Interface for TensorFloat16Bit {
     type Vtable = ITensorFloat16Bit_Vtbl;
@@ -2283,7 +2463,7 @@ impl TensorInt16Bit {
     }
 }
 impl windows_core::RuntimeType for TensorInt16Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorInt16Bit>();
 }
 unsafe impl windows_core::Interface for TensorInt16Bit {
     type Vtable = ITensorInt16Bit_Vtbl;
@@ -2406,7 +2586,7 @@ impl TensorInt32Bit {
     }
 }
 impl windows_core::RuntimeType for TensorInt32Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorInt32Bit>();
 }
 unsafe impl windows_core::Interface for TensorInt32Bit {
     type Vtable = ITensorInt32Bit_Vtbl;
@@ -2529,7 +2709,7 @@ impl TensorInt64Bit {
     }
 }
 impl windows_core::RuntimeType for TensorInt64Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorInt64Bit>();
 }
 unsafe impl windows_core::Interface for TensorInt64Bit {
     type Vtable = ITensorInt64Bit_Vtbl;
@@ -2652,7 +2832,7 @@ impl TensorInt8Bit {
     }
 }
 impl windows_core::RuntimeType for TensorInt8Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorInt8Bit>();
 }
 unsafe impl windows_core::Interface for TensorInt8Bit {
     type Vtable = ITensorInt8Bit_Vtbl;
@@ -2765,7 +2945,7 @@ impl TensorString {
     }
 }
 impl windows_core::RuntimeType for TensorString {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorString>();
 }
 unsafe impl windows_core::Interface for TensorString {
     type Vtable = ITensorString_Vtbl;
@@ -2888,7 +3068,7 @@ impl TensorUInt16Bit {
     }
 }
 impl windows_core::RuntimeType for TensorUInt16Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorUInt16Bit>();
 }
 unsafe impl windows_core::Interface for TensorUInt16Bit {
     type Vtable = ITensorUInt16Bit_Vtbl;
@@ -3011,7 +3191,7 @@ impl TensorUInt32Bit {
     }
 }
 impl windows_core::RuntimeType for TensorUInt32Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorUInt32Bit>();
 }
 unsafe impl windows_core::Interface for TensorUInt32Bit {
     type Vtable = ITensorUInt32Bit_Vtbl;
@@ -3134,7 +3314,7 @@ impl TensorUInt64Bit {
     }
 }
 impl windows_core::RuntimeType for TensorUInt64Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorUInt64Bit>();
 }
 unsafe impl windows_core::Interface for TensorUInt64Bit {
     type Vtable = ITensorUInt64Bit_Vtbl;
@@ -3257,7 +3437,7 @@ impl TensorUInt8Bit {
     }
 }
 impl windows_core::RuntimeType for TensorUInt8Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorUInt8Bit>();
 }
 unsafe impl windows_core::Interface for TensorUInt8Bit {
     type Vtable = ITensorUInt8Bit_Vtbl;

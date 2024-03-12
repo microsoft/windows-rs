@@ -3,6 +3,9 @@ pub mod Provider;
 #[cfg(feature = "ApplicationModel_UserDataAccounts_SystemAccess")]
 pub mod SystemAccess;
 windows_core::imp::define_interface!(IUserDataAccount, IUserDataAccount_Vtbl, 0xb9c4367e_b348_4910_be94_4ad4bba6dea7);
+impl windows_core::RuntimeType for IUserDataAccount {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserDataAccount_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -37,6 +40,9 @@ pub struct IUserDataAccount_Vtbl {
     FindContactAnnotationListsAsync: usize,
 }
 windows_core::imp::define_interface!(IUserDataAccount2, IUserDataAccount2_Vtbl, 0x078cd89f_de82_404b_8195_c8a3ac198f60);
+impl windows_core::RuntimeType for IUserDataAccount2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserDataAccount2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -44,6 +50,9 @@ pub struct IUserDataAccount2_Vtbl {
     pub IsProtectedUnderLock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserDataAccount3, IUserDataAccount3_Vtbl, 0x01533845_6c43_4286_9d69_3e1709a1f266);
+impl windows_core::RuntimeType for IUserDataAccount3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserDataAccount3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -55,6 +64,9 @@ pub struct IUserDataAccount3_Vtbl {
     pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserDataAccount4, IUserDataAccount4_Vtbl, 0xc4315210_eae5_4f0a_a8b2_1cca115e008f);
+impl windows_core::RuntimeType for IUserDataAccount4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserDataAccount4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -80,6 +92,9 @@ pub struct IUserDataAccount4_Vtbl {
     SetIcon: usize,
 }
 windows_core::imp::define_interface!(IUserDataAccountManagerForUser, IUserDataAccountManagerForUser_Vtbl, 0x56a6e8db_db8f_41ab_a65f_8c5971aac982);
+impl windows_core::RuntimeType for IUserDataAccountManagerForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserDataAccountManagerForUser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -90,6 +105,9 @@ pub struct IUserDataAccountManagerForUser_Vtbl {
     User: usize,
 }
 windows_core::imp::define_interface!(IUserDataAccountManagerStatics, IUserDataAccountManagerStatics_Vtbl, 0x0d9b89ea_1928_4a20_86d5_3c737f7dc3b0);
+impl windows_core::RuntimeType for IUserDataAccountManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserDataAccountManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -99,6 +117,9 @@ pub struct IUserDataAccountManagerStatics_Vtbl {
     pub ShowAccountErrorResolverAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserDataAccountManagerStatics2, IUserDataAccountManagerStatics2_Vtbl, 0x6a3ded88_316b_435e_b534_f7d4b4b7dba6);
+impl windows_core::RuntimeType for IUserDataAccountManagerStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserDataAccountManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -108,6 +129,9 @@ pub struct IUserDataAccountManagerStatics2_Vtbl {
     GetForUser: usize,
 }
 windows_core::imp::define_interface!(IUserDataAccountStore, IUserDataAccountStore_Vtbl, 0x2073b0ad_7d0a_4e76_bf45_2368f978a59a);
+impl windows_core::RuntimeType for IUserDataAccountStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserDataAccountStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -119,6 +143,9 @@ pub struct IUserDataAccountStore_Vtbl {
     pub CreateAccountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserDataAccountStore2, IUserDataAccountStore2_Vtbl, 0xb1e0aef7_9560_4631_8af0_061d30161469);
+impl windows_core::RuntimeType for IUserDataAccountStore2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserDataAccountStore2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -127,12 +154,18 @@ pub struct IUserDataAccountStore2_Vtbl {
     pub RemoveStoreChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserDataAccountStore3, IUserDataAccountStore3_Vtbl, 0x8142c094_f3c9_478b_b117_6585bebb6789);
+impl windows_core::RuntimeType for IUserDataAccountStore3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserDataAccountStore3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserDataAccountStoreChangedEventArgs, IUserDataAccountStoreChangedEventArgs_Vtbl, 0x84e3e2e5_8820_4512_b1f6_2e035be1072c);
+impl windows_core::RuntimeType for IUserDataAccountStoreChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserDataAccountStoreChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -329,7 +362,7 @@ impl UserDataAccount {
     }
 }
 impl windows_core::RuntimeType for UserDataAccount {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccount>();
 }
 unsafe impl windows_core::Interface for UserDataAccount {
     type Vtable = IUserDataAccount_Vtbl;
@@ -412,7 +445,7 @@ impl UserDataAccountManagerForUser {
     }
 }
 impl windows_core::RuntimeType for UserDataAccountManagerForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountManagerForUser>();
 }
 unsafe impl windows_core::Interface for UserDataAccountManagerForUser {
     type Vtable = IUserDataAccountManagerForUser_Vtbl;
@@ -480,7 +513,7 @@ impl UserDataAccountStore {
     }
 }
 impl windows_core::RuntimeType for UserDataAccountStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountStore>();
 }
 unsafe impl windows_core::Interface for UserDataAccountStore {
     type Vtable = IUserDataAccountStore_Vtbl;
@@ -505,7 +538,7 @@ impl UserDataAccountStoreChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for UserDataAccountStoreChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountStoreChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for UserDataAccountStoreChangedEventArgs {
     type Vtable = IUserDataAccountStoreChangedEventArgs_Vtbl;

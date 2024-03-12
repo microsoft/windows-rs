@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IImageScanner, IImageScanner_Vtbl, 0x53a88f78_5298_48a0_8da3_8087519665e0);
+impl windows_core::RuntimeType for IImageScanner {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IImageScanner_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19,6 +22,9 @@ pub struct IImageScanner_Vtbl {
     ScanFilesToFolderAsync: usize,
 }
 windows_core::imp::define_interface!(IImageScannerFeederConfiguration, IImageScannerFeederConfiguration_Vtbl, 0x74bdacee_fa97_4c17_8280_40e39c6dcc67);
+impl windows_core::RuntimeType for IImageScannerFeederConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IImageScannerFeederConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -96,6 +102,9 @@ pub struct IImageScannerFormatConfiguration_Vtbl {
     pub IsFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, ImageScannerFormat, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImageScannerPreviewResult, IImageScannerPreviewResult_Vtbl, 0x08b7fe8e_8891_441d_be9c_176fa109c8bb);
+impl windows_core::RuntimeType for IImageScannerPreviewResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IImageScannerPreviewResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -103,6 +112,9 @@ pub struct IImageScannerPreviewResult_Vtbl {
     pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ImageScannerFormat) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImageScannerScanResult, IImageScannerScanResult_Vtbl, 0xc91624cd_9037_4e48_84c1_ac0975076bc5);
+impl windows_core::RuntimeType for IImageScannerScanResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IImageScannerScanResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -363,6 +375,9 @@ pub struct IImageScannerSourceConfiguration_Vtbl {
     pub SetContrast: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImageScannerStatics, IImageScannerStatics_Vtbl, 0xbc57e70e_d804_4477_9fb5_b911b5473897);
+impl windows_core::RuntimeType for IImageScannerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IImageScannerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -464,7 +479,7 @@ impl ImageScanner {
     }
 }
 impl windows_core::RuntimeType for ImageScanner {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageScanner>();
 }
 unsafe impl windows_core::Interface for ImageScanner {
     type Vtable = IImageScanner_Vtbl;
@@ -508,7 +523,7 @@ impl ImageScannerAutoConfiguration {
     }
 }
 impl windows_core::RuntimeType for ImageScannerAutoConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageScannerFormatConfiguration>();
 }
 unsafe impl windows_core::Interface for ImageScannerAutoConfiguration {
     type Vtable = IImageScannerFormatConfiguration_Vtbl;
@@ -843,7 +858,7 @@ impl ImageScannerFeederConfiguration {
     }
 }
 impl windows_core::RuntimeType for ImageScannerFeederConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageScannerFormatConfiguration>();
 }
 unsafe impl windows_core::Interface for ImageScannerFeederConfiguration {
     type Vtable = IImageScannerFormatConfiguration_Vtbl;
@@ -1072,7 +1087,7 @@ impl ImageScannerFlatbedConfiguration {
     }
 }
 impl windows_core::RuntimeType for ImageScannerFlatbedConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageScannerFormatConfiguration>();
 }
 unsafe impl windows_core::Interface for ImageScannerFlatbedConfiguration {
     type Vtable = IImageScannerFormatConfiguration_Vtbl;
@@ -1104,7 +1119,7 @@ impl ImageScannerPreviewResult {
     }
 }
 impl windows_core::RuntimeType for ImageScannerPreviewResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageScannerPreviewResult>();
 }
 unsafe impl windows_core::Interface for ImageScannerPreviewResult {
     type Vtable = IImageScannerPreviewResult_Vtbl;
@@ -1130,7 +1145,7 @@ impl ImageScannerScanResult {
     }
 }
 impl windows_core::RuntimeType for ImageScannerScanResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageScannerScanResult>();
 }
 unsafe impl windows_core::Interface for ImageScannerScanResult {
     type Vtable = IImageScannerScanResult_Vtbl;

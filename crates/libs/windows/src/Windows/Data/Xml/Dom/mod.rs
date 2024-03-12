@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IDtdEntity, IDtdEntity_Vtbl, 0x6a0b5ffc_63b4_480f_9e6a_8a92816aade4);
+impl windows_core::RuntimeType for IDtdEntity {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDtdEntity_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7,6 +10,9 @@ pub struct IDtdEntity_Vtbl {
     pub NotationName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtdNotation, IDtdNotation_Vtbl, 0x8cb4e04d_6d46_4edb_ab73_df83c51ad397);
+impl windows_core::RuntimeType for IDtdNotation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDtdNotation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14,6 +20,9 @@ pub struct IDtdNotation_Vtbl {
     pub SystemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXmlAttribute, IXmlAttribute_Vtbl, 0xac144aa4_b4f1_4db6_b206_8a22c308db0a);
+impl windows_core::RuntimeType for IXmlAttribute {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IXmlAttribute_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -23,6 +32,9 @@ pub struct IXmlAttribute_Vtbl {
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXmlCDataSection, IXmlCDataSection_Vtbl, 0x4d04b46f_c8bd_45b4_8899_0400d7c2c60f);
+impl windows_core::RuntimeType for IXmlCDataSection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IXmlCDataSection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -313,11 +325,17 @@ pub struct IXmlCharacterData_Vtbl {
     pub ReplaceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXmlComment, IXmlComment_Vtbl, 0xbca474d5_b61f_4611_9cac_2e92e3476d47);
+impl windows_core::RuntimeType for IXmlComment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IXmlComment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IXmlDocument, IXmlDocument_Vtbl, 0xf7f3a506_1e87_42d6_bcfb_b8c809fa5494);
+impl windows_core::RuntimeType for IXmlDocument {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IXmlDocument_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -340,11 +358,17 @@ pub struct IXmlDocument_Vtbl {
     pub ImportNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXmlDocumentFragment, IXmlDocumentFragment_Vtbl, 0xe2ea6a96_0c21_44a5_8bc9_9e4a262708ec);
+impl windows_core::RuntimeType for IXmlDocumentFragment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IXmlDocumentFragment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IXmlDocumentIO, IXmlDocumentIO_Vtbl, 0x6cd0e74e_ee65_4489_9ebf_ca43e87ba637);
+impl windows_core::RuntimeType for IXmlDocumentIO {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IXmlDocumentIO_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -356,6 +380,9 @@ pub struct IXmlDocumentIO_Vtbl {
     SaveToFileAsync: usize,
 }
 windows_core::imp::define_interface!(IXmlDocumentIO2, IXmlDocumentIO2_Vtbl, 0x5d034661_7bd8_4ad5_9ebf_81e6347263b1);
+impl windows_core::RuntimeType for IXmlDocumentIO2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IXmlDocumentIO2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -369,6 +396,9 @@ pub struct IXmlDocumentIO2_Vtbl {
     LoadXmlFromBufferWithSettings: usize,
 }
 windows_core::imp::define_interface!(IXmlDocumentStatics, IXmlDocumentStatics_Vtbl, 0x5543d254_d757_4b79_9539_232b18f50bf1);
+impl windows_core::RuntimeType for IXmlDocumentStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IXmlDocumentStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -384,6 +414,9 @@ pub struct IXmlDocumentStatics_Vtbl {
     LoadFromFileWithSettingsAsync: usize,
 }
 windows_core::imp::define_interface!(IXmlDocumentType, IXmlDocumentType_Vtbl, 0xf7342425_9781_4964_8e94_9b1c6dfc9bc7);
+impl windows_core::RuntimeType for IXmlDocumentType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IXmlDocumentType_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -392,12 +425,18 @@ pub struct IXmlDocumentType_Vtbl {
     pub Notations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXmlDomImplementation, IXmlDomImplementation_Vtbl, 0x6de58132_f11d_4fbb_8cc6_583cba93112f);
+impl windows_core::RuntimeType for IXmlDomImplementation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IXmlDomImplementation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HasFeature: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXmlElement, IXmlElement_Vtbl, 0x2dfb8a1f_6b10_4ef8_9f83_efcce8faec37);
+impl windows_core::RuntimeType for IXmlElement {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IXmlElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -416,11 +455,17 @@ pub struct IXmlElement_Vtbl {
     pub GetAttributeNodeNS: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXmlEntityReference, IXmlEntityReference_Vtbl, 0x2e2f47bc_c3d0_4ccf_bb86_0ab8c36a61cf);
+impl windows_core::RuntimeType for IXmlEntityReference {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IXmlEntityReference_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IXmlLoadSettings, IXmlLoadSettings_Vtbl, 0x58aa07a8_fed6_46f7_b4c5_fb1ba72108d6);
+impl windows_core::RuntimeType for IXmlLoadSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IXmlLoadSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -436,6 +481,9 @@ pub struct IXmlLoadSettings_Vtbl {
     pub SetElementContentWhiteSpace: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXmlNamedNodeMap, IXmlNamedNodeMap_Vtbl, 0xb3a69eb0_aab0_4b82_a6fa_b1453f7c021b);
+impl windows_core::RuntimeType for IXmlNamedNodeMap {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IXmlNamedNodeMap_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -708,6 +756,9 @@ pub struct IXmlNode_Vtbl {
     pub SetPrefix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXmlNodeList, IXmlNodeList_Vtbl, 0x8c60ad77_83a4_4ec1_9c54_7ba429e13da6);
+impl windows_core::RuntimeType for IXmlNodeList {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IXmlNodeList_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -796,6 +847,9 @@ pub struct IXmlNodeSerializer_Vtbl {
     pub SetInnerText: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXmlProcessingInstruction, IXmlProcessingInstruction_Vtbl, 0x2707fd1e_1e92_4ece_b6f4_26f069078ddc);
+impl windows_core::RuntimeType for IXmlProcessingInstruction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IXmlProcessingInstruction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1341,7 +1395,7 @@ impl DtdEntity {
     }
 }
 impl windows_core::RuntimeType for DtdEntity {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDtdEntity>();
 }
 unsafe impl windows_core::Interface for DtdEntity {
     type Vtable = IDtdEntity_Vtbl;
@@ -1598,7 +1652,7 @@ impl DtdNotation {
     }
 }
 impl windows_core::RuntimeType for DtdNotation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDtdNotation>();
 }
 unsafe impl windows_core::Interface for DtdNotation {
     type Vtable = IDtdNotation_Vtbl;
@@ -1866,7 +1920,7 @@ impl XmlAttribute {
     }
 }
 impl windows_core::RuntimeType for XmlAttribute {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlAttribute>();
 }
 unsafe impl windows_core::Interface for XmlAttribute {
     type Vtable = IXmlAttribute_Vtbl;
@@ -2157,7 +2211,7 @@ impl XmlCDataSection {
     }
 }
 impl windows_core::RuntimeType for XmlCDataSection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlCDataSection>();
 }
 unsafe impl windows_core::Interface for XmlCDataSection {
     type Vtable = IXmlCDataSection_Vtbl;
@@ -2441,7 +2495,7 @@ impl XmlComment {
     }
 }
 impl windows_core::RuntimeType for XmlComment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlComment>();
 }
 unsafe impl windows_core::Interface for XmlComment {
     type Vtable = IXmlComment_Vtbl;
@@ -2903,7 +2957,7 @@ impl XmlDocument {
     }
 }
 impl windows_core::RuntimeType for XmlDocument {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlDocument>();
 }
 unsafe impl windows_core::Interface for XmlDocument {
     type Vtable = IXmlDocument_Vtbl;
@@ -3146,7 +3200,7 @@ impl XmlDocumentFragment {
     }
 }
 impl windows_core::RuntimeType for XmlDocumentFragment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlDocumentFragment>();
 }
 unsafe impl windows_core::Interface for XmlDocumentFragment {
     type Vtable = IXmlDocumentFragment_Vtbl;
@@ -3410,7 +3464,7 @@ impl XmlDocumentType {
     }
 }
 impl windows_core::RuntimeType for XmlDocumentType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlDocumentType>();
 }
 unsafe impl windows_core::Interface for XmlDocumentType {
     type Vtable = IXmlDocumentType_Vtbl;
@@ -3438,7 +3492,7 @@ impl XmlDomImplementation {
     }
 }
 impl windows_core::RuntimeType for XmlDomImplementation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlDomImplementation>();
 }
 unsafe impl windows_core::Interface for XmlDomImplementation {
     type Vtable = IXmlDomImplementation_Vtbl;
@@ -3781,7 +3835,7 @@ impl XmlElement {
     }
 }
 impl windows_core::RuntimeType for XmlElement {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlElement>();
 }
 unsafe impl windows_core::Interface for XmlElement {
     type Vtable = IXmlElement_Vtbl;
@@ -4024,7 +4078,7 @@ impl XmlEntityReference {
     }
 }
 impl windows_core::RuntimeType for XmlEntityReference {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlEntityReference>();
 }
 unsafe impl windows_core::Interface for XmlEntityReference {
     type Vtable = IXmlEntityReference_Vtbl;
@@ -4104,7 +4158,7 @@ impl XmlLoadSettings {
     }
 }
 impl windows_core::RuntimeType for XmlLoadSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlLoadSettings>();
 }
 unsafe impl windows_core::Interface for XmlLoadSettings {
     type Vtable = IXmlLoadSettings_Vtbl;
@@ -4235,7 +4289,7 @@ impl XmlNamedNodeMap {
     }
 }
 impl windows_core::RuntimeType for XmlNamedNodeMap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlNamedNodeMap>();
 }
 unsafe impl windows_core::Interface for XmlNamedNodeMap {
     type Vtable = IXmlNamedNodeMap_Vtbl;
@@ -4328,7 +4382,7 @@ impl XmlNodeList {
     }
 }
 impl windows_core::RuntimeType for XmlNodeList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlNodeList>();
 }
 unsafe impl windows_core::Interface for XmlNodeList {
     type Vtable = IXmlNodeList_Vtbl;
@@ -4605,7 +4659,7 @@ impl XmlProcessingInstruction {
     }
 }
 impl windows_core::RuntimeType for XmlProcessingInstruction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlProcessingInstruction>();
 }
 unsafe impl windows_core::Interface for XmlProcessingInstruction {
     type Vtable = IXmlProcessingInstruction_Vtbl;
@@ -4896,7 +4950,7 @@ impl XmlText {
     }
 }
 impl windows_core::RuntimeType for XmlText {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlText>();
 }
 unsafe impl windows_core::Interface for XmlText {
     type Vtable = IXmlText_Vtbl;

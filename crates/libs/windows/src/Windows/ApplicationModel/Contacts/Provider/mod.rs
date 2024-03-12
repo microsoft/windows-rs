@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IContactPickerUI, IContactPickerUI_Vtbl, 0xe2cc1366_cf66_43c4_a96a_a5a112db4746);
+impl windows_core::RuntimeType for IContactPickerUI {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactPickerUI_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -17,6 +20,9 @@ pub struct IContactPickerUI_Vtbl {
     pub RemoveContactRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactPickerUI2, IContactPickerUI2_Vtbl, 0x6e449e28_7b25_4999_9b0b_875400a1e8c8);
+impl windows_core::RuntimeType for IContactPickerUI2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactPickerUI2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -27,6 +33,9 @@ pub struct IContactPickerUI2_Vtbl {
     DesiredFieldsWithContactFieldType: usize,
 }
 windows_core::imp::define_interface!(IContactRemovedEventArgs, IContactRemovedEventArgs_Vtbl, 0x6f354338_3302_4d13_ad8d_adcc0ff9e47c);
+impl windows_core::RuntimeType for IContactRemovedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactRemovedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -108,7 +117,7 @@ impl ContactPickerUI {
     }
 }
 impl windows_core::RuntimeType for ContactPickerUI {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPickerUI>();
 }
 unsafe impl windows_core::Interface for ContactPickerUI {
     type Vtable = IContactPickerUI_Vtbl;
@@ -131,7 +140,7 @@ impl ContactRemovedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ContactRemovedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactRemovedEventArgs>();
 }
 unsafe impl windows_core::Interface for ContactRemovedEventArgs {
     type Vtable = IContactRemovedEventArgs_Vtbl;

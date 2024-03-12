@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ICompressor, ICompressor_Vtbl, 0x0ac3645a_57ac_4ee1_b702_84d39d5424e0);
+impl windows_core::RuntimeType for ICompressor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICompressor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9,6 +12,9 @@ pub struct ICompressor_Vtbl {
     DetachStream: usize,
 }
 windows_core::imp::define_interface!(ICompressorFactory, ICompressorFactory_Vtbl, 0x5f3d96a4_2cfb_442c_a8ba_d7d11b039da0);
+impl windows_core::RuntimeType for ICompressorFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICompressorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -22,6 +28,9 @@ pub struct ICompressorFactory_Vtbl {
     CreateCompressorEx: usize,
 }
 windows_core::imp::define_interface!(IDecompressor, IDecompressor_Vtbl, 0xb883fe46_d68a_4c8b_ada0_4ee813fc5283);
+impl windows_core::RuntimeType for IDecompressor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDecompressor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -31,6 +40,9 @@ pub struct IDecompressor_Vtbl {
     DetachStream: usize,
 }
 windows_core::imp::define_interface!(IDecompressorFactory, IDecompressorFactory_Vtbl, 0x5337e252_1da2_42e1_8834_0379d28d742f);
+impl windows_core::RuntimeType for IDecompressorFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDecompressorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -111,7 +123,7 @@ impl Compressor {
     }
 }
 impl windows_core::RuntimeType for Compressor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompressor>();
 }
 unsafe impl windows_core::Interface for Compressor {
     type Vtable = ICompressor_Vtbl;
@@ -169,7 +181,7 @@ impl Decompressor {
     }
 }
 impl windows_core::RuntimeType for Decompressor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDecompressor>();
 }
 unsafe impl windows_core::Interface for Decompressor {
     type Vtable = IDecompressor_Vtbl;

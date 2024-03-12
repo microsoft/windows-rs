@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ICompositionDebugHeatMaps, ICompositionDebugHeatMaps_Vtbl, 0xe49c90ac_2ff3_5805_718c_b725ee07650f);
+impl windows_core::RuntimeType for ICompositionDebugHeatMaps {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICompositionDebugHeatMaps_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,12 +11,18 @@ pub struct ICompositionDebugHeatMaps_Vtbl {
     pub ShowRedraw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionDebugSettings, ICompositionDebugSettings_Vtbl, 0x2831987e_1d82_4d38_b7b7_efd11c7bc3d1);
+impl windows_core::RuntimeType for ICompositionDebugSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICompositionDebugSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HeatMaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionDebugSettingsStatics, ICompositionDebugSettingsStatics_Vtbl, 0x64ec1f1e_6af8_4af8_b814_c870fd5a9505);
+impl windows_core::RuntimeType for ICompositionDebugSettingsStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICompositionDebugSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -54,7 +63,7 @@ impl CompositionDebugHeatMaps {
     }
 }
 impl windows_core::RuntimeType for CompositionDebugHeatMaps {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionDebugHeatMaps>();
 }
 unsafe impl windows_core::Interface for CompositionDebugHeatMaps {
     type Vtable = ICompositionDebugHeatMaps_Vtbl;
@@ -93,7 +102,7 @@ impl CompositionDebugSettings {
     }
 }
 impl windows_core::RuntimeType for CompositionDebugSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionDebugSettings>();
 }
 unsafe impl windows_core::Interface for CompositionDebugSettings {
     type Vtable = ICompositionDebugSettings_Vtbl;

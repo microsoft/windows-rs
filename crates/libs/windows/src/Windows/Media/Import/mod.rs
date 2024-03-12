@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IPhotoImportDeleteImportedItemsFromSourceResult, IPhotoImportDeleteImportedItemsFromSourceResult_Vtbl, 0xf4e112f8_843d_428a_a1a6_81510292b0ae);
+impl windows_core::RuntimeType for IPhotoImportDeleteImportedItemsFromSourceResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhotoImportDeleteImportedItemsFromSourceResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -20,6 +23,9 @@ pub struct IPhotoImportDeleteImportedItemsFromSourceResult_Vtbl {
     pub TotalSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoImportFindItemsResult, IPhotoImportFindItemsResult_Vtbl, 0x3915e647_6c78_492b_844e_8fe5e8f6bfb9);
+impl windows_core::RuntimeType for IPhotoImportFindItemsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhotoImportFindItemsResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -61,12 +67,18 @@ pub struct IPhotoImportFindItemsResult_Vtbl {
     pub RemoveItemImported: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoImportFindItemsResult2, IPhotoImportFindItemsResult2_Vtbl, 0xfbdd6a3b_ecf9_406a_815e_5015625b0a88);
+impl windows_core::RuntimeType for IPhotoImportFindItemsResult2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhotoImportFindItemsResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddItemsInDateRangeToSelection: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoImportImportItemsResult, IPhotoImportImportItemsResult_Vtbl, 0xe4d4f478_d419_4443_a84e_f06a850c0b00);
+impl windows_core::RuntimeType for IPhotoImportImportItemsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhotoImportImportItemsResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -89,6 +101,9 @@ pub struct IPhotoImportImportItemsResult_Vtbl {
     pub DeleteImportedItemsFromSourceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoImportItem, IPhotoImportItem_Vtbl, 0xa9d07e76_9bfc_43b8_b356_633b6a988c9e);
+impl windows_core::RuntimeType for IPhotoImportItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhotoImportItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -122,18 +137,27 @@ pub struct IPhotoImportItem_Vtbl {
     DeletedFileNames: usize,
 }
 windows_core::imp::define_interface!(IPhotoImportItem2, IPhotoImportItem2_Vtbl, 0xf1053505_f53b_46a3_9e30_3610791a9110);
+impl windows_core::RuntimeType for IPhotoImportItem2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhotoImportItem2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoImportItemImportedEventArgs, IPhotoImportItemImportedEventArgs_Vtbl, 0x42cb2fdd_7d68_47b5_bc7c_ceb73e0c77dc);
+impl windows_core::RuntimeType for IPhotoImportItemImportedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhotoImportItemImportedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ImportedItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoImportManagerStatics, IPhotoImportManagerStatics_Vtbl, 0x2771903d_a046_4f06_9b9c_bfd662e83287);
+impl windows_core::RuntimeType for IPhotoImportManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhotoImportManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -148,6 +172,9 @@ pub struct IPhotoImportManagerStatics_Vtbl {
     GetPendingOperations: usize,
 }
 windows_core::imp::define_interface!(IPhotoImportOperation, IPhotoImportOperation_Vtbl, 0xd9f797e4_a09a_4ee4_a4b1_20940277a5be);
+impl windows_core::RuntimeType for IPhotoImportOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhotoImportOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -158,12 +185,18 @@ pub struct IPhotoImportOperation_Vtbl {
     pub ContinueDeletingImportedItemsFromSourceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoImportSelectionChangedEventArgs, IPhotoImportSelectionChangedEventArgs_Vtbl, 0x10461782_fa9d_4c30_8bc9_4d64911572d5);
+impl windows_core::RuntimeType for IPhotoImportSelectionChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhotoImportSelectionChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSelectionEmpty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoImportSession, IPhotoImportSession_Vtbl, 0xaa63916e_ecdb_4efe_94c6_5f5cafe34cfb);
+impl windows_core::RuntimeType for IPhotoImportSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhotoImportSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -186,6 +219,9 @@ pub struct IPhotoImportSession_Vtbl {
     pub FindItemsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, PhotoImportContentTypeFilter, PhotoImportItemSelectionMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoImportSession2, IPhotoImportSession2_Vtbl, 0x2a526710_3ec6_469d_a375_2b9f4785391e);
+impl windows_core::RuntimeType for IPhotoImportSession2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhotoImportSession2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -195,6 +231,9 @@ pub struct IPhotoImportSession2_Vtbl {
     pub RememberDeselectedItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoImportSidecar, IPhotoImportSidecar_Vtbl, 0x46d7d757_f802_44c7_9c98_7a71f4bc1486);
+impl windows_core::RuntimeType for IPhotoImportSidecar {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhotoImportSidecar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -203,6 +242,9 @@ pub struct IPhotoImportSidecar_Vtbl {
     pub Date: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoImportSource, IPhotoImportSource_Vtbl, 0x1f8ea35e_145b_4cd6_87f1_54965a982fef);
+impl windows_core::RuntimeType for IPhotoImportSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhotoImportSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -231,6 +273,9 @@ pub struct IPhotoImportSource_Vtbl {
     pub CreateImportSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoImportSourceStatics, IPhotoImportSourceStatics_Vtbl, 0x0528e586_32d8_467c_8cee_23a1b2f43e85);
+impl windows_core::RuntimeType for IPhotoImportSourceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhotoImportSourceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -241,6 +286,9 @@ pub struct IPhotoImportSourceStatics_Vtbl {
     FromFolderAsync: usize,
 }
 windows_core::imp::define_interface!(IPhotoImportStorageMedium, IPhotoImportStorageMedium_Vtbl, 0xf2b9b093_fc85_487f_87c2_58d675d05b07);
+impl windows_core::RuntimeType for IPhotoImportStorageMedium {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhotoImportStorageMedium_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -254,6 +302,9 @@ pub struct IPhotoImportStorageMedium_Vtbl {
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoImportVideoSegment, IPhotoImportVideoSegment_Vtbl, 0x623c0289_321a_41d8_9166_8c62a333276c);
+impl windows_core::RuntimeType for IPhotoImportVideoSegment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhotoImportVideoSegment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -365,7 +416,7 @@ impl PhotoImportDeleteImportedItemsFromSourceResult {
     }
 }
 impl windows_core::RuntimeType for PhotoImportDeleteImportedItemsFromSourceResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportDeleteImportedItemsFromSourceResult>();
 }
 unsafe impl windows_core::Interface for PhotoImportDeleteImportedItemsFromSourceResult {
     type Vtable = IPhotoImportDeleteImportedItemsFromSourceResult_Vtbl;
@@ -610,7 +661,7 @@ impl PhotoImportFindItemsResult {
     }
 }
 impl windows_core::RuntimeType for PhotoImportFindItemsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportFindItemsResult>();
 }
 unsafe impl windows_core::Interface for PhotoImportFindItemsResult {
     type Vtable = IPhotoImportFindItemsResult_Vtbl;
@@ -727,7 +778,7 @@ impl PhotoImportImportItemsResult {
     }
 }
 impl windows_core::RuntimeType for PhotoImportImportItemsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportImportItemsResult>();
 }
 unsafe impl windows_core::Interface for PhotoImportImportItemsResult {
     type Vtable = IPhotoImportImportItemsResult_Vtbl;
@@ -845,7 +896,7 @@ impl PhotoImportItem {
     }
 }
 impl windows_core::RuntimeType for PhotoImportItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportItem>();
 }
 unsafe impl windows_core::Interface for PhotoImportItem {
     type Vtable = IPhotoImportItem_Vtbl;
@@ -870,7 +921,7 @@ impl PhotoImportItemImportedEventArgs {
     }
 }
 impl windows_core::RuntimeType for PhotoImportItemImportedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportItemImportedEventArgs>();
 }
 unsafe impl windows_core::Interface for PhotoImportItemImportedEventArgs {
     type Vtable = IPhotoImportItemImportedEventArgs_Vtbl;
@@ -954,7 +1005,7 @@ impl PhotoImportOperation {
     }
 }
 impl windows_core::RuntimeType for PhotoImportOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportOperation>();
 }
 unsafe impl windows_core::Interface for PhotoImportOperation {
     type Vtable = IPhotoImportOperation_Vtbl;
@@ -979,7 +1030,7 @@ impl PhotoImportSelectionChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for PhotoImportSelectionChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportSelectionChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for PhotoImportSelectionChangedEventArgs {
     type Vtable = IPhotoImportSelectionChangedEventArgs_Vtbl;
@@ -1094,7 +1145,7 @@ impl PhotoImportSession {
     }
 }
 impl windows_core::RuntimeType for PhotoImportSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportSession>();
 }
 unsafe impl windows_core::Interface for PhotoImportSession {
     type Vtable = IPhotoImportSession_Vtbl;
@@ -1133,7 +1184,7 @@ impl PhotoImportSidecar {
     }
 }
 impl windows_core::RuntimeType for PhotoImportSidecar {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportSidecar>();
 }
 unsafe impl windows_core::Interface for PhotoImportSidecar {
     type Vtable = IPhotoImportSidecar_Vtbl;
@@ -1293,7 +1344,7 @@ impl PhotoImportSource {
     }
 }
 impl windows_core::RuntimeType for PhotoImportSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportSource>();
 }
 unsafe impl windows_core::Interface for PhotoImportSource {
     type Vtable = IPhotoImportSource_Vtbl;
@@ -1364,7 +1415,7 @@ impl PhotoImportStorageMedium {
     }
 }
 impl windows_core::RuntimeType for PhotoImportStorageMedium {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportStorageMedium>();
 }
 unsafe impl windows_core::Interface for PhotoImportStorageMedium {
     type Vtable = IPhotoImportStorageMedium_Vtbl;
@@ -1418,7 +1469,7 @@ impl PhotoImportVideoSegment {
     }
 }
 impl windows_core::RuntimeType for PhotoImportVideoSegment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportVideoSegment>();
 }
 unsafe impl windows_core::Interface for PhotoImportVideoSegment {
     type Vtable = IPhotoImportVideoSegment_Vtbl;

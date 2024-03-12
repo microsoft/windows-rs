@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IOfflineMapPackage, IOfflineMapPackage_Vtbl, 0xa797673b_a5b5_4144_b525_e68c8862664b);
+impl windows_core::RuntimeType for IOfflineMapPackage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IOfflineMapPackage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11,6 +14,9 @@ pub struct IOfflineMapPackage_Vtbl {
     pub RequestStartDownloadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOfflineMapPackageQueryResult, IOfflineMapPackageQueryResult_Vtbl, 0x55585411_39e1_4e41_a4e1_5f4872bee199);
+impl windows_core::RuntimeType for IOfflineMapPackageQueryResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IOfflineMapPackageQueryResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -21,12 +27,18 @@ pub struct IOfflineMapPackageQueryResult_Vtbl {
     Packages: usize,
 }
 windows_core::imp::define_interface!(IOfflineMapPackageStartDownloadResult, IOfflineMapPackageStartDownloadResult_Vtbl, 0xd965b918_d4d6_4afe_9378_3ec71ef11c3d);
+impl windows_core::RuntimeType for IOfflineMapPackageStartDownloadResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IOfflineMapPackageStartDownloadResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OfflineMapPackageStartDownloadStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOfflineMapPackageStatics, IOfflineMapPackageStatics_Vtbl, 0x185e7922_a831_4ab0_941f_6998fa929285);
+impl windows_core::RuntimeType for IOfflineMapPackageStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IOfflineMapPackageStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -134,7 +146,7 @@ impl OfflineMapPackage {
     }
 }
 impl windows_core::RuntimeType for OfflineMapPackage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOfflineMapPackage>();
 }
 unsafe impl windows_core::Interface for OfflineMapPackage {
     type Vtable = IOfflineMapPackage_Vtbl;
@@ -167,7 +179,7 @@ impl OfflineMapPackageQueryResult {
     }
 }
 impl windows_core::RuntimeType for OfflineMapPackageQueryResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOfflineMapPackageQueryResult>();
 }
 unsafe impl windows_core::Interface for OfflineMapPackageQueryResult {
     type Vtable = IOfflineMapPackageQueryResult_Vtbl;
@@ -192,7 +204,7 @@ impl OfflineMapPackageStartDownloadResult {
     }
 }
 impl windows_core::RuntimeType for OfflineMapPackageStartDownloadResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOfflineMapPackageStartDownloadResult>();
 }
 unsafe impl windows_core::Interface for OfflineMapPackageStartDownloadResult {
     type Vtable = IOfflineMapPackageStartDownloadResult_Vtbl;

@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IEnterprise, IEnterprise_Vtbl, 0x96592f8d_856c_4426_a947_b06307718078);
+impl windows_core::RuntimeType for IEnterprise {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IEnterprise_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -10,6 +13,9 @@ pub struct IEnterprise_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EnterpriseStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnterpriseEnrollmentManager, IEnterpriseEnrollmentManager_Vtbl, 0x20f9f390_2c69_41d8_88e6_e4b3884026cb);
+impl windows_core::RuntimeType for IEnterpriseEnrollmentManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IEnterpriseEnrollmentManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -23,6 +29,9 @@ pub struct IEnterpriseEnrollmentManager_Vtbl {
     pub RequestUnenrollmentAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnterpriseEnrollmentResult, IEnterpriseEnrollmentResult_Vtbl, 0x9ff71ce6_90db_4342_b326_1729aa91301c);
+impl windows_core::RuntimeType for IEnterpriseEnrollmentResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IEnterpriseEnrollmentResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -30,6 +39,9 @@ pub struct IEnterpriseEnrollmentResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EnterpriseEnrollmentStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInstallationManagerStatics, IInstallationManagerStatics_Vtbl, 0x929aa738_8d49_42ac_80c9_b4ad793c43f2);
+impl windows_core::RuntimeType for IInstallationManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInstallationManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -49,6 +61,9 @@ pub struct IInstallationManagerStatics_Vtbl {
     FindPackages: usize,
 }
 windows_core::imp::define_interface!(IInstallationManagerStatics2, IInstallationManagerStatics2_Vtbl, 0x7c6c2cbd_fa4a_4c8e_ab97_d959452f19e5);
+impl windows_core::RuntimeType for IInstallationManagerStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInstallationManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -66,6 +81,9 @@ pub struct IInstallationManagerStatics2_Vtbl {
     FindPackagesByNamePublisher: usize,
 }
 windows_core::imp::define_interface!(IPackageInstallResult, IPackageInstallResult_Vtbl, 0x33e8eed5_0f7e_4473_967c_7d6e1c0e7de1);
+impl windows_core::RuntimeType for IPackageInstallResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPackageInstallResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -76,6 +94,9 @@ pub struct IPackageInstallResult_Vtbl {
     InstallState: usize,
 }
 windows_core::imp::define_interface!(IPackageInstallResult2, IPackageInstallResult2_Vtbl, 0x7149d909_3ff9_41ed_a717_2bc65ffc61d2);
+impl windows_core::RuntimeType for IPackageInstallResult2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPackageInstallResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -130,7 +151,7 @@ impl Enterprise {
     }
 }
 impl windows_core::RuntimeType for Enterprise {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterprise>();
 }
 unsafe impl windows_core::Interface for Enterprise {
     type Vtable = IEnterprise_Vtbl;
@@ -207,7 +228,7 @@ impl EnterpriseEnrollmentResult {
     }
 }
 impl windows_core::RuntimeType for EnterpriseEnrollmentResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterpriseEnrollmentResult>();
 }
 unsafe impl windows_core::Interface for EnterpriseEnrollmentResult {
     type Vtable = IEnterpriseEnrollmentResult_Vtbl;
@@ -326,7 +347,7 @@ impl PackageInstallResult {
     }
 }
 impl windows_core::RuntimeType for PackageInstallResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageInstallResult>();
 }
 unsafe impl windows_core::Interface for PackageInstallResult {
     type Vtable = IPackageInstallResult_Vtbl;

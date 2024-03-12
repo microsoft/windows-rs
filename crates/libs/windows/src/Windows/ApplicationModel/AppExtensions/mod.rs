@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IAppExtension, IAppExtension_Vtbl, 0x8450902c_15ed_4faf_93ea_2237bbf8cbd6);
+impl windows_core::RuntimeType for IAppExtension {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppExtension_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -17,12 +20,18 @@ pub struct IAppExtension_Vtbl {
     GetPublicFolderAsync: usize,
 }
 windows_core::imp::define_interface!(IAppExtension2, IAppExtension2_Vtbl, 0xab3b15f0_14f9_4b9f_9419_a349a242ef38);
+impl windows_core::RuntimeType for IAppExtension2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppExtension2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppUserModelId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppExtensionCatalog, IAppExtensionCatalog_Vtbl, 0x97872032_8426_4ad1_9084_92e88c2da200);
+impl windows_core::RuntimeType for IAppExtensionCatalog {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppExtensionCatalog_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -43,12 +52,18 @@ pub struct IAppExtensionCatalog_Vtbl {
     pub RemovePackageStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppExtensionCatalogStatics, IAppExtensionCatalogStatics_Vtbl, 0x3c36668a_5f18_4f0b_9ce5_cab61d196f11);
+impl windows_core::RuntimeType for IAppExtensionCatalogStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppExtensionCatalogStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppExtensionPackageInstalledEventArgs, IAppExtensionPackageInstalledEventArgs_Vtbl, 0x39e59234_3351_4a8d_9745_e7d3dd45bc48);
+impl windows_core::RuntimeType for IAppExtensionPackageInstalledEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppExtensionPackageInstalledEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -60,6 +75,9 @@ pub struct IAppExtensionPackageInstalledEventArgs_Vtbl {
     Extensions: usize,
 }
 windows_core::imp::define_interface!(IAppExtensionPackageStatusChangedEventArgs, IAppExtensionPackageStatusChangedEventArgs_Vtbl, 0x1ce17433_1153_44fd_87b1_8ae1050303df);
+impl windows_core::RuntimeType for IAppExtensionPackageStatusChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppExtensionPackageStatusChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -67,6 +85,9 @@ pub struct IAppExtensionPackageStatusChangedEventArgs_Vtbl {
     pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppExtensionPackageUninstallingEventArgs, IAppExtensionPackageUninstallingEventArgs_Vtbl, 0x60f160c5_171e_40ff_ae98_ab2c20dd4d75);
+impl windows_core::RuntimeType for IAppExtensionPackageUninstallingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppExtensionPackageUninstallingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -74,6 +95,9 @@ pub struct IAppExtensionPackageUninstallingEventArgs_Vtbl {
     pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppExtensionPackageUpdatedEventArgs, IAppExtensionPackageUpdatedEventArgs_Vtbl, 0x3a83c43f_797e_44b5_ba24_a4c8b5a543d7);
+impl windows_core::RuntimeType for IAppExtensionPackageUpdatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppExtensionPackageUpdatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -85,6 +109,9 @@ pub struct IAppExtensionPackageUpdatedEventArgs_Vtbl {
     Extensions: usize,
 }
 windows_core::imp::define_interface!(IAppExtensionPackageUpdatingEventArgs, IAppExtensionPackageUpdatingEventArgs_Vtbl, 0x7ed59329_1a65_4800_a700_b321009e306a);
+impl windows_core::RuntimeType for IAppExtensionPackageUpdatingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppExtensionPackageUpdatingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -156,7 +183,7 @@ impl AppExtension {
     }
 }
 impl windows_core::RuntimeType for AppExtension {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppExtension>();
 }
 unsafe impl windows_core::Interface for AppExtension {
     type Vtable = IAppExtension_Vtbl;
@@ -270,7 +297,7 @@ impl AppExtensionCatalog {
     }
 }
 impl windows_core::RuntimeType for AppExtensionCatalog {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppExtensionCatalog>();
 }
 unsafe impl windows_core::Interface for AppExtensionCatalog {
     type Vtable = IAppExtensionCatalog_Vtbl;
@@ -308,7 +335,7 @@ impl AppExtensionPackageInstalledEventArgs {
     }
 }
 impl windows_core::RuntimeType for AppExtensionPackageInstalledEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppExtensionPackageInstalledEventArgs>();
 }
 unsafe impl windows_core::Interface for AppExtensionPackageInstalledEventArgs {
     type Vtable = IAppExtensionPackageInstalledEventArgs_Vtbl;
@@ -340,7 +367,7 @@ impl AppExtensionPackageStatusChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for AppExtensionPackageStatusChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppExtensionPackageStatusChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for AppExtensionPackageStatusChangedEventArgs {
     type Vtable = IAppExtensionPackageStatusChangedEventArgs_Vtbl;
@@ -372,7 +399,7 @@ impl AppExtensionPackageUninstallingEventArgs {
     }
 }
 impl windows_core::RuntimeType for AppExtensionPackageUninstallingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppExtensionPackageUninstallingEventArgs>();
 }
 unsafe impl windows_core::Interface for AppExtensionPackageUninstallingEventArgs {
     type Vtable = IAppExtensionPackageUninstallingEventArgs_Vtbl;
@@ -412,7 +439,7 @@ impl AppExtensionPackageUpdatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for AppExtensionPackageUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppExtensionPackageUpdatedEventArgs>();
 }
 unsafe impl windows_core::Interface for AppExtensionPackageUpdatedEventArgs {
     type Vtable = IAppExtensionPackageUpdatedEventArgs_Vtbl;
@@ -444,7 +471,7 @@ impl AppExtensionPackageUpdatingEventArgs {
     }
 }
 impl windows_core::RuntimeType for AppExtensionPackageUpdatingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppExtensionPackageUpdatingEventArgs>();
 }
 unsafe impl windows_core::Interface for AppExtensionPackageUpdatingEventArgs {
     type Vtable = IAppExtensionPackageUpdatingEventArgs_Vtbl;

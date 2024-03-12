@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IWiFiDirectService, IWiFiDirectService_Vtbl, 0x50aabbb8_5f71_45ec_84f1_a1e4fc7879a3);
+impl windows_core::RuntimeType for IWiFiDirectService {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiDirectService_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -28,6 +31,9 @@ pub struct IWiFiDirectService_Vtbl {
     pub ConnectAsyncWithPin: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiFiDirectServiceAdvertiser, IWiFiDirectServiceAdvertiser_Vtbl, 0xa4aa1ee1_9d8f_4f4f_93ee_7ddea2e37f46);
+impl windows_core::RuntimeType for IWiFiDirectServiceAdvertiser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiDirectServiceAdvertiser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -84,12 +90,18 @@ pub struct IWiFiDirectServiceAdvertiser_Vtbl {
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiFiDirectServiceAdvertiserFactory, IWiFiDirectServiceAdvertiserFactory_Vtbl, 0x3106ac0d_b446_4f13_9f9a_8ae925feba2b);
+impl windows_core::RuntimeType for IWiFiDirectServiceAdvertiserFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiDirectServiceAdvertiserFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWiFiDirectServiceAdvertiser: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs, IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs_Vtbl, 0xdcd9e01e_83df_43e5_8f43_cbe8479e84eb);
+impl windows_core::RuntimeType for IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -100,6 +112,9 @@ pub struct IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs_Vtbl {
     SessionInfo: usize,
 }
 windows_core::imp::define_interface!(IWiFiDirectServiceProvisioningInfo, IWiFiDirectServiceProvisioningInfo_Vtbl, 0x8bdb7cfe_97d9_45a2_8e99_db50910fb6a6);
+impl windows_core::RuntimeType for IWiFiDirectServiceProvisioningInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiDirectServiceProvisioningInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -107,6 +122,9 @@ pub struct IWiFiDirectServiceProvisioningInfo_Vtbl {
     pub IsGroupFormationNeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiFiDirectServiceRemotePortAddedEventArgs, IWiFiDirectServiceRemotePortAddedEventArgs_Vtbl, 0xd4cebac1_3fd3_4f0e_b7bd_782906f44411);
+impl windows_core::RuntimeType for IWiFiDirectServiceRemotePortAddedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiDirectServiceRemotePortAddedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -117,6 +135,9 @@ pub struct IWiFiDirectServiceRemotePortAddedEventArgs_Vtbl {
     pub Protocol: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WiFiDirectServiceIPProtocol) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiFiDirectServiceSession, IWiFiDirectServiceSession_Vtbl, 0x81142163_e426_47cb_8640_e1b3588bf26f);
+impl windows_core::RuntimeType for IWiFiDirectServiceSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiDirectServiceSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -145,6 +166,9 @@ pub struct IWiFiDirectServiceSession_Vtbl {
     pub RemoveRemotePortAdded: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiFiDirectServiceSessionDeferredEventArgs, IWiFiDirectServiceSessionDeferredEventArgs_Vtbl, 0x8dfc197f_1201_4f1f_b6f4_5df1b7b9fb2e);
+impl windows_core::RuntimeType for IWiFiDirectServiceSessionDeferredEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiDirectServiceSessionDeferredEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -154,6 +178,9 @@ pub struct IWiFiDirectServiceSessionDeferredEventArgs_Vtbl {
     DeferredSessionInfo: usize,
 }
 windows_core::imp::define_interface!(IWiFiDirectServiceSessionRequest, IWiFiDirectServiceSessionRequest_Vtbl, 0xa0e27c8b_50cb_4a58_9bcf_e472b99fba04);
+impl windows_core::RuntimeType for IWiFiDirectServiceSessionRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiDirectServiceSessionRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -168,12 +195,18 @@ pub struct IWiFiDirectServiceSessionRequest_Vtbl {
     SessionInfo: usize,
 }
 windows_core::imp::define_interface!(IWiFiDirectServiceSessionRequestedEventArgs, IWiFiDirectServiceSessionRequestedEventArgs_Vtbl, 0x74bdcc11_53d6_4999_b4f8_6c8ecc1771e7);
+impl windows_core::RuntimeType for IWiFiDirectServiceSessionRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiDirectServiceSessionRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetSessionRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiFiDirectServiceStatics, IWiFiDirectServiceStatics_Vtbl, 0x7db40045_fd74_4688_b725_5dce86acf233);
+impl windows_core::RuntimeType for IWiFiDirectServiceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiDirectServiceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -303,7 +336,7 @@ impl WiFiDirectService {
     }
 }
 impl windows_core::RuntimeType for WiFiDirectService {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectService>();
 }
 unsafe impl windows_core::Interface for WiFiDirectService {
     type Vtable = IWiFiDirectService_Vtbl;
@@ -517,7 +550,7 @@ impl WiFiDirectServiceAdvertiser {
     }
 }
 impl windows_core::RuntimeType for WiFiDirectServiceAdvertiser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceAdvertiser>();
 }
 unsafe impl windows_core::Interface for WiFiDirectServiceAdvertiser {
     type Vtable = IWiFiDirectServiceAdvertiser_Vtbl;
@@ -550,7 +583,7 @@ impl WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
     }
 }
 impl windows_core::RuntimeType for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs>();
 }
 unsafe impl windows_core::Interface for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
     type Vtable = IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs_Vtbl;
@@ -582,7 +615,7 @@ impl WiFiDirectServiceProvisioningInfo {
     }
 }
 impl windows_core::RuntimeType for WiFiDirectServiceProvisioningInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceProvisioningInfo>();
 }
 unsafe impl windows_core::Interface for WiFiDirectServiceProvisioningInfo {
     type Vtable = IWiFiDirectServiceProvisioningInfo_Vtbl;
@@ -615,7 +648,7 @@ impl WiFiDirectServiceRemotePortAddedEventArgs {
     }
 }
 impl windows_core::RuntimeType for WiFiDirectServiceRemotePortAddedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceRemotePortAddedEventArgs>();
 }
 unsafe impl windows_core::Interface for WiFiDirectServiceRemotePortAddedEventArgs {
     type Vtable = IWiFiDirectServiceRemotePortAddedEventArgs_Vtbl;
@@ -745,7 +778,7 @@ impl WiFiDirectServiceSession {
     }
 }
 impl windows_core::RuntimeType for WiFiDirectServiceSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceSession>();
 }
 unsafe impl windows_core::Interface for WiFiDirectServiceSession {
     type Vtable = IWiFiDirectServiceSession_Vtbl;
@@ -771,7 +804,7 @@ impl WiFiDirectServiceSessionDeferredEventArgs {
     }
 }
 impl windows_core::RuntimeType for WiFiDirectServiceSessionDeferredEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceSessionDeferredEventArgs>();
 }
 unsafe impl windows_core::Interface for WiFiDirectServiceSessionDeferredEventArgs {
     type Vtable = IWiFiDirectServiceSessionDeferredEventArgs_Vtbl;
@@ -817,7 +850,7 @@ impl WiFiDirectServiceSessionRequest {
     }
 }
 impl windows_core::RuntimeType for WiFiDirectServiceSessionRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceSessionRequest>();
 }
 unsafe impl windows_core::Interface for WiFiDirectServiceSessionRequest {
     type Vtable = IWiFiDirectServiceSessionRequest_Vtbl;
@@ -842,7 +875,7 @@ impl WiFiDirectServiceSessionRequestedEventArgs {
     }
 }
 impl windows_core::RuntimeType for WiFiDirectServiceSessionRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceSessionRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for WiFiDirectServiceSessionRequestedEventArgs {
     type Vtable = IWiFiDirectServiceSessionRequestedEventArgs_Vtbl;

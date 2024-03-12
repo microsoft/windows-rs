@@ -17,6 +17,9 @@ pub struct IPrintDocumentSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IPrintManager, IPrintManager_Vtbl, 0xff2a9694_8c99_44fd_ae4a_19d9aa9a0f0a);
+impl windows_core::RuntimeType for IPrintManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -24,6 +27,9 @@ pub struct IPrintManager_Vtbl {
     pub RemovePrintTaskRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintManagerStatic, IPrintManagerStatic_Vtbl, 0x58185dcd_e634_4654_84f0_e0152a8217ac);
+impl windows_core::RuntimeType for IPrintManagerStatic {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintManagerStatic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -31,12 +37,18 @@ pub struct IPrintManagerStatic_Vtbl {
     pub ShowPrintUIAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintManagerStatic2, IPrintManagerStatic2_Vtbl, 0x35a99955_e6ab_4139_9abd_b86a729b3598);
+impl windows_core::RuntimeType for IPrintManagerStatic2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintManagerStatic2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintPageInfo, IPrintPageInfo_Vtbl, 0xdd4be9c9_a6a1_4ada_930e_da872a4f23d3);
+impl windows_core::RuntimeType for IPrintPageInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintPageInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -52,6 +64,9 @@ pub struct IPrintPageInfo_Vtbl {
     pub Orientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintOrientation) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintPageRange, IPrintPageRange_Vtbl, 0xf8a06c54_6e7c_51c5_57fd_0660c2d71513);
+impl windows_core::RuntimeType for IPrintPageRange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintPageRange_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -59,6 +74,9 @@ pub struct IPrintPageRange_Vtbl {
     pub LastPageNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintPageRangeFactory, IPrintPageRangeFactory_Vtbl, 0x408fd45f_e047_5f85_7129_fb085a4fad14);
+impl windows_core::RuntimeType for IPrintPageRangeFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintPageRangeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -66,6 +84,9 @@ pub struct IPrintPageRangeFactory_Vtbl {
     pub CreateWithSinglePage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintPageRangeOptions, IPrintPageRangeOptions_Vtbl, 0xce6db728_1357_46b2_a923_79f995f448fc);
+impl windows_core::RuntimeType for IPrintPageRangeOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintPageRangeOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -77,6 +98,9 @@ pub struct IPrintPageRangeOptions_Vtbl {
     pub AllowCustomSetOfPages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTask, IPrintTask_Vtbl, 0x61d80247_6cf6_4fad_84e2_a5e82e2d4ceb);
+impl windows_core::RuntimeType for IPrintTask {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTask_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -96,6 +120,9 @@ pub struct IPrintTask_Vtbl {
     pub RemoveCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTask2, IPrintTask2_Vtbl, 0x36234877_3e53_4d9d_8f5e_316ac8dedae1);
+impl windows_core::RuntimeType for IPrintTask2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTask2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -103,12 +130,18 @@ pub struct IPrintTask2_Vtbl {
     pub IsPreviewEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTaskCompletedEventArgs, IPrintTaskCompletedEventArgs_Vtbl, 0x5bcd34af_24e9_4c10_8d07_14c346ba3fce);
+impl windows_core::RuntimeType for IPrintTaskCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTaskCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Completion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintTaskCompletion) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTaskOptions, IPrintTaskOptions_Vtbl, 0x5a0a66bb_d289_41bb_96dd_57e28338ae3f);
+impl windows_core::RuntimeType for IPrintTaskOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTaskOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -120,6 +153,9 @@ pub struct IPrintTaskOptions_Vtbl {
     GetPagePrintTicket: usize,
 }
 windows_core::imp::define_interface!(IPrintTaskOptions2, IPrintTaskOptions2_Vtbl, 0xeb9b1606_9a36_4b59_8617_b217849262e1);
+impl windows_core::RuntimeType for IPrintTaskOptions2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTaskOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -342,12 +378,18 @@ pub struct IPrintTaskOptionsCoreUIConfiguration_Vtbl {
     DisplayedOptions: usize,
 }
 windows_core::imp::define_interface!(IPrintTaskProgressingEventArgs, IPrintTaskProgressingEventArgs_Vtbl, 0x810cd3cb_b410_4282_a073_5ac378234174);
+impl windows_core::RuntimeType for IPrintTaskProgressingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTaskProgressingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DocumentPageCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTaskRequest, IPrintTaskRequest_Vtbl, 0x6ff61e2e_2722_4240_a67c_f364849a17f3);
+impl windows_core::RuntimeType for IPrintTaskRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTaskRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -356,18 +398,27 @@ pub struct IPrintTaskRequest_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTaskRequestedDeferral, IPrintTaskRequestedDeferral_Vtbl, 0xcfefb3f0_ce3e_42c7_9496_64800c622c44);
+impl windows_core::RuntimeType for IPrintTaskRequestedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTaskRequestedDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTaskRequestedEventArgs, IPrintTaskRequestedEventArgs_Vtbl, 0xd0aff924_a31b_454c_a7b6_5d0cc522fc16);
+impl windows_core::RuntimeType for IPrintTaskRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTaskRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTaskSourceRequestedArgs, IPrintTaskSourceRequestedArgs_Vtbl, 0xf9f067be_f456_41f0_9c98_5ce73e851410);
+impl windows_core::RuntimeType for IPrintTaskSourceRequestedArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTaskSourceRequestedArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -376,12 +427,18 @@ pub struct IPrintTaskSourceRequestedArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTaskSourceRequestedDeferral, IPrintTaskSourceRequestedDeferral_Vtbl, 0x4a1560d1_6992_4d9d_8555_4ca4563fb166);
+impl windows_core::RuntimeType for IPrintTaskSourceRequestedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTaskSourceRequestedDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTaskTargetDeviceSupport, IPrintTaskTargetDeviceSupport_Vtbl, 0x295d70c0_c2cb_4b7d_b0ea_93095091a220);
+impl windows_core::RuntimeType for IPrintTaskTargetDeviceSupport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTaskTargetDeviceSupport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -391,6 +448,9 @@ pub struct IPrintTaskTargetDeviceSupport_Vtbl {
     pub Is3DManufacturingTargetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStandardPrintTaskOptionsStatic, IStandardPrintTaskOptionsStatic_Vtbl, 0xb4483d26_0dd0_4cd4_baff_930fc7d6a574);
+impl windows_core::RuntimeType for IStandardPrintTaskOptionsStatic {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStandardPrintTaskOptionsStatic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -409,12 +469,18 @@ pub struct IStandardPrintTaskOptionsStatic_Vtbl {
     pub InputBin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStandardPrintTaskOptionsStatic2, IStandardPrintTaskOptionsStatic2_Vtbl, 0x3be38bf4_7a44_4269_9a52_81261e289ee9);
+impl windows_core::RuntimeType for IStandardPrintTaskOptionsStatic2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStandardPrintTaskOptionsStatic2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Bordering: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStandardPrintTaskOptionsStatic3, IStandardPrintTaskOptionsStatic3_Vtbl, 0xbbf68e86_3858_41b3_a799_55dd9888d475);
+impl windows_core::RuntimeType for IStandardPrintTaskOptionsStatic3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStandardPrintTaskOptionsStatic3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -469,7 +535,7 @@ impl PrintManager {
     }
 }
 impl windows_core::RuntimeType for PrintManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintManager>();
 }
 unsafe impl windows_core::Interface for PrintManager {
     type Vtable = IPrintManager_Vtbl;
@@ -549,7 +615,7 @@ impl PrintPageInfo {
     }
 }
 impl windows_core::RuntimeType for PrintPageInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintPageInfo>();
 }
 unsafe impl windows_core::Interface for PrintPageInfo {
     type Vtable = IPrintPageInfo_Vtbl;
@@ -598,7 +664,7 @@ impl PrintPageRange {
     }
 }
 impl windows_core::RuntimeType for PrintPageRange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintPageRange>();
 }
 unsafe impl windows_core::Interface for PrintPageRange {
     type Vtable = IPrintPageRange_Vtbl;
@@ -649,7 +715,7 @@ impl PrintPageRangeOptions {
     }
 }
 impl windows_core::RuntimeType for PrintPageRangeOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintPageRangeOptions>();
 }
 unsafe impl windows_core::Interface for PrintPageRangeOptions {
     type Vtable = IPrintPageRangeOptions_Vtbl;
@@ -778,7 +844,7 @@ impl PrintTask {
     }
 }
 impl windows_core::RuntimeType for PrintTask {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTask>();
 }
 unsafe impl windows_core::Interface for PrintTask {
     type Vtable = IPrintTask_Vtbl;
@@ -803,7 +869,7 @@ impl PrintTaskCompletedEventArgs {
     }
 }
 impl windows_core::RuntimeType for PrintTaskCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskCompletedEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintTaskCompletedEventArgs {
     type Vtable = IPrintTaskCompletedEventArgs_Vtbl;
@@ -1009,7 +1075,7 @@ impl PrintTaskOptions {
     }
 }
 impl windows_core::RuntimeType for PrintTaskOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskOptionsCore>();
 }
 unsafe impl windows_core::Interface for PrintTaskOptions {
     type Vtable = IPrintTaskOptionsCore_Vtbl;
@@ -1034,7 +1100,7 @@ impl PrintTaskProgressingEventArgs {
     }
 }
 impl windows_core::RuntimeType for PrintTaskProgressingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskProgressingEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintTaskProgressingEventArgs {
     type Vtable = IPrintTaskProgressingEventArgs_Vtbl;
@@ -1076,7 +1142,7 @@ impl PrintTaskRequest {
     }
 }
 impl windows_core::RuntimeType for PrintTaskRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskRequest>();
 }
 unsafe impl windows_core::Interface for PrintTaskRequest {
     type Vtable = IPrintTaskRequest_Vtbl;
@@ -1098,7 +1164,7 @@ impl PrintTaskRequestedDeferral {
     }
 }
 impl windows_core::RuntimeType for PrintTaskRequestedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskRequestedDeferral>();
 }
 unsafe impl windows_core::Interface for PrintTaskRequestedDeferral {
     type Vtable = IPrintTaskRequestedDeferral_Vtbl;
@@ -1123,7 +1189,7 @@ impl PrintTaskRequestedEventArgs {
     }
 }
 impl windows_core::RuntimeType for PrintTaskRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintTaskRequestedEventArgs {
     type Vtable = IPrintTaskRequestedEventArgs_Vtbl;
@@ -1162,7 +1228,7 @@ impl PrintTaskSourceRequestedArgs {
     }
 }
 impl windows_core::RuntimeType for PrintTaskSourceRequestedArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskSourceRequestedArgs>();
 }
 unsafe impl windows_core::Interface for PrintTaskSourceRequestedArgs {
     type Vtable = IPrintTaskSourceRequestedArgs_Vtbl;
@@ -1184,7 +1250,7 @@ impl PrintTaskSourceRequestedDeferral {
     }
 }
 impl windows_core::RuntimeType for PrintTaskSourceRequestedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskSourceRequestedDeferral>();
 }
 unsafe impl windows_core::Interface for PrintTaskSourceRequestedDeferral {
     type Vtable = IPrintTaskSourceRequestedDeferral_Vtbl;

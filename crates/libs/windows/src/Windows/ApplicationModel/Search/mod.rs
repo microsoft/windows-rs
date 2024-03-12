@@ -1,6 +1,9 @@
 #[cfg(feature = "ApplicationModel_Search_Core")]
 pub mod Core;
 windows_core::imp::define_interface!(ILocalContentSuggestionSettings, ILocalContentSuggestionSettings_Vtbl, 0xeeaeb062_743d_456e_84a3_23f06f2d15d7);
+impl windows_core::RuntimeType for ILocalContentSuggestionSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILocalContentSuggestionSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19,6 +22,10 @@ pub struct ILocalContentSuggestionSettings_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISearchPane, ISearchPane_Vtbl, 0xfdacec38_3700_4d73_91a1_2f998674238a);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPane {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPane_Vtbl {
@@ -177,6 +184,9 @@ pub struct ISearchPaneQueryChangedEventArgs_Vtbl {
     LinguisticDetails: usize,
 }
 windows_core::imp::define_interface!(ISearchPaneQueryLinguisticDetails, ISearchPaneQueryLinguisticDetails_Vtbl, 0x82fb460e_0940_4b6d_b8d0_642b30989e15);
+impl windows_core::RuntimeType for ISearchPaneQueryLinguisticDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISearchPaneQueryLinguisticDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -189,6 +199,10 @@ pub struct ISearchPaneQueryLinguisticDetails_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISearchPaneQuerySubmittedEventArgs, ISearchPaneQuerySubmittedEventArgs_Vtbl, 0x143ba4fc_e9c5_4736_91b2_e8eb9cb88356);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneQuerySubmittedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneQuerySubmittedEventArgs_Vtbl {
@@ -205,6 +219,10 @@ pub struct ISearchPaneQuerySubmittedEventArgs_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails, ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Vtbl, 0x460c92e5_4c32_4538_a4d4_b6b4400d140f);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -215,6 +233,10 @@ pub struct ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISearchPaneResultSuggestionChosenEventArgs, ISearchPaneResultSuggestionChosenEventArgs_Vtbl, 0xc8316cc0_aed2_41e0_bce0_c26ca74f85ec);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneResultSuggestionChosenEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneResultSuggestionChosenEventArgs_Vtbl {
@@ -227,6 +249,10 @@ pub struct ISearchPaneResultSuggestionChosenEventArgs_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISearchPaneStatics, ISearchPaneStatics_Vtbl, 0x9572adf1_8f1d_481f_a15b_c61655f16a0e);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -238,6 +264,10 @@ pub struct ISearchPaneStatics_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISearchPaneStaticsWithHideThisApplication, ISearchPaneStaticsWithHideThisApplication_Vtbl, 0x00732830_50f1_4d03_99ac_c6644c8ed8b5);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneStaticsWithHideThisApplication {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneStaticsWithHideThisApplication_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -248,6 +278,10 @@ pub struct ISearchPaneStaticsWithHideThisApplication_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISearchPaneSuggestionsRequest, ISearchPaneSuggestionsRequest_Vtbl, 0x81b10b1c_e561_4093_9b4d_2ad482794a53);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneSuggestionsRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneSuggestionsRequest_Vtbl {
@@ -268,6 +302,10 @@ pub struct ISearchPaneSuggestionsRequest_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISearchPaneSuggestionsRequestDeferral, ISearchPaneSuggestionsRequestDeferral_Vtbl, 0xa0d009f7_8748_4ee2_ad44_afa6be997c51);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneSuggestionsRequestDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneSuggestionsRequestDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -278,6 +316,10 @@ pub struct ISearchPaneSuggestionsRequestDeferral_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISearchPaneSuggestionsRequestedEventArgs, ISearchPaneSuggestionsRequestedEventArgs_Vtbl, 0xc89b8a2f_ac56_4460_8d2f_80023bec4fc5);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneSuggestionsRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneSuggestionsRequestedEventArgs_Vtbl {
@@ -290,6 +332,10 @@ pub struct ISearchPaneSuggestionsRequestedEventArgs_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISearchPaneVisibilityChangedEventArgs, ISearchPaneVisibilityChangedEventArgs_Vtbl, 0x3c4d3046_ac4b_49f2_97d6_020e6182cb9c);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISearchPaneVisibilityChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneVisibilityChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -299,6 +345,9 @@ pub struct ISearchPaneVisibilityChangedEventArgs_Vtbl {
     Visible: usize,
 }
 windows_core::imp::define_interface!(ISearchQueryLinguisticDetails, ISearchQueryLinguisticDetails_Vtbl, 0x46a1205b_69c9_4745_b72f_a8a4fc8f24ae);
+impl windows_core::RuntimeType for ISearchQueryLinguisticDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISearchQueryLinguisticDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -310,6 +359,9 @@ pub struct ISearchQueryLinguisticDetails_Vtbl {
     pub QueryTextCompositionLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISearchQueryLinguisticDetailsFactory, ISearchQueryLinguisticDetailsFactory_Vtbl, 0xcac6c3b8_3c64_4dfd_ad9f_479e4d4065a4);
+impl windows_core::RuntimeType for ISearchQueryLinguisticDetailsFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISearchQueryLinguisticDetailsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -319,6 +371,9 @@ pub struct ISearchQueryLinguisticDetailsFactory_Vtbl {
     CreateInstance: usize,
 }
 windows_core::imp::define_interface!(ISearchSuggestionCollection, ISearchSuggestionCollection_Vtbl, 0x323a8a4b_fbea_4446_abbc_3da7915fdd3a);
+impl windows_core::RuntimeType for ISearchSuggestionCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISearchSuggestionCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -335,6 +390,9 @@ pub struct ISearchSuggestionCollection_Vtbl {
     pub AppendSearchSeparator: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISearchSuggestionsRequest, ISearchSuggestionsRequest_Vtbl, 0x4e4e26a7_44e5_4039_9099_6000ead1f0c6);
+impl windows_core::RuntimeType for ISearchSuggestionsRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISearchSuggestionsRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -343,6 +401,9 @@ pub struct ISearchSuggestionsRequest_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISearchSuggestionsRequestDeferral, ISearchSuggestionsRequestDeferral_Vtbl, 0xb71598a9_c065_456d_a845_1eccec5dc28b);
+impl windows_core::RuntimeType for ISearchSuggestionsRequestDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISearchSuggestionsRequestDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -400,7 +461,7 @@ impl LocalContentSuggestionSettings {
     }
 }
 impl windows_core::RuntimeType for LocalContentSuggestionSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocalContentSuggestionSettings>();
 }
 unsafe impl windows_core::Interface for LocalContentSuggestionSettings {
     type Vtable = ILocalContentSuggestionSettings_Vtbl;
@@ -625,7 +686,7 @@ impl SearchPane {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SearchPane {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPane>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SearchPane {
@@ -673,7 +734,7 @@ impl SearchPaneQueryChangedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SearchPaneQueryChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneQueryChangedEventArgs>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SearchPaneQueryChangedEventArgs {
@@ -717,7 +778,7 @@ impl SearchPaneQueryLinguisticDetails {
     }
 }
 impl windows_core::RuntimeType for SearchPaneQueryLinguisticDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneQueryLinguisticDetails>();
 }
 unsafe impl windows_core::Interface for SearchPaneQueryLinguisticDetails {
     type Vtable = ISearchPaneQueryLinguisticDetails_Vtbl;
@@ -763,7 +824,7 @@ impl SearchPaneQuerySubmittedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SearchPaneQuerySubmittedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneQuerySubmittedEventArgs>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SearchPaneQuerySubmittedEventArgs {
@@ -797,7 +858,7 @@ impl SearchPaneResultSuggestionChosenEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SearchPaneResultSuggestionChosenEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneResultSuggestionChosenEventArgs>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SearchPaneResultSuggestionChosenEventArgs {
@@ -847,7 +908,7 @@ impl SearchPaneSuggestionsRequest {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SearchPaneSuggestionsRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneSuggestionsRequest>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SearchPaneSuggestionsRequest {
@@ -878,7 +939,7 @@ impl SearchPaneSuggestionsRequestDeferral {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SearchPaneSuggestionsRequestDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneSuggestionsRequestDeferral>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SearchPaneSuggestionsRequestDeferral {
@@ -938,7 +999,7 @@ impl SearchPaneSuggestionsRequestedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SearchPaneSuggestionsRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneSuggestionsRequestedEventArgs>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SearchPaneSuggestionsRequestedEventArgs {
@@ -972,7 +1033,7 @@ impl SearchPaneVisibilityChangedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SearchPaneVisibilityChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneVisibilityChangedEventArgs>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SearchPaneVisibilityChangedEventArgs {
@@ -1031,7 +1092,7 @@ impl SearchQueryLinguisticDetails {
     }
 }
 impl windows_core::RuntimeType for SearchQueryLinguisticDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchQueryLinguisticDetails>();
 }
 unsafe impl windows_core::Interface for SearchQueryLinguisticDetails {
     type Vtable = ISearchQueryLinguisticDetails_Vtbl;
@@ -1080,7 +1141,7 @@ impl SearchSuggestionCollection {
     }
 }
 impl windows_core::RuntimeType for SearchSuggestionCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchSuggestionCollection>();
 }
 unsafe impl windows_core::Interface for SearchSuggestionCollection {
     type Vtable = ISearchSuggestionCollection_Vtbl;
@@ -1119,7 +1180,7 @@ impl SearchSuggestionsRequest {
     }
 }
 impl windows_core::RuntimeType for SearchSuggestionsRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchSuggestionsRequest>();
 }
 unsafe impl windows_core::Interface for SearchSuggestionsRequest {
     type Vtable = ISearchSuggestionsRequest_Vtbl;
@@ -1141,7 +1202,7 @@ impl SearchSuggestionsRequestDeferral {
     }
 }
 impl windows_core::RuntimeType for SearchSuggestionsRequestDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchSuggestionsRequestDeferral>();
 }
 unsafe impl windows_core::Interface for SearchSuggestionsRequestDeferral {
     type Vtable = ISearchSuggestionsRequestDeferral_Vtbl;

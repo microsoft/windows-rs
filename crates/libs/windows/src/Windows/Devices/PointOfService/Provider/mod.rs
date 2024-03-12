@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IBarcodeScannerDisableScannerRequest, IBarcodeScannerDisableScannerRequest_Vtbl, 0x88ecf7c0_37b9_4275_8e77_c8e52ae5a9c8);
+impl windows_core::RuntimeType for IBarcodeScannerDisableScannerRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerDisableScannerRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6,6 +9,9 @@ pub struct IBarcodeScannerDisableScannerRequest_Vtbl {
     pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerDisableScannerRequest2, IBarcodeScannerDisableScannerRequest2_Vtbl, 0xccdfe625_65c3_4ccc_b457_f39c7a9ea60d);
+impl windows_core::RuntimeType for IBarcodeScannerDisableScannerRequest2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerDisableScannerRequest2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -13,6 +19,9 @@ pub struct IBarcodeScannerDisableScannerRequest2_Vtbl {
     pub ReportFailedWithFailedReasonAndDescriptionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerDisableScannerRequestEventArgs, IBarcodeScannerDisableScannerRequestEventArgs_Vtbl, 0x7006e142_e802_46f5_b604_352a15ce9232);
+impl windows_core::RuntimeType for IBarcodeScannerDisableScannerRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerDisableScannerRequestEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -20,6 +29,9 @@ pub struct IBarcodeScannerDisableScannerRequestEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerEnableScannerRequest, IBarcodeScannerEnableScannerRequest_Vtbl, 0xc0b3e9ba_816a_452b_bd77_b7e453ec446d);
+impl windows_core::RuntimeType for IBarcodeScannerEnableScannerRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerEnableScannerRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -27,6 +39,9 @@ pub struct IBarcodeScannerEnableScannerRequest_Vtbl {
     pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerEnableScannerRequest2, IBarcodeScannerEnableScannerRequest2_Vtbl, 0x71a4f2a8_9905_41ac_9121_b645916a84a1);
+impl windows_core::RuntimeType for IBarcodeScannerEnableScannerRequest2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerEnableScannerRequest2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -34,6 +49,9 @@ pub struct IBarcodeScannerEnableScannerRequest2_Vtbl {
     pub ReportFailedWithFailedReasonAndDescriptionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerEnableScannerRequestEventArgs, IBarcodeScannerEnableScannerRequestEventArgs_Vtbl, 0x956c9419_7b4e_4451_8c41_8e10cfbc5b41);
+impl windows_core::RuntimeType for IBarcodeScannerEnableScannerRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerEnableScannerRequestEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -41,6 +59,9 @@ pub struct IBarcodeScannerEnableScannerRequestEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerFrameReader, IBarcodeScannerFrameReader_Vtbl, 0xdbc72b07_64c3_482b_93c8_65fb33c22208);
+impl windows_core::RuntimeType for IBarcodeScannerFrameReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerFrameReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -52,12 +73,18 @@ pub struct IBarcodeScannerFrameReader_Vtbl {
     pub RemoveFrameArrived: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerFrameReaderFrameArrivedEventArgs, IBarcodeScannerFrameReaderFrameArrivedEventArgs_Vtbl, 0xb0bbd604_54fd_436d_8629_712e787223dd);
+impl windows_core::RuntimeType for IBarcodeScannerFrameReaderFrameArrivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerFrameReaderFrameArrivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerGetSymbologyAttributesRequest, IBarcodeScannerGetSymbologyAttributesRequest_Vtbl, 0x9774c46a_58e4_4c5f_b8e9_e41467632700);
+impl windows_core::RuntimeType for IBarcodeScannerGetSymbologyAttributesRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerGetSymbologyAttributesRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -66,6 +93,9 @@ pub struct IBarcodeScannerGetSymbologyAttributesRequest_Vtbl {
     pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerGetSymbologyAttributesRequest2, IBarcodeScannerGetSymbologyAttributesRequest2_Vtbl, 0x6a6a2b13_75a8_49fb_b852_bfb93d760af7);
+impl windows_core::RuntimeType for IBarcodeScannerGetSymbologyAttributesRequest2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerGetSymbologyAttributesRequest2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -73,6 +103,9 @@ pub struct IBarcodeScannerGetSymbologyAttributesRequest2_Vtbl {
     pub ReportFailedWithFailedReasonAndDescriptionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerGetSymbologyAttributesRequestEventArgs, IBarcodeScannerGetSymbologyAttributesRequestEventArgs_Vtbl, 0x7f89de3e_fb5d_493c_b402_356b24d574a6);
+impl windows_core::RuntimeType for IBarcodeScannerGetSymbologyAttributesRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerGetSymbologyAttributesRequestEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -80,6 +113,9 @@ pub struct IBarcodeScannerGetSymbologyAttributesRequestEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerHideVideoPreviewRequest, IBarcodeScannerHideVideoPreviewRequest_Vtbl, 0xfa4ebe7f_6670_40e1_b90b_bb10d8d425fa);
+impl windows_core::RuntimeType for IBarcodeScannerHideVideoPreviewRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerHideVideoPreviewRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -87,6 +123,9 @@ pub struct IBarcodeScannerHideVideoPreviewRequest_Vtbl {
     pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerHideVideoPreviewRequest2, IBarcodeScannerHideVideoPreviewRequest2_Vtbl, 0x7e28435d_9814_431d_a2f2_d6248c5ad4b5);
+impl windows_core::RuntimeType for IBarcodeScannerHideVideoPreviewRequest2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerHideVideoPreviewRequest2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -94,6 +133,9 @@ pub struct IBarcodeScannerHideVideoPreviewRequest2_Vtbl {
     pub ReportFailedWithFailedReasonAndDescriptionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerHideVideoPreviewRequestEventArgs, IBarcodeScannerHideVideoPreviewRequestEventArgs_Vtbl, 0x16a281fc_d6be_4bc7_9df1_33741f3eadea);
+impl windows_core::RuntimeType for IBarcodeScannerHideVideoPreviewRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerHideVideoPreviewRequestEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -101,6 +143,9 @@ pub struct IBarcodeScannerHideVideoPreviewRequestEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerProviderConnection, IBarcodeScannerProviderConnection_Vtbl, 0xb44acbed_0b3a_4fa3_86c5_491ea30780eb);
+impl windows_core::RuntimeType for IBarcodeScannerProviderConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerProviderConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -139,6 +184,9 @@ pub struct IBarcodeScannerProviderConnection_Vtbl {
     pub RemoveHideVideoPreviewRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerProviderConnection2, IBarcodeScannerProviderConnection2_Vtbl, 0xbe9b53cd_1134_418c_a06b_04423a73f3d7);
+impl windows_core::RuntimeType for IBarcodeScannerProviderConnection2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerProviderConnection2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -153,12 +201,18 @@ pub struct IBarcodeScannerProviderConnection2_Vtbl {
     CreateFrameReaderWithFormatAndSizeAsync: usize,
 }
 windows_core::imp::define_interface!(IBarcodeScannerProviderTriggerDetails, IBarcodeScannerProviderTriggerDetails_Vtbl, 0x50856d82_24e3_48ce_99c7_70aac1cbc9f7);
+impl windows_core::RuntimeType for IBarcodeScannerProviderTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerProviderTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Connection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerSetActiveSymbologiesRequest, IBarcodeScannerSetActiveSymbologiesRequest_Vtbl, 0xdb3f32b9_f7da_41a1_9f79_07bcd95f0bdf);
+impl windows_core::RuntimeType for IBarcodeScannerSetActiveSymbologiesRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerSetActiveSymbologiesRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -170,6 +224,9 @@ pub struct IBarcodeScannerSetActiveSymbologiesRequest_Vtbl {
     pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerSetActiveSymbologiesRequest2, IBarcodeScannerSetActiveSymbologiesRequest2_Vtbl, 0xf5ff6edf_fa9a_4749_b11b_e8fccb75bc6b);
+impl windows_core::RuntimeType for IBarcodeScannerSetActiveSymbologiesRequest2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerSetActiveSymbologiesRequest2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -177,6 +234,9 @@ pub struct IBarcodeScannerSetActiveSymbologiesRequest2_Vtbl {
     pub ReportFailedWithFailedReasonAndDescriptionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerSetActiveSymbologiesRequestEventArgs, IBarcodeScannerSetActiveSymbologiesRequestEventArgs_Vtbl, 0x06305afa_7bf6_4d52_801a_330272f60ae1);
+impl windows_core::RuntimeType for IBarcodeScannerSetActiveSymbologiesRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerSetActiveSymbologiesRequestEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -184,6 +244,9 @@ pub struct IBarcodeScannerSetActiveSymbologiesRequestEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerSetSymbologyAttributesRequest, IBarcodeScannerSetSymbologyAttributesRequest_Vtbl, 0x32fb814f_a37f_48b0_acea_dce1480f12ae);
+impl windows_core::RuntimeType for IBarcodeScannerSetSymbologyAttributesRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerSetSymbologyAttributesRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -193,6 +256,9 @@ pub struct IBarcodeScannerSetSymbologyAttributesRequest_Vtbl {
     pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerSetSymbologyAttributesRequest2, IBarcodeScannerSetSymbologyAttributesRequest2_Vtbl, 0xdffbbfc1_dba8_4b77_be1e_b56cd72f65b3);
+impl windows_core::RuntimeType for IBarcodeScannerSetSymbologyAttributesRequest2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerSetSymbologyAttributesRequest2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -200,6 +266,9 @@ pub struct IBarcodeScannerSetSymbologyAttributesRequest2_Vtbl {
     pub ReportFailedWithFailedReasonAndDescriptionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerSetSymbologyAttributesRequestEventArgs, IBarcodeScannerSetSymbologyAttributesRequestEventArgs_Vtbl, 0xb2b89809_9824_47d4_85bd_d0077baa7bd2);
+impl windows_core::RuntimeType for IBarcodeScannerSetSymbologyAttributesRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerSetSymbologyAttributesRequestEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -207,6 +276,9 @@ pub struct IBarcodeScannerSetSymbologyAttributesRequestEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerStartSoftwareTriggerRequest, IBarcodeScannerStartSoftwareTriggerRequest_Vtbl, 0xe3fa7b27_ff62_4454_af4a_cb6144a3e3f7);
+impl windows_core::RuntimeType for IBarcodeScannerStartSoftwareTriggerRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerStartSoftwareTriggerRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -214,6 +286,9 @@ pub struct IBarcodeScannerStartSoftwareTriggerRequest_Vtbl {
     pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerStartSoftwareTriggerRequest2, IBarcodeScannerStartSoftwareTriggerRequest2_Vtbl, 0xeb72a25c_6658_4765_a68e_327482653deb);
+impl windows_core::RuntimeType for IBarcodeScannerStartSoftwareTriggerRequest2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerStartSoftwareTriggerRequest2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -221,6 +296,9 @@ pub struct IBarcodeScannerStartSoftwareTriggerRequest2_Vtbl {
     pub ReportFailedWithFailedReasonAndDescriptionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerStartSoftwareTriggerRequestEventArgs, IBarcodeScannerStartSoftwareTriggerRequestEventArgs_Vtbl, 0x2305d843_c88f_4f3b_8c3b_d3df071051ec);
+impl windows_core::RuntimeType for IBarcodeScannerStartSoftwareTriggerRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerStartSoftwareTriggerRequestEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -228,6 +306,9 @@ pub struct IBarcodeScannerStartSoftwareTriggerRequestEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerStopSoftwareTriggerRequest, IBarcodeScannerStopSoftwareTriggerRequest_Vtbl, 0x6f9faf35_e287_4ca8_b70d_5a91d694f668);
+impl windows_core::RuntimeType for IBarcodeScannerStopSoftwareTriggerRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerStopSoftwareTriggerRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -235,6 +316,9 @@ pub struct IBarcodeScannerStopSoftwareTriggerRequest_Vtbl {
     pub ReportFailedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerStopSoftwareTriggerRequest2, IBarcodeScannerStopSoftwareTriggerRequest2_Vtbl, 0xcb57c5dd_fe50_49f8_a0b4_bdc230814da2);
+impl windows_core::RuntimeType for IBarcodeScannerStopSoftwareTriggerRequest2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerStopSoftwareTriggerRequest2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -242,6 +326,9 @@ pub struct IBarcodeScannerStopSoftwareTriggerRequest2_Vtbl {
     pub ReportFailedWithFailedReasonAndDescriptionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerStopSoftwareTriggerRequestEventArgs, IBarcodeScannerStopSoftwareTriggerRequestEventArgs_Vtbl, 0xeac34450_4eb7_481a_9273_147a273b99b8);
+impl windows_core::RuntimeType for IBarcodeScannerStopSoftwareTriggerRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerStopSoftwareTriggerRequestEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -249,6 +336,9 @@ pub struct IBarcodeScannerStopSoftwareTriggerRequestEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBarcodeScannerVideoFrame, IBarcodeScannerVideoFrame_Vtbl, 0x7e585248_9df7_4121_a175_801d8000112e);
+impl windows_core::RuntimeType for IBarcodeScannerVideoFrame {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeScannerVideoFrame_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -264,6 +354,9 @@ pub struct IBarcodeScannerVideoFrame_Vtbl {
     PixelData: usize,
 }
 windows_core::imp::define_interface!(IBarcodeSymbologyAttributesBuilder, IBarcodeSymbologyAttributesBuilder_Vtbl, 0xc57b0cbf_e4f5_40b9_84cf_e63fbaea42b4);
+impl windows_core::RuntimeType for IBarcodeSymbologyAttributesBuilder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBarcodeSymbologyAttributesBuilder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -310,7 +403,7 @@ impl BarcodeScannerDisableScannerRequest {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerDisableScannerRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerDisableScannerRequest>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerDisableScannerRequest {
     type Vtable = IBarcodeScannerDisableScannerRequest_Vtbl;
@@ -342,7 +435,7 @@ impl BarcodeScannerDisableScannerRequestEventArgs {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerDisableScannerRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerDisableScannerRequestEventArgs>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerDisableScannerRequestEventArgs {
     type Vtable = IBarcodeScannerDisableScannerRequestEventArgs_Vtbl;
@@ -388,7 +481,7 @@ impl BarcodeScannerEnableScannerRequest {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerEnableScannerRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerEnableScannerRequest>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerEnableScannerRequest {
     type Vtable = IBarcodeScannerEnableScannerRequest_Vtbl;
@@ -420,7 +513,7 @@ impl BarcodeScannerEnableScannerRequestEventArgs {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerEnableScannerRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerEnableScannerRequestEventArgs>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerEnableScannerRequestEventArgs {
     type Vtable = IBarcodeScannerEnableScannerRequestEventArgs_Vtbl;
@@ -485,7 +578,7 @@ impl BarcodeScannerFrameReader {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerFrameReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerFrameReader>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerFrameReader {
     type Vtable = IBarcodeScannerFrameReader_Vtbl;
@@ -510,7 +603,7 @@ impl BarcodeScannerFrameReaderFrameArrivedEventArgs {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerFrameReaderFrameArrivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerFrameReaderFrameArrivedEventArgs>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerFrameReaderFrameArrivedEventArgs {
     type Vtable = IBarcodeScannerFrameReaderFrameArrivedEventArgs_Vtbl;
@@ -566,7 +659,7 @@ impl BarcodeScannerGetSymbologyAttributesRequest {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerGetSymbologyAttributesRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerGetSymbologyAttributesRequest>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerGetSymbologyAttributesRequest {
     type Vtable = IBarcodeScannerGetSymbologyAttributesRequest_Vtbl;
@@ -598,7 +691,7 @@ impl BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerGetSymbologyAttributesRequestEventArgs>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     type Vtable = IBarcodeScannerGetSymbologyAttributesRequestEventArgs_Vtbl;
@@ -644,7 +737,7 @@ impl BarcodeScannerHideVideoPreviewRequest {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerHideVideoPreviewRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerHideVideoPreviewRequest>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerHideVideoPreviewRequest {
     type Vtable = IBarcodeScannerHideVideoPreviewRequest_Vtbl;
@@ -676,7 +769,7 @@ impl BarcodeScannerHideVideoPreviewRequestEventArgs {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerHideVideoPreviewRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerHideVideoPreviewRequestEventArgs>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerHideVideoPreviewRequestEventArgs {
     type Vtable = IBarcodeScannerHideVideoPreviewRequestEventArgs_Vtbl;
@@ -931,7 +1024,7 @@ impl BarcodeScannerProviderConnection {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerProviderConnection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerProviderConnection>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerProviderConnection {
     type Vtable = IBarcodeScannerProviderConnection_Vtbl;
@@ -956,7 +1049,7 @@ impl BarcodeScannerProviderTriggerDetails {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerProviderTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerProviderTriggerDetails>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerProviderTriggerDetails {
     type Vtable = IBarcodeScannerProviderTriggerDetails_Vtbl;
@@ -1010,7 +1103,7 @@ impl BarcodeScannerSetActiveSymbologiesRequest {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerSetActiveSymbologiesRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerSetActiveSymbologiesRequest>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerSetActiveSymbologiesRequest {
     type Vtable = IBarcodeScannerSetActiveSymbologiesRequest_Vtbl;
@@ -1042,7 +1135,7 @@ impl BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerSetActiveSymbologiesRequestEventArgs>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     type Vtable = IBarcodeScannerSetActiveSymbologiesRequestEventArgs_Vtbl;
@@ -1102,7 +1195,7 @@ impl BarcodeScannerSetSymbologyAttributesRequest {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerSetSymbologyAttributesRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerSetSymbologyAttributesRequest>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerSetSymbologyAttributesRequest {
     type Vtable = IBarcodeScannerSetSymbologyAttributesRequest_Vtbl;
@@ -1134,7 +1227,7 @@ impl BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerSetSymbologyAttributesRequestEventArgs>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     type Vtable = IBarcodeScannerSetSymbologyAttributesRequestEventArgs_Vtbl;
@@ -1180,7 +1273,7 @@ impl BarcodeScannerStartSoftwareTriggerRequest {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerStartSoftwareTriggerRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerStartSoftwareTriggerRequest>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerStartSoftwareTriggerRequest {
     type Vtable = IBarcodeScannerStartSoftwareTriggerRequest_Vtbl;
@@ -1212,7 +1305,7 @@ impl BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerStartSoftwareTriggerRequestEventArgs>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     type Vtable = IBarcodeScannerStartSoftwareTriggerRequestEventArgs_Vtbl;
@@ -1258,7 +1351,7 @@ impl BarcodeScannerStopSoftwareTriggerRequest {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerStopSoftwareTriggerRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerStopSoftwareTriggerRequest>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerStopSoftwareTriggerRequest {
     type Vtable = IBarcodeScannerStopSoftwareTriggerRequest_Vtbl;
@@ -1290,7 +1383,7 @@ impl BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerStopSoftwareTriggerRequestEventArgs>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     type Vtable = IBarcodeScannerStopSoftwareTriggerRequestEventArgs_Vtbl;
@@ -1343,7 +1436,7 @@ impl BarcodeScannerVideoFrame {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerVideoFrame {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerVideoFrame>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerVideoFrame {
     type Vtable = IBarcodeScannerVideoFrame_Vtbl;
@@ -1408,7 +1501,7 @@ impl BarcodeSymbologyAttributesBuilder {
     }
 }
 impl windows_core::RuntimeType for BarcodeSymbologyAttributesBuilder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeSymbologyAttributesBuilder>();
 }
 unsafe impl windows_core::Interface for BarcodeSymbologyAttributesBuilder {
     type Vtable = IBarcodeSymbologyAttributesBuilder_Vtbl;

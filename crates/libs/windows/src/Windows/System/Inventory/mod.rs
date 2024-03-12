@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IInstalledDesktopApp, IInstalledDesktopApp_Vtbl, 0x75eab8ed_c0bc_5364_4c28_166e0545167a);
+impl windows_core::RuntimeType for IInstalledDesktopApp {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInstalledDesktopApp_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,6 +11,9 @@ pub struct IInstalledDesktopApp_Vtbl {
     pub DisplayVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInstalledDesktopAppStatics, IInstalledDesktopAppStatics_Vtbl, 0x264cf74e_21cd_5f9b_6056_7866ad72489a);
+impl windows_core::RuntimeType for IInstalledDesktopAppStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInstalledDesktopAppStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -71,7 +77,7 @@ impl InstalledDesktopApp {
     }
 }
 impl windows_core::RuntimeType for InstalledDesktopApp {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInstalledDesktopApp>();
 }
 unsafe impl windows_core::Interface for InstalledDesktopApp {
     type Vtable = IInstalledDesktopApp_Vtbl;

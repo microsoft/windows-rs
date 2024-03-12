@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IUserDataAccountPartnerAccountInfo, IUserDataAccountPartnerAccountInfo_Vtbl, 0x5f200037_f6ef_4ec3_8630_012c59c1149f);
+impl windows_core::RuntimeType for IUserDataAccountPartnerAccountInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserDataAccountPartnerAccountInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7,6 +10,9 @@ pub struct IUserDataAccountPartnerAccountInfo_Vtbl {
     pub AccountKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UserDataAccountProviderPartnerAccountKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserDataAccountProviderAddAccountOperation, IUserDataAccountProviderAddAccountOperation_Vtbl, 0xb9c72530_3f84_4b5d_8eaa_45e97aa842ed);
+impl windows_core::RuntimeType for IUserDataAccountProviderAddAccountOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserDataAccountProviderAddAccountOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -37,6 +43,9 @@ pub struct IUserDataAccountProviderOperation_Vtbl {
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UserDataAccountProviderOperationKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserDataAccountProviderResolveErrorsOperation, IUserDataAccountProviderResolveErrorsOperation_Vtbl, 0x6235dc15_bfcb_41e1_9957_9759a28846cc);
+impl windows_core::RuntimeType for IUserDataAccountProviderResolveErrorsOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserDataAccountProviderResolveErrorsOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -44,6 +53,9 @@ pub struct IUserDataAccountProviderResolveErrorsOperation_Vtbl {
     pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserDataAccountProviderSettingsOperation, IUserDataAccountProviderSettingsOperation_Vtbl, 0x92034db7_8648_4f30_acfa_3002658ca80d);
+impl windows_core::RuntimeType for IUserDataAccountProviderSettingsOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserDataAccountProviderSettingsOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -78,7 +90,7 @@ impl UserDataAccountPartnerAccountInfo {
     }
 }
 impl windows_core::RuntimeType for UserDataAccountPartnerAccountInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountPartnerAccountInfo>();
 }
 unsafe impl windows_core::Interface for UserDataAccountPartnerAccountInfo {
     type Vtable = IUserDataAccountPartnerAccountInfo_Vtbl;
@@ -123,7 +135,7 @@ impl UserDataAccountProviderAddAccountOperation {
     }
 }
 impl windows_core::RuntimeType for UserDataAccountProviderAddAccountOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountProviderAddAccountOperation>();
 }
 unsafe impl windows_core::Interface for UserDataAccountProviderAddAccountOperation {
     type Vtable = IUserDataAccountProviderAddAccountOperation_Vtbl;
@@ -160,7 +172,7 @@ impl UserDataAccountProviderResolveErrorsOperation {
     }
 }
 impl windows_core::RuntimeType for UserDataAccountProviderResolveErrorsOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountProviderResolveErrorsOperation>();
 }
 unsafe impl windows_core::Interface for UserDataAccountProviderResolveErrorsOperation {
     type Vtable = IUserDataAccountProviderResolveErrorsOperation_Vtbl;
@@ -197,7 +209,7 @@ impl UserDataAccountProviderSettingsOperation {
     }
 }
 impl windows_core::RuntimeType for UserDataAccountProviderSettingsOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountProviderSettingsOperation>();
 }
 unsafe impl windows_core::Interface for UserDataAccountProviderSettingsOperation {
     type Vtable = IUserDataAccountProviderSettingsOperation_Vtbl;

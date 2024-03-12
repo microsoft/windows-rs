@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IDisplayAdapter, IDisplayAdapter_Vtbl, 0xa56f5287_f000_5f2e_b5ac_3783a2b69af5);
+impl windows_core::RuntimeType for IDisplayAdapter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayAdapter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -18,6 +21,9 @@ pub struct IDisplayAdapter_Vtbl {
     Properties: usize,
 }
 windows_core::imp::define_interface!(IDisplayAdapterStatics, IDisplayAdapterStatics_Vtbl, 0x1dac3cda_481f_5469_8470_82c4ba680a28);
+impl windows_core::RuntimeType for IDisplayAdapterStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayAdapterStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -27,6 +33,9 @@ pub struct IDisplayAdapterStatics_Vtbl {
     FromId: usize,
 }
 windows_core::imp::define_interface!(IDisplayDevice, IDisplayDevice_Vtbl, 0xa4c9b62c_335f_5731_8cb4_c1ccd4731070);
+impl windows_core::RuntimeType for IDisplayDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -39,6 +48,9 @@ pub struct IDisplayDevice_Vtbl {
     pub IsCapabilitySupported: unsafe extern "system" fn(*mut core::ffi::c_void, DisplayDeviceCapability, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayDevice2, IDisplayDevice2_Vtbl, 0x3fefe50c_0940_54bd_a02f_f9c7a536ad60);
+impl windows_core::RuntimeType for IDisplayDevice2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayDevice2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -48,11 +60,17 @@ pub struct IDisplayDevice2_Vtbl {
     CreateSimpleScanoutWithDirtyRectsAndOptions: usize,
 }
 windows_core::imp::define_interface!(IDisplayFence, IDisplayFence_Vtbl, 0x04dcf9ef_3406_5700_8fec_77eba4c5a74b);
+impl windows_core::RuntimeType for IDisplayFence {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayFence_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IDisplayManager, IDisplayManager_Vtbl, 0x4ed9245b_15ec_56e2_9072_7fe5084a31a7);
+impl windows_core::RuntimeType for IDisplayManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -92,6 +110,9 @@ pub struct IDisplayManager_Vtbl {
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayManagerChangedEventArgs, IDisplayManagerChangedEventArgs_Vtbl, 0x6abfa285_6cca_5731_bcdc_42e5d2f5c50f);
+impl windows_core::RuntimeType for IDisplayManagerChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayManagerChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -100,6 +121,9 @@ pub struct IDisplayManagerChangedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayManagerDisabledEventArgs, IDisplayManagerDisabledEventArgs_Vtbl, 0x8726dde4_6793_5973_a11f_5ffbc93fdb90);
+impl windows_core::RuntimeType for IDisplayManagerDisabledEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayManagerDisabledEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -108,6 +132,9 @@ pub struct IDisplayManagerDisabledEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayManagerEnabledEventArgs, IDisplayManagerEnabledEventArgs_Vtbl, 0xf0cf3f6f_42fa_59a2_b297_26e1713de848);
+impl windows_core::RuntimeType for IDisplayManagerEnabledEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayManagerEnabledEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -116,6 +143,9 @@ pub struct IDisplayManagerEnabledEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayManagerPathsFailedOrInvalidatedEventArgs, IDisplayManagerPathsFailedOrInvalidatedEventArgs_Vtbl, 0x03a65659_1dec_5c15_b2a2_8fe9129869fe);
+impl windows_core::RuntimeType for IDisplayManagerPathsFailedOrInvalidatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayManagerPathsFailedOrInvalidatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -124,6 +154,9 @@ pub struct IDisplayManagerPathsFailedOrInvalidatedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayManagerResultWithState, IDisplayManagerResultWithState_Vtbl, 0x8e656aa6_6614_54be_bfef_4994547f7be1);
+impl windows_core::RuntimeType for IDisplayManagerResultWithState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayManagerResultWithState_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -132,12 +165,18 @@ pub struct IDisplayManagerResultWithState_Vtbl {
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayManagerStatics, IDisplayManagerStatics_Vtbl, 0x2b6b9446_b999_5535_9d69_53f092c780a1);
+impl windows_core::RuntimeType for IDisplayManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, DisplayManagerOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayModeInfo, IDisplayModeInfo_Vtbl, 0x48d513a0_f79b_5a74_a05e_da821f470868);
+impl windows_core::RuntimeType for IDisplayModeInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayModeInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -167,6 +206,9 @@ pub struct IDisplayModeInfo_Vtbl {
     Properties: usize,
 }
 windows_core::imp::define_interface!(IDisplayModeInfo2, IDisplayModeInfo2_Vtbl, 0xc86fa386_0ddb_5473_bfb0_4b7807b5f909);
+impl windows_core::RuntimeType for IDisplayModeInfo2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayModeInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -176,6 +218,9 @@ pub struct IDisplayModeInfo2_Vtbl {
     PhysicalPresentationRate: usize,
 }
 windows_core::imp::define_interface!(IDisplayPath, IDisplayPath_Vtbl, 0xb3dfd64a_7460_5cde_811b_d5ae9f3d9f84);
+impl windows_core::RuntimeType for IDisplayPath {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayPath_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -235,6 +280,9 @@ pub struct IDisplayPath_Vtbl {
     Properties: usize,
 }
 windows_core::imp::define_interface!(IDisplayPath2, IDisplayPath2_Vtbl, 0xf32459c5_e994_570b_9ec8_ef42c35a8547);
+impl windows_core::RuntimeType for IDisplayPath2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayPath2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -248,6 +296,9 @@ pub struct IDisplayPath2_Vtbl {
     SetPhysicalPresentationRate: usize,
 }
 windows_core::imp::define_interface!(IDisplayPrimaryDescription, IDisplayPrimaryDescription_Vtbl, 0x872591d2_d533_50ff_a85e_06696194b77c);
+impl windows_core::RuntimeType for IDisplayPrimaryDescription {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayPrimaryDescription_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -272,6 +323,9 @@ pub struct IDisplayPrimaryDescription_Vtbl {
     Properties: usize,
 }
 windows_core::imp::define_interface!(IDisplayPrimaryDescriptionFactory, IDisplayPrimaryDescriptionFactory_Vtbl, 0x1a6aff7b_3637_5c46_b479_76d576216e65);
+impl windows_core::RuntimeType for IDisplayPrimaryDescriptionFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayPrimaryDescriptionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -281,6 +335,9 @@ pub struct IDisplayPrimaryDescriptionFactory_Vtbl {
     CreateInstance: usize,
 }
 windows_core::imp::define_interface!(IDisplayPrimaryDescriptionStatics, IDisplayPrimaryDescriptionStatics_Vtbl, 0xe60e4cfb_36c9_56dd_8fa1_6ff8c4e0ff07);
+impl windows_core::RuntimeType for IDisplayPrimaryDescriptionStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayPrimaryDescriptionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -290,11 +347,17 @@ pub struct IDisplayPrimaryDescriptionStatics_Vtbl {
     CreateWithProperties: usize,
 }
 windows_core::imp::define_interface!(IDisplayScanout, IDisplayScanout_Vtbl, 0xe3051828_1ba5_50e7_8a39_bb1fd2f4f8b9);
+impl windows_core::RuntimeType for IDisplayScanout {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayScanout_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IDisplaySource, IDisplaySource_Vtbl, 0xecd15fc1_eadc_51bc_971d_3bc628db2dd4);
+impl windows_core::RuntimeType for IDisplaySource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplaySource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -309,6 +372,9 @@ pub struct IDisplaySource_Vtbl {
     GetMetadata: usize,
 }
 windows_core::imp::define_interface!(IDisplaySource2, IDisplaySource2_Vtbl, 0x71e18952_b321_5af4_bfe8_03fbea31e40d);
+impl windows_core::RuntimeType for IDisplaySource2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplaySource2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -317,6 +383,9 @@ pub struct IDisplaySource2_Vtbl {
     pub RemoveStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayState, IDisplayState_Vtbl, 0x08129321_11b5_5cb2_99f8_e90b479a8a1d);
+impl windows_core::RuntimeType for IDisplayState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayState_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -345,6 +414,9 @@ pub struct IDisplayState_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayStateOperationResult, IDisplayStateOperationResult_Vtbl, 0xfcadbfdf_dc27_5638_b7f2_ebdfa4f7ea93);
+impl windows_core::RuntimeType for IDisplayStateOperationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayStateOperationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -352,11 +424,17 @@ pub struct IDisplayStateOperationResult_Vtbl {
     pub ExtendedErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplaySurface, IDisplaySurface_Vtbl, 0x594f6cc6_139a_56d6_a4b1_15fe2cb76adb);
+impl windows_core::RuntimeType for IDisplaySurface {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplaySurface_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IDisplayTarget, IDisplayTarget_Vtbl, 0xaec57c6f_47b4_546b_987c_e73fa791fe3a);
+impl windows_core::RuntimeType for IDisplayTarget {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayTarget_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -379,6 +457,9 @@ pub struct IDisplayTarget_Vtbl {
     pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayTask, IDisplayTask_Vtbl, 0x5e087448_135b_5bb0_bf63_637f84227c7a);
+impl windows_core::RuntimeType for IDisplayTask {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayTask_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -386,12 +467,18 @@ pub struct IDisplayTask_Vtbl {
     pub SetWait: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayTask2, IDisplayTask2_Vtbl, 0x0957ea19_bd55_55de_9267_c97b61e71c37);
+impl windows_core::RuntimeType for IDisplayTask2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayTask2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetSignal: unsafe extern "system" fn(*mut core::ffi::c_void, DisplayTaskSignalKind, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayTaskPool, IDisplayTaskPool_Vtbl, 0xc676253d_237d_5548_aafa_3e517fefef1c);
+impl windows_core::RuntimeType for IDisplayTaskPool {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayTaskPool_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -402,12 +489,18 @@ pub struct IDisplayTaskPool_Vtbl {
     ExecuteTask: usize,
 }
 windows_core::imp::define_interface!(IDisplayTaskPool2, IDisplayTaskPool2_Vtbl, 0x46b879b6_5d17_5955_a872_eb38003db586);
+impl windows_core::RuntimeType for IDisplayTaskPool2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayTaskPool2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryExecuteTask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayTaskResult, IDisplayTaskResult_Vtbl, 0x6fbc7d67_f9b1_55e0_9d88_d3a5197a3f59);
+impl windows_core::RuntimeType for IDisplayTaskResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayTaskResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -416,6 +509,9 @@ pub struct IDisplayTaskResult_Vtbl {
     pub SourceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplaySourceStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayView, IDisplayView_Vtbl, 0xb0c98ca1_b759_5b59_b1ad_f0786aa9e53d);
+impl windows_core::RuntimeType for IDisplayView {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -438,6 +534,9 @@ pub struct IDisplayView_Vtbl {
     Properties: usize,
 }
 windows_core::imp::define_interface!(IDisplayWireFormat, IDisplayWireFormat_Vtbl, 0x1acc967d_872c_5a38_bbb9_1d4872b76255);
+impl windows_core::RuntimeType for IDisplayWireFormat {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayWireFormat_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -452,12 +551,18 @@ pub struct IDisplayWireFormat_Vtbl {
     Properties: usize,
 }
 windows_core::imp::define_interface!(IDisplayWireFormatFactory, IDisplayWireFormatFactory_Vtbl, 0xb2efc8d5_09d6_55e6_ad22_9014b3d25229);
+impl windows_core::RuntimeType for IDisplayWireFormatFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayWireFormatFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, DisplayWireFormatPixelEncoding, i32, DisplayWireFormatColorSpace, DisplayWireFormatEotf, DisplayWireFormatHdrMetadata, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayWireFormatStatics, IDisplayWireFormatStatics_Vtbl, 0xc575a22d_c3e6_5f7a_bdfb_87c6ab8661d5);
+impl windows_core::RuntimeType for IDisplayWireFormatStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayWireFormatStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -543,7 +648,7 @@ impl DisplayAdapter {
     }
 }
 impl windows_core::RuntimeType for DisplayAdapter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayAdapter>();
 }
 unsafe impl windows_core::Interface for DisplayAdapter {
     type Vtable = IDisplayAdapter_Vtbl;
@@ -637,7 +742,7 @@ impl DisplayDevice {
     }
 }
 impl windows_core::RuntimeType for DisplayDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayDevice>();
 }
 unsafe impl windows_core::Interface for DisplayDevice {
     type Vtable = IDisplayDevice_Vtbl;
@@ -654,7 +759,7 @@ pub struct DisplayFence(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayFence, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayFence {}
 impl windows_core::RuntimeType for DisplayFence {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayFence>();
 }
 unsafe impl windows_core::Interface for DisplayFence {
     type Vtable = IDisplayFence_Vtbl;
@@ -836,7 +941,7 @@ impl DisplayManager {
     }
 }
 impl windows_core::RuntimeType for DisplayManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManager>();
 }
 unsafe impl windows_core::Interface for DisplayManager {
     type Vtable = IDisplayManager_Vtbl;
@@ -872,7 +977,7 @@ impl DisplayManagerChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for DisplayManagerChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for DisplayManagerChangedEventArgs {
     type Vtable = IDisplayManagerChangedEventArgs_Vtbl;
@@ -908,7 +1013,7 @@ impl DisplayManagerDisabledEventArgs {
     }
 }
 impl windows_core::RuntimeType for DisplayManagerDisabledEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerDisabledEventArgs>();
 }
 unsafe impl windows_core::Interface for DisplayManagerDisabledEventArgs {
     type Vtable = IDisplayManagerDisabledEventArgs_Vtbl;
@@ -944,7 +1049,7 @@ impl DisplayManagerEnabledEventArgs {
     }
 }
 impl windows_core::RuntimeType for DisplayManagerEnabledEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerEnabledEventArgs>();
 }
 unsafe impl windows_core::Interface for DisplayManagerEnabledEventArgs {
     type Vtable = IDisplayManagerEnabledEventArgs_Vtbl;
@@ -980,7 +1085,7 @@ impl DisplayManagerPathsFailedOrInvalidatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for DisplayManagerPathsFailedOrInvalidatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerPathsFailedOrInvalidatedEventArgs>();
 }
 unsafe impl windows_core::Interface for DisplayManagerPathsFailedOrInvalidatedEventArgs {
     type Vtable = IDisplayManagerPathsFailedOrInvalidatedEventArgs_Vtbl;
@@ -1019,7 +1124,7 @@ impl DisplayManagerResultWithState {
     }
 }
 impl windows_core::RuntimeType for DisplayManagerResultWithState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerResultWithState>();
 }
 unsafe impl windows_core::Interface for DisplayManagerResultWithState {
     type Vtable = IDisplayManagerResultWithState_Vtbl;
@@ -1116,7 +1221,7 @@ impl DisplayModeInfo {
     }
 }
 impl windows_core::RuntimeType for DisplayModeInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayModeInfo>();
 }
 unsafe impl windows_core::Interface for DisplayModeInfo {
     type Vtable = IDisplayModeInfo_Vtbl;
@@ -1316,7 +1421,7 @@ impl DisplayPath {
     }
 }
 impl windows_core::RuntimeType for DisplayPath {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayPath>();
 }
 unsafe impl windows_core::Interface for DisplayPath {
     type Vtable = IDisplayPath_Vtbl;
@@ -1414,7 +1519,7 @@ impl DisplayPrimaryDescription {
     }
 }
 impl windows_core::RuntimeType for DisplayPrimaryDescription {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayPrimaryDescription>();
 }
 unsafe impl windows_core::Interface for DisplayPrimaryDescription {
     type Vtable = IDisplayPrimaryDescription_Vtbl;
@@ -1431,7 +1536,7 @@ pub struct DisplayScanout(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayScanout, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayScanout {}
 impl windows_core::RuntimeType for DisplayScanout {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayScanout>();
 }
 unsafe impl windows_core::Interface for DisplayScanout {
     type Vtable = IDisplayScanout_Vtbl;
@@ -1493,7 +1598,7 @@ impl DisplaySource {
     }
 }
 impl windows_core::RuntimeType for DisplaySource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplaySource>();
 }
 unsafe impl windows_core::Interface for DisplaySource {
     type Vtable = IDisplaySource_Vtbl;
@@ -1629,7 +1734,7 @@ impl DisplayState {
     }
 }
 impl windows_core::RuntimeType for DisplayState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayState>();
 }
 unsafe impl windows_core::Interface for DisplayState {
     type Vtable = IDisplayState_Vtbl;
@@ -1661,7 +1766,7 @@ impl DisplayStateOperationResult {
     }
 }
 impl windows_core::RuntimeType for DisplayStateOperationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayStateOperationResult>();
 }
 unsafe impl windows_core::Interface for DisplayStateOperationResult {
     type Vtable = IDisplayStateOperationResult_Vtbl;
@@ -1678,7 +1783,7 @@ pub struct DisplaySurface(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplaySurface, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplaySurface {}
 impl windows_core::RuntimeType for DisplaySurface {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplaySurface>();
 }
 unsafe impl windows_core::Interface for DisplaySurface {
     type Vtable = IDisplaySurface_Vtbl;
@@ -1801,7 +1906,7 @@ impl DisplayTarget {
     }
 }
 impl windows_core::RuntimeType for DisplayTarget {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayTarget>();
 }
 unsafe impl windows_core::Interface for DisplayTarget {
     type Vtable = IDisplayTarget_Vtbl;
@@ -1840,7 +1945,7 @@ impl DisplayTask {
     }
 }
 impl windows_core::RuntimeType for DisplayTask {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayTask>();
 }
 unsafe impl windows_core::Interface for DisplayTask {
     type Vtable = IDisplayTask_Vtbl;
@@ -1883,7 +1988,7 @@ impl DisplayTaskPool {
     }
 }
 impl windows_core::RuntimeType for DisplayTaskPool {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayTaskPool>();
 }
 unsafe impl windows_core::Interface for DisplayTaskPool {
     type Vtable = IDisplayTaskPool_Vtbl;
@@ -1922,7 +2027,7 @@ impl DisplayTaskResult {
     }
 }
 impl windows_core::RuntimeType for DisplayTaskResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayTaskResult>();
 }
 unsafe impl windows_core::Interface for DisplayTaskResult {
     type Vtable = IDisplayTaskResult_Vtbl;
@@ -1979,7 +2084,7 @@ impl DisplayView {
     }
 }
 impl windows_core::RuntimeType for DisplayView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayView>();
 }
 unsafe impl windows_core::Interface for DisplayView {
     type Vtable = IDisplayView_Vtbl;
@@ -2066,7 +2171,7 @@ impl DisplayWireFormat {
     }
 }
 impl windows_core::RuntimeType for DisplayWireFormat {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayWireFormat>();
 }
 unsafe impl windows_core::Interface for DisplayWireFormat {
     type Vtable = IDisplayWireFormat_Vtbl;

@@ -1,10 +1,16 @@
 windows_core::imp::define_interface!(IItemRemovedEventArgs, IItemRemovedEventArgs_Vtbl, 0x59677e5c_55be_4c66_ba66_5eaea79d2631);
+impl windows_core::RuntimeType for IItemRemovedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IItemRemovedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemovedEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<AccessListEntry>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageApplicationPermissionsStatics, IStorageApplicationPermissionsStatics_Vtbl, 0x4391dfaa_d033_48f9_8060_3ec847d2e3f1);
+impl windows_core::RuntimeType for IStorageApplicationPermissionsStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorageApplicationPermissionsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12,6 +18,9 @@ pub struct IStorageApplicationPermissionsStatics_Vtbl {
     pub MostRecentlyUsedList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageApplicationPermissionsStatics2, IStorageApplicationPermissionsStatics2_Vtbl, 0x072716ec_aa05_4294_9a11_1a3d04519ad0);
+impl windows_core::RuntimeType for IStorageApplicationPermissionsStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorageApplicationPermissionsStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -171,6 +180,9 @@ pub struct IStorageItemAccessList_Vtbl {
     pub MaximumItemsAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageItemMostRecentlyUsedList, IStorageItemMostRecentlyUsedList_Vtbl, 0x016239d5_510d_411e_8cf1_c3d1effa4c33);
+impl windows_core::RuntimeType for IStorageItemMostRecentlyUsedList {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorageItemMostRecentlyUsedList_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -178,6 +190,9 @@ pub struct IStorageItemMostRecentlyUsedList_Vtbl {
     pub RemoveItemRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageItemMostRecentlyUsedList2, IStorageItemMostRecentlyUsedList2_Vtbl, 0xda481ea0_ed8d_4731_a1db_e44ee2204093);
+impl windows_core::RuntimeType for IStorageItemMostRecentlyUsedList2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorageItemMostRecentlyUsedList2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -240,7 +255,7 @@ impl AccessListEntryView {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for AccessListEntryView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVectorView<AccessListEntry>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for AccessListEntryView {
@@ -281,7 +296,7 @@ impl ItemRemovedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ItemRemovedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IItemRemovedEventArgs>();
 }
 unsafe impl windows_core::Interface for ItemRemovedEventArgs {
     type Vtable = IItemRemovedEventArgs_Vtbl;
@@ -462,7 +477,7 @@ impl StorageItemAccessList {
     }
 }
 impl windows_core::RuntimeType for StorageItemAccessList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageItemAccessList>();
 }
 unsafe impl windows_core::Interface for StorageItemAccessList {
     type Vtable = IStorageItemAccessList_Vtbl;
@@ -626,7 +641,7 @@ impl StorageItemMostRecentlyUsedList {
     }
 }
 impl windows_core::RuntimeType for StorageItemMostRecentlyUsedList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageItemMostRecentlyUsedList>();
 }
 unsafe impl windows_core::Interface for StorageItemMostRecentlyUsedList {
     type Vtable = IStorageItemMostRecentlyUsedList_Vtbl;

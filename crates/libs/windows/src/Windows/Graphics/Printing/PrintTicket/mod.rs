@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IPrintTicketCapabilities, IPrintTicketCapabilities_Vtbl, 0x8c45508b_bbdc_4256_a142_2fd615ecb416);
+impl windows_core::RuntimeType for IPrintTicketCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTicketCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -27,6 +30,9 @@ pub struct IPrintTicketCapabilities_Vtbl {
     pub GetParameterDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTicketFeature, IPrintTicketFeature_Vtbl, 0xe7607d6a_59f5_4103_8858_b97710963d39);
+impl windows_core::RuntimeType for IPrintTicketFeature {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTicketFeature_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -47,6 +53,9 @@ pub struct IPrintTicketFeature_Vtbl {
     pub SelectionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintTicketFeatureSelectionType) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTicketOption, IPrintTicketOption_Vtbl, 0xb086cf90_b367_4e4b_bd48_9c78a0bb31ce);
+impl windows_core::RuntimeType for IPrintTicketOption {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTicketOption_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -69,6 +78,9 @@ pub struct IPrintTicketOption_Vtbl {
     pub GetScoredPropertyValue: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTicketParameterDefinition, IPrintTicketParameterDefinition_Vtbl, 0xd6bab4e4_2962_4c01_b7f3_9a9294eb8335);
+impl windows_core::RuntimeType for IPrintTicketParameterDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTicketParameterDefinition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -84,6 +96,9 @@ pub struct IPrintTicketParameterDefinition_Vtbl {
     pub RangeMax: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTicketParameterInitializer, IPrintTicketParameterInitializer_Vtbl, 0x5e3335bb_a0a5_48b1_9d5c_07116ddc597a);
+impl windows_core::RuntimeType for IPrintTicketParameterInitializer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTicketParameterInitializer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -97,6 +112,9 @@ pub struct IPrintTicketParameterInitializer_Vtbl {
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTicketValue, IPrintTicketValue_Vtbl, 0x66b30a32_244d_4e22_a98b_bb3cf1f2dd91);
+impl windows_core::RuntimeType for IPrintTicketValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTicketValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -105,6 +123,9 @@ pub struct IPrintTicketValue_Vtbl {
     pub GetValueAsString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWorkflowPrintTicket, IWorkflowPrintTicket_Vtbl, 0x41d52285_35e8_448e_a8c5_e4b6a2cf826c);
+impl windows_core::RuntimeType for IWorkflowPrintTicket {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWorkflowPrintTicket_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -139,6 +160,9 @@ pub struct IWorkflowPrintTicket_Vtbl {
     pub MergeAndValidateTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWorkflowPrintTicketValidationResult, IWorkflowPrintTicketValidationResult_Vtbl, 0x0ad1f392_da7b_4a36_bf36_6a99a62e2059);
+impl windows_core::RuntimeType for IWorkflowPrintTicketValidationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWorkflowPrintTicketValidationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -293,7 +317,7 @@ impl PrintTicketCapabilities {
     }
 }
 impl windows_core::RuntimeType for PrintTicketCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTicketCapabilities>();
 }
 unsafe impl windows_core::Interface for PrintTicketCapabilities {
     type Vtable = IPrintTicketCapabilities_Vtbl;
@@ -376,7 +400,7 @@ impl PrintTicketFeature {
     }
 }
 impl windows_core::RuntimeType for PrintTicketFeature {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTicketFeature>();
 }
 unsafe impl windows_core::Interface for PrintTicketFeature {
     type Vtable = IPrintTicketFeature_Vtbl;
@@ -453,7 +477,7 @@ impl PrintTicketOption {
     }
 }
 impl windows_core::RuntimeType for PrintTicketOption {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTicketOption>();
 }
 unsafe impl windows_core::Interface for PrintTicketOption {
     type Vtable = IPrintTicketOption_Vtbl;
@@ -521,7 +545,7 @@ impl PrintTicketParameterDefinition {
     }
 }
 impl windows_core::RuntimeType for PrintTicketParameterDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTicketParameterDefinition>();
 }
 unsafe impl windows_core::Interface for PrintTicketParameterDefinition {
     type Vtable = IPrintTicketParameterDefinition_Vtbl;
@@ -575,7 +599,7 @@ impl PrintTicketParameterInitializer {
     }
 }
 impl windows_core::RuntimeType for PrintTicketParameterInitializer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTicketParameterInitializer>();
 }
 unsafe impl windows_core::Interface for PrintTicketParameterInitializer {
     type Vtable = IPrintTicketParameterInitializer_Vtbl;
@@ -614,7 +638,7 @@ impl PrintTicketValue {
     }
 }
 impl windows_core::RuntimeType for PrintTicketValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTicketValue>();
 }
 unsafe impl windows_core::Interface for PrintTicketValue {
     type Vtable = IPrintTicketValue_Vtbl;
@@ -818,7 +842,7 @@ impl WorkflowPrintTicket {
     }
 }
 impl windows_core::RuntimeType for WorkflowPrintTicket {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWorkflowPrintTicket>();
 }
 unsafe impl windows_core::Interface for WorkflowPrintTicket {
     type Vtable = IWorkflowPrintTicket_Vtbl;
@@ -850,7 +874,7 @@ impl WorkflowPrintTicketValidationResult {
     }
 }
 impl windows_core::RuntimeType for WorkflowPrintTicketValidationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWorkflowPrintTicketValidationResult>();
 }
 unsafe impl windows_core::Interface for WorkflowPrintTicketValidationResult {
     type Vtable = IWorkflowPrintTicketValidationResult_Vtbl;

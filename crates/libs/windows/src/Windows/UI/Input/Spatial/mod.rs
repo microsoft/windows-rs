@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ISpatialGestureRecognizer, ISpatialGestureRecognizer_Vtbl, 0x71605bcc_0c35_4673_adbd_cc04caa6ef45);
+impl windows_core::RuntimeType for ISpatialGestureRecognizer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialGestureRecognizer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -36,24 +39,36 @@ pub struct ISpatialGestureRecognizer_Vtbl {
     pub GestureSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialGestureSettings) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialGestureRecognizerFactory, ISpatialGestureRecognizerFactory_Vtbl, 0x77214186_57b9_3150_8382_698b24e264d0);
+impl windows_core::RuntimeType for ISpatialGestureRecognizerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialGestureRecognizerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, SpatialGestureSettings, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialHoldCanceledEventArgs, ISpatialHoldCanceledEventArgs_Vtbl, 0x5dfcb667_4caa_4093_8c35_b601a839f31b);
+impl windows_core::RuntimeType for ISpatialHoldCanceledEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialHoldCanceledEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialInteractionSourceKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialHoldCompletedEventArgs, ISpatialHoldCompletedEventArgs_Vtbl, 0x3f64470b_4cfd_43da_8dc4_e64552173971);
+impl windows_core::RuntimeType for ISpatialHoldCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialHoldCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialInteractionSourceKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialHoldStartedEventArgs, ISpatialHoldStartedEventArgs_Vtbl, 0x8e343d79_acb6_4144_8615_2cfba8a3cb3f);
+impl windows_core::RuntimeType for ISpatialHoldStartedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialHoldStartedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -64,12 +79,18 @@ pub struct ISpatialHoldStartedEventArgs_Vtbl {
     TryGetPointerPose: usize,
 }
 windows_core::imp::define_interface!(ISpatialInteraction, ISpatialInteraction_Vtbl, 0xfc967639_88e6_4646_9112_4344aaec9dfa);
+impl windows_core::RuntimeType for ISpatialInteraction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteraction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SourceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialInteractionController, ISpatialInteractionController_Vtbl, 0x5f0e5ba3_0954_4e97_86c5_e7f30b114dfd);
+impl windows_core::RuntimeType for ISpatialInteractionController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -84,6 +105,9 @@ pub struct ISpatialInteractionController_Vtbl {
     pub Version: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialInteractionController2, ISpatialInteractionController2_Vtbl, 0x35b6d924_c7a2_49b7_b72e_5436b2fb8f9c);
+impl windows_core::RuntimeType for ISpatialInteractionController2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionController2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -93,6 +117,9 @@ pub struct ISpatialInteractionController2_Vtbl {
     TryGetRenderableModelAsync: usize,
 }
 windows_core::imp::define_interface!(ISpatialInteractionController3, ISpatialInteractionController3_Vtbl, 0x628466a0_9d91_4a0b_888d_165e670a8cd5);
+impl windows_core::RuntimeType for ISpatialInteractionController3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionController3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -102,6 +129,9 @@ pub struct ISpatialInteractionController3_Vtbl {
     TryGetBatteryReport: usize,
 }
 windows_core::imp::define_interface!(ISpatialInteractionControllerProperties, ISpatialInteractionControllerProperties_Vtbl, 0x61056fb1_7ba9_4e35_b93f_9272cba9b28b);
+impl windows_core::RuntimeType for ISpatialInteractionControllerProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionControllerProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -114,6 +144,9 @@ pub struct ISpatialInteractionControllerProperties_Vtbl {
     pub TouchpadY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialInteractionDetectedEventArgs, ISpatialInteractionDetectedEventArgs_Vtbl, 0x075878e4_5961_3b41_9dfb_cea5d89cc38a);
+impl windows_core::RuntimeType for ISpatialInteractionDetectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionDetectedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -125,12 +158,18 @@ pub struct ISpatialInteractionDetectedEventArgs_Vtbl {
     pub Interaction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialInteractionDetectedEventArgs2, ISpatialInteractionDetectedEventArgs2_Vtbl, 0x7b263e93_5f13_419c_97d5_834678266aa6);
+impl windows_core::RuntimeType for ISpatialInteractionDetectedEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionDetectedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InteractionSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialInteractionManager, ISpatialInteractionManager_Vtbl, 0x32a64ea8_a15a_3995_b8bd_80513cb5adef);
+impl windows_core::RuntimeType for ISpatialInteractionManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -152,18 +191,27 @@ pub struct ISpatialInteractionManager_Vtbl {
     GetDetectedSourcesAtTimestamp: usize,
 }
 windows_core::imp::define_interface!(ISpatialInteractionManagerStatics, ISpatialInteractionManagerStatics_Vtbl, 0x00e31fa6_8ca2_30bf_91fe_d9cb4a008990);
+impl windows_core::RuntimeType for ISpatialInteractionManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialInteractionManagerStatics2, ISpatialInteractionManagerStatics2_Vtbl, 0x93f16c52_b88a_5929_8d7c_48cb948b081c);
+impl windows_core::RuntimeType for ISpatialInteractionManagerStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSourceKindSupported: unsafe extern "system" fn(*mut core::ffi::c_void, SpatialInteractionSourceKind, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialInteractionSource, ISpatialInteractionSource_Vtbl, 0xfb5433ba_b0b3_3148_9f3b_e9f5de568f5d);
+impl windows_core::RuntimeType for ISpatialInteractionSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -171,6 +219,9 @@ pub struct ISpatialInteractionSource_Vtbl {
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialInteractionSourceKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialInteractionSource2, ISpatialInteractionSource2_Vtbl, 0xe4c5b70c_0470_4028_88c0_a0eb44d34efe);
+impl windows_core::RuntimeType for ISpatialInteractionSource2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionSource2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -184,12 +235,18 @@ pub struct ISpatialInteractionSource2_Vtbl {
     TryGetStateAtTimestamp: usize,
 }
 windows_core::imp::define_interface!(ISpatialInteractionSource3, ISpatialInteractionSource3_Vtbl, 0x0406d9f9_9afd_44f9_85dc_700023a962e3);
+impl windows_core::RuntimeType for ISpatialInteractionSource3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionSource3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Handedness: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialInteractionSourceHandedness) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialInteractionSource4, ISpatialInteractionSource4_Vtbl, 0x0073bc4d_df66_5a91_a2ba_cea3e5c58a19);
+impl windows_core::RuntimeType for ISpatialInteractionSource4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionSource4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -203,18 +260,27 @@ pub struct ISpatialInteractionSource4_Vtbl {
     TryCreateHandMeshObserverAsync: usize,
 }
 windows_core::imp::define_interface!(ISpatialInteractionSourceEventArgs, ISpatialInteractionSourceEventArgs_Vtbl, 0x23b786cf_ec23_3979_b27c_eb0e12feb7c7);
+impl windows_core::RuntimeType for ISpatialInteractionSourceEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionSourceEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialInteractionSourceEventArgs2, ISpatialInteractionSourceEventArgs2_Vtbl, 0xd8b4b467_e648_4d52_ab49_e0d227199f63);
+impl windows_core::RuntimeType for ISpatialInteractionSourceEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionSourceEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PressKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialInteractionPressKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialInteractionSourceLocation, ISpatialInteractionSourceLocation_Vtbl, 0xea4696c4_7e8b_30ca_bcc5_c77189cea30a);
+impl windows_core::RuntimeType for ISpatialInteractionSourceLocation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionSourceLocation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -228,6 +294,9 @@ pub struct ISpatialInteractionSourceLocation_Vtbl {
     Velocity: usize,
 }
 windows_core::imp::define_interface!(ISpatialInteractionSourceLocation2, ISpatialInteractionSourceLocation2_Vtbl, 0x4c671045_3917_40fc_a9ac_31c9cf5ff91b);
+impl windows_core::RuntimeType for ISpatialInteractionSourceLocation2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionSourceLocation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -237,6 +306,9 @@ pub struct ISpatialInteractionSourceLocation2_Vtbl {
     Orientation: usize,
 }
 windows_core::imp::define_interface!(ISpatialInteractionSourceLocation3, ISpatialInteractionSourceLocation3_Vtbl, 0x6702e65e_e915_4cfb_9c1b_0538efc86687);
+impl windows_core::RuntimeType for ISpatialInteractionSourceLocation3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionSourceLocation3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -248,6 +320,9 @@ pub struct ISpatialInteractionSourceLocation3_Vtbl {
     pub SourcePointerPose: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialInteractionSourceProperties, ISpatialInteractionSourceProperties_Vtbl, 0x05604542_3ef7_3222_9f53_63c9cb7e3bc7);
+impl windows_core::RuntimeType for ISpatialInteractionSourceProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionSourceProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -262,6 +337,9 @@ pub struct ISpatialInteractionSourceProperties_Vtbl {
     TryGetLocation: usize,
 }
 windows_core::imp::define_interface!(ISpatialInteractionSourceState, ISpatialInteractionSourceState_Vtbl, 0xd5c475ef_4b63_37ec_98b9_9fc652b9d2f2);
+impl windows_core::RuntimeType for ISpatialInteractionSourceState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionSourceState_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -278,6 +356,9 @@ pub struct ISpatialInteractionSourceState_Vtbl {
     TryGetPointerPose: usize,
 }
 windows_core::imp::define_interface!(ISpatialInteractionSourceState2, ISpatialInteractionSourceState2_Vtbl, 0x45f6d0bd_1773_492e_9ba3_8ac1cbe77c08);
+impl windows_core::RuntimeType for ISpatialInteractionSourceState2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionSourceState2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -288,6 +369,9 @@ pub struct ISpatialInteractionSourceState2_Vtbl {
     pub ControllerProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialInteractionSourceState3, ISpatialInteractionSourceState3_Vtbl, 0xf2f00bc2_bd2b_4a01_a8fb_323e0158527c);
+impl windows_core::RuntimeType for ISpatialInteractionSourceState3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialInteractionSourceState3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -297,12 +381,18 @@ pub struct ISpatialInteractionSourceState3_Vtbl {
     TryGetHandPose: usize,
 }
 windows_core::imp::define_interface!(ISpatialManipulationCanceledEventArgs, ISpatialManipulationCanceledEventArgs_Vtbl, 0x2d40d1cb_e7da_4220_b0bf_819301674780);
+impl windows_core::RuntimeType for ISpatialManipulationCanceledEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialManipulationCanceledEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialInteractionSourceKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialManipulationCompletedEventArgs, ISpatialManipulationCompletedEventArgs_Vtbl, 0x05086802_f301_4343_9250_2fbaa5f87a37);
+impl windows_core::RuntimeType for ISpatialManipulationCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialManipulationCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -313,6 +403,9 @@ pub struct ISpatialManipulationCompletedEventArgs_Vtbl {
     TryGetCumulativeDelta: usize,
 }
 windows_core::imp::define_interface!(ISpatialManipulationDelta, ISpatialManipulationDelta_Vtbl, 0xa7ec967a_d123_3a81_a15b_992923dcbe91);
+impl windows_core::RuntimeType for ISpatialManipulationDelta {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialManipulationDelta_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -322,6 +415,9 @@ pub struct ISpatialManipulationDelta_Vtbl {
     Translation: usize,
 }
 windows_core::imp::define_interface!(ISpatialManipulationStartedEventArgs, ISpatialManipulationStartedEventArgs_Vtbl, 0xa1d6bbce_42a5_377b_ada6_d28e3d384737);
+impl windows_core::RuntimeType for ISpatialManipulationStartedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialManipulationStartedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -332,6 +428,9 @@ pub struct ISpatialManipulationStartedEventArgs_Vtbl {
     TryGetPointerPose: usize,
 }
 windows_core::imp::define_interface!(ISpatialManipulationUpdatedEventArgs, ISpatialManipulationUpdatedEventArgs_Vtbl, 0x5f230b9b_60c6_4dc6_bdc9_9f4a6f15fe49);
+impl windows_core::RuntimeType for ISpatialManipulationUpdatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialManipulationUpdatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -342,12 +441,18 @@ pub struct ISpatialManipulationUpdatedEventArgs_Vtbl {
     TryGetCumulativeDelta: usize,
 }
 windows_core::imp::define_interface!(ISpatialNavigationCanceledEventArgs, ISpatialNavigationCanceledEventArgs_Vtbl, 0xce503edc_e8a5_46f0_92d4_3c122b35112a);
+impl windows_core::RuntimeType for ISpatialNavigationCanceledEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialNavigationCanceledEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialInteractionSourceKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialNavigationCompletedEventArgs, ISpatialNavigationCompletedEventArgs_Vtbl, 0x012e80b7_af3b_42c2_9e41_baaa0e721f3a);
+impl windows_core::RuntimeType for ISpatialNavigationCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialNavigationCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -358,6 +463,9 @@ pub struct ISpatialNavigationCompletedEventArgs_Vtbl {
     NormalizedOffset: usize,
 }
 windows_core::imp::define_interface!(ISpatialNavigationStartedEventArgs, ISpatialNavigationStartedEventArgs_Vtbl, 0x754a348a_fb64_4656_8ebd_9deecaafe475);
+impl windows_core::RuntimeType for ISpatialNavigationStartedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialNavigationStartedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -371,6 +479,9 @@ pub struct ISpatialNavigationStartedEventArgs_Vtbl {
     pub IsNavigatingZ: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialNavigationUpdatedEventArgs, ISpatialNavigationUpdatedEventArgs_Vtbl, 0x9b713fd7_839d_4a74_8732_45466fc044b5);
+impl windows_core::RuntimeType for ISpatialNavigationUpdatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialNavigationUpdatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -381,6 +492,9 @@ pub struct ISpatialNavigationUpdatedEventArgs_Vtbl {
     NormalizedOffset: usize,
 }
 windows_core::imp::define_interface!(ISpatialPointerInteractionSourcePose, ISpatialPointerInteractionSourcePose_Vtbl, 0xa7104307_2c2b_4d3a_92a7_80ced7c4a0d0);
+impl windows_core::RuntimeType for ISpatialPointerInteractionSourcePose {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialPointerInteractionSourcePose_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -398,6 +512,9 @@ pub struct ISpatialPointerInteractionSourcePose_Vtbl {
     UpDirection: usize,
 }
 windows_core::imp::define_interface!(ISpatialPointerInteractionSourcePose2, ISpatialPointerInteractionSourcePose2_Vtbl, 0xeccd86b8_52db_469f_9e3f_80c47f74bce9);
+impl windows_core::RuntimeType for ISpatialPointerInteractionSourcePose2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialPointerInteractionSourcePose2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -408,6 +525,9 @@ pub struct ISpatialPointerInteractionSourcePose2_Vtbl {
     pub PositionAccuracy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialInteractionSourcePositionAccuracy) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialPointerPose, ISpatialPointerPose_Vtbl, 0x6953a42e_c17e_357d_97a1_7269d0ed2d10);
+impl windows_core::RuntimeType for ISpatialPointerPose {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialPointerPose_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -421,12 +541,18 @@ pub struct ISpatialPointerPose_Vtbl {
     Head: usize,
 }
 windows_core::imp::define_interface!(ISpatialPointerPose2, ISpatialPointerPose2_Vtbl, 0x9d202b17_954e_4e0c_96d1_b6790b6fc2fd);
+impl windows_core::RuntimeType for ISpatialPointerPose2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialPointerPose2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryGetInteractionSourcePose: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialPointerPose3, ISpatialPointerPose3_Vtbl, 0x6342f3f0_ec49_5b4b_b8d1_d16cbb16be84);
+impl windows_core::RuntimeType for ISpatialPointerPose3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialPointerPose3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -437,6 +563,9 @@ pub struct ISpatialPointerPose3_Vtbl {
     pub IsHeadCapturedBySystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialPointerPoseStatics, ISpatialPointerPoseStatics_Vtbl, 0xa25591a9_aca1_3ee0_9816_785cfb2e3fb8);
+impl windows_core::RuntimeType for ISpatialPointerPoseStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialPointerPoseStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -446,12 +575,18 @@ pub struct ISpatialPointerPoseStatics_Vtbl {
     TryGetAtTimestamp: usize,
 }
 windows_core::imp::define_interface!(ISpatialRecognitionEndedEventArgs, ISpatialRecognitionEndedEventArgs_Vtbl, 0x0e35f5cb_3f75_43f3_ac81_d1dc2df9b1fb);
+impl windows_core::RuntimeType for ISpatialRecognitionEndedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialRecognitionEndedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialInteractionSourceKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialRecognitionStartedEventArgs, ISpatialRecognitionStartedEventArgs_Vtbl, 0x24da128f_0008_4a6d_aa50_2a76f9cfb264);
+impl windows_core::RuntimeType for ISpatialRecognitionStartedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialRecognitionStartedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -463,6 +598,9 @@ pub struct ISpatialRecognitionStartedEventArgs_Vtbl {
     pub IsGesturePossible: unsafe extern "system" fn(*mut core::ffi::c_void, SpatialGestureSettings, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialTappedEventArgs, ISpatialTappedEventArgs_Vtbl, 0x296d83de_f444_4aa1_b2bf_9dc88d567da6);
+impl windows_core::RuntimeType for ISpatialTappedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialTappedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -712,7 +850,7 @@ impl SpatialGestureRecognizer {
     }
 }
 impl windows_core::RuntimeType for SpatialGestureRecognizer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialGestureRecognizer>();
 }
 unsafe impl windows_core::Interface for SpatialGestureRecognizer {
     type Vtable = ISpatialGestureRecognizer_Vtbl;
@@ -737,7 +875,7 @@ impl SpatialHoldCanceledEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpatialHoldCanceledEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialHoldCanceledEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialHoldCanceledEventArgs {
     type Vtable = ISpatialHoldCanceledEventArgs_Vtbl;
@@ -762,7 +900,7 @@ impl SpatialHoldCompletedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpatialHoldCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialHoldCompletedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialHoldCompletedEventArgs {
     type Vtable = ISpatialHoldCompletedEventArgs_Vtbl;
@@ -798,7 +936,7 @@ impl SpatialHoldStartedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpatialHoldStartedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialHoldStartedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialHoldStartedEventArgs {
     type Vtable = ISpatialHoldStartedEventArgs_Vtbl;
@@ -823,7 +961,7 @@ impl SpatialInteraction {
     }
 }
 impl windows_core::RuntimeType for SpatialInteraction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteraction>();
 }
 unsafe impl windows_core::Interface for SpatialInteraction {
     type Vtable = ISpatialInteraction_Vtbl;
@@ -900,7 +1038,7 @@ impl SpatialInteractionController {
     }
 }
 impl windows_core::RuntimeType for SpatialInteractionController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteractionController>();
 }
 unsafe impl windows_core::Interface for SpatialInteractionController {
     type Vtable = ISpatialInteractionController_Vtbl;
@@ -967,7 +1105,7 @@ impl SpatialInteractionControllerProperties {
     }
 }
 impl windows_core::RuntimeType for SpatialInteractionControllerProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteractionControllerProperties>();
 }
 unsafe impl windows_core::Interface for SpatialInteractionControllerProperties {
     type Vtable = ISpatialInteractionControllerProperties_Vtbl;
@@ -1017,7 +1155,7 @@ impl SpatialInteractionDetectedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpatialInteractionDetectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteractionDetectedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialInteractionDetectedEventArgs {
     type Vtable = ISpatialInteractionDetectedEventArgs_Vtbl;
@@ -1152,7 +1290,7 @@ impl SpatialInteractionManager {
     }
 }
 impl windows_core::RuntimeType for SpatialInteractionManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteractionManager>();
 }
 unsafe impl windows_core::Interface for SpatialInteractionManager {
     type Vtable = ISpatialInteractionManager_Vtbl;
@@ -1246,7 +1384,7 @@ impl SpatialInteractionSource {
     }
 }
 impl windows_core::RuntimeType for SpatialInteractionSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteractionSource>();
 }
 unsafe impl windows_core::Interface for SpatialInteractionSource {
     type Vtable = ISpatialInteractionSource_Vtbl;
@@ -1278,7 +1416,7 @@ impl SpatialInteractionSourceEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpatialInteractionSourceEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteractionSourceEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialInteractionSourceEventArgs {
     type Vtable = ISpatialInteractionSourceEventArgs_Vtbl;
@@ -1342,7 +1480,7 @@ impl SpatialInteractionSourceLocation {
     }
 }
 impl windows_core::RuntimeType for SpatialInteractionSourceLocation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteractionSourceLocation>();
 }
 unsafe impl windows_core::Interface for SpatialInteractionSourceLocation {
     type Vtable = ISpatialInteractionSourceLocation_Vtbl;
@@ -1389,7 +1527,7 @@ impl SpatialInteractionSourceProperties {
     }
 }
 impl windows_core::RuntimeType for SpatialInteractionSourceProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteractionSourceProperties>();
 }
 unsafe impl windows_core::Interface for SpatialInteractionSourceProperties {
     type Vtable = ISpatialInteractionSourceProperties_Vtbl;
@@ -1490,7 +1628,7 @@ impl SpatialInteractionSourceState {
     }
 }
 impl windows_core::RuntimeType for SpatialInteractionSourceState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteractionSourceState>();
 }
 unsafe impl windows_core::Interface for SpatialInteractionSourceState {
     type Vtable = ISpatialInteractionSourceState_Vtbl;
@@ -1515,7 +1653,7 @@ impl SpatialManipulationCanceledEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpatialManipulationCanceledEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialManipulationCanceledEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialManipulationCanceledEventArgs {
     type Vtable = ISpatialManipulationCanceledEventArgs_Vtbl;
@@ -1551,7 +1689,7 @@ impl SpatialManipulationCompletedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpatialManipulationCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialManipulationCompletedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialManipulationCompletedEventArgs {
     type Vtable = ISpatialManipulationCompletedEventArgs_Vtbl;
@@ -1577,7 +1715,7 @@ impl SpatialManipulationDelta {
     }
 }
 impl windows_core::RuntimeType for SpatialManipulationDelta {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialManipulationDelta>();
 }
 unsafe impl windows_core::Interface for SpatialManipulationDelta {
     type Vtable = ISpatialManipulationDelta_Vtbl;
@@ -1613,7 +1751,7 @@ impl SpatialManipulationStartedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpatialManipulationStartedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialManipulationStartedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialManipulationStartedEventArgs {
     type Vtable = ISpatialManipulationStartedEventArgs_Vtbl;
@@ -1649,7 +1787,7 @@ impl SpatialManipulationUpdatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpatialManipulationUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialManipulationUpdatedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialManipulationUpdatedEventArgs {
     type Vtable = ISpatialManipulationUpdatedEventArgs_Vtbl;
@@ -1674,7 +1812,7 @@ impl SpatialNavigationCanceledEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpatialNavigationCanceledEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialNavigationCanceledEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialNavigationCanceledEventArgs {
     type Vtable = ISpatialNavigationCanceledEventArgs_Vtbl;
@@ -1707,7 +1845,7 @@ impl SpatialNavigationCompletedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpatialNavigationCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialNavigationCompletedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialNavigationCompletedEventArgs {
     type Vtable = ISpatialNavigationCompletedEventArgs_Vtbl;
@@ -1764,7 +1902,7 @@ impl SpatialNavigationStartedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpatialNavigationStartedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialNavigationStartedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialNavigationStartedEventArgs {
     type Vtable = ISpatialNavigationStartedEventArgs_Vtbl;
@@ -1797,7 +1935,7 @@ impl SpatialNavigationUpdatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpatialNavigationUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialNavigationUpdatedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialNavigationUpdatedEventArgs {
     type Vtable = ISpatialNavigationUpdatedEventArgs_Vtbl;
@@ -1854,7 +1992,7 @@ impl SpatialPointerInteractionSourcePose {
     }
 }
 impl windows_core::RuntimeType for SpatialPointerInteractionSourcePose {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialPointerInteractionSourcePose>();
 }
 unsafe impl windows_core::Interface for SpatialPointerInteractionSourcePose {
     type Vtable = ISpatialPointerInteractionSourcePose_Vtbl;
@@ -1929,7 +2067,7 @@ impl SpatialPointerPose {
     }
 }
 impl windows_core::RuntimeType for SpatialPointerPose {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialPointerPose>();
 }
 unsafe impl windows_core::Interface for SpatialPointerPose {
     type Vtable = ISpatialPointerPose_Vtbl;
@@ -1954,7 +2092,7 @@ impl SpatialRecognitionEndedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpatialRecognitionEndedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialRecognitionEndedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialRecognitionEndedEventArgs {
     type Vtable = ISpatialRecognitionEndedEventArgs_Vtbl;
@@ -1997,7 +2135,7 @@ impl SpatialRecognitionStartedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpatialRecognitionStartedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialRecognitionStartedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialRecognitionStartedEventArgs {
     type Vtable = ISpatialRecognitionStartedEventArgs_Vtbl;
@@ -2040,7 +2178,7 @@ impl SpatialTappedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpatialTappedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialTappedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialTappedEventArgs {
     type Vtable = ISpatialTappedEventArgs_Vtbl;

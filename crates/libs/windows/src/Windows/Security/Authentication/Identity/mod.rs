@@ -1,6 +1,9 @@
 #[cfg(feature = "Security_Authentication_Identity_Core")]
 pub mod Core;
 windows_core::imp::define_interface!(IEnterpriseKeyCredentialRegistrationInfo, IEnterpriseKeyCredentialRegistrationInfo_Vtbl, 0x38321acc_672b_4823_b603_6b3c753daf97);
+impl windows_core::RuntimeType for IEnterpriseKeyCredentialRegistrationInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IEnterpriseKeyCredentialRegistrationInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11,6 +14,9 @@ pub struct IEnterpriseKeyCredentialRegistrationInfo_Vtbl {
     pub KeyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnterpriseKeyCredentialRegistrationManager, IEnterpriseKeyCredentialRegistrationManager_Vtbl, 0x83f3be3f_a25f_4cba_bb8e_bdc32d03c297);
+impl windows_core::RuntimeType for IEnterpriseKeyCredentialRegistrationManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IEnterpriseKeyCredentialRegistrationManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -20,6 +26,9 @@ pub struct IEnterpriseKeyCredentialRegistrationManager_Vtbl {
     GetRegistrationsAsync: usize,
 }
 windows_core::imp::define_interface!(IEnterpriseKeyCredentialRegistrationManagerStatics, IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl, 0x77b85e9e_acf4_4bc0_bac2_40bb46efbb3f);
+impl windows_core::RuntimeType for IEnterpriseKeyCredentialRegistrationManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -67,7 +76,7 @@ impl EnterpriseKeyCredentialRegistrationInfo {
     }
 }
 impl windows_core::RuntimeType for EnterpriseKeyCredentialRegistrationInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterpriseKeyCredentialRegistrationInfo>();
 }
 unsafe impl windows_core::Interface for EnterpriseKeyCredentialRegistrationInfo {
     type Vtable = IEnterpriseKeyCredentialRegistrationInfo_Vtbl;
@@ -104,7 +113,7 @@ impl EnterpriseKeyCredentialRegistrationManager {
     }
 }
 impl windows_core::RuntimeType for EnterpriseKeyCredentialRegistrationManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterpriseKeyCredentialRegistrationManager>();
 }
 unsafe impl windows_core::Interface for EnterpriseKeyCredentialRegistrationManager {
     type Vtable = IEnterpriseKeyCredentialRegistrationManager_Vtbl;

@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ISpatialSurfaceInfo, ISpatialSurfaceInfo_Vtbl, 0xf8e9ebe7_39b7_3962_bb03_57f56e1fb0a1);
+impl windows_core::RuntimeType for ISpatialSurfaceInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialSurfaceInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12,6 +15,9 @@ pub struct ISpatialSurfaceInfo_Vtbl {
     pub TryComputeLatestMeshWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialSurfaceMesh, ISpatialSurfaceMesh_Vtbl, 0x108f57d9_df0d_3950_a0fd_f972c77c27b4);
+impl windows_core::RuntimeType for ISpatialSurfaceMesh {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialSurfaceMesh_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -26,6 +32,9 @@ pub struct ISpatialSurfaceMesh_Vtbl {
     pub VertexNormals: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialSurfaceMeshBuffer, ISpatialSurfaceMeshBuffer_Vtbl, 0x93cf59e0_871f_33f8_98b2_03d101458f6f);
+impl windows_core::RuntimeType for ISpatialSurfaceMeshBuffer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialSurfaceMeshBuffer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -41,6 +50,9 @@ pub struct ISpatialSurfaceMeshBuffer_Vtbl {
     Data: usize,
 }
 windows_core::imp::define_interface!(ISpatialSurfaceMeshOptions, ISpatialSurfaceMeshOptions_Vtbl, 0xd2759f89_3572_3d2d_a10d_5fee9394aa37);
+impl windows_core::RuntimeType for ISpatialSurfaceMeshOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialSurfaceMeshOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -72,6 +84,9 @@ pub struct ISpatialSurfaceMeshOptions_Vtbl {
     pub SetIncludeVertexNormals: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialSurfaceMeshOptionsStatics, ISpatialSurfaceMeshOptionsStatics_Vtbl, 0x9b340abf_9781_4505_8935_013575caae5e);
+impl windows_core::RuntimeType for ISpatialSurfaceMeshOptionsStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialSurfaceMeshOptionsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -89,6 +104,9 @@ pub struct ISpatialSurfaceMeshOptionsStatics_Vtbl {
     SupportedVertexNormalFormats: usize,
 }
 windows_core::imp::define_interface!(ISpatialSurfaceObserver, ISpatialSurfaceObserver_Vtbl, 0x10b69819_ddca_3483_ac3a_748fe8c86df5);
+impl windows_core::RuntimeType for ISpatialSurfaceObserver {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialSurfaceObserver_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -105,12 +123,18 @@ pub struct ISpatialSurfaceObserver_Vtbl {
     pub RemoveObservedSurfacesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialSurfaceObserverStatics, ISpatialSurfaceObserverStatics_Vtbl, 0x165951ed_2108_4168_9175_87e027bc9285);
+impl windows_core::RuntimeType for ISpatialSurfaceObserverStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialSurfaceObserverStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialSurfaceObserverStatics2, ISpatialSurfaceObserverStatics2_Vtbl, 0x0f534261_c55d_4e6b_a895_a19de69a42e3);
+impl windows_core::RuntimeType for ISpatialSurfaceObserverStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpatialSurfaceObserverStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -165,7 +189,7 @@ impl SpatialSurfaceInfo {
     }
 }
 impl windows_core::RuntimeType for SpatialSurfaceInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialSurfaceInfo>();
 }
 unsafe impl windows_core::Interface for SpatialSurfaceInfo {
     type Vtable = ISpatialSurfaceInfo_Vtbl;
@@ -226,7 +250,7 @@ impl SpatialSurfaceMesh {
     }
 }
 impl windows_core::RuntimeType for SpatialSurfaceMesh {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialSurfaceMesh>();
 }
 unsafe impl windows_core::Interface for SpatialSurfaceMesh {
     type Vtable = ISpatialSurfaceMesh_Vtbl;
@@ -274,7 +298,7 @@ impl SpatialSurfaceMeshBuffer {
     }
 }
 impl windows_core::RuntimeType for SpatialSurfaceMeshBuffer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialSurfaceMeshBuffer>();
 }
 unsafe impl windows_core::Interface for SpatialSurfaceMeshBuffer {
     type Vtable = ISpatialSurfaceMeshBuffer_Vtbl;
@@ -375,7 +399,7 @@ impl SpatialSurfaceMeshOptions {
     }
 }
 impl windows_core::RuntimeType for SpatialSurfaceMeshOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialSurfaceMeshOptions>();
 }
 unsafe impl windows_core::Interface for SpatialSurfaceMeshOptions {
     type Vtable = ISpatialSurfaceMeshOptions_Vtbl;
@@ -459,7 +483,7 @@ impl SpatialSurfaceObserver {
     }
 }
 impl windows_core::RuntimeType for SpatialSurfaceObserver {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialSurfaceObserver>();
 }
 unsafe impl windows_core::Interface for SpatialSurfaceObserver {
     type Vtable = ISpatialSurfaceObserver_Vtbl;

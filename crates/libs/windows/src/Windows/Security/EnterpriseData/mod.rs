@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IBufferProtectUnprotectResult, IBufferProtectUnprotectResult_Vtbl, 0x47995edc_6cec_4e3a_b251_9e7485d79e7a);
+impl windows_core::RuntimeType for IBufferProtectUnprotectResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBufferProtectUnprotectResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9,6 +12,9 @@ pub struct IBufferProtectUnprotectResult_Vtbl {
     pub ProtectionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDataProtectionInfo, IDataProtectionInfo_Vtbl, 0x8420b0c1_5e31_4405_9540_3f943af0cb26);
+impl windows_core::RuntimeType for IDataProtectionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDataProtectionInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16,6 +22,9 @@ pub struct IDataProtectionInfo_Vtbl {
     pub Identity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDataProtectionManagerStatics, IDataProtectionManagerStatics_Vtbl, 0xb6149b74_9144_4ee4_8a8a_30b5f361430e);
+impl windows_core::RuntimeType for IDataProtectionManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDataProtectionManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -45,6 +54,9 @@ pub struct IDataProtectionManagerStatics_Vtbl {
     GetStreamProtectionInfoAsync: usize,
 }
 windows_core::imp::define_interface!(IFileProtectionInfo, IFileProtectionInfo_Vtbl, 0x4ee96486_147e_4dd0_8faf_5253ed91ad0c);
+impl windows_core::RuntimeType for IFileProtectionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFileProtectionInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -53,12 +65,18 @@ pub struct IFileProtectionInfo_Vtbl {
     pub Identity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileProtectionInfo2, IFileProtectionInfo2_Vtbl, 0x82123a4c_557a_498d_8e94_944cd5836432);
+impl windows_core::RuntimeType for IFileProtectionInfo2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFileProtectionInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsProtectWhileOpenSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileProtectionManagerStatics, IFileProtectionManagerStatics_Vtbl, 0x5846fc9b_e613_426b_bb38_88cba1dc9adb);
+impl windows_core::RuntimeType for IFileProtectionManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFileProtectionManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -92,6 +110,9 @@ pub struct IFileProtectionManagerStatics_Vtbl {
     CreateProtectedAndOpenAsync: usize,
 }
 windows_core::imp::define_interface!(IFileProtectionManagerStatics2, IFileProtectionManagerStatics2_Vtbl, 0x83d2a745_0483_41ab_b2d5_bc7f23d74ebb);
+impl windows_core::RuntimeType for IFileProtectionManagerStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFileProtectionManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -109,6 +130,9 @@ pub struct IFileProtectionManagerStatics2_Vtbl {
     SaveFileAsContainerWithSharingAsync: usize,
 }
 windows_core::imp::define_interface!(IFileProtectionManagerStatics3, IFileProtectionManagerStatics3_Vtbl, 0x6918849a_624f_46d6_b241_e9cd5fdf3e3f);
+impl windows_core::RuntimeType for IFileProtectionManagerStatics3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFileProtectionManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -123,6 +147,10 @@ pub struct IFileProtectionManagerStatics3_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IFileRevocationManagerStatics, IFileRevocationManagerStatics_Vtbl, 0x256bbc3d_1c5d_4260_8c75_9144cfb78ba9);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IFileRevocationManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IFileRevocationManagerStatics_Vtbl {
@@ -145,6 +173,9 @@ pub struct IFileRevocationManagerStatics_Vtbl {
     GetStatusAsync: usize,
 }
 windows_core::imp::define_interface!(IFileUnprotectOptions, IFileUnprotectOptions_Vtbl, 0x7d1312f1_3b0d_4dd8_a1f8_1ec53822e2f3);
+impl windows_core::RuntimeType for IFileUnprotectOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFileUnprotectOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -152,12 +183,18 @@ pub struct IFileUnprotectOptions_Vtbl {
     pub Audit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileUnprotectOptionsFactory, IFileUnprotectOptionsFactory_Vtbl, 0x51aeb39c_da8c_4c3f_9bfb_cb73a7cce0dd);
+impl windows_core::RuntimeType for IFileUnprotectOptionsFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFileUnprotectOptionsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProtectedAccessResumedEventArgs, IProtectedAccessResumedEventArgs_Vtbl, 0xac4dca59_5d80_4e95_8c5f_8539450eebe0);
+impl windows_core::RuntimeType for IProtectedAccessResumedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProtectedAccessResumedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -167,6 +204,9 @@ pub struct IProtectedAccessResumedEventArgs_Vtbl {
     Identities: usize,
 }
 windows_core::imp::define_interface!(IProtectedAccessSuspendingEventArgs, IProtectedAccessSuspendingEventArgs_Vtbl, 0x75a193e0_a344_429f_b975_04fc1f88c185);
+impl windows_core::RuntimeType for IProtectedAccessSuspendingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProtectedAccessSuspendingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -178,6 +218,9 @@ pub struct IProtectedAccessSuspendingEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProtectedContainerExportResult, IProtectedContainerExportResult_Vtbl, 0x3948ef95_f7fb_4b42_afb0_df70b41543c1);
+impl windows_core::RuntimeType for IProtectedContainerExportResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProtectedContainerExportResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -188,6 +231,9 @@ pub struct IProtectedContainerExportResult_Vtbl {
     File: usize,
 }
 windows_core::imp::define_interface!(IProtectedContainerImportResult, IProtectedContainerImportResult_Vtbl, 0xcdb780d1_e7bb_4d1a_9339_34dc41149f9b);
+impl windows_core::RuntimeType for IProtectedContainerImportResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProtectedContainerImportResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -198,6 +244,9 @@ pub struct IProtectedContainerImportResult_Vtbl {
     File: usize,
 }
 windows_core::imp::define_interface!(IProtectedContentRevokedEventArgs, IProtectedContentRevokedEventArgs_Vtbl, 0x63686821_58b9_47ee_93d9_f0f741cf43f0);
+impl windows_core::RuntimeType for IProtectedContentRevokedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProtectedContentRevokedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -207,6 +256,9 @@ pub struct IProtectedContentRevokedEventArgs_Vtbl {
     Identities: usize,
 }
 windows_core::imp::define_interface!(IProtectedFileCreateResult, IProtectedFileCreateResult_Vtbl, 0x28e3ed6a_e9e7_4a03_9f53_bdb16172699b);
+impl windows_core::RuntimeType for IProtectedFileCreateResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProtectedFileCreateResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -221,6 +273,9 @@ pub struct IProtectedFileCreateResult_Vtbl {
     pub ProtectionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProtectionPolicyAuditInfo, IProtectionPolicyAuditInfo_Vtbl, 0x425ab7e4_feb7_44fc_b3bb_c3c4d7ecbebb);
+impl windows_core::RuntimeType for IProtectionPolicyAuditInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProtectionPolicyAuditInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -234,6 +289,9 @@ pub struct IProtectionPolicyAuditInfo_Vtbl {
     pub TargetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProtectionPolicyAuditInfoFactory, IProtectionPolicyAuditInfoFactory_Vtbl, 0x7ed4180b_92e8_42d5_83d4_25440b423549);
+impl windows_core::RuntimeType for IProtectionPolicyAuditInfoFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProtectionPolicyAuditInfoFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -241,6 +299,9 @@ pub struct IProtectionPolicyAuditInfoFactory_Vtbl {
     pub CreateWithActionAndDataDescription: unsafe extern "system" fn(*mut core::ffi::c_void, ProtectionPolicyAuditAction, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProtectionPolicyManager, IProtectionPolicyManager_Vtbl, 0xd5703e18_a08d_47e6_a240_9934d7165eb5);
+impl windows_core::RuntimeType for IProtectionPolicyManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProtectionPolicyManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -248,6 +309,9 @@ pub struct IProtectionPolicyManager_Vtbl {
     pub Identity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProtectionPolicyManager2, IProtectionPolicyManager2_Vtbl, 0xabf7527a_8435_417f_99b6_51beaf365888);
+impl windows_core::RuntimeType for IProtectionPolicyManager2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProtectionPolicyManager2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -255,6 +319,9 @@ pub struct IProtectionPolicyManager2_Vtbl {
     pub ShowEnterpriseIndicator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProtectionPolicyManagerStatics, IProtectionPolicyManagerStatics_Vtbl, 0xc0bffc66_8c3d_4d56_8804_c68f0ad32ec5);
+impl windows_core::RuntimeType for IProtectionPolicyManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProtectionPolicyManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -278,6 +345,9 @@ pub struct IProtectionPolicyManagerStatics_Vtbl {
     pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProtectionPolicyManagerStatics2, IProtectionPolicyManagerStatics2_Vtbl, 0xb68f9a8c_39e0_4649_b2e4_070ab8a579b3);
+impl windows_core::RuntimeType for IProtectionPolicyManagerStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProtectionPolicyManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -292,6 +362,9 @@ pub struct IProtectionPolicyManagerStatics2_Vtbl {
     pub IsProtectionEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProtectionPolicyManagerStatics3, IProtectionPolicyManagerStatics3_Vtbl, 0x48ff9e8c_6a6f_4d9f_bced_18ab537aa015);
+impl windows_core::RuntimeType for IProtectionPolicyManagerStatics3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProtectionPolicyManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -302,6 +375,9 @@ pub struct IProtectionPolicyManagerStatics3_Vtbl {
     pub LogAuditEvent: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProtectionPolicyManagerStatics4, IProtectionPolicyManagerStatics4_Vtbl, 0x20b794db_ccbd_490f_8c83_49ccb77aea6c);
+impl windows_core::RuntimeType for IProtectionPolicyManagerStatics4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProtectionPolicyManagerStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -336,6 +412,9 @@ pub struct IProtectionPolicyManagerStatics4_Vtbl {
     pub GetPrimaryManagedIdentityForIdentity: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IThreadNetworkContext, IThreadNetworkContext_Vtbl, 0xfa4ea8e9_ef13_405a_b12c_d7348c6f41fc);
+impl windows_core::RuntimeType for IThreadNetworkContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IThreadNetworkContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -362,7 +441,7 @@ impl BufferProtectUnprotectResult {
     }
 }
 impl windows_core::RuntimeType for BufferProtectUnprotectResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBufferProtectUnprotectResult>();
 }
 unsafe impl windows_core::Interface for BufferProtectUnprotectResult {
     type Vtable = IBufferProtectUnprotectResult_Vtbl;
@@ -394,7 +473,7 @@ impl DataProtectionInfo {
     }
 }
 impl windows_core::RuntimeType for DataProtectionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataProtectionInfo>();
 }
 unsafe impl windows_core::Interface for DataProtectionInfo {
     type Vtable = IDataProtectionInfo_Vtbl;
@@ -513,7 +592,7 @@ impl FileProtectionInfo {
     }
 }
 impl windows_core::RuntimeType for FileProtectionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileProtectionInfo>();
 }
 unsafe impl windows_core::Interface for FileProtectionInfo {
     type Vtable = IFileProtectionInfo_Vtbl;
@@ -749,7 +828,7 @@ impl FileUnprotectOptions {
     }
 }
 impl windows_core::RuntimeType for FileUnprotectOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileUnprotectOptions>();
 }
 unsafe impl windows_core::Interface for FileUnprotectOptions {
     type Vtable = IFileUnprotectOptions_Vtbl;
@@ -775,7 +854,7 @@ impl ProtectedAccessResumedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ProtectedAccessResumedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectedAccessResumedEventArgs>();
 }
 unsafe impl windows_core::Interface for ProtectedAccessResumedEventArgs {
     type Vtable = IProtectedAccessResumedEventArgs_Vtbl;
@@ -815,7 +894,7 @@ impl ProtectedAccessSuspendingEventArgs {
     }
 }
 impl windows_core::RuntimeType for ProtectedAccessSuspendingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectedAccessSuspendingEventArgs>();
 }
 unsafe impl windows_core::Interface for ProtectedAccessSuspendingEventArgs {
     type Vtable = IProtectedAccessSuspendingEventArgs_Vtbl;
@@ -848,7 +927,7 @@ impl ProtectedContainerExportResult {
     }
 }
 impl windows_core::RuntimeType for ProtectedContainerExportResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectedContainerExportResult>();
 }
 unsafe impl windows_core::Interface for ProtectedContainerExportResult {
     type Vtable = IProtectedContainerExportResult_Vtbl;
@@ -881,7 +960,7 @@ impl ProtectedContainerImportResult {
     }
 }
 impl windows_core::RuntimeType for ProtectedContainerImportResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectedContainerImportResult>();
 }
 unsafe impl windows_core::Interface for ProtectedContainerImportResult {
     type Vtable = IProtectedContainerImportResult_Vtbl;
@@ -907,7 +986,7 @@ impl ProtectedContentRevokedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ProtectedContentRevokedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectedContentRevokedEventArgs>();
 }
 unsafe impl windows_core::Interface for ProtectedContentRevokedEventArgs {
     type Vtable = IProtectedContentRevokedEventArgs_Vtbl;
@@ -948,7 +1027,7 @@ impl ProtectedFileCreateResult {
     }
 }
 impl windows_core::RuntimeType for ProtectedFileCreateResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectedFileCreateResult>();
 }
 unsafe impl windows_core::Interface for ProtectedFileCreateResult {
     type Vtable = IProtectedFileCreateResult_Vtbl;
@@ -1027,7 +1106,7 @@ impl ProtectionPolicyAuditInfo {
     }
 }
 impl windows_core::RuntimeType for ProtectionPolicyAuditInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectionPolicyAuditInfo>();
 }
 unsafe impl windows_core::Interface for ProtectionPolicyAuditInfo {
     type Vtable = IProtectionPolicyAuditInfo_Vtbl;
@@ -1371,7 +1450,7 @@ impl ProtectionPolicyManager {
     }
 }
 impl windows_core::RuntimeType for ProtectionPolicyManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectionPolicyManager>();
 }
 unsafe impl windows_core::Interface for ProtectionPolicyManager {
     type Vtable = IProtectionPolicyManager_Vtbl;
@@ -1394,7 +1473,7 @@ impl ThreadNetworkContext {
     }
 }
 impl windows_core::RuntimeType for ThreadNetworkContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IThreadNetworkContext>();
 }
 unsafe impl windows_core::Interface for ThreadNetworkContext {
     type Vtable = IThreadNetworkContext_Vtbl;

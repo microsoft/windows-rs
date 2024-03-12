@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ILicenseManagerStatics, ILicenseManagerStatics_Vtbl, 0xb5ac3ae0_da47_4f20_9a23_09182c9476ff);
+impl windows_core::RuntimeType for ILicenseManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILicenseManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12,12 +15,18 @@ pub struct ILicenseManagerStatics_Vtbl {
     GetSatisfactionInfosAsync: usize,
 }
 windows_core::imp::define_interface!(ILicenseManagerStatics2, ILicenseManagerStatics2_Vtbl, 0xab2ec47b_1f79_4480_b87e_2c499e601ba3);
+impl windows_core::RuntimeType for ILicenseManagerStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILicenseManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RefreshLicensesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, LicenseRefreshOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILicenseSatisfactionInfo, ILicenseSatisfactionInfo_Vtbl, 0x3ccbb08f_db31_48d5_8384_fa17c81474e2);
+impl windows_core::RuntimeType for ILicenseSatisfactionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILicenseSatisfactionInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -30,6 +39,9 @@ pub struct ILicenseSatisfactionInfo_Vtbl {
     pub IsSatisfied: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILicenseSatisfactionResult, ILicenseSatisfactionResult_Vtbl, 0x3c674f73_3c87_4ee1_8201_f428359bd3af);
+impl windows_core::RuntimeType for ILicenseSatisfactionResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILicenseSatisfactionResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -138,7 +150,7 @@ impl LicenseSatisfactionInfo {
     }
 }
 impl windows_core::RuntimeType for LicenseSatisfactionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILicenseSatisfactionInfo>();
 }
 unsafe impl windows_core::Interface for LicenseSatisfactionInfo {
     type Vtable = ILicenseSatisfactionInfo_Vtbl;
@@ -171,7 +183,7 @@ impl LicenseSatisfactionResult {
     }
 }
 impl windows_core::RuntimeType for LicenseSatisfactionResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILicenseSatisfactionResult>();
 }
 unsafe impl windows_core::Interface for LicenseSatisfactionResult {
     type Vtable = ILicenseSatisfactionResult_Vtbl;

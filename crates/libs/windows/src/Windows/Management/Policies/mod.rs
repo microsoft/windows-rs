@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(INamedPolicyData, INamedPolicyData_Vtbl, 0x38dcb198_95ac_4077_a643_8078cae26400);
+impl windows_core::RuntimeType for INamedPolicyData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct INamedPolicyData_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -23,6 +26,9 @@ pub struct INamedPolicyData_Vtbl {
     pub RemoveChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INamedPolicyStatics, INamedPolicyStatics_Vtbl, 0x7f793be7_76c4_4058_8cad_67662cd05f0d);
+impl windows_core::RuntimeType for INamedPolicyStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct INamedPolicyStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -159,7 +165,7 @@ impl NamedPolicyData {
     }
 }
 impl windows_core::RuntimeType for NamedPolicyData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INamedPolicyData>();
 }
 unsafe impl windows_core::Interface for NamedPolicyData {
     type Vtable = INamedPolicyData_Vtbl;

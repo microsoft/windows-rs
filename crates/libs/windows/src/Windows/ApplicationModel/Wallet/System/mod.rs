@@ -1,6 +1,10 @@
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IWalletItemSystemStore, IWalletItemSystemStore_Vtbl, 0x522e2bff_96a2_4a17_8d19_fe1d9f837561);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IWalletItemSystemStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IWalletItemSystemStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -28,6 +32,10 @@ pub struct IWalletItemSystemStore_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IWalletItemSystemStore2, IWalletItemSystemStore2_Vtbl, 0xf98d3a4e_be00_4fdd_9734_6c113c1ac1cb);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IWalletItemSystemStore2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IWalletItemSystemStore2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -42,6 +50,10 @@ pub struct IWalletItemSystemStore2_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IWalletManagerSystemStatics, IWalletManagerSystemStatics_Vtbl, 0xbee8eb89_2634_4b9a_8b23_ee8903c91fe0);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IWalletManagerSystemStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IWalletManagerSystemStatics_Vtbl {
@@ -130,7 +142,7 @@ impl WalletItemSystemStore {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for WalletItemSystemStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletItemSystemStore>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for WalletItemSystemStore {

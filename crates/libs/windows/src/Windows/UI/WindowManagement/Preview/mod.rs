@@ -1,9 +1,15 @@
 windows_core::imp::define_interface!(IWindowManagementPreview, IWindowManagementPreview_Vtbl, 0x4ef55b0d_561d_513c_a67c_2c02b69cef41);
+impl windows_core::RuntimeType for IWindowManagementPreview {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWindowManagementPreview_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IWindowManagementPreviewStatics, IWindowManagementPreviewStatics_Vtbl, 0x0f9725c6_c004_5a23_8fd2_8d092ce2704a);
+impl windows_core::RuntimeType for IWindowManagementPreviewStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWindowManagementPreviewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -27,7 +33,7 @@ impl WindowManagementPreview {
     }
 }
 impl windows_core::RuntimeType for WindowManagementPreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowManagementPreview>();
 }
 unsafe impl windows_core::Interface for WindowManagementPreview {
     type Vtable = IWindowManagementPreview_Vtbl;

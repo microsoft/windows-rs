@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IPlaylist, IPlaylist_Vtbl, 0x803736f5_cf44_4d97_83b3_7a089e9ab663);
+impl windows_core::RuntimeType for IPlaylist {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlaylist_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -17,6 +20,9 @@ pub struct IPlaylist_Vtbl {
     SaveAsWithFormatAsync: usize,
 }
 windows_core::imp::define_interface!(IPlaylistStatics, IPlaylistStatics_Vtbl, 0xc5c331cd_81f9_4ff3_95b9_70b6ff046b68);
+impl windows_core::RuntimeType for IPlaylistStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlaylistStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -91,7 +97,7 @@ impl Playlist {
     }
 }
 impl windows_core::RuntimeType for Playlist {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaylist>();
 }
 unsafe impl windows_core::Interface for Playlist {
     type Vtable = IPlaylist_Vtbl;

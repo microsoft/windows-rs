@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IFileOpenPickerUI, IFileOpenPickerUI_Vtbl, 0xdda45a10_f9d4_40c4_8af5_c5b6b5a61d1d);
+impl windows_core::RuntimeType for IFileOpenPickerUI {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFileOpenPickerUI_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -28,6 +31,10 @@ pub struct IFileOpenPickerUI_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IFileRemovedEventArgs, IFileRemovedEventArgs_Vtbl, 0x13043da7_7fca_4c2b_9eca_6890f9f00185);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IFileRemovedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IFileRemovedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -37,6 +44,9 @@ pub struct IFileRemovedEventArgs_Vtbl {
     Id: usize,
 }
 windows_core::imp::define_interface!(IFileSavePickerUI, IFileSavePickerUI_Vtbl, 0x9656c1e7_3e56_43cc_8a39_33c73d9d542b);
+impl windows_core::RuntimeType for IFileSavePickerUI {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFileSavePickerUI_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -55,12 +65,18 @@ pub struct IFileSavePickerUI_Vtbl {
     pub RemoveTargetFileRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPickerClosingDeferral, IPickerClosingDeferral_Vtbl, 0x7af7f71e_1a67_4a31_ae80_e907708a619b);
+impl windows_core::RuntimeType for IPickerClosingDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPickerClosingDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPickerClosingEventArgs, IPickerClosingEventArgs_Vtbl, 0x7e59f224_b332_4f12_8b9f_a8c2f06b32cd);
+impl windows_core::RuntimeType for IPickerClosingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPickerClosingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -68,6 +84,9 @@ pub struct IPickerClosingEventArgs_Vtbl {
     pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPickerClosingOperation, IPickerClosingOperation_Vtbl, 0x4ce9fb84_beee_4e39_a773_fc5f0eae328d);
+impl windows_core::RuntimeType for IPickerClosingOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPickerClosingOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -75,6 +94,9 @@ pub struct IPickerClosingOperation_Vtbl {
     pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITargetFileRequest, ITargetFileRequest_Vtbl, 0x42bd3355_7f88_478b_8e81_690b20340678);
+impl windows_core::RuntimeType for ITargetFileRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITargetFileRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -83,12 +105,18 @@ pub struct ITargetFileRequest_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITargetFileRequestDeferral, ITargetFileRequestDeferral_Vtbl, 0x4aee9d91_bf15_4da9_95f6_f6b7d558225b);
+impl windows_core::RuntimeType for ITargetFileRequestDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITargetFileRequestDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITargetFileRequestedEventArgs, ITargetFileRequestedEventArgs_Vtbl, 0xb163dbc1_1b51_4c89_a591_0fd40b3c57c9);
+impl windows_core::RuntimeType for ITargetFileRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITargetFileRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -195,7 +223,7 @@ impl FileOpenPickerUI {
     }
 }
 impl windows_core::RuntimeType for FileOpenPickerUI {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileOpenPickerUI>();
 }
 unsafe impl windows_core::Interface for FileOpenPickerUI {
     type Vtable = IFileOpenPickerUI_Vtbl;
@@ -223,7 +251,7 @@ impl FileRemovedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for FileRemovedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileRemovedEventArgs>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for FileRemovedEventArgs {
@@ -309,7 +337,7 @@ impl FileSavePickerUI {
     }
 }
 impl windows_core::RuntimeType for FileSavePickerUI {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileSavePickerUI>();
 }
 unsafe impl windows_core::Interface for FileSavePickerUI {
     type Vtable = IFileSavePickerUI_Vtbl;
@@ -329,7 +357,7 @@ impl PickerClosingDeferral {
     }
 }
 impl windows_core::RuntimeType for PickerClosingDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPickerClosingDeferral>();
 }
 unsafe impl windows_core::Interface for PickerClosingDeferral {
     type Vtable = IPickerClosingDeferral_Vtbl;
@@ -359,7 +387,7 @@ impl PickerClosingEventArgs {
     }
 }
 impl windows_core::RuntimeType for PickerClosingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPickerClosingEventArgs>();
 }
 unsafe impl windows_core::Interface for PickerClosingEventArgs {
     type Vtable = IPickerClosingEventArgs_Vtbl;
@@ -389,7 +417,7 @@ impl PickerClosingOperation {
     }
 }
 impl windows_core::RuntimeType for PickerClosingOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPickerClosingOperation>();
 }
 unsafe impl windows_core::Interface for PickerClosingOperation {
     type Vtable = IPickerClosingOperation_Vtbl;
@@ -426,7 +454,7 @@ impl TargetFileRequest {
     }
 }
 impl windows_core::RuntimeType for TargetFileRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetFileRequest>();
 }
 unsafe impl windows_core::Interface for TargetFileRequest {
     type Vtable = ITargetFileRequest_Vtbl;
@@ -446,7 +474,7 @@ impl TargetFileRequestDeferral {
     }
 }
 impl windows_core::RuntimeType for TargetFileRequestDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetFileRequestDeferral>();
 }
 unsafe impl windows_core::Interface for TargetFileRequestDeferral {
     type Vtable = ITargetFileRequestDeferral_Vtbl;
@@ -469,7 +497,7 @@ impl TargetFileRequestedEventArgs {
     }
 }
 impl windows_core::RuntimeType for TargetFileRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetFileRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for TargetFileRequestedEventArgs {
     type Vtable = ITargetFileRequestedEventArgs_Vtbl;

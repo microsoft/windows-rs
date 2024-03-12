@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IDisplayRequest, IDisplayRequest_Vtbl, 0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0);
+impl windows_core::RuntimeType for IDisplayRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -27,7 +30,7 @@ impl DisplayRequest {
     }
 }
 impl windows_core::RuntimeType for DisplayRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayRequest>();
 }
 unsafe impl windows_core::Interface for DisplayRequest {
     type Vtable = IDisplayRequest_Vtbl;

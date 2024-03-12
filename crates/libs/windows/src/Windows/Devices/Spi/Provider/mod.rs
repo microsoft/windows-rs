@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IProviderSpiConnectionSettings, IProviderSpiConnectionSettings_Vtbl, 0xf6034550_a542_4ec0_9601_a4dd68f8697b);
+impl windows_core::RuntimeType for IProviderSpiConnectionSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProviderSpiConnectionSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14,6 +17,9 @@ pub struct IProviderSpiConnectionSettings_Vtbl {
     pub SetSharingMode: unsafe extern "system" fn(*mut core::ffi::c_void, ProviderSpiSharingMode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProviderSpiConnectionSettingsFactory, IProviderSpiConnectionSettingsFactory_Vtbl, 0x66456b5a_0c79_43e3_9f3c_e59780ac18fa);
+impl windows_core::RuntimeType for IProviderSpiConnectionSettingsFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProviderSpiConnectionSettingsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -189,7 +195,7 @@ impl ProviderSpiConnectionSettings {
     }
 }
 impl windows_core::RuntimeType for ProviderSpiConnectionSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProviderSpiConnectionSettings>();
 }
 unsafe impl windows_core::Interface for ProviderSpiConnectionSettings {
     type Vtable = IProviderSpiConnectionSettings_Vtbl;

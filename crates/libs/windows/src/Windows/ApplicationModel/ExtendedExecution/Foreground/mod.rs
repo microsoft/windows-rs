@@ -1,10 +1,16 @@
 windows_core::imp::define_interface!(IExtendedExecutionForegroundRevokedEventArgs, IExtendedExecutionForegroundRevokedEventArgs_Vtbl, 0xb07cd940_9557_aea4_2c99_bdd56d9be461);
+impl windows_core::RuntimeType for IExtendedExecutionForegroundRevokedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IExtendedExecutionForegroundRevokedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ExtendedExecutionForegroundRevokedReason) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IExtendedExecutionForegroundSession, IExtendedExecutionForegroundSession_Vtbl, 0xfbf440e1_9d10_4201_b01e_c83275296f2e);
+impl windows_core::RuntimeType for IExtendedExecutionForegroundSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IExtendedExecutionForegroundSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -30,7 +36,7 @@ impl ExtendedExecutionForegroundRevokedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ExtendedExecutionForegroundRevokedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IExtendedExecutionForegroundRevokedEventArgs>();
 }
 unsafe impl windows_core::Interface for ExtendedExecutionForegroundRevokedEventArgs {
     type Vtable = IExtendedExecutionForegroundRevokedEventArgs_Vtbl;
@@ -103,7 +109,7 @@ impl ExtendedExecutionForegroundSession {
     }
 }
 impl windows_core::RuntimeType for ExtendedExecutionForegroundSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IExtendedExecutionForegroundSession>();
 }
 unsafe impl windows_core::Interface for ExtendedExecutionForegroundSession {
     type Vtable = IExtendedExecutionForegroundSession_Vtbl;

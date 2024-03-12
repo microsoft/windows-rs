@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IDesktopWindowTarget, IDesktopWindowTarget_Vtbl, 0x6329d6ca_3366_490e_9db3_25312929ac51);
+impl windows_core::RuntimeType for IDesktopWindowTarget {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDesktopWindowTarget_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -139,7 +142,7 @@ impl DesktopWindowTarget {
     }
 }
 impl windows_core::RuntimeType for DesktopWindowTarget {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDesktopWindowTarget>();
 }
 unsafe impl windows_core::Interface for DesktopWindowTarget {
     type Vtable = IDesktopWindowTarget_Vtbl;

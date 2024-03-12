@@ -1,16 +1,25 @@
 windows_core::imp::define_interface!(IErrorReceivedEventArgs, IErrorReceivedEventArgs_Vtbl, 0xfcc6bf59_1283_4d8a_bfdf_566b33ddb28f);
+impl windows_core::RuntimeType for IErrorReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IErrorReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SerialError) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPinChangedEventArgs, IPinChangedEventArgs_Vtbl, 0xa2bf1db0_fc9c_4607_93d0_fa5e8343ee22);
+impl windows_core::RuntimeType for IPinChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPinChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PinChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SerialPinChange) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISerialDevice, ISerialDevice_Vtbl, 0xe187ccc6_2210_414f_b65a_f5553a03372a);
+impl windows_core::RuntimeType for ISerialDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISerialDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -55,6 +64,9 @@ pub struct ISerialDevice_Vtbl {
     pub RemovePinChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISerialDeviceStatics, ISerialDeviceStatics_Vtbl, 0x058c4a70_0836_4993_ae1a_b61ae3be056b);
+impl windows_core::RuntimeType for ISerialDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISerialDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -77,7 +89,7 @@ impl ErrorReceivedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ErrorReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IErrorReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for ErrorReceivedEventArgs {
     type Vtable = IErrorReceivedEventArgs_Vtbl;
@@ -102,7 +114,7 @@ impl PinChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for PinChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPinChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for PinChangedEventArgs {
     type Vtable = IPinChangedEventArgs_Vtbl;
@@ -357,7 +369,7 @@ impl SerialDevice {
     }
 }
 impl windows_core::RuntimeType for SerialDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISerialDevice>();
 }
 unsafe impl windows_core::Interface for SerialDevice {
     type Vtable = ISerialDevice_Vtbl;

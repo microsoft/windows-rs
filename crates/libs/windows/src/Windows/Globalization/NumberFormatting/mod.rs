@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ICurrencyFormatter, ICurrencyFormatter_Vtbl, 0x11730ca5_4b00_41b2_b332_73b12a497d54);
+impl windows_core::RuntimeType for ICurrencyFormatter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICurrencyFormatter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9,6 +12,9 @@ pub struct ICurrencyFormatter_Vtbl {
     SetCurrency: usize,
 }
 windows_core::imp::define_interface!(ICurrencyFormatter2, ICurrencyFormatter2_Vtbl, 0x072c2f1d_e7ba_4197_920e_247c92f7dea6);
+impl windows_core::RuntimeType for ICurrencyFormatter2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICurrencyFormatter2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -17,6 +23,9 @@ pub struct ICurrencyFormatter2_Vtbl {
     pub ApplyRoundingForCurrency: unsafe extern "system" fn(*mut core::ffi::c_void, RoundingAlgorithm) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICurrencyFormatterFactory, ICurrencyFormatterFactory_Vtbl, 0x86c7537e_b938_4aa2_84b0_2c33dc5b1450);
+impl windows_core::RuntimeType for ICurrencyFormatterFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICurrencyFormatterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -27,6 +36,9 @@ pub struct ICurrencyFormatterFactory_Vtbl {
     CreateCurrencyFormatterCodeContext: usize,
 }
 windows_core::imp::define_interface!(IDecimalFormatterFactory, IDecimalFormatterFactory_Vtbl, 0x0d018c9a_e393_46b8_b830_7a69c8f89fbb);
+impl windows_core::RuntimeType for IDecimalFormatterFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDecimalFormatterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -36,6 +48,9 @@ pub struct IDecimalFormatterFactory_Vtbl {
     CreateDecimalFormatter: usize,
 }
 windows_core::imp::define_interface!(IIncrementNumberRounder, IIncrementNumberRounder_Vtbl, 0x70a64ff8_66ab_4155_9da1_739e46764543);
+impl windows_core::RuntimeType for IIncrementNumberRounder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IIncrementNumberRounder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -348,6 +363,9 @@ pub struct INumberRounderOption_Vtbl {
     pub SetNumberRounder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INumeralSystemTranslator, INumeralSystemTranslator_Vtbl, 0x28f5bc2c_8c23_4234_ad2e_fa5a3a426e9b);
+impl windows_core::RuntimeType for INumeralSystemTranslator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct INumeralSystemTranslator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -361,6 +379,9 @@ pub struct INumeralSystemTranslator_Vtbl {
     pub TranslateNumerals: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INumeralSystemTranslatorFactory, INumeralSystemTranslatorFactory_Vtbl, 0x9630c8da_36ef_4d88_a85c_6f0d98d620a6);
+impl windows_core::RuntimeType for INumeralSystemTranslatorFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct INumeralSystemTranslatorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -370,6 +391,9 @@ pub struct INumeralSystemTranslatorFactory_Vtbl {
     Create: usize,
 }
 windows_core::imp::define_interface!(IPercentFormatterFactory, IPercentFormatterFactory_Vtbl, 0xb7828aef_fed4_4018_a6e2_e09961e03765);
+impl windows_core::RuntimeType for IPercentFormatterFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPercentFormatterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -379,6 +403,9 @@ pub struct IPercentFormatterFactory_Vtbl {
     CreatePercentFormatter: usize,
 }
 windows_core::imp::define_interface!(IPermilleFormatterFactory, IPermilleFormatterFactory_Vtbl, 0x2b37b4ac_e638_4ed5_a998_62f6b06a49ae);
+impl windows_core::RuntimeType for IPermilleFormatterFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPermilleFormatterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -412,6 +439,9 @@ pub struct ISignedZeroOption_Vtbl {
     pub SetIsZeroSigned: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISignificantDigitsNumberRounder, ISignificantDigitsNumberRounder_Vtbl, 0xf5941bca_6646_4913_8c76_1b191ff94dfd);
+impl windows_core::RuntimeType for ISignificantDigitsNumberRounder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISignificantDigitsNumberRounder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -683,7 +713,7 @@ impl CurrencyFormatter {
     }
 }
 impl windows_core::RuntimeType for CurrencyFormatter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICurrencyFormatter>();
 }
 unsafe impl windows_core::Interface for CurrencyFormatter {
     type Vtable = ICurrencyFormatter_Vtbl;
@@ -907,7 +937,7 @@ impl DecimalFormatter {
     }
 }
 impl windows_core::RuntimeType for DecimalFormatter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INumberFormatter>();
 }
 unsafe impl windows_core::Interface for DecimalFormatter {
     type Vtable = INumberFormatter_Vtbl;
@@ -997,7 +1027,7 @@ impl IncrementNumberRounder {
     }
 }
 impl windows_core::RuntimeType for IncrementNumberRounder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INumberRounder>();
 }
 unsafe impl windows_core::Interface for IncrementNumberRounder {
     type Vtable = INumberRounder_Vtbl;
@@ -1070,7 +1100,7 @@ impl NumeralSystemTranslator {
     }
 }
 impl windows_core::RuntimeType for NumeralSystemTranslator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INumeralSystemTranslator>();
 }
 unsafe impl windows_core::Interface for NumeralSystemTranslator {
     type Vtable = INumeralSystemTranslator_Vtbl;
@@ -1294,7 +1324,7 @@ impl PercentFormatter {
     }
 }
 impl windows_core::RuntimeType for PercentFormatter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INumberFormatter>();
 }
 unsafe impl windows_core::Interface for PercentFormatter {
     type Vtable = INumberFormatter_Vtbl;
@@ -1518,7 +1548,7 @@ impl PermilleFormatter {
     }
 }
 impl windows_core::RuntimeType for PermilleFormatter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INumberFormatter>();
 }
 unsafe impl windows_core::Interface for PermilleFormatter {
     type Vtable = INumberFormatter_Vtbl;
@@ -1608,7 +1638,7 @@ impl SignificantDigitsNumberRounder {
     }
 }
 impl windows_core::RuntimeType for SignificantDigitsNumberRounder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INumberRounder>();
 }
 unsafe impl windows_core::Interface for SignificantDigitsNumberRounder {
     type Vtable = INumberRounder_Vtbl;

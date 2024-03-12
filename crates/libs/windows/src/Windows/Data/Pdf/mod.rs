@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IPdfDocument, IPdfDocument_Vtbl, 0xac7ebedd_80fa_4089_846e_81b77ff5a86c);
+impl windows_core::RuntimeType for IPdfDocument {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPdfDocument_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7,6 +10,9 @@ pub struct IPdfDocument_Vtbl {
     pub IsPasswordProtected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPdfDocumentStatics, IPdfDocumentStatics_Vtbl, 0x433a0b5f_c007_4788_90f2_08143d922599);
+impl windows_core::RuntimeType for IPdfDocumentStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPdfDocumentStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -28,6 +34,9 @@ pub struct IPdfDocumentStatics_Vtbl {
     LoadFromStreamWithPasswordAsync: usize,
 }
 windows_core::imp::define_interface!(IPdfPage, IPdfPage_Vtbl, 0x9db4b0c8_5320_4cfc_ad76_493fdad0e594);
+impl windows_core::RuntimeType for IPdfPage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPdfPage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -47,6 +56,9 @@ pub struct IPdfPage_Vtbl {
     pub PreferredZoom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPdfPageDimensions, IPdfPageDimensions_Vtbl, 0x22170471_313e_44e8_835d_63a3e7624a10);
+impl windows_core::RuntimeType for IPdfPageDimensions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPdfPageDimensions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -57,6 +69,9 @@ pub struct IPdfPageDimensions_Vtbl {
     pub ArtBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPdfPageRenderOptions, IPdfPageRenderOptions_Vtbl, 0x3c98056f_b7cf_4c29_9a04_52d90267f425);
+impl windows_core::RuntimeType for IPdfPageRenderOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPdfPageRenderOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -152,7 +167,7 @@ impl PdfDocument {
     }
 }
 impl windows_core::RuntimeType for PdfDocument {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdfDocument>();
 }
 unsafe impl windows_core::Interface for PdfDocument {
     type Vtable = IPdfDocument_Vtbl;
@@ -240,7 +255,7 @@ impl PdfPage {
     }
 }
 impl windows_core::RuntimeType for PdfPage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdfPage>();
 }
 unsafe impl windows_core::Interface for PdfPage {
     type Vtable = IPdfPage_Vtbl;
@@ -293,7 +308,7 @@ impl PdfPageDimensions {
     }
 }
 impl windows_core::RuntimeType for PdfPageDimensions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdfPageDimensions>();
 }
 unsafe impl windows_core::Interface for PdfPageDimensions {
     type Vtable = IPdfPageDimensions_Vtbl;
@@ -386,7 +401,7 @@ impl PdfPageRenderOptions {
     }
 }
 impl windows_core::RuntimeType for PdfPageRenderOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdfPageRenderOptions>();
 }
 unsafe impl windows_core::Interface for PdfPageRenderOptions {
     type Vtable = IPdfPageRenderOptions_Vtbl;

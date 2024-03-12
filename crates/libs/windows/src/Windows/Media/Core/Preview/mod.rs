@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ISoundLevelBrokerStatics, ISoundLevelBrokerStatics_Vtbl, 0x6a633961_dbed_464c_a09a_33412f5caa3f);
+impl windows_core::RuntimeType for ISoundLevelBrokerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISoundLevelBrokerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

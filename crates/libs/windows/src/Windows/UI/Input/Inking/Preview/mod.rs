@@ -1,9 +1,15 @@
 windows_core::imp::define_interface!(IPalmRejectionDelayZonePreview, IPalmRejectionDelayZonePreview_Vtbl, 0x62b496cb_539d_5343_a65f_41f5300ec70c);
+impl windows_core::RuntimeType for IPalmRejectionDelayZonePreview {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPalmRejectionDelayZonePreview_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IPalmRejectionDelayZonePreviewStatics, IPalmRejectionDelayZonePreviewStatics_Vtbl, 0xcdef5ee0_93d0_53a9_8f0e_9a379f8f7530);
+impl windows_core::RuntimeType for IPalmRejectionDelayZonePreviewStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPalmRejectionDelayZonePreviewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -54,7 +60,7 @@ impl PalmRejectionDelayZonePreview {
     }
 }
 impl windows_core::RuntimeType for PalmRejectionDelayZonePreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPalmRejectionDelayZonePreview>();
 }
 unsafe impl windows_core::Interface for PalmRejectionDelayZonePreview {
     type Vtable = IPalmRejectionDelayZonePreview_Vtbl;

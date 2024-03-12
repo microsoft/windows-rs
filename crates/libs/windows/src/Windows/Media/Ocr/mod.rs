@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IOcrEngine, IOcrEngine_Vtbl, 0x5a14bc41_5b76_3140_b680_8825562683ac);
+impl windows_core::RuntimeType for IOcrEngine {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IOcrEngine_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12,6 +15,9 @@ pub struct IOcrEngine_Vtbl {
     RecognizerLanguage: usize,
 }
 windows_core::imp::define_interface!(IOcrEngineStatics, IOcrEngineStatics_Vtbl, 0x5bffa85a_3384_3540_9940_699120d428a8);
+impl windows_core::RuntimeType for IOcrEngineStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IOcrEngineStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -31,6 +37,9 @@ pub struct IOcrEngineStatics_Vtbl {
     pub TryCreateFromUserProfileLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOcrLine, IOcrLine_Vtbl, 0x0043a16f_e31f_3a24_899c_d444bd088124);
+impl windows_core::RuntimeType for IOcrLine {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IOcrLine_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -41,6 +50,9 @@ pub struct IOcrLine_Vtbl {
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOcrResult, IOcrResult_Vtbl, 0x9bd235b2_175b_3d6a_92e2_388c206e2f63);
+impl windows_core::RuntimeType for IOcrResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IOcrResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -52,6 +64,9 @@ pub struct IOcrResult_Vtbl {
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOcrWord, IOcrWord_Vtbl, 0x3c2a477a_5cd9_3525_ba2a_23d1e0a68a1d);
+impl windows_core::RuntimeType for IOcrWord {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IOcrWord_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -128,7 +143,7 @@ impl OcrEngine {
     }
 }
 impl windows_core::RuntimeType for OcrEngine {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOcrEngine>();
 }
 unsafe impl windows_core::Interface for OcrEngine {
     type Vtable = IOcrEngine_Vtbl;
@@ -161,7 +176,7 @@ impl OcrLine {
     }
 }
 impl windows_core::RuntimeType for OcrLine {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOcrLine>();
 }
 unsafe impl windows_core::Interface for OcrLine {
     type Vtable = IOcrLine_Vtbl;
@@ -201,7 +216,7 @@ impl OcrResult {
     }
 }
 impl windows_core::RuntimeType for OcrResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOcrResult>();
 }
 unsafe impl windows_core::Interface for OcrResult {
     type Vtable = IOcrResult_Vtbl;
@@ -233,7 +248,7 @@ impl OcrWord {
     }
 }
 impl windows_core::RuntimeType for OcrWord {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOcrWord>();
 }
 unsafe impl windows_core::Interface for OcrWord {
     type Vtable = IOcrWord_Vtbl;

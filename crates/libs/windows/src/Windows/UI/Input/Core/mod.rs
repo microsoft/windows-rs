@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IRadialControllerIndependentInputSource, IRadialControllerIndependentInputSource_Vtbl, 0x3d577ef6_4cee_11e6_b535_001bdc06ab3b);
+impl windows_core::RuntimeType for IRadialControllerIndependentInputSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerIndependentInputSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9,6 +12,9 @@ pub struct IRadialControllerIndependentInputSource_Vtbl {
     Dispatcher: usize,
 }
 windows_core::imp::define_interface!(IRadialControllerIndependentInputSource2, IRadialControllerIndependentInputSource2_Vtbl, 0x7073aad8_35f3_4eeb_8751_be4d0a66faf4);
+impl windows_core::RuntimeType for IRadialControllerIndependentInputSource2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerIndependentInputSource2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -18,6 +24,9 @@ pub struct IRadialControllerIndependentInputSource2_Vtbl {
     DispatcherQueue: usize,
 }
 windows_core::imp::define_interface!(IRadialControllerIndependentInputSourceStatics, IRadialControllerIndependentInputSourceStatics_Vtbl, 0x3d577ef5_4cee_11e6_b535_001bdc06ab3b);
+impl windows_core::RuntimeType for IRadialControllerIndependentInputSourceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerIndependentInputSourceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -71,7 +80,7 @@ impl RadialControllerIndependentInputSource {
     }
 }
 impl windows_core::RuntimeType for RadialControllerIndependentInputSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerIndependentInputSource>();
 }
 unsafe impl windows_core::Interface for RadialControllerIndependentInputSource {
     type Vtable = IRadialControllerIndependentInputSource_Vtbl;

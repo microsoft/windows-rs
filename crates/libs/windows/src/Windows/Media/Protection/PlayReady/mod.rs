@@ -1,6 +1,10 @@
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDClient, INDClient_Vtbl, 0x3bd6781b_61b8_46e2_99a5_8abcb6b9f7d6);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for INDClient {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct INDClient_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -63,6 +67,10 @@ pub struct INDClient_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDClientFactory, INDClientFactory_Vtbl, 0x3e53dd62_fee8_451f_b0d4_f706cca3e037);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for INDClientFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct INDClientFactory_Vtbl {
@@ -166,6 +174,10 @@ pub struct INDCustomData_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDCustomDataFactory, INDCustomDataFactory_Vtbl, 0xd65405ab_3424_4833_8c9a_af5fdeb22872);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for INDCustomDataFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct INDCustomDataFactory_Vtbl {
@@ -454,6 +466,10 @@ pub struct INDLicenseFetchDescriptor_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDLicenseFetchDescriptorFactory, INDLicenseFetchDescriptorFactory_Vtbl, 0xd0031202_cfac_4f00_ae6a_97af80b848f2);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for INDLicenseFetchDescriptorFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct INDLicenseFetchDescriptorFactory_Vtbl {
@@ -869,6 +885,10 @@ pub struct INDStreamParserNotifier_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDTCPMessengerFactory, INDTCPMessengerFactory_Vtbl, 0x7dd85cfe_1b99_4f68_8f82_8177f7cedf2b);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for INDTCPMessengerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct INDTCPMessengerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1026,6 +1046,9 @@ pub struct INDTransmitterProperties_Vtbl {
     ModelNumber: usize,
 }
 windows_core::imp::define_interface!(IPlayReadyContentHeader, IPlayReadyContentHeader_Vtbl, 0x9a438a6a_7f4c_452e_88bd_0148c6387a2c);
+impl windows_core::RuntimeType for IPlayReadyContentHeader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyContentHeader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1041,6 +1064,9 @@ pub struct IPlayReadyContentHeader_Vtbl {
     pub HeaderWithEmbeddedUpdates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyContentHeader2, IPlayReadyContentHeader2_Vtbl, 0x359c79f4_2180_498c_965b_e754d875eab2);
+impl windows_core::RuntimeType for IPlayReadyContentHeader2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyContentHeader2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1048,6 +1074,9 @@ pub struct IPlayReadyContentHeader2_Vtbl {
     pub KeyIdStrings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyContentHeaderFactory, IPlayReadyContentHeaderFactory_Vtbl, 0xcb97c8ff_b758_4776_bf01_217a8b510b2c);
+impl windows_core::RuntimeType for IPlayReadyContentHeaderFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyContentHeaderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1056,12 +1085,18 @@ pub struct IPlayReadyContentHeaderFactory_Vtbl {
     pub CreateInstanceFromPlayReadyHeader: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyContentHeaderFactory2, IPlayReadyContentHeaderFactory2_Vtbl, 0xd1239cf5_ae6d_4778_97fd_6e3a2eeadbeb);
+impl windows_core::RuntimeType for IPlayReadyContentHeaderFactory2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyContentHeaderFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstanceFromComponents2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const windows_core::GUID, u32, *const std::mem::MaybeUninit<windows_core::HSTRING>, PlayReadyEncryptionAlgorithm, *mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyContentResolver, IPlayReadyContentResolver_Vtbl, 0xfbfd2523_906d_4982_a6b8_6849565a7ce8);
+impl windows_core::RuntimeType for IPlayReadyContentResolver {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyContentResolver_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1119,6 +1154,9 @@ pub struct IPlayReadyDomain_Vtbl {
     pub DomainJoinUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyDomainIterableFactory, IPlayReadyDomainIterableFactory_Vtbl, 0x4df384ee_3121_4df3_a5e8_d0c24c0500fc);
+impl windows_core::RuntimeType for IPlayReadyDomainIterableFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyDomainIterableFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1128,6 +1166,9 @@ pub struct IPlayReadyDomainIterableFactory_Vtbl {
     CreateInstance: usize,
 }
 windows_core::imp::define_interface!(IPlayReadyDomainJoinServiceRequest, IPlayReadyDomainJoinServiceRequest_Vtbl, 0x171b4a5a_405f_4739_b040_67b9f0c38758);
+impl windows_core::RuntimeType for IPlayReadyDomainJoinServiceRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyDomainJoinServiceRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1139,6 +1180,9 @@ pub struct IPlayReadyDomainJoinServiceRequest_Vtbl {
     pub SetDomainServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyDomainLeaveServiceRequest, IPlayReadyDomainLeaveServiceRequest_Vtbl, 0x062d58be_97ad_4917_aa03_46d4c252d464);
+impl windows_core::RuntimeType for IPlayReadyDomainLeaveServiceRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyDomainLeaveServiceRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1148,6 +1192,9 @@ pub struct IPlayReadyDomainLeaveServiceRequest_Vtbl {
     pub SetDomainServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyITADataGenerator, IPlayReadyITADataGenerator_Vtbl, 0x24446b8e_10b9_4530_b25b_901a8029a9b2);
+impl windows_core::RuntimeType for IPlayReadyITADataGenerator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyITADataGenerator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1157,6 +1204,9 @@ pub struct IPlayReadyITADataGenerator_Vtbl {
     GenerateData: usize,
 }
 windows_core::imp::define_interface!(IPlayReadyIndividualizationServiceRequest, IPlayReadyIndividualizationServiceRequest_Vtbl, 0x21f5a86b_008c_4611_ab2f_aaa6c69f0e24);
+impl windows_core::RuntimeType for IPlayReadyIndividualizationServiceRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyIndividualizationServiceRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1229,6 +1279,9 @@ pub struct IPlayReadyLicense_Vtbl {
     pub GetKIDAtChainDepth: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyLicense2, IPlayReadyLicense2_Vtbl, 0x30f4e7a7_d8e3_48a0_bcda_ff9f40530436);
+impl windows_core::RuntimeType for IPlayReadyLicense2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyLicense2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1353,12 +1406,18 @@ pub struct IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
     pub SetDomainServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyLicenseAcquisitionServiceRequest2, IPlayReadyLicenseAcquisitionServiceRequest2_Vtbl, 0xb7fa5eb5_fe0c_b225_bc60_5a9edd32ceb5);
+impl windows_core::RuntimeType for IPlayReadyLicenseAcquisitionServiceRequest2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyLicenseAcquisitionServiceRequest2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SessionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyLicenseAcquisitionServiceRequest3, IPlayReadyLicenseAcquisitionServiceRequest3_Vtbl, 0x394e5f4d_7f75_430d_b2e7_7f75f34b2d75);
+impl windows_core::RuntimeType for IPlayReadyLicenseAcquisitionServiceRequest3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyLicenseAcquisitionServiceRequest3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1368,6 +1427,9 @@ pub struct IPlayReadyLicenseAcquisitionServiceRequest3_Vtbl {
     CreateLicenseIterable: usize,
 }
 windows_core::imp::define_interface!(IPlayReadyLicenseIterableFactory, IPlayReadyLicenseIterableFactory_Vtbl, 0xd4179f08_0837_4978_8e68_be4293c8d7a6);
+impl windows_core::RuntimeType for IPlayReadyLicenseIterableFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyLicenseIterableFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1377,6 +1439,9 @@ pub struct IPlayReadyLicenseIterableFactory_Vtbl {
     CreateInstance: usize,
 }
 windows_core::imp::define_interface!(IPlayReadyLicenseManagement, IPlayReadyLicenseManagement_Vtbl, 0xaaeb2141_0957_4405_b892_8bf3ec5dadd9);
+impl windows_core::RuntimeType for IPlayReadyLicenseManagement {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyLicenseManagement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1451,6 +1516,9 @@ pub struct IPlayReadyLicenseSession2_Vtbl {
     CreateLicenseIterable: usize,
 }
 windows_core::imp::define_interface!(IPlayReadyLicenseSessionFactory, IPlayReadyLicenseSessionFactory_Vtbl, 0x62492699_6527_429e_98be_48d798ac2739);
+impl windows_core::RuntimeType for IPlayReadyLicenseSessionFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyLicenseSessionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1460,6 +1528,9 @@ pub struct IPlayReadyLicenseSessionFactory_Vtbl {
     CreateInstance: usize,
 }
 windows_core::imp::define_interface!(IPlayReadyMeteringReportServiceRequest, IPlayReadyMeteringReportServiceRequest_Vtbl, 0xc12b231c_0ecd_4f11_a185_1e24a4a67fb7);
+impl windows_core::RuntimeType for IPlayReadyMeteringReportServiceRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyMeteringReportServiceRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1467,11 +1538,17 @@ pub struct IPlayReadyMeteringReportServiceRequest_Vtbl {
     pub SetMeteringCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyRevocationServiceRequest, IPlayReadyRevocationServiceRequest_Vtbl, 0x543d66ac_faf0_4560_84a5_0e4acec939e4);
+impl windows_core::RuntimeType for IPlayReadyRevocationServiceRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyRevocationServiceRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IPlayReadySecureStopIterableFactory, IPlayReadySecureStopIterableFactory_Vtbl, 0x5f1f0165_4214_4d9e_81eb_e89f9d294aee);
+impl windows_core::RuntimeType for IPlayReadySecureStopIterableFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadySecureStopIterableFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1607,6 +1684,9 @@ pub struct IPlayReadySecureStopServiceRequest_Vtbl {
     pub PublisherCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadySecureStopServiceRequestFactory, IPlayReadySecureStopServiceRequestFactory_Vtbl, 0x0e448ac9_e67e_494e_9f49_6285438c76cf);
+impl windows_core::RuntimeType for IPlayReadySecureStopServiceRequestFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadySecureStopServiceRequestFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1709,6 +1789,9 @@ pub struct IPlayReadyServiceRequest_Vtbl {
     pub ProcessManualEnablingResponse: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadySoapMessage, IPlayReadySoapMessage_Vtbl, 0xb659fcb5_ce41_41ba_8a0d_61df5fffa139);
+impl windows_core::RuntimeType for IPlayReadySoapMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadySoapMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1720,6 +1803,9 @@ pub struct IPlayReadySoapMessage_Vtbl {
     pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyStatics, IPlayReadyStatics_Vtbl, 0x5e69c00d_247c_469a_8f31_5c1a1571d9c6);
+impl windows_core::RuntimeType for IPlayReadyStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1733,12 +1819,18 @@ pub struct IPlayReadyStatics_Vtbl {
     pub PlayReadySecurityVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyStatics2, IPlayReadyStatics2_Vtbl, 0x1f8d6a92_5f9a_423e_9466_b33969af7a3d);
+impl windows_core::RuntimeType for IPlayReadyStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PlayReadyCertificateSecurityLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyStatics3, IPlayReadyStatics3_Vtbl, 0x3fa33f71_2dd3_4bed_ae49_f7148e63e710);
+impl windows_core::RuntimeType for IPlayReadyStatics3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1746,6 +1838,9 @@ pub struct IPlayReadyStatics3_Vtbl {
     pub CheckSupportedHardware: unsafe extern "system" fn(*mut core::ffi::c_void, PlayReadyHardwareDRMFeatures, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyStatics4, IPlayReadyStatics4_Vtbl, 0x50a91300_d824_4231_9d5e_78ef8844c7d7);
+impl windows_core::RuntimeType for IPlayReadyStatics4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1753,6 +1848,9 @@ pub struct IPlayReadyStatics4_Vtbl {
     pub ProtectionSystemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyStatics5, IPlayReadyStatics5_Vtbl, 0x230a7075_dfa0_4f8e_a779_cefea9c6824b);
+impl windows_core::RuntimeType for IPlayReadyStatics5 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayReadyStatics5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1909,7 +2007,7 @@ impl NDClient {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for NDClient {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDClient>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDClient {
@@ -1962,7 +2060,7 @@ impl NDCustomData {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for NDCustomData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDCustomData>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDCustomData {
@@ -2026,7 +2124,7 @@ impl NDDownloadEngineNotifier {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for NDDownloadEngineNotifier {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDDownloadEngineNotifier>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDDownloadEngineNotifier {
@@ -2098,7 +2196,7 @@ impl NDLicenseFetchDescriptor {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for NDLicenseFetchDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDLicenseFetchDescriptor>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDLicenseFetchDescriptor {
@@ -2140,7 +2238,7 @@ impl NDStorageFileHelper {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for NDStorageFileHelper {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDStorageFileHelper>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDStorageFileHelper {
@@ -2204,7 +2302,7 @@ impl NDStreamParserNotifier {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for NDStreamParserNotifier {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDStreamParserNotifier>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDStreamParserNotifier {
@@ -2273,7 +2371,7 @@ impl NDTCPMessenger {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for NDTCPMessenger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDMessenger>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDTCPMessenger {
@@ -2421,7 +2519,7 @@ impl PlayReadyContentHeader {
     }
 }
 impl windows_core::RuntimeType for PlayReadyContentHeader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyContentHeader>();
 }
 unsafe impl windows_core::Interface for PlayReadyContentHeader {
     type Vtable = IPlayReadyContentHeader_Vtbl;
@@ -2493,7 +2591,7 @@ impl PlayReadyDomain {
     }
 }
 impl windows_core::RuntimeType for PlayReadyDomain {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyDomain>();
 }
 unsafe impl windows_core::Interface for PlayReadyDomain {
     type Vtable = IPlayReadyDomain_Vtbl;
@@ -2535,7 +2633,7 @@ impl PlayReadyDomainIterable {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for PlayReadyDomainIterable {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlayReadyDomainIterable {
@@ -2607,7 +2705,7 @@ impl PlayReadyDomainIterator {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for PlayReadyDomainIterator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlayReadyDomainIterator {
@@ -2740,7 +2838,7 @@ impl PlayReadyDomainJoinServiceRequest {
     }
 }
 impl windows_core::RuntimeType for PlayReadyDomainJoinServiceRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyDomainJoinServiceRequest>();
 }
 unsafe impl windows_core::Interface for PlayReadyDomainJoinServiceRequest {
     type Vtable = IPlayReadyDomainJoinServiceRequest_Vtbl;
@@ -2860,7 +2958,7 @@ impl PlayReadyDomainLeaveServiceRequest {
     }
 }
 impl windows_core::RuntimeType for PlayReadyDomainLeaveServiceRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyDomainLeaveServiceRequest>();
 }
 unsafe impl windows_core::Interface for PlayReadyDomainLeaveServiceRequest {
     type Vtable = IPlayReadyDomainLeaveServiceRequest_Vtbl;
@@ -2894,7 +2992,7 @@ impl PlayReadyITADataGenerator {
     }
 }
 impl windows_core::RuntimeType for PlayReadyITADataGenerator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyITADataGenerator>();
 }
 unsafe impl windows_core::Interface for PlayReadyITADataGenerator {
     type Vtable = IPlayReadyITADataGenerator_Vtbl;
@@ -2992,7 +3090,7 @@ impl PlayReadyIndividualizationServiceRequest {
     }
 }
 impl windows_core::RuntimeType for PlayReadyIndividualizationServiceRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyIndividualizationServiceRequest>();
 }
 unsafe impl windows_core::Interface for PlayReadyIndividualizationServiceRequest {
     type Vtable = IPlayReadyIndividualizationServiceRequest_Vtbl;
@@ -3086,7 +3184,7 @@ impl PlayReadyLicense {
     }
 }
 impl windows_core::RuntimeType for PlayReadyLicense {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyLicense>();
 }
 unsafe impl windows_core::Interface for PlayReadyLicense {
     type Vtable = IPlayReadyLicense_Vtbl;
@@ -3227,7 +3325,7 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
     }
 }
 impl windows_core::RuntimeType for PlayReadyLicenseAcquisitionServiceRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyLicenseAcquisitionServiceRequest>();
 }
 unsafe impl windows_core::Interface for PlayReadyLicenseAcquisitionServiceRequest {
     type Vtable = IPlayReadyLicenseAcquisitionServiceRequest_Vtbl;
@@ -3279,7 +3377,7 @@ impl PlayReadyLicenseIterable {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for PlayReadyLicenseIterable {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlayReadyLicenseIterable {
@@ -3351,7 +3449,7 @@ impl PlayReadyLicenseIterator {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for PlayReadyLicenseIterator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlayReadyLicenseIterator {
@@ -3430,7 +3528,7 @@ impl PlayReadyLicenseSession {
     }
 }
 impl windows_core::RuntimeType for PlayReadyLicenseSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyLicenseSession>();
 }
 unsafe impl windows_core::Interface for PlayReadyLicenseSession {
     type Vtable = IPlayReadyLicenseSession_Vtbl;
@@ -3539,7 +3637,7 @@ impl PlayReadyMeteringReportServiceRequest {
     }
 }
 impl windows_core::RuntimeType for PlayReadyMeteringReportServiceRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyMeteringReportServiceRequest>();
 }
 unsafe impl windows_core::Interface for PlayReadyMeteringReportServiceRequest {
     type Vtable = IPlayReadyMeteringReportServiceRequest_Vtbl;
@@ -3637,7 +3735,7 @@ impl PlayReadyRevocationServiceRequest {
     }
 }
 impl windows_core::RuntimeType for PlayReadyRevocationServiceRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyRevocationServiceRequest>();
 }
 unsafe impl windows_core::Interface for PlayReadyRevocationServiceRequest {
     type Vtable = IPlayReadyRevocationServiceRequest_Vtbl;
@@ -3679,7 +3777,7 @@ impl PlayReadySecureStopIterable {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for PlayReadySecureStopIterable {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlayReadySecureStopIterable {
@@ -3751,7 +3849,7 @@ impl PlayReadySecureStopIterator {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for PlayReadySecureStopIterator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlayReadySecureStopIterator {
@@ -3896,7 +3994,7 @@ impl PlayReadySecureStopServiceRequest {
     }
 }
 impl windows_core::RuntimeType for PlayReadySecureStopServiceRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadySecureStopServiceRequest>();
 }
 unsafe impl windows_core::Interface for PlayReadySecureStopServiceRequest {
     type Vtable = IPlayReadySecureStopServiceRequest_Vtbl;
@@ -3934,7 +4032,7 @@ impl PlayReadySoapMessage {
     }
 }
 impl windows_core::RuntimeType for PlayReadySoapMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadySoapMessage>();
 }
 unsafe impl windows_core::Interface for PlayReadySoapMessage {
     type Vtable = IPlayReadySoapMessage_Vtbl;

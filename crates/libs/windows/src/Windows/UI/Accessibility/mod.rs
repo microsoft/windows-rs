@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IScreenReaderPositionChangedEventArgs, IScreenReaderPositionChangedEventArgs_Vtbl, 0x557eb5e5_54d0_5ccd_9fc5_ed33357f8a9f);
+impl windows_core::RuntimeType for IScreenReaderPositionChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IScreenReaderPositionChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6,6 +9,9 @@ pub struct IScreenReaderPositionChangedEventArgs_Vtbl {
     pub IsReadingText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IScreenReaderService, IScreenReaderService_Vtbl, 0x19475427_eac0_50d3_bdd9_9b487a226256);
+impl windows_core::RuntimeType for IScreenReaderService {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IScreenReaderService_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -34,7 +40,7 @@ impl ScreenReaderPositionChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ScreenReaderPositionChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScreenReaderPositionChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for ScreenReaderPositionChangedEventArgs {
     type Vtable = IScreenReaderPositionChangedEventArgs_Vtbl;
@@ -80,7 +86,7 @@ impl ScreenReaderService {
     }
 }
 impl windows_core::RuntimeType for ScreenReaderService {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScreenReaderService>();
 }
 unsafe impl windows_core::Interface for ScreenReaderService {
     type Vtable = IScreenReaderService_Vtbl;

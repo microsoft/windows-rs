@@ -27,28 +27,43 @@ pub mod WebUI;
 #[cfg(feature = "UI_WindowManagement")]
 pub mod WindowManagement;
 windows_core::imp::define_interface!(IColorHelper, IColorHelper_Vtbl, 0x193cfbe7_65c7_4540_ad08_6283ba76879a);
+impl windows_core::RuntimeType for IColorHelper {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IColorHelper_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IColorHelperStatics, IColorHelperStatics_Vtbl, 0x8504dbea_fb6a_4144_a6c2_33499c9284f5);
+impl windows_core::RuntimeType for IColorHelperStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IColorHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromArgb: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, u8, u8, *mut Color) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IColorHelperStatics2, IColorHelperStatics2_Vtbl, 0x24d9af02_6eb0_4b94_855c_fcf0818d9a16);
+impl windows_core::RuntimeType for IColorHelperStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IColorHelperStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ToDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, Color, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IColors, IColors_Vtbl, 0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc);
+impl windows_core::RuntimeType for IColors {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IColors_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IColorsStatics, IColorsStatics_Vtbl, 0xcff52e04_cca6_4614_a17e_754910c84a99);
+impl windows_core::RuntimeType for IColorsStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IColorsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -195,12 +210,18 @@ pub struct IColorsStatics_Vtbl {
     pub YellowGreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Color) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIContentRoot, IUIContentRoot_Vtbl, 0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378);
+impl windows_core::RuntimeType for IUIContentRoot {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUIContentRoot_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UIContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIContext, IUIContext_Vtbl, 0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243);
+impl windows_core::RuntimeType for IUIContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUIContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -234,7 +255,7 @@ impl ColorHelper {
     }
 }
 impl windows_core::RuntimeType for ColorHelper {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IColorHelper>();
 }
 unsafe impl windows_core::Interface for ColorHelper {
     type Vtable = IColorHelper_Vtbl;
@@ -1103,7 +1124,7 @@ impl Colors {
     }
 }
 impl windows_core::RuntimeType for Colors {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IColors>();
 }
 unsafe impl windows_core::Interface for Colors {
     type Vtable = IColors_Vtbl;
@@ -1128,7 +1149,7 @@ impl UIContentRoot {
     }
 }
 impl windows_core::RuntimeType for UIContentRoot {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUIContentRoot>();
 }
 unsafe impl windows_core::Interface for UIContentRoot {
     type Vtable = IUIContentRoot_Vtbl;
@@ -1145,7 +1166,7 @@ pub struct UIContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UIContext, windows_core::IUnknown, windows_core::IInspectable);
 impl UIContext {}
 impl windows_core::RuntimeType for UIContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUIContext>();
 }
 unsafe impl windows_core::Interface for UIContext {
     type Vtable = IUIContext_Vtbl;

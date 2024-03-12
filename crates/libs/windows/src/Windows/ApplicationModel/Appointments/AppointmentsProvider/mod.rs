@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IAddAppointmentOperation, IAddAppointmentOperation_Vtbl, 0xec4a9af3_620d_4c69_add7_9794e918081f);
+impl windows_core::RuntimeType for IAddAppointmentOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAddAppointmentOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -10,6 +13,9 @@ pub struct IAddAppointmentOperation_Vtbl {
     pub DismissUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppointmentsProviderLaunchActionVerbsStatics, IAppointmentsProviderLaunchActionVerbsStatics_Vtbl, 0x36dbba28_9e2e_49c6_8ef7_3ab7a5dcc8b8);
+impl windows_core::RuntimeType for IAppointmentsProviderLaunchActionVerbsStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppointmentsProviderLaunchActionVerbsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19,12 +25,18 @@ pub struct IAppointmentsProviderLaunchActionVerbsStatics_Vtbl {
     pub ShowTimeFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppointmentsProviderLaunchActionVerbsStatics2, IAppointmentsProviderLaunchActionVerbsStatics2_Vtbl, 0xef9049a4_af21_473c_88dc_76cd89f60ca5);
+impl windows_core::RuntimeType for IAppointmentsProviderLaunchActionVerbsStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppointmentsProviderLaunchActionVerbsStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ShowAppointmentDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRemoveAppointmentOperation, IRemoveAppointmentOperation_Vtbl, 0x08b66aba_fe33_46cd_a50c_a8ffb3260537);
+impl windows_core::RuntimeType for IRemoveAppointmentOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRemoveAppointmentOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -37,6 +49,9 @@ pub struct IRemoveAppointmentOperation_Vtbl {
     pub DismissUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IReplaceAppointmentOperation, IReplaceAppointmentOperation_Vtbl, 0xf4903d9b_9e61_4de2_a732_2687c07d1de8);
+impl windows_core::RuntimeType for IReplaceAppointmentOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IReplaceAppointmentOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -86,7 +101,7 @@ impl AddAppointmentOperation {
     }
 }
 impl windows_core::RuntimeType for AddAppointmentOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAddAppointmentOperation>();
 }
 unsafe impl windows_core::Interface for AddAppointmentOperation {
     type Vtable = IAddAppointmentOperation_Vtbl;
@@ -187,7 +202,7 @@ impl RemoveAppointmentOperation {
     }
 }
 impl windows_core::RuntimeType for RemoveAppointmentOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoveAppointmentOperation>();
 }
 unsafe impl windows_core::Interface for RemoveAppointmentOperation {
     type Vtable = IRemoveAppointmentOperation_Vtbl;
@@ -249,7 +264,7 @@ impl ReplaceAppointmentOperation {
     }
 }
 impl windows_core::RuntimeType for ReplaceAppointmentOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IReplaceAppointmentOperation>();
 }
 unsafe impl windows_core::Interface for ReplaceAppointmentOperation {
     type Vtable = IReplaceAppointmentOperation_Vtbl;

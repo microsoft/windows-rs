@@ -9,6 +9,9 @@ pub mod Update;
 #[cfg(feature = "Management_Workplace")]
 pub mod Workplace;
 windows_core::imp::define_interface!(IMdmAlert, IMdmAlert_Vtbl, 0xb0fbc327_28c1_4b52_a548_c5807caf70b6);
+impl windows_core::RuntimeType for IMdmAlert {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMdmAlert_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -27,6 +30,9 @@ pub struct IMdmAlert_Vtbl {
     pub SetType: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMdmSession, IMdmSession_Vtbl, 0xfe89314c_8f64_4797_a9d7_9d88f86ae166);
+impl windows_core::RuntimeType for IMdmSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMdmSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -46,6 +52,9 @@ pub struct IMdmSession_Vtbl {
     StartWithAlertsAsync: usize,
 }
 windows_core::imp::define_interface!(IMdmSessionManagerStatics, IMdmSessionManagerStatics_Vtbl, 0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b);
+impl windows_core::RuntimeType for IMdmSessionManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMdmSessionManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -144,7 +153,7 @@ impl MdmAlert {
     }
 }
 impl windows_core::RuntimeType for MdmAlert {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMdmAlert>();
 }
 unsafe impl windows_core::Interface for MdmAlert {
     type Vtable = IMdmAlert_Vtbl;
@@ -218,7 +227,7 @@ impl MdmSession {
     }
 }
 impl windows_core::RuntimeType for MdmSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMdmSession>();
 }
 unsafe impl windows_core::Interface for MdmSession {
     type Vtable = IMdmSession_Vtbl;

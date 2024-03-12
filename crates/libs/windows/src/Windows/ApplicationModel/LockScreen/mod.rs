@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ILockApplicationHost, ILockApplicationHost_Vtbl, 0x38ee31ad_d94f_4e7c_81fa_4f4436506281);
+impl windows_core::RuntimeType for ILockApplicationHost {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILockApplicationHost_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7,12 +10,18 @@ pub struct ILockApplicationHost_Vtbl {
     pub RemoveUnlocking: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILockApplicationHostStatics, ILockApplicationHostStatics_Vtbl, 0xf48fab8e_23d7_4e63_96a1_666ff52d3b2c);
+impl windows_core::RuntimeType for ILockApplicationHostStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILockApplicationHostStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILockScreenBadge, ILockScreenBadge_Vtbl, 0xe95105d9_2bff_4db0_9b4f_3824778b9c9a);
+impl windows_core::RuntimeType for ILockScreenBadge {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILockScreenBadge_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -29,6 +38,9 @@ pub struct ILockScreenBadge_Vtbl {
     pub LaunchApp: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILockScreenInfo, ILockScreenInfo_Vtbl, 0xf59aa65c_9711_4dc9_a630_95b6cb8cdad0);
+impl windows_core::RuntimeType for ILockScreenInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILockScreenInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -58,12 +70,18 @@ pub struct ILockScreenInfo_Vtbl {
     AlarmIcon: usize,
 }
 windows_core::imp::define_interface!(ILockScreenUnlockingDeferral, ILockScreenUnlockingDeferral_Vtbl, 0x7e7d1ad6_5203_43e7_9bd6_7c3947d1e3fe);
+impl windows_core::RuntimeType for ILockScreenUnlockingDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILockScreenUnlockingDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILockScreenUnlockingEventArgs, ILockScreenUnlockingEventArgs_Vtbl, 0x44e6c007_75fb_4abb_9f8b_824748900c71);
+impl windows_core::RuntimeType for ILockScreenUnlockingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILockScreenUnlockingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -106,7 +124,7 @@ impl LockApplicationHost {
     }
 }
 impl windows_core::RuntimeType for LockApplicationHost {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockApplicationHost>();
 }
 unsafe impl windows_core::Interface for LockApplicationHost {
     type Vtable = ILockApplicationHost_Vtbl;
@@ -158,7 +176,7 @@ impl LockScreenBadge {
     }
 }
 impl windows_core::RuntimeType for LockScreenBadge {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenBadge>();
 }
 unsafe impl windows_core::Interface for LockScreenBadge {
     type Vtable = ILockScreenBadge_Vtbl;
@@ -264,7 +282,7 @@ impl LockScreenInfo {
     }
 }
 impl windows_core::RuntimeType for LockScreenInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenInfo>();
 }
 unsafe impl windows_core::Interface for LockScreenInfo {
     type Vtable = ILockScreenInfo_Vtbl;
@@ -286,7 +304,7 @@ impl LockScreenUnlockingDeferral {
     }
 }
 impl windows_core::RuntimeType for LockScreenUnlockingDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenUnlockingDeferral>();
 }
 unsafe impl windows_core::Interface for LockScreenUnlockingDeferral {
     type Vtable = ILockScreenUnlockingDeferral_Vtbl;
@@ -318,7 +336,7 @@ impl LockScreenUnlockingEventArgs {
     }
 }
 impl windows_core::RuntimeType for LockScreenUnlockingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenUnlockingEventArgs>();
 }
 unsafe impl windows_core::Interface for LockScreenUnlockingEventArgs {
     type Vtable = ILockScreenUnlockingEventArgs_Vtbl;

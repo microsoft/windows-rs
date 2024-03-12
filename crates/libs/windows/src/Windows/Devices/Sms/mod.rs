@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ISmsAppMessage, ISmsAppMessage_Vtbl, 0xe8bb8494_d3a0_4a0a_86d7_291033a8cf54);
+impl windows_core::RuntimeType for ISmsAppMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmsAppMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -106,6 +109,9 @@ pub struct ISmsBinaryMessage_Vtbl {
     SetData: usize,
 }
 windows_core::imp::define_interface!(ISmsBroadcastMessage, ISmsBroadcastMessage_Vtbl, 0x75aebbf1_e4b7_4874_a09c_2956e592f957);
+impl windows_core::RuntimeType for ISmsBroadcastMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmsBroadcastMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -263,6 +269,9 @@ pub struct ISmsDevice_Vtbl {
     RemoveSmsDeviceStatusChanged: usize,
 }
 windows_core::imp::define_interface!(ISmsDevice2, ISmsDevice2_Vtbl, 0xbd8a5c13_e522_46cb_b8d5_9ead30fb6c47);
+impl windows_core::RuntimeType for ISmsDevice2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmsDevice2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -279,6 +288,9 @@ pub struct ISmsDevice2_Vtbl {
     pub RemoveDeviceStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISmsDevice2Statics, ISmsDevice2Statics_Vtbl, 0x65c78325_1031_491e_8fb6_ef9991afe363);
+impl windows_core::RuntimeType for ISmsDevice2Statics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmsDevice2Statics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -289,6 +301,10 @@ pub struct ISmsDevice2Statics_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsDeviceMessageStore, ISmsDeviceMessageStore_Vtbl, 0x9889f253_f188_4427_8d54_ce0c2423c5c1);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISmsDeviceMessageStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISmsDeviceMessageStore_Vtbl {
@@ -317,6 +333,10 @@ pub struct ISmsDeviceMessageStore_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsDeviceStatics, ISmsDeviceStatics_Vtbl, 0xf88d07ea_d815_4dd1_a234_4520ce4604a4);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISmsDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISmsDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -336,6 +356,10 @@ pub struct ISmsDeviceStatics_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsDeviceStatics2, ISmsDeviceStatics2_Vtbl, 0x2ca11c87_0873_4caf_8a7d_bd471e8586d1);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISmsDeviceStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISmsDeviceStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -345,6 +369,9 @@ pub struct ISmsDeviceStatics2_Vtbl {
     FromNetworkAccountIdAsync: usize,
 }
 windows_core::imp::define_interface!(ISmsFilterRule, ISmsFilterRule_Vtbl, 0x40e32fae_b049_4fbc_afe9_e2a610eff55c);
+impl windows_core::RuntimeType for ISmsFilterRule {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmsFilterRule_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -397,12 +424,18 @@ pub struct ISmsFilterRule_Vtbl {
     BroadcastChannels: usize,
 }
 windows_core::imp::define_interface!(ISmsFilterRuleFactory, ISmsFilterRuleFactory_Vtbl, 0x00c36508_6296_4f29_9aad_8920ceba3ce8);
+impl windows_core::RuntimeType for ISmsFilterRuleFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmsFilterRuleFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFilterRule: unsafe extern "system" fn(*mut core::ffi::c_void, SmsMessageType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISmsFilterRules, ISmsFilterRules_Vtbl, 0x4e47eafb_79cd_4881_9894_55a4135b23fa);
+impl windows_core::RuntimeType for ISmsFilterRules {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmsFilterRules_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -413,6 +446,9 @@ pub struct ISmsFilterRules_Vtbl {
     Rules: usize,
 }
 windows_core::imp::define_interface!(ISmsFilterRulesFactory, ISmsFilterRulesFactory_Vtbl, 0xa09924ed_6e2e_4530_9fde_465d02eed00e);
+impl windows_core::RuntimeType for ISmsFilterRulesFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmsFilterRulesFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -499,6 +535,10 @@ pub struct ISmsMessageBase_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsMessageReceivedEventArgs, ISmsMessageReceivedEventArgs_Vtbl, 0x08e80a98_b8e5_41c1_a3d8_d3abfae22675);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISmsMessageReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISmsMessageReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -512,6 +552,9 @@ pub struct ISmsMessageReceivedEventArgs_Vtbl {
     BinaryMessage: usize,
 }
 windows_core::imp::define_interface!(ISmsMessageReceivedTriggerDetails, ISmsMessageReceivedTriggerDetails_Vtbl, 0x2bcfcbd4_2657_4128_ad5f_e3877132bdb1);
+impl windows_core::RuntimeType for ISmsMessageReceivedTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmsMessageReceivedTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -526,6 +569,9 @@ pub struct ISmsMessageReceivedTriggerDetails_Vtbl {
     pub Accept: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISmsMessageRegistration, ISmsMessageRegistration_Vtbl, 0x1720503e_f34f_446b_83b3_0ff19923b409);
+impl windows_core::RuntimeType for ISmsMessageRegistration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmsMessageRegistration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -535,6 +581,9 @@ pub struct ISmsMessageRegistration_Vtbl {
     pub RemoveMessageReceived: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISmsMessageRegistrationStatics, ISmsMessageRegistrationStatics_Vtbl, 0x63a05464_2898_4778_a03c_6f994907d63a);
+impl windows_core::RuntimeType for ISmsMessageRegistrationStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmsMessageRegistrationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -546,6 +595,10 @@ pub struct ISmsMessageRegistrationStatics_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsReceivedEventDetails, ISmsReceivedEventDetails_Vtbl, 0x5bb50f15_e46d_4c82_847d_5a0304c1d53d);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISmsReceivedEventDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISmsReceivedEventDetails_Vtbl {
@@ -562,6 +615,10 @@ pub struct ISmsReceivedEventDetails_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsReceivedEventDetails2, ISmsReceivedEventDetails2_Vtbl, 0x40e05c86_a7b4_4771_9ae7_0b5ffb12c03a);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISmsReceivedEventDetails2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISmsReceivedEventDetails2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -575,6 +632,9 @@ pub struct ISmsReceivedEventDetails2_Vtbl {
     BinaryMessage: usize,
 }
 windows_core::imp::define_interface!(ISmsSendMessageResult, ISmsSendMessageResult_Vtbl, 0xdb139af2_78c9_4feb_9622_452328088d62);
+impl windows_core::RuntimeType for ISmsSendMessageResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmsSendMessageResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -590,6 +650,9 @@ pub struct ISmsSendMessageResult_Vtbl {
     pub TransportFailureCause: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISmsStatusMessage, ISmsStatusMessage_Vtbl, 0xe6d28342_b70b_4677_9379_c9783fdff8f4);
+impl windows_core::RuntimeType for ISmsStatusMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmsStatusMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -778,6 +841,9 @@ pub struct ISmsTextMessage_Vtbl {
     ToBinaryMessages: usize,
 }
 windows_core::imp::define_interface!(ISmsTextMessage2, ISmsTextMessage2_Vtbl, 0x22a0d893_4555_4755_b5a1_e7fd84955f8d);
+impl windows_core::RuntimeType for ISmsTextMessage2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmsTextMessage2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -801,6 +867,10 @@ pub struct ISmsTextMessage2_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsTextMessageStatics, ISmsTextMessageStatics_Vtbl, 0x7f68c5ed_3ccc_47a3_8c55_380d3b010892);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISmsTextMessageStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISmsTextMessageStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -814,6 +884,9 @@ pub struct ISmsTextMessageStatics_Vtbl {
     FromBinaryData: usize,
 }
 windows_core::imp::define_interface!(ISmsVoicemailMessage, ISmsVoicemailMessage_Vtbl, 0x271aa0a6_95b1_44ff_bcb8_b8fdd7e08bc3);
+impl windows_core::RuntimeType for ISmsVoicemailMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmsVoicemailMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -823,6 +896,9 @@ pub struct ISmsVoicemailMessage_Vtbl {
     pub MessageCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISmsWapMessage, ISmsWapMessage_Vtbl, 0xcd937743_7a55_4d3b_9021_f22e022d09c5);
+impl windows_core::RuntimeType for ISmsWapMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmsWapMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -900,7 +976,7 @@ impl DeleteSmsMessageOperation {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for DeleteSmsMessageOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::IAsyncAction>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for DeleteSmsMessageOperation {
@@ -1002,7 +1078,7 @@ impl DeleteSmsMessagesOperation {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for DeleteSmsMessagesOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::IAsyncAction>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for DeleteSmsMessagesOperation {
@@ -1107,7 +1183,7 @@ impl GetSmsDeviceOperation {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for GetSmsDeviceOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::IAsyncOperation<SmsDevice>>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for GetSmsDeviceOperation {
@@ -1212,7 +1288,7 @@ impl GetSmsMessageOperation {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for GetSmsMessageOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::IAsyncOperation<ISmsMessage>>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for GetSmsMessageOperation {
@@ -1336,7 +1412,7 @@ impl GetSmsMessagesOperation {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl windows_core::RuntimeType for GetSmsMessagesOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>();
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 unsafe impl windows_core::Interface for GetSmsMessagesOperation {
@@ -1438,7 +1514,7 @@ impl SendSmsMessageOperation {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SendSmsMessageOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::IAsyncAction>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SendSmsMessageOperation {
@@ -1659,7 +1735,7 @@ impl SmsAppMessage {
     }
 }
 impl windows_core::RuntimeType for SmsAppMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsAppMessage>();
 }
 unsafe impl windows_core::Interface for SmsAppMessage {
     type Vtable = ISmsAppMessage_Vtbl;
@@ -1730,7 +1806,7 @@ impl SmsBinaryMessage {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SmsBinaryMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsBinaryMessage>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SmsBinaryMessage {
@@ -1858,7 +1934,7 @@ impl SmsBroadcastMessage {
     }
 }
 impl windows_core::RuntimeType for SmsBroadcastMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsBroadcastMessage>();
 }
 unsafe impl windows_core::Interface for SmsBroadcastMessage {
     type Vtable = ISmsBroadcastMessage_Vtbl;
@@ -2008,7 +2084,7 @@ impl SmsDevice {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SmsDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsDevice>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SmsDevice {
@@ -2135,7 +2211,7 @@ impl SmsDevice2 {
     }
 }
 impl windows_core::RuntimeType for SmsDevice2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsDevice2>();
 }
 unsafe impl windows_core::Interface for SmsDevice2 {
     type Vtable = ISmsDevice2_Vtbl;
@@ -2195,7 +2271,7 @@ impl SmsDeviceMessageStore {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SmsDeviceMessageStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsDeviceMessageStore>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SmsDeviceMessageStore {
@@ -2330,7 +2406,7 @@ impl SmsFilterRule {
     }
 }
 impl windows_core::RuntimeType for SmsFilterRule {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsFilterRule>();
 }
 unsafe impl windows_core::Interface for SmsFilterRule {
     type Vtable = ISmsFilterRule_Vtbl;
@@ -2374,7 +2450,7 @@ impl SmsFilterRules {
     }
 }
 impl windows_core::RuntimeType for SmsFilterRules {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsFilterRules>();
 }
 unsafe impl windows_core::Interface for SmsFilterRules {
     type Vtable = ISmsFilterRules_Vtbl;
@@ -2412,7 +2488,7 @@ impl SmsMessageReceivedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SmsMessageReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsMessageReceivedEventArgs>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SmsMessageReceivedEventArgs {
@@ -2487,7 +2563,7 @@ impl SmsMessageReceivedTriggerDetails {
     }
 }
 impl windows_core::RuntimeType for SmsMessageReceivedTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsMessageReceivedTriggerDetails>();
 }
 unsafe impl windows_core::Interface for SmsMessageReceivedTriggerDetails {
     type Vtable = ISmsMessageReceivedTriggerDetails_Vtbl;
@@ -2551,7 +2627,7 @@ impl SmsMessageRegistration {
     }
 }
 impl windows_core::RuntimeType for SmsMessageRegistration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsMessageRegistration>();
 }
 unsafe impl windows_core::Interface for SmsMessageRegistration {
     type Vtable = ISmsMessageRegistration_Vtbl;
@@ -2603,7 +2679,7 @@ impl SmsReceivedEventDetails {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SmsReceivedEventDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsReceivedEventDetails>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SmsReceivedEventDetails {
@@ -2675,7 +2751,7 @@ impl SmsSendMessageResult {
     }
 }
 impl windows_core::RuntimeType for SmsSendMessageResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsSendMessageResult>();
 }
 unsafe impl windows_core::Interface for SmsSendMessageResult {
     type Vtable = ISmsSendMessageResult_Vtbl;
@@ -2778,7 +2854,7 @@ impl SmsStatusMessage {
     }
 }
 impl windows_core::RuntimeType for SmsStatusMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsStatusMessage>();
 }
 unsafe impl windows_core::Interface for SmsStatusMessage {
     type Vtable = ISmsStatusMessage_Vtbl;
@@ -2938,7 +3014,7 @@ impl SmsTextMessage {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SmsTextMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsTextMessage>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SmsTextMessage {
@@ -3097,7 +3173,7 @@ impl SmsTextMessage2 {
     }
 }
 impl windows_core::RuntimeType for SmsTextMessage2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsTextMessage2>();
 }
 unsafe impl windows_core::Interface for SmsTextMessage2 {
     type Vtable = ISmsTextMessage2_Vtbl;
@@ -3179,7 +3255,7 @@ impl SmsVoicemailMessage {
     }
 }
 impl windows_core::RuntimeType for SmsVoicemailMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsVoicemailMessage>();
 }
 unsafe impl windows_core::Interface for SmsVoicemailMessage {
     type Vtable = ISmsVoicemailMessage_Vtbl;
@@ -3284,7 +3360,7 @@ impl SmsWapMessage {
     }
 }
 impl windows_core::RuntimeType for SmsWapMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsWapMessage>();
 }
 unsafe impl windows_core::Interface for SmsWapMessage {
     type Vtable = ISmsWapMessage_Vtbl;

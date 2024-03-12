@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IHolographicKeyboard, IHolographicKeyboard_Vtbl, 0x07dd0893_aa21_5e6f_a91b_11b2b3fd7be3);
+impl windows_core::RuntimeType for IHolographicKeyboard {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHolographicKeyboard_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -13,6 +16,9 @@ pub struct IHolographicKeyboard_Vtbl {
     pub ResetPlacementOverride: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHolographicKeyboardStatics, IHolographicKeyboardStatics_Vtbl, 0xb676c624_63d7_58cf_b06b_08baa032a23f);
+impl windows_core::RuntimeType for IHolographicKeyboardStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHolographicKeyboardStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -56,7 +62,7 @@ impl HolographicKeyboard {
     }
 }
 impl windows_core::RuntimeType for HolographicKeyboard {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicKeyboard>();
 }
 unsafe impl windows_core::Interface for HolographicKeyboard {
     type Vtable = IHolographicKeyboard_Vtbl;

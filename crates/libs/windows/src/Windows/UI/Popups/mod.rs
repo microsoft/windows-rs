@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IMessageDialog, IMessageDialog_Vtbl, 0x33f59b01_5325_43ab_9ab3_bdae440e4121);
+impl windows_core::RuntimeType for IMessageDialog {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMessageDialog_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19,6 +22,9 @@ pub struct IMessageDialog_Vtbl {
     pub SetOptions: unsafe extern "system" fn(*mut core::ffi::c_void, MessageDialogOptions) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMessageDialogFactory, IMessageDialogFactory_Vtbl, 0x2d161777_a66f_4ea5_bb87_793ffa4941f2);
+impl windows_core::RuntimeType for IMessageDialogFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMessageDialogFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -26,6 +32,9 @@ pub struct IMessageDialogFactory_Vtbl {
     pub CreateWithTitle: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPopupMenu, IPopupMenu_Vtbl, 0x4e9bc6dc_880d_47fc_a0a1_72b639e62559);
+impl windows_core::RuntimeType for IPopupMenu {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPopupMenu_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -94,6 +103,9 @@ pub struct IUICommand_Vtbl {
     pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUICommandFactory, IUICommandFactory_Vtbl, 0xa21a8189_26b0_4676_ae94_54041bc125e8);
+impl windows_core::RuntimeType for IUICommandFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUICommandFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -195,7 +207,7 @@ impl MessageDialog {
     }
 }
 impl windows_core::RuntimeType for MessageDialog {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMessageDialog>();
 }
 unsafe impl windows_core::Interface for MessageDialog {
     type Vtable = IMessageDialog_Vtbl;
@@ -247,7 +259,7 @@ impl PopupMenu {
     }
 }
 impl windows_core::RuntimeType for PopupMenu {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPopupMenu>();
 }
 unsafe impl windows_core::Interface for PopupMenu {
     type Vtable = IPopupMenu_Vtbl;
@@ -340,7 +352,7 @@ impl UICommand {
     }
 }
 impl windows_core::RuntimeType for UICommand {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUICommand>();
 }
 unsafe impl windows_core::Interface for UICommand {
     type Vtable = IUICommand_Vtbl;
@@ -405,7 +417,7 @@ impl UICommandSeparator {
     }
 }
 impl windows_core::RuntimeType for UICommandSeparator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUICommand>();
 }
 unsafe impl windows_core::Interface for UICommandSeparator {
     type Vtable = IUICommand_Vtbl;

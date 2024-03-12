@@ -1,10 +1,16 @@
 windows_core::imp::define_interface!(IInkAnalysisInkBullet, IInkAnalysisInkBullet_Vtbl, 0xee049368_6110_4136_95f9_ee809fc20030);
+impl windows_core::RuntimeType for IInkAnalysisInkBullet {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkAnalysisInkBullet_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkAnalysisInkDrawing, IInkAnalysisInkDrawing_Vtbl, 0x6a85ed1f_1fe4_4e15_898c_8e112377e021);
+impl windows_core::RuntimeType for IInkAnalysisInkDrawing {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkAnalysisInkDrawing_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16,6 +22,9 @@ pub struct IInkAnalysisInkDrawing_Vtbl {
     Points: usize,
 }
 windows_core::imp::define_interface!(IInkAnalysisInkWord, IInkAnalysisInkWord_Vtbl, 0x4bd228ad_83af_4034_8f3b_f8687dfff436);
+impl windows_core::RuntimeType for IInkAnalysisInkWord {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkAnalysisInkWord_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -26,6 +35,9 @@ pub struct IInkAnalysisInkWord_Vtbl {
     TextAlternates: usize,
 }
 windows_core::imp::define_interface!(IInkAnalysisLine, IInkAnalysisLine_Vtbl, 0xa06d048d_2b8d_4754_ad5a_d0871193a956);
+impl windows_core::RuntimeType for IInkAnalysisLine {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkAnalysisLine_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -33,6 +45,9 @@ pub struct IInkAnalysisLine_Vtbl {
     pub IndentLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkAnalysisListItem, IInkAnalysisListItem_Vtbl, 0xb4e3c23f_c4c3_4c3a_a1a6_9d85547ee586);
+impl windows_core::RuntimeType for IInkAnalysisListItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkAnalysisListItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -118,18 +133,27 @@ pub struct IInkAnalysisNode_Vtbl {
     GetStrokeIds: usize,
 }
 windows_core::imp::define_interface!(IInkAnalysisParagraph, IInkAnalysisParagraph_Vtbl, 0xd9ad045c_0cd1_4dd4_a68b_eb1f12b3d727);
+impl windows_core::RuntimeType for IInkAnalysisParagraph {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkAnalysisParagraph_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkAnalysisResult, IInkAnalysisResult_Vtbl, 0x8948ba79_a243_4aa3_a294_1f98bd0ff580);
+impl windows_core::RuntimeType for IInkAnalysisResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkAnalysisResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkAnalysisStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkAnalysisRoot, IInkAnalysisRoot_Vtbl, 0x3fb6a3c4_2fde_4061_8502_a90f32545b84);
+impl windows_core::RuntimeType for IInkAnalysisRoot {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkAnalysisRoot_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -140,12 +164,18 @@ pub struct IInkAnalysisRoot_Vtbl {
     FindNodes: usize,
 }
 windows_core::imp::define_interface!(IInkAnalysisWritingRegion, IInkAnalysisWritingRegion_Vtbl, 0xdd6d6231_bd16_4663_b5ae_941d3043ef5b);
+impl windows_core::RuntimeType for IInkAnalysisWritingRegion {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkAnalysisWritingRegion_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RecognizedText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInkAnalyzer, IInkAnalyzer_Vtbl, 0xf12b8f95_0866_4dc5_8c77_f88614dfe38c);
+impl windows_core::RuntimeType for IInkAnalyzer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkAnalyzer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -252,7 +282,7 @@ impl InkAnalysisInkBullet {
     }
 }
 impl windows_core::RuntimeType for InkAnalysisInkBullet {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisInkBullet>();
 }
 unsafe impl windows_core::Interface for InkAnalysisInkBullet {
     type Vtable = IInkAnalysisInkBullet_Vtbl;
@@ -345,7 +375,7 @@ impl InkAnalysisInkDrawing {
     }
 }
 impl windows_core::RuntimeType for InkAnalysisInkDrawing {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisInkDrawing>();
 }
 unsafe impl windows_core::Interface for InkAnalysisInkDrawing {
     type Vtable = IInkAnalysisInkDrawing_Vtbl;
@@ -431,7 +461,7 @@ impl InkAnalysisInkWord {
     }
 }
 impl windows_core::RuntimeType for InkAnalysisInkWord {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisInkWord>();
 }
 unsafe impl windows_core::Interface for InkAnalysisInkWord {
     type Vtable = IInkAnalysisInkWord_Vtbl;
@@ -516,7 +546,7 @@ impl InkAnalysisLine {
     }
 }
 impl windows_core::RuntimeType for InkAnalysisLine {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisLine>();
 }
 unsafe impl windows_core::Interface for InkAnalysisLine {
     type Vtable = IInkAnalysisLine_Vtbl;
@@ -594,7 +624,7 @@ impl InkAnalysisListItem {
     }
 }
 impl windows_core::RuntimeType for InkAnalysisListItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisListItem>();
 }
 unsafe impl windows_core::Interface for InkAnalysisListItem {
     type Vtable = IInkAnalysisListItem_Vtbl;
@@ -665,7 +695,7 @@ impl InkAnalysisNode {
     }
 }
 impl windows_core::RuntimeType for InkAnalysisNode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisNode>();
 }
 unsafe impl windows_core::Interface for InkAnalysisNode {
     type Vtable = IInkAnalysisNode_Vtbl;
@@ -743,7 +773,7 @@ impl InkAnalysisParagraph {
     }
 }
 impl windows_core::RuntimeType for InkAnalysisParagraph {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisParagraph>();
 }
 unsafe impl windows_core::Interface for InkAnalysisParagraph {
     type Vtable = IInkAnalysisParagraph_Vtbl;
@@ -768,7 +798,7 @@ impl InkAnalysisResult {
     }
 }
 impl windows_core::RuntimeType for InkAnalysisResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisResult>();
 }
 unsafe impl windows_core::Interface for InkAnalysisResult {
     type Vtable = IInkAnalysisResult_Vtbl;
@@ -854,7 +884,7 @@ impl InkAnalysisRoot {
     }
 }
 impl windows_core::RuntimeType for InkAnalysisRoot {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisRoot>();
 }
 unsafe impl windows_core::Interface for InkAnalysisRoot {
     type Vtable = IInkAnalysisRoot_Vtbl;
@@ -932,7 +962,7 @@ impl InkAnalysisWritingRegion {
     }
 }
 impl windows_core::RuntimeType for InkAnalysisWritingRegion {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisWritingRegion>();
 }
 unsafe impl windows_core::Interface for InkAnalysisWritingRegion {
     type Vtable = IInkAnalysisWritingRegion_Vtbl;
@@ -1020,7 +1050,7 @@ impl InkAnalyzer {
     }
 }
 impl windows_core::RuntimeType for InkAnalyzer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalyzer>();
 }
 unsafe impl windows_core::Interface for InkAnalyzer {
     type Vtable = IInkAnalyzer_Vtbl;

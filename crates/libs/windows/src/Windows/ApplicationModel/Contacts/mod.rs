@@ -3,6 +3,9 @@ pub mod DataProvider;
 #[cfg(feature = "ApplicationModel_Contacts_Provider")]
 pub mod Provider;
 windows_core::imp::define_interface!(IAggregateContactManager, IAggregateContactManager_Vtbl, 0x0379d5dd_db5a_4fd3_b54e_4df17917a212);
+impl windows_core::RuntimeType for IAggregateContactManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAggregateContactManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -15,12 +18,18 @@ pub struct IAggregateContactManager_Vtbl {
     pub TrySetPreferredSourceForPictureAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAggregateContactManager2, IAggregateContactManager2_Vtbl, 0x5e8cc2d8_a9cd_4430_9c4b_01348db2ca50);
+impl windows_core::RuntimeType for IAggregateContactManager2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAggregateContactManager2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetRemoteIdentificationInformationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContact, IContact_Vtbl, 0xec0072f3_2118_4049_9ebc_17f0ab692b64);
+impl windows_core::RuntimeType for IContact {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContact_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -40,6 +49,9 @@ pub struct IContact_Vtbl {
     Fields: usize,
 }
 windows_core::imp::define_interface!(IContact2, IContact2_Vtbl, 0xf312f365_bb77_4c94_802d_8328cee40c08);
+impl windows_core::RuntimeType for IContact2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContact2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -89,6 +101,9 @@ pub struct IContact2_Vtbl {
     ProviderProperties: usize,
 }
 windows_core::imp::define_interface!(IContact3, IContact3_Vtbl, 0x48201e67_e08e_42a4_b561_41d08ca9575d);
+impl windows_core::RuntimeType for IContact3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContact3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -129,6 +144,9 @@ pub struct IContact3_Vtbl {
     pub SortName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactAddress, IContactAddress_Vtbl, 0x9739d39a_42ce_4872_8d70_3063aa584b70);
+impl windows_core::RuntimeType for IContactAddress {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactAddress_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -148,6 +166,9 @@ pub struct IContactAddress_Vtbl {
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactAnnotation, IContactAnnotation_Vtbl, 0x821fc2ef_7d41_44a2_84c3_60a281dd7b86);
+impl windows_core::RuntimeType for IContactAnnotation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactAnnotation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -166,6 +187,9 @@ pub struct IContactAnnotation_Vtbl {
     ProviderProperties: usize,
 }
 windows_core::imp::define_interface!(IContactAnnotation2, IContactAnnotation2_Vtbl, 0xb691ecf3_4ab7_4a1f_9941_0c9cf3171b75);
+impl windows_core::RuntimeType for IContactAnnotation2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactAnnotation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -173,6 +197,9 @@ pub struct IContactAnnotation2_Vtbl {
     pub SetContactListId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactAnnotationList, IContactAnnotationList_Vtbl, 0x92a486aa_5c88_45b9_aad0_461888e68d8a);
+impl windows_core::RuntimeType for IContactAnnotationList {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactAnnotationList_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -193,6 +220,9 @@ pub struct IContactAnnotationList_Vtbl {
     pub DeleteAnnotationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactAnnotationStore, IContactAnnotationStore_Vtbl, 0x23acf4aa_7a77_457d_8203_987f4b31af09);
+impl windows_core::RuntimeType for IContactAnnotationStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactAnnotationStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -218,6 +248,9 @@ pub struct IContactAnnotationStore_Vtbl {
     FindAnnotationListsAsync: usize,
 }
 windows_core::imp::define_interface!(IContactAnnotationStore2, IContactAnnotationStore2_Vtbl, 0x7ede23fd_61e7_4967_8ec5_bdf280a24063);
+impl windows_core::RuntimeType for IContactAnnotationStore2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactAnnotationStore2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -227,6 +260,9 @@ pub struct IContactAnnotationStore2_Vtbl {
     FindAnnotationsForContactListAsync: usize,
 }
 windows_core::imp::define_interface!(IContactBatch, IContactBatch_Vtbl, 0x35d1972d_bfce_46bb_93f8_a5b06ec5e201);
+impl windows_core::RuntimeType for IContactBatch {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactBatch_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -237,12 +273,18 @@ pub struct IContactBatch_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ContactBatchStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactCardDelayedDataLoader, IContactCardDelayedDataLoader_Vtbl, 0xb60af902_1546_434d_869c_6e3520760ef3);
+impl windows_core::RuntimeType for IContactCardDelayedDataLoader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactCardDelayedDataLoader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactCardOptions, IContactCardOptions_Vtbl, 0x8c0a4f7e_6ab6_4f3f_be72_817236eeea5b);
+impl windows_core::RuntimeType for IContactCardOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactCardOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -252,6 +294,9 @@ pub struct IContactCardOptions_Vtbl {
     pub SetInitialTabKind: unsafe extern "system" fn(*mut core::ffi::c_void, ContactCardTabKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactCardOptions2, IContactCardOptions2_Vtbl, 0x8f271ba0_d74b_4cc6_9f53_1b0eb5d1273c);
+impl windows_core::RuntimeType for IContactCardOptions2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactCardOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -261,6 +306,9 @@ pub struct IContactCardOptions2_Vtbl {
     ServerSearchContactListIds: usize,
 }
 windows_core::imp::define_interface!(IContactChange, IContactChange_Vtbl, 0x951d4b10_6a59_4720_a4e1_363d98c135d5);
+impl windows_core::RuntimeType for IContactChange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactChange_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -268,6 +316,9 @@ pub struct IContactChange_Vtbl {
     pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactChangeReader, IContactChangeReader_Vtbl, 0x217319fa_2d0c_42e0_a9da_3ecd56a78a47);
+impl windows_core::RuntimeType for IContactChangeReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactChangeReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -279,6 +330,9 @@ pub struct IContactChangeReader_Vtbl {
     ReadBatchAsync: usize,
 }
 windows_core::imp::define_interface!(IContactChangeTracker, IContactChangeTracker_Vtbl, 0x6e992952_309b_404d_9712_b37bd30278aa);
+impl windows_core::RuntimeType for IContactChangeTracker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactChangeTracker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -287,24 +341,36 @@ pub struct IContactChangeTracker_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactChangeTracker2, IContactChangeTracker2_Vtbl, 0x7f8ad0fc_9321_4d18_9c09_d708c63fcd31);
+impl windows_core::RuntimeType for IContactChangeTracker2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactChangeTracker2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsTracking: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactChangedDeferral, IContactChangedDeferral_Vtbl, 0xc5143ae8_1b03_46f8_b694_a523e83cfcb6);
+impl windows_core::RuntimeType for IContactChangedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactChangedDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactChangedEventArgs, IContactChangedEventArgs_Vtbl, 0x525e7fd1_73f3_4b7d_a918_580be4366121);
+impl windows_core::RuntimeType for IContactChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactConnectedServiceAccount, IContactConnectedServiceAccount_Vtbl, 0xf6f83553_aa27_4731_8e4a_3dec5ce9eec9);
+impl windows_core::RuntimeType for IContactConnectedServiceAccount {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactConnectedServiceAccount_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -314,6 +380,9 @@ pub struct IContactConnectedServiceAccount_Vtbl {
     pub SetServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactDate, IContactDate_Vtbl, 0xfe98ae66_b205_4934_9174_0ff2b0565707);
+impl windows_core::RuntimeType for IContactDate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactDate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -329,6 +398,9 @@ pub struct IContactDate_Vtbl {
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactEmail, IContactEmail_Vtbl, 0x90a219a9_e3d3_4d63_993b_05b9a5393abf);
+impl windows_core::RuntimeType for IContactEmail {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactEmail_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -418,11 +490,17 @@ pub struct IContactFieldFactory_Vtbl {
     pub CreateField_Custom: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, ContactFieldType, ContactFieldCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactGroup, IContactGroup_Vtbl, 0x59bdeb01_9e9a_475d_bfe5_a37b806d852c);
+impl windows_core::RuntimeType for IContactGroup {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IContactInformation, IContactInformation_Vtbl, 0x275eb6d4_6a2e_4278_a914_e460d5f088f6);
+impl windows_core::RuntimeType for IContactInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -457,6 +535,9 @@ pub struct IContactInformation_Vtbl {
     QueryCustomFields: usize,
 }
 windows_core::imp::define_interface!(IContactInstantMessageField, IContactInstantMessageField_Vtbl, 0xcce33b37_0d85_41fa_b43d_da599c3eb009);
+impl windows_core::RuntimeType for IContactInstantMessageField {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactInstantMessageField_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -504,6 +585,9 @@ pub struct IContactInstantMessageFieldFactory_Vtbl {
     pub CreateInstantMessage_All: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, ContactFieldCategory, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactJobInfo, IContactJobInfo_Vtbl, 0x6d117b4c_ce50_4b43_9e69_b18258ea5315);
+impl windows_core::RuntimeType for IContactJobInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactJobInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -525,6 +609,9 @@ pub struct IContactJobInfo_Vtbl {
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactLaunchActionVerbsStatics, IContactLaunchActionVerbsStatics_Vtbl, 0xfb1232d6_ee73_46e7_8761_11cd0157728f);
+impl windows_core::RuntimeType for IContactLaunchActionVerbsStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactLaunchActionVerbsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -535,6 +622,9 @@ pub struct IContactLaunchActionVerbsStatics_Vtbl {
     pub VideoCall: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactList, IContactList_Vtbl, 0x16ddec75_392c_4845_9dfb_51a3e7ef3e42);
+impl windows_core::RuntimeType for IContactList {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactList_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -565,6 +655,9 @@ pub struct IContactList_Vtbl {
     pub GetContactAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactList2, IContactList2_Vtbl, 0xcb3943b4_4550_4dcb_9229_40ff91fb0203);
+impl windows_core::RuntimeType for IContactList2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactList2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -573,6 +666,9 @@ pub struct IContactList2_Vtbl {
     pub SyncConstraints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactList3, IContactList3_Vtbl, 0x1578ee57_26fc_41e8_a850_5aa32514aca9);
+impl windows_core::RuntimeType for IContactList3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactList3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -580,6 +676,9 @@ pub struct IContactList3_Vtbl {
     pub GetChangeTracker: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactListLimitedWriteOperations, IContactListLimitedWriteOperations_Vtbl, 0xe19813da_4a0b_44b8_9a1f_a0f3d218175f);
+impl windows_core::RuntimeType for IContactListLimitedWriteOperations {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactListLimitedWriteOperations_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -587,6 +686,9 @@ pub struct IContactListLimitedWriteOperations_Vtbl {
     pub TryDeleteContactAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactListSyncConstraints, IContactListSyncConstraints_Vtbl, 0xb2b0bf01_3062_4e2e_969d_018d1987f314);
+impl windows_core::RuntimeType for IContactListSyncConstraints {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactListSyncConstraints_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -648,6 +750,9 @@ pub struct IContactListSyncConstraints_Vtbl {
     pub SetMaxWebsites: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactListSyncManager, IContactListSyncManager_Vtbl, 0x146e83be_7925_4acc_9de5_21ddd06f8674);
+impl windows_core::RuntimeType for IContactListSyncManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactListSyncManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -659,6 +764,9 @@ pub struct IContactListSyncManager_Vtbl {
     pub RemoveSyncStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactListSyncManager2, IContactListSyncManager2_Vtbl, 0xa9591247_bb55_4e23_8128_370134a85d0d);
+impl windows_core::RuntimeType for IContactListSyncManager2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactListSyncManager2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -667,6 +775,9 @@ pub struct IContactListSyncManager2_Vtbl {
     pub SetLastAttemptedSyncTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactLocationField, IContactLocationField_Vtbl, 0x9ec00f82_ab6e_4b36_89e3_b23bc0a1dacc);
+impl windows_core::RuntimeType for IContactLocationField {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactLocationField_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -713,6 +824,9 @@ pub struct IContactLocationFieldFactory_Vtbl {
     pub CreateLocation_All: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, ContactFieldCategory, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactManagerForUser, IContactManagerForUser_Vtbl, 0xb74bba57_1076_4bef_aef3_54686d18387d);
+impl windows_core::RuntimeType for IContactManagerForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactManagerForUser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -740,12 +854,18 @@ pub struct IContactManagerForUser_Vtbl {
     User: usize,
 }
 windows_core::imp::define_interface!(IContactManagerForUser2, IContactManagerForUser2_Vtbl, 0x4d469c2e_3b75_4a73_bb30_736645472256);
+impl windows_core::RuntimeType for IContactManagerForUser2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactManagerForUser2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ShowFullContactCard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactManagerStatics, IContactManagerStatics_Vtbl, 0x81f21ac0_f661_4708_ba4f_d386bd0d622e);
+impl windows_core::RuntimeType for IContactManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -760,12 +880,18 @@ pub struct IContactManagerStatics_Vtbl {
     ShowDelayLoadedContactCard: usize,
 }
 windows_core::imp::define_interface!(IContactManagerStatics2, IContactManagerStatics2_Vtbl, 0xa178e620_47d8_48cc_963c_9592b6e510c6);
+impl windows_core::RuntimeType for IContactManagerStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestStoreAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactManagerStatics3, IContactManagerStatics3_Vtbl, 0xc4cc3d42_7586_492a_930b_7bc138fc2139);
+impl windows_core::RuntimeType for IContactManagerStatics3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -800,6 +926,9 @@ pub struct IContactManagerStatics3_Vtbl {
     pub SetSystemSortOrder: unsafe extern "system" fn(*mut core::ffi::c_void, ContactNameOrder) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactManagerStatics4, IContactManagerStatics4_Vtbl, 0x24982272_347b_46dc_8d95_51bd41e15aaf);
+impl windows_core::RuntimeType for IContactManagerStatics4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactManagerStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -809,6 +938,9 @@ pub struct IContactManagerStatics4_Vtbl {
     GetForUser: usize,
 }
 windows_core::imp::define_interface!(IContactManagerStatics5, IContactManagerStatics5_Vtbl, 0xf7591a87_acb7_4fad_90f2_a8ab64cdbba4);
+impl windows_core::RuntimeType for IContactManagerStatics5 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactManagerStatics5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -817,6 +949,9 @@ pub struct IContactManagerStatics5_Vtbl {
     pub SetIncludeMiddleNameInSystemDisplayAndSort: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactMatchReason, IContactMatchReason_Vtbl, 0xbc922504_e7d8_413e_95f4_b75c54c74077);
+impl windows_core::RuntimeType for IContactMatchReason {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactMatchReason_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -828,6 +963,9 @@ pub struct IContactMatchReason_Vtbl {
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactName, IContactName_Vtbl, 0xf404e97b_9034_453c_8ebf_140a38c86f1d);
+impl windows_core::RuntimeType for IContactName {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactName_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -849,6 +987,9 @@ pub struct IContactName_Vtbl {
     pub YomiDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactPanel, IContactPanel_Vtbl, 0x41bf1265_d2ee_4b97_a80a_7d8d64cca6f5);
+impl windows_core::RuntimeType for IContactPanel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactPanel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -867,12 +1008,18 @@ pub struct IContactPanel_Vtbl {
     pub RemoveClosing: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactPanelClosingEventArgs, IContactPanelClosingEventArgs_Vtbl, 0x222174d3_cf4b_46d7_b739_6edc16110bfb);
+impl windows_core::RuntimeType for IContactPanelClosingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactPanelClosingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactPanelLaunchFullAppRequestedEventArgs, IContactPanelLaunchFullAppRequestedEventArgs_Vtbl, 0x88d61c0e_23b4_4be8_8afc_072c25a4190d);
+impl windows_core::RuntimeType for IContactPanelLaunchFullAppRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactPanelLaunchFullAppRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -880,6 +1027,9 @@ pub struct IContactPanelLaunchFullAppRequestedEventArgs_Vtbl {
     pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactPhone, IContactPhone_Vtbl, 0x467dab65_2712_4f52_b783_9ea8111c63cd);
+impl windows_core::RuntimeType for IContactPhone {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactPhone_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -891,6 +1041,9 @@ pub struct IContactPhone_Vtbl {
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactPicker, IContactPicker_Vtbl, 0x0e09fd91_42f8_4055_90a0_896f96738936);
+impl windows_core::RuntimeType for IContactPicker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactPicker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -909,6 +1062,9 @@ pub struct IContactPicker_Vtbl {
     PickMultipleContactsAsync: usize,
 }
 windows_core::imp::define_interface!(IContactPicker2, IContactPicker2_Vtbl, 0xb35011cf_5cef_4d24_aa0c_340c5208725d);
+impl windows_core::RuntimeType for IContactPicker2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactPicker2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -923,6 +1079,9 @@ pub struct IContactPicker2_Vtbl {
     PickContactsAsync: usize,
 }
 windows_core::imp::define_interface!(IContactPicker3, IContactPicker3_Vtbl, 0x0e723315_b243_4bed_8516_22b1a7ac0ace);
+impl windows_core::RuntimeType for IContactPicker3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactPicker3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -932,6 +1091,9 @@ pub struct IContactPicker3_Vtbl {
     User: usize,
 }
 windows_core::imp::define_interface!(IContactPickerStatics, IContactPickerStatics_Vtbl, 0x7488c029_6a53_4258_a3e9_62dff6784b6c);
+impl windows_core::RuntimeType for IContactPickerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactPickerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -942,6 +1104,9 @@ pub struct IContactPickerStatics_Vtbl {
     pub IsSupportedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactQueryOptions, IContactQueryOptions_Vtbl, 0x4408cc9e_7d7c_42f0_8ac7_f50733ecdbc1);
+impl windows_core::RuntimeType for IContactQueryOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactQueryOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -962,6 +1127,9 @@ pub struct IContactQueryOptions_Vtbl {
     AnnotationListIds: usize,
 }
 windows_core::imp::define_interface!(IContactQueryOptionsFactory, IContactQueryOptionsFactory_Vtbl, 0x543fba47_8ce7_46cb_9dac_9aa42a1bc8e2);
+impl windows_core::RuntimeType for IContactQueryOptionsFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactQueryOptionsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -969,6 +1137,9 @@ pub struct IContactQueryOptionsFactory_Vtbl {
     pub CreateWithTextAndFields: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, ContactQuerySearchFields, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactQueryTextSearch, IContactQueryTextSearch_Vtbl, 0xf7e3f9cb_a957_439b_a0b7_1c02a1963ff0);
+impl windows_core::RuntimeType for IContactQueryTextSearch {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactQueryTextSearch_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -980,6 +1151,9 @@ pub struct IContactQueryTextSearch_Vtbl {
     pub SetSearchScope: unsafe extern "system" fn(*mut core::ffi::c_void, ContactQuerySearchScope) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactReader, IContactReader_Vtbl, 0xd397e42e_1488_42f2_bf64_253f4884bfed);
+impl windows_core::RuntimeType for IContactReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -990,6 +1164,9 @@ pub struct IContactReader_Vtbl {
     GetMatchingPropertiesWithMatchReason: usize,
 }
 windows_core::imp::define_interface!(IContactSignificantOther, IContactSignificantOther_Vtbl, 0x8873b5ab_c5fb_46d8_93fe_da3ff1934054);
+impl windows_core::RuntimeType for IContactSignificantOther {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactSignificantOther_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -999,6 +1176,9 @@ pub struct IContactSignificantOther_Vtbl {
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactSignificantOther2, IContactSignificantOther2_Vtbl, 0x8d7bd474_3f03_45f8_ba0f_c4ed37d64219);
+impl windows_core::RuntimeType for IContactSignificantOther2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactSignificantOther2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1006,6 +1186,9 @@ pub struct IContactSignificantOther2_Vtbl {
     pub SetRelationship: unsafe extern "system" fn(*mut core::ffi::c_void, ContactRelationship) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactStore, IContactStore_Vtbl, 0x2c220b10_3a6c_4293_b9bc_fe987f6e0d52);
+impl windows_core::RuntimeType for IContactStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1020,6 +1203,9 @@ pub struct IContactStore_Vtbl {
     pub GetContactAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactStore2, IContactStore2_Vtbl, 0x18ce1c22_ebd5_4bfb_b690_5f4f27c4f0e8);
+impl windows_core::RuntimeType for IContactStore2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactStore2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1039,17 +1225,26 @@ pub struct IContactStore2_Vtbl {
     pub CreateContactListInAccountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactStore3, IContactStore3_Vtbl, 0xcb882c6c_004e_4050_87f0_840407ee6818);
+impl windows_core::RuntimeType for IContactStore3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactStore3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetChangeTracker: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactStoreNotificationTriggerDetails, IContactStoreNotificationTriggerDetails_Vtbl, 0xabb298d6_878a_4f8b_a9ce_46bb7d1c84ce);
+impl windows_core::RuntimeType for IContactStoreNotificationTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactStoreNotificationTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IContactWebsite, IContactWebsite_Vtbl, 0x9f130176_dc1b_4055_ad66_652f39d990e8);
+impl windows_core::RuntimeType for IContactWebsite {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactWebsite_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1059,6 +1254,9 @@ pub struct IContactWebsite_Vtbl {
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactWebsite2, IContactWebsite2_Vtbl, 0xf87ee91e_5647_4068_bb5e_4b6f437ce308);
+impl windows_core::RuntimeType for IContactWebsite2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactWebsite2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1066,6 +1264,9 @@ pub struct IContactWebsite2_Vtbl {
     pub SetRawValue: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFullContactCardOptions, IFullContactCardOptions_Vtbl, 0x8744436c_5cf9_4683_bdca_a1fdebf8dbce);
+impl windows_core::RuntimeType for IFullContactCardOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFullContactCardOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1080,6 +1281,10 @@ pub struct IFullContactCardOptions_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IKnownContactFieldStatics, IKnownContactFieldStatics_Vtbl, 0x2e0e1b12_d627_4fca_bad4_1faf168c7d14);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IKnownContactFieldStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IKnownContactFieldStatics_Vtbl {
@@ -1110,6 +1315,9 @@ pub struct IKnownContactFieldStatics_Vtbl {
     ConvertTypeToName: usize,
 }
 windows_core::imp::define_interface!(IPinnedContactIdsQueryResult, IPinnedContactIdsQueryResult_Vtbl, 0x7d9b2552_1579_4ddc_871f_a30a3aea9ba1);
+impl windows_core::RuntimeType for IPinnedContactIdsQueryResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPinnedContactIdsQueryResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1119,6 +1327,9 @@ pub struct IPinnedContactIdsQueryResult_Vtbl {
     ContactIds: usize,
 }
 windows_core::imp::define_interface!(IPinnedContactManager, IPinnedContactManager_Vtbl, 0xfcbc740c_e1d6_45c3_b8b6_a35604e167a0);
+impl windows_core::RuntimeType for IPinnedContactManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPinnedContactManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1138,6 +1349,9 @@ pub struct IPinnedContactManager_Vtbl {
     pub GetPinnedContactIdsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPinnedContactManagerStatics, IPinnedContactManagerStatics_Vtbl, 0xf65ccc7e_fdf9_486a_ace9_bc311d0ae7f0);
+impl windows_core::RuntimeType for IPinnedContactManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPinnedContactManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1205,7 +1419,7 @@ impl AggregateContactManager {
     }
 }
 impl windows_core::RuntimeType for AggregateContactManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAggregateContactManager>();
 }
 unsafe impl windows_core::Interface for AggregateContactManager {
     type Vtable = IAggregateContactManager_Vtbl;
@@ -1605,7 +1819,7 @@ impl Contact {
     }
 }
 impl windows_core::RuntimeType for Contact {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContact>();
 }
 unsafe impl windows_core::Interface for Contact {
     type Vtable = IContact_Vtbl;
@@ -1707,7 +1921,7 @@ impl ContactAddress {
     }
 }
 impl windows_core::RuntimeType for ContactAddress {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactAddress>();
 }
 unsafe impl windows_core::Interface for ContactAddress {
     type Vtable = IContactAddress_Vtbl;
@@ -1805,7 +2019,7 @@ impl ContactAnnotation {
     }
 }
 impl windows_core::RuntimeType for ContactAnnotation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactAnnotation>();
 }
 unsafe impl windows_core::Interface for ContactAnnotation {
     type Vtable = IContactAnnotation_Vtbl;
@@ -1894,7 +2108,7 @@ impl ContactAnnotationList {
     }
 }
 impl windows_core::RuntimeType for ContactAnnotationList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactAnnotationList>();
 }
 unsafe impl windows_core::Interface for ContactAnnotationList {
     type Vtable = IContactAnnotationList_Vtbl;
@@ -1986,7 +2200,7 @@ impl ContactAnnotationStore {
     }
 }
 impl windows_core::RuntimeType for ContactAnnotationStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactAnnotationStore>();
 }
 unsafe impl windows_core::Interface for ContactAnnotationStore {
     type Vtable = IContactAnnotationStore_Vtbl;
@@ -2019,7 +2233,7 @@ impl ContactBatch {
     }
 }
 impl windows_core::RuntimeType for ContactBatch {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactBatch>();
 }
 unsafe impl windows_core::Interface for ContactBatch {
     type Vtable = IContactBatch_Vtbl;
@@ -2049,7 +2263,7 @@ impl ContactCardDelayedDataLoader {
     }
 }
 impl windows_core::RuntimeType for ContactCardDelayedDataLoader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactCardDelayedDataLoader>();
 }
 unsafe impl windows_core::Interface for ContactCardDelayedDataLoader {
     type Vtable = IContactCardDelayedDataLoader_Vtbl;
@@ -2104,7 +2318,7 @@ impl ContactCardOptions {
     }
 }
 impl windows_core::RuntimeType for ContactCardOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactCardOptions>();
 }
 unsafe impl windows_core::Interface for ContactCardOptions {
     type Vtable = IContactCardOptions_Vtbl;
@@ -2136,7 +2350,7 @@ impl ContactChange {
     }
 }
 impl windows_core::RuntimeType for ContactChange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactChange>();
 }
 unsafe impl windows_core::Interface for ContactChange {
     type Vtable = IContactChange_Vtbl;
@@ -2173,7 +2387,7 @@ impl ContactChangeReader {
     }
 }
 impl windows_core::RuntimeType for ContactChangeReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactChangeReader>();
 }
 unsafe impl windows_core::Interface for ContactChangeReader {
     type Vtable = IContactChangeReader_Vtbl;
@@ -2213,7 +2427,7 @@ impl ContactChangeTracker {
     }
 }
 impl windows_core::RuntimeType for ContactChangeTracker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactChangeTracker>();
 }
 unsafe impl windows_core::Interface for ContactChangeTracker {
     type Vtable = IContactChangeTracker_Vtbl;
@@ -2235,7 +2449,7 @@ impl ContactChangedDeferral {
     }
 }
 impl windows_core::RuntimeType for ContactChangedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactChangedDeferral>();
 }
 unsafe impl windows_core::Interface for ContactChangedDeferral {
     type Vtable = IContactChangedDeferral_Vtbl;
@@ -2260,7 +2474,7 @@ impl ContactChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ContactChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for ContactChangedEventArgs {
     type Vtable = IContactChangedEventArgs_Vtbl;
@@ -2307,7 +2521,7 @@ impl ContactConnectedServiceAccount {
     }
 }
 impl windows_core::RuntimeType for ContactConnectedServiceAccount {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactConnectedServiceAccount>();
 }
 unsafe impl windows_core::Interface for ContactConnectedServiceAccount {
     type Vtable = IContactConnectedServiceAccount_Vtbl;
@@ -2396,7 +2610,7 @@ impl ContactDate {
     }
 }
 impl windows_core::RuntimeType for ContactDate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactDate>();
 }
 unsafe impl windows_core::Interface for ContactDate {
     type Vtable = IContactDate_Vtbl;
@@ -2454,7 +2668,7 @@ impl ContactEmail {
     }
 }
 impl windows_core::RuntimeType for ContactEmail {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactEmail>();
 }
 unsafe impl windows_core::Interface for ContactEmail {
     type Vtable = IContactEmail_Vtbl;
@@ -2524,7 +2738,7 @@ impl ContactField {
     }
 }
 impl windows_core::RuntimeType for ContactField {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactField>();
 }
 unsafe impl windows_core::Interface for ContactField {
     type Vtable = IContactField_Vtbl;
@@ -2616,7 +2830,7 @@ impl ContactFieldFactory {
     }
 }
 impl windows_core::RuntimeType for ContactFieldFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactFieldFactory>();
 }
 unsafe impl windows_core::Interface for ContactFieldFactory {
     type Vtable = IContactFieldFactory_Vtbl;
@@ -2633,7 +2847,7 @@ pub struct ContactGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactGroup {}
 impl windows_core::RuntimeType for ContactGroup {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactGroup>();
 }
 unsafe impl windows_core::Interface for ContactGroup {
     type Vtable = IContactGroup_Vtbl;
@@ -2714,7 +2928,7 @@ impl ContactInformation {
     }
 }
 impl windows_core::RuntimeType for ContactInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactInformation>();
 }
 unsafe impl windows_core::Interface for ContactInformation {
     type Vtable = IContactInformation_Vtbl;
@@ -2813,7 +3027,7 @@ impl ContactInstantMessageField {
     }
 }
 impl windows_core::RuntimeType for ContactInstantMessageField {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactInstantMessageField>();
 }
 unsafe impl windows_core::Interface for ContactInstantMessageField {
     type Vtable = IContactInstantMessageField_Vtbl;
@@ -2926,7 +3140,7 @@ impl ContactJobInfo {
     }
 }
 impl windows_core::RuntimeType for ContactJobInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactJobInfo>();
 }
 unsafe impl windows_core::Interface for ContactJobInfo {
     type Vtable = IContactJobInfo_Vtbl;
@@ -3189,7 +3403,7 @@ impl ContactList {
     }
 }
 impl windows_core::RuntimeType for ContactList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactList>();
 }
 unsafe impl windows_core::Interface for ContactList {
     type Vtable = IContactList_Vtbl;
@@ -3224,7 +3438,7 @@ impl ContactListLimitedWriteOperations {
     }
 }
 impl windows_core::RuntimeType for ContactListLimitedWriteOperations {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListLimitedWriteOperations>();
 }
 unsafe impl windows_core::Interface for ContactListLimitedWriteOperations {
     type Vtable = IContactListLimitedWriteOperations_Vtbl;
@@ -3631,7 +3845,7 @@ impl ContactListSyncConstraints {
     }
 }
 impl windows_core::RuntimeType for ContactListSyncConstraints {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListSyncConstraints>();
 }
 unsafe impl windows_core::Interface for ContactListSyncConstraints {
     type Vtable = IContactListSyncConstraints_Vtbl;
@@ -3703,7 +3917,7 @@ impl ContactListSyncManager {
     }
 }
 impl windows_core::RuntimeType for ContactListSyncManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListSyncManager>();
 }
 unsafe impl windows_core::Interface for ContactListSyncManager {
     type Vtable = IContactListSyncManager_Vtbl;
@@ -3815,7 +4029,7 @@ impl ContactLocationField {
     }
 }
 impl windows_core::RuntimeType for ContactLocationField {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactLocationField>();
 }
 unsafe impl windows_core::Interface for ContactLocationField {
     type Vtable = IContactLocationField_Vtbl;
@@ -4101,7 +4315,7 @@ impl ContactManagerForUser {
     }
 }
 impl windows_core::RuntimeType for ContactManagerForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactManagerForUser>();
 }
 unsafe impl windows_core::Interface for ContactManagerForUser {
     type Vtable = IContactManagerForUser_Vtbl;
@@ -4141,7 +4355,7 @@ impl ContactMatchReason {
     }
 }
 impl windows_core::RuntimeType for ContactMatchReason {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactMatchReason>();
 }
 unsafe impl windows_core::Interface for ContactMatchReason {
     type Vtable = IContactMatchReason_Vtbl;
@@ -4207,7 +4421,7 @@ impl ContactPanel {
     }
 }
 impl windows_core::RuntimeType for ContactPanel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPanel>();
 }
 unsafe impl windows_core::Interface for ContactPanel {
     type Vtable = IContactPanel_Vtbl;
@@ -4232,7 +4446,7 @@ impl ContactPanelClosingEventArgs {
     }
 }
 impl windows_core::RuntimeType for ContactPanelClosingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPanelClosingEventArgs>();
 }
 unsafe impl windows_core::Interface for ContactPanelClosingEventArgs {
     type Vtable = IContactPanelClosingEventArgs_Vtbl;
@@ -4261,7 +4475,7 @@ impl ContactPanelLaunchFullAppRequestedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ContactPanelLaunchFullAppRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPanelLaunchFullAppRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for ContactPanelLaunchFullAppRequestedEventArgs {
     type Vtable = IContactPanelLaunchFullAppRequestedEventArgs_Vtbl;
@@ -4319,7 +4533,7 @@ impl ContactPhone {
     }
 }
 impl windows_core::RuntimeType for ContactPhone {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPhone>();
 }
 unsafe impl windows_core::Interface for ContactPhone {
     type Vtable = IContactPhone_Vtbl;
@@ -4441,7 +4655,7 @@ impl ContactPicker {
     }
 }
 impl windows_core::RuntimeType for ContactPicker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPicker>();
 }
 unsafe impl windows_core::Interface for ContactPicker {
     type Vtable = IContactPicker_Vtbl;
@@ -4537,7 +4751,7 @@ impl ContactQueryOptions {
     }
 }
 impl windows_core::RuntimeType for ContactQueryOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactQueryOptions>();
 }
 unsafe impl windows_core::Interface for ContactQueryOptions {
     type Vtable = IContactQueryOptions_Vtbl;
@@ -4588,7 +4802,7 @@ impl ContactQueryTextSearch {
     }
 }
 impl windows_core::RuntimeType for ContactQueryTextSearch {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactQueryTextSearch>();
 }
 unsafe impl windows_core::Interface for ContactQueryTextSearch {
     type Vtable = IContactQueryTextSearch_Vtbl;
@@ -4624,7 +4838,7 @@ impl ContactReader {
     }
 }
 impl windows_core::RuntimeType for ContactReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactReader>();
 }
 unsafe impl windows_core::Interface for ContactReader {
     type Vtable = IContactReader_Vtbl;
@@ -4682,7 +4896,7 @@ impl ContactSignificantOther {
     }
 }
 impl windows_core::RuntimeType for ContactSignificantOther {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactSignificantOther>();
 }
 unsafe impl windows_core::Interface for ContactSignificantOther {
     type Vtable = IContactSignificantOther_Vtbl;
@@ -4811,7 +5025,7 @@ impl ContactStore {
     }
 }
 impl windows_core::RuntimeType for ContactStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactStore>();
 }
 unsafe impl windows_core::Interface for ContactStore {
     type Vtable = IContactStore_Vtbl;
@@ -4828,7 +5042,7 @@ pub struct ContactStoreNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactStoreNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactStoreNotificationTriggerDetails {}
 impl windows_core::RuntimeType for ContactStoreNotificationTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactStoreNotificationTriggerDetails>();
 }
 unsafe impl windows_core::Interface for ContactStoreNotificationTriggerDetails {
     type Vtable = IContactStoreNotificationTriggerDetails_Vtbl;
@@ -4889,7 +5103,7 @@ impl ContactWebsite {
     }
 }
 impl windows_core::RuntimeType for ContactWebsite {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactWebsite>();
 }
 unsafe impl windows_core::Interface for ContactWebsite {
     type Vtable = IContactWebsite_Vtbl;
@@ -4927,7 +5141,7 @@ impl FullContactCardOptions {
     }
 }
 impl windows_core::RuntimeType for FullContactCardOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFullContactCardOptions>();
 }
 unsafe impl windows_core::Interface for FullContactCardOptions {
     type Vtable = IFullContactCardOptions_Vtbl;
@@ -5010,7 +5224,7 @@ impl PinnedContactIdsQueryResult {
     }
 }
 impl windows_core::RuntimeType for PinnedContactIdsQueryResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPinnedContactIdsQueryResult>();
 }
 unsafe impl windows_core::Interface for PinnedContactIdsQueryResult {
     type Vtable = IPinnedContactIdsQueryResult_Vtbl;
@@ -5125,7 +5339,7 @@ impl PinnedContactManager {
     }
 }
 impl windows_core::RuntimeType for PinnedContactManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPinnedContactManager>();
 }
 unsafe impl windows_core::Interface for PinnedContactManager {
     type Vtable = IPinnedContactManager_Vtbl;

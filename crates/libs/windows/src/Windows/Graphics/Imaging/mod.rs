@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IBitmapBuffer, IBitmapBuffer_Vtbl, 0xa53e04c4_399c_438c_b28f_a63a6b83d1a1);
+impl windows_core::RuntimeType for IBitmapBuffer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBitmapBuffer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6,6 +9,9 @@ pub struct IBitmapBuffer_Vtbl {
     pub GetPlaneDescription: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut BitmapPlaneDescription) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBitmapCodecInformation, IBitmapCodecInformation_Vtbl, 0x400caaf2_c4b0_4392_a3b0_6f6f9ba95cb4);
+impl windows_core::RuntimeType for IBitmapCodecInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBitmapCodecInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -21,6 +27,9 @@ pub struct IBitmapCodecInformation_Vtbl {
     MimeTypes: usize,
 }
 windows_core::imp::define_interface!(IBitmapDecoder, IBitmapDecoder_Vtbl, 0xacef22ba_1d74_4c91_9dfc_9620745233e6);
+impl windows_core::RuntimeType for IBitmapDecoder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBitmapDecoder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -34,6 +43,9 @@ pub struct IBitmapDecoder_Vtbl {
     pub GetFrameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBitmapDecoderStatics, IBitmapDecoderStatics_Vtbl, 0x438ccb26_bcef_4e95_bad6_23a822e58d01);
+impl windows_core::RuntimeType for IBitmapDecoderStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBitmapDecoderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -58,6 +70,9 @@ pub struct IBitmapDecoderStatics_Vtbl {
     CreateWithIdAsync: usize,
 }
 windows_core::imp::define_interface!(IBitmapDecoderStatics2, IBitmapDecoderStatics2_Vtbl, 0x50ba68ea_99a1_40c4_80d9_aef0dafa6c3f);
+impl windows_core::RuntimeType for IBitmapDecoderStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBitmapDecoderStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -65,6 +80,9 @@ pub struct IBitmapDecoderStatics2_Vtbl {
     pub WebpDecoderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBitmapEncoder, IBitmapEncoder_Vtbl, 0x2bc468e3_e1f8_4b54_95e8_32919551ce62);
+impl windows_core::RuntimeType for IBitmapEncoder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBitmapEncoder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -87,6 +105,9 @@ pub struct IBitmapEncoder_Vtbl {
     pub FlushAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBitmapEncoderStatics, IBitmapEncoderStatics_Vtbl, 0xa74356a7_a4e4_4eb9_8e40_564de7e1ccb2);
+impl windows_core::RuntimeType for IBitmapEncoderStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBitmapEncoderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -115,12 +136,18 @@ pub struct IBitmapEncoderStatics_Vtbl {
     pub CreateForInPlacePropertyEncodingAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBitmapEncoderStatics2, IBitmapEncoderStatics2_Vtbl, 0x33cbc259_fe31_41b1_b812_086d21e87e16);
+impl windows_core::RuntimeType for IBitmapEncoderStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBitmapEncoderStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HeifEncoderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBitmapEncoderWithSoftwareBitmap, IBitmapEncoderWithSoftwareBitmap_Vtbl, 0x686cd241_4330_4c77_ace4_0334968b1768);
+impl windows_core::RuntimeType for IBitmapEncoderWithSoftwareBitmap {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBitmapEncoderWithSoftwareBitmap_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -368,6 +395,9 @@ pub struct IBitmapFrameWithSoftwareBitmap_Vtbl {
     pub GetSoftwareBitmapTransformedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, BitmapPixelFormat, BitmapAlphaMode, *mut core::ffi::c_void, ExifOrientationMode, ColorManagementMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBitmapProperties, IBitmapProperties_Vtbl, 0xea9f4f1b_b505_4450_a4d1_e8ca94529d8d);
+impl windows_core::RuntimeType for IBitmapProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBitmapProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -403,6 +433,9 @@ pub struct IBitmapPropertiesView_Vtbl {
     GetPropertiesAsync: usize,
 }
 windows_core::imp::define_interface!(IBitmapTransform, IBitmapTransform_Vtbl, 0xae755344_e268_4d35_adcf_e995d31a8d34);
+impl windows_core::RuntimeType for IBitmapTransform {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBitmapTransform_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -420,6 +453,9 @@ pub struct IBitmapTransform_Vtbl {
     pub SetBounds: unsafe extern "system" fn(*mut core::ffi::c_void, BitmapBounds) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBitmapTypedValue, IBitmapTypedValue_Vtbl, 0xcd8044a9_2443_4000_b0cd_79316c56f589);
+impl windows_core::RuntimeType for IBitmapTypedValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBitmapTypedValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -427,18 +463,27 @@ pub struct IBitmapTypedValue_Vtbl {
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::PropertyType) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBitmapTypedValueFactory, IBitmapTypedValueFactory_Vtbl, 0x92dbb599_ce13_46bb_9545_cb3a3f63eb8b);
+impl windows_core::RuntimeType for IBitmapTypedValueFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBitmapTypedValueFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::PropertyType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPixelDataProvider, IPixelDataProvider_Vtbl, 0xdd831f25_185c_4595_9fb9_ccbe6ec18a6f);
+impl windows_core::RuntimeType for IPixelDataProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPixelDataProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DetachPixelData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISoftwareBitmap, ISoftwareBitmap_Vtbl, 0x689e0708_7eef_483f_963f_da938818e073);
+impl windows_core::RuntimeType for ISoftwareBitmap {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISoftwareBitmap_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -464,6 +509,9 @@ pub struct ISoftwareBitmap_Vtbl {
     pub GetReadOnlyView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISoftwareBitmapFactory, ISoftwareBitmapFactory_Vtbl, 0xc99feb69_2d62_4d47_a6b3_4fdb6a07fdf8);
+impl windows_core::RuntimeType for ISoftwareBitmapFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISoftwareBitmapFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -471,6 +519,9 @@ pub struct ISoftwareBitmapFactory_Vtbl {
     pub CreateWithAlpha: unsafe extern "system" fn(*mut core::ffi::c_void, BitmapPixelFormat, i32, i32, BitmapAlphaMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISoftwareBitmapStatics, ISoftwareBitmapStatics_Vtbl, 0xdf0385db_672f_4a9d_806e_c2442f343e86);
+impl windows_core::RuntimeType for ISoftwareBitmapStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISoftwareBitmapStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -527,7 +578,7 @@ impl BitmapBuffer {
     }
 }
 impl windows_core::RuntimeType for BitmapBuffer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapBuffer>();
 }
 unsafe impl windows_core::Interface for BitmapBuffer {
     type Vtable = IBitmapBuffer_Vtbl;
@@ -575,7 +626,7 @@ impl BitmapCodecInformation {
     }
 }
 impl windows_core::RuntimeType for BitmapCodecInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapCodecInformation>();
 }
 unsafe impl windows_core::Interface for BitmapCodecInformation {
     type Vtable = IBitmapCodecInformation_Vtbl;
@@ -833,7 +884,7 @@ impl BitmapDecoder {
     }
 }
 impl windows_core::RuntimeType for BitmapDecoder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapDecoder>();
 }
 unsafe impl windows_core::Interface for BitmapDecoder {
     type Vtable = IBitmapDecoder_Vtbl;
@@ -1048,7 +1099,7 @@ impl BitmapEncoder {
     }
 }
 impl windows_core::RuntimeType for BitmapEncoder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapEncoder>();
 }
 unsafe impl windows_core::Interface for BitmapEncoder {
     type Vtable = IBitmapEncoder_Vtbl;
@@ -1179,7 +1230,7 @@ impl BitmapFrame {
     }
 }
 impl windows_core::RuntimeType for BitmapFrame {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapFrame>();
 }
 unsafe impl windows_core::Interface for BitmapFrame {
     type Vtable = IBitmapFrame_Vtbl;
@@ -1220,7 +1271,7 @@ impl BitmapProperties {
     }
 }
 impl windows_core::RuntimeType for BitmapProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapProperties>();
 }
 unsafe impl windows_core::Interface for BitmapProperties {
     type Vtable = IBitmapProperties_Vtbl;
@@ -1250,7 +1301,7 @@ impl BitmapPropertiesView {
     }
 }
 impl windows_core::RuntimeType for BitmapPropertiesView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapPropertiesView>();
 }
 unsafe impl windows_core::Interface for BitmapPropertiesView {
     type Vtable = IBitmapPropertiesView_Vtbl;
@@ -1342,7 +1393,7 @@ impl BitmapPropertySet {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for BitmapPropertySet {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IMap<windows_core::HSTRING, BitmapTypedValue>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for BitmapPropertySet {
@@ -1453,7 +1504,7 @@ impl BitmapTransform {
     }
 }
 impl windows_core::RuntimeType for BitmapTransform {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapTransform>();
 }
 unsafe impl windows_core::Interface for BitmapTransform {
     type Vtable = IBitmapTransform_Vtbl;
@@ -1499,7 +1550,7 @@ impl BitmapTypedValue {
     }
 }
 impl windows_core::RuntimeType for BitmapTypedValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapTypedValue>();
 }
 unsafe impl windows_core::Interface for BitmapTypedValue {
     type Vtable = IBitmapTypedValue_Vtbl;
@@ -1631,7 +1682,7 @@ impl ImageStream {
 }
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeType for ImageStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Storage::Streams::IRandomAccessStreamWithContentType>();
 }
 #[cfg(feature = "Storage_Streams")]
 unsafe impl windows_core::Interface for ImageStream {
@@ -1660,7 +1711,7 @@ impl PixelDataProvider {
     }
 }
 impl windows_core::RuntimeType for PixelDataProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPixelDataProvider>();
 }
 unsafe impl windows_core::Interface for PixelDataProvider {
     type Vtable = IPixelDataProvider_Vtbl;
@@ -1866,7 +1917,7 @@ impl SoftwareBitmap {
     }
 }
 impl windows_core::RuntimeType for SoftwareBitmap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISoftwareBitmap>();
 }
 unsafe impl windows_core::Interface for SoftwareBitmap {
     type Vtable = ISoftwareBitmap_Vtbl;

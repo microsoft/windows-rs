@@ -1,10 +1,16 @@
 windows_core::imp::define_interface!(ICurrentTimeChangeRequestedEventArgs, ICurrentTimeChangeRequestedEventArgs_Vtbl, 0x99711324_edc7_4bf5_91f6_3c8627db59e5);
+impl windows_core::RuntimeType for ICurrentTimeChangeRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICurrentTimeChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Time: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMuteChangeRequestedEventArgs, IMuteChangeRequestedEventArgs_Vtbl, 0xe4b4f5f6_af1f_4f1e_b437_7da32400e1d4);
+impl windows_core::RuntimeType for IMuteChangeRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMuteChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12,6 +18,10 @@ pub struct IMuteChangeRequestedEventArgs_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPlayToConnection, IPlayToConnection_Vtbl, 0x112fbfc8_f235_4fde_8d41_9bf27c9e9a40);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToConnection_Vtbl {
@@ -48,6 +58,10 @@ pub struct IPlayToConnection_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPlayToConnectionErrorEventArgs, IPlayToConnectionErrorEventArgs_Vtbl, 0xbf5eada6_88e6_445f_9d40_d9b9f8939896);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToConnectionErrorEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToConnectionErrorEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -62,6 +76,10 @@ pub struct IPlayToConnectionErrorEventArgs_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPlayToConnectionStateChangedEventArgs, IPlayToConnectionStateChangedEventArgs_Vtbl, 0x68c4b50f_0c20_4980_8602_58c62238d423);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToConnectionStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToConnectionStateChangedEventArgs_Vtbl {
@@ -78,6 +96,10 @@ pub struct IPlayToConnectionStateChangedEventArgs_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPlayToConnectionTransferredEventArgs, IPlayToConnectionTransferredEventArgs_Vtbl, 0xfae3193a_0683_47d9_8df0_18cbb48984d8);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToConnectionTransferredEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToConnectionTransferredEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -92,6 +114,10 @@ pub struct IPlayToConnectionTransferredEventArgs_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPlayToManager, IPlayToManager_Vtbl, 0xf56a206e_1b77_42ef_8f0d_b949f8d9b260);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToManager_Vtbl {
@@ -124,6 +150,10 @@ pub struct IPlayToManager_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPlayToManagerStatics, IPlayToManagerStatics_Vtbl, 0x64e6a887_3982_4f3b_ba20_6155e435325b);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -137,6 +167,9 @@ pub struct IPlayToManagerStatics_Vtbl {
     ShowPlayToUI: usize,
 }
 windows_core::imp::define_interface!(IPlayToReceiver, IPlayToReceiver_Vtbl, 0xac15cf47_a162_4aa6_af1b_3aa35f3b9069);
+impl windows_core::RuntimeType for IPlayToReceiver {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlayToReceiver_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -188,6 +221,10 @@ pub struct IPlayToReceiver_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPlayToSource, IPlayToSource_Vtbl, 0x7f138a08_fbb7_4b09_8356_aa5f4e335c31);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -211,6 +248,10 @@ pub struct IPlayToSource_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPlayToSourceDeferral, IPlayToSourceDeferral_Vtbl, 0x4100891d_278e_4f29_859b_a9e501053e7d);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToSourceDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToSourceDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -221,6 +262,10 @@ pub struct IPlayToSourceDeferral_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPlayToSourceRequest, IPlayToSourceRequest_Vtbl, 0xf8584665_64f4_44a0_ac0d_468d2b8fda83);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToSourceRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToSourceRequest_Vtbl {
@@ -245,6 +290,10 @@ pub struct IPlayToSourceRequest_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPlayToSourceRequestedEventArgs, IPlayToSourceRequestedEventArgs_Vtbl, 0xc5cdc330_29df_4ec6_9da9_9fbdfcfc1b3e);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToSourceRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToSourceRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -255,6 +304,10 @@ pub struct IPlayToSourceRequestedEventArgs_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPlayToSourceSelectedEventArgs, IPlayToSourceSelectedEventArgs_Vtbl, 0x0c9d8511_5202_4dcb_8c67_abda12bb3c12);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToSourceSelectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToSourceSelectedEventArgs_Vtbl {
@@ -283,6 +336,10 @@ pub struct IPlayToSourceSelectedEventArgs_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPlayToSourceWithPreferredSourceUri, IPlayToSourceWithPreferredSourceUri_Vtbl, 0xaab253eb_3301_4dc4_afba_b2f2ed9635a0);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPlayToSourceWithPreferredSourceUri {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IPlayToSourceWithPreferredSourceUri_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -296,12 +353,18 @@ pub struct IPlayToSourceWithPreferredSourceUri_Vtbl {
     SetPreferredSourceUri: usize,
 }
 windows_core::imp::define_interface!(IPlaybackRateChangeRequestedEventArgs, IPlaybackRateChangeRequestedEventArgs_Vtbl, 0x0f5661ae_2c88_4cca_8540_d586095d13a5);
+impl windows_core::RuntimeType for IPlaybackRateChangeRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlaybackRateChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Rate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISourceChangeRequestedEventArgs, ISourceChangeRequestedEventArgs_Vtbl, 0xfb3f3a96_7aa6_4a8b_86e7_54f6c6d34f64);
+impl windows_core::RuntimeType for ISourceChangeRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISourceChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -326,6 +389,9 @@ pub struct ISourceChangeRequestedEventArgs_Vtbl {
     Properties: usize,
 }
 windows_core::imp::define_interface!(IVolumeChangeRequestedEventArgs, IVolumeChangeRequestedEventArgs_Vtbl, 0x6f026d5c_cf75_4c2b_913e_6d7c6c329179);
+impl windows_core::RuntimeType for IVolumeChangeRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVolumeChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -345,7 +411,7 @@ impl CurrentTimeChangeRequestedEventArgs {
     }
 }
 impl windows_core::RuntimeType for CurrentTimeChangeRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICurrentTimeChangeRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for CurrentTimeChangeRequestedEventArgs {
     type Vtable = ICurrentTimeChangeRequestedEventArgs_Vtbl;
@@ -368,7 +434,7 @@ impl MuteChangeRequestedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MuteChangeRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMuteChangeRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for MuteChangeRequestedEventArgs {
     type Vtable = IMuteChangeRequestedEventArgs_Vtbl;
@@ -444,7 +510,7 @@ impl PlayToConnection {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for PlayToConnection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayToConnection>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToConnection {
@@ -486,7 +552,7 @@ impl PlayToConnectionErrorEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for PlayToConnectionErrorEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayToConnectionErrorEventArgs>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToConnectionErrorEventArgs {
@@ -528,7 +594,7 @@ impl PlayToConnectionStateChangedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for PlayToConnectionStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayToConnectionStateChangedEventArgs>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToConnectionStateChangedEventArgs {
@@ -570,7 +636,7 @@ impl PlayToConnectionTransferredEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for PlayToConnectionTransferredEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayToConnectionTransferredEventArgs>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToConnectionTransferredEventArgs {
@@ -658,7 +724,7 @@ impl PlayToManager {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for PlayToManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayToManager>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToManager {
@@ -927,7 +993,7 @@ impl PlayToReceiver {
     }
 }
 impl windows_core::RuntimeType for PlayToReceiver {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayToReceiver>();
 }
 unsafe impl windows_core::Interface for PlayToReceiver {
     type Vtable = IPlayToReceiver_Vtbl;
@@ -992,7 +1058,7 @@ impl PlayToSource {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for PlayToSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayToSource>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToSource {
@@ -1023,7 +1089,7 @@ impl PlayToSourceDeferral {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for PlayToSourceDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayToSourceDeferral>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToSourceDeferral {
@@ -1078,7 +1144,7 @@ impl PlayToSourceRequest {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for PlayToSourceRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayToSourceRequest>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToSourceRequest {
@@ -1112,7 +1178,7 @@ impl PlayToSourceRequestedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for PlayToSourceRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayToSourceRequestedEventArgs>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToSourceRequestedEventArgs {
@@ -1178,7 +1244,7 @@ impl PlayToSourceSelectedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for PlayToSourceSelectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayToSourceSelectedEventArgs>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToSourceSelectedEventArgs {
@@ -1207,7 +1273,7 @@ impl PlaybackRateChangeRequestedEventArgs {
     }
 }
 impl windows_core::RuntimeType for PlaybackRateChangeRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaybackRateChangeRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for PlaybackRateChangeRequestedEventArgs {
     type Vtable = IPlaybackRateChangeRequestedEventArgs_Vtbl;
@@ -1296,7 +1362,7 @@ impl SourceChangeRequestedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SourceChangeRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISourceChangeRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for SourceChangeRequestedEventArgs {
     type Vtable = ISourceChangeRequestedEventArgs_Vtbl;
@@ -1319,7 +1385,7 @@ impl VolumeChangeRequestedEventArgs {
     }
 }
 impl windows_core::RuntimeType for VolumeChangeRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVolumeChangeRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for VolumeChangeRequestedEventArgs {
     type Vtable = IVolumeChangeRequestedEventArgs_Vtbl;

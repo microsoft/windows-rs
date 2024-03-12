@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IGameService, IGameService_Vtbl, 0x2e2d5098_48a9_4efc_afd6_8e6da09003fb);
+impl windows_core::RuntimeType for IGameService {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGameService_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -15,6 +18,9 @@ pub struct IGameService_Vtbl {
     PostResult: usize,
 }
 windows_core::imp::define_interface!(IGameService2, IGameService2_Vtbl, 0xd2364ef6_ea17_4be5_8d8a_c860885e051f);
+impl windows_core::RuntimeType for IGameService2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGameService2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -22,6 +28,9 @@ pub struct IGameService2_Vtbl {
     pub GetAuthenticationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGameServicePropertyCollection, IGameServicePropertyCollection_Vtbl, 0x07e57fc8_debb_4609_9cc8_529d16bc2bd9);
+impl windows_core::RuntimeType for IGameServicePropertyCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGameServicePropertyCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -115,7 +124,7 @@ impl GameServicePropertyCollection {
     }
 }
 impl windows_core::RuntimeType for GameServicePropertyCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameServicePropertyCollection>();
 }
 unsafe impl windows_core::Interface for GameServicePropertyCollection {
     type Vtable = IGameServicePropertyCollection_Vtbl;

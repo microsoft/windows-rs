@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IDeviceServicingDetails, IDeviceServicingDetails_Vtbl, 0x4aabee29_2344_4ac4_8527_4a8ef6905645);
+impl windows_core::RuntimeType for IDeviceServicingDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceServicingDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7,6 +10,9 @@ pub struct IDeviceServicingDetails_Vtbl {
     pub ExpectedDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceUseDetails, IDeviceUseDetails_Vtbl, 0x7d565141_557e_4154_b994_e4f7a11fb323);
+impl windows_core::RuntimeType for IDeviceUseDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceUseDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -41,7 +47,7 @@ impl DeviceServicingDetails {
     }
 }
 impl windows_core::RuntimeType for DeviceServicingDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceServicingDetails>();
 }
 unsafe impl windows_core::Interface for DeviceServicingDetails {
     type Vtable = IDeviceServicingDetails_Vtbl;
@@ -73,7 +79,7 @@ impl DeviceUseDetails {
     }
 }
 impl windows_core::RuntimeType for DeviceUseDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceUseDetails>();
 }
 unsafe impl windows_core::Interface for DeviceUseDetails {
     type Vtable = IDeviceUseDetails_Vtbl;

@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IAlternateWordForm, IAlternateWordForm_Vtbl, 0x47396c1e_51b9_4207_9146_248e636a1d1d);
+impl windows_core::RuntimeType for IAlternateWordForm {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAlternateWordForm_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7,6 +10,9 @@ pub struct IAlternateWordForm_Vtbl {
     pub NormalizationFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AlternateNormalizationFormat) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISelectableWordSegment, ISelectableWordSegment_Vtbl, 0x916a4cb7_8aa7_4c78_b374_5dedb752e60b);
+impl windows_core::RuntimeType for ISelectableWordSegment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISelectableWordSegment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14,6 +20,9 @@ pub struct ISelectableWordSegment_Vtbl {
     pub SourceTextSegment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TextSegment) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISelectableWordsSegmenter, ISelectableWordsSegmenter_Vtbl, 0xf6dc31e7_4b13_45c5_8897_7d71269e085d);
+impl windows_core::RuntimeType for ISelectableWordsSegmenter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISelectableWordsSegmenter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -29,12 +38,18 @@ pub struct ISelectableWordsSegmenter_Vtbl {
     Tokenize: usize,
 }
 windows_core::imp::define_interface!(ISelectableWordsSegmenterFactory, ISelectableWordsSegmenterFactory_Vtbl, 0x8c7a7648_6057_4339_bc70_f210010a4150);
+impl windows_core::RuntimeType for ISelectableWordsSegmenterFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISelectableWordsSegmenterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWithLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISemanticTextQuery, ISemanticTextQuery_Vtbl, 0x6a1cab51_1fb2_4909_80b8_35731a2b3e7f);
+impl windows_core::RuntimeType for ISemanticTextQuery {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISemanticTextQuery_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -48,6 +63,9 @@ pub struct ISemanticTextQuery_Vtbl {
     FindInProperty: usize,
 }
 windows_core::imp::define_interface!(ISemanticTextQueryFactory, ISemanticTextQueryFactory_Vtbl, 0x238c0503_f995_4587_8777_a2b7d80acfef);
+impl windows_core::RuntimeType for ISemanticTextQueryFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISemanticTextQueryFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -55,6 +73,9 @@ pub struct ISemanticTextQueryFactory_Vtbl {
     pub CreateWithLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITextConversionGenerator, ITextConversionGenerator_Vtbl, 0x03606a5e_2aa9_4ab6_af8b_a562b63a8992);
+impl windows_core::RuntimeType for ITextConversionGenerator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITextConversionGenerator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -70,12 +91,18 @@ pub struct ITextConversionGenerator_Vtbl {
     GetCandidatesWithMaxCountAsync: usize,
 }
 windows_core::imp::define_interface!(ITextConversionGeneratorFactory, ITextConversionGeneratorFactory_Vtbl, 0xfcaa3781_3083_49ab_be15_56dfbbb74d6f);
+impl windows_core::RuntimeType for ITextConversionGeneratorFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITextConversionGeneratorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITextPhoneme, ITextPhoneme_Vtbl, 0x9362a40a_9b7a_4569_94cf_d84f2f38cf9b);
+impl windows_core::RuntimeType for ITextPhoneme {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITextPhoneme_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -83,6 +110,9 @@ pub struct ITextPhoneme_Vtbl {
     pub ReadingText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITextPredictionGenerator, ITextPredictionGenerator_Vtbl, 0x5eacab07_abf1_4cb6_9d9e_326f2b468756);
+impl windows_core::RuntimeType for ITextPredictionGenerator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITextPredictionGenerator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -98,6 +128,9 @@ pub struct ITextPredictionGenerator_Vtbl {
     GetCandidatesWithMaxCountAsync: usize,
 }
 windows_core::imp::define_interface!(ITextPredictionGenerator2, ITextPredictionGenerator2_Vtbl, 0xb84723b8_2c77_486a_900a_a3453eedc15d);
+impl windows_core::RuntimeType for ITextPredictionGenerator2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITextPredictionGenerator2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -119,12 +152,18 @@ pub struct ITextPredictionGenerator2_Vtbl {
     SetInputScope: usize,
 }
 windows_core::imp::define_interface!(ITextPredictionGeneratorFactory, ITextPredictionGeneratorFactory_Vtbl, 0x7257b416_8ba2_4751_9d30_9d85435653a2);
+impl windows_core::RuntimeType for ITextPredictionGeneratorFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITextPredictionGeneratorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITextReverseConversionGenerator, ITextReverseConversionGenerator_Vtbl, 0x51e7f514_9c51_4d86_ae1b_b498fbad8313);
+impl windows_core::RuntimeType for ITextReverseConversionGenerator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITextReverseConversionGenerator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -133,6 +172,9 @@ pub struct ITextReverseConversionGenerator_Vtbl {
     pub ConvertBackAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITextReverseConversionGenerator2, ITextReverseConversionGenerator2_Vtbl, 0x1aafd2ec_85d6_46fd_828a_3a4830fa6e18);
+impl windows_core::RuntimeType for ITextReverseConversionGenerator2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITextReverseConversionGenerator2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -142,12 +184,18 @@ pub struct ITextReverseConversionGenerator2_Vtbl {
     GetPhonemesAsync: usize,
 }
 windows_core::imp::define_interface!(ITextReverseConversionGeneratorFactory, ITextReverseConversionGeneratorFactory_Vtbl, 0x63bed326_1fda_41f6_89d5_23ddea3c729a);
+impl windows_core::RuntimeType for ITextReverseConversionGeneratorFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITextReverseConversionGeneratorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUnicodeCharactersStatics, IUnicodeCharactersStatics_Vtbl, 0x97909e87_9291_4f91_b6c8_b6e359d7a7fb);
+impl windows_core::RuntimeType for IUnicodeCharactersStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUnicodeCharactersStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -170,6 +218,9 @@ pub struct IUnicodeCharactersStatics_Vtbl {
     pub GetGeneralCategory: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut UnicodeGeneralCategory) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWordSegment, IWordSegment_Vtbl, 0xd2d4ba6d_987c_4cc0_b6bd_d49a11b38f9a);
+impl windows_core::RuntimeType for IWordSegment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWordSegment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -181,6 +232,9 @@ pub struct IWordSegment_Vtbl {
     AlternateForms: usize,
 }
 windows_core::imp::define_interface!(IWordsSegmenter, IWordsSegmenter_Vtbl, 0x86b4d4d1_b2fe_4e34_a81d_66640300454f);
+impl windows_core::RuntimeType for IWordsSegmenter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWordsSegmenter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -196,6 +250,9 @@ pub struct IWordsSegmenter_Vtbl {
     Tokenize: usize,
 }
 windows_core::imp::define_interface!(IWordsSegmenterFactory, IWordsSegmenterFactory_Vtbl, 0xe6977274_fc35_455c_8bfb_6d7f4653ca97);
+impl windows_core::RuntimeType for IWordsSegmenterFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWordsSegmenterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -229,7 +286,7 @@ impl AlternateWordForm {
     }
 }
 impl windows_core::RuntimeType for AlternateWordForm {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAlternateWordForm>();
 }
 unsafe impl windows_core::Interface for AlternateWordForm {
     type Vtable = IAlternateWordForm_Vtbl;
@@ -261,7 +318,7 @@ impl SelectableWordSegment {
     }
 }
 impl windows_core::RuntimeType for SelectableWordSegment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISelectableWordSegment>();
 }
 unsafe impl windows_core::Interface for SelectableWordSegment {
     type Vtable = ISelectableWordSegment_Vtbl;
@@ -320,7 +377,7 @@ impl SelectableWordsSegmenter {
     }
 }
 impl windows_core::RuntimeType for SelectableWordsSegmenter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISelectableWordsSegmenter>();
 }
 unsafe impl windows_core::Interface for SelectableWordsSegmenter {
     type Vtable = ISelectableWordsSegmenter_Vtbl;
@@ -371,7 +428,7 @@ impl SemanticTextQuery {
     }
 }
 impl windows_core::RuntimeType for SemanticTextQuery {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISemanticTextQuery>();
 }
 unsafe impl windows_core::Interface for SemanticTextQuery {
     type Vtable = ISemanticTextQuery_Vtbl;
@@ -430,7 +487,7 @@ impl TextConversionGenerator {
     }
 }
 impl windows_core::RuntimeType for TextConversionGenerator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITextConversionGenerator>();
 }
 unsafe impl windows_core::Interface for TextConversionGenerator {
     type Vtable = ITextConversionGenerator_Vtbl;
@@ -462,7 +519,7 @@ impl TextPhoneme {
     }
 }
 impl windows_core::RuntimeType for TextPhoneme {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITextPhoneme>();
 }
 unsafe impl windows_core::Interface for TextPhoneme {
     type Vtable = ITextPhoneme_Vtbl;
@@ -556,7 +613,7 @@ impl TextPredictionGenerator {
     }
 }
 impl windows_core::RuntimeType for TextPredictionGenerator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITextPredictionGenerator>();
 }
 unsafe impl windows_core::Interface for TextPredictionGenerator {
     type Vtable = ITextPredictionGenerator_Vtbl;
@@ -614,7 +671,7 @@ impl TextReverseConversionGenerator {
     }
 }
 impl windows_core::RuntimeType for TextReverseConversionGenerator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITextReverseConversionGenerator>();
 }
 unsafe impl windows_core::Interface for TextReverseConversionGenerator {
     type Vtable = ITextReverseConversionGenerator_Vtbl;
@@ -764,7 +821,7 @@ impl WordSegment {
     }
 }
 impl windows_core::RuntimeType for WordSegment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWordSegment>();
 }
 unsafe impl windows_core::Interface for WordSegment {
     type Vtable = IWordSegment_Vtbl;
@@ -823,7 +880,7 @@ impl WordsSegmenter {
     }
 }
 impl windows_core::RuntimeType for WordsSegmenter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWordsSegmenter>();
 }
 unsafe impl windows_core::Interface for WordsSegmenter {
     type Vtable = IWordsSegmenter_Vtbl;

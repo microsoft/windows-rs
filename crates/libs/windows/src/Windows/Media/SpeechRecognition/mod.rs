@@ -1,16 +1,25 @@
 windows_core::imp::define_interface!(ISpeechContinuousRecognitionCompletedEventArgs, ISpeechContinuousRecognitionCompletedEventArgs_Vtbl, 0xe3d069bb_e30c_5e18_424b_7fbe81f8fbd0);
+impl windows_core::RuntimeType for ISpeechContinuousRecognitionCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechContinuousRecognitionCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechRecognitionResultStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpeechContinuousRecognitionResultGeneratedEventArgs, ISpeechContinuousRecognitionResultGeneratedEventArgs_Vtbl, 0x19091e1e_6e7e_5a46_40fb_76594f786504);
+impl windows_core::RuntimeType for ISpeechContinuousRecognitionResultGeneratedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechContinuousRecognitionResultGeneratedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Result: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpeechContinuousRecognitionSession, ISpeechContinuousRecognitionSession_Vtbl, 0x6a213c04_6614_49f8_99a2_b5e9b3a085c8);
+impl windows_core::RuntimeType for ISpeechContinuousRecognitionSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechContinuousRecognitionSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -28,6 +37,9 @@ pub struct ISpeechContinuousRecognitionSession_Vtbl {
     pub RemoveResultGenerated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpeechRecognitionCompilationResult, ISpeechRecognitionCompilationResult_Vtbl, 0x407e6c5d_6ac7_4da4_9cc1_2fce32cf7489);
+impl windows_core::RuntimeType for ISpeechRecognitionCompilationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognitionCompilationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -92,6 +104,9 @@ pub struct ISpeechRecognitionConstraint_Vtbl {
     pub SetProbability: unsafe extern "system" fn(*mut core::ffi::c_void, SpeechRecognitionConstraintProbability) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpeechRecognitionGrammarFileConstraint, ISpeechRecognitionGrammarFileConstraint_Vtbl, 0xb5031a8f_85ca_4fa4_b11a_474fc41b3835);
+impl windows_core::RuntimeType for ISpeechRecognitionGrammarFileConstraint {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognitionGrammarFileConstraint_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -101,6 +116,9 @@ pub struct ISpeechRecognitionGrammarFileConstraint_Vtbl {
     GrammarFile: usize,
 }
 windows_core::imp::define_interface!(ISpeechRecognitionGrammarFileConstraintFactory, ISpeechRecognitionGrammarFileConstraintFactory_Vtbl, 0x3da770eb_c479_4c27_9f19_89974ef392d1);
+impl windows_core::RuntimeType for ISpeechRecognitionGrammarFileConstraintFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognitionGrammarFileConstraintFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -114,18 +132,27 @@ pub struct ISpeechRecognitionGrammarFileConstraintFactory_Vtbl {
     CreateWithTag: usize,
 }
 windows_core::imp::define_interface!(ISpeechRecognitionHypothesis, ISpeechRecognitionHypothesis_Vtbl, 0x7a7b25b0_99c5_4f7d_bf84_10aa1302b634);
+impl windows_core::RuntimeType for ISpeechRecognitionHypothesis {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognitionHypothesis_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpeechRecognitionHypothesisGeneratedEventArgs, ISpeechRecognitionHypothesisGeneratedEventArgs_Vtbl, 0x55161a7a_8023_5866_411d_1213bb271476);
+impl windows_core::RuntimeType for ISpeechRecognitionHypothesisGeneratedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognitionHypothesisGeneratedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Hypothesis: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpeechRecognitionListConstraint, ISpeechRecognitionListConstraint_Vtbl, 0x09c487e9_e4ad_4526_81f2_4946fb481d98);
+impl windows_core::RuntimeType for ISpeechRecognitionListConstraint {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognitionListConstraint_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -135,6 +162,9 @@ pub struct ISpeechRecognitionListConstraint_Vtbl {
     Commands: usize,
 }
 windows_core::imp::define_interface!(ISpeechRecognitionListConstraintFactory, ISpeechRecognitionListConstraintFactory_Vtbl, 0x40f3cdc7_562a_426a_9f3b_3b4e282be1d5);
+impl windows_core::RuntimeType for ISpeechRecognitionListConstraintFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognitionListConstraintFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -148,12 +178,18 @@ pub struct ISpeechRecognitionListConstraintFactory_Vtbl {
     CreateWithTag: usize,
 }
 windows_core::imp::define_interface!(ISpeechRecognitionQualityDegradingEventArgs, ISpeechRecognitionQualityDegradingEventArgs_Vtbl, 0x4fe24105_8c3a_4c7e_8d0a_5bd4f5b14ad8);
+impl windows_core::RuntimeType for ISpeechRecognitionQualityDegradingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognitionQualityDegradingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Problem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechRecognitionAudioProblem) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpeechRecognitionResult, ISpeechRecognitionResult_Vtbl, 0x4e303157_034e_4652_857e_d0454cc4beec);
+impl windows_core::RuntimeType for ISpeechRecognitionResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognitionResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -173,6 +209,9 @@ pub struct ISpeechRecognitionResult_Vtbl {
     pub RawConfidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpeechRecognitionResult2, ISpeechRecognitionResult2_Vtbl, 0xaf7ed1ba_451b_4166_a0c1_1ffe84032d03);
+impl windows_core::RuntimeType for ISpeechRecognitionResult2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognitionResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -180,6 +219,9 @@ pub struct ISpeechRecognitionResult2_Vtbl {
     pub PhraseDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpeechRecognitionSemanticInterpretation, ISpeechRecognitionSemanticInterpretation_Vtbl, 0xaae1da9b_7e32_4c1f_89fe_0c65f486f52e);
+impl windows_core::RuntimeType for ISpeechRecognitionSemanticInterpretation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognitionSemanticInterpretation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -189,6 +231,9 @@ pub struct ISpeechRecognitionSemanticInterpretation_Vtbl {
     Properties: usize,
 }
 windows_core::imp::define_interface!(ISpeechRecognitionTopicConstraint, ISpeechRecognitionTopicConstraint_Vtbl, 0xbf6fdf19_825d_4e69_a681_36e48cf1c93e);
+impl windows_core::RuntimeType for ISpeechRecognitionTopicConstraint {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognitionTopicConstraint_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -196,6 +241,9 @@ pub struct ISpeechRecognitionTopicConstraint_Vtbl {
     pub TopicHint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpeechRecognitionTopicConstraintFactory, ISpeechRecognitionTopicConstraintFactory_Vtbl, 0x6e6863df_ec05_47d7_a5df_56a3431e58d2);
+impl windows_core::RuntimeType for ISpeechRecognitionTopicConstraintFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognitionTopicConstraintFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -203,11 +251,17 @@ pub struct ISpeechRecognitionTopicConstraintFactory_Vtbl {
     pub CreateWithTag: unsafe extern "system" fn(*mut core::ffi::c_void, SpeechRecognitionScenario, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpeechRecognitionVoiceCommandDefinitionConstraint, ISpeechRecognitionVoiceCommandDefinitionConstraint_Vtbl, 0xf2791c2b_1ef4_4ae7_9d77_b6ff10b8a3c2);
+impl windows_core::RuntimeType for ISpeechRecognitionVoiceCommandDefinitionConstraint {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognitionVoiceCommandDefinitionConstraint_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ISpeechRecognizer, ISpeechRecognizer_Vtbl, 0x0bc3c9cb_c26a_40f2_aeb5_8096b2e48073);
+impl windows_core::RuntimeType for ISpeechRecognizer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognizer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -230,6 +284,9 @@ pub struct ISpeechRecognizer_Vtbl {
     pub RemoveStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpeechRecognizer2, ISpeechRecognizer2_Vtbl, 0x63c9baf1_91e3_4ea4_86a1_7c3867d084a6);
+impl windows_core::RuntimeType for ISpeechRecognizer2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognizer2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -240,6 +297,9 @@ pub struct ISpeechRecognizer2_Vtbl {
     pub RemoveHypothesisGenerated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpeechRecognizerFactory, ISpeechRecognizerFactory_Vtbl, 0x60c488dd_7fb8_4033_ac70_d046f64818e1);
+impl windows_core::RuntimeType for ISpeechRecognizerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognizerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -249,12 +309,18 @@ pub struct ISpeechRecognizerFactory_Vtbl {
     Create: usize,
 }
 windows_core::imp::define_interface!(ISpeechRecognizerStateChangedEventArgs, ISpeechRecognizerStateChangedEventArgs_Vtbl, 0x563d4f09_ba03_4bad_ad81_ddc6c4dab0c3);
+impl windows_core::RuntimeType for ISpeechRecognizerStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognizerStateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechRecognizerState) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpeechRecognizerStatics, ISpeechRecognizerStatics_Vtbl, 0x87a35eac_a7dc_4b0b_bcc9_24f47c0b7ebf);
+impl windows_core::RuntimeType for ISpeechRecognizerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognizerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -272,6 +338,9 @@ pub struct ISpeechRecognizerStatics_Vtbl {
     SupportedGrammarLanguages: usize,
 }
 windows_core::imp::define_interface!(ISpeechRecognizerStatics2, ISpeechRecognizerStatics2_Vtbl, 0x1d1b0d95_7565_4ef9_a2f3_ba15162a96cf);
+impl windows_core::RuntimeType for ISpeechRecognizerStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognizerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -281,6 +350,9 @@ pub struct ISpeechRecognizerStatics2_Vtbl {
     TrySetSystemSpeechLanguageAsync: usize,
 }
 windows_core::imp::define_interface!(ISpeechRecognizerTimeouts, ISpeechRecognizerTimeouts_Vtbl, 0x2ef76fca_6a3c_4dca_a153_df1bc88a79af);
+impl windows_core::RuntimeType for ISpeechRecognizerTimeouts {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognizerTimeouts_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -292,6 +364,9 @@ pub struct ISpeechRecognizerTimeouts_Vtbl {
     pub SetBabbleTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpeechRecognizerUIOptions, ISpeechRecognizerUIOptions_Vtbl, 0x7888d641_b92b_44ba_a25f_d1864630641f);
+impl windows_core::RuntimeType for ISpeechRecognizerUIOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISpeechRecognizerUIOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -305,6 +380,9 @@ pub struct ISpeechRecognizerUIOptions_Vtbl {
     pub SetShowConfirmation: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVoiceCommandManager, IVoiceCommandManager_Vtbl, 0xaa3a8dd5_b6e7_4ee2_baa9_dd6baced0a2b);
+impl windows_core::RuntimeType for IVoiceCommandManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVoiceCommandManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -318,6 +396,9 @@ pub struct IVoiceCommandManager_Vtbl {
     InstalledCommandSets: usize,
 }
 windows_core::imp::define_interface!(IVoiceCommandSet, IVoiceCommandSet_Vtbl, 0x0bedda75_46e6_4b11_a088_5c68632899b5);
+impl windows_core::RuntimeType for IVoiceCommandSet {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVoiceCommandSet_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -342,7 +423,7 @@ impl SpeechContinuousRecognitionCompletedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpeechContinuousRecognitionCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechContinuousRecognitionCompletedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpeechContinuousRecognitionCompletedEventArgs {
     type Vtable = ISpeechContinuousRecognitionCompletedEventArgs_Vtbl;
@@ -367,7 +448,7 @@ impl SpeechContinuousRecognitionResultGeneratedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpeechContinuousRecognitionResultGeneratedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechContinuousRecognitionResultGeneratedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpeechContinuousRecognitionResultGeneratedEventArgs {
     type Vtable = ISpeechContinuousRecognitionResultGeneratedEventArgs_Vtbl;
@@ -463,7 +544,7 @@ impl SpeechContinuousRecognitionSession {
     }
 }
 impl windows_core::RuntimeType for SpeechContinuousRecognitionSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechContinuousRecognitionSession>();
 }
 unsafe impl windows_core::Interface for SpeechContinuousRecognitionSession {
     type Vtable = ISpeechContinuousRecognitionSession_Vtbl;
@@ -488,7 +569,7 @@ impl SpeechRecognitionCompilationResult {
     }
 }
 impl windows_core::RuntimeType for SpeechRecognitionCompilationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionCompilationResult>();
 }
 unsafe impl windows_core::Interface for SpeechRecognitionCompilationResult {
     type Vtable = ISpeechRecognitionCompilationResult_Vtbl;
@@ -580,7 +661,7 @@ impl SpeechRecognitionGrammarFileConstraint {
     }
 }
 impl windows_core::RuntimeType for SpeechRecognitionGrammarFileConstraint {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionGrammarFileConstraint>();
 }
 unsafe impl windows_core::Interface for SpeechRecognitionGrammarFileConstraint {
     type Vtable = ISpeechRecognitionGrammarFileConstraint_Vtbl;
@@ -605,7 +686,7 @@ impl SpeechRecognitionHypothesis {
     }
 }
 impl windows_core::RuntimeType for SpeechRecognitionHypothesis {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionHypothesis>();
 }
 unsafe impl windows_core::Interface for SpeechRecognitionHypothesis {
     type Vtable = ISpeechRecognitionHypothesis_Vtbl;
@@ -630,7 +711,7 @@ impl SpeechRecognitionHypothesisGeneratedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpeechRecognitionHypothesisGeneratedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionHypothesisGeneratedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpeechRecognitionHypothesisGeneratedEventArgs {
     type Vtable = ISpeechRecognitionHypothesisGeneratedEventArgs_Vtbl;
@@ -722,7 +803,7 @@ impl SpeechRecognitionListConstraint {
     }
 }
 impl windows_core::RuntimeType for SpeechRecognitionListConstraint {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionListConstraint>();
 }
 unsafe impl windows_core::Interface for SpeechRecognitionListConstraint {
     type Vtable = ISpeechRecognitionListConstraint_Vtbl;
@@ -747,7 +828,7 @@ impl SpeechRecognitionQualityDegradingEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpeechRecognitionQualityDegradingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionQualityDegradingEventArgs>();
 }
 unsafe impl windows_core::Interface for SpeechRecognitionQualityDegradingEventArgs {
     type Vtable = ISpeechRecognitionQualityDegradingEventArgs_Vtbl;
@@ -837,7 +918,7 @@ impl SpeechRecognitionResult {
     }
 }
 impl windows_core::RuntimeType for SpeechRecognitionResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionResult>();
 }
 unsafe impl windows_core::Interface for SpeechRecognitionResult {
     type Vtable = ISpeechRecognitionResult_Vtbl;
@@ -863,7 +944,7 @@ impl SpeechRecognitionSemanticInterpretation {
     }
 }
 impl windows_core::RuntimeType for SpeechRecognitionSemanticInterpretation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionSemanticInterpretation>();
 }
 unsafe impl windows_core::Interface for SpeechRecognitionSemanticInterpretation {
     type Vtable = ISpeechRecognitionSemanticInterpretation_Vtbl;
@@ -953,7 +1034,7 @@ impl SpeechRecognitionTopicConstraint {
     }
 }
 impl windows_core::RuntimeType for SpeechRecognitionTopicConstraint {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionTopicConstraint>();
 }
 unsafe impl windows_core::Interface for SpeechRecognitionTopicConstraint {
     type Vtable = ISpeechRecognitionTopicConstraint_Vtbl;
@@ -1012,7 +1093,7 @@ impl SpeechRecognitionVoiceCommandDefinitionConstraint {
     }
 }
 impl windows_core::RuntimeType for SpeechRecognitionVoiceCommandDefinitionConstraint {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionVoiceCommandDefinitionConstraint>();
 }
 unsafe impl windows_core::Interface for SpeechRecognitionVoiceCommandDefinitionConstraint {
     type Vtable = ISpeechRecognitionVoiceCommandDefinitionConstraint_Vtbl;
@@ -1212,7 +1293,7 @@ impl SpeechRecognizer {
     }
 }
 impl windows_core::RuntimeType for SpeechRecognizer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognizer>();
 }
 unsafe impl windows_core::Interface for SpeechRecognizer {
     type Vtable = ISpeechRecognizer_Vtbl;
@@ -1237,7 +1318,7 @@ impl SpeechRecognizerStateChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SpeechRecognizerStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognizerStateChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpeechRecognizerStateChangedEventArgs {
     type Vtable = ISpeechRecognizerStateChangedEventArgs_Vtbl;
@@ -1288,7 +1369,7 @@ impl SpeechRecognizerTimeouts {
     }
 }
 impl windows_core::RuntimeType for SpeechRecognizerTimeouts {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognizerTimeouts>();
 }
 unsafe impl windows_core::Interface for SpeechRecognizerTimeouts {
     type Vtable = ISpeechRecognizerTimeouts_Vtbl;
@@ -1350,7 +1431,7 @@ impl SpeechRecognizerUIOptions {
     }
 }
 impl windows_core::RuntimeType for SpeechRecognizerUIOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognizerUIOptions>();
 }
 unsafe impl windows_core::Interface for SpeechRecognizerUIOptions {
     type Vtable = ISpeechRecognizerUIOptions_Vtbl;
@@ -1421,7 +1502,7 @@ impl VoiceCommandSet {
     }
 }
 impl windows_core::RuntimeType for VoiceCommandSet {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoiceCommandSet>();
 }
 unsafe impl windows_core::Interface for VoiceCommandSet {
     type Vtable = IVoiceCommandSet_Vtbl;

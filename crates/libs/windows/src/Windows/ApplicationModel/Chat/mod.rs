@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IChatCapabilities, IChatCapabilities_Vtbl, 0x3aff77bc_39c9_4dd1_ad2d_3964dd9d403f);
+impl windows_core::RuntimeType for IChatCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9,6 +12,9 @@ pub struct IChatCapabilities_Vtbl {
     pub IsIntegratedMessagingCapable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatCapabilitiesManagerStatics, IChatCapabilitiesManagerStatics_Vtbl, 0xb57a2f30_7041_458e_b0cf_7c0d9fea333a);
+impl windows_core::RuntimeType for IChatCapabilitiesManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatCapabilitiesManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16,6 +22,9 @@ pub struct IChatCapabilitiesManagerStatics_Vtbl {
     pub GetCapabilitiesFromNetworkAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatCapabilitiesManagerStatics2, IChatCapabilitiesManagerStatics2_Vtbl, 0xe30d4274_d5c1_4ac9_9ffc_40e69184fec8);
+impl windows_core::RuntimeType for IChatCapabilitiesManagerStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatCapabilitiesManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -23,6 +32,9 @@ pub struct IChatCapabilitiesManagerStatics2_Vtbl {
     pub GetCapabilitiesFromNetworkForTransportAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatConversation, IChatConversation_Vtbl, 0xa58c080d_1a6f_46dc_8f3d_f5028660b6ee);
+impl windows_core::RuntimeType for IChatConversation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatConversation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -49,6 +61,9 @@ pub struct IChatConversation_Vtbl {
     pub RemoveRemoteParticipantComposingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatConversation2, IChatConversation2_Vtbl, 0x0a030cd1_983a_47aa_9a90_ee48ee997b59);
+impl windows_core::RuntimeType for IChatConversation2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatConversation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -56,6 +71,9 @@ pub struct IChatConversation2_Vtbl {
     pub SetCanModifyParticipants: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatConversationReader, IChatConversationReader_Vtbl, 0x055136d2_de32_4a47_a93a_b3dc0833852b);
+impl windows_core::RuntimeType for IChatConversationReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatConversationReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -69,6 +87,9 @@ pub struct IChatConversationReader_Vtbl {
     ReadBatchWithCountAsync: usize,
 }
 windows_core::imp::define_interface!(IChatConversationThreadingInfo, IChatConversationThreadingInfo_Vtbl, 0x331c21dc_7a07_4422_a32c_24be7c6dab24);
+impl windows_core::RuntimeType for IChatConversationThreadingInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatConversationThreadingInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -105,6 +126,9 @@ pub struct IChatItem_Vtbl {
     pub ItemKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatItemKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessage, IChatMessage_Vtbl, 0x4b39052a_1142_5089_76da_f2db3d17cd05);
+impl windows_core::RuntimeType for IChatMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -136,6 +160,9 @@ pub struct IChatMessage_Vtbl {
     pub SetTransportId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessage2, IChatMessage2_Vtbl, 0x86668332_543f_49f5_ac71_6c2afc6565fd);
+impl windows_core::RuntimeType for IChatMessage2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessage2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -172,12 +199,18 @@ pub struct IChatMessage2_Vtbl {
     RecipientsDeliveryInfos: usize,
 }
 windows_core::imp::define_interface!(IChatMessage3, IChatMessage3_Vtbl, 0x74eb2fb0_3ba7_459f_8e0b_e8af0febd9ad);
+impl windows_core::RuntimeType for IChatMessage3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessage3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemoteId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessage4, IChatMessage4_Vtbl, 0x2d144b0f_d2bf_460c_aa68_6d3f8483c9bf);
+impl windows_core::RuntimeType for IChatMessage4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessage4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -185,6 +218,9 @@ pub struct IChatMessage4_Vtbl {
     pub SetSyncId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageAttachment, IChatMessageAttachment_Vtbl, 0xc7c4fd74_bf63_58eb_508c_8b863ff16b67);
+impl windows_core::RuntimeType for IChatMessageAttachment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageAttachment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -204,6 +240,9 @@ pub struct IChatMessageAttachment_Vtbl {
     pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageAttachment2, IChatMessageAttachment2_Vtbl, 0x5ed99270_7dd1_4a87_a8ce_acdd87d80dc8);
+impl windows_core::RuntimeType for IChatMessageAttachment2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageAttachment2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -221,6 +260,9 @@ pub struct IChatMessageAttachment2_Vtbl {
     pub SetOriginalFileName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageAttachmentFactory, IChatMessageAttachmentFactory_Vtbl, 0x205852a2_a356_5b71_6ca9_66c985b7d0d5);
+impl windows_core::RuntimeType for IChatMessageAttachmentFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageAttachmentFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -230,12 +272,18 @@ pub struct IChatMessageAttachmentFactory_Vtbl {
     CreateChatMessageAttachment: usize,
 }
 windows_core::imp::define_interface!(IChatMessageBlockingStatic, IChatMessageBlockingStatic_Vtbl, 0xf6b9a380_cdea_11e4_8830_0800200c9a66);
+impl windows_core::RuntimeType for IChatMessageBlockingStatic {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageBlockingStatic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MarkMessageAsBlockedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageChange, IChatMessageChange_Vtbl, 0x1c18c355_421e_54b8_6d38_6b3a6c82fccc);
+impl windows_core::RuntimeType for IChatMessageChange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageChange_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -243,6 +291,9 @@ pub struct IChatMessageChange_Vtbl {
     pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageChangeReader, IChatMessageChangeReader_Vtbl, 0x14267020_28ce_5f26_7b05_9a5c7cce87ca);
+impl windows_core::RuntimeType for IChatMessageChangeReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageChangeReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -254,6 +305,9 @@ pub struct IChatMessageChangeReader_Vtbl {
     ReadBatchAsync: usize,
 }
 windows_core::imp::define_interface!(IChatMessageChangeTracker, IChatMessageChangeTracker_Vtbl, 0x60b7f066_70a0_5224_508c_242ef7c1d06f);
+impl windows_core::RuntimeType for IChatMessageChangeTracker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageChangeTracker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -262,18 +316,27 @@ pub struct IChatMessageChangeTracker_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageChangedDeferral, IChatMessageChangedDeferral_Vtbl, 0xfbc6b30c_788c_4dcc_ace7_6282382968cf);
+impl windows_core::RuntimeType for IChatMessageChangedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageChangedDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageChangedEventArgs, IChatMessageChangedEventArgs_Vtbl, 0xb6b73e2d_691c_4edf_8660_6eb9896892e3);
+impl windows_core::RuntimeType for IChatMessageChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageManager2Statics, IChatMessageManager2Statics_Vtbl, 0x1d45390f_9f4f_4e35_964e_1b9ca61ac044);
+impl windows_core::RuntimeType for IChatMessageManager2Statics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageManager2Statics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -281,6 +344,9 @@ pub struct IChatMessageManager2Statics_Vtbl {
     pub GetTransportAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageManagerStatic, IChatMessageManagerStatic_Vtbl, 0xf15c60f7_d5e8_5e92_556d_e03b60253104);
+impl windows_core::RuntimeType for IChatMessageManagerStatic {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageManagerStatic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -293,18 +359,27 @@ pub struct IChatMessageManagerStatic_Vtbl {
     pub ShowSmsSettings: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageManagerStatics3, IChatMessageManagerStatics3_Vtbl, 0x208b830d_6755_48cc_9ab3_fd03c463fc92);
+impl windows_core::RuntimeType for IChatMessageManagerStatics3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestSyncManagerAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageNotificationTriggerDetails, IChatMessageNotificationTriggerDetails_Vtbl, 0xfd344dfb_3063_4e17_8586_c6c08262e6c0);
+impl windows_core::RuntimeType for IChatMessageNotificationTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageNotificationTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChatMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageNotificationTriggerDetails2, IChatMessageNotificationTriggerDetails2_Vtbl, 0x6bb522e0_aa07_4fd1_9471_77934fb75ee6);
+impl windows_core::RuntimeType for IChatMessageNotificationTriggerDetails2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageNotificationTriggerDetails2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -314,6 +389,9 @@ pub struct IChatMessageNotificationTriggerDetails2_Vtbl {
     pub ShouldUpdateActionCenter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageReader, IChatMessageReader_Vtbl, 0xb6ea78ce_4489_56f9_76aa_e204682514cf);
+impl windows_core::RuntimeType for IChatMessageReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -323,6 +401,9 @@ pub struct IChatMessageReader_Vtbl {
     ReadBatchAsync: usize,
 }
 windows_core::imp::define_interface!(IChatMessageReader2, IChatMessageReader2_Vtbl, 0x89643683_64bb_470d_9df4_0de8be1a05bf);
+impl windows_core::RuntimeType for IChatMessageReader2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageReader2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -332,6 +413,9 @@ pub struct IChatMessageReader2_Vtbl {
     ReadBatchWithCountAsync: usize,
 }
 windows_core::imp::define_interface!(IChatMessageStore, IChatMessageStore_Vtbl, 0x31f2fd01_ccf6_580b_4976_0a07dd5d3b47);
+impl windows_core::RuntimeType for IChatMessageStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -349,6 +433,9 @@ pub struct IChatMessageStore_Vtbl {
     pub RemoveMessageChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageStore2, IChatMessageStore2_Vtbl, 0xad4dc4ee_3ad4_491b_b311_abdf9bb22768);
+impl windows_core::RuntimeType for IChatMessageStore2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageStore2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -386,12 +473,18 @@ pub struct IChatMessageStore2_Vtbl {
     pub RemoveStoreChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageStore3, IChatMessageStore3_Vtbl, 0x9adbbb09_4345_4ec1_8b74_b7338243719c);
+impl windows_core::RuntimeType for IChatMessageStore3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageStore3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetMessageBySyncIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageStoreChangedEventArgs, IChatMessageStoreChangedEventArgs_Vtbl, 0x65c66fac_fe8c_46d4_9119_57b8410311d5);
+impl windows_core::RuntimeType for IChatMessageStoreChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageStoreChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -399,6 +492,9 @@ pub struct IChatMessageStoreChangedEventArgs_Vtbl {
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatStoreChangedEventKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageTransport, IChatMessageTransport_Vtbl, 0x63a9dbf8_e6b3_5c9a_5f85_d47925b9bd18);
+impl windows_core::RuntimeType for IChatMessageTransport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageTransport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -409,6 +505,9 @@ pub struct IChatMessageTransport_Vtbl {
     pub RequestSetAsNotificationProviderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageTransport2, IChatMessageTransport2_Vtbl, 0x90a75622_d84a_4c22_a94d_544444edc8a1);
+impl windows_core::RuntimeType for IChatMessageTransport2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageTransport2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -416,6 +515,9 @@ pub struct IChatMessageTransport2_Vtbl {
     pub TransportKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatMessageTransportKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageTransportConfiguration, IChatMessageTransportConfiguration_Vtbl, 0x879ff725_1a08_4aca_a075_3355126312e6);
+impl windows_core::RuntimeType for IChatMessageTransportConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageTransportConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -432,6 +534,9 @@ pub struct IChatMessageTransportConfiguration_Vtbl {
     ExtendedProperties: usize,
 }
 windows_core::imp::define_interface!(IChatMessageValidationResult, IChatMessageValidationResult_Vtbl, 0x25e93a03_28ec_5889_569b_7e486b126f18);
+impl windows_core::RuntimeType for IChatMessageValidationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageValidationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -441,6 +546,9 @@ pub struct IChatMessageValidationResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatMessageValidationStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatQueryOptions, IChatQueryOptions_Vtbl, 0x2fd364a6_bf36_42f7_b7e7_923c0aabfe16);
+impl windows_core::RuntimeType for IChatQueryOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatQueryOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -448,6 +556,9 @@ pub struct IChatQueryOptions_Vtbl {
     pub SetSearchString: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatRecipientDeliveryInfo, IChatRecipientDeliveryInfo_Vtbl, 0xffc7b2a2_283c_4c0a_8a0e_8c33bdbf0545);
+impl windows_core::RuntimeType for IChatRecipientDeliveryInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatRecipientDeliveryInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -464,6 +575,9 @@ pub struct IChatRecipientDeliveryInfo_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatMessageStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatSearchReader, IChatSearchReader_Vtbl, 0x4665fe49_9020_4752_980d_39612325f589);
+impl windows_core::RuntimeType for IChatSearchReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatSearchReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -477,6 +591,9 @@ pub struct IChatSearchReader_Vtbl {
     ReadBatchWithCountAsync: usize,
 }
 windows_core::imp::define_interface!(IChatSyncConfiguration, IChatSyncConfiguration_Vtbl, 0x09f869b2_69f4_4aff_82b6_06992ff402d2);
+impl windows_core::RuntimeType for IChatSyncConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatSyncConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -486,6 +603,9 @@ pub struct IChatSyncConfiguration_Vtbl {
     pub SetRestoreHistorySpan: unsafe extern "system" fn(*mut core::ffi::c_void, ChatRestoreHistorySpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatSyncManager, IChatSyncManager_Vtbl, 0x7ba52c63_2650_486f_b4b4_6bd9d3d63c84);
+impl windows_core::RuntimeType for IChatSyncManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatSyncManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -503,6 +623,9 @@ pub struct IChatSyncManager_Vtbl {
     pub SetConfigurationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRcsEndUserMessage, IRcsEndUserMessage_Vtbl, 0xd7cda5eb_cbd7_4f3b_8526_b506dec35c53);
+impl windows_core::RuntimeType for IRcsEndUserMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRcsEndUserMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -518,12 +641,18 @@ pub struct IRcsEndUserMessage_Vtbl {
     pub SendResponseWithPinAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRcsEndUserMessageAction, IRcsEndUserMessageAction_Vtbl, 0x92378737_9b42_46d3_9d5e_3c1b2dae7cb8);
+impl windows_core::RuntimeType for IRcsEndUserMessageAction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRcsEndUserMessageAction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRcsEndUserMessageAvailableEventArgs, IRcsEndUserMessageAvailableEventArgs_Vtbl, 0x2d45ae01_3f89_41ea_9702_9e9ed411aa98);
+impl windows_core::RuntimeType for IRcsEndUserMessageAvailableEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRcsEndUserMessageAvailableEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -531,6 +660,9 @@ pub struct IRcsEndUserMessageAvailableEventArgs_Vtbl {
     pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRcsEndUserMessageAvailableTriggerDetails, IRcsEndUserMessageAvailableTriggerDetails_Vtbl, 0x5b97742d_351f_4692_b41e_1b035dc18986);
+impl windows_core::RuntimeType for IRcsEndUserMessageAvailableTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRcsEndUserMessageAvailableTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -538,6 +670,9 @@ pub struct IRcsEndUserMessageAvailableTriggerDetails_Vtbl {
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRcsEndUserMessageManager, IRcsEndUserMessageManager_Vtbl, 0x3054ae5a_4d1f_4b59_9433_126c734e86a6);
+impl windows_core::RuntimeType for IRcsEndUserMessageManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRcsEndUserMessageManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -545,6 +680,9 @@ pub struct IRcsEndUserMessageManager_Vtbl {
     pub RemoveMessageAvailableChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRcsManagerStatics, IRcsManagerStatics_Vtbl, 0x7d270ac5_0abd_4f31_9b99_a59e71a7b731);
+impl windows_core::RuntimeType for IRcsManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRcsManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -557,6 +695,9 @@ pub struct IRcsManagerStatics_Vtbl {
     pub LeaveConversationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRcsManagerStatics2, IRcsManagerStatics2_Vtbl, 0xcd49ad18_ad8a_42aa_8eeb_a798a8808959);
+impl windows_core::RuntimeType for IRcsManagerStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRcsManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -564,12 +705,18 @@ pub struct IRcsManagerStatics2_Vtbl {
     pub RemoveTransportListChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRcsServiceKindSupportedChangedEventArgs, IRcsServiceKindSupportedChangedEventArgs_Vtbl, 0xf47ea244_e783_4866_b3a7_4e5ccf023070);
+impl windows_core::RuntimeType for IRcsServiceKindSupportedChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRcsServiceKindSupportedChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServiceKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RcsServiceKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRcsTransport, IRcsTransport_Vtbl, 0xfea34759_f37c_4319_8546_ec84d21d30ff);
+impl windows_core::RuntimeType for IRcsTransport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRcsTransport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -587,6 +734,9 @@ pub struct IRcsTransport_Vtbl {
     pub RemoveServiceKindSupportedChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRcsTransportConfiguration, IRcsTransportConfiguration_Vtbl, 0x1fccb102_2472_4bb9_9988_c1211c83e8a9);
+impl windows_core::RuntimeType for IRcsTransportConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRcsTransportConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -598,6 +748,9 @@ pub struct IRcsTransportConfiguration_Vtbl {
     pub WarningFileSizeInKilobytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRemoteParticipantComposingChangedEventArgs, IRemoteParticipantComposingChangedEventArgs_Vtbl, 0x1ec045a7_cfc9_45c9_9876_449f2bc180f5);
+impl windows_core::RuntimeType for IRemoteParticipantComposingChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRemoteParticipantComposingChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -647,7 +800,7 @@ impl ChatCapabilities {
     }
 }
 impl windows_core::RuntimeType for ChatCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatCapabilities>();
 }
 unsafe impl windows_core::Interface for ChatCapabilities {
     type Vtable = IChatCapabilities_Vtbl;
@@ -839,7 +992,7 @@ impl ChatConversation {
     }
 }
 impl windows_core::RuntimeType for ChatConversation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatConversation>();
 }
 unsafe impl windows_core::Interface for ChatConversation {
     type Vtable = IChatConversation_Vtbl;
@@ -873,7 +1026,7 @@ impl ChatConversationReader {
     }
 }
 impl windows_core::RuntimeType for ChatConversationReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatConversationReader>();
 }
 unsafe impl windows_core::Interface for ChatConversationReader {
     type Vtable = IChatConversationReader_Vtbl;
@@ -950,7 +1103,7 @@ impl ChatConversationThreadingInfo {
     }
 }
 impl windows_core::RuntimeType for ChatConversationThreadingInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatConversationThreadingInfo>();
 }
 unsafe impl windows_core::Interface for ChatConversationThreadingInfo {
     type Vtable = IChatConversationThreadingInfo_Vtbl;
@@ -1266,7 +1419,7 @@ impl ChatMessage {
     }
 }
 impl windows_core::RuntimeType for ChatMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessage>();
 }
 unsafe impl windows_core::Interface for ChatMessage {
     type Vtable = IChatMessage_Vtbl;
@@ -1386,7 +1539,7 @@ impl ChatMessageAttachment {
     }
 }
 impl windows_core::RuntimeType for ChatMessageAttachment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageAttachment>();
 }
 unsafe impl windows_core::Interface for ChatMessageAttachment {
     type Vtable = IChatMessageAttachment_Vtbl;
@@ -1435,7 +1588,7 @@ impl ChatMessageChange {
     }
 }
 impl windows_core::RuntimeType for ChatMessageChange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageChange>();
 }
 unsafe impl windows_core::Interface for ChatMessageChange {
     type Vtable = IChatMessageChange_Vtbl;
@@ -1472,7 +1625,7 @@ impl ChatMessageChangeReader {
     }
 }
 impl windows_core::RuntimeType for ChatMessageChangeReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageChangeReader>();
 }
 unsafe impl windows_core::Interface for ChatMessageChangeReader {
     type Vtable = IChatMessageChangeReader_Vtbl;
@@ -1505,7 +1658,7 @@ impl ChatMessageChangeTracker {
     }
 }
 impl windows_core::RuntimeType for ChatMessageChangeTracker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageChangeTracker>();
 }
 unsafe impl windows_core::Interface for ChatMessageChangeTracker {
     type Vtable = IChatMessageChangeTracker_Vtbl;
@@ -1527,7 +1680,7 @@ impl ChatMessageChangedDeferral {
     }
 }
 impl windows_core::RuntimeType for ChatMessageChangedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageChangedDeferral>();
 }
 unsafe impl windows_core::Interface for ChatMessageChangedDeferral {
     type Vtable = IChatMessageChangedDeferral_Vtbl;
@@ -1552,7 +1705,7 @@ impl ChatMessageChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ChatMessageChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for ChatMessageChangedEventArgs {
     type Vtable = IChatMessageChangedEventArgs_Vtbl;
@@ -1669,7 +1822,7 @@ impl ChatMessageNotificationTriggerDetails {
     }
 }
 impl windows_core::RuntimeType for ChatMessageNotificationTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageNotificationTriggerDetails>();
 }
 unsafe impl windows_core::Interface for ChatMessageNotificationTriggerDetails {
     type Vtable = IChatMessageNotificationTriggerDetails_Vtbl;
@@ -1703,7 +1856,7 @@ impl ChatMessageReader {
     }
 }
 impl windows_core::RuntimeType for ChatMessageReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageReader>();
 }
 unsafe impl windows_core::Interface for ChatMessageReader {
     type Vtable = IChatMessageReader_Vtbl;
@@ -1966,7 +2119,7 @@ impl ChatMessageStore {
     }
 }
 impl windows_core::RuntimeType for ChatMessageStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageStore>();
 }
 unsafe impl windows_core::Interface for ChatMessageStore {
     type Vtable = IChatMessageStore_Vtbl;
@@ -1998,7 +2151,7 @@ impl ChatMessageStoreChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ChatMessageStoreChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageStoreChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for ChatMessageStoreChangedEventArgs {
     type Vtable = IChatMessageStoreChangedEventArgs_Vtbl;
@@ -2065,7 +2218,7 @@ impl ChatMessageTransport {
     }
 }
 impl windows_core::RuntimeType for ChatMessageTransport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageTransport>();
 }
 unsafe impl windows_core::Interface for ChatMessageTransport {
     type Vtable = IChatMessageTransport_Vtbl;
@@ -2120,7 +2273,7 @@ impl ChatMessageTransportConfiguration {
     }
 }
 impl windows_core::RuntimeType for ChatMessageTransportConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageTransportConfiguration>();
 }
 unsafe impl windows_core::Interface for ChatMessageTransportConfiguration {
     type Vtable = IChatMessageTransportConfiguration_Vtbl;
@@ -2166,7 +2319,7 @@ impl ChatMessageValidationResult {
     }
 }
 impl windows_core::RuntimeType for ChatMessageValidationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageValidationResult>();
 }
 unsafe impl windows_core::Interface for ChatMessageValidationResult {
     type Vtable = IChatMessageValidationResult_Vtbl;
@@ -2202,7 +2355,7 @@ impl ChatQueryOptions {
     }
 }
 impl windows_core::RuntimeType for ChatQueryOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatQueryOptions>();
 }
 unsafe impl windows_core::Interface for ChatQueryOptions {
     type Vtable = IChatQueryOptions_Vtbl;
@@ -2301,7 +2454,7 @@ impl ChatRecipientDeliveryInfo {
     }
 }
 impl windows_core::RuntimeType for ChatRecipientDeliveryInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatRecipientDeliveryInfo>();
 }
 unsafe impl windows_core::Interface for ChatRecipientDeliveryInfo {
     type Vtable = IChatRecipientDeliveryInfo_Vtbl;
@@ -2335,7 +2488,7 @@ impl ChatSearchReader {
     }
 }
 impl windows_core::RuntimeType for ChatSearchReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatSearchReader>();
 }
 unsafe impl windows_core::Interface for ChatSearchReader {
     type Vtable = IChatSearchReader_Vtbl;
@@ -2375,7 +2528,7 @@ impl ChatSyncConfiguration {
     }
 }
 impl windows_core::RuntimeType for ChatSyncConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatSyncConfiguration>();
 }
 unsafe impl windows_core::Interface for ChatSyncConfiguration {
     type Vtable = IChatSyncConfiguration_Vtbl;
@@ -2443,7 +2596,7 @@ impl ChatSyncManager {
     }
 }
 impl windows_core::RuntimeType for ChatSyncManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatSyncManager>();
 }
 unsafe impl windows_core::Interface for ChatSyncManager {
     type Vtable = IChatSyncManager_Vtbl;
@@ -2517,7 +2670,7 @@ impl RcsEndUserMessage {
     }
 }
 impl windows_core::RuntimeType for RcsEndUserMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessage>();
 }
 unsafe impl windows_core::Interface for RcsEndUserMessage {
     type Vtable = IRcsEndUserMessage_Vtbl;
@@ -2542,7 +2695,7 @@ impl RcsEndUserMessageAction {
     }
 }
 impl windows_core::RuntimeType for RcsEndUserMessageAction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessageAction>();
 }
 unsafe impl windows_core::Interface for RcsEndUserMessageAction {
     type Vtable = IRcsEndUserMessageAction_Vtbl;
@@ -2574,7 +2727,7 @@ impl RcsEndUserMessageAvailableEventArgs {
     }
 }
 impl windows_core::RuntimeType for RcsEndUserMessageAvailableEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessageAvailableEventArgs>();
 }
 unsafe impl windows_core::Interface for RcsEndUserMessageAvailableEventArgs {
     type Vtable = IRcsEndUserMessageAvailableEventArgs_Vtbl;
@@ -2606,7 +2759,7 @@ impl RcsEndUserMessageAvailableTriggerDetails {
     }
 }
 impl windows_core::RuntimeType for RcsEndUserMessageAvailableTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessageAvailableTriggerDetails>();
 }
 unsafe impl windows_core::Interface for RcsEndUserMessageAvailableTriggerDetails {
     type Vtable = IRcsEndUserMessageAvailableTriggerDetails_Vtbl;
@@ -2638,7 +2791,7 @@ impl RcsEndUserMessageManager {
     }
 }
 impl windows_core::RuntimeType for RcsEndUserMessageManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessageManager>();
 }
 unsafe impl windows_core::Interface for RcsEndUserMessageManager {
     type Vtable = IRcsEndUserMessageManager_Vtbl;
@@ -2719,7 +2872,7 @@ impl RcsServiceKindSupportedChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for RcsServiceKindSupportedChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsServiceKindSupportedChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for RcsServiceKindSupportedChangedEventArgs {
     type Vtable = IRcsServiceKindSupportedChangedEventArgs_Vtbl;
@@ -2801,7 +2954,7 @@ impl RcsTransport {
     }
 }
 impl windows_core::RuntimeType for RcsTransport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsTransport>();
 }
 unsafe impl windows_core::Interface for RcsTransport {
     type Vtable = IRcsTransport_Vtbl;
@@ -2861,7 +3014,7 @@ impl RcsTransportConfiguration {
     }
 }
 impl windows_core::RuntimeType for RcsTransportConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsTransportConfiguration>();
 }
 unsafe impl windows_core::Interface for RcsTransportConfiguration {
     type Vtable = IRcsTransportConfiguration_Vtbl;
@@ -2900,7 +3053,7 @@ impl RemoteParticipantComposingChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for RemoteParticipantComposingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteParticipantComposingChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for RemoteParticipantComposingChangedEventArgs {
     type Vtable = IRemoteParticipantComposingChangedEventArgs_Vtbl;

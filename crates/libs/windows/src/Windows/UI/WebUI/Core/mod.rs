@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IWebUICommandBar, IWebUICommandBar_Vtbl, 0xa4fc0016_dbe5_41ad_8d7b_14698bd6911d);
+impl windows_core::RuntimeType for IWebUICommandBar {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUICommandBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -31,6 +34,9 @@ pub struct IWebUICommandBar_Vtbl {
     pub RemoveSizeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUICommandBarBitmapIcon, IWebUICommandBarBitmapIcon_Vtbl, 0x858f4f45_08d8_4a46_81ec_00015b0b1c6c);
+impl windows_core::RuntimeType for IWebUICommandBarBitmapIcon {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUICommandBarBitmapIcon_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -38,12 +44,18 @@ pub struct IWebUICommandBarBitmapIcon_Vtbl {
     pub SetUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUICommandBarBitmapIconFactory, IWebUICommandBarBitmapIconFactory_Vtbl, 0xf3f7d78a_7673_444a_be62_ac12d31c2231);
+impl windows_core::RuntimeType for IWebUICommandBarBitmapIconFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUICommandBarBitmapIconFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUICommandBarConfirmationButton, IWebUICommandBarConfirmationButton_Vtbl, 0x86e7824a_e3d5_4eb6_b2ff_8f018a172105);
+impl windows_core::RuntimeType for IWebUICommandBarConfirmationButton {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUICommandBarConfirmationButton_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -73,6 +85,9 @@ pub struct IWebUICommandBarIcon_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IWebUICommandBarIconButton, IWebUICommandBarIconButton_Vtbl, 0x8f1bc93a_3a7c_4842_a0cf_aff6ea308586);
+impl windows_core::RuntimeType for IWebUICommandBarIconButton {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUICommandBarIconButton_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -90,24 +105,36 @@ pub struct IWebUICommandBarIconButton_Vtbl {
     pub RemoveItemInvoked: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUICommandBarItemInvokedEventArgs, IWebUICommandBarItemInvokedEventArgs_Vtbl, 0x304edbdd_e741_41ef_bdc4_a45cea2a4f70);
+impl windows_core::RuntimeType for IWebUICommandBarItemInvokedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUICommandBarItemInvokedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsPrimaryCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUICommandBarSizeChangedEventArgs, IWebUICommandBarSizeChangedEventArgs_Vtbl, 0xfbf1e2f6_3029_4719_8378_92f82b87af1e);
+impl windows_core::RuntimeType for IWebUICommandBarSizeChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUICommandBarSizeChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Size) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUICommandBarStatics, IWebUICommandBarStatics_Vtbl, 0x1449cdb9_a506_45be_8f42_b2837e2fe0c9);
+impl windows_core::RuntimeType for IWebUICommandBarStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUICommandBarStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUICommandBarSymbolIcon, IWebUICommandBarSymbolIcon_Vtbl, 0xd4935477_fd26_46ed_8658_1a3f4400e7b3);
+impl windows_core::RuntimeType for IWebUICommandBarSymbolIcon {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUICommandBarSymbolIcon_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -115,6 +142,9 @@ pub struct IWebUICommandBarSymbolIcon_Vtbl {
     pub SetSymbol: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUICommandBarSymbolIconFactory, IWebUICommandBarSymbolIconFactory_Vtbl, 0x51be1a1f_3730_429e_b622_14e2b7bf6a07);
+impl windows_core::RuntimeType for IWebUICommandBarSymbolIconFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUICommandBarSymbolIconFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -269,7 +299,7 @@ impl WebUICommandBar {
     }
 }
 impl windows_core::RuntimeType for WebUICommandBar {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBar>();
 }
 unsafe impl windows_core::Interface for WebUICommandBar {
     type Vtable = IWebUICommandBar_Vtbl;
@@ -323,7 +353,7 @@ impl WebUICommandBarBitmapIcon {
     }
 }
 impl windows_core::RuntimeType for WebUICommandBarBitmapIcon {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarBitmapIcon>();
 }
 unsafe impl windows_core::Interface for WebUICommandBarBitmapIcon {
     type Vtable = IWebUICommandBarBitmapIcon_Vtbl;
@@ -374,7 +404,7 @@ impl WebUICommandBarConfirmationButton {
     }
 }
 impl windows_core::RuntimeType for WebUICommandBarConfirmationButton {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarConfirmationButton>();
 }
 unsafe impl windows_core::Interface for WebUICommandBarConfirmationButton {
     type Vtable = IWebUICommandBarConfirmationButton_Vtbl;
@@ -472,7 +502,7 @@ impl WebUICommandBarIconButton {
     }
 }
 impl windows_core::RuntimeType for WebUICommandBarIconButton {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarIconButton>();
 }
 unsafe impl windows_core::Interface for WebUICommandBarIconButton {
     type Vtable = IWebUICommandBarIconButton_Vtbl;
@@ -497,7 +527,7 @@ impl WebUICommandBarItemInvokedEventArgs {
     }
 }
 impl windows_core::RuntimeType for WebUICommandBarItemInvokedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarItemInvokedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebUICommandBarItemInvokedEventArgs {
     type Vtable = IWebUICommandBarItemInvokedEventArgs_Vtbl;
@@ -522,7 +552,7 @@ impl WebUICommandBarSizeChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for WebUICommandBarSizeChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarSizeChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebUICommandBarSizeChangedEventArgs {
     type Vtable = IWebUICommandBarSizeChangedEventArgs_Vtbl;
@@ -570,7 +600,7 @@ impl WebUICommandBarSymbolIcon {
     }
 }
 impl windows_core::RuntimeType for WebUICommandBarSymbolIcon {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarSymbolIcon>();
 }
 unsafe impl windows_core::Interface for WebUICommandBarSymbolIcon {
     type Vtable = IWebUICommandBarSymbolIcon_Vtbl;

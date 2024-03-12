@@ -1,6 +1,9 @@
 #[cfg(feature = "UI_Text_Core")]
 pub mod Core;
 windows_core::imp::define_interface!(IContentLinkInfo, IContentLinkInfo_Vtbl, 0x1ed52525_1c5f_48cb_b335_78b50a2ee642);
+impl windows_core::RuntimeType for IContentLinkInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContentLinkInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16,11 +19,17 @@ pub struct IContentLinkInfo_Vtbl {
     pub SetLinkContentKind: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFontWeights, IFontWeights_Vtbl, 0x7880a444_01ab_4997_8517_df822a0c45f1);
+impl windows_core::RuntimeType for IFontWeights {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFontWeights_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IFontWeightsStatics, IFontWeightsStatics_Vtbl, 0xb3b579d5_1ba9_48eb_9dad_c095e8c23ba3);
+impl windows_core::RuntimeType for IFontWeightsStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFontWeightsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -37,6 +46,9 @@ pub struct IFontWeightsStatics_Vtbl {
     pub Thin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FontWeight) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRichEditTextRange, IRichEditTextRange_Vtbl, 0x374e3515_ba8a_4a6e_8c59_0dde3d0cf5cd);
+impl windows_core::RuntimeType for IRichEditTextRange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRichEditTextRange_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -389,6 +401,9 @@ pub struct ITextCharacterFormat_Vtbl {
     pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITextConstantsStatics, ITextConstantsStatics_Vtbl, 0x779e7c33_189d_4bfa_97c8_10db135d976e);
+impl windows_core::RuntimeType for ITextConstantsStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITextConstantsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -610,6 +625,9 @@ pub struct ITextDocument_Vtbl {
     pub Undo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITextDocument2, ITextDocument2_Vtbl, 0xf2311112_8c89_49c9_9118_f057cbb814ee);
+impl windows_core::RuntimeType for ITextDocument2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITextDocument2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -619,12 +637,18 @@ pub struct ITextDocument2_Vtbl {
     pub SetIgnoreTrailingCharacterSpacing: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITextDocument3, ITextDocument3_Vtbl, 0x75ab03a1_a6f8_441d_aa18_0a851d6e5e3c);
+impl windows_core::RuntimeType for ITextDocument3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITextDocument3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ClearUndoRedoHistory: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITextDocument4, ITextDocument4_Vtbl, 0x619c20f2_cb3b_4521_981f_2865b1b93f04);
+impl windows_core::RuntimeType for ITextDocument4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITextDocument4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1817,7 +1841,7 @@ impl ContentLinkInfo {
     }
 }
 impl windows_core::RuntimeType for ContentLinkInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContentLinkInfo>();
 }
 unsafe impl windows_core::Interface for ContentLinkInfo {
     type Vtable = IContentLinkInfo_Vtbl;
@@ -1906,7 +1930,7 @@ impl FontWeights {
     }
 }
 impl windows_core::RuntimeType for FontWeights {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFontWeights>();
 }
 unsafe impl windows_core::Interface for FontWeights {
     type Vtable = IFontWeights_Vtbl;
@@ -2127,7 +2151,7 @@ impl RichEditTextDocument {
     }
 }
 impl windows_core::RuntimeType for RichEditTextDocument {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITextDocument>();
 }
 unsafe impl windows_core::Interface for RichEditTextDocument {
     type Vtable = ITextDocument_Vtbl;
@@ -2473,7 +2497,7 @@ impl RichEditTextRange {
     }
 }
 impl windows_core::RuntimeType for RichEditTextRange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITextRange>();
 }
 unsafe impl windows_core::Interface for RichEditTextRange {
     type Vtable = ITextRange_Vtbl;

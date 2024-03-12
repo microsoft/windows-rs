@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IAppBroadcastingMonitor, IAppBroadcastingMonitor_Vtbl, 0x00f95a68_8907_48a0_b8ef_24d208137542);
+impl windows_core::RuntimeType for IAppBroadcastingMonitor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppBroadcastingMonitor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7,6 +10,9 @@ pub struct IAppBroadcastingMonitor_Vtbl {
     pub RemoveIsCurrentAppBroadcastingChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppBroadcastingStatus, IAppBroadcastingStatus_Vtbl, 0x1225e4df_03a1_42f8_8b80_c9228cd9cf2e);
+impl windows_core::RuntimeType for IAppBroadcastingStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppBroadcastingStatus_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14,6 +20,9 @@ pub struct IAppBroadcastingStatus_Vtbl {
     pub Details: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppBroadcastingStatusDetails, IAppBroadcastingStatusDetails_Vtbl, 0x069dada4_b573_4e3c_8e19_1bafacd09713);
+impl windows_core::RuntimeType for IAppBroadcastingStatusDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppBroadcastingStatusDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -27,6 +36,9 @@ pub struct IAppBroadcastingStatusDetails_Vtbl {
     pub IsDisabledBySystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppBroadcastingUI, IAppBroadcastingUI_Vtbl, 0xe56f9f8f_ee99_4dca_a3c3_70af3db44f5f);
+impl windows_core::RuntimeType for IAppBroadcastingUI {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppBroadcastingUI_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -34,6 +46,9 @@ pub struct IAppBroadcastingUI_Vtbl {
     pub ShowBroadcastUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppBroadcastingUIStatics, IAppBroadcastingUIStatics_Vtbl, 0x55a8a79d_23cb_4579_9c34_886fe02c045a);
+impl windows_core::RuntimeType for IAppBroadcastingUIStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppBroadcastingUIStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -78,7 +93,7 @@ impl AppBroadcastingMonitor {
     }
 }
 impl windows_core::RuntimeType for AppBroadcastingMonitor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppBroadcastingMonitor>();
 }
 unsafe impl windows_core::Interface for AppBroadcastingMonitor {
     type Vtable = IAppBroadcastingMonitor_Vtbl;
@@ -110,7 +125,7 @@ impl AppBroadcastingStatus {
     }
 }
 impl windows_core::RuntimeType for AppBroadcastingStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppBroadcastingStatus>();
 }
 unsafe impl windows_core::Interface for AppBroadcastingStatus {
     type Vtable = IAppBroadcastingStatus_Vtbl;
@@ -184,7 +199,7 @@ impl AppBroadcastingStatusDetails {
     }
 }
 impl windows_core::RuntimeType for AppBroadcastingStatusDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppBroadcastingStatusDetails>();
 }
 unsafe impl windows_core::Interface for AppBroadcastingStatusDetails {
     type Vtable = IAppBroadcastingStatusDetails_Vtbl;
@@ -234,7 +249,7 @@ impl AppBroadcastingUI {
     }
 }
 impl windows_core::RuntimeType for AppBroadcastingUI {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppBroadcastingUI>();
 }
 unsafe impl windows_core::Interface for AppBroadcastingUI {
     type Vtable = IAppBroadcastingUI_Vtbl;

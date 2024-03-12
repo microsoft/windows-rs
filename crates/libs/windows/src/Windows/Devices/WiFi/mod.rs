@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IWiFiAdapter, IWiFiAdapter_Vtbl, 0xa6c4e423_3d75_43a4_b9de_11e26b72d9b0);
+impl windows_core::RuntimeType for IWiFiAdapter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiAdapter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -22,6 +25,9 @@ pub struct IWiFiAdapter_Vtbl {
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiFiAdapter2, IWiFiAdapter2_Vtbl, 0x5bc4501d_81e4_453d_9430_1fcafbadd6b6);
+impl windows_core::RuntimeType for IWiFiAdapter2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiAdapter2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -32,6 +38,9 @@ pub struct IWiFiAdapter2_Vtbl {
     ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync: usize,
 }
 windows_core::imp::define_interface!(IWiFiAdapterStatics, IWiFiAdapterStatics_Vtbl, 0xda25fddd_d24c_43e3_aabd_c4659f730f99);
+impl windows_core::RuntimeType for IWiFiAdapterStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiAdapterStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -44,6 +53,9 @@ pub struct IWiFiAdapterStatics_Vtbl {
     pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiFiAvailableNetwork, IWiFiAvailableNetwork_Vtbl, 0x26e96246_183e_4704_9826_71b4a2f0f668);
+impl windows_core::RuntimeType for IWiFiAvailableNetwork {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiAvailableNetwork_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -63,12 +75,18 @@ pub struct IWiFiAvailableNetwork_Vtbl {
     pub IsWiFiDirect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiFiConnectionResult, IWiFiConnectionResult_Vtbl, 0x143bdfd9_c37d_40be_a5c8_857bce85a931);
+impl windows_core::RuntimeType for IWiFiConnectionResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiConnectionResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ConnectionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WiFiConnectionStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiFiNetworkReport, IWiFiNetworkReport_Vtbl, 0x9524ded2_5911_445e_8194_be4f1a704895);
+impl windows_core::RuntimeType for IWiFiNetworkReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiNetworkReport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -79,6 +97,9 @@ pub struct IWiFiNetworkReport_Vtbl {
     AvailableNetworks: usize,
 }
 windows_core::imp::define_interface!(IWiFiOnDemandHotspotConnectTriggerDetails, IWiFiOnDemandHotspotConnectTriggerDetails_Vtbl, 0xa268eb58_68f5_59cf_8d38_35bf44b097ef);
+impl windows_core::RuntimeType for IWiFiOnDemandHotspotConnectTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiOnDemandHotspotConnectTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -88,12 +109,18 @@ pub struct IWiFiOnDemandHotspotConnectTriggerDetails_Vtbl {
     pub Connect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiFiOnDemandHotspotConnectionResult, IWiFiOnDemandHotspotConnectionResult_Vtbl, 0x911794a1_6c82_5de3_8a4a_f9ff22a4957a);
+impl windows_core::RuntimeType for IWiFiOnDemandHotspotConnectionResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiOnDemandHotspotConnectionResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WiFiOnDemandHotspotConnectStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiFiOnDemandHotspotNetwork, IWiFiOnDemandHotspotNetwork_Vtbl, 0x18dc7115_a04e_507c_bbaf_b78369d29fa7);
+impl windows_core::RuntimeType for IWiFiOnDemandHotspotNetwork {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiOnDemandHotspotNetwork_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -102,6 +129,9 @@ pub struct IWiFiOnDemandHotspotNetwork_Vtbl {
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiFiOnDemandHotspotNetworkProperties, IWiFiOnDemandHotspotNetworkProperties_Vtbl, 0xc810a1f2_c81d_5852_be50_e4bd4d81e98d);
+impl windows_core::RuntimeType for IWiFiOnDemandHotspotNetworkProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiOnDemandHotspotNetworkProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -127,12 +157,18 @@ pub struct IWiFiOnDemandHotspotNetworkProperties_Vtbl {
     SetPassword: usize,
 }
 windows_core::imp::define_interface!(IWiFiOnDemandHotspotNetworkStatics, IWiFiOnDemandHotspotNetworkStatics_Vtbl, 0x00f5b8ac_80e7_5054_871c_8739f374e3c9);
+impl windows_core::RuntimeType for IWiFiOnDemandHotspotNetworkStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiOnDemandHotspotNetworkStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetOrCreateById: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiFiWpsConfigurationResult, IWiFiWpsConfigurationResult_Vtbl, 0x67b49871_17ee_42d1_b14f_5a11f1226fb5);
+impl windows_core::RuntimeType for IWiFiWpsConfigurationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWiFiWpsConfigurationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -275,7 +311,7 @@ impl WiFiAdapter {
     }
 }
 impl windows_core::RuntimeType for WiFiAdapter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiAdapter>();
 }
 unsafe impl windows_core::Interface for WiFiAdapter {
     type Vtable = IWiFiAdapter_Vtbl;
@@ -371,7 +407,7 @@ impl WiFiAvailableNetwork {
     }
 }
 impl windows_core::RuntimeType for WiFiAvailableNetwork {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiAvailableNetwork>();
 }
 unsafe impl windows_core::Interface for WiFiAvailableNetwork {
     type Vtable = IWiFiAvailableNetwork_Vtbl;
@@ -396,7 +432,7 @@ impl WiFiConnectionResult {
     }
 }
 impl windows_core::RuntimeType for WiFiConnectionResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiConnectionResult>();
 }
 unsafe impl windows_core::Interface for WiFiConnectionResult {
     type Vtable = IWiFiConnectionResult_Vtbl;
@@ -429,7 +465,7 @@ impl WiFiNetworkReport {
     }
 }
 impl windows_core::RuntimeType for WiFiNetworkReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiNetworkReport>();
 }
 unsafe impl windows_core::Interface for WiFiNetworkReport {
     type Vtable = IWiFiNetworkReport_Vtbl;
@@ -472,7 +508,7 @@ impl WiFiOnDemandHotspotConnectTriggerDetails {
     }
 }
 impl windows_core::RuntimeType for WiFiOnDemandHotspotConnectTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiOnDemandHotspotConnectTriggerDetails>();
 }
 unsafe impl windows_core::Interface for WiFiOnDemandHotspotConnectTriggerDetails {
     type Vtable = IWiFiOnDemandHotspotConnectTriggerDetails_Vtbl;
@@ -497,7 +533,7 @@ impl WiFiOnDemandHotspotConnectionResult {
     }
 }
 impl windows_core::RuntimeType for WiFiOnDemandHotspotConnectionResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiOnDemandHotspotConnectionResult>();
 }
 unsafe impl windows_core::Interface for WiFiOnDemandHotspotConnectionResult {
     type Vtable = IWiFiOnDemandHotspotConnectionResult_Vtbl;
@@ -547,7 +583,7 @@ impl WiFiOnDemandHotspotNetwork {
     }
 }
 impl windows_core::RuntimeType for WiFiOnDemandHotspotNetwork {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiOnDemandHotspotNetwork>();
 }
 unsafe impl windows_core::Interface for WiFiOnDemandHotspotNetwork {
     type Vtable = IWiFiOnDemandHotspotNetwork_Vtbl;
@@ -653,7 +689,7 @@ impl WiFiOnDemandHotspotNetworkProperties {
     }
 }
 impl windows_core::RuntimeType for WiFiOnDemandHotspotNetworkProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiOnDemandHotspotNetworkProperties>();
 }
 unsafe impl windows_core::Interface for WiFiOnDemandHotspotNetworkProperties {
     type Vtable = IWiFiOnDemandHotspotNetworkProperties_Vtbl;
@@ -686,7 +722,7 @@ impl WiFiWpsConfigurationResult {
     }
 }
 impl windows_core::RuntimeType for WiFiWpsConfigurationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiWpsConfigurationResult>();
 }
 unsafe impl windows_core::Interface for WiFiWpsConfigurationResult {
     type Vtable = IWiFiWpsConfigurationResult_Vtbl;
