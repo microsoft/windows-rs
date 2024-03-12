@@ -352,6 +352,9 @@ pub struct IPropertyValue_Vtbl {
     pub GetRectArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut Rect) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertyValueStatics, IPropertyValueStatics_Vtbl, 0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858);
+impl windows_core::RuntimeType for IPropertyValueStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPropertyValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
