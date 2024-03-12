@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IVibrationDevice, IVibrationDevice_Vtbl, 0x1b4a6595_cfcd_4e08_92fb_c1906d04498c);
+impl windows_core::RuntimeType for IVibrationDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVibrationDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6,6 +9,9 @@ pub struct IVibrationDevice_Vtbl {
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVibrationDeviceStatics, IVibrationDeviceStatics_Vtbl, 0x332fd2f1_1c69_4c91_949e_4bb67a85bdc7);
+impl windows_core::RuntimeType for IVibrationDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVibrationDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -37,7 +43,7 @@ impl VibrationDevice {
     }
 }
 impl windows_core::RuntimeType for VibrationDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVibrationDevice>();
 }
 unsafe impl windows_core::Interface for VibrationDevice {
     type Vtable = IVibrationDevice_Vtbl;

@@ -1,6 +1,10 @@
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IBackgroundMediaPlayerStatics, IBackgroundMediaPlayerStatics_Vtbl, 0x856ddbc1_55f7_471f_a0f2_68ac4c904592);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IBackgroundMediaPlayerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IBackgroundMediaPlayerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -42,6 +46,9 @@ pub struct IBackgroundMediaPlayerStatics_Vtbl {
     Shutdown: usize,
 }
 windows_core::imp::define_interface!(ICurrentMediaPlaybackItemChangedEventArgs, ICurrentMediaPlaybackItemChangedEventArgs_Vtbl, 0x1743a892_5c43_4a15_967a_572d2d0f26c6);
+impl windows_core::RuntimeType for ICurrentMediaPlaybackItemChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICurrentMediaPlaybackItemChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -49,12 +56,18 @@ pub struct ICurrentMediaPlaybackItemChangedEventArgs_Vtbl {
     pub OldItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICurrentMediaPlaybackItemChangedEventArgs2, ICurrentMediaPlaybackItemChangedEventArgs2_Vtbl, 0x1d80a51e_996e_40a9_be48_e66ec90b2b7d);
+impl windows_core::RuntimeType for ICurrentMediaPlaybackItemChangedEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICurrentMediaPlaybackItemChangedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaPlaybackItemChangedReason) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaBreak, IMediaBreak_Vtbl, 0x714be270_0def_4ebc_a489_6b34930e1558);
+impl windows_core::RuntimeType for IMediaBreak {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaBreak_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -69,12 +82,18 @@ pub struct IMediaBreak_Vtbl {
     pub SetCanStart: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaBreakEndedEventArgs, IMediaBreakEndedEventArgs_Vtbl, 0x32b93276_1c5d_4fee_8732_236dc3a88580);
+impl windows_core::RuntimeType for IMediaBreakEndedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaBreakEndedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MediaBreak: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaBreakFactory, IMediaBreakFactory_Vtbl, 0x4516e002_18e0_4079_8b5f_d33495c15d2e);
+impl windows_core::RuntimeType for IMediaBreakFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaBreakFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -82,6 +101,9 @@ pub struct IMediaBreakFactory_Vtbl {
     pub CreateWithPresentationPosition: unsafe extern "system" fn(*mut core::ffi::c_void, MediaBreakInsertionMethod, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaBreakManager, IMediaBreakManager_Vtbl, 0xa854ddb1_feb4_4d9b_9d97_0fdbe58e5e39);
+impl windows_core::RuntimeType for IMediaBreakManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaBreakManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -99,6 +121,9 @@ pub struct IMediaBreakManager_Vtbl {
     pub SkipCurrentBreak: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaBreakSchedule, IMediaBreakSchedule_Vtbl, 0xa19a5813_98b6_41d8_83da_f971d22b7bba);
+impl windows_core::RuntimeType for IMediaBreakSchedule {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaBreakSchedule_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -117,6 +142,9 @@ pub struct IMediaBreakSchedule_Vtbl {
     pub PlaybackItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaBreakSeekedOverEventArgs, IMediaBreakSeekedOverEventArgs_Vtbl, 0xe5aa6746_0606_4492_b9d3_c3c8fde0a4ea);
+impl windows_core::RuntimeType for IMediaBreakSeekedOverEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaBreakSeekedOverEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -128,12 +156,18 @@ pub struct IMediaBreakSeekedOverEventArgs_Vtbl {
     pub NewPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaBreakSkippedEventArgs, IMediaBreakSkippedEventArgs_Vtbl, 0x6ee94c05_2f54_4a3e_a3ab_24c3b270b4a3);
+impl windows_core::RuntimeType for IMediaBreakSkippedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaBreakSkippedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MediaBreak: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaBreakStartedEventArgs, IMediaBreakStartedEventArgs_Vtbl, 0xa87efe71_dfd4_454a_956e_0a4a648395f8);
+impl windows_core::RuntimeType for IMediaBreakStartedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaBreakStartedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -180,6 +214,9 @@ pub struct IMediaEnginePlaybackSource_Vtbl {
     SetPlaybackSource: usize,
 }
 windows_core::imp::define_interface!(IMediaItemDisplayProperties, IMediaItemDisplayProperties_Vtbl, 0x1e3c1b48_7097_4384_a217_c1291dfa8c16);
+impl windows_core::RuntimeType for IMediaItemDisplayProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaItemDisplayProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -198,6 +235,9 @@ pub struct IMediaItemDisplayProperties_Vtbl {
     pub ClearAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackCommandManager, IMediaPlaybackCommandManager_Vtbl, 0x5acee5a6_5cb6_4a5a_8521_cc86b1c1ed37);
+impl windows_core::RuntimeType for IMediaPlaybackCommandManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackCommandManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -236,6 +276,9 @@ pub struct IMediaPlaybackCommandManager_Vtbl {
     pub RemoveRateReceived: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs, IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Vtbl, 0x3d6f4f23_5230_4411_a0e9_bad94c2a045c);
+impl windows_core::RuntimeType for IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -245,6 +288,9 @@ pub struct IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackCommandManagerCommandBehavior, IMediaPlaybackCommandManagerCommandBehavior_Vtbl, 0x786c1e78_ce78_4a10_afd6_843fcbb90c2e);
+impl windows_core::RuntimeType for IMediaPlaybackCommandManagerCommandBehavior {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackCommandManagerCommandBehavior_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -256,6 +302,9 @@ pub struct IMediaPlaybackCommandManagerCommandBehavior_Vtbl {
     pub RemoveIsEnabledChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackCommandManagerFastForwardReceivedEventArgs, IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Vtbl, 0x30f064d9_b491_4d0a_bc21_3098bd1332e9);
+impl windows_core::RuntimeType for IMediaPlaybackCommandManagerFastForwardReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -264,6 +313,9 @@ pub struct IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackCommandManagerNextReceivedEventArgs, IMediaPlaybackCommandManagerNextReceivedEventArgs_Vtbl, 0xe1504433_a2b0_45d4_b9de_5f42ac14a839);
+impl windows_core::RuntimeType for IMediaPlaybackCommandManagerNextReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackCommandManagerNextReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -272,6 +324,9 @@ pub struct IMediaPlaybackCommandManagerNextReceivedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackCommandManagerPauseReceivedEventArgs, IMediaPlaybackCommandManagerPauseReceivedEventArgs_Vtbl, 0x5ceccd1c_c25c_4221_b16c_c3c98ce012d6);
+impl windows_core::RuntimeType for IMediaPlaybackCommandManagerPauseReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackCommandManagerPauseReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -280,6 +335,9 @@ pub struct IMediaPlaybackCommandManagerPauseReceivedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackCommandManagerPlayReceivedEventArgs, IMediaPlaybackCommandManagerPlayReceivedEventArgs_Vtbl, 0x9af0004e_578b_4c56_a006_16159d888a48);
+impl windows_core::RuntimeType for IMediaPlaybackCommandManagerPlayReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackCommandManagerPlayReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -288,6 +346,9 @@ pub struct IMediaPlaybackCommandManagerPlayReceivedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackCommandManagerPositionReceivedEventArgs, IMediaPlaybackCommandManagerPositionReceivedEventArgs_Vtbl, 0x5591a754_d627_4bdd_a90d_86a015b24902);
+impl windows_core::RuntimeType for IMediaPlaybackCommandManagerPositionReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackCommandManagerPositionReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -297,6 +358,9 @@ pub struct IMediaPlaybackCommandManagerPositionReceivedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackCommandManagerPreviousReceivedEventArgs, IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Vtbl, 0x525e3081_4632_4f76_99b1_d771623f6287);
+impl windows_core::RuntimeType for IMediaPlaybackCommandManagerPreviousReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -305,6 +369,9 @@ pub struct IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackCommandManagerRateReceivedEventArgs, IMediaPlaybackCommandManagerRateReceivedEventArgs_Vtbl, 0x18ea3939_4a16_4169_8b05_3eb9f5ff78eb);
+impl windows_core::RuntimeType for IMediaPlaybackCommandManagerRateReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackCommandManagerRateReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -314,6 +381,9 @@ pub struct IMediaPlaybackCommandManagerRateReceivedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackCommandManagerRewindReceivedEventArgs, IMediaPlaybackCommandManagerRewindReceivedEventArgs_Vtbl, 0x9f085947_a3c0_425d_aaef_97ba7898b141);
+impl windows_core::RuntimeType for IMediaPlaybackCommandManagerRewindReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackCommandManagerRewindReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -322,6 +392,9 @@ pub struct IMediaPlaybackCommandManagerRewindReceivedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackCommandManagerShuffleReceivedEventArgs, IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Vtbl, 0x50a05cef_63ee_4a96_b7b5_fee08b9ff90c);
+impl windows_core::RuntimeType for IMediaPlaybackCommandManagerShuffleReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -331,6 +404,9 @@ pub struct IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackItem, IMediaPlaybackItem_Vtbl, 0x047097d2_e4af_48ab_b283_6929e674ece2);
+impl windows_core::RuntimeType for IMediaPlaybackItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -367,6 +443,9 @@ pub struct IMediaPlaybackItem_Vtbl {
     TimedMetadataTracks: usize,
 }
 windows_core::imp::define_interface!(IMediaPlaybackItem2, IMediaPlaybackItem2_Vtbl, 0xd859d171_d7ef_4b81_ac1f_f40493cbb091);
+impl windows_core::RuntimeType for IMediaPlaybackItem2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackItem2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -379,6 +458,9 @@ pub struct IMediaPlaybackItem2_Vtbl {
     pub ApplyDisplayProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackItem3, IMediaPlaybackItem3_Vtbl, 0x0d328220_b80a_4d09_9ff8_f87094a1c831);
+impl windows_core::RuntimeType for IMediaPlaybackItem3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackItem3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -389,6 +471,9 @@ pub struct IMediaPlaybackItem3_Vtbl {
     pub SetAutoLoadedDisplayProperties: unsafe extern "system" fn(*mut core::ffi::c_void, AutoLoadedDisplayPropertyKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackItemError, IMediaPlaybackItemError_Vtbl, 0x69fbef2b_dcd6_4df9_a450_dbf4c6f1c2c2);
+impl windows_core::RuntimeType for IMediaPlaybackItemError {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackItemError_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -396,6 +481,9 @@ pub struct IMediaPlaybackItemError_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackItemFactory, IMediaPlaybackItemFactory_Vtbl, 0x7133fce1_1769_4ff9_a7c1_38d2c4d42360);
+impl windows_core::RuntimeType for IMediaPlaybackItemFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -405,6 +493,9 @@ pub struct IMediaPlaybackItemFactory_Vtbl {
     Create: usize,
 }
 windows_core::imp::define_interface!(IMediaPlaybackItemFactory2, IMediaPlaybackItemFactory2_Vtbl, 0xd77cdf3a_b947_4972_b35d_adfb931a71e6);
+impl windows_core::RuntimeType for IMediaPlaybackItemFactory2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackItemFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -418,6 +509,9 @@ pub struct IMediaPlaybackItemFactory2_Vtbl {
     CreateWithStartTimeAndDurationLimit: usize,
 }
 windows_core::imp::define_interface!(IMediaPlaybackItemFailedEventArgs, IMediaPlaybackItemFailedEventArgs_Vtbl, 0x7703134a_e9a7_47c3_862c_c656d30683d4);
+impl windows_core::RuntimeType for IMediaPlaybackItemFailedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackItemFailedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -425,12 +519,18 @@ pub struct IMediaPlaybackItemFailedEventArgs_Vtbl {
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackItemOpenedEventArgs, IMediaPlaybackItemOpenedEventArgs_Vtbl, 0xcbd9bd82_3037_4fbe_ae8f_39fc39edf4ef);
+impl windows_core::RuntimeType for IMediaPlaybackItemOpenedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackItemOpenedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackItemStatics, IMediaPlaybackItemStatics_Vtbl, 0x4b1be7f4_4345_403c_8a67_f5de91df4c86);
+impl windows_core::RuntimeType for IMediaPlaybackItemStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackItemStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -440,6 +540,9 @@ pub struct IMediaPlaybackItemStatics_Vtbl {
     FindFromMediaSource: usize,
 }
 windows_core::imp::define_interface!(IMediaPlaybackList, IMediaPlaybackList_Vtbl, 0x7f77ee9c_dc42_4e26_a98d_7850df8ec925);
+impl windows_core::RuntimeType for IMediaPlaybackList {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackList_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -464,6 +567,9 @@ pub struct IMediaPlaybackList_Vtbl {
     pub MoveTo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackList2, IMediaPlaybackList2_Vtbl, 0x0e09b478_600a_4274_a14b_0b6723d0f48b);
+impl windows_core::RuntimeType for IMediaPlaybackList2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackList2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -481,6 +587,9 @@ pub struct IMediaPlaybackList2_Vtbl {
     SetShuffledItems: usize,
 }
 windows_core::imp::define_interface!(IMediaPlaybackList3, IMediaPlaybackList3_Vtbl, 0xdd24bba9_bc47_4463_aa90_c18b7e5ffde1);
+impl windows_core::RuntimeType for IMediaPlaybackList3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackList3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -488,6 +597,9 @@ pub struct IMediaPlaybackList3_Vtbl {
     pub SetMaxPlayedItemsToKeepOpen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackSession, IMediaPlaybackSession_Vtbl, 0xc32b683d_0407_41ba_8946_8b345a5a5435);
+impl windows_core::RuntimeType for IMediaPlaybackSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -537,6 +649,9 @@ pub struct IMediaPlaybackSession_Vtbl {
     SetStereoscopicVideoPackingMode: usize,
 }
 windows_core::imp::define_interface!(IMediaPlaybackSession2, IMediaPlaybackSession2_Vtbl, 0xf8ba7c79_1fc8_4097_ad70_c0fa18cc0050);
+impl windows_core::RuntimeType for IMediaPlaybackSession2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackSession2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -566,6 +681,9 @@ pub struct IMediaPlaybackSession2_Vtbl {
     pub IsSupportedPlaybackRateRange: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackSession3, IMediaPlaybackSession3_Vtbl, 0x7ba2b41a_a3e2_405f_b77b_a4812c238b66);
+impl windows_core::RuntimeType for IMediaPlaybackSession3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackSession3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -580,12 +698,18 @@ pub struct IMediaPlaybackSession3_Vtbl {
     pub GetOutputDegradationPolicyState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackSessionBufferingStartedEventArgs, IMediaPlaybackSessionBufferingStartedEventArgs_Vtbl, 0xcd6aafed_74e2_43b5_b115_76236c33791a);
+impl windows_core::RuntimeType for IMediaPlaybackSessionBufferingStartedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackSessionBufferingStartedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsPlaybackInterruption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackSessionOutputDegradationPolicyState, IMediaPlaybackSessionOutputDegradationPolicyState_Vtbl, 0x558e727d_f633_49f9_965a_abaa1db709be);
+impl windows_core::RuntimeType for IMediaPlaybackSessionOutputDegradationPolicyState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackSessionOutputDegradationPolicyState_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -602,6 +726,9 @@ pub struct IMediaPlaybackSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IMediaPlaybackSphericalVideoProjection, IMediaPlaybackSphericalVideoProjection_Vtbl, 0xd405b37c_6f0e_4661_b8ee_d487ba9752d5);
+impl windows_core::RuntimeType for IMediaPlaybackSphericalVideoProjection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackSphericalVideoProjection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -629,6 +756,9 @@ pub struct IMediaPlaybackSphericalVideoProjection_Vtbl {
     pub SetProjectionMode: unsafe extern "system" fn(*mut core::ffi::c_void, SphericalVideoProjectionMode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlaybackTimedMetadataTrackList, IMediaPlaybackTimedMetadataTrackList_Vtbl, 0x72b41319_bbfb_46a3_9372_9c9c744b9438);
+impl windows_core::RuntimeType for IMediaPlaybackTimedMetadataTrackList {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlaybackTimedMetadataTrackList_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -641,6 +771,9 @@ pub struct IMediaPlaybackTimedMetadataTrackList_Vtbl {
     pub SetPresentationMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, TimedMetadataTrackPresentationMode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlayer, IMediaPlayer_Vtbl, 0x381a83cb_6fff_499b_8d64_2885dfc1249e);
+impl windows_core::RuntimeType for IMediaPlayer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlayer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -760,6 +893,9 @@ pub struct IMediaPlayer_Vtbl {
     SetUriSource: usize,
 }
 windows_core::imp::define_interface!(IMediaPlayer2, IMediaPlayer2_Vtbl, 0x3c841218_2123_4fc5_9082_2f883f77bdf5);
+impl windows_core::RuntimeType for IMediaPlayer2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlayer2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -770,6 +906,9 @@ pub struct IMediaPlayer2_Vtbl {
     pub SetAudioDeviceType: unsafe extern "system" fn(*mut core::ffi::c_void, MediaPlayerAudioDeviceType) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlayer3, IMediaPlayer3_Vtbl, 0xee0660da_031b_4feb_bd9b_92e0a0a8d299);
+impl windows_core::RuntimeType for IMediaPlayer3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlayer3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -806,6 +945,9 @@ pub struct IMediaPlayer3_Vtbl {
     GetAsCastingSource: usize,
 }
 windows_core::imp::define_interface!(IMediaPlayer4, IMediaPlayer4_Vtbl, 0x80035db0_7448_4770_afcf_2a57450914c5);
+impl windows_core::RuntimeType for IMediaPlayer4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlayer4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -816,6 +958,9 @@ pub struct IMediaPlayer4_Vtbl {
     GetSurface: usize,
 }
 windows_core::imp::define_interface!(IMediaPlayer5, IMediaPlayer5_Vtbl, 0xcfe537fd_f86a_4446_bf4d_c8e792b7b4b3);
+impl windows_core::RuntimeType for IMediaPlayer5 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlayer5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -837,6 +982,9 @@ pub struct IMediaPlayer5_Vtbl {
     CopyFrameToStereoscopicVideoSurfaces: usize,
 }
 windows_core::imp::define_interface!(IMediaPlayer6, IMediaPlayer6_Vtbl, 0xe0caa086_ae65_414c_b010_8bc55f00e692);
+impl windows_core::RuntimeType for IMediaPlayer6 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlayer6_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -852,6 +1000,9 @@ pub struct IMediaPlayer6_Vtbl {
     RenderSubtitlesToSurfaceWithTargetRectangle: usize,
 }
 windows_core::imp::define_interface!(IMediaPlayer7, IMediaPlayer7_Vtbl, 0x5d1dc478_4500_4531_b3f4_777a71491f7f);
+impl windows_core::RuntimeType for IMediaPlayer7 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlayer7_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -861,6 +1012,9 @@ pub struct IMediaPlayer7_Vtbl {
     AudioStateMonitor: usize,
 }
 windows_core::imp::define_interface!(IMediaPlayerDataReceivedEventArgs, IMediaPlayerDataReceivedEventArgs_Vtbl, 0xc75a9405_c801_412a_835b_83fc0e622a8e);
+impl windows_core::RuntimeType for IMediaPlayerDataReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlayerDataReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -870,6 +1024,9 @@ pub struct IMediaPlayerDataReceivedEventArgs_Vtbl {
     Data: usize,
 }
 windows_core::imp::define_interface!(IMediaPlayerEffects, IMediaPlayerEffects_Vtbl, 0x85a1deda_cab6_4cc0_8be3_6035f4de2591);
+impl windows_core::RuntimeType for IMediaPlayerEffects {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlayerEffects_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -880,6 +1037,9 @@ pub struct IMediaPlayerEffects_Vtbl {
     pub RemoveAllEffects: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlayerEffects2, IMediaPlayerEffects2_Vtbl, 0xfa419a79_1bbe_46c5_ae1f_8ee69fb3c2c7);
+impl windows_core::RuntimeType for IMediaPlayerEffects2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlayerEffects2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -889,6 +1049,9 @@ pub struct IMediaPlayerEffects2_Vtbl {
     AddVideoEffect: usize,
 }
 windows_core::imp::define_interface!(IMediaPlayerFailedEventArgs, IMediaPlayerFailedEventArgs_Vtbl, 0x2744e9b9_a7e3_4f16_bac4_7914ebc08301);
+impl windows_core::RuntimeType for IMediaPlayerFailedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlayerFailedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -897,12 +1060,18 @@ pub struct IMediaPlayerFailedEventArgs_Vtbl {
     pub ErrorMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlayerRateChangedEventArgs, IMediaPlayerRateChangedEventArgs_Vtbl, 0x40600d58_3b61_4bb2_989f_fc65608b6cab);
+impl windows_core::RuntimeType for IMediaPlayerRateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlayerRateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NewRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlayerSource, IMediaPlayerSource_Vtbl, 0xbd4f8897_1423_4c3e_82c5_0fb1af94f715);
+impl windows_core::RuntimeType for IMediaPlayerSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlayerSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -928,6 +1097,9 @@ pub struct IMediaPlayerSource_Vtbl {
     SetMediaSource: usize,
 }
 windows_core::imp::define_interface!(IMediaPlayerSource2, IMediaPlayerSource2_Vtbl, 0x82449b9f_7322_4c0b_b03b_3e69a48260c5);
+impl windows_core::RuntimeType for IMediaPlayerSource2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlayerSource2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -935,6 +1107,9 @@ pub struct IMediaPlayerSource2_Vtbl {
     pub SetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaPlayerSurface, IMediaPlayerSurface_Vtbl, 0x0ed653bc_b736_49c3_830b_764a3845313a);
+impl windows_core::RuntimeType for IMediaPlayerSurface {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaPlayerSurface_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -949,6 +1124,9 @@ pub struct IMediaPlayerSurface_Vtbl {
     pub MediaPlayer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlaybackMediaMarker, IPlaybackMediaMarker_Vtbl, 0xc4d22f5c_3c1c_4444_b6b9_778b0422d41a);
+impl windows_core::RuntimeType for IPlaybackMediaMarker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlaybackMediaMarker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -957,6 +1135,9 @@ pub struct IPlaybackMediaMarker_Vtbl {
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlaybackMediaMarkerFactory, IPlaybackMediaMarkerFactory_Vtbl, 0x8c530a78_e0ae_4e1a_a8c8_e23f982a937b);
+impl windows_core::RuntimeType for IPlaybackMediaMarkerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlaybackMediaMarkerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -964,12 +1145,18 @@ pub struct IPlaybackMediaMarkerFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlaybackMediaMarkerReachedEventArgs, IPlaybackMediaMarkerReachedEventArgs_Vtbl, 0x578cd1b9_90e2_4e60_abc4_8740b01f6196);
+impl windows_core::RuntimeType for IPlaybackMediaMarkerReachedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlaybackMediaMarkerReachedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PlaybackMediaMarker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlaybackMediaMarkerSequence, IPlaybackMediaMarkerSequence_Vtbl, 0xf2810cee_638b_46cf_8817_1d111fe9d8c4);
+impl windows_core::RuntimeType for IPlaybackMediaMarkerSequence {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPlaybackMediaMarkerSequence_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -978,6 +1165,9 @@ pub struct IPlaybackMediaMarkerSequence_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITimedMetadataPresentationModeChangedEventArgs, ITimedMetadataPresentationModeChangedEventArgs_Vtbl, 0xd1636099_65df_45ae_8cef_dc0b53fdc2bb);
+impl windows_core::RuntimeType for ITimedMetadataPresentationModeChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITimedMetadataPresentationModeChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1091,7 +1281,7 @@ impl CurrentMediaPlaybackItemChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for CurrentMediaPlaybackItemChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICurrentMediaPlaybackItemChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for CurrentMediaPlaybackItemChangedEventArgs {
     type Vtable = ICurrentMediaPlaybackItemChangedEventArgs_Vtbl;
@@ -1166,7 +1356,7 @@ impl MediaBreak {
     }
 }
 impl windows_core::RuntimeType for MediaBreak {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaBreak>();
 }
 unsafe impl windows_core::Interface for MediaBreak {
     type Vtable = IMediaBreak_Vtbl;
@@ -1191,7 +1381,7 @@ impl MediaBreakEndedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaBreakEndedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaBreakEndedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaBreakEndedEventArgs {
     type Vtable = IMediaBreakEndedEventArgs_Vtbl;
@@ -1290,7 +1480,7 @@ impl MediaBreakManager {
     }
 }
 impl windows_core::RuntimeType for MediaBreakManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaBreakManager>();
 }
 unsafe impl windows_core::Interface for MediaBreakManager {
     type Vtable = IMediaBreakManager_Vtbl;
@@ -1379,7 +1569,7 @@ impl MediaBreakSchedule {
     }
 }
 impl windows_core::RuntimeType for MediaBreakSchedule {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaBreakSchedule>();
 }
 unsafe impl windows_core::Interface for MediaBreakSchedule {
     type Vtable = IMediaBreakSchedule_Vtbl;
@@ -1419,7 +1609,7 @@ impl MediaBreakSeekedOverEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaBreakSeekedOverEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaBreakSeekedOverEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaBreakSeekedOverEventArgs {
     type Vtable = IMediaBreakSeekedOverEventArgs_Vtbl;
@@ -1444,7 +1634,7 @@ impl MediaBreakSkippedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaBreakSkippedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaBreakSkippedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaBreakSkippedEventArgs {
     type Vtable = IMediaBreakSkippedEventArgs_Vtbl;
@@ -1469,7 +1659,7 @@ impl MediaBreakStartedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaBreakStartedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaBreakStartedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaBreakStartedEventArgs {
     type Vtable = IMediaBreakStartedEventArgs_Vtbl;
@@ -1532,7 +1722,7 @@ impl MediaItemDisplayProperties {
     }
 }
 impl windows_core::RuntimeType for MediaItemDisplayProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaItemDisplayProperties>();
 }
 unsafe impl windows_core::Interface for MediaItemDisplayProperties {
     type Vtable = IMediaItemDisplayProperties_Vtbl;
@@ -1628,7 +1818,7 @@ impl MediaPlaybackAudioTrackList {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl windows_core::RuntimeType for MediaPlaybackAudioTrackList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVectorView<super::Core::AudioTrack>>();
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 unsafe impl windows_core::Interface for MediaPlaybackAudioTrackList {
@@ -1894,7 +2084,7 @@ impl MediaPlaybackCommandManager {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackCommandManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackCommandManager>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackCommandManager {
     type Vtable = IMediaPlaybackCommandManager_Vtbl;
@@ -1937,7 +2127,7 @@ impl MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Vtbl;
@@ -1994,7 +2184,7 @@ impl MediaPlaybackCommandManagerCommandBehavior {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackCommandManagerCommandBehavior {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackCommandManagerCommandBehavior>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackCommandManagerCommandBehavior {
     type Vtable = IMediaPlaybackCommandManagerCommandBehavior_Vtbl;
@@ -2030,7 +2220,7 @@ impl MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackCommandManagerFastForwardReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Vtbl;
@@ -2066,7 +2256,7 @@ impl MediaPlaybackCommandManagerNextReceivedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackCommandManagerNextReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackCommandManagerNextReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackCommandManagerNextReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerNextReceivedEventArgs_Vtbl;
@@ -2102,7 +2292,7 @@ impl MediaPlaybackCommandManagerPauseReceivedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackCommandManagerPauseReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackCommandManagerPauseReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackCommandManagerPauseReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPauseReceivedEventArgs_Vtbl;
@@ -2138,7 +2328,7 @@ impl MediaPlaybackCommandManagerPlayReceivedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackCommandManagerPlayReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackCommandManagerPlayReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackCommandManagerPlayReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPlayReceivedEventArgs_Vtbl;
@@ -2181,7 +2371,7 @@ impl MediaPlaybackCommandManagerPositionReceivedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackCommandManagerPositionReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackCommandManagerPositionReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackCommandManagerPositionReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPositionReceivedEventArgs_Vtbl;
@@ -2217,7 +2407,7 @@ impl MediaPlaybackCommandManagerPreviousReceivedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackCommandManagerPreviousReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Vtbl;
@@ -2260,7 +2450,7 @@ impl MediaPlaybackCommandManagerRateReceivedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackCommandManagerRateReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackCommandManagerRateReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackCommandManagerRateReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerRateReceivedEventArgs_Vtbl;
@@ -2296,7 +2486,7 @@ impl MediaPlaybackCommandManagerRewindReceivedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackCommandManagerRewindReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackCommandManagerRewindReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackCommandManagerRewindReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerRewindReceivedEventArgs_Vtbl;
@@ -2339,7 +2529,7 @@ impl MediaPlaybackCommandManagerShuffleReceivedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackCommandManagerShuffleReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Vtbl;
@@ -2565,7 +2755,7 @@ impl MediaPlaybackItem {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackItem>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackItem {
     type Vtable = IMediaPlaybackItem_Vtbl;
@@ -2597,7 +2787,7 @@ impl MediaPlaybackItemError {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackItemError {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackItemError>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackItemError {
     type Vtable = IMediaPlaybackItemError_Vtbl;
@@ -2629,7 +2819,7 @@ impl MediaPlaybackItemFailedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackItemFailedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackItemFailedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackItemFailedEventArgs {
     type Vtable = IMediaPlaybackItemFailedEventArgs_Vtbl;
@@ -2654,7 +2844,7 @@ impl MediaPlaybackItemOpenedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackItemOpenedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackItemOpenedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackItemOpenedEventArgs {
     type Vtable = IMediaPlaybackItemOpenedEventArgs_Vtbl;
@@ -2845,7 +3035,7 @@ impl MediaPlaybackList {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackList>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackList {
     type Vtable = IMediaPlaybackList_Vtbl;
@@ -3244,7 +3434,7 @@ impl MediaPlaybackSession {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackSession>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackSession {
     type Vtable = IMediaPlaybackSession_Vtbl;
@@ -3269,7 +3459,7 @@ impl MediaPlaybackSessionBufferingStartedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackSessionBufferingStartedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackSessionBufferingStartedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackSessionBufferingStartedEventArgs {
     type Vtable = IMediaPlaybackSessionBufferingStartedEventArgs_Vtbl;
@@ -3294,7 +3484,7 @@ impl MediaPlaybackSessionOutputDegradationPolicyState {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackSessionOutputDegradationPolicyState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackSessionOutputDegradationPolicyState>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackSessionOutputDegradationPolicyState {
     type Vtable = IMediaPlaybackSessionOutputDegradationPolicyState_Vtbl;
@@ -3371,7 +3561,7 @@ impl MediaPlaybackSphericalVideoProjection {
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackSphericalVideoProjection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlaybackSphericalVideoProjection>();
 }
 unsafe impl windows_core::Interface for MediaPlaybackSphericalVideoProjection {
     type Vtable = IMediaPlaybackSphericalVideoProjection_Vtbl;
@@ -3464,7 +3654,7 @@ impl MediaPlaybackTimedMetadataTrackList {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl windows_core::RuntimeType for MediaPlaybackTimedMetadataTrackList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>>();
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 unsafe impl windows_core::Interface for MediaPlaybackTimedMetadataTrackList {
@@ -3580,7 +3770,7 @@ impl MediaPlaybackVideoTrackList {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl windows_core::RuntimeType for MediaPlaybackVideoTrackList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVectorView<super::Core::VideoTrack>>();
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 unsafe impl windows_core::Interface for MediaPlaybackVideoTrackList {
@@ -4275,7 +4465,7 @@ impl MediaPlayer {
     }
 }
 impl windows_core::RuntimeType for MediaPlayer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlayer>();
 }
 unsafe impl windows_core::Interface for MediaPlayer {
     type Vtable = IMediaPlayer_Vtbl;
@@ -4301,7 +4491,7 @@ impl MediaPlayerDataReceivedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaPlayerDataReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlayerDataReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaPlayerDataReceivedEventArgs {
     type Vtable = IMediaPlayerDataReceivedEventArgs_Vtbl;
@@ -4340,7 +4530,7 @@ impl MediaPlayerFailedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaPlayerFailedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlayerFailedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaPlayerFailedEventArgs {
     type Vtable = IMediaPlayerFailedEventArgs_Vtbl;
@@ -4365,7 +4555,7 @@ impl MediaPlayerRateChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MediaPlayerRateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlayerRateChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaPlayerRateChangedEventArgs {
     type Vtable = IMediaPlayerRateChangedEventArgs_Vtbl;
@@ -4411,7 +4601,7 @@ impl MediaPlayerSurface {
     }
 }
 impl windows_core::RuntimeType for MediaPlayerSurface {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPlayerSurface>();
 }
 unsafe impl windows_core::Interface for MediaPlayerSurface {
     type Vtable = IMediaPlayerSurface_Vtbl;
@@ -4467,7 +4657,7 @@ impl PlaybackMediaMarker {
     }
 }
 impl windows_core::RuntimeType for PlaybackMediaMarker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaybackMediaMarker>();
 }
 unsafe impl windows_core::Interface for PlaybackMediaMarker {
     type Vtable = IPlaybackMediaMarker_Vtbl;
@@ -4492,7 +4682,7 @@ impl PlaybackMediaMarkerReachedEventArgs {
     }
 }
 impl windows_core::RuntimeType for PlaybackMediaMarkerReachedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaybackMediaMarkerReachedEventArgs>();
 }
 unsafe impl windows_core::Interface for PlaybackMediaMarkerReachedEventArgs {
     type Vtable = IPlaybackMediaMarkerReachedEventArgs_Vtbl;
@@ -4538,7 +4728,7 @@ impl PlaybackMediaMarkerSequence {
     }
 }
 impl windows_core::RuntimeType for PlaybackMediaMarkerSequence {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaybackMediaMarkerSequence>();
 }
 unsafe impl windows_core::Interface for PlaybackMediaMarkerSequence {
     type Vtable = IPlaybackMediaMarkerSequence_Vtbl;
@@ -4594,7 +4784,7 @@ impl TimedMetadataPresentationModeChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for TimedMetadataPresentationModeChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITimedMetadataPresentationModeChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for TimedMetadataPresentationModeChangedEventArgs {
     type Vtable = ITimedMetadataPresentationModeChangedEventArgs_Vtbl;

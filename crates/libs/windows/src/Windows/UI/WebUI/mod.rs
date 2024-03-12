@@ -1,6 +1,9 @@
 #[cfg(feature = "UI_WebUI_Core")]
 pub mod Core;
 windows_core::imp::define_interface!(IActivatedDeferral, IActivatedDeferral_Vtbl, 0xc3bd1978_a431_49d8_a76a_395a4e03dcf3);
+impl windows_core::RuntimeType for IActivatedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IActivatedDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -26,12 +29,18 @@ pub struct IActivatedEventArgsDeferral_Vtbl {
     pub ActivatedOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActivatedOperation, IActivatedOperation_Vtbl, 0xb6a0b4bc_c6ca_42fd_9818_71904e45fed7);
+impl windows_core::RuntimeType for IActivatedOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IActivatedOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHtmlPrintDocumentSource, IHtmlPrintDocumentSource_Vtbl, 0xcea6469a_0e05_467a_abc9_36ec1d4cdcb6);
+impl windows_core::RuntimeType for IHtmlPrintDocumentSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHtmlPrintDocumentSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -55,6 +64,9 @@ pub struct IHtmlPrintDocumentSource_Vtbl {
     pub TrySetPageRange: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INewWebUIViewCreatedEventArgs, INewWebUIViewCreatedEventArgs_Vtbl, 0xe8e1b216_be2b_4c9e_85e7_083143ec4be7);
+impl windows_core::RuntimeType for INewWebUIViewCreatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct INewWebUIViewCreatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -67,6 +79,9 @@ pub struct INewWebUIViewCreatedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUIActivationStatics, IWebUIActivationStatics_Vtbl, 0x351b86bd_43b3_482b_85db_35d87b517ad9);
+impl windows_core::RuntimeType for IWebUIActivationStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUIActivationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -86,6 +101,9 @@ pub struct IWebUIActivationStatics_Vtbl {
     pub RemoveNavigated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUIActivationStatics2, IWebUIActivationStatics2_Vtbl, 0xc8e88696_4d78_4aa4_8f06_2a9eadc6c40a);
+impl windows_core::RuntimeType for IWebUIActivationStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUIActivationStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -102,6 +120,9 @@ pub struct IWebUIActivationStatics2_Vtbl {
     pub EnablePrelaunch: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUIActivationStatics3, IWebUIActivationStatics3_Vtbl, 0x91abb686_1af5_4445_b49f_9459f40fc8de);
+impl windows_core::RuntimeType for IWebUIActivationStatics3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUIActivationStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -115,6 +136,9 @@ pub struct IWebUIActivationStatics3_Vtbl {
     RequestRestartForUserAsync: usize,
 }
 windows_core::imp::define_interface!(IWebUIActivationStatics4, IWebUIActivationStatics4_Vtbl, 0x5e391429_183f_478d_8a25_67f80d03935b);
+impl windows_core::RuntimeType for IWebUIActivationStatics4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUIActivationStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -151,12 +175,18 @@ pub struct IWebUIBackgroundTaskInstance_Vtbl {
     pub SetSucceeded: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUIBackgroundTaskInstanceStatics, IWebUIBackgroundTaskInstanceStatics_Vtbl, 0x9c7a5291_19ae_4ca3_b94b_fe4ec744a740);
+impl windows_core::RuntimeType for IWebUIBackgroundTaskInstanceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUIBackgroundTaskInstanceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUINavigatedDeferral, IWebUINavigatedDeferral_Vtbl, 0xd804204d_831f_46e2_b432_3afce211f962);
+impl windows_core::RuntimeType for IWebUINavigatedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUINavigatedDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -182,12 +212,18 @@ pub struct IWebUINavigatedEventArgs_Vtbl {
     pub NavigatedOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUINavigatedOperation, IWebUINavigatedOperation_Vtbl, 0x7a965f08_8182_4a89_ab67_8492e8750d4b);
+impl windows_core::RuntimeType for IWebUINavigatedOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUINavigatedOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUIView, IWebUIView_Vtbl, 0x6783f64f_52da_4fd7_be69_8ef6284b423c);
+impl windows_core::RuntimeType for IWebUIView {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUIView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -203,6 +239,9 @@ pub struct IWebUIView_Vtbl {
     pub SetIgnoreApplicationContentUriRulesNavigationRestrictions: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUIViewStatics, IWebUIViewStatics_Vtbl, 0xb591e668_8e59_44f9_8803_1b24c9149d30);
+impl windows_core::RuntimeType for IWebUIViewStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebUIViewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -220,7 +259,7 @@ impl ActivatedDeferral {
     }
 }
 impl windows_core::RuntimeType for ActivatedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivatedDeferral>();
 }
 unsafe impl windows_core::Interface for ActivatedDeferral {
     type Vtable = IActivatedDeferral_Vtbl;
@@ -243,7 +282,7 @@ impl ActivatedOperation {
     }
 }
 impl windows_core::RuntimeType for ActivatedOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivatedOperation>();
 }
 unsafe impl windows_core::Interface for ActivatedOperation {
     type Vtable = IActivatedOperation_Vtbl;
@@ -273,7 +312,7 @@ impl BackgroundActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for BackgroundActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for BackgroundActivatedEventArgs {
@@ -309,7 +348,7 @@ impl EnteredBackgroundEventArgs {
 }
 #[cfg(feature = "ApplicationModel")]
 impl windows_core::RuntimeType for EnteredBackgroundEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::IEnteredBackgroundEventArgs>();
 }
 #[cfg(feature = "ApplicationModel")]
 unsafe impl windows_core::Interface for EnteredBackgroundEventArgs {
@@ -439,7 +478,7 @@ impl HtmlPrintDocumentSource {
     }
 }
 impl windows_core::RuntimeType for HtmlPrintDocumentSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHtmlPrintDocumentSource>();
 }
 unsafe impl windows_core::Interface for HtmlPrintDocumentSource {
     type Vtable = IHtmlPrintDocumentSource_Vtbl;
@@ -471,7 +510,7 @@ impl LeavingBackgroundEventArgs {
 }
 #[cfg(feature = "ApplicationModel")]
 impl windows_core::RuntimeType for LeavingBackgroundEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ILeavingBackgroundEventArgs>();
 }
 #[cfg(feature = "ApplicationModel")]
 unsafe impl windows_core::Interface for LeavingBackgroundEventArgs {
@@ -522,7 +561,7 @@ impl NewWebUIViewCreatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for NewWebUIViewCreatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INewWebUIViewCreatedEventArgs>();
 }
 unsafe impl windows_core::Interface for NewWebUIViewCreatedEventArgs {
     type Vtable = INewWebUIViewCreatedEventArgs_Vtbl;
@@ -549,7 +588,7 @@ impl SuspendingDeferral {
 }
 #[cfg(feature = "ApplicationModel")]
 impl windows_core::RuntimeType for SuspendingDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ISuspendingDeferral>();
 }
 #[cfg(feature = "ApplicationModel")]
 unsafe impl windows_core::Interface for SuspendingDeferral {
@@ -581,7 +620,7 @@ impl SuspendingEventArgs {
 }
 #[cfg(feature = "ApplicationModel")]
 impl windows_core::RuntimeType for SuspendingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ISuspendingEventArgs>();
 }
 #[cfg(feature = "ApplicationModel")]
 unsafe impl windows_core::Interface for SuspendingEventArgs {
@@ -621,7 +660,7 @@ impl SuspendingOperation {
 }
 #[cfg(feature = "ApplicationModel")]
 impl windows_core::RuntimeType for SuspendingOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ISuspendingOperation>();
 }
 #[cfg(feature = "ApplicationModel")]
 unsafe impl windows_core::Interface for SuspendingOperation {
@@ -847,7 +886,7 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
@@ -926,7 +965,7 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
@@ -1005,7 +1044,7 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
@@ -1100,7 +1139,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
@@ -1187,7 +1226,7 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
@@ -1304,7 +1343,7 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
     }
 }
 impl windows_core::RuntimeType for WebUIBackgroundTaskInstanceRuntimeClass {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUIBackgroundTaskInstance>();
 }
 unsafe impl windows_core::Interface for WebUIBackgroundTaskInstanceRuntimeClass {
     type Vtable = IWebUIBackgroundTaskInstance_Vtbl;
@@ -1373,7 +1412,7 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIBarcodeScannerPreviewActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIBarcodeScannerPreviewActivatedEventArgs {
@@ -1448,7 +1487,7 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUICachedFileUpdaterActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUICachedFileUpdaterActivatedEventArgs {
@@ -1519,7 +1558,7 @@ impl WebUICameraSettingsActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUICameraSettingsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUICameraSettingsActivatedEventArgs {
@@ -1590,7 +1629,7 @@ impl WebUICommandLineActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUICommandLineActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUICommandLineActivatedEventArgs {
@@ -1681,7 +1720,7 @@ impl WebUIContactCallActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIContactCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactCallActivatedEventArgs {
@@ -1760,7 +1799,7 @@ impl WebUIContactMapActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIContactMapActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactMapActivatedEventArgs {
@@ -1847,7 +1886,7 @@ impl WebUIContactMessageActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIContactMessageActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactMessageActivatedEventArgs {
@@ -1926,7 +1965,7 @@ impl WebUIContactPanelActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIContactPanelActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactPanelActivatedEventArgs {
@@ -1993,7 +2032,7 @@ impl WebUIContactPickerActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIContactPickerActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactPickerActivatedEventArgs {
@@ -2080,7 +2119,7 @@ impl WebUIContactPostActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIContactPostActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactPostActivatedEventArgs {
@@ -2167,7 +2206,7 @@ impl WebUIContactVideoCallActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIContactVideoCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactVideoCallActivatedEventArgs {
@@ -2254,7 +2293,7 @@ impl WebUIDeviceActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIDeviceActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIDeviceActivatedEventArgs {
@@ -2325,7 +2364,7 @@ impl WebUIDevicePairingActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIDevicePairingActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIDevicePairingActivatedEventArgs {
@@ -2420,7 +2459,7 @@ impl WebUIDialReceiverActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIDialReceiverActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIDialReceiverActivatedEventArgs {
@@ -2515,7 +2554,7 @@ impl WebUIFileActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIFileActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIFileActivatedEventArgs {
@@ -2594,7 +2633,7 @@ impl WebUIFileOpenPickerActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIFileOpenPickerActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIFileOpenPickerActivatedEventArgs {
@@ -2673,7 +2712,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl windows_core::RuntimeType for WebUIFileOpenPickerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs>();
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl windows_core::Interface for WebUIFileOpenPickerContinuationEventArgs {
@@ -2760,7 +2799,7 @@ impl WebUIFileSavePickerActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIFileSavePickerActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIFileSavePickerActivatedEventArgs {
@@ -2839,7 +2878,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl windows_core::RuntimeType for WebUIFileSavePickerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs>();
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl windows_core::Interface for WebUIFileSavePickerContinuationEventArgs {
@@ -2918,7 +2957,7 @@ impl WebUIFolderPickerContinuationEventArgs {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl windows_core::RuntimeType for WebUIFolderPickerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs>();
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl windows_core::Interface for WebUIFolderPickerContinuationEventArgs {
@@ -3030,7 +3069,7 @@ impl WebUILaunchActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUILaunchActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUILaunchActivatedEventArgs {
@@ -3109,7 +3148,7 @@ impl WebUILockScreenActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUILockScreenActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUILockScreenActivatedEventArgs {
@@ -3196,7 +3235,7 @@ impl WebUILockScreenCallActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUILockScreenCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUILockScreenCallActivatedEventArgs {
@@ -3251,7 +3290,7 @@ impl WebUILockScreenComponentActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUILockScreenComponentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUILockScreenComponentActivatedEventArgs {
@@ -3273,7 +3312,7 @@ impl WebUINavigatedDeferral {
     }
 }
 impl windows_core::RuntimeType for WebUINavigatedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUINavigatedDeferral>();
 }
 unsafe impl windows_core::Interface for WebUINavigatedDeferral {
     type Vtable = IWebUINavigatedDeferral_Vtbl;
@@ -3297,7 +3336,7 @@ impl WebUINavigatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for WebUINavigatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUINavigatedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebUINavigatedEventArgs {
     type Vtable = IWebUINavigatedEventArgs_Vtbl;
@@ -3320,7 +3359,7 @@ impl WebUINavigatedOperation {
     }
 }
 impl windows_core::RuntimeType for WebUINavigatedOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUINavigatedOperation>();
 }
 unsafe impl windows_core::Interface for WebUINavigatedOperation {
     type Vtable = IWebUINavigatedOperation_Vtbl;
@@ -3389,7 +3428,7 @@ impl WebUIPhoneCallActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIPhoneCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIPhoneCallActivatedEventArgs {
@@ -3456,7 +3495,7 @@ impl WebUIPrint3DWorkflowActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIPrint3DWorkflowActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIPrint3DWorkflowActivatedEventArgs {
@@ -3519,7 +3558,7 @@ impl WebUIPrintTaskSettingsActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIPrintTaskSettingsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIPrintTaskSettingsActivatedEventArgs {
@@ -3574,7 +3613,7 @@ impl WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
@@ -3669,7 +3708,7 @@ impl WebUIProtocolActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIProtocolActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIProtocolActivatedEventArgs {
@@ -3781,7 +3820,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIProtocolForResultsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIProtocolForResultsActivatedEventArgs {
@@ -3852,7 +3891,7 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIRestrictedLaunchActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIRestrictedLaunchActivatedEventArgs {
@@ -3939,7 +3978,7 @@ impl WebUISearchActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUISearchActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ISearchActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUISearchActivatedEventArgs {
@@ -4010,7 +4049,7 @@ impl WebUIShareTargetActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIShareTargetActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIShareTargetActivatedEventArgs {
@@ -4081,7 +4120,7 @@ impl WebUIStartupTaskActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIStartupTaskActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIStartupTaskActivatedEventArgs {
@@ -4164,7 +4203,7 @@ impl WebUIToastNotificationActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIToastNotificationActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIToastNotificationActivatedEventArgs {
@@ -4227,7 +4266,7 @@ impl WebUIUserDataAccountProviderActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIUserDataAccountProviderActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIUserDataAccountProviderActivatedEventArgs {
@@ -4761,7 +4800,7 @@ impl WebUIView {
     }
 }
 impl windows_core::RuntimeType for WebUIView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUIView>();
 }
 unsafe impl windows_core::Interface for WebUIView {
     type Vtable = IWebUIView_Vtbl;
@@ -4830,7 +4869,7 @@ impl WebUIVoiceCommandActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIVoiceCommandActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIVoiceCommandActivatedEventArgs {
@@ -4909,7 +4948,7 @@ impl WebUIWalletActionActivatedEventArgs {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl windows_core::RuntimeType for WebUIWalletActionActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs>();
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl windows_core::Interface for WebUIWalletActionActivatedEventArgs {
@@ -4980,7 +5019,7 @@ impl WebUIWebAccountProviderActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIWebAccountProviderActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIWebAccountProviderActivatedEventArgs {
@@ -5051,7 +5090,7 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIWebAuthenticationBrokerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIWebAuthenticationBrokerContinuationEventArgs {

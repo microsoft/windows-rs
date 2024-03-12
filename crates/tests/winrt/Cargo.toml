@@ -9,18 +9,19 @@ path = "../../libs/windows"
 features = [
     "implement",
     "AI_MachineLearning",
+    "ApplicationModel_Activation",
+    "ApplicationModel_Appointments",
+    "ApplicationModel_Email",
+    "Data_Xml_Dom",
+    "Devices_Enumeration",
+    "Devices_WiFiDirect",
     "Foundation_Collections",
     "Foundation_Numerics",
     "Storage_Streams",
-    "Devices_WiFiDirect",
-    "ApplicationModel_Email",
-    "UI_Composition",
     "System",
-    "Data_Xml_Dom",
-    "ApplicationModel_Activation",
-    "ApplicationModel_Appointments",
-    "Win32_System_WinRT",
+    "UI_Composition",
     "Win32_System_Com",
+    "Win32_System_WinRT",
 ]
 
 [dev-dependencies]

@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IRemoteTextConnection, IRemoteTextConnection_Vtbl, 0x4e7bb02a_183e_5e66_b5e4_3e6e5c570cf1);
+impl windows_core::RuntimeType for IRemoteTextConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRemoteTextConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9,6 +12,9 @@ pub struct IRemoteTextConnection_Vtbl {
     pub ReportDataReceived: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRemoteTextConnectionFactory, IRemoteTextConnectionFactory_Vtbl, 0x88e075c2_0cae_596c_850f_78d345cd728b);
+impl windows_core::RuntimeType for IRemoteTextConnectionFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRemoteTextConnectionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -63,7 +69,7 @@ impl RemoteTextConnection {
     }
 }
 impl windows_core::RuntimeType for RemoteTextConnection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteTextConnection>();
 }
 unsafe impl windows_core::Interface for RemoteTextConnection {
     type Vtable = IRemoteTextConnection_Vtbl;

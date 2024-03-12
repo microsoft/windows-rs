@@ -7,6 +7,9 @@ pub mod GenericAttributeProfile;
 #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
 pub mod Rfcomm;
 windows_core::imp::define_interface!(IBluetoothAdapter, IBluetoothAdapter_Vtbl, 0x7974f04c_5f7a_4a34_9225_a855f84b1a8b);
+impl windows_core::RuntimeType for IBluetoothAdapter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothAdapter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -23,6 +26,9 @@ pub struct IBluetoothAdapter_Vtbl {
     GetRadioAsync: usize,
 }
 windows_core::imp::define_interface!(IBluetoothAdapter2, IBluetoothAdapter2_Vtbl, 0xac94cecc_24d5_41b3_916d_1097c50b102b);
+impl windows_core::RuntimeType for IBluetoothAdapter2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothAdapter2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -30,6 +36,9 @@ pub struct IBluetoothAdapter2_Vtbl {
     pub AreLowEnergySecureConnectionsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothAdapter3, IBluetoothAdapter3_Vtbl, 0x8f8624e0_cba9_5211_9f89_3aac62b4c6b8);
+impl windows_core::RuntimeType for IBluetoothAdapter3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothAdapter3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -37,6 +46,9 @@ pub struct IBluetoothAdapter3_Vtbl {
     pub MaxAdvertisementDataLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothAdapterStatics, IBluetoothAdapterStatics_Vtbl, 0x8b02fb6a_ac4c_4741_8661_8eab7d17ea9f);
+impl windows_core::RuntimeType for IBluetoothAdapterStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothAdapterStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -45,6 +57,9 @@ pub struct IBluetoothAdapterStatics_Vtbl {
     pub GetDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothClassOfDevice, IBluetoothClassOfDevice_Vtbl, 0xd640227e_d7d7_4661_9454_65039ca17a2b);
+impl windows_core::RuntimeType for IBluetoothClassOfDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothClassOfDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -54,6 +69,9 @@ pub struct IBluetoothClassOfDevice_Vtbl {
     pub ServiceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BluetoothServiceCapabilities) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothClassOfDeviceStatics, IBluetoothClassOfDeviceStatics_Vtbl, 0xe46135bd_0fa2_416c_91b4_c1e48ca061c1);
+impl windows_core::RuntimeType for IBluetoothClassOfDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothClassOfDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -61,6 +79,9 @@ pub struct IBluetoothClassOfDeviceStatics_Vtbl {
     pub FromParts: unsafe extern "system" fn(*mut core::ffi::c_void, BluetoothMajorClass, BluetoothMinorClass, BluetoothServiceCapabilities, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothDevice, IBluetoothDevice_Vtbl, 0x2335b156_90d2_4a04_aef5_0e20b9e6b707);
+impl windows_core::RuntimeType for IBluetoothDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -89,6 +110,9 @@ pub struct IBluetoothDevice_Vtbl {
     pub RemoveConnectionStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothDevice2, IBluetoothDevice2_Vtbl, 0x0133f954_b156_4dd0_b1f5_c11bc31a5163);
+impl windows_core::RuntimeType for IBluetoothDevice2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothDevice2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -98,6 +122,9 @@ pub struct IBluetoothDevice2_Vtbl {
     DeviceInformation: usize,
 }
 windows_core::imp::define_interface!(IBluetoothDevice3, IBluetoothDevice3_Vtbl, 0x57fff78b_651a_4454_b90f_eb21ef0b0d71);
+impl windows_core::RuntimeType for IBluetoothDevice3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothDevice3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -127,18 +154,27 @@ pub struct IBluetoothDevice3_Vtbl {
     GetRfcommServicesForIdWithCacheModeAsync: usize,
 }
 windows_core::imp::define_interface!(IBluetoothDevice4, IBluetoothDevice4_Vtbl, 0x817c34ad_0e9c_42b2_a8dc_3e8094940d12);
+impl windows_core::RuntimeType for IBluetoothDevice4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothDevice4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BluetoothDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothDevice5, IBluetoothDevice5_Vtbl, 0xb5e0b385_5e85_4559_a10d_1c7281379f96);
+impl windows_core::RuntimeType for IBluetoothDevice5 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothDevice5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub WasSecureConnectionUsedForPairing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothDeviceId, IBluetoothDeviceId_Vtbl, 0xc17949af_57c1_4642_bcce_e6c06b20ae76);
+impl windows_core::RuntimeType for IBluetoothDeviceId {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothDeviceId_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -147,12 +183,18 @@ pub struct IBluetoothDeviceId_Vtbl {
     pub IsLowEnergyDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothDeviceIdStatics, IBluetoothDeviceIdStatics_Vtbl, 0xa7884e67_3efb_4f31_bbc2_810e09977404);
+impl windows_core::RuntimeType for IBluetoothDeviceIdStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothDeviceIdStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothDeviceStatics, IBluetoothDeviceStatics_Vtbl, 0x0991df51_57db_4725_bbd7_84f64327ec2c);
+impl windows_core::RuntimeType for IBluetoothDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -165,6 +207,9 @@ pub struct IBluetoothDeviceStatics_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothDeviceStatics2, IBluetoothDeviceStatics2_Vtbl, 0xc29e8e2f_4e14_4477_aa1b_b8b47e5b7ece);
+impl windows_core::RuntimeType for IBluetoothDeviceStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothDeviceStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -175,6 +220,9 @@ pub struct IBluetoothDeviceStatics2_Vtbl {
     pub GetDeviceSelectorFromClassOfDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEAppearance, IBluetoothLEAppearance_Vtbl, 0x5d2079f2_66a8_4258_985e_02b4d9509f18);
+impl windows_core::RuntimeType for IBluetoothLEAppearance {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEAppearance_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -183,6 +231,9 @@ pub struct IBluetoothLEAppearance_Vtbl {
     pub SubCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEAppearanceCategoriesStatics, IBluetoothLEAppearanceCategoriesStatics_Vtbl, 0x6d4d54fe_046a_4185_aab6_824cf0610861);
+impl windows_core::RuntimeType for IBluetoothLEAppearanceCategoriesStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEAppearanceCategoriesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -210,6 +261,9 @@ pub struct IBluetoothLEAppearanceCategoriesStatics_Vtbl {
     pub OutdoorSportActivity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEAppearanceStatics, IBluetoothLEAppearanceStatics_Vtbl, 0xa193c0c7_4504_4f4a_9ba5_cd1054e5e065);
+impl windows_core::RuntimeType for IBluetoothLEAppearanceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEAppearanceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -217,6 +271,9 @@ pub struct IBluetoothLEAppearanceStatics_Vtbl {
     pub FromParts: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEAppearanceSubcategoriesStatics, IBluetoothLEAppearanceSubcategoriesStatics_Vtbl, 0xe57ba606_2144_415a_8312_71ccf291f8d1);
+impl windows_core::RuntimeType for IBluetoothLEAppearanceSubcategoriesStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEAppearanceSubcategoriesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -250,6 +307,9 @@ pub struct IBluetoothLEAppearanceSubcategoriesStatics_Vtbl {
     pub LocationNavigationPod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEConnectionParameters, IBluetoothLEConnectionParameters_Vtbl, 0x33cb0771_8da9_508f_a366_1ca388c929ab);
+impl windows_core::RuntimeType for IBluetoothLEConnectionParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEConnectionParameters_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -258,6 +318,9 @@ pub struct IBluetoothLEConnectionParameters_Vtbl {
     pub ConnectionInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEConnectionPhy, IBluetoothLEConnectionPhy_Vtbl, 0x781e5e48_621e_5a7e_8be6_1b9561ff63c9);
+impl windows_core::RuntimeType for IBluetoothLEConnectionPhy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEConnectionPhy_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -265,6 +328,9 @@ pub struct IBluetoothLEConnectionPhy_Vtbl {
     pub ReceiveInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEConnectionPhyInfo, IBluetoothLEConnectionPhyInfo_Vtbl, 0x9a100bdd_602e_5c27_a1ae_b230015a6394);
+impl windows_core::RuntimeType for IBluetoothLEConnectionPhyInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEConnectionPhyInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -273,6 +339,9 @@ pub struct IBluetoothLEConnectionPhyInfo_Vtbl {
     pub IsCodedPhy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEDevice, IBluetoothLEDevice_Vtbl, 0xb5ee2f7b_4ad8_4642_ac48_80a0b500e887);
+impl windows_core::RuntimeType for IBluetoothLEDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -296,6 +365,9 @@ pub struct IBluetoothLEDevice_Vtbl {
     pub RemoveConnectionStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEDevice2, IBluetoothLEDevice2_Vtbl, 0x26f062b3_7aee_4d31_baba_b1b9775f5916);
+impl windows_core::RuntimeType for IBluetoothLEDevice2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEDevice2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -307,6 +379,9 @@ pub struct IBluetoothLEDevice2_Vtbl {
     pub BluetoothAddressType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BluetoothAddressType) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEDevice3, IBluetoothLEDevice3_Vtbl, 0xaee9e493_44ac_40dc_af33_b2c13c01ca46);
+impl windows_core::RuntimeType for IBluetoothLEDevice3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEDevice3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -336,18 +411,27 @@ pub struct IBluetoothLEDevice3_Vtbl {
     GetGattServicesForUuidWithCacheModeAsync: usize,
 }
 windows_core::imp::define_interface!(IBluetoothLEDevice4, IBluetoothLEDevice4_Vtbl, 0x2b605031_2248_4b2f_acf0_7cee36fc5870);
+impl windows_core::RuntimeType for IBluetoothLEDevice4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEDevice4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BluetoothDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEDevice5, IBluetoothLEDevice5_Vtbl, 0x9d6a1260_5287_458e_95ba_17c8b7bb326e);
+impl windows_core::RuntimeType for IBluetoothLEDevice5 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEDevice5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub WasSecureConnectionUsedForPairing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEDevice6, IBluetoothLEDevice6_Vtbl, 0xca7190ef_0cae_573c_a1ca_e1fc5bfc39e2);
+impl windows_core::RuntimeType for IBluetoothLEDevice6 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEDevice6_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -360,6 +444,9 @@ pub struct IBluetoothLEDevice6_Vtbl {
     pub RemoveConnectionPhyChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEDeviceStatics, IBluetoothLEDeviceStatics_Vtbl, 0xc8cf1a19_f0b6_4bf0_8689_41303de2d9f4);
+impl windows_core::RuntimeType for IBluetoothLEDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -368,6 +455,9 @@ pub struct IBluetoothLEDeviceStatics_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEDeviceStatics2, IBluetoothLEDeviceStatics2_Vtbl, 0x5f12c06b_3bac_43e8_ad16_563271bd41c2);
+impl windows_core::RuntimeType for IBluetoothLEDeviceStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEDeviceStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -380,6 +470,9 @@ pub struct IBluetoothLEDeviceStatics2_Vtbl {
     pub FromBluetoothAddressWithBluetoothAddressTypeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u64, BluetoothAddressType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEPreferredConnectionParameters, IBluetoothLEPreferredConnectionParameters_Vtbl, 0xf2f44344_7372_5f7b_9b34_29c944f5a715);
+impl windows_core::RuntimeType for IBluetoothLEPreferredConnectionParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEPreferredConnectionParameters_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -389,12 +482,18 @@ pub struct IBluetoothLEPreferredConnectionParameters_Vtbl {
     pub MaxConnectionInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEPreferredConnectionParametersRequest, IBluetoothLEPreferredConnectionParametersRequest_Vtbl, 0x8a375276_a528_5266_b661_cce6a5ff9739);
+impl windows_core::RuntimeType for IBluetoothLEPreferredConnectionParametersRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEPreferredConnectionParametersRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BluetoothLEPreferredConnectionParametersRequestStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEPreferredConnectionParametersStatics, IBluetoothLEPreferredConnectionParametersStatics_Vtbl, 0x0e3e8edc_2751_55aa_a838_8faeee818d72);
+impl windows_core::RuntimeType for IBluetoothLEPreferredConnectionParametersStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEPreferredConnectionParametersStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -403,6 +502,9 @@ pub struct IBluetoothLEPreferredConnectionParametersStatics_Vtbl {
     pub PowerOptimized: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothSignalStrengthFilter, IBluetoothSignalStrengthFilter_Vtbl, 0xdf7b7391_6bb5_4cfe_90b1_5d7324edcf7f);
+impl windows_core::RuntimeType for IBluetoothSignalStrengthFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothSignalStrengthFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -416,6 +518,9 @@ pub struct IBluetoothSignalStrengthFilter_Vtbl {
     pub SetSamplingInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothUuidHelperStatics, IBluetoothUuidHelperStatics_Vtbl, 0x17df0cd8_cf74_4b21_afe6_f57a11bcdea0);
+impl windows_core::RuntimeType for IBluetoothUuidHelperStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothUuidHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -537,7 +642,7 @@ impl BluetoothAdapter {
     }
 }
 impl windows_core::RuntimeType for BluetoothAdapter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothAdapter>();
 }
 unsafe impl windows_core::Interface for BluetoothAdapter {
     type Vtable = IBluetoothAdapter_Vtbl;
@@ -600,7 +705,7 @@ impl BluetoothClassOfDevice {
     }
 }
 impl windows_core::RuntimeType for BluetoothClassOfDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothClassOfDevice>();
 }
 unsafe impl windows_core::Interface for BluetoothClassOfDevice {
     type Vtable = IBluetoothClassOfDevice_Vtbl;
@@ -871,7 +976,7 @@ impl BluetoothDevice {
     }
 }
 impl windows_core::RuntimeType for BluetoothDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothDevice>();
 }
 unsafe impl windows_core::Interface for BluetoothDevice {
     type Vtable = IBluetoothDevice_Vtbl;
@@ -921,7 +1026,7 @@ impl BluetoothDeviceId {
     }
 }
 impl windows_core::RuntimeType for BluetoothDeviceId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothDeviceId>();
 }
 unsafe impl windows_core::Interface for BluetoothDeviceId {
     type Vtable = IBluetoothDeviceId_Vtbl;
@@ -977,7 +1082,7 @@ impl BluetoothLEAppearance {
     }
 }
 impl windows_core::RuntimeType for BluetoothLEAppearance {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAppearance>();
 }
 unsafe impl windows_core::Interface for BluetoothLEAppearance {
     type Vtable = IBluetoothLEAppearance_Vtbl;
@@ -1338,7 +1443,7 @@ impl BluetoothLEConnectionParameters {
     }
 }
 impl windows_core::RuntimeType for BluetoothLEConnectionParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEConnectionParameters>();
 }
 unsafe impl windows_core::Interface for BluetoothLEConnectionParameters {
     type Vtable = IBluetoothLEConnectionParameters_Vtbl;
@@ -1370,7 +1475,7 @@ impl BluetoothLEConnectionPhy {
     }
 }
 impl windows_core::RuntimeType for BluetoothLEConnectionPhy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEConnectionPhy>();
 }
 unsafe impl windows_core::Interface for BluetoothLEConnectionPhy {
     type Vtable = IBluetoothLEConnectionPhy_Vtbl;
@@ -1409,7 +1514,7 @@ impl BluetoothLEConnectionPhyInfo {
     }
 }
 impl windows_core::RuntimeType for BluetoothLEConnectionPhyInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEConnectionPhyInfo>();
 }
 unsafe impl windows_core::Interface for BluetoothLEConnectionPhyInfo {
     type Vtable = IBluetoothLEConnectionPhyInfo_Vtbl;
@@ -1727,7 +1832,7 @@ impl BluetoothLEDevice {
     }
 }
 impl windows_core::RuntimeType for BluetoothLEDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEDevice>();
 }
 unsafe impl windows_core::Interface for BluetoothLEDevice {
     type Vtable = IBluetoothLEDevice_Vtbl;
@@ -1796,7 +1901,7 @@ impl BluetoothLEPreferredConnectionParameters {
     }
 }
 impl windows_core::RuntimeType for BluetoothLEPreferredConnectionParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEPreferredConnectionParameters>();
 }
 unsafe impl windows_core::Interface for BluetoothLEPreferredConnectionParameters {
     type Vtable = IBluetoothLEPreferredConnectionParameters_Vtbl;
@@ -1826,7 +1931,7 @@ impl BluetoothLEPreferredConnectionParametersRequest {
     }
 }
 impl windows_core::RuntimeType for BluetoothLEPreferredConnectionParametersRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEPreferredConnectionParametersRequest>();
 }
 unsafe impl windows_core::Interface for BluetoothLEPreferredConnectionParametersRequest {
     type Vtable = IBluetoothLEPreferredConnectionParametersRequest_Vtbl;
@@ -1907,7 +2012,7 @@ impl BluetoothSignalStrengthFilter {
     }
 }
 impl windows_core::RuntimeType for BluetoothSignalStrengthFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothSignalStrengthFilter>();
 }
 unsafe impl windows_core::Interface for BluetoothSignalStrengthFilter {
     type Vtable = IBluetoothSignalStrengthFilter_Vtbl;

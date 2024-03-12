@@ -33,6 +33,9 @@ pub struct IUriToStreamResolver_Vtbl {
     UriToStreamAsync: usize,
 }
 windows_core::imp::define_interface!(IWebErrorStatics, IWebErrorStatics_Vtbl, 0xfe616766_bf27_4064_87b7_6563bb11ce2e);
+impl windows_core::RuntimeType for IWebErrorStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebErrorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

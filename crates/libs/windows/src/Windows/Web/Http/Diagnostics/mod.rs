@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IHttpDiagnosticProvider, IHttpDiagnosticProvider_Vtbl, 0xbd811501_a056_4d39_b174_833b7b03b02c);
+impl windows_core::RuntimeType for IHttpDiagnosticProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpDiagnosticProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12,6 +15,9 @@ pub struct IHttpDiagnosticProvider_Vtbl {
     pub RemoveRequestResponseCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpDiagnosticProviderRequestResponseCompletedEventArgs, IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl, 0x735f98ee_94f6_4532_b26e_61e1b1e4efd4);
+impl windows_core::RuntimeType for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -27,6 +33,9 @@ pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl {
     SourceLocations: usize,
 }
 windows_core::imp::define_interface!(IHttpDiagnosticProviderRequestResponseTimestamps, IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl, 0xe0afde10_55cf_4c01_91d4_a20557d849f0);
+impl windows_core::RuntimeType for IHttpDiagnosticProviderRequestResponseTimestamps {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -41,6 +50,9 @@ pub struct IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl {
     pub ResponseCompletedTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpDiagnosticProviderRequestSentEventArgs, IHttpDiagnosticProviderRequestSentEventArgs_Vtbl, 0x3f5196d0_4c1f_4ebe_a57a_06930771c50d);
+impl windows_core::RuntimeType for IHttpDiagnosticProviderRequestSentEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpDiagnosticProviderRequestSentEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -56,6 +68,9 @@ pub struct IHttpDiagnosticProviderRequestSentEventArgs_Vtbl {
     SourceLocations: usize,
 }
 windows_core::imp::define_interface!(IHttpDiagnosticProviderResponseReceivedEventArgs, IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl, 0xa0a2566c_ab5f_4d66_bb2d_084cf41635d0);
+impl windows_core::RuntimeType for IHttpDiagnosticProviderResponseReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -64,6 +79,9 @@ pub struct IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl {
     pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpDiagnosticProviderStatics, IHttpDiagnosticProviderStatics_Vtbl, 0x5b824ec1_6a6c_47cc_afec_1e86bc26053b);
+impl windows_core::RuntimeType for IHttpDiagnosticProviderStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpDiagnosticProviderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -73,6 +91,9 @@ pub struct IHttpDiagnosticProviderStatics_Vtbl {
     CreateFromProcessDiagnosticInfo: usize,
 }
 windows_core::imp::define_interface!(IHttpDiagnosticSourceLocation, IHttpDiagnosticSourceLocation_Vtbl, 0x54a9d260_8860_423f_b6fa_d77716f647a7);
+impl windows_core::RuntimeType for IHttpDiagnosticSourceLocation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpDiagnosticSourceLocation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -152,7 +173,7 @@ impl HttpDiagnosticProvider {
     }
 }
 impl windows_core::RuntimeType for HttpDiagnosticProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpDiagnosticProvider>();
 }
 unsafe impl windows_core::Interface for HttpDiagnosticProvider {
     type Vtable = IHttpDiagnosticProvider_Vtbl;
@@ -220,7 +241,7 @@ impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     }
 }
 impl windows_core::RuntimeType for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpDiagnosticProviderRequestResponseCompletedEventArgs>();
 }
 unsafe impl windows_core::Interface for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl;
@@ -301,7 +322,7 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
     }
 }
 impl windows_core::RuntimeType for HttpDiagnosticProviderRequestResponseTimestamps {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpDiagnosticProviderRequestResponseTimestamps>();
 }
 unsafe impl windows_core::Interface for HttpDiagnosticProviderRequestResponseTimestamps {
     type Vtable = IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl;
@@ -369,7 +390,7 @@ impl HttpDiagnosticProviderRequestSentEventArgs {
     }
 }
 impl windows_core::RuntimeType for HttpDiagnosticProviderRequestSentEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpDiagnosticProviderRequestSentEventArgs>();
 }
 unsafe impl windows_core::Interface for HttpDiagnosticProviderRequestSentEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestSentEventArgs_Vtbl;
@@ -408,7 +429,7 @@ impl HttpDiagnosticProviderResponseReceivedEventArgs {
     }
 }
 impl windows_core::RuntimeType for HttpDiagnosticProviderResponseReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpDiagnosticProviderResponseReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for HttpDiagnosticProviderResponseReceivedEventArgs {
     type Vtable = IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl;
@@ -447,7 +468,7 @@ impl HttpDiagnosticSourceLocation {
     }
 }
 impl windows_core::RuntimeType for HttpDiagnosticSourceLocation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpDiagnosticSourceLocation>();
 }
 unsafe impl windows_core::Interface for HttpDiagnosticSourceLocation {
     type Vtable = IHttpDiagnosticSourceLocation_Vtbl;

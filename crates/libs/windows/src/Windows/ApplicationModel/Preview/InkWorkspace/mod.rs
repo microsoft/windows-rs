@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IInkWorkspaceHostedAppManager, IInkWorkspaceHostedAppManager_Vtbl, 0xfe0a7990_5e59_4bb7_8a63_7d218cd96300);
+impl windows_core::RuntimeType for IInkWorkspaceHostedAppManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkWorkspaceHostedAppManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,6 +11,9 @@ pub struct IInkWorkspaceHostedAppManager_Vtbl {
     SetThumbnailAsync: usize,
 }
 windows_core::imp::define_interface!(IInkWorkspaceHostedAppManagerStatics, IInkWorkspaceHostedAppManagerStatics_Vtbl, 0xcbfd8cc5_a162_4bc4_84ee_e8716d5233c5);
+impl windows_core::RuntimeType for IInkWorkspaceHostedAppManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInkWorkspaceHostedAppManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -42,7 +48,7 @@ impl InkWorkspaceHostedAppManager {
     }
 }
 impl windows_core::RuntimeType for InkWorkspaceHostedAppManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkWorkspaceHostedAppManager>();
 }
 unsafe impl windows_core::Interface for InkWorkspaceHostedAppManager {
     type Vtable = IInkWorkspaceHostedAppManager_Vtbl;

@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ICharacterGrouping, ICharacterGrouping_Vtbl, 0xfae761bb_805d_4bb0_95bb_c1f7c3e8eb8e);
+impl windows_core::RuntimeType for ICharacterGrouping {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICharacterGrouping_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6,12 +9,18 @@ pub struct ICharacterGrouping_Vtbl {
     pub Label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICharacterGroupings, ICharacterGroupings_Vtbl, 0xb8d20a75_d4cf_4055_80e5_ce169c226496);
+impl windows_core::RuntimeType for ICharacterGroupings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICharacterGroupings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Lookup: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICharacterGroupingsFactory, ICharacterGroupingsFactory_Vtbl, 0x99ea9fd9_886d_4401_9f98_69c82d4c2f78);
+impl windows_core::RuntimeType for ICharacterGroupingsFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICharacterGroupingsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -38,7 +47,7 @@ impl CharacterGrouping {
     }
 }
 impl windows_core::RuntimeType for CharacterGrouping {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICharacterGrouping>();
 }
 unsafe impl windows_core::Interface for CharacterGrouping {
     type Vtable = ICharacterGrouping_Vtbl;
@@ -126,7 +135,7 @@ impl CharacterGroupings {
     }
 }
 impl windows_core::RuntimeType for CharacterGroupings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICharacterGroupings>();
 }
 unsafe impl windows_core::Interface for CharacterGroupings {
     type Vtable = ICharacterGroupings_Vtbl;

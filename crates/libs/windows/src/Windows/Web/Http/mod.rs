@@ -5,6 +5,9 @@ pub mod Filters;
 #[cfg(feature = "Web_Http_Headers")]
 pub mod Headers;
 windows_core::imp::define_interface!(IHttpBufferContentFactory, IHttpBufferContentFactory_Vtbl, 0xbc20c193_c41f_4ff7_9123_6435736eadc2);
+impl windows_core::RuntimeType for IHttpBufferContentFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpBufferContentFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -18,6 +21,9 @@ pub struct IHttpBufferContentFactory_Vtbl {
     CreateFromBufferWithOffset: usize,
 }
 windows_core::imp::define_interface!(IHttpClient, IHttpClient_Vtbl, 0x7fda1151_3574_4880_a8ba_e6b1e0061f3d);
+impl windows_core::RuntimeType for IHttpClient {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpClient_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -43,6 +49,9 @@ pub struct IHttpClient_Vtbl {
     DefaultRequestHeaders: usize,
 }
 windows_core::imp::define_interface!(IHttpClient2, IHttpClient2_Vtbl, 0xcdd83348_e8b7_4cec_b1b0_dc455fe72c92);
+impl windows_core::RuntimeType for IHttpClient2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpClient2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -58,6 +67,9 @@ pub struct IHttpClient2_Vtbl {
     pub TrySendRequestAsync2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, HttpCompletionOption, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpClient3, IHttpClient3_Vtbl, 0x1172fd01_9899_4194_963f_8f9d72a7ec15);
+impl windows_core::RuntimeType for IHttpClient3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpClient3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -65,6 +77,9 @@ pub struct IHttpClient3_Vtbl {
     pub SetDefaultPrivacyAnnotation: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpClientFactory, IHttpClientFactory_Vtbl, 0xc30c4eca_e3fa_4f99_afb4_63cc65009462);
+impl windows_core::RuntimeType for IHttpClientFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpClientFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -165,6 +180,9 @@ pub struct IHttpContent_Vtbl {
     WriteToStreamAsync: usize,
 }
 windows_core::imp::define_interface!(IHttpCookie, IHttpCookie_Vtbl, 0x1f5488e2_cc2d_4779_86a7_88f10687d249);
+impl windows_core::RuntimeType for IHttpCookie {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpCookie_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -181,12 +199,18 @@ pub struct IHttpCookie_Vtbl {
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpCookieFactory, IHttpCookieFactory_Vtbl, 0x6a0585a9_931c_4cd1_a96d_c21701785c5f);
+impl windows_core::RuntimeType for IHttpCookieFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpCookieFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpCookieManager, IHttpCookieManager_Vtbl, 0x7a431780_cd4f_4e57_a84a_5b0a53d6bb96);
+impl windows_core::RuntimeType for IHttpCookieManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpCookieManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -199,6 +223,9 @@ pub struct IHttpCookieManager_Vtbl {
     GetCookies: usize,
 }
 windows_core::imp::define_interface!(IHttpFormUrlEncodedContentFactory, IHttpFormUrlEncodedContentFactory_Vtbl, 0x43f0138c_2f73_4302_b5f3_eae9238a5e01);
+impl windows_core::RuntimeType for IHttpFormUrlEncodedContentFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpFormUrlEncodedContentFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -208,6 +235,9 @@ pub struct IHttpFormUrlEncodedContentFactory_Vtbl {
     Create: usize,
 }
 windows_core::imp::define_interface!(IHttpGetBufferResult, IHttpGetBufferResult_Vtbl, 0x53d08e7c_e209_404e_9a49_742d8236fd3a);
+impl windows_core::RuntimeType for IHttpGetBufferResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpGetBufferResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -221,6 +251,9 @@ pub struct IHttpGetBufferResult_Vtbl {
     Value: usize,
 }
 windows_core::imp::define_interface!(IHttpGetInputStreamResult, IHttpGetInputStreamResult_Vtbl, 0xd5d63463_13aa_4ee0_be95_a0c39fe91203);
+impl windows_core::RuntimeType for IHttpGetInputStreamResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpGetInputStreamResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -234,6 +267,9 @@ pub struct IHttpGetInputStreamResult_Vtbl {
     Value: usize,
 }
 windows_core::imp::define_interface!(IHttpGetStringResult, IHttpGetStringResult_Vtbl, 0x9bac466d_8509_4775_b16d_8953f47a7f5f);
+impl windows_core::RuntimeType for IHttpGetStringResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpGetStringResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -244,18 +280,27 @@ pub struct IHttpGetStringResult_Vtbl {
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpMethod, IHttpMethod_Vtbl, 0x728d4022_700d_4fe0_afa5_40299c58dbfd);
+impl windows_core::RuntimeType for IHttpMethod {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpMethod_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Method: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpMethodFactory, IHttpMethodFactory_Vtbl, 0x3c51d10d_36d7_40f8_a86d_e759caf2f83f);
+impl windows_core::RuntimeType for IHttpMethodFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpMethodFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpMethodStatics, IHttpMethodStatics_Vtbl, 0x64d171f0_d99a_4153_8dc6_d68cc4cce317);
+impl windows_core::RuntimeType for IHttpMethodStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpMethodStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -268,12 +313,18 @@ pub struct IHttpMethodStatics_Vtbl {
     pub Put: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpMultipartContent, IHttpMultipartContent_Vtbl, 0xdf916aff_9926_4ac9_aaf1_e0d04ef09bb9);
+impl windows_core::RuntimeType for IHttpMultipartContent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpMultipartContent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpMultipartContentFactory, IHttpMultipartContentFactory_Vtbl, 0x7eb42e62_0222_4f20_b372_47d5db5d33b4);
+impl windows_core::RuntimeType for IHttpMultipartContentFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpMultipartContentFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -281,6 +332,9 @@ pub struct IHttpMultipartContentFactory_Vtbl {
     pub CreateWithSubtypeAndBoundary: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpMultipartFormDataContent, IHttpMultipartFormDataContent_Vtbl, 0x64d337e2_e967_4624_b6d1_cf74604a4a42);
+impl windows_core::RuntimeType for IHttpMultipartFormDataContent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpMultipartFormDataContent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -289,12 +343,18 @@ pub struct IHttpMultipartFormDataContent_Vtbl {
     pub AddWithNameAndFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpMultipartFormDataContentFactory, IHttpMultipartFormDataContentFactory_Vtbl, 0xa04d7311_5017_4622_93a8_49b24a4fcbfc);
+impl windows_core::RuntimeType for IHttpMultipartFormDataContentFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpMultipartFormDataContentFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWithBoundary: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpRequestMessage, IHttpRequestMessage_Vtbl, 0xf5762b3c_74d4_4811_b5dc_9f8b4e2f9abf);
+impl windows_core::RuntimeType for IHttpRequestMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpRequestMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -315,6 +375,9 @@ pub struct IHttpRequestMessage_Vtbl {
     pub TransportInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpRequestMessage2, IHttpRequestMessage2_Vtbl, 0xc3c60489_62c2_4a3f_9554_226e7c60bd96);
+impl windows_core::RuntimeType for IHttpRequestMessage2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpRequestMessage2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -322,12 +385,18 @@ pub struct IHttpRequestMessage2_Vtbl {
     pub SetPrivacyAnnotation: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpRequestMessageFactory, IHttpRequestMessageFactory_Vtbl, 0x5bac994e_3886_412e_aec3_52ec7f25616f);
+impl windows_core::RuntimeType for IHttpRequestMessageFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpRequestMessageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpRequestResult, IHttpRequestResult_Vtbl, 0x6acf4da8_b5eb_4a35_a902_4217fbe820c5);
+impl windows_core::RuntimeType for IHttpRequestResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpRequestResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -337,6 +406,9 @@ pub struct IHttpRequestResult_Vtbl {
     pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpResponseMessage, IHttpResponseMessage_Vtbl, 0xfee200fb_8664_44e0_95d9_42696199bffc);
+impl windows_core::RuntimeType for IHttpResponseMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpResponseMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -360,12 +432,18 @@ pub struct IHttpResponseMessage_Vtbl {
     pub EnsureSuccessStatusCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpResponseMessageFactory, IHttpResponseMessageFactory_Vtbl, 0x52a8af99_f095_43da_b60f_7cfc2bc7ea2f);
+impl windows_core::RuntimeType for IHttpResponseMessageFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpResponseMessageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, HttpStatusCode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpStreamContentFactory, IHttpStreamContentFactory_Vtbl, 0xf3e64d9d_f725_407e_942f_0eda189809f4);
+impl windows_core::RuntimeType for IHttpStreamContentFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpStreamContentFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -375,6 +453,9 @@ pub struct IHttpStreamContentFactory_Vtbl {
     CreateFromInputStream: usize,
 }
 windows_core::imp::define_interface!(IHttpStringContentFactory, IHttpStringContentFactory_Vtbl, 0x46649d5b_2e93_48eb_8e61_19677878e57f);
+impl windows_core::RuntimeType for IHttpStringContentFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpStringContentFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -389,6 +470,9 @@ pub struct IHttpStringContentFactory_Vtbl {
     CreateFromStringWithEncodingAndMediaType: usize,
 }
 windows_core::imp::define_interface!(IHttpTransportInformation, IHttpTransportInformation_Vtbl, 0x70127198_c6a7_4ed0_833a_83fd8b8f178d);
+impl windows_core::RuntimeType for IHttpTransportInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHttpTransportInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -509,7 +593,7 @@ impl HttpBufferContent {
     }
 }
 impl windows_core::RuntimeType for HttpBufferContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
 }
 unsafe impl windows_core::Interface for HttpBufferContent {
     type Vtable = IHttpContent_Vtbl;
@@ -786,7 +870,7 @@ impl HttpClient {
     }
 }
 impl windows_core::RuntimeType for HttpClient {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpClient>();
 }
 unsafe impl windows_core::Interface for HttpClient {
     type Vtable = IHttpClient_Vtbl;
@@ -891,7 +975,7 @@ impl HttpCookie {
     }
 }
 impl windows_core::RuntimeType for HttpCookie {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpCookie>();
 }
 unsafe impl windows_core::Interface for HttpCookie {
     type Vtable = IHttpCookie_Vtbl;
@@ -958,7 +1042,7 @@ impl HttpCookieCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for HttpCookieCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVectorView<HttpCookie>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpCookieCollection {
@@ -1034,7 +1118,7 @@ impl HttpCookieManager {
     }
 }
 impl windows_core::RuntimeType for HttpCookieManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpCookieManager>();
 }
 unsafe impl windows_core::Interface for HttpCookieManager {
     type Vtable = IHttpCookieManager_Vtbl;
@@ -1135,7 +1219,7 @@ impl HttpFormUrlEncodedContent {
     }
 }
 impl windows_core::RuntimeType for HttpFormUrlEncodedContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
 }
 unsafe impl windows_core::Interface for HttpFormUrlEncodedContent {
     type Vtable = IHttpContent_Vtbl;
@@ -1201,7 +1285,7 @@ impl HttpGetBufferResult {
     }
 }
 impl windows_core::RuntimeType for HttpGetBufferResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpGetBufferResult>();
 }
 unsafe impl windows_core::Interface for HttpGetBufferResult {
     type Vtable = IHttpGetBufferResult_Vtbl;
@@ -1267,7 +1351,7 @@ impl HttpGetInputStreamResult {
     }
 }
 impl windows_core::RuntimeType for HttpGetInputStreamResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpGetInputStreamResult>();
 }
 unsafe impl windows_core::Interface for HttpGetInputStreamResult {
     type Vtable = IHttpGetInputStreamResult_Vtbl;
@@ -1332,7 +1416,7 @@ impl HttpGetStringResult {
     }
 }
 impl windows_core::RuntimeType for HttpGetStringResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpGetStringResult>();
 }
 unsafe impl windows_core::Interface for HttpGetStringResult {
     type Vtable = IHttpGetStringResult_Vtbl;
@@ -1423,7 +1507,7 @@ impl HttpMethod {
     }
 }
 impl windows_core::RuntimeType for HttpMethod {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpMethod>();
 }
 unsafe impl windows_core::Interface for HttpMethod {
     type Vtable = IHttpMethod_Vtbl;
@@ -1549,7 +1633,7 @@ impl HttpMultipartContent {
     }
 }
 impl windows_core::RuntimeType for HttpMultipartContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
 }
 unsafe impl windows_core::Interface for HttpMultipartContent {
     type Vtable = IHttpContent_Vtbl;
@@ -1699,7 +1783,7 @@ impl HttpMultipartFormDataContent {
     }
 }
 impl windows_core::RuntimeType for HttpMultipartFormDataContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
 }
 unsafe impl windows_core::Interface for HttpMultipartFormDataContent {
     type Vtable = IHttpContent_Vtbl;
@@ -1843,7 +1927,7 @@ impl HttpRequestMessage {
     }
 }
 impl windows_core::RuntimeType for HttpRequestMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpRequestMessage>();
 }
 unsafe impl windows_core::Interface for HttpRequestMessage {
     type Vtable = IHttpRequestMessage_Vtbl;
@@ -1901,7 +1985,7 @@ impl HttpRequestResult {
     }
 }
 impl windows_core::RuntimeType for HttpRequestResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpRequestResult>();
 }
 unsafe impl windows_core::Interface for HttpRequestResult {
     type Vtable = IHttpRequestResult_Vtbl;
@@ -2043,7 +2127,7 @@ impl HttpResponseMessage {
     }
 }
 impl windows_core::RuntimeType for HttpResponseMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpResponseMessage>();
 }
 unsafe impl windows_core::Interface for HttpResponseMessage {
     type Vtable = IHttpResponseMessage_Vtbl;
@@ -2144,7 +2228,7 @@ impl HttpStreamContent {
     }
 }
 impl windows_core::RuntimeType for HttpStreamContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
 }
 unsafe impl windows_core::Interface for HttpStreamContent {
     type Vtable = IHttpContent_Vtbl;
@@ -2255,7 +2339,7 @@ impl HttpStringContent {
     }
 }
 impl windows_core::RuntimeType for HttpStringContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
 }
 unsafe impl windows_core::Interface for HttpStringContent {
     type Vtable = IHttpContent_Vtbl;
@@ -2313,7 +2397,7 @@ impl HttpTransportInformation {
     }
 }
 impl windows_core::RuntimeType for HttpTransportInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpTransportInformation>();
 }
 unsafe impl windows_core::Interface for HttpTransportInformation {
     type Vtable = IHttpTransportInformation_Vtbl;

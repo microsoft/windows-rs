@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ICastingConnection, ICastingConnection_Vtbl, 0xcd951653_c2f1_4498_8b78_5fb4cd3640dd);
+impl windows_core::RuntimeType for ICastingConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICastingConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14,6 +17,9 @@ pub struct ICastingConnection_Vtbl {
     pub DisconnectAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICastingConnectionErrorOccurredEventArgs, ICastingConnectionErrorOccurredEventArgs_Vtbl, 0xa7fb3c69_8719_4f00_81fb_961863c79a32);
+impl windows_core::RuntimeType for ICastingConnectionErrorOccurredEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICastingConnectionErrorOccurredEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -21,6 +27,9 @@ pub struct ICastingConnectionErrorOccurredEventArgs_Vtbl {
     pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICastingDevice, ICastingDevice_Vtbl, 0xde721c83_4a43_4ad1_a6d2_2492a796c3f2);
+impl windows_core::RuntimeType for ICastingDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICastingDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -34,6 +43,9 @@ pub struct ICastingDevice_Vtbl {
     pub CreateCastingConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICastingDevicePicker, ICastingDevicePicker_Vtbl, 0xdcd39924_0591_49be_aacb_4b82ee756a95);
+impl windows_core::RuntimeType for ICastingDevicePicker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICastingDevicePicker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -54,6 +66,9 @@ pub struct ICastingDevicePicker_Vtbl {
     pub Hide: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICastingDevicePickerFilter, ICastingDevicePickerFilter_Vtbl, 0xbe8c619c_b563_4354_ae33_9fdaad8c6291);
+impl windows_core::RuntimeType for ICastingDevicePickerFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICastingDevicePickerFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -69,12 +84,18 @@ pub struct ICastingDevicePickerFilter_Vtbl {
     SupportedCastingSources: usize,
 }
 windows_core::imp::define_interface!(ICastingDeviceSelectedEventArgs, ICastingDeviceSelectedEventArgs_Vtbl, 0xdc439e86_dd57_4d0d_9400_af45e4fb3663);
+impl windows_core::RuntimeType for ICastingDeviceSelectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICastingDeviceSelectedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SelectedCastingDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICastingDeviceStatics, ICastingDeviceStatics_Vtbl, 0xe7d958d7_4d13_4237_a365_4c4f6a4cfd2f);
+impl windows_core::RuntimeType for ICastingDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICastingDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -87,6 +108,9 @@ pub struct ICastingDeviceStatics_Vtbl {
     DeviceInfoSupportsCastingAsync: usize,
 }
 windows_core::imp::define_interface!(ICastingSource, ICastingSource_Vtbl, 0xf429ea72_3467_47e6_a027_522923e9d727);
+impl windows_core::RuntimeType for ICastingSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICastingSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -178,7 +202,7 @@ impl CastingConnection {
     }
 }
 impl windows_core::RuntimeType for CastingConnection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingConnection>();
 }
 unsafe impl windows_core::Interface for CastingConnection {
     type Vtable = ICastingConnection_Vtbl;
@@ -210,7 +234,7 @@ impl CastingConnectionErrorOccurredEventArgs {
     }
 }
 impl windows_core::RuntimeType for CastingConnectionErrorOccurredEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingConnectionErrorOccurredEventArgs>();
 }
 unsafe impl windows_core::Interface for CastingConnectionErrorOccurredEventArgs {
     type Vtable = ICastingConnectionErrorOccurredEventArgs_Vtbl;
@@ -300,7 +324,7 @@ impl CastingDevice {
     }
 }
 impl windows_core::RuntimeType for CastingDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingDevice>();
 }
 unsafe impl windows_core::Interface for CastingDevice {
     type Vtable = ICastingDevice_Vtbl;
@@ -381,7 +405,7 @@ impl CastingDevicePicker {
     }
 }
 impl windows_core::RuntimeType for CastingDevicePicker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingDevicePicker>();
 }
 unsafe impl windows_core::Interface for CastingDevicePicker {
     type Vtable = ICastingDevicePicker_Vtbl;
@@ -440,7 +464,7 @@ impl CastingDevicePickerFilter {
     }
 }
 impl windows_core::RuntimeType for CastingDevicePickerFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingDevicePickerFilter>();
 }
 unsafe impl windows_core::Interface for CastingDevicePickerFilter {
     type Vtable = ICastingDevicePickerFilter_Vtbl;
@@ -465,7 +489,7 @@ impl CastingDeviceSelectedEventArgs {
     }
 }
 impl windows_core::RuntimeType for CastingDeviceSelectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingDeviceSelectedEventArgs>();
 }
 unsafe impl windows_core::Interface for CastingDeviceSelectedEventArgs {
     type Vtable = ICastingDeviceSelectedEventArgs_Vtbl;
@@ -497,7 +521,7 @@ impl CastingSource {
     }
 }
 impl windows_core::RuntimeType for CastingSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingSource>();
 }
 unsafe impl windows_core::Interface for CastingSource {
     type Vtable = ICastingSource_Vtbl;

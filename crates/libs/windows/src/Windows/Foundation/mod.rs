@@ -58,9 +58,6 @@ impl IAsyncAction {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl windows_core::RuntimeType for IAsyncAction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IAsyncAction {
     pub fn get(&self) -> windows_core::Result<()> {
         if self.Status()? == AsyncStatus::Started {
@@ -92,6 +89,9 @@ impl std::future::Future for IAsyncAction {
 }
 unsafe impl Send for IAsyncAction {}
 unsafe impl Sync for IAsyncAction {}
+impl windows_core::RuntimeType for IAsyncAction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAsyncAction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -172,9 +172,6 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress<TP
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl<TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IAsyncActionWithProgress<TProgress> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = { windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{1f6db258-e803-48a1-9546-eb7353398884}").push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")") };
-}
 impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress<TProgress> {
     pub fn get(&self) -> windows_core::Result<()> {
         if self.Status()? == AsyncStatus::Started {
@@ -206,6 +203,9 @@ impl<TProgress: windows_core::RuntimeType + 'static> std::future::Future for IAs
 }
 unsafe impl<TProgress: windows_core::RuntimeType + 'static> Send for IAsyncActionWithProgress<TProgress> {}
 unsafe impl<TProgress: windows_core::RuntimeType + 'static> Sync for IAsyncActionWithProgress<TProgress> {}
+impl<TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IAsyncActionWithProgress<TProgress> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = { windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{1f6db258-e803-48a1-9546-eb7353398884}").push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")") };
+}
 unsafe impl<TProgress: windows_core::RuntimeType + 'static> windows_core::Interface for IAsyncActionWithProgress<TProgress> {
     type Vtable = IAsyncActionWithProgress_Vtbl<TProgress>;
     const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
@@ -330,9 +330,6 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IAsyncOperation<TResult> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = { windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9fc2b0bb-e446-44e2-aa61-9cab8f636af2}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b")") };
-}
 impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
     pub fn get(&self) -> windows_core::Result<TResult> {
         if self.Status()? == AsyncStatus::Started {
@@ -364,6 +361,9 @@ impl<TResult: windows_core::RuntimeType + 'static> std::future::Future for IAsyn
 }
 unsafe impl<TResult: windows_core::RuntimeType + 'static> Send for IAsyncOperation<TResult> {}
 unsafe impl<TResult: windows_core::RuntimeType + 'static> Sync for IAsyncOperation<TResult> {}
+impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IAsyncOperation<TResult> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = { windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9fc2b0bb-e446-44e2-aa61-9cab8f636af2}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b")") };
+}
 unsafe impl<TResult: windows_core::RuntimeType + 'static> windows_core::Interface for IAsyncOperation<TResult> {
     type Vtable = IAsyncOperation_Vtbl<TResult>;
     const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
@@ -456,9 +456,6 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IAsyncOperationWithProgress<TResult, TProgress> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = { windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{b5d036d7-e297-498f-ba60-0289e76e23dd}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")") };
-}
 impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> IAsyncOperationWithProgress<TResult, TProgress> {
     pub fn get(&self) -> windows_core::Result<TResult> {
         if self.Status()? == AsyncStatus::Started {
@@ -490,6 +487,9 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
 }
 unsafe impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> Send for IAsyncOperationWithProgress<TResult, TProgress> {}
 unsafe impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> Sync for IAsyncOperationWithProgress<TResult, TProgress> {}
+impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IAsyncOperationWithProgress<TResult, TProgress> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = { windows_core::imp::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{b5d036d7-e297-498f-ba60-0289e76e23dd}").push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b";").push_other(TProgress::SIGNATURE).push_slice(b")") };
+}
 unsafe impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::Interface for IAsyncOperationWithProgress<TResult, TProgress> {
     type Vtable = IAsyncOperationWithProgress_Vtbl<TResult, TProgress>;
     const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
@@ -526,12 +526,18 @@ pub struct IClosable_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeferral, IDeferral_Vtbl, 0xd6269732_3b7f_46a7_b40b_4fdca2a2c693);
+impl windows_core::RuntimeType for IDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeferralFactory, IDeferralFactory_Vtbl, 0x65a1ecc5_3fb5_4832_8ca9_f061b281d13a);
+impl windows_core::RuntimeType for IDeferralFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeferralFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -557,6 +563,9 @@ pub struct IGetActivationFactory_Vtbl {
     pub GetActivationFactory: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGuidHelperStatics, IGuidHelperStatics_Vtbl, 0x59c7966b_ae52_5283_ad7f_a1b9e9678add);
+impl windows_core::RuntimeType for IGuidHelperStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGuidHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -589,6 +598,9 @@ pub struct IMemoryBuffer_Vtbl {
     pub CreateReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMemoryBufferFactory, IMemoryBufferFactory_Vtbl, 0xfbc4dd2b_245b_11e4_af98_689423260cf8);
+impl windows_core::RuntimeType for IMemoryBufferFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMemoryBufferFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -901,6 +913,9 @@ pub struct IPropertyValue_Vtbl {
     pub GetRectArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut Rect) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertyValueStatics, IPropertyValueStatics_Vtbl, 0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858);
+impl windows_core::RuntimeType for IPropertyValueStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPropertyValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1466,6 +1481,9 @@ pub struct IStringable_Vtbl {
     pub ToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUriEscapeStatics, IUriEscapeStatics_Vtbl, 0xc1d432ba_c824_4452_a7fd_512bc3bbe9a1);
+impl windows_core::RuntimeType for IUriEscapeStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUriEscapeStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1473,6 +1491,9 @@ pub struct IUriEscapeStatics_Vtbl {
     pub EscapeComponent: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUriRuntimeClass, IUriRuntimeClass_Vtbl, 0x9e365e57_48b2_4160_956f_c7385120bbfc);
+impl windows_core::RuntimeType for IUriRuntimeClass {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUriRuntimeClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1495,6 +1516,9 @@ pub struct IUriRuntimeClass_Vtbl {
     pub CombineUri: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUriRuntimeClassFactory, IUriRuntimeClassFactory_Vtbl, 0x44a9796f_723e_4fdf_a218_033e75b0c084);
+impl windows_core::RuntimeType for IUriRuntimeClassFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUriRuntimeClassFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1502,6 +1526,9 @@ pub struct IUriRuntimeClassFactory_Vtbl {
     pub CreateWithRelativeUri: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUriRuntimeClassWithAbsoluteCanonicalUri, IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl, 0x758d9661_221c_480f_a339_50656673f46f);
+impl windows_core::RuntimeType for IUriRuntimeClassWithAbsoluteCanonicalUri {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1536,12 +1563,18 @@ pub struct IWwwFormUrlDecoderEntry_Vtbl {
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWwwFormUrlDecoderRuntimeClass, IWwwFormUrlDecoderRuntimeClass_Vtbl, 0xd45a0451_f225_4542_9296_0e1df5d254df);
+impl windows_core::RuntimeType for IWwwFormUrlDecoderRuntimeClass {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWwwFormUrlDecoderRuntimeClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetFirstValueByName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWwwFormUrlDecoderRuntimeClassFactory, IWwwFormUrlDecoderRuntimeClassFactory_Vtbl, 0x5b8c6b3d_24ae_41b5_a1bf_f0c3d544845b);
+impl windows_core::RuntimeType for IWwwFormUrlDecoderRuntimeClassFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWwwFormUrlDecoderRuntimeClassFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1577,7 +1610,7 @@ impl Deferral {
     }
 }
 impl windows_core::RuntimeType for Deferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeferral>();
 }
 unsafe impl windows_core::Interface for Deferral {
     type Vtable = IDeferral_Vtbl;
@@ -1647,7 +1680,7 @@ impl MemoryBuffer {
     }
 }
 impl windows_core::RuntimeType for MemoryBuffer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMemoryBuffer>();
 }
 unsafe impl windows_core::Interface for MemoryBuffer {
     type Vtable = IMemoryBuffer_Vtbl;
@@ -2091,7 +2124,7 @@ impl Uri {
     }
 }
 impl windows_core::RuntimeType for Uri {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUriRuntimeClass>();
 }
 unsafe impl windows_core::Interface for Uri {
     type Vtable = IUriRuntimeClass_Vtbl;
@@ -2172,7 +2205,7 @@ impl WwwFormUrlDecoder {
     }
 }
 impl windows_core::RuntimeType for WwwFormUrlDecoder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWwwFormUrlDecoderRuntimeClass>();
 }
 unsafe impl windows_core::Interface for WwwFormUrlDecoder {
     type Vtable = IWwwFormUrlDecoderRuntimeClass_Vtbl;
@@ -2221,7 +2254,7 @@ impl WwwFormUrlDecoderEntry {
     }
 }
 impl windows_core::RuntimeType for WwwFormUrlDecoderEntry {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWwwFormUrlDecoderEntry>();
 }
 unsafe impl windows_core::Interface for WwwFormUrlDecoderEntry {
     type Vtable = IWwwFormUrlDecoderEntry_Vtbl;

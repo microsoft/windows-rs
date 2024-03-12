@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IPaymentAppCanMakePaymentTriggerDetails, IPaymentAppCanMakePaymentTriggerDetails_Vtbl, 0x0ce201f0_8b93_4eb6_8c46_2e4a6c6a26f6);
+impl windows_core::RuntimeType for IPaymentAppCanMakePaymentTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPaymentAppCanMakePaymentTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6,6 +9,9 @@ pub struct IPaymentAppCanMakePaymentTriggerDetails_Vtbl {
     pub ReportCanMakePaymentResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPaymentAppManager, IPaymentAppManager_Vtbl, 0x0e47aa53_8521_4969_a957_df2538a3a98f);
+impl windows_core::RuntimeType for IPaymentAppManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPaymentAppManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -16,12 +22,18 @@ pub struct IPaymentAppManager_Vtbl {
     pub UnregisterAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPaymentAppManagerStatics, IPaymentAppManagerStatics_Vtbl, 0xa341ac28_fc89_4406_b4d9_34e7fe79dfb6);
+impl windows_core::RuntimeType for IPaymentAppManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPaymentAppManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPaymentTransaction, IPaymentTransaction_Vtbl, 0x62581da0_26a5_4e9b_a6eb_66606cf001d3);
+impl windows_core::RuntimeType for IPaymentTransaction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPaymentTransaction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -38,12 +50,18 @@ pub struct IPaymentTransaction_Vtbl {
     pub Reject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPaymentTransactionAcceptResult, IPaymentTransactionAcceptResult_Vtbl, 0x060e3276_d30c_4817_95a2_df7ae9273b56);
+impl windows_core::RuntimeType for IPaymentTransactionAcceptResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPaymentTransactionAcceptResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::PaymentRequestCompletionStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPaymentTransactionStatics, IPaymentTransactionStatics_Vtbl, 0x8d639750_ee0a_4df5_9b1e_1c0f9ec59881);
+impl windows_core::RuntimeType for IPaymentTransactionStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPaymentTransactionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -70,7 +88,7 @@ impl PaymentAppCanMakePaymentTriggerDetails {
     }
 }
 impl windows_core::RuntimeType for PaymentAppCanMakePaymentTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentAppCanMakePaymentTriggerDetails>();
 }
 unsafe impl windows_core::Interface for PaymentAppCanMakePaymentTriggerDetails {
     type Vtable = IPaymentAppCanMakePaymentTriggerDetails_Vtbl;
@@ -117,7 +135,7 @@ impl PaymentAppManager {
     }
 }
 impl windows_core::RuntimeType for PaymentAppManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentAppManager>();
 }
 unsafe impl windows_core::Interface for PaymentAppManager {
     type Vtable = IPaymentAppManager_Vtbl;
@@ -220,7 +238,7 @@ impl PaymentTransaction {
     }
 }
 impl windows_core::RuntimeType for PaymentTransaction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentTransaction>();
 }
 unsafe impl windows_core::Interface for PaymentTransaction {
     type Vtable = IPaymentTransaction_Vtbl;
@@ -245,7 +263,7 @@ impl PaymentTransactionAcceptResult {
     }
 }
 impl windows_core::RuntimeType for PaymentTransactionAcceptResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentTransactionAcceptResult>();
 }
 unsafe impl windows_core::Interface for PaymentTransactionAcceptResult {
     type Vtable = IPaymentTransactionAcceptResult_Vtbl;

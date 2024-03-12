@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IGeolocationProvider, IGeolocationProvider_Vtbl, 0xe4cf071d_3f64_509f_8dc2_0b74a059829d);
+impl windows_core::RuntimeType for IGeolocationProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGeolocationProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -54,7 +57,7 @@ impl GeolocationProvider {
     }
 }
 impl windows_core::RuntimeType for GeolocationProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeolocationProvider>();
 }
 unsafe impl windows_core::Interface for GeolocationProvider {
     type Vtable = IGeolocationProvider_Vtbl;

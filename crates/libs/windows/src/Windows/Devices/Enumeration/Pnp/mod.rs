@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IPnpObject, IPnpObject_Vtbl, 0x95c66258_733b_4a8f_93a3_db078ac870c1);
+impl windows_core::RuntimeType for IPnpObject {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPnpObject_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -11,6 +14,9 @@ pub struct IPnpObject_Vtbl {
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPnpObjectStatics, IPnpObjectStatics_Vtbl, 0xb3c32a3d_d168_4660_bbf3_a733b14b6e01);
+impl windows_core::RuntimeType for IPnpObjectStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPnpObjectStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -36,6 +42,9 @@ pub struct IPnpObjectStatics_Vtbl {
     CreateWatcherAqsFilter: usize,
 }
 windows_core::imp::define_interface!(IPnpObjectUpdate, IPnpObjectUpdate_Vtbl, 0x6f59e812_001e_4844_bcc6_432886856a17);
+impl windows_core::RuntimeType for IPnpObjectUpdate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPnpObjectUpdate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -47,6 +56,9 @@ pub struct IPnpObjectUpdate_Vtbl {
     Properties: usize,
 }
 windows_core::imp::define_interface!(IPnpObjectWatcher, IPnpObjectWatcher_Vtbl, 0x83c95ca8_4772_4a7a_aca8_e48c42a89c44);
+impl windows_core::RuntimeType for IPnpObjectWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPnpObjectWatcher_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -155,7 +167,7 @@ impl PnpObject {
     }
 }
 impl windows_core::RuntimeType for PnpObject {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPnpObject>();
 }
 unsafe impl windows_core::Interface for PnpObject {
     type Vtable = IPnpObject_Vtbl;
@@ -222,7 +234,7 @@ impl PnpObjectCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for PnpObjectCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IVectorView<PnpObject>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PnpObjectCollection {
@@ -282,7 +294,7 @@ impl PnpObjectUpdate {
     }
 }
 impl windows_core::RuntimeType for PnpObjectUpdate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPnpObjectUpdate>();
 }
 unsafe impl windows_core::Interface for PnpObjectUpdate {
     type Vtable = IPnpObjectUpdate_Vtbl;
@@ -385,7 +397,7 @@ impl PnpObjectWatcher {
     }
 }
 impl windows_core::RuntimeType for PnpObjectWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPnpObjectWatcher>();
 }
 unsafe impl windows_core::Interface for PnpObjectWatcher {
     type Vtable = IPnpObjectWatcher_Vtbl;

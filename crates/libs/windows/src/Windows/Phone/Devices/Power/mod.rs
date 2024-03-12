@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IBattery, IBattery_Vtbl, 0x972adbdd_6720_4702_a476_b9d38a0070e3);
+impl windows_core::RuntimeType for IBattery {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBattery_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,6 +11,9 @@ pub struct IBattery_Vtbl {
     pub RemoveRemainingChargePercentChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBatteryStatics, IBatteryStatics_Vtbl, 0xfaf5bc70_6369_11e1_b86c_0800200c9a66);
+impl windows_core::RuntimeType for IBatteryStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBatteryStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -59,7 +65,7 @@ impl Battery {
     }
 }
 impl windows_core::RuntimeType for Battery {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBattery>();
 }
 unsafe impl windows_core::Interface for Battery {
     type Vtable = IBattery_Vtbl;

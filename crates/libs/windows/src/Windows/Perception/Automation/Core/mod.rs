@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ICorePerceptionAutomationStatics, ICorePerceptionAutomationStatics_Vtbl, 0x0bb04541_4ce2_4923_9a76_8187ecc59112);
+impl windows_core::RuntimeType for ICorePerceptionAutomationStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICorePerceptionAutomationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

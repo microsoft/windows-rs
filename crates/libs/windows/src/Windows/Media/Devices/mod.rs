@@ -1,6 +1,9 @@
 #[cfg(feature = "Media_Devices_Core")]
 pub mod Core;
 windows_core::imp::define_interface!(IAdvancedPhotoCaptureSettings, IAdvancedPhotoCaptureSettings_Vtbl, 0x08f3863a_0018_445b_93d2_646d1c5ed05c);
+impl windows_core::RuntimeType for IAdvancedPhotoCaptureSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAdvancedPhotoCaptureSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,6 +11,9 @@ pub struct IAdvancedPhotoCaptureSettings_Vtbl {
     pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, AdvancedPhotoMode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAdvancedPhotoControl, IAdvancedPhotoControl_Vtbl, 0xc5b15486_9001_4682_9309_68eae0080eec);
+impl windows_core::RuntimeType for IAdvancedPhotoControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAdvancedPhotoControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -20,6 +26,9 @@ pub struct IAdvancedPhotoControl_Vtbl {
     pub Configure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController, IAdvancedVideoCaptureDeviceController_Vtbl, 0xde6ff4d3_2b96_4583_80ab_b5b01dc6a8d7);
+impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAdvancedVideoCaptureDeviceController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -27,12 +36,18 @@ pub struct IAdvancedVideoCaptureDeviceController_Vtbl {
     pub GetDeviceProperty: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController10, IAdvancedVideoCaptureDeviceController10_Vtbl, 0xc621b82d_d6f0_5c1b_a388_a6e938407146);
+impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController10 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAdvancedVideoCaptureDeviceController10_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CameraOcclusionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController11, IAdvancedVideoCaptureDeviceController11_Vtbl, 0xd5b65ae2_3772_580c_a630_e75de9106904);
+impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController11 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAdvancedVideoCaptureDeviceController11_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -42,6 +57,9 @@ pub struct IAdvancedVideoCaptureDeviceController11_Vtbl {
     TryAcquireExclusiveControl: usize,
 }
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController2, IAdvancedVideoCaptureDeviceController2_Vtbl, 0x8bb94f8f_f11a_43db_b402_11930b80ae56);
+impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAdvancedVideoCaptureDeviceController2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -60,6 +78,9 @@ pub struct IAdvancedVideoCaptureDeviceController2_Vtbl {
     pub SetPrimaryUse: unsafe extern "system" fn(*mut core::ffi::c_void, CaptureUse) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController3, IAdvancedVideoCaptureDeviceController3_Vtbl, 0xa98b8f34_ee0d_470c_b9f0_4229c4bbd089);
+impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAdvancedVideoCaptureDeviceController3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -71,6 +92,9 @@ pub struct IAdvancedVideoCaptureDeviceController3_Vtbl {
     pub ZoomControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController4, IAdvancedVideoCaptureDeviceController4_Vtbl, 0xea9fbfaf_d371_41c3_9a17_824a87ebdfd2);
+impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAdvancedVideoCaptureDeviceController4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -82,6 +106,9 @@ pub struct IAdvancedVideoCaptureDeviceController4_Vtbl {
     pub AdvancedPhotoControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController5, IAdvancedVideoCaptureDeviceController5_Vtbl, 0x33512b17_b9cb_4a23_b875_f9eaab535492);
+impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController5 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAdvancedVideoCaptureDeviceController5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -92,30 +119,45 @@ pub struct IAdvancedVideoCaptureDeviceController5_Vtbl {
     pub SetDevicePropertyByExtendedId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *const u8, *mut VideoDeviceControllerSetDevicePropertyStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController6, IAdvancedVideoCaptureDeviceController6_Vtbl, 0xb6563a53_68a1_44b7_9f89_b5fa97ac0cbe);
+impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController6 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAdvancedVideoCaptureDeviceController6_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub VideoTemporalDenoisingControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController7, IAdvancedVideoCaptureDeviceController7_Vtbl, 0x8d2927f0_a054_50e7_b7df_7c04234d10f0);
+impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController7 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAdvancedVideoCaptureDeviceController7_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InfraredTorchControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController8, IAdvancedVideoCaptureDeviceController8_Vtbl, 0xd843f010_e7fb_595b_9a78_0e54c4532b43);
+impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController8 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAdvancedVideoCaptureDeviceController8_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PanelBasedOptimizationControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAdvancedVideoCaptureDeviceController9, IAdvancedVideoCaptureDeviceController9_Vtbl, 0x8bdca95d_0255_51bc_a10d_5a169ec1625a);
+impl windows_core::RuntimeType for IAdvancedVideoCaptureDeviceController9 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAdvancedVideoCaptureDeviceController9_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DigitalWindowControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioDeviceController, IAudioDeviceController_Vtbl, 0xedd4a388_79c7_4f7c_90e8_ef934b21580a);
+impl windows_core::RuntimeType for IAudioDeviceController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAudioDeviceController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -125,6 +167,9 @@ pub struct IAudioDeviceController_Vtbl {
     pub VolumePercent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioDeviceModule, IAudioDeviceModule_Vtbl, 0x86cfac36_47c1_4b33_9852_8773ec4be123);
+impl windows_core::RuntimeType for IAudioDeviceModule {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAudioDeviceModule_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -139,6 +184,9 @@ pub struct IAudioDeviceModule_Vtbl {
     SendCommandAsync: usize,
 }
 windows_core::imp::define_interface!(IAudioDeviceModuleNotificationEventArgs, IAudioDeviceModuleNotificationEventArgs_Vtbl, 0xe3e3ccaf_224c_48be_956b_9a13134e96e8);
+impl windows_core::RuntimeType for IAudioDeviceModuleNotificationEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAudioDeviceModuleNotificationEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -149,6 +197,9 @@ pub struct IAudioDeviceModuleNotificationEventArgs_Vtbl {
     NotificationData: usize,
 }
 windows_core::imp::define_interface!(IAudioDeviceModulesManager, IAudioDeviceModulesManager_Vtbl, 0x6aa40c4d_960a_4d1c_b318_0022604547ed);
+impl windows_core::RuntimeType for IAudioDeviceModulesManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAudioDeviceModulesManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -164,12 +215,18 @@ pub struct IAudioDeviceModulesManager_Vtbl {
     FindAll: usize,
 }
 windows_core::imp::define_interface!(IAudioDeviceModulesManagerFactory, IAudioDeviceModulesManagerFactory_Vtbl, 0x8db03670_e64d_4773_96c0_bc7ebf0e063f);
+impl windows_core::RuntimeType for IAudioDeviceModulesManagerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAudioDeviceModulesManagerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICallControl, ICallControl_Vtbl, 0xa520d0d6_ae8d_45db_8011_ca49d3b3e578);
+impl windows_core::RuntimeType for ICallControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICallControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -192,6 +249,9 @@ pub struct ICallControl_Vtbl {
     pub RemoveAudioTransferRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICallControlStatics, ICallControlStatics_Vtbl, 0x03945ad5_85ab_40e1_af19_56c94303b019);
+impl windows_core::RuntimeType for ICallControlStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICallControlStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -199,6 +259,9 @@ pub struct ICallControlStatics_Vtbl {
     pub FromId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICameraOcclusionInfo, ICameraOcclusionInfo_Vtbl, 0xaf6c4ad0_a84d_5db6_be58_a5da21cfe011);
+impl windows_core::RuntimeType for ICameraOcclusionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICameraOcclusionInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -208,6 +271,9 @@ pub struct ICameraOcclusionInfo_Vtbl {
     pub RemoveStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICameraOcclusionState, ICameraOcclusionState_Vtbl, 0x430adeb8_6842_5e55_9bde_04b4ef3a8a57);
+impl windows_core::RuntimeType for ICameraOcclusionState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICameraOcclusionState_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -215,6 +281,9 @@ pub struct ICameraOcclusionState_Vtbl {
     pub IsOcclusionKind: unsafe extern "system" fn(*mut core::ffi::c_void, CameraOcclusionKind, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICameraOcclusionStateChangedEventArgs, ICameraOcclusionStateChangedEventArgs_Vtbl, 0x8512d848_c0de_57ca_a1ca_fb2c3d23df55);
+impl windows_core::RuntimeType for ICameraOcclusionStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICameraOcclusionStateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -248,6 +317,9 @@ pub struct IDefaultAudioDeviceChangedEventArgs_Vtbl {
     pub Role: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioDeviceRole) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDialRequestedEventArgs, IDialRequestedEventArgs_Vtbl, 0x037b929e_953c_4286_8866_4f0f376c855a);
+impl windows_core::RuntimeType for IDialRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDialRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -255,6 +327,9 @@ pub struct IDialRequestedEventArgs_Vtbl {
     pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDigitalWindowBounds, IDigitalWindowBounds_Vtbl, 0xdd4f21dd_d173_5c6b_8c25_bdd26d5122b1);
+impl windows_core::RuntimeType for IDigitalWindowBounds {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDigitalWindowBounds_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -266,6 +341,9 @@ pub struct IDigitalWindowBounds_Vtbl {
     pub SetScale: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDigitalWindowCapability, IDigitalWindowCapability_Vtbl, 0xd78bad2c_f721_5244_a196_b56ccbec606c);
+impl windows_core::RuntimeType for IDigitalWindowCapability {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDigitalWindowCapability_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -277,6 +355,9 @@ pub struct IDigitalWindowCapability_Vtbl {
     pub NormalizedFieldOfViewLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDigitalWindowControl, IDigitalWindowControl_Vtbl, 0x23b69eff_65d2_53ea_8780_de582b48b544);
+impl windows_core::RuntimeType for IDigitalWindowControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDigitalWindowControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -293,6 +374,9 @@ pub struct IDigitalWindowControl_Vtbl {
     pub GetCapabilityForSize: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IExposureCompensationControl, IExposureCompensationControl_Vtbl, 0x81c8e834_dcec_4011_a610_1f3847e64aca);
+impl windows_core::RuntimeType for IExposureCompensationControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IExposureCompensationControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -304,6 +388,9 @@ pub struct IExposureCompensationControl_Vtbl {
     pub SetValueAsync: unsafe extern "system" fn(*mut core::ffi::c_void, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IExposureControl, IExposureControl_Vtbl, 0x09e8cbe2_ad96_4f28_a0e0_96ed7e1b5fd2);
+impl windows_core::RuntimeType for IExposureControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IExposureControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -317,6 +404,9 @@ pub struct IExposureControl_Vtbl {
     pub SetValueAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IExposurePriorityVideoControl, IExposurePriorityVideoControl_Vtbl, 0x2cb240a3_5168_4271_9ea5_47621a98a352);
+impl windows_core::RuntimeType for IExposurePriorityVideoControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IExposurePriorityVideoControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -325,6 +415,9 @@ pub struct IExposurePriorityVideoControl_Vtbl {
     pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFlashControl, IFlashControl_Vtbl, 0xdef41dbe_7d68_45e3_8c0f_be7bb32837d0);
+impl windows_core::RuntimeType for IFlashControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFlashControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -341,6 +434,9 @@ pub struct IFlashControl_Vtbl {
     pub SetPowerPercent: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFlashControl2, IFlashControl2_Vtbl, 0x7d29cc9e_75e1_4af7_bd7d_4e38e1c06cd6);
+impl windows_core::RuntimeType for IFlashControl2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFlashControl2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -349,6 +445,9 @@ pub struct IFlashControl2_Vtbl {
     pub SetAssistantLightEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFocusControl, IFocusControl_Vtbl, 0xc0d889f6_5228_4453_b153_85606592b238);
+impl windows_core::RuntimeType for IFocusControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFocusControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -368,6 +467,9 @@ pub struct IFocusControl_Vtbl {
     pub FocusAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFocusControl2, IFocusControl2_Vtbl, 0x3f7cff48_c534_4e9e_94c3_52ef2afd5d07);
+impl windows_core::RuntimeType for IFocusControl2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFocusControl2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -392,6 +494,9 @@ pub struct IFocusControl2_Vtbl {
     pub Configure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFocusSettings, IFocusSettings_Vtbl, 0x79958f6b_3263_4275_85d6_aeae891c96ee);
+impl windows_core::RuntimeType for IFocusSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFocusSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -409,6 +514,9 @@ pub struct IFocusSettings_Vtbl {
     pub SetDisableDriverFallback: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHdrVideoControl, IHdrVideoControl_Vtbl, 0x55d8e2d0_30c0_43bf_9b9a_9799d70ced94);
+impl windows_core::RuntimeType for IHdrVideoControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHdrVideoControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -421,6 +529,9 @@ pub struct IHdrVideoControl_Vtbl {
     pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, HdrVideoMode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInfraredTorchControl, IInfraredTorchControl_Vtbl, 0x1cba2c83_6cb6_5a04_a6fc_3be7b33ff056);
+impl windows_core::RuntimeType for IInfraredTorchControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInfraredTorchControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -438,6 +549,9 @@ pub struct IInfraredTorchControl_Vtbl {
     pub SetPower: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIsoSpeedControl, IIsoSpeedControl_Vtbl, 0x27b6c322_25ad_4f1b_aaab_524ab376ca33);
+impl windows_core::RuntimeType for IIsoSpeedControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IIsoSpeedControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -456,6 +570,9 @@ pub struct IIsoSpeedControl_Vtbl {
     SetPresetAsync: usize,
 }
 windows_core::imp::define_interface!(IIsoSpeedControl2, IIsoSpeedControl2_Vtbl, 0x6f1578f2_6d77_4f8a_8c2f_6130b6395053);
+impl windows_core::RuntimeType for IIsoSpeedControl2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IIsoSpeedControl2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -468,12 +585,18 @@ pub struct IIsoSpeedControl2_Vtbl {
     pub SetAutoAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKeypadPressedEventArgs, IKeypadPressedEventArgs_Vtbl, 0xd3a43900_b4fa_49cd_9442_89af6568f601);
+impl windows_core::RuntimeType for IKeypadPressedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IKeypadPressedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TelephonyKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TelephonyKey) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILowLagPhotoControl, ILowLagPhotoControl_Vtbl, 0x6d5c4dd0_fadf_415d_aee6_3baa529300c9);
+impl windows_core::RuntimeType for ILowLagPhotoControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILowLagPhotoControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -500,6 +623,9 @@ pub struct ILowLagPhotoControl_Vtbl {
     pub HardwareAcceleratedThumbnailSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILowLagPhotoSequenceControl, ILowLagPhotoSequenceControl_Vtbl, 0x3dcf909d_6d16_409c_bafe_b9a594c6fde6);
+impl windows_core::RuntimeType for ILowLagPhotoSequenceControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILowLagPhotoSequenceControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -533,6 +659,9 @@ pub struct ILowLagPhotoSequenceControl_Vtbl {
     pub HardwareAcceleratedThumbnailSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaDeviceControl, IMediaDeviceControl_Vtbl, 0xefa8dfa9_6f75_4863_ba0b_583f3036b4de);
+impl windows_core::RuntimeType for IMediaDeviceControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaDeviceControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -543,6 +672,9 @@ pub struct IMediaDeviceControl_Vtbl {
     pub TrySetAuto: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaDeviceControlCapabilities, IMediaDeviceControlCapabilities_Vtbl, 0x23005816_eb85_43e2_b92b_8240d5ee70ec);
+impl windows_core::RuntimeType for IMediaDeviceControlCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaDeviceControlCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -604,6 +736,9 @@ pub struct IMediaDeviceController_Vtbl {
     SetMediaStreamPropertiesAsync: usize,
 }
 windows_core::imp::define_interface!(IMediaDeviceStatics, IMediaDeviceStatics_Vtbl, 0xaa2d9a40_909f_4bba_bf8b_0c0d296f14f0);
+impl windows_core::RuntimeType for IMediaDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -618,6 +753,9 @@ pub struct IMediaDeviceStatics_Vtbl {
     pub RemoveDefaultAudioRenderDeviceChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IModuleCommandResult, IModuleCommandResult_Vtbl, 0x520d1eb4_1374_4c7d_b1e4_39dcdf3eae4e);
+impl windows_core::RuntimeType for IModuleCommandResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IModuleCommandResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -628,6 +766,9 @@ pub struct IModuleCommandResult_Vtbl {
     Result: usize,
 }
 windows_core::imp::define_interface!(IOpticalImageStabilizationControl, IOpticalImageStabilizationControl_Vtbl, 0xbfad9c1d_00bc_423b_8eb2_a0178ca94247);
+impl windows_core::RuntimeType for IOpticalImageStabilizationControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IOpticalImageStabilizationControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -640,6 +781,9 @@ pub struct IOpticalImageStabilizationControl_Vtbl {
     pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, OpticalImageStabilizationMode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPanelBasedOptimizationControl, IPanelBasedOptimizationControl_Vtbl, 0x33323223_6247_5419_a5a4_3d808645d917);
+impl windows_core::RuntimeType for IPanelBasedOptimizationControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPanelBasedOptimizationControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -654,6 +798,9 @@ pub struct IPanelBasedOptimizationControl_Vtbl {
     SetPanel: usize,
 }
 windows_core::imp::define_interface!(IPhotoConfirmationControl, IPhotoConfirmationControl_Vtbl, 0xc8f3f363_ff5e_4582_a9a8_0550f85a4a76);
+impl windows_core::RuntimeType for IPhotoConfirmationControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhotoConfirmationControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -670,12 +817,18 @@ pub struct IPhotoConfirmationControl_Vtbl {
     SetPixelFormat: usize,
 }
 windows_core::imp::define_interface!(IRedialRequestedEventArgs, IRedialRequestedEventArgs_Vtbl, 0x7eb55209_76ab_4c31_b40e_4b58379d580c);
+impl windows_core::RuntimeType for IRedialRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRedialRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRegionOfInterest, IRegionOfInterest_Vtbl, 0xe5ecc834_ce66_4e05_a78f_cf391a5ec2d1);
+impl windows_core::RuntimeType for IRegionOfInterest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRegionOfInterest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -689,6 +842,9 @@ pub struct IRegionOfInterest_Vtbl {
     pub SetBounds: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRegionOfInterest2, IRegionOfInterest2_Vtbl, 0x19fe2a91_73aa_4d51_8a9d_56ccf7db7f54);
+impl windows_core::RuntimeType for IRegionOfInterest2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRegionOfInterest2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -700,6 +856,9 @@ pub struct IRegionOfInterest2_Vtbl {
     pub SetWeight: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRegionsOfInterestControl, IRegionsOfInterestControl_Vtbl, 0xc323f527_ab0b_4558_8b5b_df5693db0378);
+impl windows_core::RuntimeType for IRegionsOfInterestControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRegionsOfInterestControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -718,6 +877,9 @@ pub struct IRegionsOfInterestControl_Vtbl {
     pub AutoExposureSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISceneModeControl, ISceneModeControl_Vtbl, 0xd48e5af7_8d59_4854_8c62_12c70ba89b7c);
+impl windows_core::RuntimeType for ISceneModeControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneModeControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -729,6 +891,9 @@ pub struct ISceneModeControl_Vtbl {
     pub SetValueAsync: unsafe extern "system" fn(*mut core::ffi::c_void, CaptureSceneMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITorchControl, ITorchControl_Vtbl, 0xa6053665_8250_416c_919a_724296afa306);
+impl windows_core::RuntimeType for ITorchControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITorchControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -740,6 +905,9 @@ pub struct ITorchControl_Vtbl {
     pub SetPowerPercent: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVideoDeviceController, IVideoDeviceController_Vtbl, 0x99555575_2e2e_40b8_b6c7_f82d10013210);
+impl windows_core::RuntimeType for IVideoDeviceController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVideoDeviceController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -764,6 +932,9 @@ pub struct IVideoDeviceController_Vtbl {
     TryGetPowerlineFrequency: usize,
 }
 windows_core::imp::define_interface!(IVideoDeviceControllerGetDevicePropertyResult, IVideoDeviceControllerGetDevicePropertyResult_Vtbl, 0xc5d88395_6ed5_4790_8b5d_0ef13935d0f8);
+impl windows_core::RuntimeType for IVideoDeviceControllerGetDevicePropertyResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVideoDeviceControllerGetDevicePropertyResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -771,6 +942,9 @@ pub struct IVideoDeviceControllerGetDevicePropertyResult_Vtbl {
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVideoTemporalDenoisingControl, IVideoTemporalDenoisingControl_Vtbl, 0x7ab34735_3e2a_4a32_baff_4358c4fbdd57);
+impl windows_core::RuntimeType for IVideoTemporalDenoisingControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVideoTemporalDenoisingControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -783,6 +957,9 @@ pub struct IVideoTemporalDenoisingControl_Vtbl {
     pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, VideoTemporalDenoisingMode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWhiteBalanceControl, IWhiteBalanceControl_Vtbl, 0x781f047e_7162_49c8_a8f9_9481c565363e);
+impl windows_core::RuntimeType for IWhiteBalanceControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWhiteBalanceControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -796,6 +973,9 @@ pub struct IWhiteBalanceControl_Vtbl {
     pub SetValueAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IZoomControl, IZoomControl_Vtbl, 0x3a1e0b12_32da_4c17_bfd7_8d0c73c8f5a5);
+impl windows_core::RuntimeType for IZoomControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IZoomControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -807,6 +987,9 @@ pub struct IZoomControl_Vtbl {
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IZoomControl2, IZoomControl2_Vtbl, 0x69843db0_2e99_4641_8529_184f319d1671);
+impl windows_core::RuntimeType for IZoomControl2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IZoomControl2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -818,6 +1001,9 @@ pub struct IZoomControl2_Vtbl {
     pub Configure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IZoomSettings, IZoomSettings_Vtbl, 0x6ad66b24_14b4_4bfd_b18f_88fe24463b52);
+impl windows_core::RuntimeType for IZoomSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IZoomSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -851,7 +1037,7 @@ impl AdvancedPhotoCaptureSettings {
     }
 }
 impl windows_core::RuntimeType for AdvancedPhotoCaptureSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAdvancedPhotoCaptureSettings>();
 }
 unsafe impl windows_core::Interface for AdvancedPhotoCaptureSettings {
     type Vtable = IAdvancedPhotoCaptureSettings_Vtbl;
@@ -898,7 +1084,7 @@ impl AdvancedPhotoControl {
     }
 }
 impl windows_core::RuntimeType for AdvancedPhotoControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAdvancedPhotoControl>();
 }
 unsafe impl windows_core::Interface for AdvancedPhotoControl {
     type Vtable = IAdvancedPhotoControl_Vtbl;
@@ -966,7 +1152,7 @@ impl AudioDeviceController {
     }
 }
 impl windows_core::RuntimeType for AudioDeviceController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioDeviceController>();
 }
 unsafe impl windows_core::Interface for AudioDeviceController {
     type Vtable = IAudioDeviceController_Vtbl;
@@ -1028,7 +1214,7 @@ impl AudioDeviceModule {
     }
 }
 impl windows_core::RuntimeType for AudioDeviceModule {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioDeviceModule>();
 }
 unsafe impl windows_core::Interface for AudioDeviceModule {
     type Vtable = IAudioDeviceModule_Vtbl;
@@ -1059,7 +1245,7 @@ impl AudioDeviceModuleNotificationEventArgs {
     }
 }
 impl windows_core::RuntimeType for AudioDeviceModuleNotificationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioDeviceModuleNotificationEventArgs>();
 }
 unsafe impl windows_core::Interface for AudioDeviceModuleNotificationEventArgs {
     type Vtable = IAudioDeviceModuleNotificationEventArgs_Vtbl;
@@ -1118,7 +1304,7 @@ impl AudioDeviceModulesManager {
     }
 }
 impl windows_core::RuntimeType for AudioDeviceModulesManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioDeviceModulesManager>();
 }
 unsafe impl windows_core::Interface for AudioDeviceModulesManager {
     type Vtable = IAudioDeviceModulesManager_Vtbl;
@@ -1266,7 +1452,7 @@ impl CallControl {
     }
 }
 impl windows_core::RuntimeType for CallControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICallControl>();
 }
 unsafe impl windows_core::Interface for CallControl {
     type Vtable = ICallControl_Vtbl;
@@ -1312,7 +1498,7 @@ impl CameraOcclusionInfo {
     }
 }
 impl windows_core::RuntimeType for CameraOcclusionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICameraOcclusionInfo>();
 }
 unsafe impl windows_core::Interface for CameraOcclusionInfo {
     type Vtable = ICameraOcclusionInfo_Vtbl;
@@ -1344,7 +1530,7 @@ impl CameraOcclusionState {
     }
 }
 impl windows_core::RuntimeType for CameraOcclusionState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICameraOcclusionState>();
 }
 unsafe impl windows_core::Interface for CameraOcclusionState {
     type Vtable = ICameraOcclusionState_Vtbl;
@@ -1369,7 +1555,7 @@ impl CameraOcclusionStateChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for CameraOcclusionStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICameraOcclusionStateChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for CameraOcclusionStateChangedEventArgs {
     type Vtable = ICameraOcclusionStateChangedEventArgs_Vtbl;
@@ -1402,7 +1588,7 @@ impl DefaultAudioCaptureDeviceChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for DefaultAudioCaptureDeviceChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDefaultAudioDeviceChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for DefaultAudioCaptureDeviceChangedEventArgs {
     type Vtable = IDefaultAudioDeviceChangedEventArgs_Vtbl;
@@ -1435,7 +1621,7 @@ impl DefaultAudioRenderDeviceChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for DefaultAudioRenderDeviceChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDefaultAudioDeviceChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for DefaultAudioRenderDeviceChangedEventArgs {
     type Vtable = IDefaultAudioDeviceChangedEventArgs_Vtbl;
@@ -1464,7 +1650,7 @@ impl DialRequestedEventArgs {
     }
 }
 impl windows_core::RuntimeType for DialRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for DialRequestedEventArgs {
     type Vtable = IDialRequestedEventArgs_Vtbl;
@@ -1522,7 +1708,7 @@ impl DigitalWindowBounds {
     }
 }
 impl windows_core::RuntimeType for DigitalWindowBounds {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDigitalWindowBounds>();
 }
 unsafe impl windows_core::Interface for DigitalWindowBounds {
     type Vtable = IDigitalWindowBounds_Vtbl;
@@ -1582,7 +1768,7 @@ impl DigitalWindowCapability {
     }
 }
 impl windows_core::RuntimeType for DigitalWindowCapability {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDigitalWindowCapability>();
 }
 unsafe impl windows_core::Interface for DigitalWindowCapability {
     type Vtable = IDigitalWindowCapability_Vtbl;
@@ -1654,7 +1840,7 @@ impl DigitalWindowControl {
     }
 }
 impl windows_core::RuntimeType for DigitalWindowControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDigitalWindowControl>();
 }
 unsafe impl windows_core::Interface for DigitalWindowControl {
     type Vtable = IDigitalWindowControl_Vtbl;
@@ -1714,7 +1900,7 @@ impl ExposureCompensationControl {
     }
 }
 impl windows_core::RuntimeType for ExposureCompensationControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IExposureCompensationControl>();
 }
 unsafe impl windows_core::Interface for ExposureCompensationControl {
     type Vtable = IExposureCompensationControl_Vtbl;
@@ -1786,7 +1972,7 @@ impl ExposureControl {
     }
 }
 impl windows_core::RuntimeType for ExposureControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IExposureControl>();
 }
 unsafe impl windows_core::Interface for ExposureControl {
     type Vtable = IExposureControl_Vtbl;
@@ -1820,7 +2006,7 @@ impl ExposurePriorityVideoControl {
     }
 }
 impl windows_core::RuntimeType for ExposurePriorityVideoControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IExposurePriorityVideoControl>();
 }
 unsafe impl windows_core::Interface for ExposurePriorityVideoControl {
     type Vtable = IExposurePriorityVideoControl_Vtbl;
@@ -1921,7 +2107,7 @@ impl FlashControl {
     }
 }
 impl windows_core::RuntimeType for FlashControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFlashControl>();
 }
 unsafe impl windows_core::Interface for FlashControl {
     type Vtable = IFlashControl_Vtbl;
@@ -2088,7 +2274,7 @@ impl FocusControl {
     }
 }
 impl windows_core::RuntimeType for FocusControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFocusControl>();
 }
 unsafe impl windows_core::Interface for FocusControl {
     type Vtable = IFocusControl_Vtbl;
@@ -2183,7 +2369,7 @@ impl FocusSettings {
     }
 }
 impl windows_core::RuntimeType for FocusSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFocusSettings>();
 }
 unsafe impl windows_core::Interface for FocusSettings {
     type Vtable = IFocusSettings_Vtbl;
@@ -2227,7 +2413,7 @@ impl HdrVideoControl {
     }
 }
 impl windows_core::RuntimeType for HdrVideoControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHdrVideoControl>();
 }
 unsafe impl windows_core::Interface for HdrVideoControl {
     type Vtable = IHdrVideoControl_Vtbl;
@@ -2303,7 +2489,7 @@ impl InfraredTorchControl {
     }
 }
 impl windows_core::RuntimeType for InfraredTorchControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInfraredTorchControl>();
 }
 unsafe impl windows_core::Interface for InfraredTorchControl {
     type Vtable = IInfraredTorchControl_Vtbl;
@@ -2401,7 +2587,7 @@ impl IsoSpeedControl {
     }
 }
 impl windows_core::RuntimeType for IsoSpeedControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsoSpeedControl>();
 }
 unsafe impl windows_core::Interface for IsoSpeedControl {
     type Vtable = IIsoSpeedControl_Vtbl;
@@ -2424,7 +2610,7 @@ impl KeypadPressedEventArgs {
     }
 }
 impl windows_core::RuntimeType for KeypadPressedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeypadPressedEventArgs>();
 }
 unsafe impl windows_core::Interface for KeypadPressedEventArgs {
     type Vtable = IKeypadPressedEventArgs_Vtbl;
@@ -2503,7 +2689,7 @@ impl LowLagPhotoControl {
     }
 }
 impl windows_core::RuntimeType for LowLagPhotoControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILowLagPhotoControl>();
 }
 unsafe impl windows_core::Interface for LowLagPhotoControl {
     type Vtable = ILowLagPhotoControl_Vtbl;
@@ -2623,7 +2809,7 @@ impl LowLagPhotoSequenceControl {
     }
 }
 impl windows_core::RuntimeType for LowLagPhotoSequenceControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILowLagPhotoSequenceControl>();
 }
 unsafe impl windows_core::Interface for LowLagPhotoSequenceControl {
     type Vtable = ILowLagPhotoSequenceControl_Vtbl;
@@ -2739,7 +2925,7 @@ impl MediaDeviceControl {
     }
 }
 impl windows_core::RuntimeType for MediaDeviceControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaDeviceControl>();
 }
 unsafe impl windows_core::Interface for MediaDeviceControl {
     type Vtable = IMediaDeviceControl_Vtbl;
@@ -2797,7 +2983,7 @@ impl MediaDeviceControlCapabilities {
     }
 }
 impl windows_core::RuntimeType for MediaDeviceControlCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaDeviceControlCapabilities>();
 }
 unsafe impl windows_core::Interface for MediaDeviceControlCapabilities {
     type Vtable = IMediaDeviceControlCapabilities_Vtbl;
@@ -2828,7 +3014,7 @@ impl ModuleCommandResult {
     }
 }
 impl windows_core::RuntimeType for ModuleCommandResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IModuleCommandResult>();
 }
 unsafe impl windows_core::Interface for ModuleCommandResult {
     type Vtable = IModuleCommandResult_Vtbl;
@@ -2870,7 +3056,7 @@ impl OpticalImageStabilizationControl {
     }
 }
 impl windows_core::RuntimeType for OpticalImageStabilizationControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOpticalImageStabilizationControl>();
 }
 unsafe impl windows_core::Interface for OpticalImageStabilizationControl {
     type Vtable = IOpticalImageStabilizationControl_Vtbl;
@@ -2908,7 +3094,7 @@ impl PanelBasedOptimizationControl {
     }
 }
 impl windows_core::RuntimeType for PanelBasedOptimizationControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPanelBasedOptimizationControl>();
 }
 unsafe impl windows_core::Interface for PanelBasedOptimizationControl {
     type Vtable = IPanelBasedOptimizationControl_Vtbl;
@@ -2957,7 +3143,7 @@ impl PhotoConfirmationControl {
     }
 }
 impl windows_core::RuntimeType for PhotoConfirmationControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoConfirmationControl>();
 }
 unsafe impl windows_core::Interface for PhotoConfirmationControl {
     type Vtable = IPhotoConfirmationControl_Vtbl;
@@ -2977,7 +3163,7 @@ impl RedialRequestedEventArgs {
     }
 }
 impl windows_core::RuntimeType for RedialRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRedialRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for RedialRequestedEventArgs {
     type Vtable = IRedialRequestedEventArgs_Vtbl;
@@ -3079,7 +3265,7 @@ impl RegionOfInterest {
     }
 }
 impl windows_core::RuntimeType for RegionOfInterest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRegionOfInterest>();
 }
 unsafe impl windows_core::Interface for RegionOfInterest {
     type Vtable = IRegionOfInterest_Vtbl;
@@ -3154,7 +3340,7 @@ impl RegionsOfInterestControl {
     }
 }
 impl windows_core::RuntimeType for RegionsOfInterestControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRegionsOfInterestControl>();
 }
 unsafe impl windows_core::Interface for RegionsOfInterestControl {
     type Vtable = IRegionsOfInterestControl_Vtbl;
@@ -3192,7 +3378,7 @@ impl SceneModeControl {
     }
 }
 impl windows_core::RuntimeType for SceneModeControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneModeControl>();
 }
 unsafe impl windows_core::Interface for SceneModeControl {
     type Vtable = ISceneModeControl_Vtbl;
@@ -3244,7 +3430,7 @@ impl TorchControl {
     }
 }
 impl windows_core::RuntimeType for TorchControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITorchControl>();
 }
 unsafe impl windows_core::Interface for TorchControl {
     type Vtable = ITorchControl_Vtbl;
@@ -3631,7 +3817,7 @@ impl VideoDeviceController {
     }
 }
 impl windows_core::RuntimeType for VideoDeviceController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoDeviceController>();
 }
 unsafe impl windows_core::Interface for VideoDeviceController {
     type Vtable = IVideoDeviceController_Vtbl;
@@ -3661,7 +3847,7 @@ impl VideoDeviceControllerGetDevicePropertyResult {
     }
 }
 impl windows_core::RuntimeType for VideoDeviceControllerGetDevicePropertyResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoDeviceControllerGetDevicePropertyResult>();
 }
 unsafe impl windows_core::Interface for VideoDeviceControllerGetDevicePropertyResult {
     type Vtable = IVideoDeviceControllerGetDevicePropertyResult_Vtbl;
@@ -3705,7 +3891,7 @@ impl VideoTemporalDenoisingControl {
     }
 }
 impl windows_core::RuntimeType for VideoTemporalDenoisingControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoTemporalDenoisingControl>();
 }
 unsafe impl windows_core::Interface for VideoTemporalDenoisingControl {
     type Vtable = IVideoTemporalDenoisingControl_Vtbl;
@@ -3779,7 +3965,7 @@ impl WhiteBalanceControl {
     }
 }
 impl windows_core::RuntimeType for WhiteBalanceControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWhiteBalanceControl>();
 }
 unsafe impl windows_core::Interface for WhiteBalanceControl {
     type Vtable = IWhiteBalanceControl_Vtbl;
@@ -3856,7 +4042,7 @@ impl ZoomControl {
     }
 }
 impl windows_core::RuntimeType for ZoomControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IZoomControl>();
 }
 unsafe impl windows_core::Interface for ZoomControl {
     type Vtable = IZoomControl_Vtbl;
@@ -3901,7 +4087,7 @@ impl ZoomSettings {
     }
 }
 impl windows_core::RuntimeType for ZoomSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IZoomSettings>();
 }
 unsafe impl windows_core::Interface for ZoomSettings {
     type Vtable = IZoomSettings_Vtbl;

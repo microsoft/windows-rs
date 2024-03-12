@@ -107,6 +107,9 @@ pub struct II2cProvider_Vtbl {
     GetControllersAsync: usize,
 }
 windows_core::imp::define_interface!(IProviderI2cConnectionSettings, IProviderI2cConnectionSettings_Vtbl, 0xe9db4e34_e510_44b7_809d_f2f85b555339);
+impl windows_core::RuntimeType for IProviderI2cConnectionSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProviderI2cConnectionSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -157,7 +160,7 @@ impl ProviderI2cConnectionSettings {
     }
 }
 impl windows_core::RuntimeType for ProviderI2cConnectionSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProviderI2cConnectionSettings>();
 }
 unsafe impl windows_core::Interface for ProviderI2cConnectionSettings {
     type Vtable = IProviderI2cConnectionSettings_Vtbl;

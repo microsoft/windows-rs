@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IDualSimTile, IDualSimTile_Vtbl, 0x143ab213_d05f_4041_a18c_3e3fcb75b41e);
+impl windows_core::RuntimeType for IDualSimTile {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDualSimTile_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -10,6 +13,9 @@ pub struct IDualSimTile_Vtbl {
     pub DeleteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDualSimTileStatics, IDualSimTileStatics_Vtbl, 0x50567c9e_c58f_4dc9_b6e8_fa6777eeeb37);
+impl windows_core::RuntimeType for IDualSimTileStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDualSimTileStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -175,7 +181,7 @@ impl DualSimTile {
     }
 }
 impl windows_core::RuntimeType for DualSimTile {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDualSimTile>();
 }
 unsafe impl windows_core::Interface for DualSimTile {
     type Vtable = IDualSimTile_Vtbl;

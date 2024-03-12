@@ -1,18 +1,27 @@
 #[cfg(feature = "Devices_Enumeration_Pnp")]
 pub mod Pnp;
 windows_core::imp::define_interface!(IDeviceAccessChangedEventArgs, IDeviceAccessChangedEventArgs_Vtbl, 0xdeda0bcc_4f9d_4f58_9dba_a9bc800408d5);
+impl windows_core::RuntimeType for IDeviceAccessChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceAccessChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DeviceAccessStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceAccessChangedEventArgs2, IDeviceAccessChangedEventArgs2_Vtbl, 0x82523262_934b_4b30_a178_adc39f2f2be3);
+impl windows_core::RuntimeType for IDeviceAccessChangedEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceAccessChangedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceAccessInformation, IDeviceAccessInformation_Vtbl, 0x0baa9a73_6de5_4915_8ddd_9a0554a6f545);
+impl windows_core::RuntimeType for IDeviceAccessInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceAccessInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -21,6 +30,9 @@ pub struct IDeviceAccessInformation_Vtbl {
     pub CurrentStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DeviceAccessStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceAccessInformationStatics, IDeviceAccessInformationStatics_Vtbl, 0x574bd3d3_5f30_45cd_8a94_724fe5973084);
+impl windows_core::RuntimeType for IDeviceAccessInformationStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceAccessInformationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -29,18 +41,27 @@ pub struct IDeviceAccessInformationStatics_Vtbl {
     pub CreateFromDeviceClass: unsafe extern "system" fn(*mut core::ffi::c_void, DeviceClass, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceConnectionChangeTriggerDetails, IDeviceConnectionChangeTriggerDetails_Vtbl, 0xb8578c0c_bbc1_484b_bffa_7b31dcc200b2);
+impl windows_core::RuntimeType for IDeviceConnectionChangeTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceConnectionChangeTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceDisconnectButtonClickedEventArgs, IDeviceDisconnectButtonClickedEventArgs_Vtbl, 0x8e44b56d_f902_4a00_b536_f37992e6a2a7);
+impl windows_core::RuntimeType for IDeviceDisconnectButtonClickedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceDisconnectButtonClickedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Device: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceInformation, IDeviceInformation_Vtbl, 0xaba0fb95_4398_489d_8e44_e6130927011f);
+impl windows_core::RuntimeType for IDeviceInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -64,6 +85,9 @@ pub struct IDeviceInformation_Vtbl {
     GetGlyphThumbnailAsync: usize,
 }
 windows_core::imp::define_interface!(IDeviceInformation2, IDeviceInformation2_Vtbl, 0xf156a638_7997_48d9_a10c_269d46533f48);
+impl windows_core::RuntimeType for IDeviceInformation2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceInformation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -71,6 +95,9 @@ pub struct IDeviceInformation2_Vtbl {
     pub Pairing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceInformationCustomPairing, IDeviceInformationCustomPairing_Vtbl, 0x85138c02_4ee6_4914_8370_107a39144c0e);
+impl windows_core::RuntimeType for IDeviceInformationCustomPairing {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceInformationCustomPairing_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -81,6 +108,9 @@ pub struct IDeviceInformationCustomPairing_Vtbl {
     pub RemovePairingRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceInformationPairing, IDeviceInformationPairing_Vtbl, 0x2c4769f5_f684_40d5_8469_e8dbaab70485);
+impl windows_core::RuntimeType for IDeviceInformationPairing {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceInformationPairing_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -90,6 +120,9 @@ pub struct IDeviceInformationPairing_Vtbl {
     pub PairWithProtectionLevelAsync: unsafe extern "system" fn(*mut core::ffi::c_void, DevicePairingProtectionLevel, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceInformationPairing2, IDeviceInformationPairing2_Vtbl, 0xf68612fd_0aee_4328_85cc_1c742bb1790d);
+impl windows_core::RuntimeType for IDeviceInformationPairing2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceInformationPairing2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -99,18 +132,27 @@ pub struct IDeviceInformationPairing2_Vtbl {
     pub UnpairAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceInformationPairingStatics, IDeviceInformationPairingStatics_Vtbl, 0xe915c408_36d4_49a1_bf13_514173799b6b);
+impl windows_core::RuntimeType for IDeviceInformationPairingStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceInformationPairingStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryRegisterForAllInboundPairingRequests: unsafe extern "system" fn(*mut core::ffi::c_void, DevicePairingKinds, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceInformationPairingStatics2, IDeviceInformationPairingStatics2_Vtbl, 0x04de5372_b7b7_476b_a74f_c5836a704d98);
+impl windows_core::RuntimeType for IDeviceInformationPairingStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceInformationPairingStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryRegisterForAllInboundPairingRequestsWithProtectionLevel: unsafe extern "system" fn(*mut core::ffi::c_void, DevicePairingKinds, DevicePairingProtectionLevel, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceInformationStatics, IDeviceInformationStatics_Vtbl, 0xc17f100e_3a46_4a78_8013_769dc9b97390);
+impl windows_core::RuntimeType for IDeviceInformationStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceInformationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -144,6 +186,9 @@ pub struct IDeviceInformationStatics_Vtbl {
     CreateWatcherAqsFilterAndAdditionalProperties: usize,
 }
 windows_core::imp::define_interface!(IDeviceInformationStatics2, IDeviceInformationStatics2_Vtbl, 0x493b4f34_a84f_45fd_9167_15d1cb1bd1f9);
+impl windows_core::RuntimeType for IDeviceInformationStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceInformationStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -162,6 +207,9 @@ pub struct IDeviceInformationStatics2_Vtbl {
     CreateWatcherWithKindAqsFilterAndAdditionalProperties: usize,
 }
 windows_core::imp::define_interface!(IDeviceInformationUpdate, IDeviceInformationUpdate_Vtbl, 0x8f315305_d972_44b7_a37e_9e822c78213b);
+impl windows_core::RuntimeType for IDeviceInformationUpdate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceInformationUpdate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -172,12 +220,18 @@ pub struct IDeviceInformationUpdate_Vtbl {
     Properties: usize,
 }
 windows_core::imp::define_interface!(IDeviceInformationUpdate2, IDeviceInformationUpdate2_Vtbl, 0x5d9d148c_a873_485e_baa6_aa620788e3cc);
+impl windows_core::RuntimeType for IDeviceInformationUpdate2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceInformationUpdate2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DeviceInformationKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDevicePairingRequestedEventArgs, IDevicePairingRequestedEventArgs_Vtbl, 0xf717fc56_de6b_487f_8376_0180aca69963);
+impl windows_core::RuntimeType for IDevicePairingRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDevicePairingRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -189,6 +243,9 @@ pub struct IDevicePairingRequestedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDevicePairingRequestedEventArgs2, IDevicePairingRequestedEventArgs2_Vtbl, 0xc83752d9_e4d3_4db0_a360_a105e437dbdc);
+impl windows_core::RuntimeType for IDevicePairingRequestedEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDevicePairingRequestedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -198,6 +255,9 @@ pub struct IDevicePairingRequestedEventArgs2_Vtbl {
     AcceptWithPasswordCredential: usize,
 }
 windows_core::imp::define_interface!(IDevicePairingResult, IDevicePairingResult_Vtbl, 0x072b02bf_dd95_4025_9b37_de51adba37b7);
+impl windows_core::RuntimeType for IDevicePairingResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDevicePairingResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -215,6 +275,9 @@ pub struct IDevicePairingSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IDevicePicker, IDevicePicker_Vtbl, 0x84997aa2_034a_4440_8813_7d0bd479bf5a);
+impl windows_core::RuntimeType for IDevicePicker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDevicePicker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -244,6 +307,9 @@ pub struct IDevicePicker_Vtbl {
     pub SetDisplayStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, DevicePickerDisplayStatusOptions) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDevicePickerAppearance, IDevicePickerAppearance_Vtbl, 0xe69a12c6_e627_4ed8_9b6c_460af445e56d);
+impl windows_core::RuntimeType for IDevicePickerAppearance {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDevicePickerAppearance_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -299,6 +365,9 @@ pub struct IDevicePickerAppearance_Vtbl {
     SetSelectedAccentColor: usize,
 }
 windows_core::imp::define_interface!(IDevicePickerFilter, IDevicePickerFilter_Vtbl, 0x91db92a2_57cb_48f1_9b59_a59b7a1f02a2);
+impl windows_core::RuntimeType for IDevicePickerFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDevicePickerFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -312,18 +381,27 @@ pub struct IDevicePickerFilter_Vtbl {
     SupportedDeviceSelectors: usize,
 }
 windows_core::imp::define_interface!(IDeviceSelectedEventArgs, IDeviceSelectedEventArgs_Vtbl, 0x269edade_1d2f_4940_8402_4156b81d3c77);
+impl windows_core::RuntimeType for IDeviceSelectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceSelectedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SelectedDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceUnpairingResult, IDeviceUnpairingResult_Vtbl, 0x66f44ad3_79d9_444b_92cf_a92ef72571c7);
+impl windows_core::RuntimeType for IDeviceUnpairingResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceUnpairingResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DeviceUnpairingResultStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceWatcher, IDeviceWatcher_Vtbl, 0xc9eab97d_8f6b_4f96_a9f4_abc814e22271);
+impl windows_core::RuntimeType for IDeviceWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceWatcher_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -342,6 +420,9 @@ pub struct IDeviceWatcher_Vtbl {
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceWatcher2, IDeviceWatcher2_Vtbl, 0xff08456e_ed14_49e9_9a69_8117c54ae971);
+impl windows_core::RuntimeType for IDeviceWatcher2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceWatcher2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -351,6 +432,9 @@ pub struct IDeviceWatcher2_Vtbl {
     GetBackgroundTrigger: usize,
 }
 windows_core::imp::define_interface!(IDeviceWatcherEvent, IDeviceWatcherEvent_Vtbl, 0x74aa9c0b_1dbd_47fd_b635_3cc556d0ff8b);
+impl windows_core::RuntimeType for IDeviceWatcherEvent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceWatcherEvent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -359,6 +443,9 @@ pub struct IDeviceWatcherEvent_Vtbl {
     pub DeviceInformationUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceWatcherTriggerDetails, IDeviceWatcherTriggerDetails_Vtbl, 0x38808119_4cb7_4e57_a56d_776d07cbfef9);
+impl windows_core::RuntimeType for IDeviceWatcherTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceWatcherTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -368,6 +455,9 @@ pub struct IDeviceWatcherTriggerDetails_Vtbl {
     DeviceWatcherEvents: usize,
 }
 windows_core::imp::define_interface!(IEnclosureLocation, IEnclosureLocation_Vtbl, 0x42340a27_5810_459c_aabb_c65e1f813ecf);
+impl windows_core::RuntimeType for IEnclosureLocation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IEnclosureLocation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -376,6 +466,9 @@ pub struct IEnclosureLocation_Vtbl {
     pub Panel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Panel) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnclosureLocation2, IEnclosureLocation2_Vtbl, 0x2885995b_e07d_485d_8a9e_bdf29aef4f66);
+impl windows_core::RuntimeType for IEnclosureLocation2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IEnclosureLocation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -402,7 +495,7 @@ impl DeviceAccessChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for DeviceAccessChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceAccessChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for DeviceAccessChangedEventArgs {
     type Vtable = IDeviceAccessChangedEventArgs_Vtbl;
@@ -464,7 +557,7 @@ impl DeviceAccessInformation {
     }
 }
 impl windows_core::RuntimeType for DeviceAccessInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceAccessInformation>();
 }
 unsafe impl windows_core::Interface for DeviceAccessInformation {
     type Vtable = IDeviceAccessInformation_Vtbl;
@@ -489,7 +582,7 @@ impl DeviceConnectionChangeTriggerDetails {
     }
 }
 impl windows_core::RuntimeType for DeviceConnectionChangeTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceConnectionChangeTriggerDetails>();
 }
 unsafe impl windows_core::Interface for DeviceConnectionChangeTriggerDetails {
     type Vtable = IDeviceConnectionChangeTriggerDetails_Vtbl;
@@ -514,7 +607,7 @@ impl DeviceDisconnectButtonClickedEventArgs {
     }
 }
 impl windows_core::RuntimeType for DeviceDisconnectButtonClickedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceDisconnectButtonClickedEventArgs>();
 }
 unsafe impl windows_core::Interface for DeviceDisconnectButtonClickedEventArgs {
     type Vtable = IDeviceDisconnectButtonClickedEventArgs_Vtbl;
@@ -733,7 +826,7 @@ impl DeviceInformation {
     }
 }
 impl windows_core::RuntimeType for DeviceInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceInformation>();
 }
 unsafe impl windows_core::Interface for DeviceInformation {
     type Vtable = IDeviceInformation_Vtbl;
@@ -800,7 +893,7 @@ impl DeviceInformationCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for DeviceInformationCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVectorView<DeviceInformation>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for DeviceInformationCollection {
@@ -876,7 +969,7 @@ impl DeviceInformationCustomPairing {
     }
 }
 impl windows_core::RuntimeType for DeviceInformationCustomPairing {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceInformationCustomPairing>();
 }
 unsafe impl windows_core::Interface for DeviceInformationCustomPairing {
     type Vtable = IDeviceInformationCustomPairing_Vtbl;
@@ -975,7 +1068,7 @@ impl DeviceInformationPairing {
     }
 }
 impl windows_core::RuntimeType for DeviceInformationPairing {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceInformationPairing>();
 }
 unsafe impl windows_core::Interface for DeviceInformationPairing {
     type Vtable = IDeviceInformationPairing_Vtbl;
@@ -1015,7 +1108,7 @@ impl DeviceInformationUpdate {
     }
 }
 impl windows_core::RuntimeType for DeviceInformationUpdate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceInformationUpdate>();
 }
 unsafe impl windows_core::Interface for DeviceInformationUpdate {
     type Vtable = IDeviceInformationUpdate_Vtbl;
@@ -1077,7 +1170,7 @@ impl DevicePairingRequestedEventArgs {
     }
 }
 impl windows_core::RuntimeType for DevicePairingRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePairingRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for DevicePairingRequestedEventArgs {
     type Vtable = IDevicePairingRequestedEventArgs_Vtbl;
@@ -1109,7 +1202,7 @@ impl DevicePairingResult {
     }
 }
 impl windows_core::RuntimeType for DevicePairingResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePairingResult>();
 }
 unsafe impl windows_core::Interface for DevicePairingResult {
     type Vtable = IDevicePairingResult_Vtbl;
@@ -1233,7 +1326,7 @@ impl DevicePicker {
     }
 }
 impl windows_core::RuntimeType for DevicePicker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePicker>();
 }
 unsafe impl windows_core::Interface for DevicePicker {
     type Vtable = IDevicePicker_Vtbl;
@@ -1340,7 +1433,7 @@ impl DevicePickerAppearance {
     }
 }
 impl windows_core::RuntimeType for DevicePickerAppearance {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePickerAppearance>();
 }
 unsafe impl windows_core::Interface for DevicePickerAppearance {
     type Vtable = IDevicePickerAppearance_Vtbl;
@@ -1374,7 +1467,7 @@ impl DevicePickerFilter {
     }
 }
 impl windows_core::RuntimeType for DevicePickerFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePickerFilter>();
 }
 unsafe impl windows_core::Interface for DevicePickerFilter {
     type Vtable = IDevicePickerFilter_Vtbl;
@@ -1399,7 +1492,7 @@ impl DeviceSelectedEventArgs {
     }
 }
 impl windows_core::RuntimeType for DeviceSelectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceSelectedEventArgs>();
 }
 unsafe impl windows_core::Interface for DeviceSelectedEventArgs {
     type Vtable = IDeviceSelectedEventArgs_Vtbl;
@@ -1531,7 +1624,7 @@ impl DeviceThumbnail {
 }
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeType for DeviceThumbnail {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Storage::Streams::IRandomAccessStreamWithContentType>();
 }
 #[cfg(feature = "Storage_Streams")]
 unsafe impl windows_core::Interface for DeviceThumbnail {
@@ -1560,7 +1653,7 @@ impl DeviceUnpairingResult {
     }
 }
 impl windows_core::RuntimeType for DeviceUnpairingResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceUnpairingResult>();
 }
 unsafe impl windows_core::Interface for DeviceUnpairingResult {
     type Vtable = IDeviceUnpairingResult_Vtbl;
@@ -1674,7 +1767,7 @@ impl DeviceWatcher {
     }
 }
 impl windows_core::RuntimeType for DeviceWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceWatcher>();
 }
 unsafe impl windows_core::Interface for DeviceWatcher {
     type Vtable = IDeviceWatcher_Vtbl;
@@ -1713,7 +1806,7 @@ impl DeviceWatcherEvent {
     }
 }
 impl windows_core::RuntimeType for DeviceWatcherEvent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceWatcherEvent>();
 }
 unsafe impl windows_core::Interface for DeviceWatcherEvent {
     type Vtable = IDeviceWatcherEvent_Vtbl;
@@ -1739,7 +1832,7 @@ impl DeviceWatcherTriggerDetails {
     }
 }
 impl windows_core::RuntimeType for DeviceWatcherTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceWatcherTriggerDetails>();
 }
 unsafe impl windows_core::Interface for DeviceWatcherTriggerDetails {
     type Vtable = IDeviceWatcherTriggerDetails_Vtbl;
@@ -1785,7 +1878,7 @@ impl EnclosureLocation {
     }
 }
 impl windows_core::RuntimeType for EnclosureLocation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnclosureLocation>();
 }
 unsafe impl windows_core::Interface for EnclosureLocation {
     type Vtable = IEnclosureLocation_Vtbl;

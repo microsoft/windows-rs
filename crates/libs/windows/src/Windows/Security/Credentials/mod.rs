@@ -1,12 +1,18 @@
 #[cfg(feature = "Security_Credentials_UI")]
 pub mod UI;
 windows_core::imp::define_interface!(ICredentialFactory, ICredentialFactory_Vtbl, 0x54ef13a1_bf26_47b5_97dd_de779b7cad58);
+impl windows_core::RuntimeType for ICredentialFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICredentialFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreatePasswordCredential: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKeyCredential, IKeyCredential_Vtbl, 0x9585ef8d_457b_4847_b11a_fa960bbdb138);
+impl windows_core::RuntimeType for IKeyCredential {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IKeyCredential_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -26,6 +32,9 @@ pub struct IKeyCredential_Vtbl {
     pub GetAttestationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKeyCredentialAttestationResult, IKeyCredentialAttestationResult_Vtbl, 0x78aab3a1_a3c1_4103_b6cc_472c44171cbb);
+impl windows_core::RuntimeType for IKeyCredentialAttestationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IKeyCredentialAttestationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -40,6 +49,9 @@ pub struct IKeyCredentialAttestationResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KeyCredentialAttestationStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKeyCredentialManagerStatics, IKeyCredentialManagerStatics_Vtbl, 0x6aac468b_0ef1_4ce0_8290_4106da6a63b5);
+impl windows_core::RuntimeType for IKeyCredentialManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IKeyCredentialManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -50,6 +62,9 @@ pub struct IKeyCredentialManagerStatics_Vtbl {
     pub DeleteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKeyCredentialOperationResult, IKeyCredentialOperationResult_Vtbl, 0xf53786c1_5261_4cdd_976d_cc909ac71620);
+impl windows_core::RuntimeType for IKeyCredentialOperationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IKeyCredentialOperationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -60,6 +75,9 @@ pub struct IKeyCredentialOperationResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KeyCredentialStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKeyCredentialRetrievalResult, IKeyCredentialRetrievalResult_Vtbl, 0x58cd7703_8d87_4249_9b58_f6598cc9644e);
+impl windows_core::RuntimeType for IKeyCredentialRetrievalResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IKeyCredentialRetrievalResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -67,6 +85,9 @@ pub struct IKeyCredentialRetrievalResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KeyCredentialStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPasswordCredential, IPasswordCredential_Vtbl, 0x6ab18989_c720_41a7_a6c1_feadb36329a0);
+impl windows_core::RuntimeType for IPasswordCredential {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPasswordCredential_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -83,6 +104,9 @@ pub struct IPasswordCredential_Vtbl {
     Properties: usize,
 }
 windows_core::imp::define_interface!(IPasswordVault, IPasswordVault_Vtbl, 0x61fd2c0b_c8d4_48c1_a54f_bc5a64205af2);
+impl windows_core::RuntimeType for IPasswordVault {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPasswordVault_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -138,6 +162,9 @@ pub struct IWebAccount_Vtbl {
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WebAccountState) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccount2, IWebAccount2_Vtbl, 0x7b56d6f8_990b_4eb5_94a7_5621f3a8b824);
+impl windows_core::RuntimeType for IWebAccount2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebAccount2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -154,12 +181,18 @@ pub struct IWebAccount2_Vtbl {
     pub SignOutWithClientIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccountFactory, IWebAccountFactory_Vtbl, 0xac9afb39_1de9_4e92_b78f_0581a87f6e5c);
+impl windows_core::RuntimeType for IWebAccountFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebAccountFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWebAccount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, WebAccountState, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccountProvider, IWebAccountProvider_Vtbl, 0x29dcc8c3_7ab9_4a7c_a336_b942f9dbf7c7);
+impl windows_core::RuntimeType for IWebAccountProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebAccountProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -171,6 +204,9 @@ pub struct IWebAccountProvider_Vtbl {
     IconUri: usize,
 }
 windows_core::imp::define_interface!(IWebAccountProvider2, IWebAccountProvider2_Vtbl, 0x4a01eb05_4e42_41d4_b518_e008a5163614);
+impl windows_core::RuntimeType for IWebAccountProvider2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebAccountProvider2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -178,6 +214,9 @@ pub struct IWebAccountProvider2_Vtbl {
     pub Authority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccountProvider3, IWebAccountProvider3_Vtbl, 0xda1c518b_970d_4d49_825c_f2706f8ca7fe);
+impl windows_core::RuntimeType for IWebAccountProvider3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebAccountProvider3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -187,12 +226,18 @@ pub struct IWebAccountProvider3_Vtbl {
     User: usize,
 }
 windows_core::imp::define_interface!(IWebAccountProvider4, IWebAccountProvider4_Vtbl, 0x718fd8db_e796_4210_b74e_84d29894b080);
+impl windows_core::RuntimeType for IWebAccountProvider4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebAccountProvider4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSystemProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccountProviderFactory, IWebAccountProviderFactory_Vtbl, 0x1d767df1_e1e1_4b9a_a774_5c7c7e3bf371);
+impl windows_core::RuntimeType for IWebAccountProviderFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebAccountProviderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -246,7 +291,7 @@ impl KeyCredential {
     }
 }
 impl windows_core::RuntimeType for KeyCredential {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyCredential>();
 }
 unsafe impl windows_core::Interface for KeyCredential {
     type Vtable = IKeyCredential_Vtbl;
@@ -287,7 +332,7 @@ impl KeyCredentialAttestationResult {
     }
 }
 impl windows_core::RuntimeType for KeyCredentialAttestationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyCredentialAttestationResult>();
 }
 unsafe impl windows_core::Interface for KeyCredentialAttestationResult {
     type Vtable = IKeyCredentialAttestationResult_Vtbl;
@@ -361,7 +406,7 @@ impl KeyCredentialOperationResult {
     }
 }
 impl windows_core::RuntimeType for KeyCredentialOperationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyCredentialOperationResult>();
 }
 unsafe impl windows_core::Interface for KeyCredentialOperationResult {
     type Vtable = IKeyCredentialOperationResult_Vtbl;
@@ -393,7 +438,7 @@ impl KeyCredentialRetrievalResult {
     }
 }
 impl windows_core::RuntimeType for KeyCredentialRetrievalResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyCredentialRetrievalResult>();
 }
 unsafe impl windows_core::Interface for KeyCredentialRetrievalResult {
     type Vtable = IKeyCredentialRetrievalResult_Vtbl;
@@ -474,7 +519,7 @@ impl PasswordCredential {
     }
 }
 impl windows_core::RuntimeType for PasswordCredential {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPasswordCredential>();
 }
 unsafe impl windows_core::Interface for PasswordCredential {
     type Vtable = IPasswordCredential_Vtbl;
@@ -582,7 +627,7 @@ impl PasswordCredentialPropertyStore {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for PasswordCredentialPropertyStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IPropertySet>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PasswordCredentialPropertyStore {
@@ -672,7 +717,7 @@ impl PasswordVault {
     }
 }
 impl windows_core::RuntimeType for PasswordVault {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPasswordVault>();
 }
 unsafe impl windows_core::Interface for PasswordVault {
     type Vtable = IPasswordVault_Vtbl;
@@ -763,7 +808,7 @@ impl WebAccount {
     }
 }
 impl windows_core::RuntimeType for WebAccount {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccount>();
 }
 unsafe impl windows_core::Interface for WebAccount {
     type Vtable = IWebAccount_Vtbl;
@@ -846,7 +891,7 @@ impl WebAccountProvider {
     }
 }
 impl windows_core::RuntimeType for WebAccountProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountProvider>();
 }
 unsafe impl windows_core::Interface for WebAccountProvider {
     type Vtable = IWebAccountProvider_Vtbl;

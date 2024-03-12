@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ICustomDevice, ICustomDevice_Vtbl, 0xdd30251f_c48b_43bd_bcb1_dec88f15143e);
+impl windows_core::RuntimeType for ICustomDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICustomDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -20,6 +23,9 @@ pub struct ICustomDevice_Vtbl {
     TrySendIOControlAsync: usize,
 }
 windows_core::imp::define_interface!(ICustomDeviceStatics, ICustomDeviceStatics_Vtbl, 0xc8220312_ef4c_46b1_a58e_eeb308dc8917);
+impl windows_core::RuntimeType for ICustomDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICustomDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -78,12 +84,18 @@ pub struct IIOControlCode_Vtbl {
     pub ControlCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIOControlCodeFactory, IIOControlCodeFactory_Vtbl, 0x856a7cf0_4c11_44ae_afc6_b8d4a212788f);
+impl windows_core::RuntimeType for IIOControlCodeFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IIOControlCodeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateIOControlCode: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, IOControlAccessMode, IOControlBufferingMethod, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKnownDeviceTypesStatics, IKnownDeviceTypesStatics_Vtbl, 0xee5479c2_5448_45da_ad1b_24948c239094);
+impl windows_core::RuntimeType for IKnownDeviceTypesStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IKnownDeviceTypesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -155,7 +167,7 @@ impl CustomDevice {
     }
 }
 impl windows_core::RuntimeType for CustomDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICustomDevice>();
 }
 unsafe impl windows_core::Interface for CustomDevice {
     type Vtable = ICustomDevice_Vtbl;
@@ -220,7 +232,7 @@ impl IOControlCode {
     }
 }
 impl windows_core::RuntimeType for IOControlCode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIOControlCode>();
 }
 unsafe impl windows_core::Interface for IOControlCode {
     type Vtable = IIOControlCode_Vtbl;

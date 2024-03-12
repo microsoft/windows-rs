@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ISceneBoundingBox, ISceneBoundingBox_Vtbl, 0x5d8ffc70_c618_4083_8251_9962593114aa);
+impl windows_core::RuntimeType for ISceneBoundingBox {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneBoundingBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -24,42 +27,66 @@ pub struct ISceneBoundingBox_Vtbl {
     Size: usize,
 }
 windows_core::imp::define_interface!(ISceneComponent, ISceneComponent_Vtbl, 0xae20fc96_226c_44bd_95cb_dd5ed9ebe9a5);
+impl windows_core::RuntimeType for ISceneComponent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneComponent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ComponentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SceneComponentType) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISceneComponentCollection, ISceneComponentCollection_Vtbl, 0xc483791c_5f46_45e4_b666_a3d2259f9b2e);
+impl windows_core::RuntimeType for ISceneComponentCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneComponentCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ISceneComponentFactory, ISceneComponentFactory_Vtbl, 0x5fbc5574_ddd8_5889_ab5b_d8fa716e7c9e);
+impl windows_core::RuntimeType for ISceneComponentFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneComponentFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ISceneMaterial, ISceneMaterial_Vtbl, 0x8ca74b7c_30df_4e07_9490_37875af1a123);
+impl windows_core::RuntimeType for ISceneMaterial {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneMaterial_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ISceneMaterialFactory, ISceneMaterialFactory_Vtbl, 0x67536c19_a707_5254_a495_7fdc799893b9);
+impl windows_core::RuntimeType for ISceneMaterialFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneMaterialFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ISceneMaterialInput, ISceneMaterialInput_Vtbl, 0x422a1642_1ef1_485c_97e9_ae6f95ad812f);
+impl windows_core::RuntimeType for ISceneMaterialInput {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneMaterialInput_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ISceneMaterialInputFactory, ISceneMaterialInputFactory_Vtbl, 0xa88feb74_7d0a_5e4c_a748_1015af9ca74f);
+impl windows_core::RuntimeType for ISceneMaterialInputFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneMaterialInputFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ISceneMesh, ISceneMesh_Vtbl, 0xee9a1530_1155_4c0c_92bd_40020cf78347);
+impl windows_core::RuntimeType for ISceneMesh {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneMesh_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -78,11 +105,17 @@ pub struct ISceneMesh_Vtbl {
     FillMeshAttribute: usize,
 }
 windows_core::imp::define_interface!(ISceneMeshMaterialAttributeMap, ISceneMeshMaterialAttributeMap_Vtbl, 0xce843171_3d43_4855_aa69_31ff988d049d);
+impl windows_core::RuntimeType for ISceneMeshMaterialAttributeMap {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneMeshMaterialAttributeMap_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ISceneMeshRendererComponent, ISceneMeshRendererComponent_Vtbl, 0x9929f7e3_6364_477e_98fe_74ed9fd4c2de);
+impl windows_core::RuntimeType for ISceneMeshRendererComponent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneMeshRendererComponent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -93,18 +126,27 @@ pub struct ISceneMeshRendererComponent_Vtbl {
     pub UVMappings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISceneMeshRendererComponentStatics, ISceneMeshRendererComponentStatics_Vtbl, 0x4954f37a_4459_4521_bd6e_2b38b8d711ea);
+impl windows_core::RuntimeType for ISceneMeshRendererComponentStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneMeshRendererComponentStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISceneMeshStatics, ISceneMeshStatics_Vtbl, 0x8412316c_7b57_473f_966b_81dc277b1751);
+impl windows_core::RuntimeType for ISceneMeshStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneMeshStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISceneMetallicRoughnessMaterial, ISceneMetallicRoughnessMaterial_Vtbl, 0xc1d91446_799c_429e_a4e4_5da645f18e61);
+impl windows_core::RuntimeType for ISceneMetallicRoughnessMaterial {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneMetallicRoughnessMaterial_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -126,12 +168,18 @@ pub struct ISceneMetallicRoughnessMaterial_Vtbl {
     pub SetRoughnessFactor: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISceneMetallicRoughnessMaterialStatics, ISceneMetallicRoughnessMaterialStatics_Vtbl, 0x3bddca50_6d9d_4531_8dc4_b27e3e49b7ab);
+impl windows_core::RuntimeType for ISceneMetallicRoughnessMaterialStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneMetallicRoughnessMaterialStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISceneModelTransform, ISceneModelTransform_Vtbl, 0xc05576c2_32b1_4269_980d_b98537100ae4);
+impl windows_core::RuntimeType for ISceneModelTransform {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneModelTransform_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -173,6 +221,9 @@ pub struct ISceneModelTransform_Vtbl {
     SetTranslation: usize,
 }
 windows_core::imp::define_interface!(ISceneNode, ISceneNode_Vtbl, 0xacf2c247_f307_4581_9c41_af2e29c3b016);
+impl windows_core::RuntimeType for ISceneNode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneNode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -189,27 +240,42 @@ pub struct ISceneNode_Vtbl {
     pub FindFirstComponentOfType: unsafe extern "system" fn(*mut core::ffi::c_void, SceneComponentType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISceneNodeCollection, ISceneNodeCollection_Vtbl, 0x29ada101_2dd9_4332_be63_60d2cf4269f2);
+impl windows_core::RuntimeType for ISceneNodeCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneNodeCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ISceneNodeStatics, ISceneNodeStatics_Vtbl, 0x579a0faa_be9d_4210_908c_93d15feed0b7);
+impl windows_core::RuntimeType for ISceneNodeStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneNodeStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISceneObject, ISceneObject_Vtbl, 0x1e94249b_0f1b_49eb_a819_877d8450005b);
+impl windows_core::RuntimeType for ISceneObject {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneObject_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ISceneObjectFactory, ISceneObjectFactory_Vtbl, 0x14fe799a_33e4_52ef_956c_44229d21f2c1);
+impl windows_core::RuntimeType for ISceneObjectFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneObjectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IScenePbrMaterial, IScenePbrMaterial_Vtbl, 0xaab6ebbe_d680_46df_8294_b6800a9f95e7);
+impl windows_core::RuntimeType for IScenePbrMaterial {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IScenePbrMaterial_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -239,21 +305,33 @@ pub struct IScenePbrMaterial_Vtbl {
     pub SetOcclusionStrength: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IScenePbrMaterialFactory, IScenePbrMaterialFactory_Vtbl, 0x2e3f3dfe_0b85_5727_b5be_b7d3cbac37fa);
+impl windows_core::RuntimeType for IScenePbrMaterialFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IScenePbrMaterialFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ISceneRendererComponent, ISceneRendererComponent_Vtbl, 0xf1acb857_cf4f_4025_9b25_a2d1944cf507);
+impl windows_core::RuntimeType for ISceneRendererComponent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneRendererComponent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ISceneRendererComponentFactory, ISceneRendererComponentFactory_Vtbl, 0x1db6ed6c_aa2c_5967_9035_56352dc69658);
+impl windows_core::RuntimeType for ISceneRendererComponentFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneRendererComponentFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ISceneSurfaceMaterialInput, ISceneSurfaceMaterialInput_Vtbl, 0x9937da5c_a9ca_4cfc_b3aa_088356518742);
+impl windows_core::RuntimeType for ISceneSurfaceMaterialInput {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneSurfaceMaterialInput_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -267,12 +345,18 @@ pub struct ISceneSurfaceMaterialInput_Vtbl {
     pub SetWrappingVMode: unsafe extern "system" fn(*mut core::ffi::c_void, SceneWrappingMode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISceneSurfaceMaterialInputStatics, ISceneSurfaceMaterialInputStatics_Vtbl, 0x5a2394d3_6429_4589_bbcf_b84f4f3cfbfe);
+impl windows_core::RuntimeType for ISceneSurfaceMaterialInputStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneSurfaceMaterialInputStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISceneVisual, ISceneVisual_Vtbl, 0x8e672c1e_d734_47b1_be14_3d694ffa4301);
+impl windows_core::RuntimeType for ISceneVisual {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -280,6 +364,9 @@ pub struct ISceneVisual_Vtbl {
     pub SetRoot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISceneVisualStatics, ISceneVisualStatics_Vtbl, 0xb8347e9a_50aa_4527_8d34_de4cb8ea88b4);
+impl windows_core::RuntimeType for ISceneVisualStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneVisualStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -439,7 +526,7 @@ impl SceneBoundingBox {
     }
 }
 impl windows_core::RuntimeType for SceneBoundingBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneBoundingBox>();
 }
 unsafe impl windows_core::Interface for SceneBoundingBox {
     type Vtable = ISceneBoundingBox_Vtbl;
@@ -571,7 +658,7 @@ impl SceneComponent {
     }
 }
 impl windows_core::RuntimeType for SceneComponent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneComponent>();
 }
 unsafe impl windows_core::Interface for SceneComponent {
     type Vtable = ISceneComponent_Vtbl;
@@ -796,7 +883,7 @@ impl SceneComponentCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for SceneComponentCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IVector<SceneComponent>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for SceneComponentCollection {
@@ -941,7 +1028,7 @@ impl SceneMaterial {
     }
 }
 impl windows_core::RuntimeType for SceneMaterial {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneMaterial>();
 }
 unsafe impl windows_core::Interface for SceneMaterial {
     type Vtable = ISceneMaterial_Vtbl;
@@ -1066,7 +1153,7 @@ impl SceneMaterialInput {
     }
 }
 impl windows_core::RuntimeType for SceneMaterialInput {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneMaterialInput>();
 }
 unsafe impl windows_core::Interface for SceneMaterialInput {
     type Vtable = ISceneMaterialInput_Vtbl;
@@ -1233,7 +1320,7 @@ impl SceneMesh {
     }
 }
 impl windows_core::RuntimeType for SceneMesh {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneMesh>();
 }
 unsafe impl windows_core::Interface for SceneMesh {
     type Vtable = ISceneMesh_Vtbl;
@@ -1417,7 +1504,7 @@ impl SceneMeshMaterialAttributeMap {
     }
 }
 impl windows_core::RuntimeType for SceneMeshMaterialAttributeMap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneMeshMaterialAttributeMap>();
 }
 unsafe impl windows_core::Interface for SceneMeshMaterialAttributeMap {
     type Vtable = ISceneMeshMaterialAttributeMap_Vtbl;
@@ -1614,7 +1701,7 @@ impl SceneMeshRendererComponent {
     }
 }
 impl windows_core::RuntimeType for SceneMeshRendererComponent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneMeshRendererComponent>();
 }
 unsafe impl windows_core::Interface for SceneMeshRendererComponent {
     type Vtable = ISceneMeshRendererComponent_Vtbl;
@@ -1926,7 +2013,7 @@ impl SceneMetallicRoughnessMaterial {
     }
 }
 impl windows_core::RuntimeType for SceneMetallicRoughnessMaterial {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneMetallicRoughnessMaterial>();
 }
 unsafe impl windows_core::Interface for SceneMetallicRoughnessMaterial {
     type Vtable = ISceneMetallicRoughnessMaterial_Vtbl;
@@ -2125,7 +2212,7 @@ impl SceneModelTransform {
     }
 }
 impl windows_core::RuntimeType for SceneModelTransform {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneModelTransform>();
 }
 unsafe impl windows_core::Interface for SceneModelTransform {
     type Vtable = ISceneModelTransform_Vtbl;
@@ -2301,7 +2388,7 @@ impl SceneNode {
     }
 }
 impl windows_core::RuntimeType for SceneNode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneNode>();
 }
 unsafe impl windows_core::Interface for SceneNode {
     type Vtable = ISceneNode_Vtbl;
@@ -2526,7 +2613,7 @@ impl SceneNodeCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for SceneNodeCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IVector<SceneNode>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for SceneNodeCollection {
@@ -2671,7 +2758,7 @@ impl SceneObject {
     }
 }
 impl windows_core::RuntimeType for SceneObject {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneObject>();
 }
 unsafe impl windows_core::Interface for SceneObject {
     type Vtable = ISceneObject_Vtbl;
@@ -2906,7 +2993,7 @@ impl ScenePbrMaterial {
     }
 }
 impl windows_core::RuntimeType for ScenePbrMaterial {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScenePbrMaterial>();
 }
 unsafe impl windows_core::Interface for ScenePbrMaterial {
     type Vtable = IScenePbrMaterial_Vtbl;
@@ -3038,7 +3125,7 @@ impl SceneRendererComponent {
     }
 }
 impl windows_core::RuntimeType for SceneRendererComponent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneRendererComponent>();
 }
 unsafe impl windows_core::Interface for SceneRendererComponent {
     type Vtable = ISceneRendererComponent_Vtbl;
@@ -3224,7 +3311,7 @@ impl SceneSurfaceMaterialInput {
     }
 }
 impl windows_core::RuntimeType for SceneSurfaceMaterialInput {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneSurfaceMaterialInput>();
 }
 unsafe impl windows_core::Interface for SceneSurfaceMaterialInput {
     type Vtable = ISceneSurfaceMaterialInput_Vtbl;
@@ -3648,7 +3735,7 @@ impl SceneVisual {
     }
 }
 impl windows_core::RuntimeType for SceneVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneVisual>();
 }
 unsafe impl windows_core::Interface for SceneVisual {
     type Vtable = ISceneVisual_Vtbl;

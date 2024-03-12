@@ -636,6 +636,9 @@ pub struct ICommandLineActivatedEventArgs_Vtbl {
     pub Operation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICommandLineActivationOperation, ICommandLineActivationOperation_Vtbl, 0x994b2841_c59e_4f69_bcfd_b61ed4e622eb);
+impl windows_core::RuntimeType for ICommandLineActivationOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICommandLineActivationOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -2519,6 +2522,9 @@ pub struct IShareTargetActivatedEventArgs_Vtbl {
     ShareOperation: usize,
 }
 windows_core::imp::define_interface!(ISplashScreen, ISplashScreen_Vtbl, 0xca4d975c_d4d6_43f0_97c0_0833c6391c24);
+impl windows_core::RuntimeType for ISplashScreen {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISplashScreen_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -2568,6 +2574,9 @@ pub struct IStartupTaskActivatedEventArgs_Vtbl {
     pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITileActivatedInfo, ITileActivatedInfo_Vtbl, 0x80e4a3b1_3980_4f17_b738_89194e0b8f65);
+impl windows_core::RuntimeType for ITileActivatedInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITileActivatedInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -2989,7 +2998,7 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentsProviderAddAppointmentActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for AppointmentsProviderAddAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl;
@@ -3052,7 +3061,7 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentsProviderRemoveAppointmentActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl;
@@ -3115,7 +3124,7 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentsProviderReplaceAppointmentActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl;
@@ -3191,7 +3200,7 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     type Vtable = IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl;
@@ -3260,7 +3269,7 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentsProviderShowTimeFrameActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for AppointmentsProviderShowTimeFrameActivatedEventArgs {
     type Vtable = IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl;
@@ -3287,7 +3296,7 @@ impl BackgroundActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for BackgroundActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for BackgroundActivatedEventArgs {
     type Vtable = IBackgroundActivatedEventArgs_Vtbl;
@@ -3342,7 +3351,7 @@ impl BarcodeScannerPreviewActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for BarcodeScannerPreviewActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerPreviewActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerPreviewActivatedEventArgs {
     type Vtable = IBarcodeScannerPreviewActivatedEventArgs_Vtbl;
@@ -3398,7 +3407,7 @@ impl CachedFileUpdaterActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for CachedFileUpdaterActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICachedFileUpdaterActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for CachedFileUpdaterActivatedEventArgs {
     type Vtable = ICachedFileUpdaterActivatedEventArgs_Vtbl;
@@ -3452,7 +3461,7 @@ impl CameraSettingsActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for CameraSettingsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICameraSettingsActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for CameraSettingsActivatedEventArgs {
     type Vtable = ICameraSettingsActivatedEventArgs_Vtbl;
@@ -3507,7 +3516,7 @@ impl CommandLineActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for CommandLineActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICommandLineActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for CommandLineActivatedEventArgs {
     type Vtable = ICommandLineActivatedEventArgs_Vtbl;
@@ -3557,7 +3566,7 @@ impl CommandLineActivationOperation {
     }
 }
 impl windows_core::RuntimeType for CommandLineActivationOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICommandLineActivationOperation>();
 }
 unsafe impl windows_core::Interface for CommandLineActivationOperation {
     type Vtable = ICommandLineActivationOperation_Vtbl;
@@ -3626,7 +3635,7 @@ impl ContactCallActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ContactCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactCallActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for ContactCallActivatedEventArgs {
     type Vtable = IContactCallActivatedEventArgs_Vtbl;
@@ -3689,7 +3698,7 @@ impl ContactMapActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ContactMapActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactMapActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for ContactMapActivatedEventArgs {
     type Vtable = IContactMapActivatedEventArgs_Vtbl;
@@ -3758,7 +3767,7 @@ impl ContactMessageActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ContactMessageActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactMessageActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for ContactMessageActivatedEventArgs {
     type Vtable = IContactMessageActivatedEventArgs_Vtbl;
@@ -3822,7 +3831,7 @@ impl ContactPanelActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ContactPanelActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPanelActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for ContactPanelActivatedEventArgs {
     type Vtable = IContactPanelActivatedEventArgs_Vtbl;
@@ -3870,7 +3879,7 @@ impl ContactPickerActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ContactPickerActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPickerActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for ContactPickerActivatedEventArgs {
     type Vtable = IContactPickerActivatedEventArgs_Vtbl;
@@ -3939,7 +3948,7 @@ impl ContactPostActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ContactPostActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPostActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for ContactPostActivatedEventArgs {
     type Vtable = IContactPostActivatedEventArgs_Vtbl;
@@ -4008,7 +4017,7 @@ impl ContactVideoCallActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ContactVideoCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactVideoCallActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for ContactVideoCallActivatedEventArgs {
     type Vtable = IContactVideoCallActivatedEventArgs_Vtbl;
@@ -4085,7 +4094,7 @@ impl DeviceActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for DeviceActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for DeviceActivatedEventArgs {
     type Vtable = IDeviceActivatedEventArgs_Vtbl;
@@ -4141,7 +4150,7 @@ impl DevicePairingActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for DevicePairingActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePairingActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for DevicePairingActivatedEventArgs {
     type Vtable = IDevicePairingActivatedEventArgs_Vtbl;
@@ -4225,7 +4234,7 @@ impl DialReceiverActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for DialReceiverActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialReceiverActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for DialReceiverActivatedEventArgs {
     type Vtable = IDialReceiverActivatedEventArgs_Vtbl;
@@ -4318,7 +4327,7 @@ impl FileActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for FileActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for FileActivatedEventArgs {
     type Vtable = IFileActivatedEventArgs_Vtbl;
@@ -4381,7 +4390,7 @@ impl FileOpenPickerActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for FileOpenPickerActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileOpenPickerActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for FileOpenPickerActivatedEventArgs {
     type Vtable = IFileOpenPickerActivatedEventArgs_Vtbl;
@@ -4450,7 +4459,7 @@ impl FileOpenPickerContinuationEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for FileOpenPickerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileOpenPickerContinuationEventArgs>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for FileOpenPickerContinuationEventArgs {
@@ -4524,7 +4533,7 @@ impl FileSavePickerActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for FileSavePickerActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileSavePickerActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for FileSavePickerActivatedEventArgs {
     type Vtable = IFileSavePickerActivatedEventArgs_Vtbl;
@@ -4593,7 +4602,7 @@ impl FileSavePickerContinuationEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for FileSavePickerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileSavePickerContinuationEventArgs>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for FileSavePickerContinuationEventArgs {
@@ -4666,7 +4675,7 @@ impl FolderPickerContinuationEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for FolderPickerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFolderPickerContinuationEventArgs>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for FolderPickerContinuationEventArgs {
@@ -4761,7 +4770,7 @@ impl LaunchActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for LaunchActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILaunchActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for LaunchActivatedEventArgs {
     type Vtable = ILaunchActivatedEventArgs_Vtbl;
@@ -4816,7 +4825,7 @@ impl LockScreenActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for LockScreenActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for LockScreenActivatedEventArgs {
     type Vtable = ILockScreenActivatedEventArgs_Vtbl;
@@ -4893,7 +4902,7 @@ impl LockScreenCallActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for LockScreenCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenCallActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for LockScreenCallActivatedEventArgs {
     type Vtable = ILockScreenCallActivatedEventArgs_Vtbl;
@@ -4933,7 +4942,7 @@ impl LockScreenComponentActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for LockScreenComponentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for LockScreenComponentActivatedEventArgs {
     type Vtable = IActivatedEventArgs_Vtbl;
@@ -4988,7 +4997,7 @@ impl PhoneCallActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for PhoneCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for PhoneCallActivatedEventArgs {
     type Vtable = IPhoneCallActivatedEventArgs_Vtbl;
@@ -5035,7 +5044,7 @@ impl PickerReturnedActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for PickerReturnedActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPickerReturnedActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for PickerReturnedActivatedEventArgs {
     type Vtable = IPickerReturnedActivatedEventArgs_Vtbl;
@@ -5083,7 +5092,7 @@ impl Print3DWorkflowActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for Print3DWorkflowActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrint3DWorkflowActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for Print3DWorkflowActivatedEventArgs {
     type Vtable = IPrint3DWorkflowActivatedEventArgs_Vtbl;
@@ -5131,7 +5140,7 @@ impl PrintTaskSettingsActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for PrintTaskSettingsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskSettingsActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintTaskSettingsActivatedEventArgs {
     type Vtable = IPrintTaskSettingsActivatedEventArgs_Vtbl;
@@ -5216,7 +5225,7 @@ impl ProtocolActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ProtocolActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtocolActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for ProtocolActivatedEventArgs {
     type Vtable = IProtocolActivatedEventArgs_Vtbl;
@@ -5309,7 +5318,7 @@ impl ProtocolForResultsActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ProtocolForResultsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtocolForResultsActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for ProtocolForResultsActivatedEventArgs {
     type Vtable = IProtocolForResultsActivatedEventArgs_Vtbl;
@@ -5364,7 +5373,7 @@ impl RestrictedLaunchActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for RestrictedLaunchActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRestrictedLaunchActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for RestrictedLaunchActivatedEventArgs {
     type Vtable = IRestrictedLaunchActivatedEventArgs_Vtbl;
@@ -5449,7 +5458,7 @@ impl SearchActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SearchActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for SearchActivatedEventArgs {
     type Vtable = ISearchActivatedEventArgs_Vtbl;
@@ -5505,7 +5514,7 @@ impl ShareTargetActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ShareTargetActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareTargetActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for ShareTargetActivatedEventArgs {
     type Vtable = IShareTargetActivatedEventArgs_Vtbl;
@@ -5544,7 +5553,7 @@ impl SplashScreen {
     }
 }
 impl windows_core::RuntimeType for SplashScreen {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISplashScreen>();
 }
 unsafe impl windows_core::Interface for SplashScreen {
     type Vtable = ISplashScreen_Vtbl;
@@ -5597,7 +5606,7 @@ impl StartupTaskActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for StartupTaskActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStartupTaskActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for StartupTaskActivatedEventArgs {
     type Vtable = IStartupTaskActivatedEventArgs_Vtbl;
@@ -5623,7 +5632,7 @@ impl TileActivatedInfo {
     }
 }
 impl windows_core::RuntimeType for TileActivatedInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITileActivatedInfo>();
 }
 unsafe impl windows_core::Interface for TileActivatedInfo {
     type Vtable = ITileActivatedInfo_Vtbl;
@@ -5693,7 +5702,7 @@ impl ToastNotificationActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ToastNotificationActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastNotificationActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for ToastNotificationActivatedEventArgs {
     type Vtable = IToastNotificationActivatedEventArgs_Vtbl;
@@ -5741,7 +5750,7 @@ impl UserDataAccountProviderActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for UserDataAccountProviderActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountProviderActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for UserDataAccountProviderActivatedEventArgs {
     type Vtable = IUserDataAccountProviderActivatedEventArgs_Vtbl;
@@ -5797,7 +5806,7 @@ impl VoiceCommandActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for VoiceCommandActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoiceCommandActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for VoiceCommandActivatedEventArgs {
     type Vtable = IVoiceCommandActivatedEventArgs_Vtbl;
@@ -5866,7 +5875,7 @@ impl WalletActionActivatedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for WalletActionActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletActionActivatedEventArgs>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for WalletActionActivatedEventArgs {
@@ -5926,7 +5935,7 @@ impl WebAccountProviderActivatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for WebAccountProviderActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountProviderActivatedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebAccountProviderActivatedEventArgs {
     type Vtable = IWebAccountProviderActivatedEventArgs_Vtbl;
@@ -5982,7 +5991,7 @@ impl WebAuthenticationBrokerContinuationEventArgs {
     }
 }
 impl windows_core::RuntimeType for WebAuthenticationBrokerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAuthenticationBrokerContinuationEventArgs>();
 }
 unsafe impl windows_core::Interface for WebAuthenticationBrokerContinuationEventArgs {
     type Vtable = IWebAuthenticationBrokerContinuationEventArgs_Vtbl;

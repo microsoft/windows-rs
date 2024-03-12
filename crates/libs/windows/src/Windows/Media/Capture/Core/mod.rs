@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IVariablePhotoCapturedEventArgs, IVariablePhotoCapturedEventArgs_Vtbl, 0xd1eb4c5c_1b53_4e4a_8b5c_db7887ac949b);
+impl windows_core::RuntimeType for IVariablePhotoCapturedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVariablePhotoCapturedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,6 +11,9 @@ pub struct IVariablePhotoCapturedEventArgs_Vtbl {
     pub CapturedFrameControlValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVariablePhotoSequenceCapture, IVariablePhotoSequenceCapture_Vtbl, 0xd0112d1d_031e_4041_a6d6_bd742476a8ee);
+impl windows_core::RuntimeType for IVariablePhotoSequenceCapture {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVariablePhotoSequenceCapture_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -20,6 +26,9 @@ pub struct IVariablePhotoSequenceCapture_Vtbl {
     pub RemoveStopped: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVariablePhotoSequenceCapture2, IVariablePhotoSequenceCapture2_Vtbl, 0xfe2c62bc_50b0_43e3_917c_e3b92798942f);
+impl windows_core::RuntimeType for IVariablePhotoSequenceCapture2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVariablePhotoSequenceCapture2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -60,7 +69,7 @@ impl VariablePhotoCapturedEventArgs {
     }
 }
 impl windows_core::RuntimeType for VariablePhotoCapturedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVariablePhotoCapturedEventArgs>();
 }
 unsafe impl windows_core::Interface for VariablePhotoCapturedEventArgs {
     type Vtable = IVariablePhotoCapturedEventArgs_Vtbl;
@@ -134,7 +143,7 @@ impl VariablePhotoSequenceCapture {
     }
 }
 impl windows_core::RuntimeType for VariablePhotoSequenceCapture {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVariablePhotoSequenceCapture>();
 }
 unsafe impl windows_core::Interface for VariablePhotoSequenceCapture {
     type Vtable = IVariablePhotoSequenceCapture_Vtbl;

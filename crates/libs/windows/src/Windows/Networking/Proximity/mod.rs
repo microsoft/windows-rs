@@ -1,10 +1,16 @@
 windows_core::imp::define_interface!(IConnectionRequestedEventArgs, IConnectionRequestedEventArgs_Vtbl, 0xeb6891ae_4f1e_4c66_bd0d_46924a942e08);
+impl windows_core::RuntimeType for IConnectionRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IConnectionRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PeerInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPeerFinderStatics, IPeerFinderStatics_Vtbl, 0x914b3b61_f6e1_47c4_a14c_148a1903d0c6);
+impl windows_core::RuntimeType for IPeerFinderStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPeerFinderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -38,6 +44,9 @@ pub struct IPeerFinderStatics_Vtbl {
     ConnectAsync: usize,
 }
 windows_core::imp::define_interface!(IPeerFinderStatics2, IPeerFinderStatics2_Vtbl, 0xd6e73c65_fdd0_4b0b_9312_866408935d82);
+impl windows_core::RuntimeType for IPeerFinderStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPeerFinderStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -54,12 +63,18 @@ pub struct IPeerFinderStatics2_Vtbl {
     pub CreateWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPeerInformation, IPeerInformation_Vtbl, 0x20024f08_9fff_45f4_b6e9_408b2ebef373);
+impl windows_core::RuntimeType for IPeerInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPeerInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPeerInformation3, IPeerInformation3_Vtbl, 0xb20f612a_dbd0_40f8_95bd_2d4209c7836f);
+impl windows_core::RuntimeType for IPeerInformation3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPeerInformation3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -70,6 +85,9 @@ pub struct IPeerInformation3_Vtbl {
     DiscoveryData: usize,
 }
 windows_core::imp::define_interface!(IPeerInformationWithHostAndService, IPeerInformationWithHostAndService_Vtbl, 0xecc7ccad_1b70_4e8b_92db_bbe781419308);
+impl windows_core::RuntimeType for IPeerInformationWithHostAndService {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPeerInformationWithHostAndService_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -77,6 +95,9 @@ pub struct IPeerInformationWithHostAndService_Vtbl {
     pub ServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPeerWatcher, IPeerWatcher_Vtbl, 0x3cee21f8_2fa6_4679_9691_03c94a420f34);
+impl windows_core::RuntimeType for IPeerWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPeerWatcher_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -95,6 +116,9 @@ pub struct IPeerWatcher_Vtbl {
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProximityDevice, IProximityDevice_Vtbl, 0xefa8a552_f6e1_4329_a0fc_ab6b0fd28262);
+impl windows_core::RuntimeType for IProximityDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProximityDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -122,6 +146,9 @@ pub struct IProximityDevice_Vtbl {
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProximityDeviceStatics, IProximityDeviceStatics_Vtbl, 0x914ba01d_f6e1_47c4_a14c_148a1903d0c6);
+impl windows_core::RuntimeType for IProximityDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProximityDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -130,6 +157,9 @@ pub struct IProximityDeviceStatics_Vtbl {
     pub FromId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProximityMessage, IProximityMessage_Vtbl, 0xefab0782_f6e1_4675_a045_d8e320c24808);
+impl windows_core::RuntimeType for IProximityMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProximityMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -142,6 +172,9 @@ pub struct IProximityMessage_Vtbl {
     pub DataAsString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITriggeredConnectionStateChangedEventArgs, ITriggeredConnectionStateChangedEventArgs_Vtbl, 0xc6a780ad_f6e1_4d54_96e2_33f620bca88a);
+impl windows_core::RuntimeType for ITriggeredConnectionStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITriggeredConnectionStateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -166,7 +199,7 @@ impl ConnectionRequestedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ConnectionRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConnectionRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for ConnectionRequestedEventArgs {
     type Vtable = IConnectionRequestedEventArgs_Vtbl;
@@ -364,7 +397,7 @@ impl PeerInformation {
     }
 }
 impl windows_core::RuntimeType for PeerInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPeerInformation>();
 }
 unsafe impl windows_core::Interface for PeerInformation {
     type Vtable = IPeerInformation_Vtbl;
@@ -467,7 +500,7 @@ impl PeerWatcher {
     }
 }
 impl windows_core::RuntimeType for PeerWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPeerWatcher>();
 }
 unsafe impl windows_core::Interface for PeerWatcher {
     type Vtable = IPeerWatcher_Vtbl;
@@ -636,7 +669,7 @@ impl ProximityDevice {
     }
 }
 impl windows_core::RuntimeType for ProximityDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProximityDevice>();
 }
 unsafe impl windows_core::Interface for ProximityDevice {
     type Vtable = IProximityDevice_Vtbl;
@@ -683,7 +716,7 @@ impl ProximityMessage {
     }
 }
 impl windows_core::RuntimeType for ProximityMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProximityMessage>();
 }
 unsafe impl windows_core::Interface for ProximityMessage {
     type Vtable = IProximityMessage_Vtbl;
@@ -723,7 +756,7 @@ impl TriggeredConnectionStateChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for TriggeredConnectionStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITriggeredConnectionStateChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for TriggeredConnectionStateChangedEventArgs {
     type Vtable = ITriggeredConnectionStateChangedEventArgs_Vtbl;

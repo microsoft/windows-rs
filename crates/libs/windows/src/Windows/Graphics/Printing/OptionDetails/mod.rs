@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IPrintBindingOptionDetails, IPrintBindingOptionDetails_Vtbl, 0xc3f4cc98_9564_4f16_a055_a98b9a49e9d3);
+impl windows_core::RuntimeType for IPrintBindingOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintBindingOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,6 +11,9 @@ pub struct IPrintBindingOptionDetails_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintBorderingOptionDetails, IPrintBorderingOptionDetails_Vtbl, 0x4d73bc8f_fb53_4eb2_985f_1d91de0b7639);
+impl windows_core::RuntimeType for IPrintBorderingOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintBorderingOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -17,6 +23,9 @@ pub struct IPrintBorderingOptionDetails_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintCollationOptionDetails, IPrintCollationOptionDetails_Vtbl, 0xd6abb166_a5a6_40dc_acc3_739f28f1e5d3);
+impl windows_core::RuntimeType for IPrintCollationOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintCollationOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -26,6 +35,9 @@ pub struct IPrintCollationOptionDetails_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintColorModeOptionDetails, IPrintColorModeOptionDetails_Vtbl, 0xdba97704_f1d6_4843_a484_9b447cdcf3b6);
+impl windows_core::RuntimeType for IPrintColorModeOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintColorModeOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -35,6 +47,9 @@ pub struct IPrintColorModeOptionDetails_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintCopiesOptionDetails, IPrintCopiesOptionDetails_Vtbl, 0x42053099_4339_4343_898d_2c47b5e0c341);
+impl windows_core::RuntimeType for IPrintCopiesOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintCopiesOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -44,6 +59,9 @@ pub struct IPrintCopiesOptionDetails_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintCustomItemDetails, IPrintCustomItemDetails_Vtbl, 0x5704b637_5c3a_449a_aa36_b3291b1192fd);
+impl windows_core::RuntimeType for IPrintCustomItemDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintCustomItemDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -52,12 +70,18 @@ pub struct IPrintCustomItemDetails_Vtbl {
     pub ItemDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintCustomItemListOptionDetails, IPrintCustomItemListOptionDetails_Vtbl, 0xa5fafd88_58f2_4ebd_b90f_51e4f2944c5d);
+impl windows_core::RuntimeType for IPrintCustomItemListOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintCustomItemListOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddItem: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintCustomItemListOptionDetails2, IPrintCustomItemListOptionDetails2_Vtbl, 0xc9d6353d_651c_4a39_906e_1091a1801bf1);
+impl windows_core::RuntimeType for IPrintCustomItemListOptionDetails2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintCustomItemListOptionDetails2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -67,6 +91,9 @@ pub struct IPrintCustomItemListOptionDetails2_Vtbl {
     AddItem: usize,
 }
 windows_core::imp::define_interface!(IPrintCustomItemListOptionDetails3, IPrintCustomItemListOptionDetails3_Vtbl, 0x4fa1b53f_3c34_4868_a407_fc5eab259b21);
+impl windows_core::RuntimeType for IPrintCustomItemListOptionDetails3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintCustomItemListOptionDetails3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -154,6 +181,9 @@ pub struct IPrintCustomOptionDetails_Vtbl {
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintCustomTextOptionDetails, IPrintCustomTextOptionDetails_Vtbl, 0x2ad171f8_c8bd_4905_9192_0d75136e8b31);
+impl windows_core::RuntimeType for IPrintCustomTextOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintCustomTextOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -161,6 +191,9 @@ pub struct IPrintCustomTextOptionDetails_Vtbl {
     pub MaxCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintCustomTextOptionDetails2, IPrintCustomTextOptionDetails2_Vtbl, 0xcea70b54_b977_4718_8338_7ed2b0d86fe3);
+impl windows_core::RuntimeType for IPrintCustomTextOptionDetails2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintCustomTextOptionDetails2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -170,6 +203,9 @@ pub struct IPrintCustomTextOptionDetails2_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintCustomToggleOptionDetails, IPrintCustomToggleOptionDetails_Vtbl, 0x9db4d514_e461_4608_8ee9_db6f5ed073c6);
+impl windows_core::RuntimeType for IPrintCustomToggleOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintCustomToggleOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -179,6 +215,9 @@ pub struct IPrintCustomToggleOptionDetails_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintDuplexOptionDetails, IPrintDuplexOptionDetails_Vtbl, 0xfcd94591_d4a4_44fa_b3fe_42e0ba28d5ad);
+impl windows_core::RuntimeType for IPrintDuplexOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintDuplexOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -188,6 +227,9 @@ pub struct IPrintDuplexOptionDetails_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintHolePunchOptionDetails, IPrintHolePunchOptionDetails_Vtbl, 0xa6de1f18_482c_4657_9d71_8ddddbea1e1e);
+impl windows_core::RuntimeType for IPrintHolePunchOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintHolePunchOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -274,6 +316,9 @@ pub struct IPrintItemListOptionDetails_Vtbl {
     Items: usize,
 }
 windows_core::imp::define_interface!(IPrintMediaSizeOptionDetails, IPrintMediaSizeOptionDetails_Vtbl, 0x6c8d5bcf_c0bf_47c8_b84a_628e7d0d1a1d);
+impl windows_core::RuntimeType for IPrintMediaSizeOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintMediaSizeOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -283,6 +328,9 @@ pub struct IPrintMediaSizeOptionDetails_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintMediaTypeOptionDetails, IPrintMediaTypeOptionDetails_Vtbl, 0xf8c7000b_abf3_4abc_8e86_22abc5744a43);
+impl windows_core::RuntimeType for IPrintMediaTypeOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintMediaTypeOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -445,6 +493,9 @@ pub struct IPrintOptionDetails_Vtbl {
     pub TrySetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintOrientationOptionDetails, IPrintOrientationOptionDetails_Vtbl, 0x46c38879_66e0_4da0_87b4_d25457824eb7);
+impl windows_core::RuntimeType for IPrintOrientationOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintOrientationOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -454,6 +505,9 @@ pub struct IPrintOrientationOptionDetails_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintPageRangeOptionDetails, IPrintPageRangeOptionDetails_Vtbl, 0x5a19e4b7_2be8_4aa7_9ea5_defbe8713b4e);
+impl windows_core::RuntimeType for IPrintPageRangeOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintPageRangeOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -463,6 +517,9 @@ pub struct IPrintPageRangeOptionDetails_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintQualityOptionDetails, IPrintQualityOptionDetails_Vtbl, 0x2dd06ba1_ce1a_44e6_84f9_3a92ea1e3044);
+impl windows_core::RuntimeType for IPrintQualityOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintQualityOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -472,6 +529,9 @@ pub struct IPrintQualityOptionDetails_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintStapleOptionDetails, IPrintStapleOptionDetails_Vtbl, 0xd43175bd_9c0b_44e0_84f6_ceebce653800);
+impl windows_core::RuntimeType for IPrintStapleOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintStapleOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -481,12 +541,18 @@ pub struct IPrintStapleOptionDetails_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTaskOptionChangedEventArgs, IPrintTaskOptionChangedEventArgs_Vtbl, 0x65197d05_a5ee_4307_9407_9acad147679c);
+impl windows_core::RuntimeType for IPrintTaskOptionChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTaskOptionChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OptionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTaskOptionDetails, IPrintTaskOptionDetails_Vtbl, 0xf5720af1_a89e_42a6_81af_f8e010b38a68);
+impl windows_core::RuntimeType for IPrintTaskOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTaskOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -502,12 +568,18 @@ pub struct IPrintTaskOptionDetails_Vtbl {
     pub RemoveBeginValidation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTaskOptionDetails2, IPrintTaskOptionDetails2_Vtbl, 0x53730a09_f968_4692_a177_c074597186db);
+impl windows_core::RuntimeType for IPrintTaskOptionDetails2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTaskOptionDetails2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateToggleOption: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTaskOptionDetailsStatic, IPrintTaskOptionDetailsStatic_Vtbl, 0x135da193_0961_4b6e_8766_f13b7fbccd58);
+impl windows_core::RuntimeType for IPrintTaskOptionDetailsStatic {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrintTaskOptionDetailsStatic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -677,7 +749,7 @@ impl PrintBindingOptionDetails {
     }
 }
 impl windows_core::RuntimeType for PrintBindingOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
 }
 unsafe impl windows_core::Interface for PrintBindingOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -779,7 +851,7 @@ impl PrintBorderingOptionDetails {
     }
 }
 impl windows_core::RuntimeType for PrintBorderingOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
 }
 unsafe impl windows_core::Interface for PrintBorderingOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -881,7 +953,7 @@ impl PrintCollationOptionDetails {
     }
 }
 impl windows_core::RuntimeType for PrintCollationOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
 }
 unsafe impl windows_core::Interface for PrintCollationOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -983,7 +1055,7 @@ impl PrintColorModeOptionDetails {
     }
 }
 impl windows_core::RuntimeType for PrintColorModeOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
 }
 unsafe impl windows_core::Interface for PrintColorModeOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -1091,7 +1163,7 @@ impl PrintCopiesOptionDetails {
     }
 }
 impl windows_core::RuntimeType for PrintCopiesOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
 }
 unsafe impl windows_core::Interface for PrintCopiesOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -1127,7 +1199,7 @@ impl PrintCustomItemDetails {
     }
 }
 impl windows_core::RuntimeType for PrintCustomItemDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintCustomItemDetails>();
 }
 unsafe impl windows_core::Interface for PrintCustomItemDetails {
     type Vtable = IPrintCustomItemDetails_Vtbl;
@@ -1252,7 +1324,7 @@ impl PrintCustomItemListOptionDetails {
     }
 }
 impl windows_core::RuntimeType for PrintCustomItemListOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
 }
 unsafe impl windows_core::Interface for PrintCustomItemListOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -1368,7 +1440,7 @@ impl PrintCustomTextOptionDetails {
     }
 }
 impl windows_core::RuntimeType for PrintCustomTextOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
 }
 unsafe impl windows_core::Interface for PrintCustomTextOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -1473,7 +1545,7 @@ impl PrintCustomToggleOptionDetails {
     }
 }
 impl windows_core::RuntimeType for PrintCustomToggleOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
 }
 unsafe impl windows_core::Interface for PrintCustomToggleOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -1575,7 +1647,7 @@ impl PrintDuplexOptionDetails {
     }
 }
 impl windows_core::RuntimeType for PrintDuplexOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
 }
 unsafe impl windows_core::Interface for PrintDuplexOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -1677,7 +1749,7 @@ impl PrintHolePunchOptionDetails {
     }
 }
 impl windows_core::RuntimeType for PrintHolePunchOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
 }
 unsafe impl windows_core::Interface for PrintHolePunchOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -1779,7 +1851,7 @@ impl PrintMediaSizeOptionDetails {
     }
 }
 impl windows_core::RuntimeType for PrintMediaSizeOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
 }
 unsafe impl windows_core::Interface for PrintMediaSizeOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -1881,7 +1953,7 @@ impl PrintMediaTypeOptionDetails {
     }
 }
 impl windows_core::RuntimeType for PrintMediaTypeOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
 }
 unsafe impl windows_core::Interface for PrintMediaTypeOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -1983,7 +2055,7 @@ impl PrintOrientationOptionDetails {
     }
 }
 impl windows_core::RuntimeType for PrintOrientationOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
 }
 unsafe impl windows_core::Interface for PrintOrientationOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -2077,7 +2149,7 @@ impl PrintPageRangeOptionDetails {
     }
 }
 impl windows_core::RuntimeType for PrintPageRangeOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
 }
 unsafe impl windows_core::Interface for PrintPageRangeOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -2179,7 +2251,7 @@ impl PrintQualityOptionDetails {
     }
 }
 impl windows_core::RuntimeType for PrintQualityOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
 }
 unsafe impl windows_core::Interface for PrintQualityOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -2281,7 +2353,7 @@ impl PrintStapleOptionDetails {
     }
 }
 impl windows_core::RuntimeType for PrintStapleOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
 }
 unsafe impl windows_core::Interface for PrintStapleOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
@@ -2306,7 +2378,7 @@ impl PrintTaskOptionChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for PrintTaskOptionChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskOptionChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintTaskOptionChangedEventArgs {
     type Vtable = IPrintTaskOptionChangedEventArgs_Vtbl;
@@ -2411,7 +2483,7 @@ impl PrintTaskOptionDetails {
     }
 }
 impl windows_core::RuntimeType for PrintTaskOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskOptionDetails>();
 }
 unsafe impl windows_core::Interface for PrintTaskOptionDetails {
     type Vtable = IPrintTaskOptionDetails_Vtbl;

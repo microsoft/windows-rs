@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IContentRestrictionsBrowsePolicy, IContentRestrictionsBrowsePolicy_Vtbl, 0x8c0133a4_442e_461a_8757_fad2f5bd37e4);
+impl windows_core::RuntimeType for IContentRestrictionsBrowsePolicy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContentRestrictionsBrowsePolicy_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7,6 +10,9 @@ pub struct IContentRestrictionsBrowsePolicy_Vtbl {
     pub PreferredAgeRating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRatedContentDescription, IRatedContentDescription_Vtbl, 0x694866df_66b2_4dc3_96b1_f090eedee255);
+impl windows_core::RuntimeType for IRatedContentDescription {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRatedContentDescription_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -34,12 +40,18 @@ pub struct IRatedContentDescription_Vtbl {
     SetRatings: usize,
 }
 windows_core::imp::define_interface!(IRatedContentDescriptionFactory, IRatedContentDescriptionFactory_Vtbl, 0x2e38df62_9b90_4fa6_89c1_4b8d2ffb3573);
+impl windows_core::RuntimeType for IRatedContentDescriptionFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRatedContentDescriptionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, RatedContentCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRatedContentRestrictions, IRatedContentRestrictions_Vtbl, 0x3f7f23cb_ba07_4401_a49d_8b9222205723);
+impl windows_core::RuntimeType for IRatedContentRestrictions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRatedContentRestrictions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -50,6 +62,9 @@ pub struct IRatedContentRestrictions_Vtbl {
     pub RemoveRestrictionsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRatedContentRestrictionsFactory, IRatedContentRestrictionsFactory_Vtbl, 0xfb4b2996_c3bd_4910_9619_97cfd0694d56);
+impl windows_core::RuntimeType for IRatedContentRestrictionsFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRatedContentRestrictionsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -83,7 +98,7 @@ impl ContentRestrictionsBrowsePolicy {
     }
 }
 impl windows_core::RuntimeType for ContentRestrictionsBrowsePolicy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContentRestrictionsBrowsePolicy>();
 }
 unsafe impl windows_core::Interface for ContentRestrictionsBrowsePolicy {
     type Vtable = IContentRestrictionsBrowsePolicy_Vtbl;
@@ -177,7 +192,7 @@ impl RatedContentDescription {
     }
 }
 impl windows_core::RuntimeType for RatedContentDescription {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRatedContentDescription>();
 }
 unsafe impl windows_core::Interface for RatedContentDescription {
     type Vtable = IRatedContentDescription_Vtbl;
@@ -254,7 +269,7 @@ impl RatedContentRestrictions {
     }
 }
 impl windows_core::RuntimeType for RatedContentRestrictions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRatedContentRestrictions>();
 }
 unsafe impl windows_core::Interface for RatedContentRestrictions {
     type Vtable = IRatedContentRestrictions_Vtbl;

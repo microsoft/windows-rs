@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IQuickLink, IQuickLink_Vtbl, 0x603e4308_f0be_4adc_acc9_8b27ab9cf556);
+impl windows_core::RuntimeType for IQuickLink {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IQuickLink_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -24,6 +27,9 @@ pub struct IQuickLink_Vtbl {
     SupportedFileTypes: usize,
 }
 windows_core::imp::define_interface!(IShareOperation, IShareOperation_Vtbl, 0x2246bab8_d0f8_41c1_a82a_4137db6504fb);
+impl windows_core::RuntimeType for IShareOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IShareOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -38,12 +44,18 @@ pub struct IShareOperation_Vtbl {
     pub ReportError: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShareOperation2, IShareOperation2_Vtbl, 0x0ffb97c1_9778_4a09_8e5b_cb5e482d0555);
+impl windows_core::RuntimeType for IShareOperation2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IShareOperation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DismissUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShareOperation3, IShareOperation3_Vtbl, 0x5ef6b382_b7a7_4571_a2a6_994a034988b2);
+impl windows_core::RuntimeType for IShareOperation3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IShareOperation3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -120,7 +132,7 @@ impl QuickLink {
     }
 }
 impl windows_core::RuntimeType for QuickLink {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IQuickLink>();
 }
 unsafe impl windows_core::Interface for QuickLink {
     type Vtable = IQuickLink_Vtbl;
@@ -193,7 +205,7 @@ impl ShareOperation {
     }
 }
 impl windows_core::RuntimeType for ShareOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareOperation>();
 }
 unsafe impl windows_core::Interface for ShareOperation {
     type Vtable = IShareOperation_Vtbl;

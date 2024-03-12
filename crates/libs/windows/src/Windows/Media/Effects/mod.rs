@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IAudioCaptureEffectsManager, IAudioCaptureEffectsManager_Vtbl, 0x8f85c271_038d_4393_8298_540110608eef);
+impl windows_core::RuntimeType for IAudioCaptureEffectsManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAudioCaptureEffectsManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -10,6 +13,9 @@ pub struct IAudioCaptureEffectsManager_Vtbl {
     GetAudioCaptureEffects: usize,
 }
 windows_core::imp::define_interface!(IAudioEffect, IAudioEffect_Vtbl, 0x34aafa51_9207_4055_be93_6e5734a86ae4);
+impl windows_core::RuntimeType for IAudioEffect {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAudioEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -47,6 +53,9 @@ pub struct IAudioEffectDefinition_Vtbl {
     Properties: usize,
 }
 windows_core::imp::define_interface!(IAudioEffectDefinitionFactory, IAudioEffectDefinitionFactory_Vtbl, 0x8e1da646_e705_45ed_8a2b_fc4e4f405a97);
+impl windows_core::RuntimeType for IAudioEffectDefinitionFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAudioEffectDefinitionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -57,6 +66,9 @@ pub struct IAudioEffectDefinitionFactory_Vtbl {
     CreateWithProperties: usize,
 }
 windows_core::imp::define_interface!(IAudioEffectsManagerStatics, IAudioEffectsManagerStatics_Vtbl, 0x66406c04_86fa_47cc_a315_f489d8c3fe10);
+impl windows_core::RuntimeType for IAudioEffectsManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAudioEffectsManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -78,6 +90,9 @@ pub struct IAudioEffectsManagerStatics_Vtbl {
     CreateAudioCaptureEffectsManagerWithMode: usize,
 }
 windows_core::imp::define_interface!(IAudioRenderEffectsManager, IAudioRenderEffectsManager_Vtbl, 0x4dc98966_8751_42b2_bfcb_39ca7864bd47);
+impl windows_core::RuntimeType for IAudioRenderEffectsManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAudioRenderEffectsManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -90,6 +105,10 @@ pub struct IAudioRenderEffectsManager_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IAudioRenderEffectsManager2, IAudioRenderEffectsManager2_Vtbl, 0xa844cd09_5ecc_44b3_bb4e_1db07287139c);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IAudioRenderEffectsManager2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IAudioRenderEffectsManager2_Vtbl {
@@ -265,6 +284,9 @@ pub struct IBasicVideoEffect_Vtbl {
     pub DiscardQueuedFrames: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositeVideoFrameContext, ICompositeVideoFrameContext_Vtbl, 0x6c30024b_f514_4278_a5f7_b9188049d110);
+impl windows_core::RuntimeType for ICompositeVideoFrameContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICompositeVideoFrameContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -280,6 +302,9 @@ pub struct ICompositeVideoFrameContext_Vtbl {
     GetOverlayForSurface: usize,
 }
 windows_core::imp::define_interface!(IProcessAudioFrameContext, IProcessAudioFrameContext_Vtbl, 0x4cd92946_1222_4a27_a586_fb3e20273255);
+impl windows_core::RuntimeType for IProcessAudioFrameContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProcessAudioFrameContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -287,6 +312,9 @@ pub struct IProcessAudioFrameContext_Vtbl {
     pub OutputFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProcessVideoFrameContext, IProcessVideoFrameContext_Vtbl, 0x276f0e2b_6461_401e_ba78_0fdad6114eec);
+impl windows_core::RuntimeType for IProcessVideoFrameContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IProcessVideoFrameContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -294,6 +322,9 @@ pub struct IProcessVideoFrameContext_Vtbl {
     pub OutputFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISlowMotionEffectDefinition, ISlowMotionEffectDefinition_Vtbl, 0x35053cd0_176c_4763_82c4_1b02dbe31737);
+impl windows_core::RuntimeType for ISlowMotionEffectDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISlowMotionEffectDefinition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -391,6 +422,9 @@ pub struct IVideoCompositorDefinition_Vtbl {
     Properties: usize,
 }
 windows_core::imp::define_interface!(IVideoCompositorDefinitionFactory, IVideoCompositorDefinitionFactory_Vtbl, 0x4366fd10_68b8_4d52_89b6_02a968cca899);
+impl windows_core::RuntimeType for IVideoCompositorDefinitionFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVideoCompositorDefinitionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -432,6 +466,9 @@ pub struct IVideoEffectDefinition_Vtbl {
     Properties: usize,
 }
 windows_core::imp::define_interface!(IVideoEffectDefinitionFactory, IVideoEffectDefinitionFactory_Vtbl, 0x81439b4e_6e33_428f_9d21_b5aafef7617c);
+impl windows_core::RuntimeType for IVideoEffectDefinitionFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVideoEffectDefinitionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -442,6 +479,9 @@ pub struct IVideoEffectDefinitionFactory_Vtbl {
     CreateWithProperties: usize,
 }
 windows_core::imp::define_interface!(IVideoTransformEffectDefinition, IVideoTransformEffectDefinition_Vtbl, 0x9664bb6a_1ea6_4aa6_8074_abe8851ecae2);
+impl windows_core::RuntimeType for IVideoTransformEffectDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVideoTransformEffectDefinition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -483,12 +523,18 @@ pub struct IVideoTransformEffectDefinition_Vtbl {
     ProcessingAlgorithm: usize,
 }
 windows_core::imp::define_interface!(IVideoTransformEffectDefinition2, IVideoTransformEffectDefinition2_Vtbl, 0xf0a8089f_66c8_4694_9fd9_1136abf7444a);
+impl windows_core::RuntimeType for IVideoTransformEffectDefinition2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVideoTransformEffectDefinition2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SphericalProjection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVideoTransformSphericalProjection, IVideoTransformSphericalProjection_Vtbl, 0xcf4401f0_9bf2_4c39_9f41_e022514a8468);
+impl windows_core::RuntimeType for IVideoTransformSphericalProjection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVideoTransformSphericalProjection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -550,7 +596,7 @@ impl AudioCaptureEffectsManager {
     }
 }
 impl windows_core::RuntimeType for AudioCaptureEffectsManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioCaptureEffectsManager>();
 }
 unsafe impl windows_core::Interface for AudioCaptureEffectsManager {
     type Vtable = IAudioCaptureEffectsManager_Vtbl;
@@ -575,7 +621,7 @@ impl AudioEffect {
     }
 }
 impl windows_core::RuntimeType for AudioEffect {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioEffect>();
 }
 unsafe impl windows_core::Interface for AudioEffect {
     type Vtable = IAudioEffect_Vtbl;
@@ -630,7 +676,7 @@ impl AudioEffectDefinition {
     }
 }
 impl windows_core::RuntimeType for AudioEffectDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioEffectDefinition>();
 }
 unsafe impl windows_core::Interface for AudioEffectDefinition {
     type Vtable = IAudioEffectDefinition_Vtbl;
@@ -730,7 +776,7 @@ impl AudioRenderEffectsManager {
     }
 }
 impl windows_core::RuntimeType for AudioRenderEffectsManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioRenderEffectsManager>();
 }
 unsafe impl windows_core::Interface for AudioRenderEffectsManager {
     type Vtable = IAudioRenderEffectsManager_Vtbl;
@@ -781,7 +827,7 @@ impl CompositeVideoFrameContext {
     }
 }
 impl windows_core::RuntimeType for CompositeVideoFrameContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositeVideoFrameContext>();
 }
 unsafe impl windows_core::Interface for CompositeVideoFrameContext {
     type Vtable = ICompositeVideoFrameContext_Vtbl;
@@ -813,7 +859,7 @@ impl ProcessAudioFrameContext {
     }
 }
 impl windows_core::RuntimeType for ProcessAudioFrameContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessAudioFrameContext>();
 }
 unsafe impl windows_core::Interface for ProcessAudioFrameContext {
     type Vtable = IProcessAudioFrameContext_Vtbl;
@@ -845,7 +891,7 @@ impl ProcessVideoFrameContext {
     }
 }
 impl windows_core::RuntimeType for ProcessVideoFrameContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessVideoFrameContext>();
 }
 unsafe impl windows_core::Interface for ProcessVideoFrameContext {
     type Vtable = IProcessVideoFrameContext_Vtbl;
@@ -897,7 +943,7 @@ impl SlowMotionEffectDefinition {
     }
 }
 impl windows_core::RuntimeType for SlowMotionEffectDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISlowMotionEffectDefinition>();
 }
 unsafe impl windows_core::Interface for SlowMotionEffectDefinition {
     type Vtable = ISlowMotionEffectDefinition_Vtbl;
@@ -952,7 +998,7 @@ impl VideoCompositorDefinition {
     }
 }
 impl windows_core::RuntimeType for VideoCompositorDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoCompositorDefinition>();
 }
 unsafe impl windows_core::Interface for VideoCompositorDefinition {
     type Vtable = IVideoCompositorDefinition_Vtbl;
@@ -1007,7 +1053,7 @@ impl VideoEffectDefinition {
     }
 }
 impl windows_core::RuntimeType for VideoEffectDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoEffectDefinition>();
 }
 unsafe impl windows_core::Interface for VideoEffectDefinition {
     type Vtable = IVideoEffectDefinition_Vtbl;
@@ -1129,7 +1175,7 @@ impl VideoTransformEffectDefinition {
     }
 }
 impl windows_core::RuntimeType for VideoTransformEffectDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoEffectDefinition>();
 }
 unsafe impl windows_core::Interface for VideoTransformEffectDefinition {
     type Vtable = IVideoEffectDefinition_Vtbl;
@@ -1208,7 +1254,7 @@ impl VideoTransformSphericalProjection {
     }
 }
 impl windows_core::RuntimeType for VideoTransformSphericalProjection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoTransformSphericalProjection>();
 }
 unsafe impl windows_core::Interface for VideoTransformSphericalProjection {
     type Vtable = IVideoTransformSphericalProjection_Vtbl;

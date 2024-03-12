@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IApplicationProfileStatics, IApplicationProfileStatics_Vtbl, 0xd5008ab4_7e7a_11e1_a7f2_b0a14824019b);
+impl windows_core::RuntimeType for IApplicationProfileStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IApplicationProfileStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

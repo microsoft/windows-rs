@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IMediaTranscoder, IMediaTranscoder_Vtbl, 0x190c99d2_a0aa_4d34_86bc_eed1b12c2f5b);
+impl windows_core::RuntimeType for IMediaTranscoder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaTranscoder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -31,6 +34,9 @@ pub struct IMediaTranscoder_Vtbl {
     PrepareStreamTranscodeAsync: usize,
 }
 windows_core::imp::define_interface!(IMediaTranscoder2, IMediaTranscoder2_Vtbl, 0x40531d74_35e0_4f04_8574_ca8bc4e5a082);
+impl windows_core::RuntimeType for IMediaTranscoder2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaTranscoder2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -42,6 +48,9 @@ pub struct IMediaTranscoder2_Vtbl {
     pub VideoProcessingAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaVideoProcessingAlgorithm) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrepareTranscodeResult, IPrepareTranscodeResult_Vtbl, 0x05f25dce_994f_4a34_9d68_97ccce1730d6);
+impl windows_core::RuntimeType for IPrepareTranscodeResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPrepareTranscodeResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -185,7 +194,7 @@ impl MediaTranscoder {
     }
 }
 impl windows_core::RuntimeType for MediaTranscoder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaTranscoder>();
 }
 unsafe impl windows_core::Interface for MediaTranscoder {
     type Vtable = IMediaTranscoder_Vtbl;
@@ -224,7 +233,7 @@ impl PrepareTranscodeResult {
     }
 }
 impl windows_core::RuntimeType for PrepareTranscodeResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrepareTranscodeResult>();
 }
 unsafe impl windows_core::Interface for PrepareTranscodeResult {
     type Vtable = IPrepareTranscodeResult_Vtbl;

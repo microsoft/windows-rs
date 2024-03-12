@@ -3,30 +3,45 @@ pub mod Background;
 #[cfg(feature = "ApplicationModel_Calls_Provider")]
 pub mod Provider;
 windows_core::imp::define_interface!(ICallAnswerEventArgs, ICallAnswerEventArgs_Vtbl, 0xfd789617_2dd7_4c8c_b2bd_95d17a5bb733);
+impl windows_core::RuntimeType for ICallAnswerEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICallAnswerEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AcceptedMedia: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VoipPhoneCallMedia) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICallRejectEventArgs, ICallRejectEventArgs_Vtbl, 0xda47fad7_13d4_4d92_a1c2_b77811ee37ec);
+impl windows_core::RuntimeType for ICallRejectEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICallRejectEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RejectReason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VoipPhoneCallRejectReason) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICallStateChangeEventArgs, ICallStateChangeEventArgs_Vtbl, 0xeab2349e_66f5_47f9_9fb5_459c5198c720);
+impl windows_core::RuntimeType for ICallStateChangeEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICallStateChangeEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VoipPhoneCallState) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILockScreenCallEndCallDeferral, ILockScreenCallEndCallDeferral_Vtbl, 0x2dd7ed0d_98ed_4041_9632_50ff812b773f);
+impl windows_core::RuntimeType for ILockScreenCallEndCallDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILockScreenCallEndCallDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILockScreenCallEndRequestedEventArgs, ILockScreenCallEndRequestedEventArgs_Vtbl, 0x8190a363_6f27_46e9_aeb6_c0ae83e47dc7);
+impl windows_core::RuntimeType for ILockScreenCallEndRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILockScreenCallEndRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -34,6 +49,9 @@ pub struct ILockScreenCallEndRequestedEventArgs_Vtbl {
     pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILockScreenCallUI, ILockScreenCallUI_Vtbl, 0xc596fd8d_73c9_4a14_b021_ec1c50a3b727);
+impl windows_core::RuntimeType for ILockScreenCallUI {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILockScreenCallUI_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -46,12 +64,18 @@ pub struct ILockScreenCallUI_Vtbl {
     pub SetCallTitle: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMuteChangeEventArgs, IMuteChangeEventArgs_Vtbl, 0x8585e159_0c41_432c_814d_c5f1fdf530be);
+impl windows_core::RuntimeType for IMuteChangeEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMuteChangeEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Muted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneCall, IPhoneCall_Vtbl, 0xc14ed0f8_c17d_59d2_9628_66e545b6cd21);
+impl windows_core::RuntimeType for IPhoneCall {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCall_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -87,6 +111,9 @@ pub struct IPhoneCall_Vtbl {
     pub ChangeAudioDeviceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, PhoneCallAudioDevice, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneCallBlockingStatics, IPhoneCallBlockingStatics_Vtbl, 0x19646f84_2b79_26f1_a46f_694be043f313);
+impl windows_core::RuntimeType for IPhoneCallBlockingStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCallBlockingStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -100,6 +127,9 @@ pub struct IPhoneCallBlockingStatics_Vtbl {
     SetCallBlockingListAsync: usize,
 }
 windows_core::imp::define_interface!(IPhoneCallHistoryEntry, IPhoneCallHistoryEntry_Vtbl, 0xfab0e129_32a4_4b85_83d1_f90d8c23a857);
+impl windows_core::RuntimeType for IPhoneCallHistoryEntry {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCallHistoryEntry_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -139,6 +169,9 @@ pub struct IPhoneCallHistoryEntry_Vtbl {
     pub SetStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneCallHistoryEntryAddress, IPhoneCallHistoryEntryAddress_Vtbl, 0x30f159da_3955_4042_84e6_66eebf82e67f);
+impl windows_core::RuntimeType for IPhoneCallHistoryEntryAddress {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCallHistoryEntryAddress_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -152,12 +185,18 @@ pub struct IPhoneCallHistoryEntryAddress_Vtbl {
     pub SetRawAddressKind: unsafe extern "system" fn(*mut core::ffi::c_void, PhoneCallHistoryEntryRawAddressKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneCallHistoryEntryAddressFactory, IPhoneCallHistoryEntryAddressFactory_Vtbl, 0xfb0fadba_c7f0_4bb6_9f6b_ba5d73209aca);
+impl windows_core::RuntimeType for IPhoneCallHistoryEntryAddressFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCallHistoryEntryAddressFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, PhoneCallHistoryEntryRawAddressKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneCallHistoryEntryQueryOptions, IPhoneCallHistoryEntryQueryOptions_Vtbl, 0x9c5fe15c_8bed_40ca_b06e_c4ca8eae5c87);
+impl windows_core::RuntimeType for IPhoneCallHistoryEntryQueryOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCallHistoryEntryQueryOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -169,6 +208,9 @@ pub struct IPhoneCallHistoryEntryQueryOptions_Vtbl {
     SourceIds: usize,
 }
 windows_core::imp::define_interface!(IPhoneCallHistoryEntryReader, IPhoneCallHistoryEntryReader_Vtbl, 0x61ece4be_8d86_479f_8404_a9846920fee6);
+impl windows_core::RuntimeType for IPhoneCallHistoryEntryReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCallHistoryEntryReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -178,6 +220,9 @@ pub struct IPhoneCallHistoryEntryReader_Vtbl {
     ReadBatchAsync: usize,
 }
 windows_core::imp::define_interface!(IPhoneCallHistoryManagerForUser, IPhoneCallHistoryManagerForUser_Vtbl, 0xd925c523_f55f_4353_9db4_0205a5265a55);
+impl windows_core::RuntimeType for IPhoneCallHistoryManagerForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCallHistoryManagerForUser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -188,12 +233,18 @@ pub struct IPhoneCallHistoryManagerForUser_Vtbl {
     User: usize,
 }
 windows_core::imp::define_interface!(IPhoneCallHistoryManagerStatics, IPhoneCallHistoryManagerStatics_Vtbl, 0xf5a6da39_b31f_4f45_ac8e_1b08893c1b50);
+impl windows_core::RuntimeType for IPhoneCallHistoryManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCallHistoryManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestStoreAsync: unsafe extern "system" fn(*mut core::ffi::c_void, PhoneCallHistoryStoreAccessType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneCallHistoryManagerStatics2, IPhoneCallHistoryManagerStatics2_Vtbl, 0xefd474f0_a2db_4188_9e92_bc3cfa6813cf);
+impl windows_core::RuntimeType for IPhoneCallHistoryManagerStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCallHistoryManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -203,6 +254,9 @@ pub struct IPhoneCallHistoryManagerStatics2_Vtbl {
     GetForUser: usize,
 }
 windows_core::imp::define_interface!(IPhoneCallHistoryStore, IPhoneCallHistoryStore_Vtbl, 0x2f907db8_b40e_422b_8545_cb1910a61c52);
+impl windows_core::RuntimeType for IPhoneCallHistoryStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCallHistoryStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -232,6 +286,9 @@ pub struct IPhoneCallHistoryStore_Vtbl {
     MarkSourcesAsSeenAsync: usize,
 }
 windows_core::imp::define_interface!(IPhoneCallInfo, IPhoneCallInfo_Vtbl, 0x22b42577_3e4d_5dc6_89c2_469fe5ffc189);
+impl windows_core::RuntimeType for IPhoneCallInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCallInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -243,12 +300,18 @@ pub struct IPhoneCallInfo_Vtbl {
     pub CallDirection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PhoneCallDirection) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneCallManagerStatics, IPhoneCallManagerStatics_Vtbl, 0x60edac78_78a6_4872_a3ef_98325ec8b843);
+impl windows_core::RuntimeType for IPhoneCallManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCallManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ShowPhoneCallUI: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneCallManagerStatics2, IPhoneCallManagerStatics2_Vtbl, 0xc7e3c8bc_2370_431c_98fd_43be5f03086d);
+impl windows_core::RuntimeType for IPhoneCallManagerStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCallManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -260,12 +323,18 @@ pub struct IPhoneCallManagerStatics2_Vtbl {
     pub RequestStoreAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneCallStatics, IPhoneCallStatics_Vtbl, 0x2218eeab_f60b_53e7_ba13_5aeafbc22957);
+impl windows_core::RuntimeType for IPhoneCallStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCallStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetFromId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneCallStore, IPhoneCallStore_Vtbl, 0x5f610748_18a6_4173_86d1_28be9dc62dba);
+impl windows_core::RuntimeType for IPhoneCallStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCallStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -274,18 +343,27 @@ pub struct IPhoneCallStore_Vtbl {
     pub RequestLineWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneCallVideoCapabilities, IPhoneCallVideoCapabilities_Vtbl, 0x02382786_b16a_4fdb_be3b_c4240e13ad0d);
+impl windows_core::RuntimeType for IPhoneCallVideoCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCallVideoCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsVideoCallingCapable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneCallVideoCapabilitiesManagerStatics, IPhoneCallVideoCapabilitiesManagerStatics_Vtbl, 0xf3c64b56_f00b_4a1c_a0c6_ee1910749ce7);
+impl windows_core::RuntimeType for IPhoneCallVideoCapabilitiesManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCallVideoCapabilitiesManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCapabilitiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneCallsResult, IPhoneCallsResult_Vtbl, 0x1bfad365_57cf_57dd_986d_b057c91eac33);
+impl windows_core::RuntimeType for IPhoneCallsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneCallsResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -296,6 +374,9 @@ pub struct IPhoneCallsResult_Vtbl {
     AllActivePhoneCalls: usize,
 }
 windows_core::imp::define_interface!(IPhoneDialOptions, IPhoneDialOptions_Vtbl, 0xb639c4b8_f06f_36cb_a863_823742b5f2d4);
+impl windows_core::RuntimeType for IPhoneDialOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneDialOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -325,6 +406,9 @@ pub struct IPhoneDialOptions_Vtbl {
     pub SetAudioEndpoint: unsafe extern "system" fn(*mut core::ffi::c_void, PhoneAudioRoutingEndpoint) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneLine, IPhoneLine_Vtbl, 0x27c66f30_6a69_34ca_a2ba_65302530c311);
+impl windows_core::RuntimeType for IPhoneLine {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneLine_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -350,6 +434,9 @@ pub struct IPhoneLine_Vtbl {
     pub DialWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneLine2, IPhoneLine2_Vtbl, 0x0167f56a_5344_5d64_8af3_a31a950e916a);
+impl windows_core::RuntimeType for IPhoneLine2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneLine2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -360,6 +447,9 @@ pub struct IPhoneLine2_Vtbl {
     pub TransportDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneLine3, IPhoneLine3_Vtbl, 0xe2e33cf7_2406_57f3_826a_e5a5f40d6fb5);
+impl windows_core::RuntimeType for IPhoneLine3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneLine3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -369,6 +459,9 @@ pub struct IPhoneLine3_Vtbl {
     pub GetAllActivePhoneCallsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneLineCellularDetails, IPhoneLineCellularDetails_Vtbl, 0x192601d5_147c_4769_b673_98a5ec8426cb);
+impl windows_core::RuntimeType for IPhoneLineCellularDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneLineCellularDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -379,6 +472,9 @@ pub struct IPhoneLineCellularDetails_Vtbl {
     pub GetNetworkOperatorDisplayText: unsafe extern "system" fn(*mut core::ffi::c_void, PhoneLineNetworkOperatorDisplayTextLocation, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneLineConfiguration, IPhoneLineConfiguration_Vtbl, 0xfe265862_f64f_4312_b2a8_4e257721aa95);
+impl windows_core::RuntimeType for IPhoneLineConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneLineConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -389,6 +485,9 @@ pub struct IPhoneLineConfiguration_Vtbl {
     ExtendedProperties: usize,
 }
 windows_core::imp::define_interface!(IPhoneLineDialResult, IPhoneLineDialResult_Vtbl, 0xe825a30a_5c7f_546f_b918_3ad2fe70fb34);
+impl windows_core::RuntimeType for IPhoneLineDialResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneLineDialResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -396,12 +495,18 @@ pub struct IPhoneLineDialResult_Vtbl {
     pub DialedCall: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneLineStatics, IPhoneLineStatics_Vtbl, 0xf38b5f23_ceb0_404f_bcf2_ba9f697d8adf);
+impl windows_core::RuntimeType for IPhoneLineStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneLineStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneLineTransportDevice, IPhoneLineTransportDevice_Vtbl, 0xefa8f889_cffa_59f4_97e4_74705b7dc490);
+impl windows_core::RuntimeType for IPhoneLineTransportDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneLineTransportDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -426,6 +531,9 @@ pub struct IPhoneLineTransportDevice_Vtbl {
     pub ConnectAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneLineTransportDevice2, IPhoneLineTransportDevice2_Vtbl, 0x64c885f2_ecf4_5761_8c04_3c248ce61690);
+impl windows_core::RuntimeType for IPhoneLineTransportDevice2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneLineTransportDevice2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -437,6 +545,9 @@ pub struct IPhoneLineTransportDevice2_Vtbl {
     pub RemoveInBandRingingEnabledChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneLineTransportDeviceStatics, IPhoneLineTransportDeviceStatics_Vtbl, 0x0f3121ac_d609_51a1_96f3_fb00d1819252);
+impl windows_core::RuntimeType for IPhoneLineTransportDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneLineTransportDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -445,6 +556,9 @@ pub struct IPhoneLineTransportDeviceStatics_Vtbl {
     pub GetDeviceSelectorForPhoneLineTransport: unsafe extern "system" fn(*mut core::ffi::c_void, PhoneLineTransport, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneLineWatcher, IPhoneLineWatcher_Vtbl, 0x8a45cd0a_6323_44e0_a6f6_9f21f64dc90a);
+impl windows_core::RuntimeType for IPhoneLineWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneLineWatcher_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -463,12 +577,18 @@ pub struct IPhoneLineWatcher_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PhoneLineWatcherStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneLineWatcherEventArgs, IPhoneLineWatcherEventArgs_Vtbl, 0xd07c753e_9e12_4a37_82b7_ad535dad6a67);
+impl windows_core::RuntimeType for IPhoneLineWatcherEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneLineWatcherEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LineId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneVoicemail, IPhoneVoicemail_Vtbl, 0xc9ce77f6_6e9f_3a8b_b727_6e0cf6998224);
+impl windows_core::RuntimeType for IPhoneVoicemail {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneVoicemail_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -478,6 +598,9 @@ pub struct IPhoneVoicemail_Vtbl {
     pub DialVoicemailAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVoipCallCoordinator, IVoipCallCoordinator_Vtbl, 0x4f118bcf_e8ef_4434_9c5f_a8d893fafe79);
+impl windows_core::RuntimeType for IVoipCallCoordinator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVoipCallCoordinator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -494,12 +617,18 @@ pub struct IVoipCallCoordinator_Vtbl {
     pub CancelUpgrade: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVoipCallCoordinator2, IVoipCallCoordinator2_Vtbl, 0xbeb4a9f3_c704_4234_89ce_e88cc0d28fbe);
+impl windows_core::RuntimeType for IVoipCallCoordinator2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVoipCallCoordinator2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetupNewAcceptedCall: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, VoipPhoneCallMedia, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVoipCallCoordinator3, IVoipCallCoordinator3_Vtbl, 0x338d0cbf_9b55_4021_87ca_e64b9bd666c7);
+impl windows_core::RuntimeType for IVoipCallCoordinator3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVoipCallCoordinator3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -507,18 +636,27 @@ pub struct IVoipCallCoordinator3_Vtbl {
     pub RequestNewIncomingCallWithContactRemoteId: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, VoipPhoneCallMedia, super::super::Foundation::TimeSpan, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVoipCallCoordinator4, IVoipCallCoordinator4_Vtbl, 0x83737239_9311_468f_bb49_47e0dfb5d93e);
+impl windows_core::RuntimeType for IVoipCallCoordinator4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVoipCallCoordinator4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReserveOneProcessCallResourcesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVoipCallCoordinatorStatics, IVoipCallCoordinatorStatics_Vtbl, 0x7f5d1f2b_e04a_4d10_b31a_a55c922cc2fb);
+impl windows_core::RuntimeType for IVoipCallCoordinatorStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVoipCallCoordinatorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVoipPhoneCall, IVoipPhoneCall_Vtbl, 0x6cf1f19a_7794_4a5a_8c68_ae87947a6990);
+impl windows_core::RuntimeType for IVoipPhoneCall {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVoipPhoneCall_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -544,12 +682,18 @@ pub struct IVoipPhoneCall_Vtbl {
     pub NotifyCallReady: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVoipPhoneCall2, IVoipPhoneCall2_Vtbl, 0x741b46e1_245f_41f3_9399_3141d25b52e3);
+impl windows_core::RuntimeType for IVoipPhoneCall2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVoipPhoneCall2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryShowAppUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVoipPhoneCall3, IVoipPhoneCall3_Vtbl, 0x0d891522_e258_4aa9_907a_1aa413c25523);
+impl windows_core::RuntimeType for IVoipPhoneCall3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IVoipPhoneCall3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -569,7 +713,7 @@ impl CallAnswerEventArgs {
     }
 }
 impl windows_core::RuntimeType for CallAnswerEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICallAnswerEventArgs>();
 }
 unsafe impl windows_core::Interface for CallAnswerEventArgs {
     type Vtable = ICallAnswerEventArgs_Vtbl;
@@ -594,7 +738,7 @@ impl CallRejectEventArgs {
     }
 }
 impl windows_core::RuntimeType for CallRejectEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICallRejectEventArgs>();
 }
 unsafe impl windows_core::Interface for CallRejectEventArgs {
     type Vtable = ICallRejectEventArgs_Vtbl;
@@ -619,7 +763,7 @@ impl CallStateChangeEventArgs {
     }
 }
 impl windows_core::RuntimeType for CallStateChangeEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICallStateChangeEventArgs>();
 }
 unsafe impl windows_core::Interface for CallStateChangeEventArgs {
     type Vtable = ICallStateChangeEventArgs_Vtbl;
@@ -641,7 +785,7 @@ impl LockScreenCallEndCallDeferral {
     }
 }
 impl windows_core::RuntimeType for LockScreenCallEndCallDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenCallEndCallDeferral>();
 }
 unsafe impl windows_core::Interface for LockScreenCallEndCallDeferral {
     type Vtable = ILockScreenCallEndCallDeferral_Vtbl;
@@ -673,7 +817,7 @@ impl LockScreenCallEndRequestedEventArgs {
     }
 }
 impl windows_core::RuntimeType for LockScreenCallEndRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenCallEndRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for LockScreenCallEndRequestedEventArgs {
     type Vtable = ILockScreenCallEndRequestedEventArgs_Vtbl;
@@ -734,7 +878,7 @@ impl LockScreenCallUI {
     }
 }
 impl windows_core::RuntimeType for LockScreenCallUI {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenCallUI>();
 }
 unsafe impl windows_core::Interface for LockScreenCallUI {
     type Vtable = ILockScreenCallUI_Vtbl;
@@ -759,7 +903,7 @@ impl MuteChangeEventArgs {
     }
 }
 impl windows_core::RuntimeType for MuteChangeEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMuteChangeEventArgs>();
 }
 unsafe impl windows_core::Interface for MuteChangeEventArgs {
     type Vtable = IMuteChangeEventArgs_Vtbl;
@@ -998,7 +1142,7 @@ impl PhoneCall {
     }
 }
 impl windows_core::RuntimeType for PhoneCall {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCall>();
 }
 unsafe impl windows_core::Interface for PhoneCall {
     type Vtable = IPhoneCall_Vtbl;
@@ -1258,7 +1402,7 @@ impl PhoneCallHistoryEntry {
     }
 }
 impl windows_core::RuntimeType for PhoneCallHistoryEntry {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntry>();
 }
 unsafe impl windows_core::Interface for PhoneCallHistoryEntry {
     type Vtable = IPhoneCallHistoryEntry_Vtbl;
@@ -1338,7 +1482,7 @@ impl PhoneCallHistoryEntryAddress {
     }
 }
 impl windows_core::RuntimeType for PhoneCallHistoryEntryAddress {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntryAddress>();
 }
 unsafe impl windows_core::Interface for PhoneCallHistoryEntryAddress {
     type Vtable = IPhoneCallHistoryEntryAddress_Vtbl;
@@ -1382,7 +1526,7 @@ impl PhoneCallHistoryEntryQueryOptions {
     }
 }
 impl windows_core::RuntimeType for PhoneCallHistoryEntryQueryOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntryQueryOptions>();
 }
 unsafe impl windows_core::Interface for PhoneCallHistoryEntryQueryOptions {
     type Vtable = IPhoneCallHistoryEntryQueryOptions_Vtbl;
@@ -1408,7 +1552,7 @@ impl PhoneCallHistoryEntryReader {
     }
 }
 impl windows_core::RuntimeType for PhoneCallHistoryEntryReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntryReader>();
 }
 unsafe impl windows_core::Interface for PhoneCallHistoryEntryReader {
     type Vtable = IPhoneCallHistoryEntryReader_Vtbl;
@@ -1473,7 +1617,7 @@ impl PhoneCallHistoryManagerForUser {
     }
 }
 impl windows_core::RuntimeType for PhoneCallHistoryManagerForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryManagerForUser>();
 }
 unsafe impl windows_core::Interface for PhoneCallHistoryManagerForUser {
     type Vtable = IPhoneCallHistoryManagerForUser_Vtbl;
@@ -1603,7 +1747,7 @@ impl PhoneCallHistoryStore {
     }
 }
 impl windows_core::RuntimeType for PhoneCallHistoryStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryStore>();
 }
 unsafe impl windows_core::Interface for PhoneCallHistoryStore {
     type Vtable = IPhoneCallHistoryStore_Vtbl;
@@ -1663,7 +1807,7 @@ impl PhoneCallInfo {
     }
 }
 impl windows_core::RuntimeType for PhoneCallInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallInfo>();
 }
 unsafe impl windows_core::Interface for PhoneCallInfo {
     type Vtable = IPhoneCallInfo_Vtbl;
@@ -1754,7 +1898,7 @@ impl PhoneCallStore {
     }
 }
 impl windows_core::RuntimeType for PhoneCallStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallStore>();
 }
 unsafe impl windows_core::Interface for PhoneCallStore {
     type Vtable = IPhoneCallStore_Vtbl;
@@ -1779,7 +1923,7 @@ impl PhoneCallVideoCapabilities {
     }
 }
 impl windows_core::RuntimeType for PhoneCallVideoCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallVideoCapabilities>();
 }
 unsafe impl windows_core::Interface for PhoneCallVideoCapabilities {
     type Vtable = IPhoneCallVideoCapabilities_Vtbl;
@@ -1829,7 +1973,7 @@ impl PhoneCallsResult {
     }
 }
 impl windows_core::RuntimeType for PhoneCallsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallsResult>();
 }
 unsafe impl windows_core::Interface for PhoneCallsResult {
     type Vtable = IPhoneCallsResult_Vtbl;
@@ -1930,7 +2074,7 @@ impl PhoneDialOptions {
     }
 }
 impl windows_core::RuntimeType for PhoneDialOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneDialOptions>();
 }
 unsafe impl windows_core::Interface for PhoneDialOptions {
     type Vtable = IPhoneDialOptions_Vtbl;
@@ -2116,7 +2260,7 @@ impl PhoneLine {
     }
 }
 impl windows_core::RuntimeType for PhoneLine {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLine>();
 }
 unsafe impl windows_core::Interface for PhoneLine {
     type Vtable = IPhoneLine_Vtbl;
@@ -2169,7 +2313,7 @@ impl PhoneLineCellularDetails {
     }
 }
 impl windows_core::RuntimeType for PhoneLineCellularDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineCellularDetails>();
 }
 unsafe impl windows_core::Interface for PhoneLineCellularDetails {
     type Vtable = IPhoneLineCellularDetails_Vtbl;
@@ -2202,7 +2346,7 @@ impl PhoneLineConfiguration {
     }
 }
 impl windows_core::RuntimeType for PhoneLineConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineConfiguration>();
 }
 unsafe impl windows_core::Interface for PhoneLineConfiguration {
     type Vtable = IPhoneLineConfiguration_Vtbl;
@@ -2234,7 +2378,7 @@ impl PhoneLineDialResult {
     }
 }
 impl windows_core::RuntimeType for PhoneLineDialResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineDialResult>();
 }
 unsafe impl windows_core::Interface for PhoneLineDialResult {
     type Vtable = IPhoneLineDialResult_Vtbl;
@@ -2384,7 +2528,7 @@ impl PhoneLineTransportDevice {
     }
 }
 impl windows_core::RuntimeType for PhoneLineTransportDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineTransportDevice>();
 }
 unsafe impl windows_core::Interface for PhoneLineTransportDevice {
     type Vtable = IPhoneLineTransportDevice_Vtbl;
@@ -2487,7 +2631,7 @@ impl PhoneLineWatcher {
     }
 }
 impl windows_core::RuntimeType for PhoneLineWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineWatcher>();
 }
 unsafe impl windows_core::Interface for PhoneLineWatcher {
     type Vtable = IPhoneLineWatcher_Vtbl;
@@ -2512,7 +2656,7 @@ impl PhoneLineWatcherEventArgs {
     }
 }
 impl windows_core::RuntimeType for PhoneLineWatcherEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineWatcherEventArgs>();
 }
 unsafe impl windows_core::Interface for PhoneLineWatcherEventArgs {
     type Vtable = IPhoneLineWatcherEventArgs_Vtbl;
@@ -2558,7 +2702,7 @@ impl PhoneVoicemail {
     }
 }
 impl windows_core::RuntimeType for PhoneVoicemail {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneVoicemail>();
 }
 unsafe impl windows_core::Interface for PhoneVoicemail {
     type Vtable = IPhoneVoicemail_Vtbl;
@@ -2695,7 +2839,7 @@ impl VoipCallCoordinator {
     }
 }
 impl windows_core::RuntimeType for VoipCallCoordinator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoipCallCoordinator>();
 }
 unsafe impl windows_core::Interface for VoipCallCoordinator {
     type Vtable = IVoipCallCoordinator_Vtbl;
@@ -2840,7 +2984,7 @@ impl VoipPhoneCall {
     }
 }
 impl windows_core::RuntimeType for VoipPhoneCall {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoipPhoneCall>();
 }
 unsafe impl windows_core::Interface for VoipPhoneCall {
     type Vtable = IVoipPhoneCall_Vtbl;

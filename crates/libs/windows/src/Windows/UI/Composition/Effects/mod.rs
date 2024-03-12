@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ISceneLightingEffect, ISceneLightingEffect_Vtbl, 0x91bb5e52_95d1_4f8b_9a5a_6408b24b8c6a);
+impl windows_core::RuntimeType for ISceneLightingEffect {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneLightingEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -20,6 +23,9 @@ pub struct ISceneLightingEffect_Vtbl {
     pub SetSpecularShine: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISceneLightingEffect2, ISceneLightingEffect2_Vtbl, 0x9e270e81_72f0_4c5c_95f8_8a6e0024f409);
+impl windows_core::RuntimeType for ISceneLightingEffect2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISceneLightingEffect2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -126,7 +132,7 @@ impl SceneLightingEffect {
     }
 }
 impl windows_core::RuntimeType for SceneLightingEffect {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneLightingEffect>();
 }
 unsafe impl windows_core::Interface for SceneLightingEffect {
     type Vtable = ISceneLightingEffect_Vtbl;

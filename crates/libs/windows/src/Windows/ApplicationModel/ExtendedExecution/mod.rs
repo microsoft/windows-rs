@@ -1,12 +1,18 @@
 #[cfg(feature = "ApplicationModel_ExtendedExecution_Foreground")]
 pub mod Foreground;
 windows_core::imp::define_interface!(IExtendedExecutionRevokedEventArgs, IExtendedExecutionRevokedEventArgs_Vtbl, 0xbfbc9f16_63b5_4c0b_aad6_828af5373ec3);
+impl windows_core::RuntimeType for IExtendedExecutionRevokedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IExtendedExecutionRevokedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ExtendedExecutionRevokedReason) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IExtendedExecutionSession, IExtendedExecutionSession_Vtbl, 0xaf908a2d_118b_48f1_9308_0c4fc41e200f);
+impl windows_core::RuntimeType for IExtendedExecutionSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IExtendedExecutionSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -34,7 +40,7 @@ impl ExtendedExecutionRevokedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ExtendedExecutionRevokedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IExtendedExecutionRevokedEventArgs>();
 }
 unsafe impl windows_core::Interface for ExtendedExecutionRevokedEventArgs {
     type Vtable = IExtendedExecutionRevokedEventArgs_Vtbl;
@@ -118,7 +124,7 @@ impl ExtendedExecutionSession {
     }
 }
 impl windows_core::RuntimeType for ExtendedExecutionSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IExtendedExecutionSession>();
 }
 unsafe impl windows_core::Interface for ExtendedExecutionSession {
     type Vtable = IExtendedExecutionSession_Vtbl;

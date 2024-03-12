@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ICompositorController, ICompositorController_Vtbl, 0x2d75f35a_70a7_4395_ba2d_cef0b18399f9);
+impl windows_core::RuntimeType for ICompositorController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICompositorController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -59,7 +62,7 @@ impl CompositorController {
     }
 }
 impl windows_core::RuntimeType for CompositorController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositorController>();
 }
 unsafe impl windows_core::Interface for CompositorController {
     type Vtable = ICompositorController_Vtbl;

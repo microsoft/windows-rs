@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IServiceDeviceStatics, IServiceDeviceStatics_Vtbl, 0xa88214e1_59c7_4a20_aba6_9f6707937230);
+impl windows_core::RuntimeType for IServiceDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IServiceDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6,6 +9,9 @@ pub struct IServiceDeviceStatics_Vtbl {
     pub GetDeviceSelectorFromServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageDeviceStatics, IStorageDeviceStatics_Vtbl, 0x5ece44ee_1b23_4dd2_8652_bc164f003128);
+impl windows_core::RuntimeType for IStorageDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorageDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

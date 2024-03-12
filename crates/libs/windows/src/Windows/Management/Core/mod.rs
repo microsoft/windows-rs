@@ -1,9 +1,15 @@
 windows_core::imp::define_interface!(IApplicationDataManager, IApplicationDataManager_Vtbl, 0x74d10432_2e99_4000_9a3a_64307e858129);
+impl windows_core::RuntimeType for IApplicationDataManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IApplicationDataManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IApplicationDataManagerStatics, IApplicationDataManagerStatics_Vtbl, 0x1e1862e3_698e_49a1_9752_dee94925b9b3);
+impl windows_core::RuntimeType for IApplicationDataManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IApplicationDataManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -31,7 +37,7 @@ impl ApplicationDataManager {
     }
 }
 impl windows_core::RuntimeType for ApplicationDataManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationDataManager>();
 }
 unsafe impl windows_core::Interface for ApplicationDataManager {
     type Vtable = IApplicationDataManager_Vtbl;

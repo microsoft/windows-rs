@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IActivitySensorTrigger, IActivitySensorTrigger_Vtbl, 0xd0dd4342_e37b_4823_a5fe_6b31dfefdeb0);
+impl windows_core::RuntimeType for IActivitySensorTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IActivitySensorTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -14,12 +17,18 @@ pub struct IActivitySensorTrigger_Vtbl {
     pub MinimumReportInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActivitySensorTriggerFactory, IActivitySensorTriggerFactory_Vtbl, 0xa72691c3_3837_44f7_831b_0132cc872bc3);
+impl windows_core::RuntimeType for IActivitySensorTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IActivitySensorTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAlarmApplicationManagerStatics, IAlarmApplicationManagerStatics_Vtbl, 0xca03fa3b_cce6_4de2_b09b_9628bd33bbbe);
+impl windows_core::RuntimeType for IAlarmApplicationManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAlarmApplicationManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -27,6 +36,9 @@ pub struct IAlarmApplicationManagerStatics_Vtbl {
     pub GetAccessStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AlarmAccessStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppBroadcastTrigger, IAppBroadcastTrigger_Vtbl, 0x74d4f496_8d37_44ec_9481_2a0b9854eb48);
+impl windows_core::RuntimeType for IAppBroadcastTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppBroadcastTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -34,12 +46,18 @@ pub struct IAppBroadcastTrigger_Vtbl {
     pub ProviderInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppBroadcastTriggerFactory, IAppBroadcastTriggerFactory_Vtbl, 0x280b9f44_22f4_4618_a02e_e7e411eb7238);
+impl windows_core::RuntimeType for IAppBroadcastTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppBroadcastTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAppBroadcastTrigger: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppBroadcastTriggerProviderInfo, IAppBroadcastTriggerProviderInfo_Vtbl, 0xf219352d_9de8_4420_9ce2_5eff8f17376b);
+impl windows_core::RuntimeType for IAppBroadcastTriggerProviderInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppBroadcastTriggerProviderInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -57,6 +75,9 @@ pub struct IAppBroadcastTriggerProviderInfo_Vtbl {
     pub MaxVideoHeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IApplicationTrigger, IApplicationTrigger_Vtbl, 0x0b468630_9574_492c_9e93_1a3ae6335fe9);
+impl windows_core::RuntimeType for IApplicationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IApplicationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -67,6 +88,9 @@ pub struct IApplicationTrigger_Vtbl {
     RequestAsyncWithArguments: usize,
 }
 windows_core::imp::define_interface!(IApplicationTriggerDetails, IApplicationTriggerDetails_Vtbl, 0x97dc6ab2_2219_4a9e_9c5e_41d047f76e82);
+impl windows_core::RuntimeType for IApplicationTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IApplicationTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -76,6 +100,9 @@ pub struct IApplicationTriggerDetails_Vtbl {
     Arguments: usize,
 }
 windows_core::imp::define_interface!(IAppointmentStoreNotificationTrigger, IAppointmentStoreNotificationTrigger_Vtbl, 0x64d4040c_c201_42ad_aa2a_e21ba3425b6d);
+impl windows_core::RuntimeType for IAppointmentStoreNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAppointmentStoreNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -91,6 +118,9 @@ pub struct IBackgroundCondition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IBackgroundExecutionManagerStatics, IBackgroundExecutionManagerStatics_Vtbl, 0xe826ea58_66a9_4d41_83d4_b4c18c87b846);
+impl windows_core::RuntimeType for IBackgroundExecutionManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBackgroundExecutionManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -102,12 +132,18 @@ pub struct IBackgroundExecutionManagerStatics_Vtbl {
     pub GetAccessStatusForApplication: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut BackgroundAccessStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundExecutionManagerStatics2, IBackgroundExecutionManagerStatics2_Vtbl, 0x469b24ef_9bbb_4e18_999a_fd6512931be9);
+impl windows_core::RuntimeType for IBackgroundExecutionManagerStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBackgroundExecutionManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAccessKindAsync: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundAccessRequestKind, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundExecutionManagerStatics3, IBackgroundExecutionManagerStatics3_Vtbl, 0x98a5d3f6_5a25_5b6c_9192_d77a43dfedc4);
+impl windows_core::RuntimeType for IBackgroundExecutionManagerStatics3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBackgroundExecutionManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -135,6 +171,9 @@ pub struct IBackgroundTask_Vtbl {
     pub Run: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskBuilder, IBackgroundTaskBuilder_Vtbl, 0x0351550e_3e64_4572_a93a_84075a37c917);
+impl windows_core::RuntimeType for IBackgroundTaskBuilder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBackgroundTaskBuilder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -147,6 +186,9 @@ pub struct IBackgroundTaskBuilder_Vtbl {
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskBuilder2, IBackgroundTaskBuilder2_Vtbl, 0x6ae7cfb1_104f_406d_8db6_844a570f42bb);
+impl windows_core::RuntimeType for IBackgroundTaskBuilder2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBackgroundTaskBuilder2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -154,6 +196,9 @@ pub struct IBackgroundTaskBuilder2_Vtbl {
     pub CancelOnConditionLoss: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskBuilder3, IBackgroundTaskBuilder3_Vtbl, 0x28c74f4a_8ba9_4c09_a24f_19683e2c924c);
+impl windows_core::RuntimeType for IBackgroundTaskBuilder3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBackgroundTaskBuilder3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -161,6 +206,9 @@ pub struct IBackgroundTaskBuilder3_Vtbl {
     pub IsNetworkRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskBuilder4, IBackgroundTaskBuilder4_Vtbl, 0x4755e522_cba2_4e35_bd16_a6da7f1c19aa);
+impl windows_core::RuntimeType for IBackgroundTaskBuilder4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBackgroundTaskBuilder4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -168,12 +216,18 @@ pub struct IBackgroundTaskBuilder4_Vtbl {
     pub SetTaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskBuilder5, IBackgroundTaskBuilder5_Vtbl, 0x077103f6_99f5_4af4_bcad_4731d0330d43);
+impl windows_core::RuntimeType for IBackgroundTaskBuilder5 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBackgroundTaskBuilder5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetTaskEntryPointClsid: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskCompletedEventArgs, IBackgroundTaskCompletedEventArgs_Vtbl, 0x565d25cf_f209_48f4_9967_2b184f7bfbf0);
+impl windows_core::RuntimeType for IBackgroundTaskCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBackgroundTaskCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -181,6 +235,9 @@ pub struct IBackgroundTaskCompletedEventArgs_Vtbl {
     pub CheckResult: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskDeferral, IBackgroundTaskDeferral_Vtbl, 0x93cc156d_af27_4dd3_846e_24ee40cadd25);
+impl windows_core::RuntimeType for IBackgroundTaskDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBackgroundTaskDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -431,6 +488,9 @@ pub struct IBackgroundTaskInstance4_Vtbl {
     User: usize,
 }
 windows_core::imp::define_interface!(IBackgroundTaskProgressEventArgs, IBackgroundTaskProgressEventArgs_Vtbl, 0xfb1468ac_8332_4d0a_9532_03eae684da31);
+impl windows_core::RuntimeType for IBackgroundTaskProgressEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBackgroundTaskProgressEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -634,6 +694,9 @@ pub struct IBackgroundTaskRegistration3_Vtbl {
     pub TaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskRegistrationGroup, IBackgroundTaskRegistrationGroup_Vtbl, 0x2ab1919a_871b_4167_8a76_055cd67b5b23);
+impl windows_core::RuntimeType for IBackgroundTaskRegistrationGroup {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBackgroundTaskRegistrationGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -650,6 +713,9 @@ pub struct IBackgroundTaskRegistrationGroup_Vtbl {
     AllTasks: usize,
 }
 windows_core::imp::define_interface!(IBackgroundTaskRegistrationGroupFactory, IBackgroundTaskRegistrationGroupFactory_Vtbl, 0x83d92b69_44cf_4631_9740_03c7d8741bc5);
+impl windows_core::RuntimeType for IBackgroundTaskRegistrationGroupFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBackgroundTaskRegistrationGroupFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -657,6 +723,9 @@ pub struct IBackgroundTaskRegistrationGroupFactory_Vtbl {
     pub CreateWithName: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskRegistrationStatics, IBackgroundTaskRegistrationStatics_Vtbl, 0x4c542f69_b000_42ba_a093_6a563c65e3f8);
+impl windows_core::RuntimeType for IBackgroundTaskRegistrationStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBackgroundTaskRegistrationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -666,6 +735,9 @@ pub struct IBackgroundTaskRegistrationStatics_Vtbl {
     AllTasks: usize,
 }
 windows_core::imp::define_interface!(IBackgroundTaskRegistrationStatics2, IBackgroundTaskRegistrationStatics2_Vtbl, 0x174b671e_b20d_4fa9_ad9a_e93ad6c71e01);
+impl windows_core::RuntimeType for IBackgroundTaskRegistrationStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBackgroundTaskRegistrationStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -686,12 +758,18 @@ pub struct IBackgroundTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IBackgroundWorkCostStatics, IBackgroundWorkCostStatics_Vtbl, 0xc740a662_c310_4b82_b3e3_3bcfb9e4c77d);
+impl windows_core::RuntimeType for IBackgroundWorkCostStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBackgroundWorkCostStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CurrentBackgroundWorkCost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundWorkCostValue) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisherTrigger, IBluetoothLEAdvertisementPublisherTrigger_Vtbl, 0xab3e2612_25d3_48ae_8724_d81877ae6129);
+impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisherTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEAdvertisementPublisherTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -701,6 +779,9 @@ pub struct IBluetoothLEAdvertisementPublisherTrigger_Vtbl {
     Advertisement: usize,
 }
 windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisherTrigger2, IBluetoothLEAdvertisementPublisherTrigger2_Vtbl, 0xaa28d064_38f4_597d_b597_4e55588c6503);
+impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisherTrigger2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEAdvertisementPublisherTrigger2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -714,6 +795,9 @@ pub struct IBluetoothLEAdvertisementPublisherTrigger2_Vtbl {
     pub SetIncludeTransmitPowerLevel: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEAdvertisementWatcherTrigger, IBluetoothLEAdvertisementWatcherTrigger_Vtbl, 0x1aab1819_bce1_48eb_a827_59fb7cee52a6);
+impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcherTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEAdvertisementWatcherTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -739,6 +823,9 @@ pub struct IBluetoothLEAdvertisementWatcherTrigger_Vtbl {
     SetAdvertisementFilter: usize,
 }
 windows_core::imp::define_interface!(IBluetoothLEAdvertisementWatcherTrigger2, IBluetoothLEAdvertisementWatcherTrigger2_Vtbl, 0x39b56799_eb39_5ab6_9932_aa9e4549604d);
+impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcherTrigger2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBluetoothLEAdvertisementWatcherTrigger2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -746,11 +833,17 @@ pub struct IBluetoothLEAdvertisementWatcherTrigger2_Vtbl {
     pub SetAllowExtendedAdvertisements: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICachedFileUpdaterTrigger, ICachedFileUpdaterTrigger_Vtbl, 0xe21caeeb_32f2_4d31_b553_b9e01bde37e0);
+impl windows_core::RuntimeType for ICachedFileUpdaterTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICachedFileUpdaterTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ICachedFileUpdaterTriggerDetails, ICachedFileUpdaterTriggerDetails_Vtbl, 0x71838c13_1314_47b4_9597_dc7e248c17cc);
+impl windows_core::RuntimeType for ICachedFileUpdaterTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICachedFileUpdaterTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -765,38 +858,59 @@ pub struct ICachedFileUpdaterTriggerDetails_Vtbl {
     pub CanRequestUserInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IChatMessageNotificationTrigger, IChatMessageNotificationTrigger_Vtbl, 0x513b43bf_1d40_5c5d_78f5_c923fee3739e);
+impl windows_core::RuntimeType for IChatMessageNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IChatMessageReceivedNotificationTrigger, IChatMessageReceivedNotificationTrigger_Vtbl, 0x3ea3760e_baf5_4077_88e9_060cf6f0c6d5);
+impl windows_core::RuntimeType for IChatMessageReceivedNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IChatMessageReceivedNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ICommunicationBlockingAppSetAsActiveTrigger, ICommunicationBlockingAppSetAsActiveTrigger_Vtbl, 0xfb91f28a_16a5_486d_974c_7835a8477be2);
+impl windows_core::RuntimeType for ICommunicationBlockingAppSetAsActiveTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICommunicationBlockingAppSetAsActiveTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IContactStoreNotificationTrigger, IContactStoreNotificationTrigger_Vtbl, 0xc833419b_4705_4571_9a16_06b997bf9c96);
+impl windows_core::RuntimeType for IContactStoreNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContactStoreNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IContentPrefetchTrigger, IContentPrefetchTrigger_Vtbl, 0x710627ee_04fa_440b_80c0_173202199e5d);
+impl windows_core::RuntimeType for IContentPrefetchTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContentPrefetchTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub WaitInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContentPrefetchTriggerFactory, IContentPrefetchTriggerFactory_Vtbl, 0xc2643eda_8a03_409e_b8c4_88814c28ccb6);
+impl windows_core::RuntimeType for IContentPrefetchTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContentPrefetchTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICustomSystemEventTrigger, ICustomSystemEventTrigger_Vtbl, 0xf3596798_cf6b_4ef4_a0ca_29cf4a278c87);
+impl windows_core::RuntimeType for ICustomSystemEventTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICustomSystemEventTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -804,12 +918,18 @@ pub struct ICustomSystemEventTrigger_Vtbl {
     pub Recurrence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CustomSystemEventTriggerRecurrence) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICustomSystemEventTriggerFactory, ICustomSystemEventTriggerFactory_Vtbl, 0x6bcb16c5_f2dc_41b2_9efd_b96bdcd13ced);
+impl windows_core::RuntimeType for ICustomSystemEventTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICustomSystemEventTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, CustomSystemEventTriggerRecurrence, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceConnectionChangeTrigger, IDeviceConnectionChangeTrigger_Vtbl, 0x90875e64_3cdd_4efb_ab1c_5b3b6a60ce34);
+impl windows_core::RuntimeType for IDeviceConnectionChangeTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceConnectionChangeTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -819,6 +939,9 @@ pub struct IDeviceConnectionChangeTrigger_Vtbl {
     pub SetMaintainConnection: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceConnectionChangeTriggerStatics, IDeviceConnectionChangeTriggerStatics_Vtbl, 0xc3ea246a_4efd_4498_aa60_a4e4e3b17ab9);
+impl windows_core::RuntimeType for IDeviceConnectionChangeTriggerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceConnectionChangeTriggerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -826,6 +949,10 @@ pub struct IDeviceConnectionChangeTriggerStatics_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IDeviceManufacturerNotificationTrigger, IDeviceManufacturerNotificationTrigger_Vtbl, 0x81278ab5_41ab_16da_86c2_7f7bf0912f5b);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IDeviceManufacturerNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IDeviceManufacturerNotificationTrigger_Vtbl {
@@ -842,6 +969,10 @@ pub struct IDeviceManufacturerNotificationTrigger_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IDeviceManufacturerNotificationTriggerFactory, IDeviceManufacturerNotificationTriggerFactory_Vtbl, 0x7955de75_25bb_4153_a1a2_3029fcabb652);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IDeviceManufacturerNotificationTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IDeviceManufacturerNotificationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -851,6 +982,9 @@ pub struct IDeviceManufacturerNotificationTriggerFactory_Vtbl {
     Create: usize,
 }
 windows_core::imp::define_interface!(IDeviceServicingTrigger, IDeviceServicingTrigger_Vtbl, 0x1ab217ad_6e34_49d3_9e6f_17f1b6dfa881);
+impl windows_core::RuntimeType for IDeviceServicingTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceServicingTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -858,6 +992,9 @@ pub struct IDeviceServicingTrigger_Vtbl {
     pub RequestAsyncWithArguments: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, super::super::Foundation::TimeSpan, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceUseTrigger, IDeviceUseTrigger_Vtbl, 0x0da68011_334f_4d57_b6ec_6dca64b412e4);
+impl windows_core::RuntimeType for IDeviceUseTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceUseTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -865,16 +1002,25 @@ pub struct IDeviceUseTrigger_Vtbl {
     pub RequestAsyncWithArguments: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceWatcherTrigger, IDeviceWatcherTrigger_Vtbl, 0xa4617fdd_8573_4260_befc_5bec89cb693d);
+impl windows_core::RuntimeType for IDeviceWatcherTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceWatcherTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IEmailStoreNotificationTrigger, IEmailStoreNotificationTrigger_Vtbl, 0x986d06da_47eb_4268_a4f2_f3f77188388a);
+impl windows_core::RuntimeType for IEmailStoreNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IEmailStoreNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IGattCharacteristicNotificationTrigger, IGattCharacteristicNotificationTrigger_Vtbl, 0xe25f8fc8_0696_474f_a732_f292b0cebc5d);
+impl windows_core::RuntimeType for IGattCharacteristicNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGattCharacteristicNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -884,6 +1030,9 @@ pub struct IGattCharacteristicNotificationTrigger_Vtbl {
     Characteristic: usize,
 }
 windows_core::imp::define_interface!(IGattCharacteristicNotificationTrigger2, IGattCharacteristicNotificationTrigger2_Vtbl, 0x9322a2c4_ae0e_42f2_b28c_f51372e69245);
+impl windows_core::RuntimeType for IGattCharacteristicNotificationTrigger2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGattCharacteristicNotificationTrigger2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -893,6 +1042,9 @@ pub struct IGattCharacteristicNotificationTrigger2_Vtbl {
     EventTriggeringMode: usize,
 }
 windows_core::imp::define_interface!(IGattCharacteristicNotificationTriggerFactory, IGattCharacteristicNotificationTriggerFactory_Vtbl, 0x57ba1995_b143_4575_9f6b_fd59d93ace1a);
+impl windows_core::RuntimeType for IGattCharacteristicNotificationTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGattCharacteristicNotificationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -902,6 +1054,9 @@ pub struct IGattCharacteristicNotificationTriggerFactory_Vtbl {
     Create: usize,
 }
 windows_core::imp::define_interface!(IGattCharacteristicNotificationTriggerFactory2, IGattCharacteristicNotificationTriggerFactory2_Vtbl, 0x5998e91f_8a53_4e9f_a32c_23cd33664cee);
+impl windows_core::RuntimeType for IGattCharacteristicNotificationTriggerFactory2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGattCharacteristicNotificationTriggerFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -911,6 +1066,9 @@ pub struct IGattCharacteristicNotificationTriggerFactory2_Vtbl {
     CreateWithEventTriggeringMode: usize,
 }
 windows_core::imp::define_interface!(IGattServiceProviderTrigger, IGattServiceProviderTrigger_Vtbl, 0xddc6a3e9_1557_4bd8_8542_468aa0c696f6);
+impl windows_core::RuntimeType for IGattServiceProviderTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGattServiceProviderTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -929,6 +1087,9 @@ pub struct IGattServiceProviderTrigger_Vtbl {
     AdvertisingParameters: usize,
 }
 windows_core::imp::define_interface!(IGattServiceProviderTriggerResult, IGattServiceProviderTriggerResult_Vtbl, 0x3c4691b1_b198_4e84_bad4_cf4ad299ed3a);
+impl windows_core::RuntimeType for IGattServiceProviderTriggerResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGattServiceProviderTriggerResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -939,12 +1100,18 @@ pub struct IGattServiceProviderTriggerResult_Vtbl {
     Error: usize,
 }
 windows_core::imp::define_interface!(IGattServiceProviderTriggerStatics, IGattServiceProviderTriggerStatics_Vtbl, 0xb413a36a_e294_4591_a5a6_64891a828153);
+impl windows_core::RuntimeType for IGattServiceProviderTriggerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGattServiceProviderTriggerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGeovisitTrigger, IGeovisitTrigger_Vtbl, 0x4818edaa_04e1_4127_9a4c_19351b8a80a4);
+impl windows_core::RuntimeType for IGeovisitTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGeovisitTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -958,18 +1125,27 @@ pub struct IGeovisitTrigger_Vtbl {
     SetMonitoringScope: usize,
 }
 windows_core::imp::define_interface!(ILocationTrigger, ILocationTrigger_Vtbl, 0x47666a1c_6877_481e_8026_ff7e14a811a0);
+impl windows_core::RuntimeType for ILocationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILocationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TriggerType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LocationTriggerType) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILocationTriggerFactory, ILocationTriggerFactory_Vtbl, 0x1106bb07_ff69_4e09_aa8b_1384ea475e98);
+impl windows_core::RuntimeType for ILocationTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILocationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, LocationTriggerType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMaintenanceTrigger, IMaintenanceTrigger_Vtbl, 0x68184c83_fc22_4ce5_841a_7239a9810047);
+impl windows_core::RuntimeType for IMaintenanceTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMaintenanceTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -977,12 +1153,18 @@ pub struct IMaintenanceTrigger_Vtbl {
     pub OneShot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMaintenanceTriggerFactory, IMaintenanceTriggerFactory_Vtbl, 0x4b3ddb2e_97dd_4629_88b0_b06cf9482ae5);
+impl windows_core::RuntimeType for IMaintenanceTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMaintenanceTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaProcessingTrigger, IMediaProcessingTrigger_Vtbl, 0x9a95be65_8a52_4b30_9011_cf38040ea8b0);
+impl windows_core::RuntimeType for IMediaProcessingTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMediaProcessingTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -993,23 +1175,35 @@ pub struct IMediaProcessingTrigger_Vtbl {
     RequestAsyncWithArguments: usize,
 }
 windows_core::imp::define_interface!(INetworkOperatorHotspotAuthenticationTrigger, INetworkOperatorHotspotAuthenticationTrigger_Vtbl, 0xe756c791_3001_4de5_83c7_de61d88831d0);
+impl windows_core::RuntimeType for INetworkOperatorHotspotAuthenticationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct INetworkOperatorHotspotAuthenticationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(INetworkOperatorNotificationTrigger, INetworkOperatorNotificationTrigger_Vtbl, 0x90089cc6_63cd_480c_95d1_6e6aef801e4a);
+impl windows_core::RuntimeType for INetworkOperatorNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct INetworkOperatorNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NetworkAccountId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INetworkOperatorNotificationTriggerFactory, INetworkOperatorNotificationTriggerFactory_Vtbl, 0x0a223e00_27d7_4353_adb9_9265aaea579d);
+impl windows_core::RuntimeType for INetworkOperatorNotificationTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct INetworkOperatorNotificationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneTrigger, IPhoneTrigger_Vtbl, 0x8dcfe99b_d4c5_49f1_b7d3_82e87a0e9dde);
+impl windows_core::RuntimeType for IPhoneTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1020,6 +1214,9 @@ pub struct IPhoneTrigger_Vtbl {
     TriggerType: usize,
 }
 windows_core::imp::define_interface!(IPhoneTriggerFactory, IPhoneTriggerFactory_Vtbl, 0xa0d93cda_5fc1_48fb_a546_32262040157b);
+impl windows_core::RuntimeType for IPhoneTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1029,17 +1226,26 @@ pub struct IPhoneTriggerFactory_Vtbl {
     Create: usize,
 }
 windows_core::imp::define_interface!(IPushNotificationTriggerFactory, IPushNotificationTriggerFactory_Vtbl, 0x6dd8ed1b_458e_4fc2_bc2e_d5664f77ed19);
+impl windows_core::RuntimeType for IPushNotificationTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPushNotificationTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRcsEndUserMessageAvailableTrigger, IRcsEndUserMessageAvailableTrigger_Vtbl, 0x986d0d6a_b2f6_467f_a978_a44091c11a66);
+impl windows_core::RuntimeType for IRcsEndUserMessageAvailableTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRcsEndUserMessageAvailableTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IRfcommConnectionTrigger, IRfcommConnectionTrigger_Vtbl, 0xe8c4cae2_0b53_4464_9394_fd875654de64);
+impl windows_core::RuntimeType for IRfcommConnectionTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRfcommConnectionTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1073,16 +1279,26 @@ pub struct IRfcommConnectionTrigger_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISecondaryAuthenticationFactorAuthenticationTrigger, ISecondaryAuthenticationFactorAuthenticationTrigger_Vtbl, 0xf237f327_5181_4f24_96a7_700a4e5fac62);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ISecondaryAuthenticationFactorAuthenticationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISecondaryAuthenticationFactorAuthenticationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ISensorDataThresholdTrigger, ISensorDataThresholdTrigger_Vtbl, 0x5bc0f372_d48b_4b7f_abec_15f9bacc12e2);
+impl windows_core::RuntimeType for ISensorDataThresholdTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISensorDataThresholdTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ISensorDataThresholdTriggerFactory, ISensorDataThresholdTriggerFactory_Vtbl, 0x921fe675_7df0_4da3_97b3_e544ee857fe6);
+impl windows_core::RuntimeType for ISensorDataThresholdTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISensorDataThresholdTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1092,6 +1308,9 @@ pub struct ISensorDataThresholdTriggerFactory_Vtbl {
     Create: usize,
 }
 windows_core::imp::define_interface!(ISmartCardTrigger, ISmartCardTrigger_Vtbl, 0xf53bc5ac_84ca_4972_8ce9_e58f97b37a50);
+impl windows_core::RuntimeType for ISmartCardTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmartCardTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1101,6 +1320,9 @@ pub struct ISmartCardTrigger_Vtbl {
     TriggerType: usize,
 }
 windows_core::imp::define_interface!(ISmartCardTriggerFactory, ISmartCardTriggerFactory_Vtbl, 0x63bf54c3_89c1_4e00_a9d3_97c629269dad);
+impl windows_core::RuntimeType for ISmartCardTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmartCardTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1110,6 +1332,9 @@ pub struct ISmartCardTriggerFactory_Vtbl {
     Create: usize,
 }
 windows_core::imp::define_interface!(ISmsMessageReceivedTriggerFactory, ISmsMessageReceivedTriggerFactory_Vtbl, 0xea3ad8c8_6ba4_4ab2_8d21_bc6b09c77564);
+impl windows_core::RuntimeType for ISmsMessageReceivedTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISmsMessageReceivedTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1119,12 +1344,18 @@ pub struct ISmsMessageReceivedTriggerFactory_Vtbl {
     Create: usize,
 }
 windows_core::imp::define_interface!(ISocketActivityTrigger, ISocketActivityTrigger_Vtbl, 0xa9bbf810_9dde_4f8a_83e3_b0e0e7a50d70);
+impl windows_core::RuntimeType for ISocketActivityTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISocketActivityTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsWakeFromLowPowerSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageLibraryChangeTrackerTriggerFactory, IStorageLibraryChangeTrackerTriggerFactory_Vtbl, 0x1eb0ffd0_5a85_499e_a888_824607124f50);
+impl windows_core::RuntimeType for IStorageLibraryChangeTrackerTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorageLibraryChangeTrackerTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1134,11 +1365,17 @@ pub struct IStorageLibraryChangeTrackerTriggerFactory_Vtbl {
     Create: usize,
 }
 windows_core::imp::define_interface!(IStorageLibraryContentChangedTrigger, IStorageLibraryContentChangedTrigger_Vtbl, 0x1637e0a7_829c_45bc_929b_a1e7ea78d89b);
+impl windows_core::RuntimeType for IStorageLibraryContentChangedTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorageLibraryContentChangedTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IStorageLibraryContentChangedTriggerStatics, IStorageLibraryContentChangedTriggerStatics_Vtbl, 0x7f9f1b39_5f90_4e12_914e_a7d8e0bbfb18);
+impl windows_core::RuntimeType for IStorageLibraryContentChangedTriggerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorageLibraryContentChangedTriggerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1152,18 +1389,27 @@ pub struct IStorageLibraryContentChangedTriggerStatics_Vtbl {
     CreateFromLibraries: usize,
 }
 windows_core::imp::define_interface!(ISystemCondition, ISystemCondition_Vtbl, 0xc15fb476_89c5_420b_abd3_fb3030472128);
+impl windows_core::RuntimeType for ISystemCondition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISystemCondition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ConditionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SystemConditionType) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISystemConditionFactory, ISystemConditionFactory_Vtbl, 0xd269d1f1_05a7_49ae_87d7_16b2b8b9a553);
+impl windows_core::RuntimeType for ISystemConditionFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISystemConditionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, SystemConditionType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISystemTrigger, ISystemTrigger_Vtbl, 0x1d80c776_3748_4463_8d7e_276dc139ac1c);
+impl windows_core::RuntimeType for ISystemTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISystemTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1171,12 +1417,18 @@ pub struct ISystemTrigger_Vtbl {
     pub TriggerType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SystemTriggerType) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISystemTriggerFactory, ISystemTriggerFactory_Vtbl, 0xe80423d4_8791_4579_8126_87ec8aaa407a);
+impl windows_core::RuntimeType for ISystemTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISystemTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, SystemTriggerType, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITimeTrigger, ITimeTrigger_Vtbl, 0x656e5556_0b2a_4377_ba70_3b45a935547f);
+impl windows_core::RuntimeType for ITimeTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITimeTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1184,24 +1436,36 @@ pub struct ITimeTrigger_Vtbl {
     pub OneShot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITimeTriggerFactory, ITimeTriggerFactory_Vtbl, 0x38c682fe_9b54_45e6_b2f3_269b87a6f734);
+impl windows_core::RuntimeType for ITimeTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITimeTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IToastNotificationActionTriggerFactory, IToastNotificationActionTriggerFactory_Vtbl, 0xb09dfc27_6480_4349_8125_97b3efaa0a3a);
+impl windows_core::RuntimeType for IToastNotificationActionTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IToastNotificationActionTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IToastNotificationHistoryChangedTriggerFactory, IToastNotificationHistoryChangedTriggerFactory_Vtbl, 0x81c6faad_8797_4785_81b4_b0cccb73d1d9);
+impl windows_core::RuntimeType for IToastNotificationHistoryChangedTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IToastNotificationHistoryChangedTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserNotificationChangedTriggerFactory, IUserNotificationChangedTriggerFactory_Vtbl, 0xcad4436c_69ab_4e18_a48a_5ed2ac435957);
+impl windows_core::RuntimeType for IUserNotificationChangedTriggerFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserNotificationChangedTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1259,7 +1523,7 @@ impl ActivitySensorTrigger {
     }
 }
 impl windows_core::RuntimeType for ActivitySensorTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivitySensorTrigger>();
 }
 unsafe impl windows_core::Interface for ActivitySensorTrigger {
     type Vtable = IActivitySensorTrigger_Vtbl;
@@ -1326,7 +1590,7 @@ impl AppBroadcastTrigger {
     }
 }
 impl windows_core::RuntimeType for AppBroadcastTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppBroadcastTrigger>();
 }
 unsafe impl windows_core::Interface for AppBroadcastTrigger {
     type Vtable = IAppBroadcastTrigger_Vtbl;
@@ -1410,7 +1674,7 @@ impl AppBroadcastTriggerProviderInfo {
     }
 }
 impl windows_core::RuntimeType for AppBroadcastTriggerProviderInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppBroadcastTriggerProviderInfo>();
 }
 unsafe impl windows_core::Interface for AppBroadcastTriggerProviderInfo {
     type Vtable = IAppBroadcastTriggerProviderInfo_Vtbl;
@@ -1454,7 +1718,7 @@ impl ApplicationTrigger {
     }
 }
 impl windows_core::RuntimeType for ApplicationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationTrigger>();
 }
 unsafe impl windows_core::Interface for ApplicationTrigger {
     type Vtable = IApplicationTrigger_Vtbl;
@@ -1480,7 +1744,7 @@ impl ApplicationTriggerDetails {
     }
 }
 impl windows_core::RuntimeType for ApplicationTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationTriggerDetails>();
 }
 unsafe impl windows_core::Interface for ApplicationTriggerDetails {
     type Vtable = IApplicationTriggerDetails_Vtbl;
@@ -1506,7 +1770,7 @@ impl AppointmentStoreNotificationTrigger {
     }
 }
 impl windows_core::RuntimeType for AppointmentStoreNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentStoreNotificationTrigger>();
 }
 unsafe impl windows_core::Interface for AppointmentStoreNotificationTrigger {
     type Vtable = IAppointmentStoreNotificationTrigger_Vtbl;
@@ -1689,7 +1953,7 @@ impl BackgroundTaskBuilder {
     }
 }
 impl windows_core::RuntimeType for BackgroundTaskBuilder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskBuilder>();
 }
 unsafe impl windows_core::Interface for BackgroundTaskBuilder {
     type Vtable = IBackgroundTaskBuilder_Vtbl;
@@ -1716,7 +1980,7 @@ impl BackgroundTaskCompletedEventArgs {
     }
 }
 impl windows_core::RuntimeType for BackgroundTaskCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskCompletedEventArgs>();
 }
 unsafe impl windows_core::Interface for BackgroundTaskCompletedEventArgs {
     type Vtable = IBackgroundTaskCompletedEventArgs_Vtbl;
@@ -1738,7 +2002,7 @@ impl BackgroundTaskDeferral {
     }
 }
 impl windows_core::RuntimeType for BackgroundTaskDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskDeferral>();
 }
 unsafe impl windows_core::Interface for BackgroundTaskDeferral {
     type Vtable = IBackgroundTaskDeferral_Vtbl;
@@ -1770,7 +2034,7 @@ impl BackgroundTaskProgressEventArgs {
     }
 }
 impl windows_core::RuntimeType for BackgroundTaskProgressEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskProgressEventArgs>();
 }
 unsafe impl windows_core::Interface for BackgroundTaskProgressEventArgs {
     type Vtable = IBackgroundTaskProgressEventArgs_Vtbl;
@@ -1879,7 +2143,7 @@ impl BackgroundTaskRegistration {
     }
 }
 impl windows_core::RuntimeType for BackgroundTaskRegistration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskRegistration>();
 }
 unsafe impl windows_core::Interface for BackgroundTaskRegistration {
     type Vtable = IBackgroundTaskRegistration_Vtbl;
@@ -1951,7 +2215,7 @@ impl BackgroundTaskRegistrationGroup {
     }
 }
 impl windows_core::RuntimeType for BackgroundTaskRegistrationGroup {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskRegistrationGroup>();
 }
 unsafe impl windows_core::Interface for BackgroundTaskRegistrationGroup {
     type Vtable = IBackgroundTaskRegistrationGroup_Vtbl;
@@ -2049,7 +2313,7 @@ impl BluetoothLEAdvertisementPublisherTrigger {
     }
 }
 impl windows_core::RuntimeType for BluetoothLEAdvertisementPublisherTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementPublisherTrigger>();
 }
 unsafe impl windows_core::Interface for BluetoothLEAdvertisementPublisherTrigger {
     type Vtable = IBluetoothLEAdvertisementPublisherTrigger_Vtbl;
@@ -2146,7 +2410,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
     }
 }
 impl windows_core::RuntimeType for BluetoothLEAdvertisementWatcherTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementWatcherTrigger>();
 }
 unsafe impl windows_core::Interface for BluetoothLEAdvertisementWatcherTrigger {
     type Vtable = IBluetoothLEAdvertisementWatcherTrigger_Vtbl;
@@ -2172,7 +2436,7 @@ impl CachedFileUpdaterTrigger {
     }
 }
 impl windows_core::RuntimeType for CachedFileUpdaterTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICachedFileUpdaterTrigger>();
 }
 unsafe impl windows_core::Interface for CachedFileUpdaterTrigger {
     type Vtable = ICachedFileUpdaterTrigger_Vtbl;
@@ -2213,7 +2477,7 @@ impl CachedFileUpdaterTriggerDetails {
     }
 }
 impl windows_core::RuntimeType for CachedFileUpdaterTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICachedFileUpdaterTriggerDetails>();
 }
 unsafe impl windows_core::Interface for CachedFileUpdaterTriggerDetails {
     type Vtable = ICachedFileUpdaterTriggerDetails_Vtbl;
@@ -2239,7 +2503,7 @@ impl ChatMessageNotificationTrigger {
     }
 }
 impl windows_core::RuntimeType for ChatMessageNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageNotificationTrigger>();
 }
 unsafe impl windows_core::Interface for ChatMessageNotificationTrigger {
     type Vtable = IChatMessageNotificationTrigger_Vtbl;
@@ -2265,7 +2529,7 @@ impl ChatMessageReceivedNotificationTrigger {
     }
 }
 impl windows_core::RuntimeType for ChatMessageReceivedNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageReceivedNotificationTrigger>();
 }
 unsafe impl windows_core::Interface for ChatMessageReceivedNotificationTrigger {
     type Vtable = IChatMessageReceivedNotificationTrigger_Vtbl;
@@ -2291,7 +2555,7 @@ impl CommunicationBlockingAppSetAsActiveTrigger {
     }
 }
 impl windows_core::RuntimeType for CommunicationBlockingAppSetAsActiveTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICommunicationBlockingAppSetAsActiveTrigger>();
 }
 unsafe impl windows_core::Interface for CommunicationBlockingAppSetAsActiveTrigger {
     type Vtable = ICommunicationBlockingAppSetAsActiveTrigger_Vtbl;
@@ -2317,7 +2581,7 @@ impl ContactStoreNotificationTrigger {
     }
 }
 impl windows_core::RuntimeType for ContactStoreNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactStoreNotificationTrigger>();
 }
 unsafe impl windows_core::Interface for ContactStoreNotificationTrigger {
     type Vtable = IContactStoreNotificationTrigger_Vtbl;
@@ -2361,7 +2625,7 @@ impl ContentPrefetchTrigger {
     }
 }
 impl windows_core::RuntimeType for ContentPrefetchTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContentPrefetchTrigger>();
 }
 unsafe impl windows_core::Interface for ContentPrefetchTrigger {
     type Vtable = IContentPrefetchTrigger_Vtbl;
@@ -2385,7 +2649,7 @@ impl ConversationalAgentTrigger {
     }
 }
 impl windows_core::RuntimeType for ConversationalAgentTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for ConversationalAgentTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -2427,7 +2691,7 @@ impl CustomSystemEventTrigger {
     }
 }
 impl windows_core::RuntimeType for CustomSystemEventTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICustomSystemEventTrigger>();
 }
 unsafe impl windows_core::Interface for CustomSystemEventTrigger {
     type Vtable = ICustomSystemEventTrigger_Vtbl;
@@ -2480,7 +2744,7 @@ impl DeviceConnectionChangeTrigger {
     }
 }
 impl windows_core::RuntimeType for DeviceConnectionChangeTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceConnectionChangeTrigger>();
 }
 unsafe impl windows_core::Interface for DeviceConnectionChangeTrigger {
     type Vtable = IDeviceConnectionChangeTrigger_Vtbl;
@@ -2533,7 +2797,7 @@ impl DeviceManufacturerNotificationTrigger {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for DeviceManufacturerNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceManufacturerNotificationTrigger>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for DeviceManufacturerNotificationTrigger {
@@ -2573,7 +2837,7 @@ impl DeviceServicingTrigger {
     }
 }
 impl windows_core::RuntimeType for DeviceServicingTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceServicingTrigger>();
 }
 unsafe impl windows_core::Interface for DeviceServicingTrigger {
     type Vtable = IDeviceServicingTrigger_Vtbl;
@@ -2613,7 +2877,7 @@ impl DeviceUseTrigger {
     }
 }
 impl windows_core::RuntimeType for DeviceUseTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceUseTrigger>();
 }
 unsafe impl windows_core::Interface for DeviceUseTrigger {
     type Vtable = IDeviceUseTrigger_Vtbl;
@@ -2631,7 +2895,7 @@ windows_core::imp::interface_hierarchy!(DeviceWatcherTrigger, windows_core::IUnk
 windows_core::imp::required_hierarchy!(DeviceWatcherTrigger, IBackgroundTrigger);
 impl DeviceWatcherTrigger {}
 impl windows_core::RuntimeType for DeviceWatcherTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceWatcherTrigger>();
 }
 unsafe impl windows_core::Interface for DeviceWatcherTrigger {
     type Vtable = IDeviceWatcherTrigger_Vtbl;
@@ -2655,7 +2919,7 @@ impl EmailStoreNotificationTrigger {
     }
 }
 impl windows_core::RuntimeType for EmailStoreNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailStoreNotificationTrigger>();
 }
 unsafe impl windows_core::Interface for EmailStoreNotificationTrigger {
     type Vtable = IEmailStoreNotificationTrigger_Vtbl;
@@ -2720,7 +2984,7 @@ impl GattCharacteristicNotificationTrigger {
     }
 }
 impl windows_core::RuntimeType for GattCharacteristicNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattCharacteristicNotificationTrigger>();
 }
 unsafe impl windows_core::Interface for GattCharacteristicNotificationTrigger {
     type Vtable = IGattCharacteristicNotificationTrigger_Vtbl;
@@ -2781,7 +3045,7 @@ impl GattServiceProviderTrigger {
     }
 }
 impl windows_core::RuntimeType for GattServiceProviderTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderTrigger>();
 }
 unsafe impl windows_core::Interface for GattServiceProviderTrigger {
     type Vtable = IGattServiceProviderTrigger_Vtbl;
@@ -2814,7 +3078,7 @@ impl GattServiceProviderTriggerResult {
     }
 }
 impl windows_core::RuntimeType for GattServiceProviderTriggerResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderTriggerResult>();
 }
 unsafe impl windows_core::Interface for GattServiceProviderTriggerResult {
     type Vtable = IGattServiceProviderTriggerResult_Vtbl;
@@ -2853,7 +3117,7 @@ impl GeovisitTrigger {
     }
 }
 impl windows_core::RuntimeType for GeovisitTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeovisitTrigger>();
 }
 unsafe impl windows_core::Interface for GeovisitTrigger {
     type Vtable = IGeovisitTrigger_Vtbl;
@@ -2890,7 +3154,7 @@ impl LocationTrigger {
     }
 }
 impl windows_core::RuntimeType for LocationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocationTrigger>();
 }
 unsafe impl windows_core::Interface for LocationTrigger {
     type Vtable = ILocationTrigger_Vtbl;
@@ -2934,7 +3198,7 @@ impl MaintenanceTrigger {
     }
 }
 impl windows_core::RuntimeType for MaintenanceTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMaintenanceTrigger>();
 }
 unsafe impl windows_core::Interface for MaintenanceTrigger {
     type Vtable = IMaintenanceTrigger_Vtbl;
@@ -2976,7 +3240,7 @@ impl MediaProcessingTrigger {
     }
 }
 impl windows_core::RuntimeType for MediaProcessingTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaProcessingTrigger>();
 }
 unsafe impl windows_core::Interface for MediaProcessingTrigger {
     type Vtable = IMediaProcessingTrigger_Vtbl;
@@ -3000,7 +3264,7 @@ impl MobileBroadbandDeviceServiceNotificationTrigger {
     }
 }
 impl windows_core::RuntimeType for MobileBroadbandDeviceServiceNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceNotificationTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -3026,7 +3290,7 @@ impl MobileBroadbandPcoDataChangeTrigger {
     }
 }
 impl windows_core::RuntimeType for MobileBroadbandPcoDataChangeTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for MobileBroadbandPcoDataChangeTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -3052,7 +3316,7 @@ impl MobileBroadbandPinLockStateChangeTrigger {
     }
 }
 impl windows_core::RuntimeType for MobileBroadbandPinLockStateChangeTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for MobileBroadbandPinLockStateChangeTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -3078,7 +3342,7 @@ impl MobileBroadbandRadioStateChangeTrigger {
     }
 }
 impl windows_core::RuntimeType for MobileBroadbandRadioStateChangeTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for MobileBroadbandRadioStateChangeTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -3104,7 +3368,7 @@ impl MobileBroadbandRegistrationStateChangeTrigger {
     }
 }
 impl windows_core::RuntimeType for MobileBroadbandRegistrationStateChangeTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for MobileBroadbandRegistrationStateChangeTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -3130,7 +3394,7 @@ impl NetworkOperatorDataUsageTrigger {
     }
 }
 impl windows_core::RuntimeType for NetworkOperatorDataUsageTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for NetworkOperatorDataUsageTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -3156,7 +3420,7 @@ impl NetworkOperatorHotspotAuthenticationTrigger {
     }
 }
 impl windows_core::RuntimeType for NetworkOperatorHotspotAuthenticationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorHotspotAuthenticationTrigger>();
 }
 unsafe impl windows_core::Interface for NetworkOperatorHotspotAuthenticationTrigger {
     type Vtable = INetworkOperatorHotspotAuthenticationTrigger_Vtbl;
@@ -3191,7 +3455,7 @@ impl NetworkOperatorNotificationTrigger {
     }
 }
 impl windows_core::RuntimeType for NetworkOperatorNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorNotificationTrigger>();
 }
 unsafe impl windows_core::Interface for NetworkOperatorNotificationTrigger {
     type Vtable = INetworkOperatorNotificationTrigger_Vtbl;
@@ -3215,7 +3479,7 @@ impl PaymentAppCanMakePaymentTrigger {
     }
 }
 impl windows_core::RuntimeType for PaymentAppCanMakePaymentTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for PaymentAppCanMakePaymentTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -3261,7 +3525,7 @@ impl PhoneTrigger {
     }
 }
 impl windows_core::RuntimeType for PhoneTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneTrigger>();
 }
 unsafe impl windows_core::Interface for PhoneTrigger {
     type Vtable = IPhoneTrigger_Vtbl;
@@ -3298,7 +3562,7 @@ impl PushNotificationTrigger {
     }
 }
 impl windows_core::RuntimeType for PushNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for PushNotificationTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -3324,7 +3588,7 @@ impl RcsEndUserMessageAvailableTrigger {
     }
 }
 impl windows_core::RuntimeType for RcsEndUserMessageAvailableTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessageAvailableTrigger>();
 }
 unsafe impl windows_core::Interface for RcsEndUserMessageAvailableTrigger {
     type Vtable = IRcsEndUserMessageAvailableTrigger_Vtbl;
@@ -3406,7 +3670,7 @@ impl RfcommConnectionTrigger {
     }
 }
 impl windows_core::RuntimeType for RfcommConnectionTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommConnectionTrigger>();
 }
 unsafe impl windows_core::Interface for RfcommConnectionTrigger {
     type Vtable = IRfcommConnectionTrigger_Vtbl;
@@ -3437,7 +3701,7 @@ impl SecondaryAuthenticationFactorAuthenticationTrigger {
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SecondaryAuthenticationFactorAuthenticationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISecondaryAuthenticationFactorAuthenticationTrigger>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SecondaryAuthenticationFactorAuthenticationTrigger {
@@ -3471,7 +3735,7 @@ impl SensorDataThresholdTrigger {
     }
 }
 impl windows_core::RuntimeType for SensorDataThresholdTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISensorDataThresholdTrigger>();
 }
 unsafe impl windows_core::Interface for SensorDataThresholdTrigger {
     type Vtable = ISensorDataThresholdTrigger_Vtbl;
@@ -3510,7 +3774,7 @@ impl SmartCardTrigger {
     }
 }
 impl windows_core::RuntimeType for SmartCardTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardTrigger>();
 }
 unsafe impl windows_core::Interface for SmartCardTrigger {
     type Vtable = ISmartCardTrigger_Vtbl;
@@ -3542,7 +3806,7 @@ impl SmsMessageReceivedTrigger {
     }
 }
 impl windows_core::RuntimeType for SmsMessageReceivedTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for SmsMessageReceivedTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -3575,7 +3839,7 @@ impl SocketActivityTrigger {
     }
 }
 impl windows_core::RuntimeType for SocketActivityTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for SocketActivityTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -3609,7 +3873,7 @@ impl StorageLibraryChangeTrackerTrigger {
     }
 }
 impl windows_core::RuntimeType for StorageLibraryChangeTrackerTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for StorageLibraryChangeTrackerTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -3653,7 +3917,7 @@ impl StorageLibraryContentChangedTrigger {
     }
 }
 impl windows_core::RuntimeType for StorageLibraryContentChangedTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryContentChangedTrigger>();
 }
 unsafe impl windows_core::Interface for StorageLibraryContentChangedTrigger {
     type Vtable = IStorageLibraryContentChangedTrigger_Vtbl;
@@ -3688,7 +3952,7 @@ impl SystemCondition {
     }
 }
 impl windows_core::RuntimeType for SystemCondition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemCondition>();
 }
 unsafe impl windows_core::Interface for SystemCondition {
     type Vtable = ISystemCondition_Vtbl;
@@ -3730,7 +3994,7 @@ impl SystemTrigger {
     }
 }
 impl windows_core::RuntimeType for SystemTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemTrigger>();
 }
 unsafe impl windows_core::Interface for SystemTrigger {
     type Vtable = ISystemTrigger_Vtbl;
@@ -3754,7 +4018,7 @@ impl TetheringEntitlementCheckTrigger {
     }
 }
 impl windows_core::RuntimeType for TetheringEntitlementCheckTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for TetheringEntitlementCheckTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -3798,7 +4062,7 @@ impl TimeTrigger {
     }
 }
 impl windows_core::RuntimeType for TimeTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITimeTrigger>();
 }
 unsafe impl windows_core::Interface for TimeTrigger {
     type Vtable = ITimeTrigger_Vtbl;
@@ -3833,7 +4097,7 @@ impl ToastNotificationActionTrigger {
     }
 }
 impl windows_core::RuntimeType for ToastNotificationActionTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for ToastNotificationActionTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -3870,7 +4134,7 @@ impl ToastNotificationHistoryChangedTrigger {
     }
 }
 impl windows_core::RuntimeType for ToastNotificationHistoryChangedTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for ToastNotificationHistoryChangedTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -3901,7 +4165,7 @@ impl UserNotificationChangedTrigger {
     }
 }
 impl windows_core::RuntimeType for UserNotificationChangedTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for UserNotificationChangedTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -3927,7 +4191,7 @@ impl WiFiOnDemandHotspotConnectTrigger {
     }
 }
 impl windows_core::RuntimeType for WiFiOnDemandHotspotConnectTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for WiFiOnDemandHotspotConnectTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
@@ -3953,7 +4217,7 @@ impl WiFiOnDemandHotspotUpdateMetadataTrigger {
     }
 }
 impl windows_core::RuntimeType for WiFiOnDemandHotspotUpdateMetadataTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for WiFiOnDemandHotspotUpdateMetadataTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;

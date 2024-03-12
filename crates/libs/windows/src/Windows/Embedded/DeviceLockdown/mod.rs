@@ -1,10 +1,16 @@
 windows_core::imp::define_interface!(IDeviceLockdownProfileInformation, IDeviceLockdownProfileInformation_Vtbl, 0x7980e14e_45b1_4a96_92fc_62756b739678);
+impl windows_core::RuntimeType for IDeviceLockdownProfileInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceLockdownProfileInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceLockdownProfileStatics, IDeviceLockdownProfileStatics_Vtbl, 0x622f6965_f9a8_41a1_a691_88cd80c7a069);
+impl windows_core::RuntimeType for IDeviceLockdownProfileStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDeviceLockdownProfileStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -66,7 +72,7 @@ impl DeviceLockdownProfileInformation {
     }
 }
 impl windows_core::RuntimeType for DeviceLockdownProfileInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceLockdownProfileInformation>();
 }
 unsafe impl windows_core::Interface for DeviceLockdownProfileInformation {
     type Vtable = IDeviceLockdownProfileInformation_Vtbl;

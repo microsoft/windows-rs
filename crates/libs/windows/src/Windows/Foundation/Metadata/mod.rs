@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IApiInformationStatics, IApiInformationStatics_Vtbl, 0x997439fe_f681_4a11_b416_c13a47e8ba36);
+impl windows_core::RuntimeType for IApiInformationStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IApiInformationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

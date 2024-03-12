@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ICoreFrameworkInputView, ICoreFrameworkInputView_Vtbl, 0xd77c94ae_46b8_5d4a_9489_8ddec3d639a6);
+impl windows_core::RuntimeType for ICoreFrameworkInputView {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreFrameworkInputView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,6 +11,9 @@ pub struct ICoreFrameworkInputView_Vtbl {
     pub RemoveOcclusionsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreFrameworkInputViewAnimationStartingEventArgs, ICoreFrameworkInputViewAnimationStartingEventArgs_Vtbl, 0xc0ec901c_bba4_501b_ae8b_65c9e756a719);
+impl windows_core::RuntimeType for ICoreFrameworkInputViewAnimationStartingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreFrameworkInputViewAnimationStartingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19,6 +25,9 @@ pub struct ICoreFrameworkInputViewAnimationStartingEventArgs_Vtbl {
     pub AnimationDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreFrameworkInputViewOcclusionsChangedEventArgs, ICoreFrameworkInputViewOcclusionsChangedEventArgs_Vtbl, 0xf36f4949_c82c_53d1_a75d_2b2baf0d9b0d);
+impl windows_core::RuntimeType for ICoreFrameworkInputViewOcclusionsChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreFrameworkInputViewOcclusionsChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -29,6 +38,9 @@ pub struct ICoreFrameworkInputViewOcclusionsChangedEventArgs_Vtbl {
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreFrameworkInputViewStatics, ICoreFrameworkInputViewStatics_Vtbl, 0x6eebd9b6_eac2_5f8b_975f_772ee3e42eeb);
+impl windows_core::RuntimeType for ICoreFrameworkInputViewStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreFrameworkInputViewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -36,6 +48,9 @@ pub struct ICoreFrameworkInputViewStatics_Vtbl {
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreInputView, ICoreInputView_Vtbl, 0xc770cd7a_7001_4c32_bf94_25c1f554cbf1);
+impl windows_core::RuntimeType for ICoreInputView {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreInputView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -49,6 +64,9 @@ pub struct ICoreInputView_Vtbl {
     pub TryHidePrimaryView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreInputView2, ICoreInputView2_Vtbl, 0x0ed726c1_e09a_4ae8_aedf_dfa4857d1a01);
+impl windows_core::RuntimeType for ICoreInputView2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreInputView2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -59,6 +77,9 @@ pub struct ICoreInputView2_Vtbl {
     pub TryTransferXYFocusToPrimaryView: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::Rect, CoreInputViewXYFocusTransferDirection, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreInputView3, ICoreInputView3_Vtbl, 0xbc941653_3ab9_4849_8f58_46e7f0353cfc);
+impl windows_core::RuntimeType for ICoreInputView3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreInputView3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -67,6 +88,9 @@ pub struct ICoreInputView3_Vtbl {
     pub TryHide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreInputView4, ICoreInputView4_Vtbl, 0x002863d6_d9ef_57eb_8cef_77f6ce1b7ee7);
+impl windows_core::RuntimeType for ICoreInputView4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreInputView4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -76,6 +100,9 @@ pub struct ICoreInputView4_Vtbl {
     pub RemovePrimaryViewHiding: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreInputView5, ICoreInputView5_Vtbl, 0x136316e0_c6d5_5c57_811e_1ad8a99ba6ab);
+impl windows_core::RuntimeType for ICoreInputView5 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreInputView5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -86,6 +113,9 @@ pub struct ICoreInputView5_Vtbl {
     pub RemovePrimaryViewAnimationStarting: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreInputViewAnimationStartingEventArgs, ICoreInputViewAnimationStartingEventArgs_Vtbl, 0xa9144af2_b55c_5ea1_b8ab_5340f3e94897);
+impl windows_core::RuntimeType for ICoreInputViewAnimationStartingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreInputViewAnimationStartingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -98,12 +128,18 @@ pub struct ICoreInputViewAnimationStartingEventArgs_Vtbl {
     pub AnimationDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreInputViewHidingEventArgs, ICoreInputViewHidingEventArgs_Vtbl, 0xeada47bd_bac5_5336_848d_41083584daad);
+impl windows_core::RuntimeType for ICoreInputViewHidingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreInputViewHidingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryCancel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreInputViewOcclusion, ICoreInputViewOcclusion_Vtbl, 0xcc36ce06_3865_4177_b5f5_8b65e0b9ce84);
+impl windows_core::RuntimeType for ICoreInputViewOcclusion {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreInputViewOcclusion_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -111,6 +147,9 @@ pub struct ICoreInputViewOcclusion_Vtbl {
     pub OcclusionKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CoreInputViewOcclusionKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreInputViewOcclusionsChangedEventArgs, ICoreInputViewOcclusionsChangedEventArgs_Vtbl, 0xbe1027e8_b3ee_4df7_9554_89cdc66082c2);
+impl windows_core::RuntimeType for ICoreInputViewOcclusionsChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreInputViewOcclusionsChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -122,24 +161,36 @@ pub struct ICoreInputViewOcclusionsChangedEventArgs_Vtbl {
     pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreInputViewShowingEventArgs, ICoreInputViewShowingEventArgs_Vtbl, 0xca52261b_fb9e_5daf_a98c_262b8b76af50);
+impl windows_core::RuntimeType for ICoreInputViewShowingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreInputViewShowingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryCancel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreInputViewStatics, ICoreInputViewStatics_Vtbl, 0x7d9b97cd_edbe_49cf_a54f_337de052907f);
+impl windows_core::RuntimeType for ICoreInputViewStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreInputViewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreInputViewStatics2, ICoreInputViewStatics2_Vtbl, 0x7ebc0862_d049_4e52_87b0_1e90e98c49ed);
+impl windows_core::RuntimeType for ICoreInputViewStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreInputViewStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForUIContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreInputViewTransferringXYFocusEventArgs, ICoreInputViewTransferringXYFocusEventArgs_Vtbl, 0x04de169f_ba02_4850_8b55_d82d03ba6d7f);
+impl windows_core::RuntimeType for ICoreInputViewTransferringXYFocusEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreInputViewTransferringXYFocusEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -151,6 +202,9 @@ pub struct ICoreInputViewTransferringXYFocusEventArgs_Vtbl {
     pub KeepPrimaryViewVisible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUISettingsController, IUISettingsController_Vtbl, 0x78a51ac4_15c0_5a1b_a75b_acbf9cb8bb9e);
+impl windows_core::RuntimeType for IUISettingsController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUISettingsController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -161,6 +215,9 @@ pub struct IUISettingsController_Vtbl {
     pub SetTextScaleFactor: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUISettingsControllerStatics, IUISettingsControllerStatics_Vtbl, 0xeb3c68cc_c220_578c_8119_7db324ed26a6);
+impl windows_core::RuntimeType for IUISettingsControllerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUISettingsControllerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -221,7 +278,7 @@ impl CoreFrameworkInputView {
     }
 }
 impl windows_core::RuntimeType for CoreFrameworkInputView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreFrameworkInputView>();
 }
 unsafe impl windows_core::Interface for CoreFrameworkInputView {
     type Vtable = ICoreFrameworkInputView_Vtbl;
@@ -261,7 +318,7 @@ impl CoreFrameworkInputViewAnimationStartingEventArgs {
     }
 }
 impl windows_core::RuntimeType for CoreFrameworkInputViewAnimationStartingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreFrameworkInputViewAnimationStartingEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreFrameworkInputViewAnimationStartingEventArgs {
     type Vtable = ICoreFrameworkInputViewAnimationStartingEventArgs_Vtbl;
@@ -294,7 +351,7 @@ impl CoreFrameworkInputViewOcclusionsChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for CoreFrameworkInputViewOcclusionsChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreFrameworkInputViewOcclusionsChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreFrameworkInputViewOcclusionsChangedEventArgs {
     type Vtable = ICoreFrameworkInputViewOcclusionsChangedEventArgs_Vtbl;
@@ -492,7 +549,7 @@ impl CoreInputView {
     }
 }
 impl windows_core::RuntimeType for CoreInputView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputView>();
 }
 unsafe impl windows_core::Interface for CoreInputView {
     type Vtable = ICoreInputView_Vtbl;
@@ -536,7 +593,7 @@ impl CoreInputViewAnimationStartingEventArgs {
     }
 }
 impl windows_core::RuntimeType for CoreInputViewAnimationStartingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputViewAnimationStartingEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreInputViewAnimationStartingEventArgs {
     type Vtable = ICoreInputViewAnimationStartingEventArgs_Vtbl;
@@ -561,7 +618,7 @@ impl CoreInputViewHidingEventArgs {
     }
 }
 impl windows_core::RuntimeType for CoreInputViewHidingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputViewHidingEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreInputViewHidingEventArgs {
     type Vtable = ICoreInputViewHidingEventArgs_Vtbl;
@@ -593,7 +650,7 @@ impl CoreInputViewOcclusion {
     }
 }
 impl windows_core::RuntimeType for CoreInputViewOcclusion {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputViewOcclusion>();
 }
 unsafe impl windows_core::Interface for CoreInputViewOcclusion {
     type Vtable = ICoreInputViewOcclusion_Vtbl;
@@ -630,7 +687,7 @@ impl CoreInputViewOcclusionsChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for CoreInputViewOcclusionsChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputViewOcclusionsChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreInputViewOcclusionsChangedEventArgs {
     type Vtable = ICoreInputViewOcclusionsChangedEventArgs_Vtbl;
@@ -655,7 +712,7 @@ impl CoreInputViewShowingEventArgs {
     }
 }
 impl windows_core::RuntimeType for CoreInputViewShowingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputViewShowingEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreInputViewShowingEventArgs {
     type Vtable = ICoreInputViewShowingEventArgs_Vtbl;
@@ -709,7 +766,7 @@ impl CoreInputViewTransferringXYFocusEventArgs {
     }
 }
 impl windows_core::RuntimeType for CoreInputViewTransferringXYFocusEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputViewTransferringXYFocusEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreInputViewTransferringXYFocusEventArgs {
     type Vtable = ICoreInputViewTransferringXYFocusEventArgs_Vtbl;
@@ -758,7 +815,7 @@ impl UISettingsController {
     }
 }
 impl windows_core::RuntimeType for UISettingsController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettingsController>();
 }
 unsafe impl windows_core::Interface for UISettingsController {
     type Vtable = IUISettingsController_Vtbl;

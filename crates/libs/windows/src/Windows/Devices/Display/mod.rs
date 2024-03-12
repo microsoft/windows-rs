@@ -1,6 +1,9 @@
 #[cfg(feature = "Devices_Display_Core")]
 pub mod Core;
 windows_core::imp::define_interface!(IDisplayMonitor, IDisplayMonitor_Vtbl, 0x1f6b15d4_1d01_4c51_87e2_6f954a772b59);
+impl windows_core::RuntimeType for IDisplayMonitor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayMonitor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -32,12 +35,18 @@ pub struct IDisplayMonitor_Vtbl {
     pub GetDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, DisplayMonitorDescriptorKind, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayMonitor2, IDisplayMonitor2_Vtbl, 0x023018e6_cb23_5830_96df_a7bf6e602577);
+impl windows_core::RuntimeType for IDisplayMonitor2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayMonitor2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsDolbyVisionSupportedInHdrMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayMonitorStatics, IDisplayMonitorStatics_Vtbl, 0x6eae698f_a228_4c05_821d_b695d667de8e);
+impl windows_core::RuntimeType for IDisplayMonitorStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDisplayMonitorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -224,7 +233,7 @@ impl DisplayMonitor {
     }
 }
 impl windows_core::RuntimeType for DisplayMonitor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayMonitor>();
 }
 unsafe impl windows_core::Interface for DisplayMonitor {
     type Vtable = IDisplayMonitor_Vtbl;

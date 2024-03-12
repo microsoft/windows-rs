@@ -116,12 +116,18 @@ pub struct IGpioPinProvider_Vtbl {
     pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProviderGpioPinValue) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGpioPinProviderValueChangedEventArgs, IGpioPinProviderValueChangedEventArgs_Vtbl, 0x32a6d6f2_3d5b_44cd_8fbe_13a69f2edb24);
+impl windows_core::RuntimeType for IGpioPinProviderValueChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGpioPinProviderValueChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Edge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProviderGpioPinEdge) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGpioPinProviderValueChangedEventArgsFactory, IGpioPinProviderValueChangedEventArgsFactory_Vtbl, 0x3ecb0b59_568c_4392_b24a_8a59a902b1f1);
+impl windows_core::RuntimeType for IGpioPinProviderValueChangedEventArgsFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGpioPinProviderValueChangedEventArgsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -175,7 +181,7 @@ impl GpioPinProviderValueChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for GpioPinProviderValueChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGpioPinProviderValueChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for GpioPinProviderValueChangedEventArgs {
     type Vtable = IGpioPinProviderValueChangedEventArgs_Vtbl;

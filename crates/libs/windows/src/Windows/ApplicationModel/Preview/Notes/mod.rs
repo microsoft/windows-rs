@@ -1,10 +1,16 @@
 windows_core::imp::define_interface!(INotePlacementChangedPreviewEventArgs, INotePlacementChangedPreviewEventArgs_Vtbl, 0x491d57b7_f780_4e7f_a939_9a4caf965214);
+impl windows_core::RuntimeType for INotePlacementChangedPreviewEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct INotePlacementChangedPreviewEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ViewId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INoteVisibilityChangedPreviewEventArgs, INoteVisibilityChangedPreviewEventArgs_Vtbl, 0x0e34649e_3815_4ff6_83b3_a14d17120e24);
+impl windows_core::RuntimeType for INoteVisibilityChangedPreviewEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct INoteVisibilityChangedPreviewEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12,6 +18,9 @@ pub struct INoteVisibilityChangedPreviewEventArgs_Vtbl {
     pub IsVisible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INotesWindowManagerPreview, INotesWindowManagerPreview_Vtbl, 0xdc2ac23e_4850_4f13_9cc7_ff487efdfcde);
+impl windows_core::RuntimeType for INotesWindowManagerPreview {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct INotesWindowManagerPreview_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -41,6 +50,9 @@ pub struct INotesWindowManagerPreview_Vtbl {
     pub RemoveNoteVisibilityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INotesWindowManagerPreview2, INotesWindowManagerPreview2_Vtbl, 0xedfe864a_1f54_4b09_9823_ff477f6fa3bc);
+impl windows_core::RuntimeType for INotesWindowManagerPreview2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct INotesWindowManagerPreview2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -56,6 +68,9 @@ pub struct INotesWindowManagerPreview2_Vtbl {
     SetThumbnailImageForTaskSwitcherAsync: usize,
 }
 windows_core::imp::define_interface!(INotesWindowManagerPreviewShowNoteOptions, INotesWindowManagerPreviewShowNoteOptions_Vtbl, 0x886b09d6_a6ae_4007_a56d_1ca70c84c0d2);
+impl windows_core::RuntimeType for INotesWindowManagerPreviewShowNoteOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct INotesWindowManagerPreviewShowNoteOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -63,6 +78,9 @@ pub struct INotesWindowManagerPreviewShowNoteOptions_Vtbl {
     pub SetShowWithFocus: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INotesWindowManagerPreviewStatics, INotesWindowManagerPreviewStatics_Vtbl, 0x6668cc88_0a8e_4127_a38e_995445868a78);
+impl windows_core::RuntimeType for INotesWindowManagerPreviewStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct INotesWindowManagerPreviewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -82,7 +100,7 @@ impl NotePlacementChangedPreviewEventArgs {
     }
 }
 impl windows_core::RuntimeType for NotePlacementChangedPreviewEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INotePlacementChangedPreviewEventArgs>();
 }
 unsafe impl windows_core::Interface for NotePlacementChangedPreviewEventArgs {
     type Vtable = INotePlacementChangedPreviewEventArgs_Vtbl;
@@ -114,7 +132,7 @@ impl NoteVisibilityChangedPreviewEventArgs {
     }
 }
 impl windows_core::RuntimeType for NoteVisibilityChangedPreviewEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INoteVisibilityChangedPreviewEventArgs>();
 }
 unsafe impl windows_core::Interface for NoteVisibilityChangedPreviewEventArgs {
     type Vtable = INoteVisibilityChangedPreviewEventArgs_Vtbl;
@@ -273,7 +291,7 @@ impl NotesWindowManagerPreview {
     }
 }
 impl windows_core::RuntimeType for NotesWindowManagerPreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INotesWindowManagerPreview>();
 }
 unsafe impl windows_core::Interface for NotesWindowManagerPreview {
     type Vtable = INotesWindowManagerPreview_Vtbl;
@@ -309,7 +327,7 @@ impl NotesWindowManagerPreviewShowNoteOptions {
     }
 }
 impl windows_core::RuntimeType for NotesWindowManagerPreviewShowNoteOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INotesWindowManagerPreviewShowNoteOptions>();
 }
 unsafe impl windows_core::Interface for NotesWindowManagerPreviewShowNoteOptions {
     type Vtable = INotesWindowManagerPreviewShowNoteOptions_Vtbl;

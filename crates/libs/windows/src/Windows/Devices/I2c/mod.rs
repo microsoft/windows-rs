@@ -1,6 +1,9 @@
 #[cfg(feature = "Devices_I2c_Provider")]
 pub mod Provider;
 windows_core::imp::define_interface!(II2cConnectionSettings, II2cConnectionSettings_Vtbl, 0xf2db1307_ab6f_4639_a767_54536dc3460f);
+impl windows_core::RuntimeType for II2cConnectionSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct II2cConnectionSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -12,18 +15,27 @@ pub struct II2cConnectionSettings_Vtbl {
     pub SetSharingMode: unsafe extern "system" fn(*mut core::ffi::c_void, I2cSharingMode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(II2cConnectionSettingsFactory, II2cConnectionSettingsFactory_Vtbl, 0x81b586b3_9693_41b1_a243_ded4f6e66926);
+impl windows_core::RuntimeType for II2cConnectionSettingsFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct II2cConnectionSettingsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(II2cController, II2cController_Vtbl, 0xc48ab1b2_87a0_4166_8e3e_b4b8f97cd729);
+impl windows_core::RuntimeType for II2cController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct II2cController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(II2cControllerStatics, II2cControllerStatics_Vtbl, 0x40fc0365_5f05_4e7e_84bd_100db8e0aec5);
+impl windows_core::RuntimeType for II2cControllerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct II2cControllerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -34,6 +46,9 @@ pub struct II2cControllerStatics_Vtbl {
     pub GetDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(II2cDevice, II2cDevice_Vtbl, 0x8636c136_b9c5_4f70_9449_cc46dc6f57eb);
+impl windows_core::RuntimeType for II2cDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct II2cDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -135,7 +150,7 @@ impl I2cConnectionSettings {
     }
 }
 impl windows_core::RuntimeType for I2cConnectionSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, II2cConnectionSettings>();
 }
 unsafe impl windows_core::Interface for I2cConnectionSettings {
     type Vtable = II2cConnectionSettings_Vtbl;
@@ -184,7 +199,7 @@ impl I2cController {
     }
 }
 impl windows_core::RuntimeType for I2cController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, II2cController>();
 }
 unsafe impl windows_core::Interface for I2cController {
     type Vtable = II2cController_Vtbl;
@@ -280,7 +295,7 @@ impl I2cDevice {
     }
 }
 impl windows_core::RuntimeType for I2cDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, II2cDevice>();
 }
 unsafe impl windows_core::Interface for I2cDevice {
     type Vtable = II2cDevice_Vtbl;

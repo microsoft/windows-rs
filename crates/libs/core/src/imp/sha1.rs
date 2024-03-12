@@ -16,8 +16,8 @@ pub struct ConstBuffer {
 }
 
 impl ConstBuffer {
-    pub const fn for_class<T: crate::RuntimeName + crate::Interface>() -> Self {
-        Self::new().push_slice(b"rc(").push_slice(T::NAME.as_bytes()).push(b';').push_guid(&T::IID).push(b')')
+    pub const fn for_class<C: crate::RuntimeName, I: crate::RuntimeType>() -> Self {
+        Self::new().push_slice(b"rc(").push_slice(C::NAME.as_bytes()).push(b';').push_other(I::SIGNATURE).push(b')')
     }
 
     pub const fn for_interface<T: crate::Interface>() -> Self {

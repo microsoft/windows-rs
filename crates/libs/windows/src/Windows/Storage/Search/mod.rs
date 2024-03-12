@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IContentIndexer, IContentIndexer_Vtbl, 0xb1767f8d_f698_4982_b05f_3a6e8cab01a2);
+impl windows_core::RuntimeType for IContentIndexer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContentIndexer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -17,6 +20,9 @@ pub struct IContentIndexer_Vtbl {
     pub Revision: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContentIndexerQuery, IContentIndexerQuery_Vtbl, 0x70e3b0f8_4bfc_428a_8889_cc51da9a7b9d);
+impl windows_core::RuntimeType for IContentIndexerQuery {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContentIndexerQuery_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -40,6 +46,9 @@ pub struct IContentIndexerQuery_Vtbl {
     pub QueryFolder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContentIndexerQueryOperations, IContentIndexerQueryOperations_Vtbl, 0x28823e10_4786_42f1_9730_792b3566b150);
+impl windows_core::RuntimeType for IContentIndexerQueryOperations {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContentIndexerQueryOperations_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -57,6 +66,9 @@ pub struct IContentIndexerQueryOperations_Vtbl {
     CreateQuery: usize,
 }
 windows_core::imp::define_interface!(IContentIndexerStatics, IContentIndexerStatics_Vtbl, 0x8c488375_b37e_4c60_9ba8_b760fda3e59d);
+impl windows_core::RuntimeType for IContentIndexerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContentIndexerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -137,6 +149,9 @@ pub struct IIndexableContent_Vtbl {
     pub SetStreamContentType: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IQueryOptions, IQueryOptions_Vtbl, 0x1e5e46ee_0f45_4838_a8e9_d0479d446c30);
+impl windows_core::RuntimeType for IQueryOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IQueryOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -172,6 +187,9 @@ pub struct IQueryOptions_Vtbl {
     SetPropertyPrefetch: usize,
 }
 windows_core::imp::define_interface!(IQueryOptionsFactory, IQueryOptionsFactory_Vtbl, 0x032e1f8c_a9c1_4e71_8011_0dee9d4811a3);
+impl windows_core::RuntimeType for IQueryOptionsFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IQueryOptionsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -182,6 +200,9 @@ pub struct IQueryOptionsFactory_Vtbl {
     pub CreateCommonFolderQuery: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFolderQuery, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IQueryOptionsWithProviderFilter, IQueryOptionsWithProviderFilter_Vtbl, 0x5b9d1026_15c4_44dd_b89a_47a59b7d7c4f);
+impl windows_core::RuntimeType for IQueryOptionsWithProviderFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IQueryOptionsWithProviderFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -191,6 +212,9 @@ pub struct IQueryOptionsWithProviderFilter_Vtbl {
     StorageProviderIdFilter: usize,
 }
 windows_core::imp::define_interface!(IStorageFileQueryResult, IStorageFileQueryResult_Vtbl, 0x52fda447_2baa_412c_b29f_d4b1778efa1e);
+impl windows_core::RuntimeType for IStorageFileQueryResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorageFileQueryResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -204,6 +228,9 @@ pub struct IStorageFileQueryResult_Vtbl {
     GetFilesAsyncDefaultStartAndCount: usize,
 }
 windows_core::imp::define_interface!(IStorageFileQueryResult2, IStorageFileQueryResult2_Vtbl, 0x4e5db9dd_7141_46c4_8be3_e9dc9e27275c);
+impl windows_core::RuntimeType for IStorageFileQueryResult2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorageFileQueryResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -392,6 +419,9 @@ pub struct IStorageFolderQueryOperations_Vtbl {
     pub IsCommonFileQuerySupported: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFileQuery, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageFolderQueryResult, IStorageFolderQueryResult_Vtbl, 0x6654c911_7d66_46fa_aecf_e4a4baa93ab8);
+impl windows_core::RuntimeType for IStorageFolderQueryResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorageFolderQueryResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -405,6 +435,9 @@ pub struct IStorageFolderQueryResult_Vtbl {
     GetFoldersAsyncDefaultStartAndCount: usize,
 }
 windows_core::imp::define_interface!(IStorageItemQueryResult, IStorageItemQueryResult_Vtbl, 0xe8948079_9d58_47b8_b2b2_41b07f4795f9);
+impl windows_core::RuntimeType for IStorageItemQueryResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorageItemQueryResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -418,6 +451,9 @@ pub struct IStorageItemQueryResult_Vtbl {
     GetItemsAsyncDefaultStartAndCount: usize,
 }
 windows_core::imp::define_interface!(IStorageLibraryChangeTrackerTriggerDetails, IStorageLibraryChangeTrackerTriggerDetails_Vtbl, 0x1dc7a369_b7a3_4df2_9d61_eba85a0343d2);
+impl windows_core::RuntimeType for IStorageLibraryChangeTrackerTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorageLibraryChangeTrackerTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -425,6 +461,9 @@ pub struct IStorageLibraryChangeTrackerTriggerDetails_Vtbl {
     pub ChangeTracker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageLibraryContentChangedTriggerDetails, IStorageLibraryContentChangedTriggerDetails_Vtbl, 0x2a371977_abbf_4e1d_8aa5_6385d8884799);
+impl windows_core::RuntimeType for IStorageLibraryContentChangedTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorageLibraryContentChangedTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -518,6 +557,9 @@ pub struct IStorageQueryResultBase_Vtbl {
     pub ApplyNewQueryOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IValueAndLanguage, IValueAndLanguage_Vtbl, 0xb9914881_a1ee_4bc4_92a5_466968e30436);
+impl windows_core::RuntimeType for IValueAndLanguage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IValueAndLanguage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -648,7 +690,7 @@ impl ContentIndexer {
     }
 }
 impl windows_core::RuntimeType for ContentIndexer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContentIndexer>();
 }
 unsafe impl windows_core::Interface for ContentIndexer {
     type Vtable = IContentIndexer_Vtbl;
@@ -712,7 +754,7 @@ impl ContentIndexerQuery {
     }
 }
 impl windows_core::RuntimeType for ContentIndexerQuery {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContentIndexerQuery>();
 }
 unsafe impl windows_core::Interface for ContentIndexerQuery {
     type Vtable = IContentIndexerQuery_Vtbl;
@@ -784,7 +826,7 @@ impl IndexableContent {
     }
 }
 impl windows_core::RuntimeType for IndexableContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIndexableContent>();
 }
 unsafe impl windows_core::Interface for IndexableContent {
     type Vtable = IIndexableContent_Vtbl;
@@ -947,7 +989,7 @@ impl QueryOptions {
     }
 }
 impl windows_core::RuntimeType for QueryOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IQueryOptions>();
 }
 unsafe impl windows_core::Interface for QueryOptions {
     type Vtable = IQueryOptions_Vtbl;
@@ -1066,7 +1108,7 @@ impl SortEntryVector {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for SortEntryVector {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVector<SortEntry>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for SortEntryVector {
@@ -1194,7 +1236,7 @@ impl StorageFileQueryResult {
     }
 }
 impl windows_core::RuntimeType for StorageFileQueryResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageFileQueryResult>();
 }
 unsafe impl windows_core::Interface for StorageFileQueryResult {
     type Vtable = IStorageFileQueryResult_Vtbl;
@@ -1293,7 +1335,7 @@ impl StorageFolderQueryResult {
     }
 }
 impl windows_core::RuntimeType for StorageFolderQueryResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageFolderQueryResult>();
 }
 unsafe impl windows_core::Interface for StorageFolderQueryResult {
     type Vtable = IStorageFolderQueryResult_Vtbl;
@@ -1392,7 +1434,7 @@ impl StorageItemQueryResult {
     }
 }
 impl windows_core::RuntimeType for StorageItemQueryResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageItemQueryResult>();
 }
 unsafe impl windows_core::Interface for StorageItemQueryResult {
     type Vtable = IStorageItemQueryResult_Vtbl;
@@ -1422,7 +1464,7 @@ impl StorageLibraryChangeTrackerTriggerDetails {
     }
 }
 impl windows_core::RuntimeType for StorageLibraryChangeTrackerTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryChangeTrackerTriggerDetails>();
 }
 unsafe impl windows_core::Interface for StorageLibraryChangeTrackerTriggerDetails {
     type Vtable = IStorageLibraryChangeTrackerTriggerDetails_Vtbl;
@@ -1452,7 +1494,7 @@ impl StorageLibraryContentChangedTriggerDetails {
     }
 }
 impl windows_core::RuntimeType for StorageLibraryContentChangedTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryContentChangedTriggerDetails>();
 }
 unsafe impl windows_core::Interface for StorageLibraryContentChangedTriggerDetails {
     type Vtable = IStorageLibraryContentChangedTriggerDetails_Vtbl;
@@ -1500,7 +1542,7 @@ impl ValueAndLanguage {
     }
 }
 impl windows_core::RuntimeType for ValueAndLanguage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IValueAndLanguage>();
 }
 unsafe impl windows_core::Interface for ValueAndLanguage {
     type Vtable = IValueAndLanguage_Vtbl;

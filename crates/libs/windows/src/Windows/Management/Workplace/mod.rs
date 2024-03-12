@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IMdmAllowPolicyStatics, IMdmAllowPolicyStatics_Vtbl, 0xc39709e7_741c_41f2_a4b6_314c31502586);
+impl windows_core::RuntimeType for IMdmAllowPolicyStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMdmAllowPolicyStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,12 +11,18 @@ pub struct IMdmAllowPolicyStatics_Vtbl {
     pub IsStoreAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMdmPolicyStatics2, IMdmPolicyStatics2_Vtbl, 0xc99c7526_03d4_49f9_a993_43efccd265c4);
+impl windows_core::RuntimeType for IMdmPolicyStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMdmPolicyStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetMessagingSyncPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MessagingSyncPolicy) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWorkplaceSettingsStatics, IWorkplaceSettingsStatics_Vtbl, 0xe4676ffd_2d92_4c08_bad4_f6590b54a6d3);
+impl windows_core::RuntimeType for IWorkplaceSettingsStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWorkplaceSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

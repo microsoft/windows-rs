@@ -5,6 +5,9 @@ pub mod Core;
 #[cfg(feature = "Security_Cryptography_DataProtection")]
 pub mod DataProtection;
 windows_core::imp::define_interface!(ICryptographicBufferStatics, ICryptographicBufferStatics_Vtbl, 0x320b7e22_3cb0_4cdf_8663_1d28910065eb);
+impl windows_core::RuntimeType for ICryptographicBufferStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICryptographicBufferStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

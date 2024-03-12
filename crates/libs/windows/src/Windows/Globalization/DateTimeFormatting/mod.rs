@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IDateTimeFormatter, IDateTimeFormatter_Vtbl, 0x95eeca10_73e0_4e4b_a183_3d6ad0ba35ec);
+impl windows_core::RuntimeType for IDateTimeFormatter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDateTimeFormatter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -28,12 +31,18 @@ pub struct IDateTimeFormatter_Vtbl {
     pub ResolvedGeographicRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDateTimeFormatter2, IDateTimeFormatter2_Vtbl, 0x27c91a86_bdaa_4fd0_9e36_671d5aa5ee03);
+impl windows_core::RuntimeType for IDateTimeFormatter2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDateTimeFormatter2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FormatUsingTimeZone: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, std::mem::MaybeUninit<windows_core::HSTRING>, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDateTimeFormatterFactory, IDateTimeFormatterFactory_Vtbl, 0xec8d8a53_1a2e_412d_8815_3b745fb1a2a0);
+impl windows_core::RuntimeType for IDateTimeFormatterFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDateTimeFormatterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -58,6 +67,9 @@ pub struct IDateTimeFormatterFactory_Vtbl {
     CreateDateTimeFormatterDateTimeContext: usize,
 }
 windows_core::imp::define_interface!(IDateTimeFormatterStatics, IDateTimeFormatterStatics_Vtbl, 0xbfcde7c0_df4c_4a2e_9012_f47daf3f1212);
+impl windows_core::RuntimeType for IDateTimeFormatterStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDateTimeFormatterStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -297,7 +309,7 @@ impl DateTimeFormatter {
     }
 }
 impl windows_core::RuntimeType for DateTimeFormatter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDateTimeFormatter>();
 }
 unsafe impl windows_core::Interface for DateTimeFormatter {
     type Vtable = IDateTimeFormatter_Vtbl;

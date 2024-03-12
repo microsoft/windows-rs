@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ICoreDragDropManager, ICoreDragDropManager_Vtbl, 0x7d56d344_8464_4faf_aa49_37ea6e2d7bd1);
+impl windows_core::RuntimeType for ICoreDragDropManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreDragDropManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,12 +11,18 @@ pub struct ICoreDragDropManager_Vtbl {
     pub SetAreConcurrentOperationsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreDragDropManagerStatics, ICoreDragDropManagerStatics_Vtbl, 0x9542fdca_da12_4c1c_8d06_041db29733c3);
+impl windows_core::RuntimeType for ICoreDragDropManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreDragDropManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreDragInfo, ICoreDragInfo_Vtbl, 0x48353a8b_cb50_464e_9575_cd4e3a7ab028);
+impl windows_core::RuntimeType for ICoreDragInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreDragInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -22,12 +31,18 @@ pub struct ICoreDragInfo_Vtbl {
     pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::Point) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreDragInfo2, ICoreDragInfo2_Vtbl, 0xc54691e5_e6fb_4d74_b4b1_8a3c17f25e9e);
+impl windows_core::RuntimeType for ICoreDragInfo2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreDragInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllowedOperations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::DataPackageOperation) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreDragOperation, ICoreDragOperation_Vtbl, 0xcc06de4f_6db0_4e62_ab1b_a74a02dc6d85);
+impl windows_core::RuntimeType for ICoreDragOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreDragOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -46,6 +61,9 @@ pub struct ICoreDragOperation_Vtbl {
     pub StartAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreDragOperation2, ICoreDragOperation2_Vtbl, 0x824b1e2c_d99a_4fc3_8507_6c182f33b46a);
+impl windows_core::RuntimeType for ICoreDragOperation2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreDragOperation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -53,6 +71,9 @@ pub struct ICoreDragOperation2_Vtbl {
     pub SetAllowedOperations: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::DataPackageOperation) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreDragUIOverride, ICoreDragUIOverride_Vtbl, 0x89a85064_3389_4f4f_8897_7e8a3ffb3c93);
+impl windows_core::RuntimeType for ICoreDragUIOverride {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreDragUIOverride_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -132,6 +153,9 @@ pub struct ICoreDropOperationTarget_Vtbl {
     pub DropAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreDropOperationTargetRequestedEventArgs, ICoreDropOperationTargetRequestedEventArgs_Vtbl, 0x2aca929a_5e28_4ea6_829e_29134e665d6d);
+impl windows_core::RuntimeType for ICoreDropOperationTargetRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICoreDropOperationTargetRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -180,7 +204,7 @@ impl CoreDragDropManager {
     }
 }
 impl windows_core::RuntimeType for CoreDragDropManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDragDropManager>();
 }
 unsafe impl windows_core::Interface for CoreDragDropManager {
     type Vtable = ICoreDragDropManager_Vtbl;
@@ -226,7 +250,7 @@ impl CoreDragInfo {
     }
 }
 impl windows_core::RuntimeType for CoreDragInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDragInfo>();
 }
 unsafe impl windows_core::Interface for CoreDragInfo {
     type Vtable = ICoreDragInfo_Vtbl;
@@ -307,7 +331,7 @@ impl CoreDragOperation {
     }
 }
 impl windows_core::RuntimeType for CoreDragOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDragOperation>();
 }
 unsafe impl windows_core::Interface for CoreDragOperation {
     type Vtable = ICoreDragOperation_Vtbl;
@@ -389,7 +413,7 @@ impl CoreDragUIOverride {
     }
 }
 impl windows_core::RuntimeType for CoreDragUIOverride {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDragUIOverride>();
 }
 unsafe impl windows_core::Interface for CoreDragUIOverride {
     type Vtable = ICoreDragUIOverride_Vtbl;
@@ -414,7 +438,7 @@ impl CoreDropOperationTargetRequestedEventArgs {
     }
 }
 impl windows_core::RuntimeType for CoreDropOperationTargetRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDropOperationTargetRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreDropOperationTargetRequestedEventArgs {
     type Vtable = ICoreDropOperationTargetRequestedEventArgs_Vtbl;

@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IPhoneNumberFormatter, IPhoneNumberFormatter_Vtbl, 0x1556b49e_bad4_4b4a_900d_4407adb7c981);
+impl windows_core::RuntimeType for IPhoneNumberFormatter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneNumberFormatter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9,6 +12,9 @@ pub struct IPhoneNumberFormatter_Vtbl {
     pub FormatStringWithLeftToRightMarkers: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneNumberFormatterStatics, IPhoneNumberFormatterStatics_Vtbl, 0x5ca6f931_84d9_414b_ab4e_a0552c878602);
+impl windows_core::RuntimeType for IPhoneNumberFormatterStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneNumberFormatterStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -18,6 +24,9 @@ pub struct IPhoneNumberFormatterStatics_Vtbl {
     pub WrapWithLeftToRightMarkers: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneNumberInfo, IPhoneNumberInfo_Vtbl, 0x1c7ce4dd_c8b4_4ea3_9aef_b342e2c5b417);
+impl windows_core::RuntimeType for IPhoneNumberInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneNumberInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -31,12 +40,18 @@ pub struct IPhoneNumberInfo_Vtbl {
     pub CheckNumberMatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut PhoneNumberMatchResult) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneNumberInfoFactory, IPhoneNumberInfoFactory_Vtbl, 0x8202b964_adaa_4cff_8fcf_17e7516a28ff);
+impl windows_core::RuntimeType for IPhoneNumberInfoFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneNumberInfoFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneNumberInfoStatics, IPhoneNumberInfoStatics_Vtbl, 0x5b3f4f6a_86a9_40e9_8649_6d61161928d4);
+impl windows_core::RuntimeType for IPhoneNumberInfoStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPhoneNumberInfoStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -124,7 +139,7 @@ impl PhoneNumberFormatter {
     }
 }
 impl windows_core::RuntimeType for PhoneNumberFormatter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneNumberFormatter>();
 }
 unsafe impl windows_core::Interface for PhoneNumberFormatter {
     type Vtable = IPhoneNumberFormatter_Vtbl;
@@ -237,7 +252,7 @@ impl PhoneNumberInfo {
     }
 }
 impl windows_core::RuntimeType for PhoneNumberInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneNumberInfo>();
 }
 unsafe impl windows_core::Interface for PhoneNumberInfo {
     type Vtable = IPhoneNumberInfo_Vtbl;

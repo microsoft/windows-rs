@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(ICredentialPickerOptions, ICredentialPickerOptions_Vtbl, 0x965a0b4c_95fa_467f_992b_0b22e5859bf6);
+impl windows_core::RuntimeType for ICredentialPickerOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICredentialPickerOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -30,6 +33,9 @@ pub struct ICredentialPickerOptions_Vtbl {
     pub CredentialSaveOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CredentialSaveOption) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICredentialPickerResults, ICredentialPickerResults_Vtbl, 0x1948f99a_cc30_410c_9c38_cc0884c5b3d7);
+impl windows_core::RuntimeType for ICredentialPickerResults {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICredentialPickerResults_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -45,6 +51,9 @@ pub struct ICredentialPickerResults_Vtbl {
     pub CredentialPassword: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICredentialPickerStatics, ICredentialPickerStatics_Vtbl, 0xaa3a5c73_c9ea_4782_99fb_e6d7e938e12d);
+impl windows_core::RuntimeType for ICredentialPickerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICredentialPickerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -53,6 +62,9 @@ pub struct ICredentialPickerStatics_Vtbl {
     pub PickWithCaptionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserConsentVerifierStatics, IUserConsentVerifierStatics_Vtbl, 0xaf4f3f91_564c_4ddc_b8b5_973447627c65);
+impl windows_core::RuntimeType for IUserConsentVerifierStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IUserConsentVerifierStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -220,7 +232,7 @@ impl CredentialPickerOptions {
     }
 }
 impl windows_core::RuntimeType for CredentialPickerOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICredentialPickerOptions>();
 }
 unsafe impl windows_core::Interface for CredentialPickerOptions {
     type Vtable = ICredentialPickerOptions_Vtbl;
@@ -286,7 +298,7 @@ impl CredentialPickerResults {
     }
 }
 impl windows_core::RuntimeType for CredentialPickerResults {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICredentialPickerResults>();
 }
 unsafe impl windows_core::Interface for CredentialPickerResults {
     type Vtable = ICredentialPickerResults_Vtbl;

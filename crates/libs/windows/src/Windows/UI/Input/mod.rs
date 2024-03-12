@@ -7,16 +7,25 @@ pub mod Preview;
 #[cfg(feature = "UI_Input_Spatial")]
 pub mod Spatial;
 windows_core::imp::define_interface!(IAttachableInputObject, IAttachableInputObject_Vtbl, 0x9b822734_a3c1_542a_b2f4_0e32b773fb07);
+impl windows_core::RuntimeType for IAttachableInputObject {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAttachableInputObject_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IAttachableInputObjectFactory, IAttachableInputObjectFactory_Vtbl, 0xa4c54c4e_42bc_58fa_a640_ea1516f4c06b);
+impl windows_core::RuntimeType for IAttachableInputObjectFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAttachableInputObjectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ICrossSlidingEventArgs, ICrossSlidingEventArgs_Vtbl, 0xe9374738_6f88_41d9_8720_78e08e398349);
+impl windows_core::RuntimeType for ICrossSlidingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICrossSlidingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -28,12 +37,18 @@ pub struct ICrossSlidingEventArgs_Vtbl {
     pub CrossSlidingState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CrossSlidingState) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICrossSlidingEventArgs2, ICrossSlidingEventArgs2_Vtbl, 0xeefb7d48_c070_59f3_8dab_bcaf621d8687);
+impl windows_core::RuntimeType for ICrossSlidingEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ICrossSlidingEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDraggingEventArgs, IDraggingEventArgs_Vtbl, 0x1c905384_083c_4bd3_b559_179cddeb33ec);
+impl windows_core::RuntimeType for IDraggingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDraggingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -45,12 +60,18 @@ pub struct IDraggingEventArgs_Vtbl {
     pub DraggingState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DraggingState) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDraggingEventArgs2, IDraggingEventArgs2_Vtbl, 0x71efdbf9_382a_55ca_b4b9_008123c1bf1a);
+impl windows_core::RuntimeType for IDraggingEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDraggingEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEdgeGesture, IEdgeGesture_Vtbl, 0x580d5292_2ab1_49aa_a7f0_33bd3f8df9f1);
+impl windows_core::RuntimeType for IEdgeGesture {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IEdgeGesture_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -62,18 +83,27 @@ pub struct IEdgeGesture_Vtbl {
     pub RemoveCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEdgeGestureEventArgs, IEdgeGestureEventArgs_Vtbl, 0x44fa4a24_2d09_42e1_8b5e_368208796a4c);
+impl windows_core::RuntimeType for IEdgeGestureEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IEdgeGestureEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EdgeGestureKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEdgeGestureStatics, IEdgeGestureStatics_Vtbl, 0xbc6a8519_18ee_4043_9839_4fc584d60a14);
+impl windows_core::RuntimeType for IEdgeGestureStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IEdgeGestureStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGestureRecognizer, IGestureRecognizer_Vtbl, 0xb47a37bf_3d6b_4f88_83e8_6dcb4012ffb0);
+impl windows_core::RuntimeType for IGestureRecognizer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGestureRecognizer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -140,6 +170,9 @@ pub struct IGestureRecognizer_Vtbl {
     pub RemoveCrossSliding: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGestureRecognizer2, IGestureRecognizer2_Vtbl, 0xd646097f_6ef7_5746_8ba8_8ff2206e6f3b);
+impl windows_core::RuntimeType for IGestureRecognizer2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGestureRecognizer2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -161,6 +194,9 @@ pub struct IGestureRecognizer2_Vtbl {
     pub SetTranslationMaxContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHoldingEventArgs, IHoldingEventArgs_Vtbl, 0x2bf755c5_e799_41b4_bb40_242f40959b71);
+impl windows_core::RuntimeType for IHoldingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHoldingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -172,6 +208,9 @@ pub struct IHoldingEventArgs_Vtbl {
     pub HoldingState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HoldingState) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHoldingEventArgs2, IHoldingEventArgs2_Vtbl, 0x141da9ea_4c79_5674_afea_493fdeb91f19);
+impl windows_core::RuntimeType for IHoldingEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IHoldingEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -179,6 +218,9 @@ pub struct IHoldingEventArgs2_Vtbl {
     pub CurrentContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInputActivationListener, IInputActivationListener_Vtbl, 0x5d6d4ed2_28c7_5ae3_aa74_c918a9f243ca);
+impl windows_core::RuntimeType for IInputActivationListener {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInputActivationListener_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -187,12 +229,18 @@ pub struct IInputActivationListener_Vtbl {
     pub RemoveInputActivationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInputActivationListenerActivationChangedEventArgs, IInputActivationListenerActivationChangedEventArgs_Vtbl, 0x7699b465_1dcf_5791_b4b9_6cafbeed2056);
+impl windows_core::RuntimeType for IInputActivationListenerActivationChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInputActivationListenerActivationChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InputActivationState) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKeyboardDeliveryInterceptor, IKeyboardDeliveryInterceptor_Vtbl, 0xb4baf068_8f49_446c_8db5_8c0ffe85cc9e);
+impl windows_core::RuntimeType for IKeyboardDeliveryInterceptor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IKeyboardDeliveryInterceptor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -210,12 +258,18 @@ pub struct IKeyboardDeliveryInterceptor_Vtbl {
     pub RemoveKeyUp: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKeyboardDeliveryInterceptorStatics, IKeyboardDeliveryInterceptorStatics_Vtbl, 0xf9f63ba2_ceba_4755_8a7e_14c0ffecd239);
+impl windows_core::RuntimeType for IKeyboardDeliveryInterceptorStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IKeyboardDeliveryInterceptorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IManipulationCompletedEventArgs, IManipulationCompletedEventArgs_Vtbl, 0xb34ab22b_d19b_46ff_9f38_dec7754bb9e7);
+impl windows_core::RuntimeType for IManipulationCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IManipulationCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -228,6 +282,9 @@ pub struct IManipulationCompletedEventArgs_Vtbl {
     pub Velocities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ManipulationVelocities) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IManipulationCompletedEventArgs2, IManipulationCompletedEventArgs2_Vtbl, 0xf0c0dce7_30a9_5b96_886f_6560a85e4757);
+impl windows_core::RuntimeType for IManipulationCompletedEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IManipulationCompletedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -235,6 +292,9 @@ pub struct IManipulationCompletedEventArgs2_Vtbl {
     pub CurrentContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IManipulationInertiaStartingEventArgs, IManipulationInertiaStartingEventArgs_Vtbl, 0xdd37a898_26bf_467a_9ce5_ccf3fb11371e);
+impl windows_core::RuntimeType for IManipulationInertiaStartingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IManipulationInertiaStartingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -248,12 +308,18 @@ pub struct IManipulationInertiaStartingEventArgs_Vtbl {
     pub Velocities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ManipulationVelocities) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IManipulationInertiaStartingEventArgs2, IManipulationInertiaStartingEventArgs2_Vtbl, 0xc25409b8_f9fa_5a45_bd97_dcbbb2201860);
+impl windows_core::RuntimeType for IManipulationInertiaStartingEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IManipulationInertiaStartingEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IManipulationStartedEventArgs, IManipulationStartedEventArgs_Vtbl, 0xddec873e_cfce_4932_8c1d_3c3d011a34c0);
+impl windows_core::RuntimeType for IManipulationStartedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IManipulationStartedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -265,12 +331,18 @@ pub struct IManipulationStartedEventArgs_Vtbl {
     pub Cumulative: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ManipulationDelta) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IManipulationStartedEventArgs2, IManipulationStartedEventArgs2_Vtbl, 0x2da3db4e_e583_5055_afaa_16fd986531a6);
+impl windows_core::RuntimeType for IManipulationStartedEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IManipulationStartedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IManipulationUpdatedEventArgs, IManipulationUpdatedEventArgs_Vtbl, 0xcb354ce5_abb8_4f9f_b3ce_8181aa61ad82);
+impl windows_core::RuntimeType for IManipulationUpdatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IManipulationUpdatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -284,6 +356,9 @@ pub struct IManipulationUpdatedEventArgs_Vtbl {
     pub Velocities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ManipulationVelocities) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IManipulationUpdatedEventArgs2, IManipulationUpdatedEventArgs2_Vtbl, 0xf3dfb96a_3306_5903_a1c5_ff9757a8689e);
+impl windows_core::RuntimeType for IManipulationUpdatedEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IManipulationUpdatedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -291,6 +366,9 @@ pub struct IManipulationUpdatedEventArgs2_Vtbl {
     pub CurrentContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMouseWheelParameters, IMouseWheelParameters_Vtbl, 0xead0ca44_9ded_4037_8149_5e4cc2564468);
+impl windows_core::RuntimeType for IMouseWheelParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMouseWheelParameters_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -304,6 +382,9 @@ pub struct IMouseWheelParameters_Vtbl {
     pub SetPageTranslation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Point) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPointerPoint, IPointerPoint_Vtbl, 0xe995317d_7296_42d9_8233_c5be73b74a4a);
+impl windows_core::RuntimeType for IPointerPoint {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPointerPoint_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -320,6 +401,9 @@ pub struct IPointerPoint_Vtbl {
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPointerPointProperties, IPointerPointProperties_Vtbl, 0xc79d8a4b_c163_4ee7_803f_67ce79f9972d);
+impl windows_core::RuntimeType for IPointerPointProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPointerPointProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -349,12 +433,18 @@ pub struct IPointerPointProperties_Vtbl {
     pub GetUsageValue: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPointerPointProperties2, IPointerPointProperties2_Vtbl, 0x22c3433a_c83b_41c0_a296_5e232d64d6af);
+impl windows_core::RuntimeType for IPointerPointProperties2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPointerPointProperties2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ZDistance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPointerPointStatics, IPointerPointStatics_Vtbl, 0xa506638d_2a1a_413e_bc75_9f38381cc069);
+impl windows_core::RuntimeType for IPointerPointStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPointerPointStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -405,6 +495,9 @@ pub struct IPointerPointTransform_Vtbl {
     pub TransformBounds: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPointerVisualizationSettings, IPointerVisualizationSettings_Vtbl, 0x4d1e6461_84f7_499d_bd91_2a36e2b7aaa2);
+impl windows_core::RuntimeType for IPointerVisualizationSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPointerVisualizationSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -414,12 +507,18 @@ pub struct IPointerVisualizationSettings_Vtbl {
     pub IsBarrelButtonFeedbackEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPointerVisualizationSettingsStatics, IPointerVisualizationSettingsStatics_Vtbl, 0x68870edb_165b_4214_b4f3_584eca8c8a69);
+impl windows_core::RuntimeType for IPointerVisualizationSettingsStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPointerVisualizationSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialController, IRadialController_Vtbl, 0x3055d1c8_df51_43d4_b23b_0e1037467a09);
+impl windows_core::RuntimeType for IRadialController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -444,6 +543,9 @@ pub struct IRadialController_Vtbl {
     pub RemoveControlAcquired: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialController2, IRadialController2_Vtbl, 0x3d577eff_4cee_11e6_b535_001bdc06ab3b);
+impl windows_core::RuntimeType for IRadialController2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialController2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -455,12 +557,18 @@ pub struct IRadialController2_Vtbl {
     pub RemoveButtonReleased: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialControllerButtonClickedEventArgs, IRadialControllerButtonClickedEventArgs_Vtbl, 0x206aa438_e651_11e5_bf62_2c27d7404e85);
+impl windows_core::RuntimeType for IRadialControllerButtonClickedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerButtonClickedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialControllerButtonClickedEventArgs2, IRadialControllerButtonClickedEventArgs2_Vtbl, 0x3d577ef3_3cee_11e6_b535_001bdc06ab3b);
+impl windows_core::RuntimeType for IRadialControllerButtonClickedEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerButtonClickedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -470,6 +578,9 @@ pub struct IRadialControllerButtonClickedEventArgs2_Vtbl {
     SimpleHapticsController: usize,
 }
 windows_core::imp::define_interface!(IRadialControllerButtonHoldingEventArgs, IRadialControllerButtonHoldingEventArgs_Vtbl, 0x3d577eee_3cee_11e6_b535_001bdc06ab3b);
+impl windows_core::RuntimeType for IRadialControllerButtonHoldingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerButtonHoldingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -480,6 +591,9 @@ pub struct IRadialControllerButtonHoldingEventArgs_Vtbl {
     SimpleHapticsController: usize,
 }
 windows_core::imp::define_interface!(IRadialControllerButtonPressedEventArgs, IRadialControllerButtonPressedEventArgs_Vtbl, 0x3d577eed_4cee_11e6_b535_001bdc06ab3b);
+impl windows_core::RuntimeType for IRadialControllerButtonPressedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerButtonPressedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -490,6 +604,9 @@ pub struct IRadialControllerButtonPressedEventArgs_Vtbl {
     SimpleHapticsController: usize,
 }
 windows_core::imp::define_interface!(IRadialControllerButtonReleasedEventArgs, IRadialControllerButtonReleasedEventArgs_Vtbl, 0x3d577eef_3cee_11e6_b535_001bdc06ab3b);
+impl windows_core::RuntimeType for IRadialControllerButtonReleasedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerButtonReleasedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -500,6 +617,9 @@ pub struct IRadialControllerButtonReleasedEventArgs_Vtbl {
     SimpleHapticsController: usize,
 }
 windows_core::imp::define_interface!(IRadialControllerConfiguration, IRadialControllerConfiguration_Vtbl, 0xa6b79ecb_6a52_4430_910c_56370a9d6b42);
+impl windows_core::RuntimeType for IRadialControllerConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -511,6 +631,9 @@ pub struct IRadialControllerConfiguration_Vtbl {
     pub TrySelectDefaultMenuItem: unsafe extern "system" fn(*mut core::ffi::c_void, RadialControllerSystemMenuItemKind, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialControllerConfiguration2, IRadialControllerConfiguration2_Vtbl, 0x3d577ef7_3cee_11e6_b535_001bdc06ab3b);
+impl windows_core::RuntimeType for IRadialControllerConfiguration2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerConfiguration2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -520,12 +643,18 @@ pub struct IRadialControllerConfiguration2_Vtbl {
     pub IsMenuSuppressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialControllerConfigurationStatics, IRadialControllerConfigurationStatics_Vtbl, 0x79b6b0e5_069a_4486_a99d_8db772b9642f);
+impl windows_core::RuntimeType for IRadialControllerConfigurationStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerConfigurationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialControllerConfigurationStatics2, IRadialControllerConfigurationStatics2_Vtbl, 0x53e08b17_e205_48d3_9caf_80ff47c4d7c7);
+impl windows_core::RuntimeType for IRadialControllerConfigurationStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerConfigurationStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -535,12 +664,18 @@ pub struct IRadialControllerConfigurationStatics2_Vtbl {
     pub IsAppControllerEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialControllerControlAcquiredEventArgs, IRadialControllerControlAcquiredEventArgs_Vtbl, 0x206aa439_e651_11e5_bf62_2c27d7404e85);
+impl windows_core::RuntimeType for IRadialControllerControlAcquiredEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerControlAcquiredEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialControllerControlAcquiredEventArgs2, IRadialControllerControlAcquiredEventArgs2_Vtbl, 0x3d577ef4_3cee_11e6_b535_001bdc06ab3b);
+impl windows_core::RuntimeType for IRadialControllerControlAcquiredEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerControlAcquiredEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -551,6 +686,9 @@ pub struct IRadialControllerControlAcquiredEventArgs2_Vtbl {
     SimpleHapticsController: usize,
 }
 windows_core::imp::define_interface!(IRadialControllerMenu, IRadialControllerMenu_Vtbl, 0x8506b35d_f640_4412_aba0_bad077e5ea8a);
+impl windows_core::RuntimeType for IRadialControllerMenu {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerMenu_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -565,6 +703,9 @@ pub struct IRadialControllerMenu_Vtbl {
     pub TrySelectPreviouslySelectedMenuItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialControllerMenuItem, IRadialControllerMenuItem_Vtbl, 0xc80fc98d_ad0b_4c9c_8f2f_136a2373a6ba);
+impl windows_core::RuntimeType for IRadialControllerMenuItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerMenuItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -575,6 +716,9 @@ pub struct IRadialControllerMenuItem_Vtbl {
     pub RemoveInvoked: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialControllerMenuItemStatics, IRadialControllerMenuItemStatics_Vtbl, 0x249e0887_d842_4524_9df8_e0d647edc887);
+impl windows_core::RuntimeType for IRadialControllerMenuItemStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerMenuItemStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -585,6 +729,9 @@ pub struct IRadialControllerMenuItemStatics_Vtbl {
     pub CreateFromKnownIcon: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, RadialControllerMenuKnownIcon, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialControllerMenuItemStatics2, IRadialControllerMenuItemStatics2_Vtbl, 0x0cbb70be_7e3e_48bd_be04_2c7fcaa9c1ff);
+impl windows_core::RuntimeType for IRadialControllerMenuItemStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerMenuItemStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -592,6 +739,9 @@ pub struct IRadialControllerMenuItemStatics2_Vtbl {
     pub CreateFromFontGlyphWithUri: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialControllerRotationChangedEventArgs, IRadialControllerRotationChangedEventArgs_Vtbl, 0x206aa435_e651_11e5_bf62_2c27d7404e85);
+impl windows_core::RuntimeType for IRadialControllerRotationChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerRotationChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -599,6 +749,9 @@ pub struct IRadialControllerRotationChangedEventArgs_Vtbl {
     pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialControllerRotationChangedEventArgs2, IRadialControllerRotationChangedEventArgs2_Vtbl, 0x3d577eec_4cee_11e6_b535_001bdc06ab3b);
+impl windows_core::RuntimeType for IRadialControllerRotationChangedEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerRotationChangedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -609,6 +762,9 @@ pub struct IRadialControllerRotationChangedEventArgs2_Vtbl {
     SimpleHapticsController: usize,
 }
 windows_core::imp::define_interface!(IRadialControllerScreenContact, IRadialControllerScreenContact_Vtbl, 0x206aa434_e651_11e5_bf62_2c27d7404e85);
+impl windows_core::RuntimeType for IRadialControllerScreenContact {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerScreenContact_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -616,12 +772,18 @@ pub struct IRadialControllerScreenContact_Vtbl {
     pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Point) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialControllerScreenContactContinuedEventArgs, IRadialControllerScreenContactContinuedEventArgs_Vtbl, 0x206aa437_e651_11e5_bf62_2c27d7404e85);
+impl windows_core::RuntimeType for IRadialControllerScreenContactContinuedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerScreenContactContinuedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialControllerScreenContactContinuedEventArgs2, IRadialControllerScreenContactContinuedEventArgs2_Vtbl, 0x3d577ef1_3cee_11e6_b535_001bdc06ab3b);
+impl windows_core::RuntimeType for IRadialControllerScreenContactContinuedEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerScreenContactContinuedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -632,6 +794,9 @@ pub struct IRadialControllerScreenContactContinuedEventArgs2_Vtbl {
     SimpleHapticsController: usize,
 }
 windows_core::imp::define_interface!(IRadialControllerScreenContactEndedEventArgs, IRadialControllerScreenContactEndedEventArgs_Vtbl, 0x3d577ef2_3cee_11e6_b535_001bdc06ab3b);
+impl windows_core::RuntimeType for IRadialControllerScreenContactEndedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerScreenContactEndedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -642,12 +807,18 @@ pub struct IRadialControllerScreenContactEndedEventArgs_Vtbl {
     SimpleHapticsController: usize,
 }
 windows_core::imp::define_interface!(IRadialControllerScreenContactStartedEventArgs, IRadialControllerScreenContactStartedEventArgs_Vtbl, 0x206aa436_e651_11e5_bf62_2c27d7404e85);
+impl windows_core::RuntimeType for IRadialControllerScreenContactStartedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerScreenContactStartedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialControllerScreenContactStartedEventArgs2, IRadialControllerScreenContactStartedEventArgs2_Vtbl, 0x3d577ef0_3cee_11e6_b535_001bdc06ab3b);
+impl windows_core::RuntimeType for IRadialControllerScreenContactStartedEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerScreenContactStartedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -658,6 +829,9 @@ pub struct IRadialControllerScreenContactStartedEventArgs2_Vtbl {
     SimpleHapticsController: usize,
 }
 windows_core::imp::define_interface!(IRadialControllerStatics, IRadialControllerStatics_Vtbl, 0xfaded0b7_b84c_4894_87aa_8f25aa5f288b);
+impl windows_core::RuntimeType for IRadialControllerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRadialControllerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -665,6 +839,9 @@ pub struct IRadialControllerStatics_Vtbl {
     pub CreateForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRightTappedEventArgs, IRightTappedEventArgs_Vtbl, 0x4cbf40bd_af7a_4a36_9476_b1dce141709a);
+impl windows_core::RuntimeType for IRightTappedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRightTappedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -675,12 +852,18 @@ pub struct IRightTappedEventArgs_Vtbl {
     pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Point) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRightTappedEventArgs2, IRightTappedEventArgs2_Vtbl, 0x61c7b7bb_9f57_5857_a33c_c58c3dfa959e);
+impl windows_core::RuntimeType for IRightTappedEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRightTappedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISystemButtonEventController, ISystemButtonEventController_Vtbl, 0x59b893a9_73bc_52b5_ba41_82511b2cb46c);
+impl windows_core::RuntimeType for ISystemButtonEventController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISystemButtonEventController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -694,6 +877,9 @@ pub struct ISystemButtonEventController_Vtbl {
     pub RemoveSystemFunctionLockIndicatorChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISystemButtonEventControllerStatics, ISystemButtonEventControllerStatics_Vtbl, 0x632fb07b_20bd_5e15_af4a_00dbf2064ffa);
+impl windows_core::RuntimeType for ISystemButtonEventControllerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISystemButtonEventControllerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -703,6 +889,9 @@ pub struct ISystemButtonEventControllerStatics_Vtbl {
     CreateForDispatcherQueue: usize,
 }
 windows_core::imp::define_interface!(ISystemFunctionButtonEventArgs, ISystemFunctionButtonEventArgs_Vtbl, 0x4833896f_80d1_5dd6_92a7_62a508ffef5a);
+impl windows_core::RuntimeType for ISystemFunctionButtonEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISystemFunctionButtonEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -711,6 +900,9 @@ pub struct ISystemFunctionButtonEventArgs_Vtbl {
     pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISystemFunctionLockChangedEventArgs, ISystemFunctionLockChangedEventArgs_Vtbl, 0xcd040608_fcf9_585c_beab_f1d2eaf364ab);
+impl windows_core::RuntimeType for ISystemFunctionLockChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISystemFunctionLockChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -720,6 +912,9 @@ pub struct ISystemFunctionLockChangedEventArgs_Vtbl {
     pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISystemFunctionLockIndicatorChangedEventArgs, ISystemFunctionLockIndicatorChangedEventArgs_Vtbl, 0xb212b94e_7a6f_58ae_b304_bae61d0371b9);
+impl windows_core::RuntimeType for ISystemFunctionLockIndicatorChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISystemFunctionLockIndicatorChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -729,6 +924,9 @@ pub struct ISystemFunctionLockIndicatorChangedEventArgs_Vtbl {
     pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITappedEventArgs, ITappedEventArgs_Vtbl, 0xcfa126e4_253a_4c3c_953b_395c37aed309);
+impl windows_core::RuntimeType for ITappedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITappedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -740,6 +938,9 @@ pub struct ITappedEventArgs_Vtbl {
     pub TapCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITappedEventArgs2, ITappedEventArgs2_Vtbl, 0x294388f2_177e_51d5_be56_ee0866fa968c);
+impl windows_core::RuntimeType for ITappedEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ITappedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -757,7 +958,7 @@ impl AttachableInputObject {
     }
 }
 impl windows_core::RuntimeType for AttachableInputObject {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAttachableInputObject>();
 }
 unsafe impl windows_core::Interface for AttachableInputObject {
     type Vtable = IAttachableInputObject_Vtbl;
@@ -804,7 +1005,7 @@ impl CrossSlidingEventArgs {
     }
 }
 impl windows_core::RuntimeType for CrossSlidingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICrossSlidingEventArgs>();
 }
 unsafe impl windows_core::Interface for CrossSlidingEventArgs {
     type Vtable = ICrossSlidingEventArgs_Vtbl;
@@ -849,7 +1050,7 @@ impl DraggingEventArgs {
     }
 }
 impl windows_core::RuntimeType for DraggingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDraggingEventArgs>();
 }
 unsafe impl windows_core::Interface for DraggingEventArgs {
     type Vtable = IDraggingEventArgs_Vtbl;
@@ -918,7 +1119,7 @@ impl EdgeGesture {
     }
 }
 impl windows_core::RuntimeType for EdgeGesture {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEdgeGesture>();
 }
 unsafe impl windows_core::Interface for EdgeGesture {
     type Vtable = IEdgeGesture_Vtbl;
@@ -941,7 +1142,7 @@ impl EdgeGestureEventArgs {
     }
 }
 impl windows_core::RuntimeType for EdgeGestureEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEdgeGestureEventArgs>();
 }
 unsafe impl windows_core::Interface for EdgeGestureEventArgs {
     type Vtable = IEdgeGestureEventArgs_Vtbl;
@@ -1411,7 +1612,7 @@ impl GestureRecognizer {
     }
 }
 impl windows_core::RuntimeType for GestureRecognizer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGestureRecognizer>();
 }
 unsafe impl windows_core::Interface for GestureRecognizer {
     type Vtable = IGestureRecognizer_Vtbl;
@@ -1463,7 +1664,7 @@ impl HoldingEventArgs {
     }
 }
 impl windows_core::RuntimeType for HoldingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHoldingEventArgs>();
 }
 unsafe impl windows_core::Interface for HoldingEventArgs {
     type Vtable = IHoldingEventArgs_Vtbl;
@@ -1505,7 +1706,7 @@ impl InputActivationListener {
     }
 }
 impl windows_core::RuntimeType for InputActivationListener {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputActivationListener>();
 }
 unsafe impl windows_core::Interface for InputActivationListener {
     type Vtable = IInputActivationListener_Vtbl;
@@ -1530,7 +1731,7 @@ impl InputActivationListenerActivationChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for InputActivationListenerActivationChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputActivationListenerActivationChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for InputActivationListenerActivationChangedEventArgs {
     type Vtable = IInputActivationListenerActivationChangedEventArgs_Vtbl;
@@ -1600,7 +1801,7 @@ impl KeyboardDeliveryInterceptor {
     }
 }
 impl windows_core::RuntimeType for KeyboardDeliveryInterceptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyboardDeliveryInterceptor>();
 }
 unsafe impl windows_core::Interface for KeyboardDeliveryInterceptor {
     type Vtable = IKeyboardDeliveryInterceptor_Vtbl;
@@ -1661,7 +1862,7 @@ impl ManipulationCompletedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ManipulationCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IManipulationCompletedEventArgs>();
 }
 unsafe impl windows_core::Interface for ManipulationCompletedEventArgs {
     type Vtable = IManipulationCompletedEventArgs_Vtbl;
@@ -1720,7 +1921,7 @@ impl ManipulationInertiaStartingEventArgs {
     }
 }
 impl windows_core::RuntimeType for ManipulationInertiaStartingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IManipulationInertiaStartingEventArgs>();
 }
 unsafe impl windows_core::Interface for ManipulationInertiaStartingEventArgs {
     type Vtable = IManipulationInertiaStartingEventArgs_Vtbl;
@@ -1765,7 +1966,7 @@ impl ManipulationStartedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ManipulationStartedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IManipulationStartedEventArgs>();
 }
 unsafe impl windows_core::Interface for ManipulationStartedEventArgs {
     type Vtable = IManipulationStartedEventArgs_Vtbl;
@@ -1831,7 +2032,7 @@ impl ManipulationUpdatedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ManipulationUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IManipulationUpdatedEventArgs>();
 }
 unsafe impl windows_core::Interface for ManipulationUpdatedEventArgs {
     type Vtable = IManipulationUpdatedEventArgs_Vtbl;
@@ -1891,7 +2092,7 @@ impl MouseWheelParameters {
     }
 }
 impl windows_core::RuntimeType for MouseWheelParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMouseWheelParameters>();
 }
 unsafe impl windows_core::Interface for MouseWheelParameters {
     type Vtable = IMouseWheelParameters_Vtbl;
@@ -2001,7 +2202,7 @@ impl PointerPoint {
     }
 }
 impl windows_core::RuntimeType for PointerPoint {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPointerPoint>();
 }
 unsafe impl windows_core::Interface for PointerPoint {
     type Vtable = IPointerPoint_Vtbl;
@@ -2192,7 +2393,7 @@ impl PointerPointProperties {
     }
 }
 impl windows_core::RuntimeType for PointerPointProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPointerPointProperties>();
 }
 unsafe impl windows_core::Interface for PointerPointProperties {
     type Vtable = IPointerPointProperties_Vtbl;
@@ -2241,7 +2442,7 @@ impl PointerVisualizationSettings {
     }
 }
 impl windows_core::RuntimeType for PointerVisualizationSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPointerVisualizationSettings>();
 }
 unsafe impl windows_core::Interface for PointerVisualizationSettings {
     type Vtable = IPointerVisualizationSettings_Vtbl;
@@ -2445,7 +2646,7 @@ impl RadialController {
     }
 }
 impl windows_core::RuntimeType for RadialController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialController>();
 }
 unsafe impl windows_core::Interface for RadialController {
     type Vtable = IRadialController_Vtbl;
@@ -2478,7 +2679,7 @@ impl RadialControllerButtonClickedEventArgs {
     }
 }
 impl windows_core::RuntimeType for RadialControllerButtonClickedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerButtonClickedEventArgs>();
 }
 unsafe impl windows_core::Interface for RadialControllerButtonClickedEventArgs {
     type Vtable = IRadialControllerButtonClickedEventArgs_Vtbl;
@@ -2511,7 +2712,7 @@ impl RadialControllerButtonHoldingEventArgs {
     }
 }
 impl windows_core::RuntimeType for RadialControllerButtonHoldingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerButtonHoldingEventArgs>();
 }
 unsafe impl windows_core::Interface for RadialControllerButtonHoldingEventArgs {
     type Vtable = IRadialControllerButtonHoldingEventArgs_Vtbl;
@@ -2544,7 +2745,7 @@ impl RadialControllerButtonPressedEventArgs {
     }
 }
 impl windows_core::RuntimeType for RadialControllerButtonPressedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerButtonPressedEventArgs>();
 }
 unsafe impl windows_core::Interface for RadialControllerButtonPressedEventArgs {
     type Vtable = IRadialControllerButtonPressedEventArgs_Vtbl;
@@ -2577,7 +2778,7 @@ impl RadialControllerButtonReleasedEventArgs {
     }
 }
 impl windows_core::RuntimeType for RadialControllerButtonReleasedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerButtonReleasedEventArgs>();
 }
 unsafe impl windows_core::Interface for RadialControllerButtonReleasedEventArgs {
     type Vtable = IRadialControllerButtonReleasedEventArgs_Vtbl;
@@ -2676,7 +2877,7 @@ impl RadialControllerConfiguration {
     }
 }
 impl windows_core::RuntimeType for RadialControllerConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerConfiguration>();
 }
 unsafe impl windows_core::Interface for RadialControllerConfiguration {
     type Vtable = IRadialControllerConfiguration_Vtbl;
@@ -2716,7 +2917,7 @@ impl RadialControllerControlAcquiredEventArgs {
     }
 }
 impl windows_core::RuntimeType for RadialControllerControlAcquiredEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerControlAcquiredEventArgs>();
 }
 unsafe impl windows_core::Interface for RadialControllerControlAcquiredEventArgs {
     type Vtable = IRadialControllerControlAcquiredEventArgs_Vtbl;
@@ -2774,7 +2975,7 @@ impl RadialControllerMenu {
     }
 }
 impl windows_core::RuntimeType for RadialControllerMenu {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerMenu>();
 }
 unsafe impl windows_core::Interface for RadialControllerMenu {
     type Vtable = IRadialControllerMenu_Vtbl;
@@ -2868,7 +3069,7 @@ impl RadialControllerMenuItem {
     }
 }
 impl windows_core::RuntimeType for RadialControllerMenuItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerMenuItem>();
 }
 unsafe impl windows_core::Interface for RadialControllerMenuItem {
     type Vtable = IRadialControllerMenuItem_Vtbl;
@@ -2915,7 +3116,7 @@ impl RadialControllerRotationChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for RadialControllerRotationChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerRotationChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for RadialControllerRotationChangedEventArgs {
     type Vtable = IRadialControllerRotationChangedEventArgs_Vtbl;
@@ -2947,7 +3148,7 @@ impl RadialControllerScreenContact {
     }
 }
 impl windows_core::RuntimeType for RadialControllerScreenContact {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerScreenContact>();
 }
 unsafe impl windows_core::Interface for RadialControllerScreenContact {
     type Vtable = IRadialControllerScreenContact_Vtbl;
@@ -2987,7 +3188,7 @@ impl RadialControllerScreenContactContinuedEventArgs {
     }
 }
 impl windows_core::RuntimeType for RadialControllerScreenContactContinuedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerScreenContactContinuedEventArgs>();
 }
 unsafe impl windows_core::Interface for RadialControllerScreenContactContinuedEventArgs {
     type Vtable = IRadialControllerScreenContactContinuedEventArgs_Vtbl;
@@ -3020,7 +3221,7 @@ impl RadialControllerScreenContactEndedEventArgs {
     }
 }
 impl windows_core::RuntimeType for RadialControllerScreenContactEndedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerScreenContactEndedEventArgs>();
 }
 unsafe impl windows_core::Interface for RadialControllerScreenContactEndedEventArgs {
     type Vtable = IRadialControllerScreenContactEndedEventArgs_Vtbl;
@@ -3060,7 +3261,7 @@ impl RadialControllerScreenContactStartedEventArgs {
     }
 }
 impl windows_core::RuntimeType for RadialControllerScreenContactStartedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerScreenContactStartedEventArgs>();
 }
 unsafe impl windows_core::Interface for RadialControllerScreenContactStartedEventArgs {
     type Vtable = IRadialControllerScreenContactStartedEventArgs_Vtbl;
@@ -3100,7 +3301,7 @@ impl RightTappedEventArgs {
     }
 }
 impl windows_core::RuntimeType for RightTappedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRightTappedEventArgs>();
 }
 unsafe impl windows_core::Interface for RightTappedEventArgs {
     type Vtable = IRightTappedEventArgs_Vtbl;
@@ -3192,7 +3393,7 @@ impl SystemButtonEventController {
     }
 }
 impl windows_core::RuntimeType for SystemButtonEventController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemButtonEventController>();
 }
 unsafe impl windows_core::Interface for SystemButtonEventController {
     type Vtable = ISystemButtonEventController_Vtbl;
@@ -3228,7 +3429,7 @@ impl SystemFunctionButtonEventArgs {
     }
 }
 impl windows_core::RuntimeType for SystemFunctionButtonEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemFunctionButtonEventArgs>();
 }
 unsafe impl windows_core::Interface for SystemFunctionButtonEventArgs {
     type Vtable = ISystemFunctionButtonEventArgs_Vtbl;
@@ -3271,7 +3472,7 @@ impl SystemFunctionLockChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SystemFunctionLockChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemFunctionLockChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for SystemFunctionLockChangedEventArgs {
     type Vtable = ISystemFunctionLockChangedEventArgs_Vtbl;
@@ -3314,7 +3515,7 @@ impl SystemFunctionLockIndicatorChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for SystemFunctionLockIndicatorChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemFunctionLockIndicatorChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for SystemFunctionLockIndicatorChangedEventArgs {
     type Vtable = ISystemFunctionLockIndicatorChangedEventArgs_Vtbl;
@@ -3361,7 +3562,7 @@ impl TappedEventArgs {
     }
 }
 impl windows_core::RuntimeType for TappedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITappedEventArgs>();
 }
 unsafe impl windows_core::Interface for TappedEventArgs {
     type Vtable = ITappedEventArgs_Vtbl;

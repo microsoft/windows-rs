@@ -31,12 +31,18 @@ pub struct IBuffer_Vtbl {
     pub SetLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBufferFactory, IBufferFactory_Vtbl, 0x71af914d_c10f_484b_bc50_14bc623b3a27);
+impl windows_core::RuntimeType for IBufferFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBufferFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBufferStatics, IBufferStatics_Vtbl, 0xe901e65b_d716_475a_a90a_af7229b1e741);
+impl windows_core::RuntimeType for IBufferStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBufferStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -270,12 +276,18 @@ pub struct IDataReader_Vtbl {
     pub DetachStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDataReaderFactory, IDataReaderFactory_Vtbl, 0xd7527847_57da_4e15_914c_06806699a098);
+impl windows_core::RuntimeType for IDataReaderFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDataReaderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateDataReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDataReaderStatics, IDataReaderStatics_Vtbl, 0x11fcbfc8_f93a_471b_b121_f379e349313c);
+impl windows_core::RuntimeType for IDataReaderStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDataReaderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -461,12 +473,18 @@ pub struct IDataWriter_Vtbl {
     pub DetachStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDataWriterFactory, IDataWriterFactory_Vtbl, 0x338c67c2_8b84_4c2b_9c50_7b8767847a1f);
+impl windows_core::RuntimeType for IDataWriterFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDataWriterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateDataWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileRandomAccessStreamStatics, IFileRandomAccessStreamStatics_Vtbl, 0x73550107_3b57_4b5d_8345_554d2fc621f0);
+impl windows_core::RuntimeType for IFileRandomAccessStreamStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFileRandomAccessStreamStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -740,6 +758,9 @@ pub struct IRandomAccessStreamReference_Vtbl {
     pub OpenReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRandomAccessStreamReferenceStatics, IRandomAccessStreamReferenceStatics_Vtbl, 0x857309dc_3fbf_4e7d_986f_ef3b1a07a964);
+impl windows_core::RuntimeType for IRandomAccessStreamReferenceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRandomAccessStreamReferenceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -748,6 +769,9 @@ pub struct IRandomAccessStreamReferenceStatics_Vtbl {
     pub CreateFromStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRandomAccessStreamStatics, IRandomAccessStreamStatics_Vtbl, 0x524cedcf_6e29_4ce5_9573_6b753db66c3a);
+impl windows_core::RuntimeType for IRandomAccessStreamStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRandomAccessStreamStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -922,7 +946,7 @@ impl Buffer {
     }
 }
 impl windows_core::RuntimeType for Buffer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBuffer>();
 }
 unsafe impl windows_core::Interface for Buffer {
     type Vtable = IBuffer_Vtbl;
@@ -1143,7 +1167,7 @@ impl DataReader {
     }
 }
 impl windows_core::RuntimeType for DataReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataReader>();
 }
 unsafe impl windows_core::Interface for DataReader {
     type Vtable = IDataReader_Vtbl;
@@ -1212,7 +1236,7 @@ impl DataReaderLoadOperation {
     }
 }
 impl windows_core::RuntimeType for DataReaderLoadOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::IAsyncOperation<u32>>();
 }
 unsafe impl windows_core::Interface for DataReaderLoadOperation {
     type Vtable = super::super::Foundation::IAsyncOperation_Vtbl<u32>;
@@ -1426,7 +1450,7 @@ impl DataWriter {
     }
 }
 impl windows_core::RuntimeType for DataWriter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataWriter>();
 }
 unsafe impl windows_core::Interface for DataWriter {
     type Vtable = IDataWriter_Vtbl;
@@ -1495,7 +1519,7 @@ impl DataWriterStoreOperation {
     }
 }
 impl windows_core::RuntimeType for DataWriterStoreOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::IAsyncOperation<u32>>();
 }
 unsafe impl windows_core::Interface for DataWriterStoreOperation {
     type Vtable = super::super::Foundation::IAsyncOperation_Vtbl<u32>;
@@ -1557,7 +1581,7 @@ impl FileInputStream {
     }
 }
 impl windows_core::RuntimeType for FileInputStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputStream>();
 }
 unsafe impl windows_core::Interface for FileInputStream {
     type Vtable = IInputStream_Vtbl;
@@ -1597,7 +1621,7 @@ impl FileOutputStream {
     }
 }
 impl windows_core::RuntimeType for FileOutputStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOutputStream>();
 }
 unsafe impl windows_core::Interface for FileOutputStream {
     type Vtable = IOutputStream_Vtbl;
@@ -1773,7 +1797,7 @@ impl FileRandomAccessStream {
     }
 }
 impl windows_core::RuntimeType for FileRandomAccessStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRandomAccessStream>();
 }
 unsafe impl windows_core::Interface for FileRandomAccessStream {
     type Vtable = IRandomAccessStream_Vtbl;
@@ -1887,7 +1911,7 @@ impl InMemoryRandomAccessStream {
     }
 }
 impl windows_core::RuntimeType for InMemoryRandomAccessStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRandomAccessStream>();
 }
 unsafe impl windows_core::Interface for InMemoryRandomAccessStream {
     type Vtable = IRandomAccessStream_Vtbl;
@@ -1920,7 +1944,7 @@ impl InputStreamOverStream {
     }
 }
 impl windows_core::RuntimeType for InputStreamOverStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputStream>();
 }
 unsafe impl windows_core::Interface for InputStreamOverStream {
     type Vtable = IInputStream_Vtbl;
@@ -1960,7 +1984,7 @@ impl OutputStreamOverStream {
     }
 }
 impl windows_core::RuntimeType for OutputStreamOverStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOutputStream>();
 }
 unsafe impl windows_core::Interface for OutputStreamOverStream {
     type Vtable = IOutputStream_Vtbl;
@@ -2108,7 +2132,7 @@ impl RandomAccessStreamOverStream {
     }
 }
 impl windows_core::RuntimeType for RandomAccessStreamOverStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRandomAccessStream>();
 }
 unsafe impl windows_core::Interface for RandomAccessStreamOverStream {
     type Vtable = IRandomAccessStream_Vtbl;
@@ -2166,7 +2190,7 @@ impl RandomAccessStreamReference {
     }
 }
 impl windows_core::RuntimeType for RandomAccessStreamReference {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRandomAccessStreamReference>();
 }
 unsafe impl windows_core::Interface for RandomAccessStreamReference {
     type Vtable = IRandomAccessStreamReference_Vtbl;

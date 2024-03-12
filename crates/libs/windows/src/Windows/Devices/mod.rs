@@ -128,6 +128,9 @@ pub struct ILowLevelDevicesAggregateProvider_Vtbl {
     SpiControllerProvider: usize,
 }
 windows_core::imp::define_interface!(ILowLevelDevicesAggregateProviderFactory, ILowLevelDevicesAggregateProviderFactory_Vtbl, 0x9ac4aaf6_3473_465e_96d5_36281a2c57af);
+impl windows_core::RuntimeType for ILowLevelDevicesAggregateProviderFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILowLevelDevicesAggregateProviderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -137,11 +140,17 @@ pub struct ILowLevelDevicesAggregateProviderFactory_Vtbl {
     Create: usize,
 }
 windows_core::imp::define_interface!(ILowLevelDevicesController, ILowLevelDevicesController_Vtbl, 0x2ec23dd4_179b_45de_9b39_3ae02527de52);
+impl windows_core::RuntimeType for ILowLevelDevicesController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILowLevelDevicesController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(ILowLevelDevicesControllerStatics, ILowLevelDevicesControllerStatics_Vtbl, 0x093e926a_fccb_4394_a697_19de637c2db3);
+impl windows_core::RuntimeType for ILowLevelDevicesControllerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILowLevelDevicesControllerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -215,7 +224,7 @@ impl LowLevelDevicesAggregateProvider {
     }
 }
 impl windows_core::RuntimeType for LowLevelDevicesAggregateProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILowLevelDevicesAggregateProvider>();
 }
 unsafe impl windows_core::Interface for LowLevelDevicesAggregateProvider {
     type Vtable = ILowLevelDevicesAggregateProvider_Vtbl;
@@ -250,7 +259,7 @@ impl LowLevelDevicesController {
     }
 }
 impl windows_core::RuntimeType for LowLevelDevicesController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILowLevelDevicesController>();
 }
 unsafe impl windows_core::Interface for LowLevelDevicesController {
     type Vtable = ILowLevelDevicesController_Vtbl;

@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IDnssdRegistrationResult, IDnssdRegistrationResult_Vtbl, 0x3d786ad2_e606_5350_73ea_7e97f066162f);
+impl windows_core::RuntimeType for IDnssdRegistrationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDnssdRegistrationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -7,6 +10,9 @@ pub struct IDnssdRegistrationResult_Vtbl {
     pub HasInstanceNameChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDnssdServiceInstance, IDnssdServiceInstance_Vtbl, 0xe246db7e_98a5_4ca1_b9e4_c253d33c35ff);
+impl windows_core::RuntimeType for IDnssdServiceInstance {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDnssdServiceInstance_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -42,12 +48,18 @@ pub struct IDnssdServiceInstance_Vtbl {
     RegisterDatagramSocketAsync2: usize,
 }
 windows_core::imp::define_interface!(IDnssdServiceInstanceFactory, IDnssdServiceInstanceFactory_Vtbl, 0x6cb061a1_c478_4331_9684_4af2186c0a2b);
+impl windows_core::RuntimeType for IDnssdServiceInstanceFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDnssdServiceInstanceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDnssdServiceWatcher, IDnssdServiceWatcher_Vtbl, 0xcc34d9c1_db7d_4b69_983d_c6f83f205682);
+impl windows_core::RuntimeType for IDnssdServiceWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDnssdServiceWatcher_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -104,7 +116,7 @@ impl DnssdRegistrationResult {
     }
 }
 impl windows_core::RuntimeType for DnssdRegistrationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDnssdRegistrationResult>();
 }
 unsafe impl windows_core::Interface for DnssdRegistrationResult {
     type Vtable = IDnssdRegistrationResult_Vtbl;
@@ -256,7 +268,7 @@ impl DnssdServiceInstance {
     }
 }
 impl windows_core::RuntimeType for DnssdServiceInstance {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDnssdServiceInstance>();
 }
 unsafe impl windows_core::Interface for DnssdServiceInstance {
     type Vtable = IDnssdServiceInstance_Vtbl;
@@ -323,7 +335,7 @@ impl DnssdServiceInstanceCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for DnssdServiceInstanceCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for DnssdServiceInstanceCollection {
@@ -418,7 +430,7 @@ impl DnssdServiceWatcher {
     }
 }
 impl windows_core::RuntimeType for DnssdServiceWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDnssdServiceWatcher>();
 }
 unsafe impl windows_core::Interface for DnssdServiceWatcher {
     type Vtable = IDnssdServiceWatcher_Vtbl;

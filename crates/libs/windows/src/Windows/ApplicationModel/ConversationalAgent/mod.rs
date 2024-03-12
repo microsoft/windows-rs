@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IActivationSignalDetectionConfiguration, IActivationSignalDetectionConfiguration_Vtbl, 0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00);
+impl windows_core::RuntimeType for IActivationSignalDetectionConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IActivationSignalDetectionConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -46,6 +49,9 @@ pub struct IActivationSignalDetectionConfiguration_Vtbl {
     pub ClearTrainingDataAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActivationSignalDetectionConfiguration2, IActivationSignalDetectionConfiguration2_Vtbl, 0x71d9b022_562c_57ce_a78b_8b4ff0145bab);
+impl windows_core::RuntimeType for IActivationSignalDetectionConfiguration2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IActivationSignalDetectionConfiguration2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -62,6 +68,9 @@ pub struct IActivationSignalDetectionConfiguration2_Vtbl {
     pub TrainingStepCompletionMaxAllowedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActivationSignalDetectionConfigurationCreationResult, IActivationSignalDetectionConfigurationCreationResult_Vtbl, 0x4c89bc1b_8d12_5e48_a71c_7f6bc1cd66e0);
+impl windows_core::RuntimeType for IActivationSignalDetectionConfigurationCreationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IActivationSignalDetectionConfigurationCreationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -69,6 +78,9 @@ pub struct IActivationSignalDetectionConfigurationCreationResult_Vtbl {
     pub Configuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActivationSignalDetector, IActivationSignalDetector_Vtbl, 0xb5bf345f_a4d0_5b2b_8e65_b3c55ee756ff);
+impl windows_core::RuntimeType for IActivationSignalDetector {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IActivationSignalDetector_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -111,6 +123,9 @@ pub struct IActivationSignalDetector_Vtbl {
     pub RemoveConfigurationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActivationSignalDetector2, IActivationSignalDetector2_Vtbl, 0xc7e2490a_baa5_59d2_85d1_ba42f7cf78c9);
+impl windows_core::RuntimeType for IActivationSignalDetector2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IActivationSignalDetector2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -129,6 +144,9 @@ pub struct IActivationSignalDetector2_Vtbl {
     pub DetectorId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IConversationalAgentDetectorManager, IConversationalAgentDetectorManager_Vtbl, 0xde94fbb0_597a_5df8_8cfb_9dbb583ba3ff);
+impl windows_core::RuntimeType for IConversationalAgentDetectorManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IConversationalAgentDetectorManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -150,6 +168,9 @@ pub struct IConversationalAgentDetectorManager_Vtbl {
     GetActivationSignalDetectorsAsync: usize,
 }
 windows_core::imp::define_interface!(IConversationalAgentDetectorManager2, IConversationalAgentDetectorManager2_Vtbl, 0x84610f31_d7f3_52fe_9311_c9eb4e3eb30a);
+impl windows_core::RuntimeType for IConversationalAgentDetectorManager2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IConversationalAgentDetectorManager2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -157,12 +178,18 @@ pub struct IConversationalAgentDetectorManager2_Vtbl {
     pub GetActivationSignalDetectorFromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IConversationalAgentDetectorManagerStatics, IConversationalAgentDetectorManagerStatics_Vtbl, 0x36a8d283_fa0e_5693_8489_0fb2f0ab40d3);
+impl windows_core::RuntimeType for IConversationalAgentDetectorManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IConversationalAgentDetectorManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Default: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IConversationalAgentSession, IConversationalAgentSession_Vtbl, 0xdaaae09a_b7ba_57e5_ad13_df520f9b6fa7);
+impl windows_core::RuntimeType for IConversationalAgentSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IConversationalAgentSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -214,6 +241,9 @@ pub struct IConversationalAgentSession_Vtbl {
     GetSupportedSignalModelIds: usize,
 }
 windows_core::imp::define_interface!(IConversationalAgentSession2, IConversationalAgentSession2_Vtbl, 0xa7a9fbf9_ac78_57ff_9596_acc7a1c9a607);
+impl windows_core::RuntimeType for IConversationalAgentSession2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IConversationalAgentSession2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -231,11 +261,17 @@ pub struct IConversationalAgentSession2_Vtbl {
     GetMissingPrerequisitesAsync: usize,
 }
 windows_core::imp::define_interface!(IConversationalAgentSessionInterruptedEventArgs, IConversationalAgentSessionInterruptedEventArgs_Vtbl, 0x9766591f_f63d_5d3e_9bf2_bd0760552686);
+impl windows_core::RuntimeType for IConversationalAgentSessionInterruptedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IConversationalAgentSessionInterruptedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IConversationalAgentSessionStatics, IConversationalAgentSessionStatics_Vtbl, 0xa005166e_e954_576e_be04_11b8ed10f37b);
+impl windows_core::RuntimeType for IConversationalAgentSessionStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IConversationalAgentSessionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -243,6 +279,9 @@ pub struct IConversationalAgentSessionStatics_Vtbl {
     pub GetCurrentSessionSync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IConversationalAgentSignal, IConversationalAgentSignal_Vtbl, 0x20ed25f7_b120_51f2_8603_265d6a47f232);
+impl windows_core::RuntimeType for IConversationalAgentSignal {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IConversationalAgentSignal_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -260,6 +299,9 @@ pub struct IConversationalAgentSignal_Vtbl {
     pub SetSignalEnd: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IConversationalAgentSignal2, IConversationalAgentSignal2_Vtbl, 0xd0cc7ba9_9a7b_5c34_880e_b6146c904ecb);
+impl windows_core::RuntimeType for IConversationalAgentSignal2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IConversationalAgentSignal2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -267,23 +309,35 @@ pub struct IConversationalAgentSignal2_Vtbl {
     pub DetectorKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ActivationSignalDetectorKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IConversationalAgentSignalDetectedEventArgs, IConversationalAgentSignalDetectedEventArgs_Vtbl, 0x4d57eb8f_f88a_599b_91d3_d604876708bc);
+impl windows_core::RuntimeType for IConversationalAgentSignalDetectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IConversationalAgentSignalDetectedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IConversationalAgentSystemStateChangedEventArgs, IConversationalAgentSystemStateChangedEventArgs_Vtbl, 0x1c2c6e3e_2785_59a7_8e71_38adeef79928);
+impl windows_core::RuntimeType for IConversationalAgentSystemStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IConversationalAgentSystemStateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SystemStateChangeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ConversationalAgentSystemStateChangeType) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDetectionConfigurationAvailabilityChangedEventArgs, IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl, 0x5129c9fb_4be8_5f14_af2b_88d62b1b4462);
+impl windows_core::RuntimeType for IDetectionConfigurationAvailabilityChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DetectionConfigurationAvailabilityChangeKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDetectionConfigurationAvailabilityInfo, IDetectionConfigurationAvailabilityInfo_Vtbl, 0xb5affeb0_40f0_5398_b838_91979c2c6208);
+impl windows_core::RuntimeType for IDetectionConfigurationAvailabilityInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDetectionConfigurationAvailabilityInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -293,6 +347,9 @@ pub struct IDetectionConfigurationAvailabilityInfo_Vtbl {
     pub HasLockScreenPermission: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDetectionConfigurationAvailabilityInfo2, IDetectionConfigurationAvailabilityInfo2_Vtbl, 0x30e06433_38b3_5c4b_84c3_62b6e685b2ff);
+impl windows_core::RuntimeType for IDetectionConfigurationAvailabilityInfo2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDetectionConfigurationAvailabilityInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -530,7 +587,7 @@ impl ActivationSignalDetectionConfiguration {
     }
 }
 impl windows_core::RuntimeType for ActivationSignalDetectionConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivationSignalDetectionConfiguration>();
 }
 unsafe impl windows_core::Interface for ActivationSignalDetectionConfiguration {
     type Vtable = IActivationSignalDetectionConfiguration_Vtbl;
@@ -562,7 +619,7 @@ impl ActivationSignalDetectionConfigurationCreationResult {
     }
 }
 impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationCreationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivationSignalDetectionConfigurationCreationResult>();
 }
 unsafe impl windows_core::Interface for ActivationSignalDetectionConfigurationCreationResult {
     type Vtable = IActivationSignalDetectionConfigurationCreationResult_Vtbl;
@@ -744,7 +801,7 @@ impl ActivationSignalDetector {
     }
 }
 impl windows_core::RuntimeType for ActivationSignalDetector {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivationSignalDetector>();
 }
 unsafe impl windows_core::Interface for ActivationSignalDetector {
     type Vtable = IActivationSignalDetector_Vtbl;
@@ -819,7 +876,7 @@ impl ConversationalAgentDetectorManager {
     }
 }
 impl windows_core::RuntimeType for ConversationalAgentDetectorManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentDetectorManager>();
 }
 unsafe impl windows_core::Interface for ConversationalAgentDetectorManager {
     type Vtable = IConversationalAgentDetectorManager_Vtbl;
@@ -1148,7 +1205,7 @@ impl ConversationalAgentSession {
     }
 }
 impl windows_core::RuntimeType for ConversationalAgentSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSession>();
 }
 unsafe impl windows_core::Interface for ConversationalAgentSession {
     type Vtable = IConversationalAgentSession_Vtbl;
@@ -1165,7 +1222,7 @@ pub struct ConversationalAgentSessionInterruptedEventArgs(windows_core::IUnknown
 windows_core::imp::interface_hierarchy!(ConversationalAgentSessionInterruptedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ConversationalAgentSessionInterruptedEventArgs {}
 impl windows_core::RuntimeType for ConversationalAgentSessionInterruptedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSessionInterruptedEventArgs>();
 }
 unsafe impl windows_core::Interface for ConversationalAgentSessionInterruptedEventArgs {
     type Vtable = IConversationalAgentSessionInterruptedEventArgs_Vtbl;
@@ -1266,7 +1323,7 @@ impl ConversationalAgentSignal {
     }
 }
 impl windows_core::RuntimeType for ConversationalAgentSignal {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSignal>();
 }
 unsafe impl windows_core::Interface for ConversationalAgentSignal {
     type Vtable = IConversationalAgentSignal_Vtbl;
@@ -1283,7 +1340,7 @@ pub struct ConversationalAgentSignalDetectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConversationalAgentSignalDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ConversationalAgentSignalDetectedEventArgs {}
 impl windows_core::RuntimeType for ConversationalAgentSignalDetectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSignalDetectedEventArgs>();
 }
 unsafe impl windows_core::Interface for ConversationalAgentSignalDetectedEventArgs {
     type Vtable = IConversationalAgentSignalDetectedEventArgs_Vtbl;
@@ -1308,7 +1365,7 @@ impl ConversationalAgentSystemStateChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for ConversationalAgentSystemStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSystemStateChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for ConversationalAgentSystemStateChangedEventArgs {
     type Vtable = IConversationalAgentSystemStateChangedEventArgs_Vtbl;
@@ -1333,7 +1390,7 @@ impl DetectionConfigurationAvailabilityChangedEventArgs {
     }
 }
 impl windows_core::RuntimeType for DetectionConfigurationAvailabilityChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDetectionConfigurationAvailabilityChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for DetectionConfigurationAvailabilityChangedEventArgs {
     type Vtable = IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl;
@@ -1387,7 +1444,7 @@ impl DetectionConfigurationAvailabilityInfo {
     }
 }
 impl windows_core::RuntimeType for DetectionConfigurationAvailabilityInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDetectionConfigurationAvailabilityInfo>();
 }
 unsafe impl windows_core::Interface for DetectionConfigurationAvailabilityInfo {
     type Vtable = IDetectionConfigurationAvailabilityInfo_Vtbl;

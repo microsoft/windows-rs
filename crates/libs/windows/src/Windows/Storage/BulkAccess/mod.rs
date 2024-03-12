@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IFileInformationFactory, IFileInformationFactory_Vtbl, 0x401d88be_960f_4d6d_a7d0_1a3861e76c83);
+impl windows_core::RuntimeType for IFileInformationFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFileInformationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -31,6 +34,9 @@ pub struct IFileInformationFactory_Vtbl {
     pub GetVirtualizedFoldersVector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileInformationFactoryFactory, IFileInformationFactoryFactory_Vtbl, 0x84ea0e7d_e4a2_4f00_8afa_af5e0f826bd5);
+impl windows_core::RuntimeType for IFileInformationFactoryFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IFileInformationFactoryFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -546,7 +552,7 @@ impl FileInformation {
     }
 }
 impl windows_core::RuntimeType for FileInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageItemInformation>();
 }
 unsafe impl windows_core::Interface for FileInformation {
     type Vtable = IStorageItemInformation_Vtbl;
@@ -676,7 +682,7 @@ impl FileInformationFactory {
     }
 }
 impl windows_core::RuntimeType for FileInformationFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileInformationFactory>();
 }
 unsafe impl windows_core::Interface for FileInformationFactory {
     type Vtable = IFileInformationFactory_Vtbl;
@@ -1148,7 +1154,7 @@ impl FolderInformation {
     }
 }
 impl windows_core::RuntimeType for FolderInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageItemInformation>();
 }
 unsafe impl windows_core::Interface for FolderInformation {
     type Vtable = IStorageItemInformation_Vtbl;

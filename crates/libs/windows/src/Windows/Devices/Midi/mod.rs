@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IMidiChannelPressureMessage, IMidiChannelPressureMessage_Vtbl, 0xbe1fa860_62b4_4d52_a37e_92e54d35b909);
+impl windows_core::RuntimeType for IMidiChannelPressureMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiChannelPressureMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6,12 +9,18 @@ pub struct IMidiChannelPressureMessage_Vtbl {
     pub Pressure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiChannelPressureMessageFactory, IMidiChannelPressureMessageFactory_Vtbl, 0x6218ed2f_2284_412a_94cf_10fb04842c6c);
+impl windows_core::RuntimeType for IMidiChannelPressureMessageFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiChannelPressureMessageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateMidiChannelPressureMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiControlChangeMessage, IMidiControlChangeMessage_Vtbl, 0xb7e15f83_780d_405f_b781_3e1598c97f40);
+impl windows_core::RuntimeType for IMidiControlChangeMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiControlChangeMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -20,12 +29,18 @@ pub struct IMidiControlChangeMessage_Vtbl {
     pub ControlValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiControlChangeMessageFactory, IMidiControlChangeMessageFactory_Vtbl, 0x2ab14321_956c_46ad_9752_f87f55052fe3);
+impl windows_core::RuntimeType for IMidiControlChangeMessageFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiControlChangeMessageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateMidiControlChangeMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiInPort, IMidiInPort_Vtbl, 0xd5c1d9db_971a_4eaf_a23d_ea19fe607ff9);
+impl windows_core::RuntimeType for IMidiInPort {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiInPort_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -34,6 +49,9 @@ pub struct IMidiInPort_Vtbl {
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiInPortStatics, IMidiInPortStatics_Vtbl, 0x44c439dc_67ff_4a6e_8bac_fdb6610cf296);
+impl windows_core::RuntimeType for IMidiInPortStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiInPortStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -80,12 +98,18 @@ pub struct IMidiMessage_Vtbl {
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MidiMessageType) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiMessageReceivedEventArgs, IMidiMessageReceivedEventArgs_Vtbl, 0x76566e56_f328_4b51_907d_b3a8ce96bf80);
+impl windows_core::RuntimeType for IMidiMessageReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiMessageReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiNoteOffMessage, IMidiNoteOffMessage_Vtbl, 0x16fd8af4_198e_4d8f_a654_d305a293548f);
+impl windows_core::RuntimeType for IMidiNoteOffMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiNoteOffMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -94,12 +118,18 @@ pub struct IMidiNoteOffMessage_Vtbl {
     pub Velocity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiNoteOffMessageFactory, IMidiNoteOffMessageFactory_Vtbl, 0xa6b240e0_a749_425f_8af4_a4d979cc15b5);
+impl windows_core::RuntimeType for IMidiNoteOffMessageFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiNoteOffMessageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateMidiNoteOffMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiNoteOnMessage, IMidiNoteOnMessage_Vtbl, 0xe0224af5_6181_46dd_afa2_410004c057aa);
+impl windows_core::RuntimeType for IMidiNoteOnMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiNoteOnMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -108,6 +138,9 @@ pub struct IMidiNoteOnMessage_Vtbl {
     pub Velocity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiNoteOnMessageFactory, IMidiNoteOnMessageFactory_Vtbl, 0x9b4280a0_59c1_420e_b517_15a10aa9606b);
+impl windows_core::RuntimeType for IMidiNoteOnMessageFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiNoteOnMessageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -158,6 +191,9 @@ pub struct IMidiOutPort_Vtbl {
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiOutPortStatics, IMidiOutPortStatics_Vtbl, 0x065cc3e9_0f88_448b_9b64_a95826c65b8f);
+impl windows_core::RuntimeType for IMidiOutPortStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiOutPortStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -165,6 +201,9 @@ pub struct IMidiOutPortStatics_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiPitchBendChangeMessage, IMidiPitchBendChangeMessage_Vtbl, 0x29df4cb1_2e9f_4faf_8c2b_9cb82a9079ca);
+impl windows_core::RuntimeType for IMidiPitchBendChangeMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiPitchBendChangeMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -172,12 +211,18 @@ pub struct IMidiPitchBendChangeMessage_Vtbl {
     pub Bend: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiPitchBendChangeMessageFactory, IMidiPitchBendChangeMessageFactory_Vtbl, 0xf5eedf55_cfc8_4926_b30e_a3622393306c);
+impl windows_core::RuntimeType for IMidiPitchBendChangeMessageFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiPitchBendChangeMessageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateMidiPitchBendChangeMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiPolyphonicKeyPressureMessage, IMidiPolyphonicKeyPressureMessage_Vtbl, 0x1f7337fe_ace8_48a0_868e_7cdbf20f04d6);
+impl windows_core::RuntimeType for IMidiPolyphonicKeyPressureMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiPolyphonicKeyPressureMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -186,12 +231,18 @@ pub struct IMidiPolyphonicKeyPressureMessage_Vtbl {
     pub Pressure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiPolyphonicKeyPressureMessageFactory, IMidiPolyphonicKeyPressureMessageFactory_Vtbl, 0xe98f483e_c4b3_4dd2_917c_e349815a1b3b);
+impl windows_core::RuntimeType for IMidiPolyphonicKeyPressureMessageFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiPolyphonicKeyPressureMessageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateMidiPolyphonicKeyPressureMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiProgramChangeMessage, IMidiProgramChangeMessage_Vtbl, 0x9cbb3c78_7a3e_4327_aa98_20b8e4485af8);
+impl windows_core::RuntimeType for IMidiProgramChangeMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiProgramChangeMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -199,36 +250,54 @@ pub struct IMidiProgramChangeMessage_Vtbl {
     pub Program: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiProgramChangeMessageFactory, IMidiProgramChangeMessageFactory_Vtbl, 0xd6b04387_524b_4104_9c99_6572bfd2e261);
+impl windows_core::RuntimeType for IMidiProgramChangeMessageFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiProgramChangeMessageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateMidiProgramChangeMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiSongPositionPointerMessage, IMidiSongPositionPointerMessage_Vtbl, 0x4ca50c56_ec5e_4ae4_a115_88dc57cc2b79);
+impl windows_core::RuntimeType for IMidiSongPositionPointerMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiSongPositionPointerMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Beats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiSongPositionPointerMessageFactory, IMidiSongPositionPointerMessageFactory_Vtbl, 0x9c00e996_f10b_4fea_b395_f5d6cf80f64e);
+impl windows_core::RuntimeType for IMidiSongPositionPointerMessageFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiSongPositionPointerMessageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateMidiSongPositionPointerMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiSongSelectMessage, IMidiSongSelectMessage_Vtbl, 0x49f0f27f_6d83_4741_a5bf_4629f6be974f);
+impl windows_core::RuntimeType for IMidiSongSelectMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiSongSelectMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Song: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiSongSelectMessageFactory, IMidiSongSelectMessageFactory_Vtbl, 0x848878e4_8748_4129_a66c_a05493f75daa);
+impl windows_core::RuntimeType for IMidiSongSelectMessageFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiSongSelectMessageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateMidiSongSelectMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiSynthesizer, IMidiSynthesizer_Vtbl, 0xf0da155e_db90_405f_b8ae_21d2e17f2e45);
+impl windows_core::RuntimeType for IMidiSynthesizer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiSynthesizer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -240,6 +309,9 @@ pub struct IMidiSynthesizer_Vtbl {
     pub SetVolume: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiSynthesizerStatics, IMidiSynthesizerStatics_Vtbl, 0x4224eaa8_6629_4d6b_aa8f_d4521a5a31ce);
+impl windows_core::RuntimeType for IMidiSynthesizerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiSynthesizerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -254,6 +326,9 @@ pub struct IMidiSynthesizerStatics_Vtbl {
     IsSynthesizer: usize,
 }
 windows_core::imp::define_interface!(IMidiSystemExclusiveMessageFactory, IMidiSystemExclusiveMessageFactory_Vtbl, 0x083de222_3b74_4320_9b42_0ca8545f8a24);
+impl windows_core::RuntimeType for IMidiSystemExclusiveMessageFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiSystemExclusiveMessageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -263,6 +338,9 @@ pub struct IMidiSystemExclusiveMessageFactory_Vtbl {
     CreateMidiSystemExclusiveMessage: usize,
 }
 windows_core::imp::define_interface!(IMidiTimeCodeMessage, IMidiTimeCodeMessage_Vtbl, 0x0bf7087d_fa63_4a1c_8deb_c0e87796a6d7);
+impl windows_core::RuntimeType for IMidiTimeCodeMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiTimeCodeMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -270,6 +348,9 @@ pub struct IMidiTimeCodeMessage_Vtbl {
     pub Values: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiTimeCodeMessageFactory, IMidiTimeCodeMessageFactory_Vtbl, 0xeb3099c5_771c_40de_b961_175a7489a85e);
+impl windows_core::RuntimeType for IMidiTimeCodeMessageFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IMidiTimeCodeMessageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -312,7 +393,7 @@ impl MidiActiveSensingMessage {
     }
 }
 impl windows_core::RuntimeType for MidiActiveSensingMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiMessage>();
 }
 unsafe impl windows_core::Interface for MidiActiveSensingMessage {
     type Vtable = IMidiMessage_Vtbl;
@@ -378,7 +459,7 @@ impl MidiChannelPressureMessage {
     }
 }
 impl windows_core::RuntimeType for MidiChannelPressureMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiChannelPressureMessage>();
 }
 unsafe impl windows_core::Interface for MidiChannelPressureMessage {
     type Vtable = IMidiChannelPressureMessage_Vtbl;
@@ -426,7 +507,7 @@ impl MidiContinueMessage {
     }
 }
 impl windows_core::RuntimeType for MidiContinueMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiMessage>();
 }
 unsafe impl windows_core::Interface for MidiContinueMessage {
     type Vtable = IMidiMessage_Vtbl;
@@ -499,7 +580,7 @@ impl MidiControlChangeMessage {
     }
 }
 impl windows_core::RuntimeType for MidiControlChangeMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiControlChangeMessage>();
 }
 unsafe impl windows_core::Interface for MidiControlChangeMessage {
     type Vtable = IMidiControlChangeMessage_Vtbl;
@@ -560,7 +641,7 @@ impl MidiInPort {
     }
 }
 impl windows_core::RuntimeType for MidiInPort {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiInPort>();
 }
 unsafe impl windows_core::Interface for MidiInPort {
     type Vtable = IMidiInPort_Vtbl;
@@ -585,7 +666,7 @@ impl MidiMessageReceivedEventArgs {
     }
 }
 impl windows_core::RuntimeType for MidiMessageReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiMessageReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for MidiMessageReceivedEventArgs {
     type Vtable = IMidiMessageReceivedEventArgs_Vtbl;
@@ -658,7 +739,7 @@ impl MidiNoteOffMessage {
     }
 }
 impl windows_core::RuntimeType for MidiNoteOffMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiNoteOffMessage>();
 }
 unsafe impl windows_core::Interface for MidiNoteOffMessage {
     type Vtable = IMidiNoteOffMessage_Vtbl;
@@ -731,7 +812,7 @@ impl MidiNoteOnMessage {
     }
 }
 impl windows_core::RuntimeType for MidiNoteOnMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiNoteOnMessage>();
 }
 unsafe impl windows_core::Interface for MidiNoteOnMessage {
     type Vtable = IMidiNoteOnMessage_Vtbl;
@@ -793,7 +874,7 @@ impl MidiOutPort {
     }
 }
 impl windows_core::RuntimeType for MidiOutPort {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiOutPort>();
 }
 unsafe impl windows_core::Interface for MidiOutPort {
     type Vtable = IMidiOutPort_Vtbl;
@@ -859,7 +940,7 @@ impl MidiPitchBendChangeMessage {
     }
 }
 impl windows_core::RuntimeType for MidiPitchBendChangeMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiPitchBendChangeMessage>();
 }
 unsafe impl windows_core::Interface for MidiPitchBendChangeMessage {
     type Vtable = IMidiPitchBendChangeMessage_Vtbl;
@@ -932,7 +1013,7 @@ impl MidiPolyphonicKeyPressureMessage {
     }
 }
 impl windows_core::RuntimeType for MidiPolyphonicKeyPressureMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiPolyphonicKeyPressureMessage>();
 }
 unsafe impl windows_core::Interface for MidiPolyphonicKeyPressureMessage {
     type Vtable = IMidiPolyphonicKeyPressureMessage_Vtbl;
@@ -998,7 +1079,7 @@ impl MidiProgramChangeMessage {
     }
 }
 impl windows_core::RuntimeType for MidiProgramChangeMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiProgramChangeMessage>();
 }
 unsafe impl windows_core::Interface for MidiProgramChangeMessage {
     type Vtable = IMidiProgramChangeMessage_Vtbl;
@@ -1057,7 +1138,7 @@ impl MidiSongPositionPointerMessage {
     }
 }
 impl windows_core::RuntimeType for MidiSongPositionPointerMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiSongPositionPointerMessage>();
 }
 unsafe impl windows_core::Interface for MidiSongPositionPointerMessage {
     type Vtable = IMidiSongPositionPointerMessage_Vtbl;
@@ -1116,7 +1197,7 @@ impl MidiSongSelectMessage {
     }
 }
 impl windows_core::RuntimeType for MidiSongSelectMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiSongSelectMessage>();
 }
 unsafe impl windows_core::Interface for MidiSongSelectMessage {
     type Vtable = IMidiSongSelectMessage_Vtbl;
@@ -1164,7 +1245,7 @@ impl MidiStartMessage {
     }
 }
 impl windows_core::RuntimeType for MidiStartMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiMessage>();
 }
 unsafe impl windows_core::Interface for MidiStartMessage {
     type Vtable = IMidiMessage_Vtbl;
@@ -1212,7 +1293,7 @@ impl MidiStopMessage {
     }
 }
 impl windows_core::RuntimeType for MidiStopMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiMessage>();
 }
 unsafe impl windows_core::Interface for MidiStopMessage {
     type Vtable = IMidiMessage_Vtbl;
@@ -1307,7 +1388,7 @@ impl MidiSynthesizer {
     }
 }
 impl windows_core::RuntimeType for MidiSynthesizer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiSynthesizer>();
 }
 unsafe impl windows_core::Interface for MidiSynthesizer {
     type Vtable = IMidiSynthesizer_Vtbl;
@@ -1363,7 +1444,7 @@ impl MidiSystemExclusiveMessage {
     }
 }
 impl windows_core::RuntimeType for MidiSystemExclusiveMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiMessage>();
 }
 unsafe impl windows_core::Interface for MidiSystemExclusiveMessage {
     type Vtable = IMidiMessage_Vtbl;
@@ -1411,7 +1492,7 @@ impl MidiSystemResetMessage {
     }
 }
 impl windows_core::RuntimeType for MidiSystemResetMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiMessage>();
 }
 unsafe impl windows_core::Interface for MidiSystemResetMessage {
     type Vtable = IMidiMessage_Vtbl;
@@ -1477,7 +1558,7 @@ impl MidiTimeCodeMessage {
     }
 }
 impl windows_core::RuntimeType for MidiTimeCodeMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiTimeCodeMessage>();
 }
 unsafe impl windows_core::Interface for MidiTimeCodeMessage {
     type Vtable = IMidiTimeCodeMessage_Vtbl;
@@ -1525,7 +1606,7 @@ impl MidiTimingClockMessage {
     }
 }
 impl windows_core::RuntimeType for MidiTimingClockMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiMessage>();
 }
 unsafe impl windows_core::Interface for MidiTimingClockMessage {
     type Vtable = IMidiMessage_Vtbl;
@@ -1573,7 +1654,7 @@ impl MidiTuneRequestMessage {
     }
 }
 impl windows_core::RuntimeType for MidiTuneRequestMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiMessage>();
 }
 unsafe impl windows_core::Interface for MidiTuneRequestMessage {
     type Vtable = IMidiMessage_Vtbl;

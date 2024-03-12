@@ -12,6 +12,10 @@ windows_core::imp::define_interface!(
     IJsonValidator_Vtbl,
     0xe09cb12b_b13c_5139_8c99_6140bf80deb9
 );
+impl windows_core::RuntimeType for IJsonValidator {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IJsonValidator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -26,6 +30,10 @@ windows_core::imp::define_interface!(
     IJsonValidatorFactory_Vtbl,
     0x1cf4464e_ae9e_55d5_9539_0af4d8fc35aa
 );
+impl windows_core::RuntimeType for IJsonValidatorFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IJsonValidatorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -84,7 +92,7 @@ impl JsonValidator {
 }
 impl windows_core::RuntimeType for JsonValidator {
     const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_class::<Self>();
+        windows_core::imp::ConstBuffer::for_class::<Self, IJsonValidator>();
 }
 unsafe impl windows_core::Interface for JsonValidator {
     type Vtable = IJsonValidator_Vtbl;

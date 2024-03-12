@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(INamedResource, INamedResource_Vtbl, 0x1c98c219_0b13_4240_89a5_d495dc189a00);
+impl windows_core::RuntimeType for INamedResource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct INamedResource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -19,6 +22,9 @@ pub struct INamedResource_Vtbl {
     ResolveAllForContext: usize,
 }
 windows_core::imp::define_interface!(IResourceCandidate, IResourceCandidate_Vtbl, 0xaf5207d9_c433_4764_b3fd_8fa6bfbcbadc);
+impl windows_core::RuntimeType for IResourceCandidate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IResourceCandidate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -37,6 +43,9 @@ pub struct IResourceCandidate_Vtbl {
     pub GetQualifierValue: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResourceCandidate2, IResourceCandidate2_Vtbl, 0x69e5b468_f6fc_4013_aaa2_d53f1757d3b5);
+impl windows_core::RuntimeType for IResourceCandidate2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IResourceCandidate2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -46,12 +55,18 @@ pub struct IResourceCandidate2_Vtbl {
     GetValueAsStreamAsync: usize,
 }
 windows_core::imp::define_interface!(IResourceCandidate3, IResourceCandidate3_Vtbl, 0x08ae97f8_517a_4674_958c_4a3c7cd2cc6b);
+impl windows_core::RuntimeType for IResourceCandidate3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IResourceCandidate3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ResourceCandidateKind) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResourceContext, IResourceContext_Vtbl, 0x2fa22f4b_707e_4b27_ad0d_d0d8cd468fd2);
+impl windows_core::RuntimeType for IResourceContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IResourceContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -79,6 +94,9 @@ pub struct IResourceContext_Vtbl {
     SetLanguages: usize,
 }
 windows_core::imp::define_interface!(IResourceContextStatics, IResourceContextStatics_Vtbl, 0x98be9d6c_6338_4b31_99df_b2b442f17149);
+impl windows_core::RuntimeType for IResourceContextStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IResourceContextStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -88,6 +106,9 @@ pub struct IResourceContextStatics_Vtbl {
     CreateMatchingContext: usize,
 }
 windows_core::imp::define_interface!(IResourceContextStatics2, IResourceContextStatics2_Vtbl, 0x41f752ef_12af_41b9_ab36_b1eb4b512460);
+impl windows_core::RuntimeType for IResourceContextStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IResourceContextStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -101,12 +122,18 @@ pub struct IResourceContextStatics2_Vtbl {
     pub GetForViewIndependentUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResourceContextStatics3, IResourceContextStatics3_Vtbl, 0x20cf492c_af0f_450b_9da6_106dd0c29a39);
+impl windows_core::RuntimeType for IResourceContextStatics3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IResourceContextStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetGlobalQualifierValueWithPersistence: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, ResourceQualifierPersistence) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResourceContextStatics4, IResourceContextStatics4_Vtbl, 0x22eb9ccd_fb31_4bfa_b86b_df9d9d7bdc39);
+impl windows_core::RuntimeType for IResourceContextStatics4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IResourceContextStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -116,6 +143,9 @@ pub struct IResourceContextStatics4_Vtbl {
     GetForUIContext: usize,
 }
 windows_core::imp::define_interface!(IResourceManager, IResourceManager_Vtbl, 0xf744d97b_9988_44fb_abd6_5378844cfa8b);
+impl windows_core::RuntimeType for IResourceManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IResourceManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -135,6 +165,9 @@ pub struct IResourceManager_Vtbl {
     UnloadPriFiles: usize,
 }
 windows_core::imp::define_interface!(IResourceManager2, IResourceManager2_Vtbl, 0x9d66fe6c_a4d7_4c23_9e85_675f304c252d);
+impl windows_core::RuntimeType for IResourceManager2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IResourceManager2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -148,6 +181,9 @@ pub struct IResourceManager2_Vtbl {
     GetAllSubtreesForPackage: usize,
 }
 windows_core::imp::define_interface!(IResourceManagerStatics, IResourceManagerStatics_Vtbl, 0x1cc0fdfc_69ee_4e43_9901_47f12687baf7);
+impl windows_core::RuntimeType for IResourceManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IResourceManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -155,6 +191,9 @@ pub struct IResourceManagerStatics_Vtbl {
     pub IsResourceReference: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResourceMap, IResourceMap_Vtbl, 0x72284824_db8c_42f8_b08c_53ff357dad82);
+impl windows_core::RuntimeType for IResourceMap {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IResourceMap_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -164,6 +203,9 @@ pub struct IResourceMap_Vtbl {
     pub GetSubtree: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResourceQualifier, IResourceQualifier_Vtbl, 0x785da5b2_4afd_4376_a888_c5f9a6b7a05c);
+impl windows_core::RuntimeType for IResourceQualifier {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IResourceQualifier_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -231,7 +273,7 @@ impl NamedResource {
     }
 }
 impl windows_core::RuntimeType for NamedResource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INamedResource>();
 }
 unsafe impl windows_core::Interface for NamedResource {
     type Vtable = INamedResource_Vtbl;
@@ -315,7 +357,7 @@ impl ResourceCandidate {
     }
 }
 impl windows_core::RuntimeType for ResourceCandidate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IResourceCandidate>();
 }
 unsafe impl windows_core::Interface for ResourceCandidate {
     type Vtable = IResourceCandidate_Vtbl;
@@ -382,7 +424,7 @@ impl ResourceCandidateVectorView {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for ResourceCandidateVectorView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for ResourceCandidateVectorView {
@@ -546,7 +588,7 @@ impl ResourceContext {
     }
 }
 impl windows_core::RuntimeType for ResourceContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IResourceContext>();
 }
 unsafe impl windows_core::Interface for ResourceContext {
     type Vtable = IResourceContext_Vtbl;
@@ -610,7 +652,7 @@ impl ResourceContextLanguagesVectorView {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for ResourceContextLanguagesVectorView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for ResourceContextLanguagesVectorView {
@@ -719,7 +761,7 @@ impl ResourceManager {
     }
 }
 impl windows_core::RuntimeType for ResourceManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IResourceManager>();
 }
 unsafe impl windows_core::Interface for ResourceManager {
     type Vtable = IResourceManager_Vtbl;
@@ -807,7 +849,7 @@ impl ResourceMap {
     }
 }
 impl windows_core::RuntimeType for ResourceMap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IResourceMap>();
 }
 unsafe impl windows_core::Interface for ResourceMap {
     type Vtable = IResourceMap_Vtbl;
@@ -879,7 +921,7 @@ impl ResourceMapIterator {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for ResourceMapIterator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, NamedResource>>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for ResourceMapIterator {
@@ -944,7 +986,7 @@ impl ResourceMapMapView {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for ResourceMapMapView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, ResourceMap>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for ResourceMapMapView {
@@ -1020,7 +1062,7 @@ impl ResourceMapMapViewIterator {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for ResourceMapMapViewIterator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for ResourceMapMapViewIterator {
@@ -1077,7 +1119,7 @@ impl ResourceQualifier {
     }
 }
 impl windows_core::RuntimeType for ResourceQualifier {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IResourceQualifier>();
 }
 unsafe impl windows_core::Interface for ResourceQualifier {
     type Vtable = IResourceQualifier_Vtbl;
@@ -1138,7 +1180,7 @@ impl ResourceQualifierMapView {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for ResourceQualifierMapView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for ResourceQualifierMapView {
@@ -1256,7 +1298,7 @@ impl ResourceQualifierObservableMap {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for ResourceQualifierObservableMap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for ResourceQualifierObservableMap {
@@ -1343,7 +1385,7 @@ impl ResourceQualifierVectorView {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for ResourceQualifierVectorView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IVectorView<ResourceQualifier>>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for ResourceQualifierVectorView {

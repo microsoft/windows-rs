@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IGameControllerProviderInfoStatics, IGameControllerProviderInfoStatics_Vtbl, 0x0be1e6c5_d9bd_44ee_8362_488b2e464bfb);
+impl windows_core::RuntimeType for IGameControllerProviderInfoStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IGameControllerProviderInfoStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

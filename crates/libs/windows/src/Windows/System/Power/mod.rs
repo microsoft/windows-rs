@@ -1,6 +1,10 @@
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IBackgroundEnergyManagerStatics, IBackgroundEnergyManagerStatics_Vtbl, 0xb3161d95_1180_4376_96e1_4095568147ce);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IBackgroundEnergyManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IBackgroundEnergyManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -56,6 +60,10 @@ pub struct IBackgroundEnergyManagerStatics_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IForegroundEnergyManagerStatics, IForegroundEnergyManagerStatics_Vtbl, 0x9ff86872_e677_4814_9a20_5337ca732b98);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IForegroundEnergyManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct IForegroundEnergyManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -101,6 +109,9 @@ pub struct IForegroundEnergyManagerStatics_Vtbl {
     RemoveRecentEnergyUsageReturnedToLow: usize,
 }
 windows_core::imp::define_interface!(IPowerManagerStatics, IPowerManagerStatics_Vtbl, 0x1394825d_62ce_4364_98d5_aa28c7fbd15b);
+impl windows_core::RuntimeType for IPowerManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPowerManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IDevicePortalConnection, IDevicePortalConnection_Vtbl, 0x0f447f51_1198_4da1_8d54_bdef393e09b6);
+impl windows_core::RuntimeType for IDevicePortalConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDevicePortalConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -8,12 +11,18 @@ pub struct IDevicePortalConnection_Vtbl {
     pub RemoveRequestReceived: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDevicePortalConnectionClosedEventArgs, IDevicePortalConnectionClosedEventArgs_Vtbl, 0xfcf70e38_7032_428c_9f50_945c15a9f0cb);
+impl windows_core::RuntimeType for IDevicePortalConnectionClosedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDevicePortalConnectionClosedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DevicePortalConnectionClosedReason) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDevicePortalConnectionRequestReceivedEventArgs, IDevicePortalConnectionRequestReceivedEventArgs_Vtbl, 0x64dae045_6fda_4459_9ebd_ecce22e38559);
+impl windows_core::RuntimeType for IDevicePortalConnectionRequestReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDevicePortalConnectionRequestReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -27,6 +36,9 @@ pub struct IDevicePortalConnectionRequestReceivedEventArgs_Vtbl {
     ResponseMessage: usize,
 }
 windows_core::imp::define_interface!(IDevicePortalConnectionStatics, IDevicePortalConnectionStatics_Vtbl, 0x4bbe31e7_e9b9_4645_8fed_a53eea0edbd6);
+impl windows_core::RuntimeType for IDevicePortalConnectionStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDevicePortalConnectionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -36,6 +48,9 @@ pub struct IDevicePortalConnectionStatics_Vtbl {
     GetForAppServiceConnection: usize,
 }
 windows_core::imp::define_interface!(IDevicePortalWebSocketConnection, IDevicePortalWebSocketConnection_Vtbl, 0x67657920_d65a_42f0_aef4_787808098b7b);
+impl windows_core::RuntimeType for IDevicePortalWebSocketConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDevicePortalWebSocketConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -61,6 +76,9 @@ pub struct IDevicePortalWebSocketConnection_Vtbl {
     GetServerStreamWebSocketForRequest2: usize,
 }
 windows_core::imp::define_interface!(IDevicePortalWebSocketConnectionRequestReceivedEventArgs, IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl, 0x79fdcaba_175c_4739_9f74_dda797c35b3f);
+impl windows_core::RuntimeType for IDevicePortalWebSocketConnectionRequestReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -176,7 +194,7 @@ impl DevicePortalConnection {
     }
 }
 impl windows_core::RuntimeType for DevicePortalConnection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePortalConnection>();
 }
 unsafe impl windows_core::Interface for DevicePortalConnection {
     type Vtable = IDevicePortalConnection_Vtbl;
@@ -201,7 +219,7 @@ impl DevicePortalConnectionClosedEventArgs {
     }
 }
 impl windows_core::RuntimeType for DevicePortalConnectionClosedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePortalConnectionClosedEventArgs>();
 }
 unsafe impl windows_core::Interface for DevicePortalConnectionClosedEventArgs {
     type Vtable = IDevicePortalConnectionClosedEventArgs_Vtbl;
@@ -257,7 +275,7 @@ impl DevicePortalConnectionRequestReceivedEventArgs {
     }
 }
 impl windows_core::RuntimeType for DevicePortalConnectionRequestReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePortalConnectionRequestReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for DevicePortalConnectionRequestReceivedEventArgs {
     type Vtable = IDevicePortalConnectionRequestReceivedEventArgs_Vtbl;

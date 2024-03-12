@@ -1,4 +1,7 @@
 windows_core::imp::define_interface!(IStoreAcquireLicenseResult, IStoreAcquireLicenseResult_Vtbl, 0xfbd7946d_f040_4cb3_9a39_29bcecdbe22d);
+impl windows_core::RuntimeType for IStoreAcquireLicenseResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreAcquireLicenseResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -6,6 +9,9 @@ pub struct IStoreAcquireLicenseResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreAppLicense, IStoreAppLicense_Vtbl, 0xf389f9de_73c0_45ce_9bab_b2fe3e5eafd3);
+impl windows_core::RuntimeType for IStoreAppLicense {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreAppLicense_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -23,12 +29,18 @@ pub struct IStoreAppLicense_Vtbl {
     pub TrialUniqueId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreAppLicense2, IStoreAppLicense2_Vtbl, 0xb4666e91_4443_40b3_993f_28904435bdc6);
+impl windows_core::RuntimeType for IStoreAppLicense2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreAppLicense2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsDiscLicense: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreAvailability, IStoreAvailability_Vtbl, 0xfa060325_0ffd_4493_ad43_f1f9918f69fa);
+impl windows_core::RuntimeType for IStoreAvailability {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreAvailability_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -40,6 +52,9 @@ pub struct IStoreAvailability_Vtbl {
     pub RequestPurchaseWithPurchasePropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreCanAcquireLicenseResult, IStoreCanAcquireLicenseResult_Vtbl, 0x3a693db3_0088_482f_86d5_bd46522663ad);
+impl windows_core::RuntimeType for IStoreCanAcquireLicenseResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreCanAcquireLicenseResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -48,6 +63,9 @@ pub struct IStoreCanAcquireLicenseResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StoreCanLicenseStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreCollectionData, IStoreCollectionData_Vtbl, 0x8aa4c3b3_5bb3_441a_2ab4_4dab73d5ce67);
+impl windows_core::RuntimeType for IStoreCollectionData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreCollectionData_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -61,6 +79,9 @@ pub struct IStoreCollectionData_Vtbl {
     pub ExtendedJsonData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreConsumableResult, IStoreConsumableResult_Vtbl, 0xea5dab72_6a00_4052_be5b_bfdab4433352);
+impl windows_core::RuntimeType for IStoreConsumableResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreConsumableResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -70,6 +91,9 @@ pub struct IStoreConsumableResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreContext, IStoreContext_Vtbl, 0xac98b6be_f4fd_4912_babd_5035e5e8bcab);
+impl windows_core::RuntimeType for IStoreContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -129,6 +153,9 @@ pub struct IStoreContext_Vtbl {
     RequestDownloadAndInstallStorePackagesAsync: usize,
 }
 windows_core::imp::define_interface!(IStoreContext2, IStoreContext2_Vtbl, 0x18bc54da_7bd9_452c_9116_3bbd06ffc63a);
+impl windows_core::RuntimeType for IStoreContext2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreContext2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -138,6 +165,9 @@ pub struct IStoreContext2_Vtbl {
     FindStoreProductForPackageAsync: usize,
 }
 windows_core::imp::define_interface!(IStoreContext3, IStoreContext3_Vtbl, 0xe26226ca_1a01_4730_85a6_ecc896e4ae38);
+impl windows_core::RuntimeType for IStoreContext3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreContext3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -187,6 +217,9 @@ pub struct IStoreContext3_Vtbl {
     pub UninstallStorePackageByStoreIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreContext4, IStoreContext4_Vtbl, 0xaf9c6f69_bea1_4bf4_8e74_ae03e206c6b0);
+impl windows_core::RuntimeType for IStoreContext4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreContext4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -197,6 +230,9 @@ pub struct IStoreContext4_Vtbl {
     SetInstallOrderForAssociatedStoreQueueItemsAsync: usize,
 }
 windows_core::imp::define_interface!(IStoreContext5, IStoreContext5_Vtbl, 0x6de6c52b_c43a_5953_b39a_71643c57d96e);
+impl windows_core::RuntimeType for IStoreContext5 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreContext5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -211,6 +247,9 @@ pub struct IStoreContext5_Vtbl {
     pub RequestPurchaseByInAppOfferTokenAsync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreContextStatics, IStoreContextStatics_Vtbl, 0x9c06ee5f_15c0_4e72_9330_d6191cebd19c);
+impl windows_core::RuntimeType for IStoreContextStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreContextStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -221,6 +260,9 @@ pub struct IStoreContextStatics_Vtbl {
     GetForUser: usize,
 }
 windows_core::imp::define_interface!(IStoreImage, IStoreImage_Vtbl, 0x081fd248_adb4_4b64_a993_784789926ed5);
+impl windows_core::RuntimeType for IStoreImage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreImage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -231,6 +273,9 @@ pub struct IStoreImage_Vtbl {
     pub Caption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreLicense, IStoreLicense_Vtbl, 0x26dc9579_4c4f_4f30_bc89_649f60e36055);
+impl windows_core::RuntimeType for IStoreLicense {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreLicense_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -241,6 +286,9 @@ pub struct IStoreLicense_Vtbl {
     pub InAppOfferToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorePackageInstallOptions, IStorePackageInstallOptions_Vtbl, 0x1d3d630c_0ccd_44dd_8c59_80810a729973);
+impl windows_core::RuntimeType for IStorePackageInstallOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorePackageInstallOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -248,6 +296,9 @@ pub struct IStorePackageInstallOptions_Vtbl {
     pub SetAllowForcedAppRestart: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorePackageLicense, IStorePackageLicense_Vtbl, 0x0c465714_14e1_4973_bd14_f77724271e99);
+impl windows_core::RuntimeType for IStorePackageLicense {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorePackageLicense_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -261,6 +312,9 @@ pub struct IStorePackageLicense_Vtbl {
     pub ReleaseLicense: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorePackageUpdate, IStorePackageUpdate_Vtbl, 0x140fa150_3cbf_4a35_b91f_48271c31b072);
+impl windows_core::RuntimeType for IStorePackageUpdate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorePackageUpdate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -271,6 +325,9 @@ pub struct IStorePackageUpdate_Vtbl {
     pub Mandatory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorePackageUpdateResult, IStorePackageUpdateResult_Vtbl, 0xe79142ed_61f9_4893_b4fe_cf191603af7b);
+impl windows_core::RuntimeType for IStorePackageUpdateResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorePackageUpdateResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -281,6 +338,9 @@ pub struct IStorePackageUpdateResult_Vtbl {
     StorePackageUpdateStatuses: usize,
 }
 windows_core::imp::define_interface!(IStorePackageUpdateResult2, IStorePackageUpdateResult2_Vtbl, 0x071d012e_bc62_4f2e_87ea_99d801aeaf98);
+impl windows_core::RuntimeType for IStorePackageUpdateResult2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorePackageUpdateResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -290,6 +350,9 @@ pub struct IStorePackageUpdateResult2_Vtbl {
     StoreQueueItems: usize,
 }
 windows_core::imp::define_interface!(IStorePrice, IStorePrice_Vtbl, 0x55ba94c4_15f1_407c_8f06_006380f4df0b);
+impl windows_core::RuntimeType for IStorePrice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorePrice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -301,6 +364,9 @@ pub struct IStorePrice_Vtbl {
     pub FormattedRecurrencePrice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorePrice2, IStorePrice2_Vtbl, 0xf711573c_40e6_5641_b063_f1df42b2b12a);
+impl windows_core::RuntimeType for IStorePrice2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorePrice2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -309,6 +375,9 @@ pub struct IStorePrice2_Vtbl {
     pub UnformattedRecurrencePrice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreProduct, IStoreProduct_Vtbl, 0x320e2c52_d760_450a_a42b_67d1e901ac90);
+impl windows_core::RuntimeType for IStoreProduct {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreProduct_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -344,6 +413,9 @@ pub struct IStoreProduct_Vtbl {
     pub InAppOfferToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreProductOptions, IStoreProductOptions_Vtbl, 0x5b34a0f9_a113_4811_8326_16199c927f31);
+impl windows_core::RuntimeType for IStoreProductOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreProductOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -353,6 +425,9 @@ pub struct IStoreProductOptions_Vtbl {
     ActionFilters: usize,
 }
 windows_core::imp::define_interface!(IStoreProductPagedQueryResult, IStoreProductPagedQueryResult_Vtbl, 0xc92718c5_4dd5_4869_a462_ecc6872e43c5);
+impl windows_core::RuntimeType for IStoreProductPagedQueryResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreProductPagedQueryResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -365,6 +440,9 @@ pub struct IStoreProductPagedQueryResult_Vtbl {
     pub GetNextAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreProductQueryResult, IStoreProductQueryResult_Vtbl, 0xd805e6c5_d456_4ff6_8049_9076d5165f73);
+impl windows_core::RuntimeType for IStoreProductQueryResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreProductQueryResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -375,6 +453,9 @@ pub struct IStoreProductQueryResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreProductResult, IStoreProductResult_Vtbl, 0xb7674f73_3c87_4ee1_8201_f428359bd3af);
+impl windows_core::RuntimeType for IStoreProductResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreProductResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -382,6 +463,9 @@ pub struct IStoreProductResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorePurchaseProperties, IStorePurchaseProperties_Vtbl, 0x836278f3_ff87_4364_a5b4_fd2153ebe43b);
+impl windows_core::RuntimeType for IStorePurchaseProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorePurchaseProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -391,12 +475,18 @@ pub struct IStorePurchaseProperties_Vtbl {
     pub SetExtendedJsonData: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorePurchasePropertiesFactory, IStorePurchasePropertiesFactory_Vtbl, 0xa768f59e_fefd_489f_9a17_22a593e68b9d);
+impl windows_core::RuntimeType for IStorePurchasePropertiesFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorePurchasePropertiesFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorePurchaseResult, IStorePurchaseResult_Vtbl, 0xadd28552_f96a_463d_a7bb_c20b4fca6952);
+impl windows_core::RuntimeType for IStorePurchaseResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorePurchaseResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -404,6 +494,9 @@ pub struct IStorePurchaseResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreQueueItem, IStoreQueueItem_Vtbl, 0x56d5c32b_f830_4293_9188_cad2dcde7357);
+impl windows_core::RuntimeType for IStoreQueueItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreQueueItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -417,6 +510,9 @@ pub struct IStoreQueueItem_Vtbl {
     pub RemoveStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreQueueItem2, IStoreQueueItem2_Vtbl, 0x69491ca8_1ad4_447c_ad8c_a95035f64d82);
+impl windows_core::RuntimeType for IStoreQueueItem2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreQueueItem2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -425,12 +521,18 @@ pub struct IStoreQueueItem2_Vtbl {
     pub ResumeInstallAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreQueueItemCompletedEventArgs, IStoreQueueItemCompletedEventArgs_Vtbl, 0x1247df6c_b44a_439b_bb07_1d3003d005c2);
+impl windows_core::RuntimeType for IStoreQueueItemCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreQueueItemCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreQueueItemStatus, IStoreQueueItemStatus_Vtbl, 0x9bd6796f_9cc3_4ec3_b2ef_7be433b30174);
+impl windows_core::RuntimeType for IStoreQueueItemStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreQueueItemStatus_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -440,6 +542,9 @@ pub struct IStoreQueueItemStatus_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreRateAndReviewResult, IStoreRateAndReviewResult_Vtbl, 0x9d209d56_a6b5_4121_9b61_ee6d0fbdbdbb);
+impl windows_core::RuntimeType for IStoreRateAndReviewResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreRateAndReviewResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -449,12 +554,18 @@ pub struct IStoreRateAndReviewResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StoreRateAndReviewStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreRequestHelperStatics, IStoreRequestHelperStatics_Vtbl, 0x6ce5e5f9_a0c9_4b2c_96a6_a171c630038d);
+impl windows_core::RuntimeType for IStoreRequestHelperStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreRequestHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SendRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreSendRequestResult, IStoreSendRequestResult_Vtbl, 0xc73abe60_8272_4502_8a69_6e75153a4299);
+impl windows_core::RuntimeType for IStoreSendRequestResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreSendRequestResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -462,6 +573,9 @@ pub struct IStoreSendRequestResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreSendRequestResult2, IStoreSendRequestResult2_Vtbl, 0x2901296f_c0b0_49d0_8e8d_aa940af9c10b);
+impl windows_core::RuntimeType for IStoreSendRequestResult2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreSendRequestResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -471,6 +585,9 @@ pub struct IStoreSendRequestResult2_Vtbl {
     HttpStatusCode: usize,
 }
 windows_core::imp::define_interface!(IStoreSku, IStoreSku_Vtbl, 0x397e6f55_4440_4f03_863c_91f3fec83d79);
+impl windows_core::RuntimeType for IStoreSku {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreSku_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -507,6 +624,9 @@ pub struct IStoreSku_Vtbl {
     pub SubscriptionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreSubscriptionInfo, IStoreSubscriptionInfo_Vtbl, 0x4189776a_0559_43ac_a9c6_3ab0011fb8eb);
+impl windows_core::RuntimeType for IStoreSubscriptionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreSubscriptionInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -517,6 +637,9 @@ pub struct IStoreSubscriptionInfo_Vtbl {
     pub TrialPeriodUnit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StoreDurationUnit) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreUninstallStorePackageResult, IStoreUninstallStorePackageResult_Vtbl, 0x9fca39fd_126f_4cda_b801_1346b8d0a260);
+impl windows_core::RuntimeType for IStoreUninstallStorePackageResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreUninstallStorePackageResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -524,6 +647,9 @@ pub struct IStoreUninstallStorePackageResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StoreUninstallStorePackageStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStoreVideo, IStoreVideo_Vtbl, 0xf26cb184_6f5e_4dc2_886c_3c63083c2f94);
+impl windows_core::RuntimeType for IStoreVideo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStoreVideo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -555,7 +681,7 @@ impl StoreAcquireLicenseResult {
     }
 }
 impl windows_core::RuntimeType for StoreAcquireLicenseResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreAcquireLicenseResult>();
 }
 unsafe impl windows_core::Interface for StoreAcquireLicenseResult {
     type Vtable = IStoreAcquireLicenseResult_Vtbl;
@@ -644,7 +770,7 @@ impl StoreAppLicense {
     }
 }
 impl windows_core::RuntimeType for StoreAppLicense {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreAppLicense>();
 }
 unsafe impl windows_core::Interface for StoreAppLicense {
     type Vtable = IStoreAppLicense_Vtbl;
@@ -707,7 +833,7 @@ impl StoreAvailability {
     }
 }
 impl windows_core::RuntimeType for StoreAvailability {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreAvailability>();
 }
 unsafe impl windows_core::Interface for StoreAvailability {
     type Vtable = IStoreAvailability_Vtbl;
@@ -746,7 +872,7 @@ impl StoreCanAcquireLicenseResult {
     }
 }
 impl windows_core::RuntimeType for StoreCanAcquireLicenseResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreCanAcquireLicenseResult>();
 }
 unsafe impl windows_core::Interface for StoreCanAcquireLicenseResult {
     type Vtable = IStoreCanAcquireLicenseResult_Vtbl;
@@ -820,7 +946,7 @@ impl StoreCollectionData {
     }
 }
 impl windows_core::RuntimeType for StoreCollectionData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreCollectionData>();
 }
 unsafe impl windows_core::Interface for StoreCollectionData {
     type Vtable = IStoreCollectionData_Vtbl;
@@ -866,7 +992,7 @@ impl StoreConsumableResult {
     }
 }
 impl windows_core::RuntimeType for StoreConsumableResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreConsumableResult>();
 }
 unsafe impl windows_core::Interface for StoreConsumableResult {
     type Vtable = IStoreConsumableResult_Vtbl;
@@ -1291,7 +1417,7 @@ impl StoreContext {
     }
 }
 impl windows_core::RuntimeType for StoreContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreContext>();
 }
 unsafe impl windows_core::Interface for StoreContext {
     type Vtable = IStoreContext_Vtbl;
@@ -1344,7 +1470,7 @@ impl StoreImage {
     }
 }
 impl windows_core::RuntimeType for StoreImage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreImage>();
 }
 unsafe impl windows_core::Interface for StoreImage {
     type Vtable = IStoreImage_Vtbl;
@@ -1397,7 +1523,7 @@ impl StoreLicense {
     }
 }
 impl windows_core::RuntimeType for StoreLicense {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreLicense>();
 }
 unsafe impl windows_core::Interface for StoreLicense {
     type Vtable = IStoreLicense_Vtbl;
@@ -1433,7 +1559,7 @@ impl StorePackageInstallOptions {
     }
 }
 impl windows_core::RuntimeType for StorePackageInstallOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePackageInstallOptions>();
 }
 unsafe impl windows_core::Interface for StorePackageInstallOptions {
     type Vtable = IStorePackageInstallOptions_Vtbl;
@@ -1489,7 +1615,7 @@ impl StorePackageLicense {
     }
 }
 impl windows_core::RuntimeType for StorePackageLicense {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePackageLicense>();
 }
 unsafe impl windows_core::Interface for StorePackageLicense {
     type Vtable = IStorePackageLicense_Vtbl;
@@ -1522,7 +1648,7 @@ impl StorePackageUpdate {
     }
 }
 impl windows_core::RuntimeType for StorePackageUpdate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePackageUpdate>();
 }
 unsafe impl windows_core::Interface for StorePackageUpdate {
     type Vtable = IStorePackageUpdate_Vtbl;
@@ -1563,7 +1689,7 @@ impl StorePackageUpdateResult {
     }
 }
 impl windows_core::RuntimeType for StorePackageUpdateResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePackageUpdateResult>();
 }
 unsafe impl windows_core::Interface for StorePackageUpdateResult {
     type Vtable = IStorePackageUpdateResult_Vtbl;
@@ -1644,7 +1770,7 @@ impl StorePrice {
     }
 }
 impl windows_core::RuntimeType for StorePrice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePrice>();
 }
 unsafe impl windows_core::Interface for StorePrice {
     type Vtable = IStorePrice_Vtbl;
@@ -1795,7 +1921,7 @@ impl StoreProduct {
     }
 }
 impl windows_core::RuntimeType for StoreProduct {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreProduct>();
 }
 unsafe impl windows_core::Interface for StoreProduct {
     type Vtable = IStoreProduct_Vtbl;
@@ -1828,7 +1954,7 @@ impl StoreProductOptions {
     }
 }
 impl windows_core::RuntimeType for StoreProductOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreProductOptions>();
 }
 unsafe impl windows_core::Interface for StoreProductOptions {
     type Vtable = IStoreProductOptions_Vtbl;
@@ -1875,7 +2001,7 @@ impl StoreProductPagedQueryResult {
     }
 }
 impl windows_core::RuntimeType for StoreProductPagedQueryResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreProductPagedQueryResult>();
 }
 unsafe impl windows_core::Interface for StoreProductPagedQueryResult {
     type Vtable = IStoreProductPagedQueryResult_Vtbl;
@@ -1908,7 +2034,7 @@ impl StoreProductQueryResult {
     }
 }
 impl windows_core::RuntimeType for StoreProductQueryResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreProductQueryResult>();
 }
 unsafe impl windows_core::Interface for StoreProductQueryResult {
     type Vtable = IStoreProductQueryResult_Vtbl;
@@ -1940,7 +2066,7 @@ impl StoreProductResult {
     }
 }
 impl windows_core::RuntimeType for StoreProductResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreProductResult>();
 }
 unsafe impl windows_core::Interface for StoreProductResult {
     type Vtable = IStoreProductResult_Vtbl;
@@ -1998,7 +2124,7 @@ impl StorePurchaseProperties {
     }
 }
 impl windows_core::RuntimeType for StorePurchaseProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePurchaseProperties>();
 }
 unsafe impl windows_core::Interface for StorePurchaseProperties {
     type Vtable = IStorePurchaseProperties_Vtbl;
@@ -2030,7 +2156,7 @@ impl StorePurchaseResult {
     }
 }
 impl windows_core::RuntimeType for StorePurchaseResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePurchaseResult>();
 }
 unsafe impl windows_core::Interface for StorePurchaseResult {
     type Vtable = IStorePurchaseResult_Vtbl;
@@ -2125,7 +2251,7 @@ impl StoreQueueItem {
     }
 }
 impl windows_core::RuntimeType for StoreQueueItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreQueueItem>();
 }
 unsafe impl windows_core::Interface for StoreQueueItem {
     type Vtable = IStoreQueueItem_Vtbl;
@@ -2150,7 +2276,7 @@ impl StoreQueueItemCompletedEventArgs {
     }
 }
 impl windows_core::RuntimeType for StoreQueueItemCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreQueueItemCompletedEventArgs>();
 }
 unsafe impl windows_core::Interface for StoreQueueItemCompletedEventArgs {
     type Vtable = IStoreQueueItemCompletedEventArgs_Vtbl;
@@ -2196,7 +2322,7 @@ impl StoreQueueItemStatus {
     }
 }
 impl windows_core::RuntimeType for StoreQueueItemStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreQueueItemStatus>();
 }
 unsafe impl windows_core::Interface for StoreQueueItemStatus {
     type Vtable = IStoreQueueItemStatus_Vtbl;
@@ -2242,7 +2368,7 @@ impl StoreRateAndReviewResult {
     }
 }
 impl windows_core::RuntimeType for StoreRateAndReviewResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreRateAndReviewResult>();
 }
 unsafe impl windows_core::Interface for StoreRateAndReviewResult {
     type Vtable = IStoreRateAndReviewResult_Vtbl;
@@ -2302,7 +2428,7 @@ impl StoreSendRequestResult {
     }
 }
 impl windows_core::RuntimeType for StoreSendRequestResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreSendRequestResult>();
 }
 unsafe impl windows_core::Interface for StoreSendRequestResult {
     type Vtable = IStoreSendRequestResult_Vtbl;
@@ -2460,7 +2586,7 @@ impl StoreSku {
     }
 }
 impl windows_core::RuntimeType for StoreSku {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreSku>();
 }
 unsafe impl windows_core::Interface for StoreSku {
     type Vtable = IStoreSku_Vtbl;
@@ -2513,7 +2639,7 @@ impl StoreSubscriptionInfo {
     }
 }
 impl windows_core::RuntimeType for StoreSubscriptionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreSubscriptionInfo>();
 }
 unsafe impl windows_core::Interface for StoreSubscriptionInfo {
     type Vtable = IStoreSubscriptionInfo_Vtbl;
@@ -2545,7 +2671,7 @@ impl StoreUninstallStorePackageResult {
     }
 }
 impl windows_core::RuntimeType for StoreUninstallStorePackageResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreUninstallStorePackageResult>();
 }
 unsafe impl windows_core::Interface for StoreUninstallStorePackageResult {
     type Vtable = IStoreUninstallStorePackageResult_Vtbl;
@@ -2605,7 +2731,7 @@ impl StoreVideo {
     }
 }
 impl windows_core::RuntimeType for StoreVideo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreVideo>();
 }
 unsafe impl windows_core::Interface for StoreVideo {
     type Vtable = IStoreVideo_Vtbl;

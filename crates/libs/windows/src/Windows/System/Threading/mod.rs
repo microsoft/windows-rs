@@ -1,6 +1,9 @@
 #[cfg(feature = "System_Threading_Core")]
 pub mod Core;
 windows_core::imp::define_interface!(IThreadPoolStatics, IThreadPoolStatics_Vtbl, 0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91);
+impl windows_core::RuntimeType for IThreadPoolStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IThreadPoolStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -9,6 +12,9 @@ pub struct IThreadPoolStatics_Vtbl {
     pub RunWithPriorityAndOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WorkItemPriority, WorkItemOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IThreadPoolTimer, IThreadPoolTimer_Vtbl, 0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2);
+impl windows_core::RuntimeType for IThreadPoolTimer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IThreadPoolTimer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -17,6 +23,9 @@ pub struct IThreadPoolTimer_Vtbl {
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IThreadPoolTimerStatics, IThreadPoolTimerStatics_Vtbl, 0x1a8a9d02_e482_461b_b8c7_8efad1cce590);
+impl windows_core::RuntimeType for IThreadPoolTimerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IThreadPoolTimerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -131,7 +140,7 @@ impl ThreadPoolTimer {
     }
 }
 impl windows_core::RuntimeType for ThreadPoolTimer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IThreadPoolTimer>();
 }
 unsafe impl windows_core::Interface for ThreadPoolTimer {
     type Vtable = IThreadPoolTimer_Vtbl;
