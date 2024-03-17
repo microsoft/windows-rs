@@ -43,7 +43,8 @@ fn combine_libraries(
             continue;
         };
 
-        let library = method.module_name();
+        // Windows libs are always produced with lower case module names.
+        let library = method.module_name().to_lowercase();
         let impl_map = method.impl_map().expect("ImplMap not found");
         let flags = impl_map.flags();
         let name = impl_map.import_name().to_string();

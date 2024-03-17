@@ -3,7 +3,7 @@ use metadata::HasAttributes;
 
 pub fn writer(writer: &Writer, namespace: &str, def: metadata::MethodDef) -> TokenStream {
     // TODO: remove inline functions from metadata
-    if def.module_name() == "forceinline" {
+    if def.module_name() == "FORCEINLINE" {
         return quote! {};
     }
 
@@ -197,7 +197,10 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
 fn gen_link(writer: &Writer, namespace: &str, signature: &metadata::Signature) -> TokenStream {
     let name = signature.def.name();
     let ident = to_ident(name);
-    let library = signature.def.module_name();
+
+    // Windows libs are always produced with lowercase module names.
+    let library = if namespace.starts_with("Windows.") { signature.def.module_name().to_lowercase() } else { signature.def.module_name().to_string() };
+
     let abi = method_def_extern_abi(signature.def);
 
     let symbol = if let Some(impl_map) = signature.def.impl_map() { impl_map.import_name() } else { name };

@@ -255,13 +255,8 @@ impl MethodDef {
         self.equal_range(1, MemberForwarded::MethodDef(*self).encode()).next()
     }
 
-    pub fn module_name(&self) -> String {
-        // TODO: riddle should always lower case the module name to avoid allocating here
-        let Some(impl_map) = self.impl_map() else {
-            return String::new();
-        };
-
-        impl_map.scope().name().to_lowercase()
+    pub fn module_name(&self) -> &'static str {
+        self.impl_map().map_or("", |map| map.scope().name())
     }
 
     pub fn signature(&self, generics: &[Type]) -> MethodDefSig {

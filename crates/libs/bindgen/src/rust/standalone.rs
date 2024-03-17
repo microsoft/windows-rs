@@ -92,7 +92,7 @@ pub fn standalone_imp(writer: &Writer) -> String {
     }
 
     for (function, namespace) in functions {
-        sorted.insert(&format!(".{}.{}", function.module_name(), function.name()), functions::writer(writer, namespace, function));
+        sorted.insert(&format!(".{}.{}", function.module_name().to_lowercase(), function.name()), functions::writer(writer, namespace, function));
     }
 
     for constant in constants {
