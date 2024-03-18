@@ -997,14 +997,14 @@ impl Calendar {
     }
     pub fn Compare<P0>(&self, other: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<Calendar>,
+        P0: windows_core::Param<Calendar>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
             (windows_core::Interface::vtable(this).Compare)(
                 windows_core::Interface::as_raw(this),
-                other.into_param().abi(),
+                other.param().abi(),
                 &mut result__,
             )
             .map(|| result__)
@@ -1024,13 +1024,13 @@ impl Calendar {
     }
     pub fn CopyTo<P0>(&self, other: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Calendar>,
+        P0: windows_core::Param<Calendar>,
     {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).CopyTo)(
                 windows_core::Interface::as_raw(this),
-                other.into_param().abi(),
+                other.param().abi(),
             )
             .ok()
         }
@@ -1127,13 +1127,13 @@ impl Calendar {
         languages: P0,
     ) -> windows_core::Result<Calendar>
     where
-        P0: windows_core::IntoParam<IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<IIterable<windows_core::HSTRING>>,
     {
         Self::ICalendarFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCalendarDefaultCalendarAndClock)(
                 windows_core::Interface::as_raw(this),
-                languages.into_param().abi(),
+                languages.param().abi(),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -1145,13 +1145,13 @@ impl Calendar {
         clock: &windows_core::HSTRING,
     ) -> windows_core::Result<Calendar>
     where
-        P0: windows_core::IntoParam<IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<IIterable<windows_core::HSTRING>>,
     {
         Self::ICalendarFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCalendar)(
                 windows_core::Interface::as_raw(this),
-                languages.into_param().abi(),
+                languages.param().abi(),
                 core::mem::transmute_copy(calendar),
                 core::mem::transmute_copy(clock),
                 &mut result__,
@@ -1166,13 +1166,13 @@ impl Calendar {
         timezoneid: &windows_core::HSTRING,
     ) -> windows_core::Result<Calendar>
     where
-        P0: windows_core::IntoParam<IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<IIterable<windows_core::HSTRING>>,
     {
         Self::ICalendarFactory2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCalendarWithTimeZone)(
                 windows_core::Interface::as_raw(this),
-                languages.into_param().abi(),
+                languages.param().abi(),
                 core::mem::transmute_copy(calendar),
                 core::mem::transmute_copy(clock),
                 core::mem::transmute_copy(timezoneid),
@@ -1894,14 +1894,14 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
     }
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<T>,
+        P0: windows_core::Param<T>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(
                 windows_core::Interface::as_raw(this),
-                value.into_param().abi(),
+                value.param().abi(),
                 index,
                 &mut result__,
             )

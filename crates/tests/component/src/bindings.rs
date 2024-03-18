@@ -213,19 +213,19 @@ impl Class {
     }
     pub fn Input<P0, P1, P2, P3>(&self, a: P0, b: P1, c: P2, d: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
-        P1: windows_core::IntoParam<Class>,
-        P2: windows_core::IntoParam<windows::Foundation::IStringable>,
-        P3: windows_core::IntoParam<Callback>,
+        P0: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<Class>,
+        P2: windows_core::Param<windows::Foundation::IStringable>,
+        P3: windows_core::Param<Callback>,
     {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).Input)(
                 windows_core::Interface::as_raw(this),
-                a.into_param().abi(),
-                b.into_param().abi(),
-                c.into_param().abi(),
-                d.into_param().abi(),
+                a.param().abi(),
+                b.param().abi(),
+                c.param().abi(),
+                d.param().abi(),
             )
             .ok()
         }

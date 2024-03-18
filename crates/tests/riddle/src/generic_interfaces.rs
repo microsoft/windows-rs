@@ -251,7 +251,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         key: &mut <K as windows_core::Type<K>>::Default,
     ) -> windows_core::Result<V>
     where
-        P0: windows_core::IntoParam<K>,
+        P0: windows_core::Param<K>,
     {
         let this = self;
         unsafe {
@@ -280,7 +280,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         key: &mut <K as windows_core::Type<K>>::Default,
     ) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<K>,
+        P0: windows_core::Param<K>,
     {
         let this = self;
         unsafe {
