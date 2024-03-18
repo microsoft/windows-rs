@@ -280,12 +280,12 @@ impl DiagnosticInvoker {
     #[cfg(feature = "Data_Json")]
     pub fn RunDiagnosticActionAsync<P0>(&self, context: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>
     where
-        P0: windows_core::IntoParam<super::super::Data::Json::JsonObject>,
+        P0: windows_core::Param<super::super::Data::Json::JsonObject>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RunDiagnosticActionAsync)(windows_core::Interface::as_raw(this), context.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RunDiagnosticActionAsync)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RunDiagnosticActionFromStringAsync(&self, context: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
@@ -303,11 +303,11 @@ impl DiagnosticInvoker {
     }
     pub fn GetForUser<P0>(user: P0) -> windows_core::Result<DiagnosticInvoker>
     where
-        P0: windows_core::IntoParam<super::User>,
+        P0: windows_core::Param<super::User>,
     {
         Self::IDiagnosticInvokerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn IsSupported() -> windows_core::Result<bool> {

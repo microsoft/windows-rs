@@ -56,11 +56,11 @@ impl CoreAppWindowPreview {
     #[cfg(feature = "UI_WindowManagement")]
     pub fn GetIdFromWindow<P0>(window: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<super::super::WindowManagement::AppWindow>,
+        P0: windows_core::Param<super::super::WindowManagement::AppWindow>,
     {
         Self::ICoreAppWindowPreviewStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetIdFromWindow)(windows_core::Interface::as_raw(this), window.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GetIdFromWindow)(windows_core::Interface::as_raw(this), window.param().abi(), &mut result__).map(|| result__)
         })
     }
     #[doc(hidden)]
@@ -124,12 +124,12 @@ windows_core::imp::interface_hierarchy!(SystemNavigationManagerPreview, windows_
 impl SystemNavigationManagerPreview {
     pub fn CloseRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CloseRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CloseRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCloseRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

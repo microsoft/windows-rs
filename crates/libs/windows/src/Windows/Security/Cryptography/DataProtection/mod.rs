@@ -46,47 +46,47 @@ impl DataProtectionProvider {
     #[cfg(feature = "Storage_Streams")]
     pub fn ProtectAsync<P0>(&self, data: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProtectAsync)(windows_core::Interface::as_raw(this), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ProtectAsync)(windows_core::Interface::as_raw(this), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn UnprotectAsync<P0>(&self, data: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnprotectAsync)(windows_core::Interface::as_raw(this), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UnprotectAsync)(windows_core::Interface::as_raw(this), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn ProtectStreamAsync<P0, P1>(&self, src: P0, dest: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IInputStream>,
-        P1: windows_core::IntoParam<super::super::super::Storage::Streams::IOutputStream>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
+        P1: windows_core::Param<super::super::super::Storage::Streams::IOutputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProtectStreamAsync)(windows_core::Interface::as_raw(this), src.into_param().abi(), dest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ProtectStreamAsync)(windows_core::Interface::as_raw(this), src.param().abi(), dest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn UnprotectStreamAsync<P0, P1>(&self, src: P0, dest: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IInputStream>,
-        P1: windows_core::IntoParam<super::super::super::Storage::Streams::IOutputStream>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
+        P1: windows_core::Param<super::super::super::Storage::Streams::IOutputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnprotectStreamAsync)(windows_core::Interface::as_raw(this), src.into_param().abi(), dest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UnprotectStreamAsync)(windows_core::Interface::as_raw(this), src.param().abi(), dest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateOverloadExplicit(protectiondescriptor: &windows_core::HSTRING) -> windows_core::Result<DataProtectionProvider> {

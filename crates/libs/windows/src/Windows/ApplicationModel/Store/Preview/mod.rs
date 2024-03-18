@@ -275,11 +275,11 @@ impl StoreConfiguration {
     #[cfg(feature = "Foundation_Collections")]
     pub fn FilterUnsupportedSystemFeaturesAsync<P0>(systemfeatures: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StoreSystemFeature>>>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<StoreSystemFeature>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<StoreSystemFeature>>,
     {
         Self::IStoreConfigurationStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FilterUnsupportedSystemFeaturesAsync)(windows_core::Interface::as_raw(this), systemfeatures.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FilterUnsupportedSystemFeaturesAsync)(windows_core::Interface::as_raw(this), systemfeatures.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn PurchasePromptingPolicy() -> windows_core::Result<super::super::super::Foundation::IReference<u32>> {
@@ -290,9 +290,9 @@ impl StoreConfiguration {
     }
     pub fn SetPurchasePromptingPolicy<P0>(value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<u32>>,
     {
-        Self::IStoreConfigurationStatics2(|this| unsafe { (windows_core::Interface::vtable(this).SetPurchasePromptingPolicy)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() })
+        Self::IStoreConfigurationStatics2(|this| unsafe { (windows_core::Interface::vtable(this).SetPurchasePromptingPolicy)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
     pub fn HasStoreWebAccount() -> windows_core::Result<bool> {
         Self::IStoreConfigurationStatics3(|this| unsafe {
@@ -303,11 +303,11 @@ impl StoreConfiguration {
     #[cfg(feature = "System")]
     pub fn HasStoreWebAccountForUser<P0>(user: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<super::super::super::System::User>,
+        P0: windows_core::Param<super::super::super::System::User>,
     {
         Self::IStoreConfigurationStatics3(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasStoreWebAccountForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HasStoreWebAccountForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -320,37 +320,37 @@ impl StoreConfiguration {
     #[cfg(feature = "System")]
     pub fn SetStoreWebAccountIdForUser<P0>(user: P0, webaccountid: &windows_core::HSTRING) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::System::User>,
+        P0: windows_core::Param<super::super::super::System::User>,
     {
-        Self::IStoreConfigurationStatics3(|this| unsafe { (windows_core::Interface::vtable(this).SetStoreWebAccountIdForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(webaccountid)).ok() })
+        Self::IStoreConfigurationStatics3(|this| unsafe { (windows_core::Interface::vtable(this).SetStoreWebAccountIdForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(webaccountid)).ok() })
     }
     #[cfg(feature = "System")]
     pub fn IsStoreWebAccountIdForUser<P0>(user: P0, webaccountid: &windows_core::HSTRING) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<super::super::super::System::User>,
+        P0: windows_core::Param<super::super::super::System::User>,
     {
         Self::IStoreConfigurationStatics3(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsStoreWebAccountIdForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(webaccountid), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsStoreWebAccountIdForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(webaccountid), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "System")]
     pub fn GetPurchasePromptingPolicyForUser<P0>(user: P0) -> windows_core::Result<super::super::super::Foundation::IReference<u32>>
     where
-        P0: windows_core::IntoParam<super::super::super::System::User>,
+        P0: windows_core::Param<super::super::super::System::User>,
     {
         Self::IStoreConfigurationStatics3(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPurchasePromptingPolicyForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPurchasePromptingPolicyForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
     pub fn SetPurchasePromptingPolicyForUser<P0, P1>(user: P0, value: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::System::User>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<super::super::super::System::User>,
+        P1: windows_core::Param<super::super::super::Foundation::IReference<u32>>,
     {
-        Self::IStoreConfigurationStatics3(|this| unsafe { (windows_core::Interface::vtable(this).SetPurchasePromptingPolicyForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), value.into_param().abi()).ok() })
+        Self::IStoreConfigurationStatics3(|this| unsafe { (windows_core::Interface::vtable(this).SetPurchasePromptingPolicyForUser)(windows_core::Interface::as_raw(this), user.param().abi(), value.param().abi()).ok() })
     }
     pub fn GetStoreWebAccountId() -> windows_core::Result<windows_core::HSTRING> {
         Self::IStoreConfigurationStatics4(|this| unsafe {
@@ -361,11 +361,11 @@ impl StoreConfiguration {
     #[cfg(feature = "System")]
     pub fn GetStoreWebAccountIdForUser<P0>(user: P0) -> windows_core::Result<windows_core::HSTRING>
     where
-        P0: windows_core::IntoParam<super::super::super::System::User>,
+        P0: windows_core::Param<super::super::super::System::User>,
     {
         Self::IStoreConfigurationStatics4(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStoreWebAccountIdForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetStoreWebAccountIdForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn SetEnterpriseStoreWebAccountId(webaccountid: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -374,9 +374,9 @@ impl StoreConfiguration {
     #[cfg(feature = "System")]
     pub fn SetEnterpriseStoreWebAccountIdForUser<P0>(user: P0, webaccountid: &windows_core::HSTRING) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::System::User>,
+        P0: windows_core::Param<super::super::super::System::User>,
     {
-        Self::IStoreConfigurationStatics4(|this| unsafe { (windows_core::Interface::vtable(this).SetEnterpriseStoreWebAccountIdForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(webaccountid)).ok() })
+        Self::IStoreConfigurationStatics4(|this| unsafe { (windows_core::Interface::vtable(this).SetEnterpriseStoreWebAccountIdForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(webaccountid)).ok() })
     }
     pub fn GetEnterpriseStoreWebAccountId() -> windows_core::Result<windows_core::HSTRING> {
         Self::IStoreConfigurationStatics4(|this| unsafe {
@@ -387,11 +387,11 @@ impl StoreConfiguration {
     #[cfg(feature = "System")]
     pub fn GetEnterpriseStoreWebAccountIdForUser<P0>(user: P0) -> windows_core::Result<windows_core::HSTRING>
     where
-        P0: windows_core::IntoParam<super::super::super::System::User>,
+        P0: windows_core::Param<super::super::super::System::User>,
     {
         Self::IStoreConfigurationStatics4(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetEnterpriseStoreWebAccountIdForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetEnterpriseStoreWebAccountIdForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ShouldRestrictToEnterpriseStoreOnly() -> windows_core::Result<bool> {
@@ -403,11 +403,11 @@ impl StoreConfiguration {
     #[cfg(feature = "System")]
     pub fn ShouldRestrictToEnterpriseStoreOnlyForUser<P0>(user: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<super::super::super::System::User>,
+        P0: windows_core::Param<super::super::super::System::User>,
     {
         Self::IStoreConfigurationStatics4(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShouldRestrictToEnterpriseStoreOnlyForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ShouldRestrictToEnterpriseStoreOnlyForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn IsPinToDesktopSupported() -> windows_core::Result<bool> {
@@ -434,9 +434,9 @@ impl StoreConfiguration {
     #[cfg(feature = "System")]
     pub fn PinToDesktopForUser<P0>(user: P0, apppackagefamilyname: &windows_core::HSTRING) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::System::User>,
+        P0: windows_core::Param<super::super::super::System::User>,
     {
-        Self::IStoreConfigurationStatics5(|this| unsafe { (windows_core::Interface::vtable(this).PinToDesktopForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(apppackagefamilyname)).ok() })
+        Self::IStoreConfigurationStatics5(|this| unsafe { (windows_core::Interface::vtable(this).PinToDesktopForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(apppackagefamilyname)).ok() })
     }
     #[doc(hidden)]
     pub fn IStoreConfigurationStatics<R, F: FnOnce(&IStoreConfigurationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -702,24 +702,24 @@ impl WebAuthenticationCoreManagerHelper {
     #[cfg(all(feature = "Security_Authentication_Web_Core", feature = "UI_Xaml"))]
     pub fn RequestTokenWithUIElementHostingAsync<P0, P1>(request: P0, uielement: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
     where
-        P0: windows_core::IntoParam<super::super::super::Security::Authentication::Web::Core::WebTokenRequest>,
-        P1: windows_core::IntoParam<super::super::super::UI::Xaml::UIElement>,
+        P0: windows_core::Param<super::super::super::Security::Authentication::Web::Core::WebTokenRequest>,
+        P1: windows_core::Param<super::super::super::UI::Xaml::UIElement>,
     {
         Self::IWebAuthenticationCoreManagerHelper(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestTokenWithUIElementHostingAsync)(windows_core::Interface::as_raw(this), request.into_param().abi(), uielement.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestTokenWithUIElementHostingAsync)(windows_core::Interface::as_raw(this), request.param().abi(), uielement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml"))]
     pub fn RequestTokenWithUIElementHostingAndWebAccountAsync<P0, P1, P2>(request: P0, webaccount: P1, uielement: P2) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
     where
-        P0: windows_core::IntoParam<super::super::super::Security::Authentication::Web::Core::WebTokenRequest>,
-        P1: windows_core::IntoParam<super::super::super::Security::Credentials::WebAccount>,
-        P2: windows_core::IntoParam<super::super::super::UI::Xaml::UIElement>,
+        P0: windows_core::Param<super::super::super::Security::Authentication::Web::Core::WebTokenRequest>,
+        P1: windows_core::Param<super::super::super::Security::Credentials::WebAccount>,
+        P2: windows_core::Param<super::super::super::UI::Xaml::UIElement>,
     {
         Self::IWebAuthenticationCoreManagerHelper(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestTokenWithUIElementHostingAndWebAccountAsync)(windows_core::Interface::as_raw(this), request.into_param().abi(), webaccount.into_param().abi(), uielement.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestTokenWithUIElementHostingAndWebAccountAsync)(windows_core::Interface::as_raw(this), request.param().abi(), webaccount.param().abi(), uielement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

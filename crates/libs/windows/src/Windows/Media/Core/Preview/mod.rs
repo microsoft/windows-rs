@@ -19,11 +19,11 @@ impl SoundLevelBroker {
     }
     pub fn SoundLevelChanged<P0>(handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::EventHandler<windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
         Self::ISoundLevelBrokerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SoundLevelChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SoundLevelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveSoundLevelChanged(token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

@@ -7,12 +7,12 @@ pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> windows_core::Result<
 #[inline]
 pub unsafe fn UalRegisterProduct<P0, P1, P2>(wszproductname: P0, wszrolename: P1, wszguid: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
-    P2: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ualapi.dll" "system" fn UalRegisterProduct(wszproductname : windows_core::PCWSTR, wszrolename : windows_core::PCWSTR, wszguid : windows_core::PCWSTR) -> windows_core::HRESULT);
-    UalRegisterProduct(wszproductname.into_param().abi(), wszrolename.into_param().abi(), wszguid.into_param().abi()).ok()
+    UalRegisterProduct(wszproductname.param().abi(), wszrolename.param().abi(), wszguid.param().abi()).ok()
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]

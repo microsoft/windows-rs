@@ -232,12 +232,12 @@ windows_core::imp::interface_hierarchy!(XboxLiveDeviceAddress, windows_core::IUn
 impl XboxLiveDeviceAddress {
     pub fn SnapshotChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<XboxLiveDeviceAddress, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<XboxLiveDeviceAddress, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SnapshotChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SnapshotChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSnapshotChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -265,12 +265,12 @@ impl XboxLiveDeviceAddress {
     }
     pub fn Compare<P0>(&self, otherdeviceaddress: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<XboxLiveDeviceAddress>,
+        P0: windows_core::Param<XboxLiveDeviceAddress>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compare)(windows_core::Interface::as_raw(this), otherdeviceaddress.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Compare)(windows_core::Interface::as_raw(this), otherdeviceaddress.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn IsValid(&self) -> windows_core::Result<bool> {
@@ -303,11 +303,11 @@ impl XboxLiveDeviceAddress {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromSnapshotBuffer<P0>(buffer: P0) -> windows_core::Result<XboxLiveDeviceAddress>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::IXboxLiveDeviceAddressStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromSnapshotBuffer)(windows_core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromSnapshotBuffer)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromSnapshotBytes(buffer: &[u8]) -> windows_core::Result<XboxLiveDeviceAddress> {
@@ -353,12 +353,12 @@ windows_core::imp::interface_hierarchy!(XboxLiveEndpointPair, windows_core::IUnk
 impl XboxLiveEndpointPair {
     pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<XboxLiveEndpointPair, XboxLiveEndpointPairStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<XboxLiveEndpointPair, XboxLiveEndpointPairStateChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -437,12 +437,12 @@ impl XboxLiveEndpointPair {
     }
     pub fn FindEndpointPairByHostNamesAndPorts<P0, P1>(localhostname: P0, localport: &windows_core::HSTRING, remotehostname: P1, remoteport: &windows_core::HSTRING) -> windows_core::Result<XboxLiveEndpointPair>
     where
-        P0: windows_core::IntoParam<super::HostName>,
-        P1: windows_core::IntoParam<super::HostName>,
+        P0: windows_core::Param<super::HostName>,
+        P1: windows_core::Param<super::HostName>,
     {
         Self::IXboxLiveEndpointPairStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindEndpointPairByHostNamesAndPorts)(windows_core::Interface::as_raw(this), localhostname.into_param().abi(), core::mem::transmute_copy(localport), remotehostname.into_param().abi(), core::mem::transmute_copy(remoteport), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindEndpointPairByHostNamesAndPorts)(windows_core::Interface::as_raw(this), localhostname.param().abi(), core::mem::transmute_copy(localport), remotehostname.param().abi(), core::mem::transmute_copy(remoteport), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -548,12 +548,12 @@ windows_core::imp::interface_hierarchy!(XboxLiveEndpointPairTemplate, windows_co
 impl XboxLiveEndpointPairTemplate {
     pub fn InboundEndpointPairCreated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<XboxLiveEndpointPairTemplate, XboxLiveInboundEndpointPairCreatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<XboxLiveEndpointPairTemplate, XboxLiveInboundEndpointPairCreatedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).InboundEndpointPairCreated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).InboundEndpointPairCreated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveInboundEndpointPairCreated(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -562,42 +562,42 @@ impl XboxLiveEndpointPairTemplate {
     }
     pub fn CreateEndpointPairDefaultAsync<P0>(&self, deviceaddress: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
     where
-        P0: windows_core::IntoParam<XboxLiveDeviceAddress>,
+        P0: windows_core::Param<XboxLiveDeviceAddress>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateEndpointPairDefaultAsync)(windows_core::Interface::as_raw(this), deviceaddress.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateEndpointPairDefaultAsync)(windows_core::Interface::as_raw(this), deviceaddress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateEndpointPairWithBehaviorsAsync<P0>(&self, deviceaddress: P0, behaviors: XboxLiveEndpointPairCreationBehaviors) -> windows_core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
     where
-        P0: windows_core::IntoParam<XboxLiveDeviceAddress>,
+        P0: windows_core::Param<XboxLiveDeviceAddress>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateEndpointPairWithBehaviorsAsync)(windows_core::Interface::as_raw(this), deviceaddress.into_param().abi(), behaviors, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateEndpointPairWithBehaviorsAsync)(windows_core::Interface::as_raw(this), deviceaddress.param().abi(), behaviors, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateEndpointPairForPortsDefaultAsync<P0>(&self, deviceaddress: P0, initiatorport: &windows_core::HSTRING, acceptorport: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
     where
-        P0: windows_core::IntoParam<XboxLiveDeviceAddress>,
+        P0: windows_core::Param<XboxLiveDeviceAddress>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateEndpointPairForPortsDefaultAsync)(windows_core::Interface::as_raw(this), deviceaddress.into_param().abi(), core::mem::transmute_copy(initiatorport), core::mem::transmute_copy(acceptorport), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateEndpointPairForPortsDefaultAsync)(windows_core::Interface::as_raw(this), deviceaddress.param().abi(), core::mem::transmute_copy(initiatorport), core::mem::transmute_copy(acceptorport), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateEndpointPairForPortsWithBehaviorsAsync<P0>(&self, deviceaddress: P0, initiatorport: &windows_core::HSTRING, acceptorport: &windows_core::HSTRING, behaviors: XboxLiveEndpointPairCreationBehaviors) -> windows_core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
     where
-        P0: windows_core::IntoParam<XboxLiveDeviceAddress>,
+        P0: windows_core::Param<XboxLiveDeviceAddress>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateEndpointPairForPortsWithBehaviorsAsync)(windows_core::Interface::as_raw(this), deviceaddress.into_param().abi(), core::mem::transmute_copy(initiatorport), core::mem::transmute_copy(acceptorport), behaviors, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateEndpointPairForPortsWithBehaviorsAsync)(windows_core::Interface::as_raw(this), deviceaddress.param().abi(), core::mem::transmute_copy(initiatorport), core::mem::transmute_copy(acceptorport), behaviors, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -728,12 +728,12 @@ impl XboxLiveQualityOfServiceMeasurement {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMetricResultsForDevice<P0>(&self, deviceaddress: P0) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>
     where
-        P0: windows_core::IntoParam<XboxLiveDeviceAddress>,
+        P0: windows_core::Param<XboxLiveDeviceAddress>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetMetricResultsForDevice)(windows_core::Interface::as_raw(this), deviceaddress.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetMetricResultsForDevice)(windows_core::Interface::as_raw(this), deviceaddress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -746,22 +746,22 @@ impl XboxLiveQualityOfServiceMeasurement {
     }
     pub fn GetMetricResult<P0>(&self, deviceaddress: P0, metric: XboxLiveQualityOfServiceMetric) -> windows_core::Result<XboxLiveQualityOfServiceMetricResult>
     where
-        P0: windows_core::IntoParam<XboxLiveDeviceAddress>,
+        P0: windows_core::Param<XboxLiveDeviceAddress>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetMetricResult)(windows_core::Interface::as_raw(this), deviceaddress.into_param().abi(), metric, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetMetricResult)(windows_core::Interface::as_raw(this), deviceaddress.param().abi(), metric, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetPrivatePayloadResult<P0>(&self, deviceaddress: P0) -> windows_core::Result<XboxLiveQualityOfServicePrivatePayloadResult>
     where
-        P0: windows_core::IntoParam<XboxLiveDeviceAddress>,
+        P0: windows_core::Param<XboxLiveDeviceAddress>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPrivatePayloadResult)(windows_core::Interface::as_raw(this), deviceaddress.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPrivatePayloadResult)(windows_core::Interface::as_raw(this), deviceaddress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -879,9 +879,9 @@ impl XboxLiveQualityOfServiceMeasurement {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetPublishedPrivatePayload<P0>(value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
-        Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetPublishedPrivatePayload)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() })
+        Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetPublishedPrivatePayload)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
     pub fn MaxPrivatePayloadSize() -> windows_core::Result<u32> {
         Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe {

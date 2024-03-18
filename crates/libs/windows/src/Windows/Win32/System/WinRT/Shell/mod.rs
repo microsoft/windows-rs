@@ -4,16 +4,16 @@ impl IDDEInitializer {
     #[cfg(feature = "Win32_UI_Shell")]
     pub unsafe fn Initialize<P0, P1, P2, P3, P4, P5, P6, P7>(&self, fileextensionorprotocol: P0, method: CreateProcessMethod, currentdirectory: P1, exectarget: P2, site: P3, application: P4, targetfile: P5, arguments: P6, verb: P7) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<super::super::super::UI::Shell::IShellItem>,
-        P3: windows_core::IntoParam<windows_core::IUnknown>,
-        P4: windows_core::IntoParam<windows_core::PCWSTR>,
-        P5: windows_core::IntoParam<windows_core::PCWSTR>,
-        P6: windows_core::IntoParam<windows_core::PCWSTR>,
-        P7: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<super::super::super::UI::Shell::IShellItem>,
+        P3: windows_core::Param<windows_core::IUnknown>,
+        P4: windows_core::Param<windows_core::PCWSTR>,
+        P5: windows_core::Param<windows_core::PCWSTR>,
+        P6: windows_core::Param<windows_core::PCWSTR>,
+        P7: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), fileextensionorprotocol.into_param().abi(), method, currentdirectory.into_param().abi(), exectarget.into_param().abi(), site.into_param().abi(), application.into_param().abi(), targetfile.into_param().abi(), arguments.into_param().abi(), verb.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), fileextensionorprotocol.param().abi(), method, currentdirectory.param().abi(), exectarget.param().abi(), site.param().abi(), application.param().abi(), targetfile.param().abi(), arguments.param().abi(), verb.param().abi()).ok()
     }
 }
 #[repr(C)]

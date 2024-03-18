@@ -107,9 +107,9 @@ windows_core::imp::interface_hierarchy!(IDefaultLocation, windows_core::IUnknown
 impl IDefaultLocation {
     pub unsafe fn SetReport<P0>(&self, reporttype: *const windows_core::GUID, plocationreport: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ILocationReport>,
+        P0: windows_core::Param<ILocationReport>,
     {
-        (windows_core::Interface::vtable(self).SetReport)(windows_core::Interface::as_raw(self), reporttype, plocationreport.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetReport)(windows_core::Interface::as_raw(self), reporttype, plocationreport.param().abi()).ok()
     }
     pub unsafe fn GetReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<ILocationReport> {
         let mut result__ = std::mem::zeroed();
@@ -315,9 +315,9 @@ windows_core::imp::interface_hierarchy!(ILocation, windows_core::IUnknown);
 impl ILocation {
     pub unsafe fn RegisterForReport<P0>(&self, pevents: P0, reporttype: *const windows_core::GUID, dwrequestedreportinterval: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ILocationEvents>,
+        P0: windows_core::Param<ILocationEvents>,
     {
-        (windows_core::Interface::vtable(self).RegisterForReport)(windows_core::Interface::as_raw(self), pevents.into_param().abi(), reporttype, dwrequestedreportinterval).ok()
+        (windows_core::Interface::vtable(self).RegisterForReport)(windows_core::Interface::as_raw(self), pevents.param().abi(), reporttype, dwrequestedreportinterval).ok()
     }
     pub unsafe fn UnregisterForReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnregisterForReport)(windows_core::Interface::as_raw(self), reporttype).ok()
@@ -348,10 +348,10 @@ impl ILocation {
     }
     pub unsafe fn RequestPermissions<P0, P1>(&self, hparent: P0, preporttypes: &[windows_core::GUID], fmodal: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), hparent.into_param().abi(), core::mem::transmute(preporttypes.as_ptr()), preporttypes.len().try_into().unwrap(), fmodal.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), hparent.param().abi(), core::mem::transmute(preporttypes.as_ptr()), preporttypes.len().try_into().unwrap(), fmodal.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -378,9 +378,9 @@ windows_core::imp::interface_hierarchy!(ILocationEvents, windows_core::IUnknown)
 impl ILocationEvents {
     pub unsafe fn OnLocationChanged<P0>(&self, reporttype: *const windows_core::GUID, plocationreport: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ILocationReport>,
+        P0: windows_core::Param<ILocationReport>,
     {
-        (windows_core::Interface::vtable(self).OnLocationChanged)(windows_core::Interface::as_raw(self), reporttype, plocationreport.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnLocationChanged)(windows_core::Interface::as_raw(self), reporttype, plocationreport.param().abi()).ok()
     }
     pub unsafe fn OnStatusChanged(&self, reporttype: *const windows_core::GUID, newstatus: LOCATION_REPORT_STATUS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnStatusChanged)(windows_core::Interface::as_raw(self), reporttype, newstatus).ok()

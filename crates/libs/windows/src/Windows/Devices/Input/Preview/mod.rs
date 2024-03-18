@@ -242,12 +242,12 @@ windows_core::imp::interface_hierarchy!(GazeDeviceWatcherPreview, windows_core::
 impl GazeDeviceWatcherPreview {
     pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherAddedPreviewEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherAddedPreviewEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAdded(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -256,12 +256,12 @@ impl GazeDeviceWatcherPreview {
     }
     pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherRemovedPreviewEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherRemovedPreviewEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRemoved(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -270,12 +270,12 @@ impl GazeDeviceWatcherPreview {
     }
     pub fn Updated<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherUpdatedPreviewEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherUpdatedPreviewEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveUpdated(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -284,12 +284,12 @@ impl GazeDeviceWatcherPreview {
     }
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveEnumerationCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -446,12 +446,12 @@ windows_core::imp::interface_hierarchy!(GazeInputSourcePreview, windows_core::IU
 impl GazeInputSourcePreview {
     pub fn GazeMoved<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeMovedPreviewEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeMovedPreviewEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GazeMoved)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GazeMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveGazeMoved(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -460,12 +460,12 @@ impl GazeInputSourcePreview {
     }
     pub fn GazeEntered<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeEnteredPreviewEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeEnteredPreviewEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GazeEntered)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GazeEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveGazeEntered(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -474,12 +474,12 @@ impl GazeInputSourcePreview {
     }
     pub fn GazeExited<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeExitedPreviewEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeExitedPreviewEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GazeExited)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GazeExited)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveGazeExited(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

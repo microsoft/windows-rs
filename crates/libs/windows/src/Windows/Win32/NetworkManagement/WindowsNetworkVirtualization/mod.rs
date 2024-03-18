@@ -7,10 +7,10 @@ pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
 #[inline]
 pub unsafe fn WnvRequestNotification<P0>(wnvhandle: P0, notificationparam: *mut WNV_NOTIFICATION_PARAM, overlapped: *mut super::super::System::IO::OVERLAPPED, bytestransferred: *mut u32) -> u32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("wnvapi.dll" "system" fn WnvRequestNotification(wnvhandle : super::super::Foundation:: HANDLE, notificationparam : *mut WNV_NOTIFICATION_PARAM, overlapped : *mut super::super::System::IO:: OVERLAPPED, bytestransferred : *mut u32) -> u32);
-    WnvRequestNotification(wnvhandle.into_param().abi(), notificationparam, overlapped, bytestransferred)
+    WnvRequestNotification(wnvhandle.param().abi(), notificationparam, overlapped, bytestransferred)
 }
 pub const WNV_API_MAJOR_VERSION_1: u32 = 1u32;
 pub const WNV_API_MINOR_VERSION_0: u32 = 0u32;

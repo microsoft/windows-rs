@@ -206,15 +206,15 @@ impl LowLevelDevicesAggregateProvider {
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
     pub fn Create<P0, P1, P2, P3, P4>(adc: P0, pwm: P1, gpio: P2, i2c: P3, spi: P4) -> windows_core::Result<LowLevelDevicesAggregateProvider>
     where
-        P0: windows_core::IntoParam<Adc::Provider::IAdcControllerProvider>,
-        P1: windows_core::IntoParam<Pwm::Provider::IPwmControllerProvider>,
-        P2: windows_core::IntoParam<Gpio::Provider::IGpioControllerProvider>,
-        P3: windows_core::IntoParam<I2c::Provider::II2cControllerProvider>,
-        P4: windows_core::IntoParam<Spi::Provider::ISpiControllerProvider>,
+        P0: windows_core::Param<Adc::Provider::IAdcControllerProvider>,
+        P1: windows_core::Param<Pwm::Provider::IPwmControllerProvider>,
+        P2: windows_core::Param<Gpio::Provider::IGpioControllerProvider>,
+        P3: windows_core::Param<I2c::Provider::II2cControllerProvider>,
+        P4: windows_core::Param<Spi::Provider::ISpiControllerProvider>,
     {
         Self::ILowLevelDevicesAggregateProviderFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), adc.into_param().abi(), pwm.into_param().abi(), gpio.into_param().abi(), i2c.into_param().abi(), spi.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), adc.param().abi(), pwm.param().abi(), gpio.param().abi(), i2c.param().abi(), spi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -248,9 +248,9 @@ impl LowLevelDevicesController {
     }
     pub fn SetDefaultProvider<P0>(value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ILowLevelDevicesAggregateProvider>,
+        P0: windows_core::Param<ILowLevelDevicesAggregateProvider>,
     {
-        Self::ILowLevelDevicesControllerStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetDefaultProvider)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() })
+        Self::ILowLevelDevicesControllerStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetDefaultProvider)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
     #[doc(hidden)]
     pub fn ILowLevelDevicesControllerStatics<R, F: FnOnce(&ILowLevelDevicesControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

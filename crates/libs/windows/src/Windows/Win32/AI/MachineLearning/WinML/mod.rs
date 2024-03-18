@@ -15,29 +15,29 @@ windows_core::imp::interface_hierarchy!(IMLOperatorAttributes, windows_core::IUn
 impl IMLOperatorAttributes {
     pub unsafe fn GetAttributeElementCount<P0>(&self, name: P0, r#type: MLOperatorAttributeType) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAttributeElementCount)(windows_core::Interface::as_raw(self), name.into_param().abi(), r#type, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetAttributeElementCount)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, &mut result__).map(|| result__)
     }
     pub unsafe fn GetAttribute<P0>(&self, name: P0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut core::ffi::c_void) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetAttribute)(windows_core::Interface::as_raw(self), name.into_param().abi(), r#type, elementcount, elementbytesize, value).ok()
+        (windows_core::Interface::vtable(self).GetAttribute)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, elementcount, elementbytesize, value).ok()
     }
     pub unsafe fn GetStringAttributeElementLength<P0>(&self, name: P0, elementindex: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetStringAttributeElementLength)(windows_core::Interface::as_raw(self), name.into_param().abi(), elementindex, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetStringAttributeElementLength)(windows_core::Interface::as_raw(self), name.param().abi(), elementindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetStringAttributeElement<P0>(&self, name: P0, elementindex: u32, attributeelement: &mut [u8]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetStringAttributeElement)(windows_core::Interface::as_raw(self), name.into_param().abi(), elementindex, attributeelement.len().try_into().unwrap(), core::mem::transmute(attributeelement.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).GetStringAttributeElement)(windows_core::Interface::as_raw(self), name.param().abi(), elementindex, attributeelement.len().try_into().unwrap(), core::mem::transmute(attributeelement.as_ptr())).ok()
     }
 }
 #[repr(C)]
@@ -53,9 +53,9 @@ windows_core::imp::interface_hierarchy!(IMLOperatorKernel, windows_core::IUnknow
 impl IMLOperatorKernel {
     pub unsafe fn Compute<P0>(&self, context: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMLOperatorKernelContext>,
+        P0: windows_core::Param<IMLOperatorKernelContext>,
     {
-        (windows_core::Interface::vtable(self).Compute)(windows_core::Interface::as_raw(self), context.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Compute)(windows_core::Interface::as_raw(self), context.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -102,29 +102,29 @@ windows_core::imp::interface_hierarchy!(IMLOperatorKernelCreationContext, window
 impl IMLOperatorKernelCreationContext {
     pub unsafe fn GetAttributeElementCount<P0>(&self, name: P0, r#type: MLOperatorAttributeType) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetAttributeElementCount)(windows_core::Interface::as_raw(self), name.into_param().abi(), r#type, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.GetAttributeElementCount)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, &mut result__).map(|| result__)
     }
     pub unsafe fn GetAttribute<P0>(&self, name: P0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut core::ffi::c_void) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.GetAttribute)(windows_core::Interface::as_raw(self), name.into_param().abi(), r#type, elementcount, elementbytesize, value).ok()
+        (windows_core::Interface::vtable(self).base__.GetAttribute)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, elementcount, elementbytesize, value).ok()
     }
     pub unsafe fn GetStringAttributeElementLength<P0>(&self, name: P0, elementindex: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetStringAttributeElementLength)(windows_core::Interface::as_raw(self), name.into_param().abi(), elementindex, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.GetStringAttributeElementLength)(windows_core::Interface::as_raw(self), name.param().abi(), elementindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetStringAttributeElement<P0>(&self, name: P0, elementindex: u32, attributeelement: &mut [u8]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.GetStringAttributeElement)(windows_core::Interface::as_raw(self), name.into_param().abi(), elementindex, attributeelement.len().try_into().unwrap(), core::mem::transmute(attributeelement.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.GetStringAttributeElement)(windows_core::Interface::as_raw(self), name.param().abi(), elementindex, attributeelement.len().try_into().unwrap(), core::mem::transmute(attributeelement.as_ptr())).ok()
     }
     pub unsafe fn GetInputCount(&self) -> u32 {
         (windows_core::Interface::vtable(self).GetInputCount)(windows_core::Interface::as_raw(self))
@@ -177,10 +177,10 @@ windows_core::imp::interface_hierarchy!(IMLOperatorKernelFactory, windows_core::
 impl IMLOperatorKernelFactory {
     pub unsafe fn CreateKernel<P0>(&self, context: P0) -> windows_core::Result<IMLOperatorKernel>
     where
-        P0: windows_core::IntoParam<IMLOperatorKernelCreationContext>,
+        P0: windows_core::Param<IMLOperatorKernelCreationContext>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateKernel)(windows_core::Interface::as_raw(self), context.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateKernel)(windows_core::Interface::as_raw(self), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -193,17 +193,17 @@ windows_core::imp::interface_hierarchy!(IMLOperatorRegistry, windows_core::IUnkn
 impl IMLOperatorRegistry {
     pub unsafe fn RegisterOperatorSetSchema<P0, P1>(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: Option<&[*const MLOperatorSchemaDescription]>, typeinferrer: P0, shapeinferrer: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMLOperatorTypeInferrer>,
-        P1: windows_core::IntoParam<IMLOperatorShapeInferrer>,
+        P0: windows_core::Param<IMLOperatorTypeInferrer>,
+        P1: windows_core::Param<IMLOperatorShapeInferrer>,
     {
-        (windows_core::Interface::vtable(self).RegisterOperatorSetSchema)(windows_core::Interface::as_raw(self), operatorsetid, baselineversion, core::mem::transmute(schema.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), schema.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), typeinferrer.into_param().abi(), shapeinferrer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterOperatorSetSchema)(windows_core::Interface::as_raw(self), operatorsetid, baselineversion, core::mem::transmute(schema.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), schema.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), typeinferrer.param().abi(), shapeinferrer.param().abi()).ok()
     }
     pub unsafe fn RegisterOperatorKernel<P0, P1>(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: P0, shapeinferrer: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMLOperatorKernelFactory>,
-        P1: windows_core::IntoParam<IMLOperatorShapeInferrer>,
+        P0: windows_core::Param<IMLOperatorKernelFactory>,
+        P1: windows_core::Param<IMLOperatorShapeInferrer>,
     {
-        (windows_core::Interface::vtable(self).RegisterOperatorKernel)(windows_core::Interface::as_raw(self), operatorkernel, operatorkernelfactory.into_param().abi(), shapeinferrer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterOperatorKernel)(windows_core::Interface::as_raw(self), operatorkernel, operatorkernelfactory.param().abi(), shapeinferrer.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -217,29 +217,29 @@ windows_core::imp::interface_hierarchy!(IMLOperatorShapeInferenceContext, window
 impl IMLOperatorShapeInferenceContext {
     pub unsafe fn GetAttributeElementCount<P0>(&self, name: P0, r#type: MLOperatorAttributeType) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetAttributeElementCount)(windows_core::Interface::as_raw(self), name.into_param().abi(), r#type, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.GetAttributeElementCount)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, &mut result__).map(|| result__)
     }
     pub unsafe fn GetAttribute<P0>(&self, name: P0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut core::ffi::c_void) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.GetAttribute)(windows_core::Interface::as_raw(self), name.into_param().abi(), r#type, elementcount, elementbytesize, value).ok()
+        (windows_core::Interface::vtable(self).base__.GetAttribute)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, elementcount, elementbytesize, value).ok()
     }
     pub unsafe fn GetStringAttributeElementLength<P0>(&self, name: P0, elementindex: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetStringAttributeElementLength)(windows_core::Interface::as_raw(self), name.into_param().abi(), elementindex, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.GetStringAttributeElementLength)(windows_core::Interface::as_raw(self), name.param().abi(), elementindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetStringAttributeElement<P0>(&self, name: P0, elementindex: u32, attributeelement: &mut [u8]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.GetStringAttributeElement)(windows_core::Interface::as_raw(self), name.into_param().abi(), elementindex, attributeelement.len().try_into().unwrap(), core::mem::transmute(attributeelement.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.GetStringAttributeElement)(windows_core::Interface::as_raw(self), name.param().abi(), elementindex, attributeelement.len().try_into().unwrap(), core::mem::transmute(attributeelement.as_ptr())).ok()
     }
     pub unsafe fn GetInputCount(&self) -> u32 {
         (windows_core::Interface::vtable(self).GetInputCount)(windows_core::Interface::as_raw(self))
@@ -285,9 +285,9 @@ windows_core::imp::interface_hierarchy!(IMLOperatorShapeInferrer, windows_core::
 impl IMLOperatorShapeInferrer {
     pub unsafe fn InferOutputShapes<P0>(&self, context: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMLOperatorShapeInferenceContext>,
+        P0: windows_core::Param<IMLOperatorShapeInferenceContext>,
     {
-        (windows_core::Interface::vtable(self).InferOutputShapes)(windows_core::Interface::as_raw(self), context.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).InferOutputShapes)(windows_core::Interface::as_raw(self), context.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -368,29 +368,29 @@ windows_core::imp::interface_hierarchy!(IMLOperatorTypeInferenceContext, windows
 impl IMLOperatorTypeInferenceContext {
     pub unsafe fn GetAttributeElementCount<P0>(&self, name: P0, r#type: MLOperatorAttributeType) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetAttributeElementCount)(windows_core::Interface::as_raw(self), name.into_param().abi(), r#type, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.GetAttributeElementCount)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, &mut result__).map(|| result__)
     }
     pub unsafe fn GetAttribute<P0>(&self, name: P0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut core::ffi::c_void) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.GetAttribute)(windows_core::Interface::as_raw(self), name.into_param().abi(), r#type, elementcount, elementbytesize, value).ok()
+        (windows_core::Interface::vtable(self).base__.GetAttribute)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, elementcount, elementbytesize, value).ok()
     }
     pub unsafe fn GetStringAttributeElementLength<P0>(&self, name: P0, elementindex: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetStringAttributeElementLength)(windows_core::Interface::as_raw(self), name.into_param().abi(), elementindex, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.GetStringAttributeElementLength)(windows_core::Interface::as_raw(self), name.param().abi(), elementindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetStringAttributeElement<P0>(&self, name: P0, elementindex: u32, attributeelement: &mut [u8]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.GetStringAttributeElement)(windows_core::Interface::as_raw(self), name.into_param().abi(), elementindex, attributeelement.len().try_into().unwrap(), core::mem::transmute(attributeelement.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.GetStringAttributeElement)(windows_core::Interface::as_raw(self), name.param().abi(), elementindex, attributeelement.len().try_into().unwrap(), core::mem::transmute(attributeelement.as_ptr())).ok()
     }
     pub unsafe fn GetInputCount(&self) -> u32 {
         (windows_core::Interface::vtable(self).GetInputCount)(windows_core::Interface::as_raw(self))
@@ -427,9 +427,9 @@ windows_core::imp::interface_hierarchy!(IMLOperatorTypeInferrer, windows_core::I
 impl IMLOperatorTypeInferrer {
     pub unsafe fn InferOutputTypes<P0>(&self, context: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMLOperatorTypeInferenceContext>,
+        P0: windows_core::Param<IMLOperatorTypeInferenceContext>,
     {
-        (windows_core::Interface::vtable(self).InferOutputTypes)(windows_core::Interface::as_raw(self), context.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).InferOutputTypes)(windows_core::Interface::as_raw(self), context.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -447,10 +447,10 @@ impl IWinMLEvaluationContext {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetValueByName<P0>(&self, name: P0) -> windows_core::Result<*mut WINML_BINDING_DESC>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetValueByName)(windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetValueByName)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Clear(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok()
@@ -501,24 +501,24 @@ windows_core::imp::interface_hierarchy!(IWinMLRuntime, windows_core::IUnknown);
 impl IWinMLRuntime {
     pub unsafe fn LoadModel<P0>(&self, path: P0) -> windows_core::Result<IWinMLModel>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).LoadModel)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).LoadModel)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateEvaluationContext<P0>(&self, device: P0) -> windows_core::Result<IWinMLEvaluationContext>
     where
-        P0: windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12Device>,
+        P0: windows_core::Param<super::super::super::Graphics::Direct3D12::ID3D12Device>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateEvaluationContext)(windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateEvaluationContext)(windows_core::Interface::as_raw(self), device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EvaluateModel<P0>(&self, pcontext: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWinMLEvaluationContext>,
+        P0: windows_core::Param<IWinMLEvaluationContext>,
     {
-        (windows_core::Interface::vtable(self).EvaluateModel)(windows_core::Interface::as_raw(self), pcontext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).EvaluateModel)(windows_core::Interface::as_raw(self), pcontext.param().abi()).ok()
     }
 }
 #[repr(C)]

@@ -72,12 +72,12 @@ windows_core::imp::interface_hierarchy!(ICoreAcceleratorKeys, windows_core::IUnk
 impl ICoreAcceleratorKeys {
     pub fn AcceleratorKeyActivated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AcceleratorKeyActivated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AcceleratorKeyActivated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAcceleratorKeyActivated(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -225,12 +225,12 @@ impl ICoreInputSourceBase {
     }
     pub fn InputEnabled<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, InputEnabledEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, InputEnabledEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).InputEnabled)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).InputEnabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveInputEnabled(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -311,19 +311,19 @@ impl ICorePointerInputSource {
     }
     pub fn SetPointerCursor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<CoreCursor>,
+        P0: windows_core::Param<CoreCursor>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPointerCursor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPointerCursor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn PointerCaptureLost<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerCaptureLost)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerCaptureLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerCaptureLost(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -332,12 +332,12 @@ impl ICorePointerInputSource {
     }
     pub fn PointerEntered<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerEntered(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -346,12 +346,12 @@ impl ICorePointerInputSource {
     }
     pub fn PointerExited<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerExited(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -360,12 +360,12 @@ impl ICorePointerInputSource {
     }
     pub fn PointerMoved<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerMoved(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -374,12 +374,12 @@ impl ICorePointerInputSource {
     }
     pub fn PointerPressed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerPressed(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -388,12 +388,12 @@ impl ICorePointerInputSource {
     }
     pub fn PointerReleased<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerReleased(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -402,12 +402,12 @@ impl ICorePointerInputSource {
     }
     pub fn PointerWheelChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerWheelChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerWheelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerWheelChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -485,19 +485,19 @@ impl ICorePointerInputSource2 {
     }
     pub fn SetPointerCursor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<CoreCursor>,
+        P0: windows_core::Param<CoreCursor>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPointerCursor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPointerCursor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn PointerCaptureLost<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerCaptureLost)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerCaptureLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerCaptureLost(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -506,12 +506,12 @@ impl ICorePointerInputSource2 {
     }
     pub fn PointerEntered<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerEntered(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -520,12 +520,12 @@ impl ICorePointerInputSource2 {
     }
     pub fn PointerExited<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerExited(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -534,12 +534,12 @@ impl ICorePointerInputSource2 {
     }
     pub fn PointerMoved<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerMoved(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -548,12 +548,12 @@ impl ICorePointerInputSource2 {
     }
     pub fn PointerPressed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerPressed(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -562,12 +562,12 @@ impl ICorePointerInputSource2 {
     }
     pub fn PointerReleased<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerReleased(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -576,12 +576,12 @@ impl ICorePointerInputSource2 {
     }
     pub fn PointerWheelChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerWheelChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerWheelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerWheelChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -605,12 +605,12 @@ windows_core::imp::interface_hierarchy!(ICorePointerRedirector, windows_core::IU
 impl ICorePointerRedirector {
     pub fn PointerRoutedAway<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerRoutedAway)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerRoutedAway)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerRoutedAway(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -619,12 +619,12 @@ impl ICorePointerRedirector {
     }
     pub fn PointerRoutedTo<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerRoutedTo)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerRoutedTo)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerRoutedTo(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -633,12 +633,12 @@ impl ICorePointerRedirector {
     }
     pub fn PointerRoutedReleased<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerRoutedReleased)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerRoutedReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerRoutedReleased(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -732,10 +732,10 @@ impl ICoreWindow {
     }
     pub fn SetPointerCursor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<CoreCursor>,
+        P0: windows_core::Param<CoreCursor>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPointerCursor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPointerCursor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn PointerPosition(&self) -> windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -785,12 +785,12 @@ impl ICoreWindow {
     }
     pub fn Activated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, WindowActivatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, WindowActivatedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Activated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Activated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveActivated(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -799,12 +799,12 @@ impl ICoreWindow {
     }
     pub fn AutomationProviderRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, AutomationProviderRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, AutomationProviderRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AutomationProviderRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AutomationProviderRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAutomationProviderRequested(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -813,12 +813,12 @@ impl ICoreWindow {
     }
     pub fn CharacterReceived<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, CharacterReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, CharacterReceivedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CharacterReceived)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CharacterReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCharacterReceived(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -827,12 +827,12 @@ impl ICoreWindow {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosed(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -841,12 +841,12 @@ impl ICoreWindow {
     }
     pub fn InputEnabled<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, InputEnabledEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, InputEnabledEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).InputEnabled)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).InputEnabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveInputEnabled(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -855,12 +855,12 @@ impl ICoreWindow {
     }
     pub fn KeyDown<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).KeyDown)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).KeyDown)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveKeyDown(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -869,12 +869,12 @@ impl ICoreWindow {
     }
     pub fn KeyUp<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).KeyUp)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).KeyUp)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveKeyUp(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -883,12 +883,12 @@ impl ICoreWindow {
     }
     pub fn PointerCaptureLost<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerCaptureLost)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerCaptureLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerCaptureLost(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -897,12 +897,12 @@ impl ICoreWindow {
     }
     pub fn PointerEntered<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerEntered(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -911,12 +911,12 @@ impl ICoreWindow {
     }
     pub fn PointerExited<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerExited(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -925,12 +925,12 @@ impl ICoreWindow {
     }
     pub fn PointerMoved<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerMoved(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -939,12 +939,12 @@ impl ICoreWindow {
     }
     pub fn PointerPressed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerPressed(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -953,12 +953,12 @@ impl ICoreWindow {
     }
     pub fn PointerReleased<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerReleased(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -967,12 +967,12 @@ impl ICoreWindow {
     }
     pub fn TouchHitTesting<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, TouchHitTestingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, TouchHitTestingEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TouchHitTesting)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TouchHitTesting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTouchHitTesting(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -981,12 +981,12 @@ impl ICoreWindow {
     }
     pub fn PointerWheelChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerWheelChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerWheelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerWheelChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -995,12 +995,12 @@ impl ICoreWindow {
     }
     pub fn SizeChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, WindowSizeChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, WindowSizeChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SizeChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SizeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSizeChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1009,12 +1009,12 @@ impl ICoreWindow {
     }
     pub fn VisibilityChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, VisibilityChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, VisibilityChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).VisibilityChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VisibilityChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveVisibilityChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1317,10 +1317,10 @@ windows_core::imp::interface_hierarchy!(IInitializeWithCoreWindow, windows_core:
 impl IInitializeWithCoreWindow {
     pub fn Initialize<P0>(&self, window: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<CoreWindow>,
+        P0: windows_core::Param<CoreWindow>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Initialize)(windows_core::Interface::as_raw(this), window.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Initialize)(windows_core::Interface::as_raw(this), window.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for IInitializeWithCoreWindow {
@@ -1526,10 +1526,10 @@ impl AutomationProviderRequestedEventArgs {
     }
     pub fn SetAutomationProvider<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAutomationProvider)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAutomationProvider)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ICoreWindowEventArgs>(self)?;
@@ -1673,12 +1673,12 @@ windows_core::imp::required_hierarchy!(CoreAcceleratorKeys, ICoreAcceleratorKeys
 impl CoreAcceleratorKeys {
     pub fn AcceleratorKeyActivated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AcceleratorKeyActivated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AcceleratorKeyActivated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAcceleratorKeyActivated(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1706,12 +1706,12 @@ windows_core::imp::required_hierarchy!(CoreComponentInputSource, ICoreInputSourc
 impl CoreComponentInputSource {
     pub fn ClosestInteractiveBoundsRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreComponentInputSource, ClosestInteractiveBoundsRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreComponentInputSource, ClosestInteractiveBoundsRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICoreClosestInteractiveBoundsRequested>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ClosestInteractiveBoundsRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ClosestInteractiveBoundsRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosestInteractiveBoundsRequested(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1727,12 +1727,12 @@ impl CoreComponentInputSource {
     }
     pub fn GotFocus<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, CoreWindowEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, CoreWindowEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICoreComponentFocusable>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GotFocus)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GotFocus)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveGotFocus(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1741,12 +1741,12 @@ impl CoreComponentInputSource {
     }
     pub fn LostFocus<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, CoreWindowEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, CoreWindowEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICoreComponentFocusable>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LostFocus)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).LostFocus)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveLostFocus(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1773,12 +1773,12 @@ impl CoreComponentInputSource {
     }
     pub fn InputEnabled<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, InputEnabledEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, InputEnabledEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).InputEnabled)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).InputEnabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveInputEnabled(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1795,12 +1795,12 @@ impl CoreComponentInputSource {
     }
     pub fn CharacterReceived<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, CharacterReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, CharacterReceivedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CharacterReceived)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CharacterReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCharacterReceived(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1809,12 +1809,12 @@ impl CoreComponentInputSource {
     }
     pub fn KeyDown<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, KeyEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, KeyEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).KeyDown)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).KeyDown)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveKeyDown(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1823,12 +1823,12 @@ impl CoreComponentInputSource {
     }
     pub fn KeyUp<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, KeyEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, KeyEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).KeyUp)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).KeyUp)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveKeyUp(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1873,19 +1873,19 @@ impl CoreComponentInputSource {
     }
     pub fn SetPointerCursor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<CoreCursor>,
+        P0: windows_core::Param<CoreCursor>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPointerCursor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPointerCursor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn PointerCaptureLost<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerCaptureLost)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerCaptureLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerCaptureLost(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1894,12 +1894,12 @@ impl CoreComponentInputSource {
     }
     pub fn PointerEntered<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerEntered(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1908,12 +1908,12 @@ impl CoreComponentInputSource {
     }
     pub fn PointerExited<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerExited(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1922,12 +1922,12 @@ impl CoreComponentInputSource {
     }
     pub fn PointerMoved<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerMoved(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1936,12 +1936,12 @@ impl CoreComponentInputSource {
     }
     pub fn PointerPressed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerPressed(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1950,12 +1950,12 @@ impl CoreComponentInputSource {
     }
     pub fn PointerReleased<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerReleased(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1964,12 +1964,12 @@ impl CoreComponentInputSource {
     }
     pub fn PointerWheelChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerWheelChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerWheelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerWheelChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1986,12 +1986,12 @@ impl CoreComponentInputSource {
     }
     pub fn TouchHitTesting<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, TouchHitTestingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, TouchHitTestingEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICoreTouchHitTesting>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TouchHitTesting)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TouchHitTesting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTouchHitTesting(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2062,12 +2062,12 @@ windows_core::imp::required_hierarchy!(CoreDispatcher, ICoreAcceleratorKeys);
 impl CoreDispatcher {
     pub fn AcceleratorKeyActivated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICoreAcceleratorKeys>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AcceleratorKeyActivated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AcceleratorKeyActivated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAcceleratorKeyActivated(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2087,42 +2087,42 @@ impl CoreDispatcher {
     }
     pub fn RunAsync<P0>(&self, priority: CoreDispatcherPriority, agilecallback: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<DispatchedHandler>,
+        P0: windows_core::Param<DispatchedHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RunAsync)(windows_core::Interface::as_raw(this), priority, agilecallback.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RunAsync)(windows_core::Interface::as_raw(this), priority, agilecallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RunIdleAsync<P0>(&self, agilecallback: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<IdleDispatchedHandler>,
+        P0: windows_core::Param<IdleDispatchedHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RunIdleAsync)(windows_core::Interface::as_raw(this), agilecallback.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RunIdleAsync)(windows_core::Interface::as_raw(this), agilecallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryRunAsync<P0>(&self, priority: CoreDispatcherPriority, agilecallback: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<DispatchedHandler>,
+        P0: windows_core::Param<DispatchedHandler>,
     {
         let this = &windows_core::Interface::cast::<ICoreDispatcher2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryRunAsync)(windows_core::Interface::as_raw(this), priority, agilecallback.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryRunAsync)(windows_core::Interface::as_raw(this), priority, agilecallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryRunIdleAsync<P0>(&self, agilecallback: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<IdleDispatchedHandler>,
+        P0: windows_core::Param<IdleDispatchedHandler>,
     {
         let this = &windows_core::Interface::cast::<ICoreDispatcher2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryRunIdleAsync)(windows_core::Interface::as_raw(this), agilecallback.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryRunIdleAsync)(windows_core::Interface::as_raw(this), agilecallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CurrentPriority(&self) -> windows_core::Result<CoreDispatcherPriority> {
@@ -2193,12 +2193,12 @@ impl CoreIndependentInputSource {
     }
     pub fn InputEnabled<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, InputEnabledEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, InputEnabledEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).InputEnabled)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).InputEnabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveInputEnabled(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2236,19 +2236,19 @@ impl CoreIndependentInputSource {
     }
     pub fn SetPointerCursor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<CoreCursor>,
+        P0: windows_core::Param<CoreCursor>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPointerCursor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPointerCursor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn PointerCaptureLost<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerCaptureLost)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerCaptureLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerCaptureLost(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2257,12 +2257,12 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerEntered<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerEntered(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2271,12 +2271,12 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerExited<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerExited(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2285,12 +2285,12 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerMoved<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerMoved(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2299,12 +2299,12 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerPressed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerPressed(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2313,12 +2313,12 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerReleased<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerReleased(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2327,12 +2327,12 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerWheelChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerWheelChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerWheelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerWheelChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2349,12 +2349,12 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerRoutedAway<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerRedirector>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerRoutedAway)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerRoutedAway)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerRoutedAway(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2363,12 +2363,12 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerRoutedTo<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerRedirector>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerRoutedTo)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerRoutedTo)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerRoutedTo(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2377,12 +2377,12 @@ impl CoreIndependentInputSource {
     }
     pub fn PointerRoutedReleased<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerRedirector>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerRoutedReleased)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerRoutedReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerRoutedReleased(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2452,21 +2452,21 @@ impl CoreIndependentInputSourceController {
     #[cfg(feature = "UI_Composition")]
     pub fn CreateForVisual<P0>(visual: P0) -> windows_core::Result<CoreIndependentInputSourceController>
     where
-        P0: windows_core::IntoParam<super::Composition::Visual>,
+        P0: windows_core::Param<super::Composition::Visual>,
     {
         Self::ICoreIndependentInputSourceControllerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForVisual)(windows_core::Interface::as_raw(this), visual.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForVisual)(windows_core::Interface::as_raw(this), visual.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "UI_Composition")]
     pub fn CreateForIVisualElement<P0>(visualelement: P0) -> windows_core::Result<CoreIndependentInputSourceController>
     where
-        P0: windows_core::IntoParam<super::Composition::IVisualElement>,
+        P0: windows_core::Param<super::Composition::IVisualElement>,
     {
         Self::ICoreIndependentInputSourceControllerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForIVisualElement)(windows_core::Interface::as_raw(this), visualelement.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForIVisualElement)(windows_core::Interface::as_raw(this), visualelement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -2495,12 +2495,12 @@ windows_core::imp::required_hierarchy!(CoreWindow, ICorePointerRedirector, ICore
 impl CoreWindow {
     pub fn PointerRoutedAway<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerRedirector>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerRoutedAway)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerRoutedAway)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerRoutedAway(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2509,12 +2509,12 @@ impl CoreWindow {
     }
     pub fn PointerRoutedTo<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerRedirector>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerRoutedTo)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerRoutedTo)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerRoutedTo(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2523,12 +2523,12 @@ impl CoreWindow {
     }
     pub fn PointerRoutedReleased<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICorePointerRedirector>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerRoutedReleased)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerRoutedReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerRoutedReleased(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2595,10 +2595,10 @@ impl CoreWindow {
     }
     pub fn SetPointerCursor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<CoreCursor>,
+        P0: windows_core::Param<CoreCursor>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPointerCursor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPointerCursor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn PointerPosition(&self) -> windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -2648,12 +2648,12 @@ impl CoreWindow {
     }
     pub fn Activated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, WindowActivatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, WindowActivatedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Activated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Activated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveActivated(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2662,12 +2662,12 @@ impl CoreWindow {
     }
     pub fn AutomationProviderRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, AutomationProviderRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, AutomationProviderRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AutomationProviderRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AutomationProviderRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAutomationProviderRequested(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2676,12 +2676,12 @@ impl CoreWindow {
     }
     pub fn CharacterReceived<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, CharacterReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, CharacterReceivedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CharacterReceived)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CharacterReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCharacterReceived(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2690,12 +2690,12 @@ impl CoreWindow {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosed(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2704,12 +2704,12 @@ impl CoreWindow {
     }
     pub fn InputEnabled<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, InputEnabledEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, InputEnabledEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).InputEnabled)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).InputEnabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveInputEnabled(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2718,12 +2718,12 @@ impl CoreWindow {
     }
     pub fn KeyDown<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).KeyDown)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).KeyDown)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveKeyDown(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2732,12 +2732,12 @@ impl CoreWindow {
     }
     pub fn KeyUp<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).KeyUp)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).KeyUp)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveKeyUp(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2746,12 +2746,12 @@ impl CoreWindow {
     }
     pub fn PointerCaptureLost<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerCaptureLost)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerCaptureLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerCaptureLost(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2760,12 +2760,12 @@ impl CoreWindow {
     }
     pub fn PointerEntered<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerEntered(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2774,12 +2774,12 @@ impl CoreWindow {
     }
     pub fn PointerExited<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerExited(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2788,12 +2788,12 @@ impl CoreWindow {
     }
     pub fn PointerMoved<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerMoved(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2802,12 +2802,12 @@ impl CoreWindow {
     }
     pub fn PointerPressed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerPressed(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2816,12 +2816,12 @@ impl CoreWindow {
     }
     pub fn PointerReleased<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerReleased(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2830,12 +2830,12 @@ impl CoreWindow {
     }
     pub fn TouchHitTesting<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, TouchHitTestingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, TouchHitTestingEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TouchHitTesting)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TouchHitTesting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTouchHitTesting(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2844,12 +2844,12 @@ impl CoreWindow {
     }
     pub fn PointerWheelChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerWheelChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerWheelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerWheelChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2858,12 +2858,12 @@ impl CoreWindow {
     }
     pub fn SizeChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, WindowSizeChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, WindowSizeChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SizeChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SizeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSizeChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2872,12 +2872,12 @@ impl CoreWindow {
     }
     pub fn VisibilityChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, VisibilityChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, VisibilityChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).VisibilityChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VisibilityChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveVisibilityChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2890,12 +2890,12 @@ impl CoreWindow {
     }
     pub fn ClosestInteractiveBoundsRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, ClosestInteractiveBoundsRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, ClosestInteractiveBoundsRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICoreWindow3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ClosestInteractiveBoundsRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ClosestInteractiveBoundsRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosestInteractiveBoundsRequested(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2911,12 +2911,12 @@ impl CoreWindow {
     }
     pub fn ResizeStarted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<ICoreWindow4>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResizeStarted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ResizeStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveResizeStarted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2925,12 +2925,12 @@ impl CoreWindow {
     }
     pub fn ResizeCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<ICoreWindow4>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResizeCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ResizeCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveResizeCompleted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2995,12 +2995,12 @@ impl CoreWindowDialog {
     }
     pub fn Showing<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowPopupShowingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowPopupShowingEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Showing)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Showing)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveShowing(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3084,10 +3084,10 @@ impl CoreWindowDialog {
     #[cfg(feature = "UI_Popups")]
     pub fn SetBackButtonCommand<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Popups::UICommandInvokedHandler>,
+        P0: windows_core::Param<super::Popups::UICommandInvokedHandler>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBackButtonCommand)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBackButtonCommand)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "UI_Popups")]
     pub fn ShowAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::Popups::IUICommand>> {
@@ -3154,12 +3154,12 @@ windows_core::imp::interface_hierarchy!(CoreWindowFlyout, windows_core::IUnknown
 impl CoreWindowFlyout {
     pub fn Showing<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowPopupShowingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowPopupShowingEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Showing)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Showing)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveShowing(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3232,10 +3232,10 @@ impl CoreWindowFlyout {
     #[cfg(feature = "UI_Popups")]
     pub fn SetBackButtonCommand<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Popups::UICommandInvokedHandler>,
+        P0: windows_core::Param<super::Popups::UICommandInvokedHandler>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBackButtonCommand)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBackButtonCommand)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "UI_Popups")]
     pub fn ShowAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::Popups::IUICommand>> {
@@ -3504,12 +3504,12 @@ windows_core::imp::interface_hierarchy!(SystemNavigationManager, windows_core::I
 impl SystemNavigationManager {
     pub fn BackRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::EventHandler<BackRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<BackRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).BackRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).BackRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveBackRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4209,10 +4209,10 @@ impl IdleDispatchedHandler {
     }
     pub fn Invoke<P0>(&self, e: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IdleDispatchedHandlerArgs>,
+        P0: windows_core::Param<IdleDispatchedHandlerArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), e.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), e.param().abi()).ok() }
     }
 }
 #[repr(C)]

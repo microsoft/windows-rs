@@ -146,19 +146,19 @@ impl CastingConnection {
     }
     pub fn SetSource<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<CastingSource>,
+        P0: windows_core::Param<CastingSource>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSource)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSource)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CastingConnection, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CastingConnection, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -167,12 +167,12 @@ impl CastingConnection {
     }
     pub fn ErrorOccurred<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CastingConnection, CastingConnectionErrorOccurredEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CastingConnection, CastingConnectionErrorOccurredEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ErrorOccurred)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ErrorOccurred)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveErrorOccurred(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -181,12 +181,12 @@ impl CastingConnection {
     }
     pub fn RequestStartCastingAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>>
     where
-        P0: windows_core::IntoParam<CastingSource>,
+        P0: windows_core::Param<CastingSource>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestStartCastingAsync)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestStartCastingAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DisconnectAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>> {
@@ -294,11 +294,11 @@ impl CastingDevice {
     }
     pub fn GetDeviceSelectorFromCastingSourceAsync<P0>(castingsource: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
     where
-        P0: windows_core::IntoParam<CastingSource>,
+        P0: windows_core::Param<CastingSource>,
     {
         Self::ICastingDeviceStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceSelectorFromCastingSourceAsync)(windows_core::Interface::as_raw(this), castingsource.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDeviceSelectorFromCastingSourceAsync)(windows_core::Interface::as_raw(this), castingsource.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn FromIdAsync(value: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<CastingDevice>> {
@@ -310,11 +310,11 @@ impl CastingDevice {
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceInfoSupportsCastingAsync<P0>(device: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::Devices::Enumeration::DeviceInformation>,
+        P0: windows_core::Param<super::super::Devices::Enumeration::DeviceInformation>,
     {
         Self::ICastingDeviceStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceInfoSupportsCastingAsync)(windows_core::Interface::as_raw(this), device.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DeviceInfoSupportsCastingAsync)(windows_core::Interface::as_raw(this), device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -364,12 +364,12 @@ impl CastingDevicePicker {
     }
     pub fn CastingDeviceSelected<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CastingDevicePicker, CastingDeviceSelectedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CastingDevicePicker, CastingDeviceSelectedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CastingDeviceSelected)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CastingDeviceSelected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCastingDeviceSelected(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -378,12 +378,12 @@ impl CastingDevicePicker {
     }
     pub fn CastingDevicePickerDismissed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CastingDevicePicker, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CastingDevicePicker, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CastingDevicePickerDismissed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CastingDevicePickerDismissed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCastingDevicePickerDismissed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -514,10 +514,10 @@ impl CastingSource {
     }
     pub fn SetPreferredSourceUri<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPreferredSourceUri)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPreferredSourceUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for CastingSource {

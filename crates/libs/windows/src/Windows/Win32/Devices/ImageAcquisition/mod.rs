@@ -157,9 +157,9 @@ impl IWiaAppErrorHandler {
     }
     pub unsafe fn ReportStatus<P0>(&self, lflags: i32, pwiaitem2: P0, hrstatus: windows_core::HRESULT, lpercentcomplete: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWiaItem2>,
+        P0: windows_core::Param<IWiaItem2>,
     {
-        (windows_core::Interface::vtable(self).ReportStatus)(windows_core::Interface::as_raw(self), lflags, pwiaitem2.into_param().abi(), hrstatus, lpercentcomplete).ok()
+        (windows_core::Interface::vtable(self).ReportStatus)(windows_core::Interface::as_raw(self), lflags, pwiaitem2.param().abi(), hrstatus, lpercentcomplete).ok()
     }
 }
 #[repr(C)]
@@ -186,15 +186,15 @@ impl IWiaDataTransfer {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn idtGetData<P0>(&self, pmedium: *mut super::super::System::Com::STGMEDIUM, piwiadatacallback: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWiaDataCallback>,
+        P0: windows_core::Param<IWiaDataCallback>,
     {
-        (windows_core::Interface::vtable(self).idtGetData)(windows_core::Interface::as_raw(self), pmedium, piwiadatacallback.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).idtGetData)(windows_core::Interface::as_raw(self), pmedium, piwiadatacallback.param().abi()).ok()
     }
     pub unsafe fn idtGetBandedData<P0>(&self, pwiadatatransinfo: *mut WIA_DATA_TRANSFER_INFO, piwiadatacallback: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWiaDataCallback>,
+        P0: windows_core::Param<IWiaDataCallback>,
     {
-        (windows_core::Interface::vtable(self).idtGetBandedData)(windows_core::Interface::as_raw(self), pwiadatatransinfo, piwiadatacallback.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).idtGetBandedData)(windows_core::Interface::as_raw(self), pwiadatatransinfo, piwiadatacallback.param().abi()).ok()
     }
     pub unsafe fn idtQueryGetData(&self, pfe: Option<*const WIA_FORMAT_INFO>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).idtQueryGetData)(windows_core::Interface::as_raw(self), core::mem::transmute(pfe.unwrap_or(std::ptr::null()))).ok()
@@ -228,63 +228,63 @@ impl IWiaDevMgr {
     }
     pub unsafe fn CreateDevice<P0>(&self, bstrdeviceid: P0) -> windows_core::Result<IWiaItem>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), bstrdeviceid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), bstrdeviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SelectDeviceDlg<P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR, ppitemroot: *mut Option<IWiaItem>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).SelectDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ldevicetype, lflags, core::mem::transmute(pbstrdeviceid), core::mem::transmute(ppitemroot)).ok()
+        (windows_core::Interface::vtable(self).SelectDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), ldevicetype, lflags, core::mem::transmute(pbstrdeviceid), core::mem::transmute(ppitemroot)).ok()
     }
     pub unsafe fn SelectDeviceDlgID<P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).SelectDeviceDlgID)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ldevicetype, lflags, core::mem::transmute(pbstrdeviceid)).ok()
+        (windows_core::Interface::vtable(self).SelectDeviceDlgID)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), ldevicetype, lflags, core::mem::transmute(pbstrdeviceid)).ok()
     }
     pub unsafe fn GetImageDlg<P0, P1, P2>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, lintent: i32, pitemroot: P1, bstrfilename: P2, pguidformat: *mut windows_core::GUID) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<IWiaItem>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<IWiaItem>,
+        P2: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).GetImageDlg)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ldevicetype, lflags, lintent, pitemroot.into_param().abi(), bstrfilename.into_param().abi(), pguidformat).ok()
+        (windows_core::Interface::vtable(self).GetImageDlg)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), ldevicetype, lflags, lintent, pitemroot.param().abi(), bstrfilename.param().abi(), pguidformat).ok()
     }
     pub unsafe fn RegisterEventCallbackProgram<P0, P1, P2, P3, P4>(&self, lflags: i32, bstrdeviceid: P0, peventguid: *const windows_core::GUID, bstrcommandline: P1, bstrname: P2, bstrdescription: P3, bstricon: P4) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
-        P3: windows_core::IntoParam<windows_core::BSTR>,
-        P4: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
+        P3: windows_core::Param<windows_core::BSTR>,
+        P4: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).RegisterEventCallbackProgram)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.into_param().abi(), peventguid, bstrcommandline.into_param().abi(), bstrname.into_param().abi(), bstrdescription.into_param().abi(), bstricon.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterEventCallbackProgram)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.param().abi(), peventguid, bstrcommandline.param().abi(), bstrname.param().abi(), bstrdescription.param().abi(), bstricon.param().abi()).ok()
     }
     pub unsafe fn RegisterEventCallbackInterface<P0, P1>(&self, lflags: i32, bstrdeviceid: P0, peventguid: *const windows_core::GUID, piwiaeventcallback: P1) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<IWiaEventCallback>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<IWiaEventCallback>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).RegisterEventCallbackInterface)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.into_param().abi(), peventguid, piwiaeventcallback.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RegisterEventCallbackInterface)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.param().abi(), peventguid, piwiaeventcallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterEventCallbackCLSID<P0, P1, P2, P3>(&self, lflags: i32, bstrdeviceid: P0, peventguid: *const windows_core::GUID, pclsid: *const windows_core::GUID, bstrname: P1, bstrdescription: P2, bstricon: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
-        P3: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
+        P3: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).RegisterEventCallbackCLSID)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.into_param().abi(), peventguid, pclsid, bstrname.into_param().abi(), bstrdescription.into_param().abi(), bstricon.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterEventCallbackCLSID)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.param().abi(), peventguid, pclsid, bstrname.param().abi(), bstrdescription.param().abi(), bstricon.param().abi()).ok()
     }
     pub unsafe fn AddDeviceDlg<P0>(&self, hwndparent: P0, lflags: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).AddDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), lflags).ok()
+        (windows_core::Interface::vtable(self).AddDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), lflags).ok()
     }
 }
 #[repr(C)]
@@ -309,59 +309,59 @@ impl IWiaDevMgr2 {
     }
     pub unsafe fn CreateDevice<P0>(&self, lflags: i32, bstrdeviceid: P0) -> windows_core::Result<IWiaItem2>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SelectDeviceDlg<P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR, ppitemroot: *mut Option<IWiaItem2>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).SelectDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ldevicetype, lflags, core::mem::transmute(pbstrdeviceid), core::mem::transmute(ppitemroot)).ok()
+        (windows_core::Interface::vtable(self).SelectDeviceDlg)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), ldevicetype, lflags, core::mem::transmute(pbstrdeviceid), core::mem::transmute(ppitemroot)).ok()
     }
     pub unsafe fn SelectDeviceDlgID<P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut windows_core::BSTR) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).SelectDeviceDlgID)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), ldevicetype, lflags, core::mem::transmute(pbstrdeviceid)).ok()
+        (windows_core::Interface::vtable(self).SelectDeviceDlgID)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), ldevicetype, lflags, core::mem::transmute(pbstrdeviceid)).ok()
     }
     pub unsafe fn RegisterEventCallbackInterface<P0, P1>(&self, lflags: i32, bstrdeviceid: P0, peventguid: *const windows_core::GUID, piwiaeventcallback: P1) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<IWiaEventCallback>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<IWiaEventCallback>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).RegisterEventCallbackInterface)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.into_param().abi(), peventguid, piwiaeventcallback.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RegisterEventCallbackInterface)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.param().abi(), peventguid, piwiaeventcallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterEventCallbackProgram<P0, P1, P2, P3, P4, P5>(&self, lflags: i32, bstrdeviceid: P0, peventguid: *const windows_core::GUID, bstrfullappname: P1, bstrcommandlinearg: P2, bstrname: P3, bstrdescription: P4, bstricon: P5) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
-        P3: windows_core::IntoParam<windows_core::BSTR>,
-        P4: windows_core::IntoParam<windows_core::BSTR>,
-        P5: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
+        P3: windows_core::Param<windows_core::BSTR>,
+        P4: windows_core::Param<windows_core::BSTR>,
+        P5: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).RegisterEventCallbackProgram)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.into_param().abi(), peventguid, bstrfullappname.into_param().abi(), bstrcommandlinearg.into_param().abi(), bstrname.into_param().abi(), bstrdescription.into_param().abi(), bstricon.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterEventCallbackProgram)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.param().abi(), peventguid, bstrfullappname.param().abi(), bstrcommandlinearg.param().abi(), bstrname.param().abi(), bstrdescription.param().abi(), bstricon.param().abi()).ok()
     }
     pub unsafe fn RegisterEventCallbackCLSID<P0, P1, P2, P3>(&self, lflags: i32, bstrdeviceid: P0, peventguid: *const windows_core::GUID, pclsid: *const windows_core::GUID, bstrname: P1, bstrdescription: P2, bstricon: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
-        P3: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
+        P3: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).RegisterEventCallbackCLSID)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.into_param().abi(), peventguid, pclsid, bstrname.into_param().abi(), bstrdescription.into_param().abi(), bstricon.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterEventCallbackCLSID)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.param().abi(), peventguid, pclsid, bstrname.param().abi(), bstrdescription.param().abi(), bstricon.param().abi()).ok()
     }
     pub unsafe fn GetImageDlg<P0, P1, P2, P3>(&self, lflags: i32, bstrdeviceid: P0, hwndparent: P1, bstrfoldername: P2, bstrfilename: P3, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut windows_core::BSTR, ppitem: *mut Option<IWiaItem2>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
-        P3: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::Foundation::HWND>,
+        P2: windows_core::Param<windows_core::BSTR>,
+        P3: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).GetImageDlg)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.into_param().abi(), hwndparent.into_param().abi(), bstrfoldername.into_param().abi(), bstrfilename.into_param().abi(), plnumfiles, ppbstrfilepaths, core::mem::transmute(ppitem)).ok()
+        (windows_core::Interface::vtable(self).GetImageDlg)(windows_core::Interface::as_raw(self), lflags, bstrdeviceid.param().abi(), hwndparent.param().abi(), bstrfoldername.param().abi(), bstrfilename.param().abi(), plnumfiles, ppbstrfilepaths, core::mem::transmute(ppitem)).ok()
     }
 }
 #[repr(C)]
@@ -397,9 +397,9 @@ impl IWiaDrvItem {
     }
     pub unsafe fn AddItemToFolder<P0>(&self, __midl__iwiadrvitem0004: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWiaDrvItem>,
+        P0: windows_core::Param<IWiaDrvItem>,
     {
-        (windows_core::Interface::vtable(self).AddItemToFolder)(windows_core::Interface::as_raw(self), __midl__iwiadrvitem0004.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddItemToFolder)(windows_core::Interface::as_raw(self), __midl__iwiadrvitem0004.param().abi()).ok()
     }
     pub unsafe fn UnlinkItemTree(&self, __midl__iwiadrvitem0005: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnlinkItemTree)(windows_core::Interface::as_raw(self), __midl__iwiadrvitem0005).ok()
@@ -409,17 +409,17 @@ impl IWiaDrvItem {
     }
     pub unsafe fn FindItemByName<P0>(&self, __midl__iwiadrvitem0007: i32, __midl__iwiadrvitem0008: P0) -> windows_core::Result<IWiaDrvItem>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), __midl__iwiadrvitem0007, __midl__iwiadrvitem0008.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), __midl__iwiadrvitem0007, __midl__iwiadrvitem0008.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindChildItemByName<P0>(&self, __midl__iwiadrvitem0010: P0) -> windows_core::Result<IWiaDrvItem>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindChildItemByName)(windows_core::Interface::as_raw(self), __midl__iwiadrvitem0010.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindChildItemByName)(windows_core::Interface::as_raw(self), __midl__iwiadrvitem0010.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetParentItem(&self) -> windows_core::Result<IWiaDrvItem> {
         let mut result__ = std::mem::zeroed();
@@ -460,17 +460,17 @@ windows_core::imp::interface_hierarchy!(IWiaErrorHandler, windows_core::IUnknown
 impl IWiaErrorHandler {
     pub unsafe fn ReportStatus<P0, P1>(&self, lflags: i32, hwndparent: P0, pwiaitem2: P1, hrstatus: windows_core::HRESULT, lpercentcomplete: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<IWiaItem2>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<IWiaItem2>,
     {
-        (windows_core::Interface::vtable(self).ReportStatus)(windows_core::Interface::as_raw(self), lflags, hwndparent.into_param().abi(), pwiaitem2.into_param().abi(), hrstatus, lpercentcomplete).ok()
+        (windows_core::Interface::vtable(self).ReportStatus)(windows_core::Interface::as_raw(self), lflags, hwndparent.param().abi(), pwiaitem2.param().abi(), hrstatus, lpercentcomplete).ok()
     }
     pub unsafe fn GetStatusDescription<P0>(&self, lflags: i32, pwiaitem2: P0, hrstatus: windows_core::HRESULT) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<IWiaItem2>,
+        P0: windows_core::Param<IWiaItem2>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetStatusDescription)(windows_core::Interface::as_raw(self), lflags, pwiaitem2.into_param().abi(), hrstatus, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetStatusDescription)(windows_core::Interface::as_raw(self), lflags, pwiaitem2.param().abi(), hrstatus, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -484,12 +484,12 @@ windows_core::imp::interface_hierarchy!(IWiaEventCallback, windows_core::IUnknow
 impl IWiaEventCallback {
     pub unsafe fn ImageEventCallback<P0, P1, P2, P3>(&self, peventguid: *const windows_core::GUID, bstreventdescription: P0, bstrdeviceid: P1, bstrdevicedescription: P2, dwdevicetype: u32, bstrfullitemname: P3, puleventtype: *mut u32, ulreserved: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
-        P3: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
+        P3: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ImageEventCallback)(windows_core::Interface::as_raw(self), peventguid, bstreventdescription.into_param().abi(), bstrdeviceid.into_param().abi(), bstrdevicedescription.into_param().abi(), dwdevicetype, bstrfullitemname.into_param().abi(), puleventtype, ulreserved).ok()
+        (windows_core::Interface::vtable(self).ImageEventCallback)(windows_core::Interface::as_raw(self), peventguid, bstreventdescription.param().abi(), bstrdeviceid.param().abi(), bstrdevicedescription.param().abi(), dwdevicetype, bstrfullitemname.param().abi(), puleventtype, ulreserved).ok()
     }
 }
 #[repr(C)]
@@ -502,30 +502,30 @@ windows_core::imp::interface_hierarchy!(IWiaImageFilter, windows_core::IUnknown)
 impl IWiaImageFilter {
     pub unsafe fn InitializeFilter<P0, P1>(&self, pwiaitem2: P0, pwiatransfercallback: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWiaItem2>,
-        P1: windows_core::IntoParam<IWiaTransferCallback>,
+        P0: windows_core::Param<IWiaItem2>,
+        P1: windows_core::Param<IWiaTransferCallback>,
     {
-        (windows_core::Interface::vtable(self).InitializeFilter)(windows_core::Interface::as_raw(self), pwiaitem2.into_param().abi(), pwiatransfercallback.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).InitializeFilter)(windows_core::Interface::as_raw(self), pwiaitem2.param().abi(), pwiatransfercallback.param().abi()).ok()
     }
     pub unsafe fn SetNewCallback<P0>(&self, pwiatransfercallback: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWiaTransferCallback>,
+        P0: windows_core::Param<IWiaTransferCallback>,
     {
-        (windows_core::Interface::vtable(self).SetNewCallback)(windows_core::Interface::as_raw(self), pwiatransfercallback.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetNewCallback)(windows_core::Interface::as_raw(self), pwiatransfercallback.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FilterPreviewImage<P0, P1>(&self, lflags: i32, pwiachilditem2: P0, inputimageextents: super::super::Foundation::RECT, pinputstream: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWiaItem2>,
-        P1: windows_core::IntoParam<super::super::System::Com::IStream>,
+        P0: windows_core::Param<IWiaItem2>,
+        P1: windows_core::Param<super::super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).FilterPreviewImage)(windows_core::Interface::as_raw(self), lflags, pwiachilditem2.into_param().abi(), core::mem::transmute(inputimageextents), pinputstream.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).FilterPreviewImage)(windows_core::Interface::as_raw(self), lflags, pwiachilditem2.param().abi(), core::mem::transmute(inputimageextents), pinputstream.param().abi()).ok()
     }
     pub unsafe fn ApplyProperties<P0>(&self, pwiapropertystorage: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWiaPropertyStorage>,
+        P0: windows_core::Param<IWiaPropertyStorage>,
     {
-        (windows_core::Interface::vtable(self).ApplyProperties)(windows_core::Interface::as_raw(self), pwiapropertystorage.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ApplyProperties)(windows_core::Interface::as_raw(self), pwiapropertystorage.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -558,11 +558,11 @@ impl IWiaItem {
     }
     pub unsafe fn CreateChildItem<P0, P1>(&self, lflags: i32, bstritemname: P0, bstrfullitemname: P1) -> windows_core::Result<IWiaItem>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateChildItem)(windows_core::Interface::as_raw(self), lflags, bstritemname.into_param().abi(), bstrfullitemname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateChildItem)(windows_core::Interface::as_raw(self), lflags, bstritemname.param().abi(), bstrfullitemname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumRegisterEventInfo(&self, lflags: i32, peventguid: *const windows_core::GUID) -> windows_core::Result<IEnumWIA_DEV_CAPS> {
         let mut result__ = std::mem::zeroed();
@@ -570,16 +570,16 @@ impl IWiaItem {
     }
     pub unsafe fn FindItemByName<P0>(&self, lflags: i32, bstrfullitemname: P0) -> windows_core::Result<IWiaItem>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), lflags, bstrfullitemname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), lflags, bstrfullitemname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeviceDlg<P0>(&self, hwndparent: P0, lflags: i32, lintent: i32, plitemcount: *mut i32, ppiwiaitem: *mut *mut Option<IWiaItem>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).DeviceDlg)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), lflags, lintent, plitemcount, ppiwiaitem).ok()
+        (windows_core::Interface::vtable(self).DeviceDlg)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), lflags, lintent, plitemcount, ppiwiaitem).ok()
     }
     pub unsafe fn DeviceCommand(&self, lflags: i32, pcmdguid: *const windows_core::GUID, piwiaitem: *mut Option<IWiaItem>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DeviceCommand)(windows_core::Interface::as_raw(self), lflags, pcmdguid, core::mem::transmute(piwiaitem)).ok()
@@ -632,10 +632,10 @@ windows_core::imp::interface_hierarchy!(IWiaItem2, windows_core::IUnknown);
 impl IWiaItem2 {
     pub unsafe fn CreateChildItem<P0>(&self, litemflags: i32, lcreationflags: i32, bstritemname: P0) -> windows_core::Result<IWiaItem2>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateChildItem)(windows_core::Interface::as_raw(self), litemflags, lcreationflags, bstritemname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateChildItem)(windows_core::Interface::as_raw(self), litemflags, lcreationflags, bstritemname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteItem(&self, lflags: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), lflags).ok()
@@ -646,10 +646,10 @@ impl IWiaItem2 {
     }
     pub unsafe fn FindItemByName<P0>(&self, lflags: i32, bstrfullitemname: P0) -> windows_core::Result<IWiaItem2>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), lflags, bstrfullitemname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindItemByName)(windows_core::Interface::as_raw(self), lflags, bstrfullitemname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetItemCategory(&self) -> windows_core::Result<windows_core::GUID> {
         let mut result__ = std::mem::zeroed();
@@ -661,11 +661,11 @@ impl IWiaItem2 {
     }
     pub unsafe fn DeviceDlg<P0, P1, P2>(&self, lflags: i32, hwndparent: P0, bstrfoldername: P1, bstrfilename: P2, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut windows_core::BSTR, ppitem: Option<*mut Option<IWiaItem2>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).DeviceDlg)(windows_core::Interface::as_raw(self), lflags, hwndparent.into_param().abi(), bstrfoldername.into_param().abi(), bstrfilename.into_param().abi(), plnumfiles, ppbstrfilepaths, core::mem::transmute(ppitem.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).DeviceDlg)(windows_core::Interface::as_raw(self), lflags, hwndparent.param().abi(), bstrfoldername.param().abi(), bstrfilename.param().abi(), plnumfiles, ppbstrfilepaths, core::mem::transmute(ppitem.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn DeviceCommand(&self, lflags: i32, pcmdguid: *const windows_core::GUID, ppiwiaitem2: *mut Option<IWiaItem2>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DeviceCommand)(windows_core::Interface::as_raw(self), lflags, pcmdguid, core::mem::transmute(ppiwiaitem2)).ok()
@@ -676,15 +676,15 @@ impl IWiaItem2 {
     }
     pub unsafe fn CheckExtension<P0>(&self, lflags: i32, bstrname: P0, riidextensioninterface: *const windows_core::GUID, pbextensionexists: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).CheckExtension)(windows_core::Interface::as_raw(self), lflags, bstrname.into_param().abi(), riidextensioninterface, pbextensionexists).ok()
+        (windows_core::Interface::vtable(self).CheckExtension)(windows_core::Interface::as_raw(self), lflags, bstrname.param().abi(), riidextensioninterface, pbextensionexists).ok()
     }
     pub unsafe fn GetExtension<P0>(&self, lflags: i32, bstrname: P0, riidextensioninterface: *const windows_core::GUID, ppout: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), lflags, bstrname.into_param().abi(), riidextensioninterface, ppout).ok()
+        (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), lflags, bstrname.param().abi(), riidextensioninterface, ppout).ok()
     }
     pub unsafe fn GetParentItem(&self) -> windows_core::Result<IWiaItem2> {
         let mut result__ = std::mem::zeroed();
@@ -758,9 +758,9 @@ impl IWiaLog {
     }
     pub unsafe fn Log<P0>(&self, lflags: i32, lresid: i32, ldetail: i32, bstrtext: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Log)(windows_core::Interface::as_raw(self), lflags, lresid, ldetail, bstrtext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Log)(windows_core::Interface::as_raw(self), lflags, lresid, ldetail, bstrtext.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -781,18 +781,18 @@ impl IWiaLogEx {
     }
     pub unsafe fn Log<P0>(&self, lflags: i32, lresid: i32, ldetail: i32, bstrtext: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Log)(windows_core::Interface::as_raw(self), lflags, lresid, ldetail, bstrtext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Log)(windows_core::Interface::as_raw(self), lflags, lresid, ldetail, bstrtext.param().abi()).ok()
     }
     pub unsafe fn hResultEx(&self, lmethodid: i32, hresult: windows_core::HRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).hResultEx)(windows_core::Interface::as_raw(self), lmethodid, hresult).ok()
     }
     pub unsafe fn LogEx<P0>(&self, lmethodid: i32, lflags: i32, lresid: i32, ldetail: i32, bstrtext: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).LogEx)(windows_core::Interface::as_raw(self), lmethodid, lflags, lresid, ldetail, bstrtext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).LogEx)(windows_core::Interface::as_raw(self), lmethodid, lflags, lresid, ldetail, bstrtext.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -809,12 +809,12 @@ windows_core::imp::interface_hierarchy!(IWiaMiniDrv, windows_core::IUnknown);
 impl IWiaMiniDrv {
     pub unsafe fn drvInitializeWia<P0, P1, P2, P3>(&self, __midl__iwiaminidrv0000: *const u8, __midl__iwiaminidrv0001: i32, __midl__iwiaminidrv0002: P0, __midl__iwiaminidrv0003: P1, __midl__iwiaminidrv0004: P2, __midl__iwiaminidrv0005: P3, __midl__iwiaminidrv0006: *mut Option<IWiaDrvItem>, __midl__iwiaminidrv0007: *mut Option<windows_core::IUnknown>, __midl__iwiaminidrv0008: *mut i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::IUnknown>,
-        P3: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::IUnknown>,
+        P3: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).drvInitializeWia)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0000, __midl__iwiaminidrv0001, __midl__iwiaminidrv0002.into_param().abi(), __midl__iwiaminidrv0003.into_param().abi(), __midl__iwiaminidrv0004.into_param().abi(), __midl__iwiaminidrv0005.into_param().abi(), core::mem::transmute(__midl__iwiaminidrv0006), core::mem::transmute(__midl__iwiaminidrv0007), __midl__iwiaminidrv0008).ok()
+        (windows_core::Interface::vtable(self).drvInitializeWia)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0000, __midl__iwiaminidrv0001, __midl__iwiaminidrv0002.param().abi(), __midl__iwiaminidrv0003.param().abi(), __midl__iwiaminidrv0004.param().abi(), __midl__iwiaminidrv0005.param().abi(), core::mem::transmute(__midl__iwiaminidrv0006), core::mem::transmute(__midl__iwiaminidrv0007), __midl__iwiaminidrv0008).ok()
     }
     pub unsafe fn drvAcquireItemData(&self, __midl__iwiaminidrv0009: *const u8, __midl__iwiaminidrv0010: i32, __midl__iwiaminidrv0011: *mut MINIDRV_TRANSFER_CONTEXT, __midl__iwiaminidrv0012: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).drvAcquireItemData)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0009, __midl__iwiaminidrv0010, __midl__iwiaminidrv0011, __midl__iwiaminidrv0012).ok()
@@ -870,9 +870,9 @@ impl IWiaMiniDrv {
     }
     pub unsafe fn drvNotifyPnpEvent<P0>(&self, peventguid: *const windows_core::GUID, bstrdeviceid: P0, ulreserved: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).drvNotifyPnpEvent)(windows_core::Interface::as_raw(self), peventguid, bstrdeviceid.into_param().abi(), ulreserved).ok()
+        (windows_core::Interface::vtable(self).drvNotifyPnpEvent)(windows_core::Interface::as_raw(self), peventguid, bstrdeviceid.param().abi(), ulreserved).ok()
     }
     pub unsafe fn drvUnInitializeWia(&self, __midl__iwiaminidrv0064: *const u8) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).drvUnInitializeWia)(windows_core::Interface::as_raw(self), __midl__iwiaminidrv0064).ok()
@@ -923,11 +923,11 @@ impl IWiaMiniDrvTransferCallback {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNextStream<P0, P1>(&self, lflags: i32, bstritemname: P0, bstrfullitemname: P1) -> windows_core::Result<super::super::System::Com::IStream>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetNextStream)(windows_core::Interface::as_raw(self), lflags, bstritemname.into_param().abi(), bstrfullitemname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetNextStream)(windows_core::Interface::as_raw(self), lflags, bstritemname.param().abi(), bstrfullitemname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SendMessage(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SendMessage)(windows_core::Interface::as_raw(self), lflags, pwiatransferparams).ok()
@@ -959,17 +959,17 @@ windows_core::imp::interface_hierarchy!(IWiaPreview, windows_core::IUnknown);
 impl IWiaPreview {
     pub unsafe fn GetNewPreview<P0, P1>(&self, lflags: i32, pwiaitem2: P0, pwiatransfercallback: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWiaItem2>,
-        P1: windows_core::IntoParam<IWiaTransferCallback>,
+        P0: windows_core::Param<IWiaItem2>,
+        P1: windows_core::Param<IWiaTransferCallback>,
     {
-        (windows_core::Interface::vtable(self).GetNewPreview)(windows_core::Interface::as_raw(self), lflags, pwiaitem2.into_param().abi(), pwiatransfercallback.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).GetNewPreview)(windows_core::Interface::as_raw(self), lflags, pwiaitem2.param().abi(), pwiatransfercallback.param().abi()).ok()
     }
     pub unsafe fn UpdatePreview<P0, P1>(&self, lflags: i32, pchildwiaitem2: P0, pwiatransfercallback: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWiaItem2>,
-        P1: windows_core::IntoParam<IWiaTransferCallback>,
+        P0: windows_core::Param<IWiaItem2>,
+        P1: windows_core::Param<IWiaTransferCallback>,
     {
-        (windows_core::Interface::vtable(self).UpdatePreview)(windows_core::Interface::as_raw(self), lflags, pchildwiaitem2.into_param().abi(), pwiatransfercallback.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UpdatePreview)(windows_core::Interface::as_raw(self), lflags, pchildwiaitem2.param().abi(), pwiatransfercallback.param().abi()).ok()
     }
     pub unsafe fn DetectRegions(&self, lflags: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DetectRegions)(windows_core::Interface::as_raw(self), lflags).ok()
@@ -1046,9 +1046,9 @@ impl IWiaPropertyStorage {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPropertyStream<P0>(&self, pcompatibilityid: *mut windows_core::GUID, pistream: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IStream>,
+        P0: windows_core::Param<super::super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).SetPropertyStream)(windows_core::Interface::as_raw(self), pcompatibilityid, pistream.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPropertyStream)(windows_core::Interface::as_raw(self), pcompatibilityid, pistream.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1101,10 +1101,10 @@ impl IWiaSegmentationFilter {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DetectRegions<P0, P1>(&self, lflags: i32, pinputstream: P0, pwiaitem2: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IStream>,
-        P1: windows_core::IntoParam<IWiaItem2>,
+        P0: windows_core::Param<super::super::System::Com::IStream>,
+        P1: windows_core::Param<IWiaItem2>,
     {
-        (windows_core::Interface::vtable(self).DetectRegions)(windows_core::Interface::as_raw(self), lflags, pinputstream.into_param().abi(), pwiaitem2.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DetectRegions)(windows_core::Interface::as_raw(self), lflags, pinputstream.param().abi(), pwiaitem2.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1120,17 +1120,17 @@ windows_core::imp::interface_hierarchy!(IWiaTransfer, windows_core::IUnknown);
 impl IWiaTransfer {
     pub unsafe fn Download<P0>(&self, lflags: i32, piwiatransfercallback: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWiaTransferCallback>,
+        P0: windows_core::Param<IWiaTransferCallback>,
     {
-        (windows_core::Interface::vtable(self).Download)(windows_core::Interface::as_raw(self), lflags, piwiatransfercallback.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Download)(windows_core::Interface::as_raw(self), lflags, piwiatransfercallback.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Upload<P0, P1>(&self, lflags: i32, psource: P0, piwiatransfercallback: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IStream>,
-        P1: windows_core::IntoParam<IWiaTransferCallback>,
+        P0: windows_core::Param<super::super::System::Com::IStream>,
+        P1: windows_core::Param<IWiaTransferCallback>,
     {
-        (windows_core::Interface::vtable(self).Upload)(windows_core::Interface::as_raw(self), lflags, psource.into_param().abi(), piwiatransfercallback.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Upload)(windows_core::Interface::as_raw(self), lflags, psource.param().abi(), piwiatransfercallback.param().abi()).ok()
     }
     pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok()
@@ -1160,11 +1160,11 @@ impl IWiaTransferCallback {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNextStream<P0, P1>(&self, lflags: i32, bstritemname: P0, bstrfullitemname: P1) -> windows_core::Result<super::super::System::Com::IStream>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetNextStream)(windows_core::Interface::as_raw(self), lflags, bstritemname.into_param().abi(), bstrfullitemname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetNextStream)(windows_core::Interface::as_raw(self), lflags, bstritemname.param().abi(), bstrfullitemname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1185,16 +1185,16 @@ impl IWiaUIExtension {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetDeviceIcon<P0>(&self, bstrdeviceid: P0, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).GetDeviceIcon)(windows_core::Interface::as_raw(self), bstrdeviceid.into_param().abi(), phicon, nsize).ok()
+        (windows_core::Interface::vtable(self).GetDeviceIcon)(windows_core::Interface::as_raw(self), bstrdeviceid.param().abi(), phicon, nsize).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetDeviceBitmapLogo<P0>(&self, bstrdeviceid: P0, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, nmaxwidth: u32, nmaxheight: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).GetDeviceBitmapLogo)(windows_core::Interface::as_raw(self), bstrdeviceid.into_param().abi(), phbitmap, nmaxwidth, nmaxheight).ok()
+        (windows_core::Interface::vtable(self).GetDeviceBitmapLogo)(windows_core::Interface::as_raw(self), bstrdeviceid.param().abi(), phbitmap, nmaxwidth, nmaxheight).ok()
     }
 }
 #[repr(C)]
@@ -1219,9 +1219,9 @@ impl IWiaUIExtension2 {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetDeviceIcon<P0>(&self, bstrdeviceid: P0, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).GetDeviceIcon)(windows_core::Interface::as_raw(self), bstrdeviceid.into_param().abi(), phicon, nsize).ok()
+        (windows_core::Interface::vtable(self).GetDeviceIcon)(windows_core::Interface::as_raw(self), bstrdeviceid.param().abi(), phicon, nsize).ok()
     }
 }
 #[repr(C)]
@@ -1242,9 +1242,9 @@ impl IWiaVideo {
     }
     pub unsafe fn SetPreviewVisible<P0>(&self, bpreviewvisible: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetPreviewVisible)(windows_core::Interface::as_raw(self), bpreviewvisible.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPreviewVisible)(windows_core::Interface::as_raw(self), bpreviewvisible.param().abi()).ok()
     }
     pub unsafe fn ImagesDirectory(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1252,35 +1252,35 @@ impl IWiaVideo {
     }
     pub unsafe fn SetImagesDirectory<P0>(&self, bstrimagedirectory: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetImagesDirectory)(windows_core::Interface::as_raw(self), bstrimagedirectory.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetImagesDirectory)(windows_core::Interface::as_raw(self), bstrimagedirectory.param().abi()).ok()
     }
     pub unsafe fn CreateVideoByWiaDevID<P0, P1, P2, P3>(&self, bstrwiadeviceid: P0, hwndparent: P1, bstretchtofitparent: P2, bautobeginplayback: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P3: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::Foundation::HWND>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).CreateVideoByWiaDevID)(windows_core::Interface::as_raw(self), bstrwiadeviceid.into_param().abi(), hwndparent.into_param().abi(), bstretchtofitparent.into_param().abi(), bautobeginplayback.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateVideoByWiaDevID)(windows_core::Interface::as_raw(self), bstrwiadeviceid.param().abi(), hwndparent.param().abi(), bstretchtofitparent.param().abi(), bautobeginplayback.param().abi()).ok()
     }
     pub unsafe fn CreateVideoByDevNum<P0, P1, P2>(&self, uidevicenumber: u32, hwndparent: P0, bstretchtofitparent: P1, bautobeginplayback: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).CreateVideoByDevNum)(windows_core::Interface::as_raw(self), uidevicenumber, hwndparent.into_param().abi(), bstretchtofitparent.into_param().abi(), bautobeginplayback.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateVideoByDevNum)(windows_core::Interface::as_raw(self), uidevicenumber, hwndparent.param().abi(), bstretchtofitparent.param().abi(), bautobeginplayback.param().abi()).ok()
     }
     pub unsafe fn CreateVideoByName<P0, P1, P2, P3>(&self, bstrfriendlyname: P0, hwndparent: P1, bstretchtofitparent: P2, bautobeginplayback: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P3: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::Foundation::HWND>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).CreateVideoByName)(windows_core::Interface::as_raw(self), bstrfriendlyname.into_param().abi(), hwndparent.into_param().abi(), bstretchtofitparent.into_param().abi(), bautobeginplayback.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateVideoByName)(windows_core::Interface::as_raw(self), bstrfriendlyname.param().abi(), hwndparent.param().abi(), bstretchtofitparent.param().abi(), bautobeginplayback.param().abi()).ok()
     }
     pub unsafe fn DestroyVideo(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DestroyVideo)(windows_core::Interface::as_raw(self)).ok()
@@ -1297,9 +1297,9 @@ impl IWiaVideo {
     }
     pub unsafe fn ResizeVideo<P0>(&self, bstretchtofitparent: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).ResizeVideo)(windows_core::Interface::as_raw(self), bstretchtofitparent.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ResizeVideo)(windows_core::Interface::as_raw(self), bstretchtofitparent.param().abi()).ok()
     }
     pub unsafe fn GetCurrentState(&self) -> windows_core::Result<WIAVIDEO_STATE> {
         let mut result__ = std::mem::zeroed();

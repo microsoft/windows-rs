@@ -1,11 +1,11 @@
 #[inline]
 pub unsafe fn RmAddFilter<P0, P1>(dwsessionhandle: u32, strmodulename: P0, pprocess: Option<*const RM_UNIQUE_PROCESS>, strserviceshortname: P1, filteraction: RM_FILTER_ACTION) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmAddFilter(dwsessionhandle : u32, strmodulename : windows_core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : windows_core::PCWSTR, filteraction : RM_FILTER_ACTION) -> super::super::Foundation:: WIN32_ERROR);
-    RmAddFilter(dwsessionhandle, strmodulename.into_param().abi(), core::mem::transmute(pprocess.unwrap_or(std::ptr::null())), strserviceshortname.into_param().abi(), filteraction)
+    RmAddFilter(dwsessionhandle, strmodulename.param().abi(), core::mem::transmute(pprocess.unwrap_or(std::ptr::null())), strserviceshortname.param().abi(), filteraction)
 }
 #[inline]
 pub unsafe fn RmCancelCurrentTask(dwsessionhandle: u32) -> super::super::Foundation::WIN32_ERROR {
@@ -30,10 +30,10 @@ pub unsafe fn RmGetList(dwsessionhandle: u32, pnprocinfoneeded: *mut u32, pnproc
 #[inline]
 pub unsafe fn RmJoinSession<P0>(psessionhandle: *mut u32, strsessionkey: P0) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmJoinSession(psessionhandle : *mut u32, strsessionkey : windows_core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
-    RmJoinSession(psessionhandle, strsessionkey.into_param().abi())
+    RmJoinSession(psessionhandle, strsessionkey.param().abi())
 }
 #[inline]
 pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: Option<&[windows_core::PCWSTR]>, rgapplications: Option<&[RM_UNIQUE_PROCESS]>, rgsservicenames: Option<&[windows_core::PCWSTR]>) -> super::super::Foundation::WIN32_ERROR {
@@ -51,11 +51,11 @@ pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: Option<&[w
 #[inline]
 pub unsafe fn RmRemoveFilter<P0, P1>(dwsessionhandle: u32, strmodulename: P0, pprocess: Option<*const RM_UNIQUE_PROCESS>, strserviceshortname: P1) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmRemoveFilter(dwsessionhandle : u32, strmodulename : windows_core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : windows_core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
-    RmRemoveFilter(dwsessionhandle, strmodulename.into_param().abi(), core::mem::transmute(pprocess.unwrap_or(std::ptr::null())), strserviceshortname.into_param().abi())
+    RmRemoveFilter(dwsessionhandle, strmodulename.param().abi(), core::mem::transmute(pprocess.unwrap_or(std::ptr::null())), strserviceshortname.param().abi())
 }
 #[inline]
 pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> super::super::Foundation::WIN32_ERROR {

@@ -1,10 +1,10 @@
 #[inline]
 pub unsafe fn MQADsPathToFormatName<P0>(lpwcsadspath: P0, lpwcsformatname: windows_core::PWSTR, lpdwformatnamelength: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQADsPathToFormatName(lpwcsadspath : windows_core::PCWSTR, lpwcsformatname : windows_core::PWSTR, lpdwformatnamelength : *mut u32) -> windows_core::HRESULT);
-    MQADsPathToFormatName(lpwcsadspath.into_param().abi(), core::mem::transmute(lpwcsformatname), lpdwformatnamelength).ok()
+    MQADsPathToFormatName(lpwcsadspath.param().abi(), core::mem::transmute(lpwcsformatname), lpdwformatnamelength).ok()
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 #[inline]
@@ -16,10 +16,10 @@ pub unsafe fn MQBeginTransaction() -> windows_core::Result<super::DistributedTra
 #[inline]
 pub unsafe fn MQCloseCursor<P0>(hcursor: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQCloseCursor(hcursor : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    MQCloseCursor(hcursor.into_param().abi()).ok()
+    MQCloseCursor(hcursor.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn MQCloseQueue(hqueue: isize) -> windows_core::Result<()> {
@@ -36,18 +36,18 @@ pub unsafe fn MQCreateCursor(hqueue: isize) -> windows_core::Result<super::super
 #[inline]
 pub unsafe fn MQCreateQueue<P0>(psecuritydescriptor: P0, pqueueprops: *mut MQQUEUEPROPS, lpwcsformatname: windows_core::PWSTR, lpdwformatnamelength: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P0: windows_core::Param<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQCreateQueue(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pqueueprops : *mut MQQUEUEPROPS, lpwcsformatname : windows_core::PWSTR, lpdwformatnamelength : *mut u32) -> windows_core::HRESULT);
-    MQCreateQueue(psecuritydescriptor.into_param().abi(), pqueueprops, core::mem::transmute(lpwcsformatname), lpdwformatnamelength).ok()
+    MQCreateQueue(psecuritydescriptor.param().abi(), pqueueprops, core::mem::transmute(lpwcsformatname), lpdwformatnamelength).ok()
 }
 #[inline]
 pub unsafe fn MQDeleteQueue<P0>(lpwcsformatname: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQDeleteQueue(lpwcsformatname : windows_core::PCWSTR) -> windows_core::HRESULT);
-    MQDeleteQueue(lpwcsformatname.into_param().abi()).ok()
+    MQDeleteQueue(lpwcsformatname.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn MQFreeMemory(pvmemory: *const core::ffi::c_void) {
@@ -57,18 +57,18 @@ pub unsafe fn MQFreeMemory(pvmemory: *const core::ffi::c_void) {
 #[inline]
 pub unsafe fn MQFreeSecurityContext<P0>(hsecuritycontext: P0)
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQFreeSecurityContext(hsecuritycontext : super::super::Foundation:: HANDLE));
-    MQFreeSecurityContext(hsecuritycontext.into_param().abi())
+    MQFreeSecurityContext(hsecuritycontext.param().abi())
 }
 #[inline]
 pub unsafe fn MQGetMachineProperties<P0>(lpwcsmachinename: P0, pguidmachineid: Option<*const windows_core::GUID>, pqmprops: *mut MQQMPROPS) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQGetMachineProperties(lpwcsmachinename : windows_core::PCWSTR, pguidmachineid : *const windows_core::GUID, pqmprops : *mut MQQMPROPS) -> windows_core::HRESULT);
-    MQGetMachineProperties(lpwcsmachinename.into_param().abi(), core::mem::transmute(pguidmachineid.unwrap_or(std::ptr::null())), pqmprops).ok()
+    MQGetMachineProperties(lpwcsmachinename.param().abi(), core::mem::transmute(pguidmachineid.unwrap_or(std::ptr::null())), pqmprops).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -79,27 +79,27 @@ pub unsafe fn MQGetOverlappedResult(lpoverlapped: *const super::IO::OVERLAPPED) 
 #[inline]
 pub unsafe fn MQGetPrivateComputerInformation<P0>(lpwcscomputername: P0, pprivateprops: *mut MQPRIVATEPROPS) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQGetPrivateComputerInformation(lpwcscomputername : windows_core::PCWSTR, pprivateprops : *mut MQPRIVATEPROPS) -> windows_core::HRESULT);
-    MQGetPrivateComputerInformation(lpwcscomputername.into_param().abi(), pprivateprops).ok()
+    MQGetPrivateComputerInformation(lpwcscomputername.param().abi(), pprivateprops).ok()
 }
 #[inline]
 pub unsafe fn MQGetQueueProperties<P0>(lpwcsformatname: P0, pqueueprops: *mut MQQUEUEPROPS) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQGetQueueProperties(lpwcsformatname : windows_core::PCWSTR, pqueueprops : *mut MQQUEUEPROPS) -> windows_core::HRESULT);
-    MQGetQueueProperties(lpwcsformatname.into_param().abi(), pqueueprops).ok()
+    MQGetQueueProperties(lpwcsformatname.param().abi(), pqueueprops).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn MQGetQueueSecurity<P0>(lpwcsformatname: P0, requestedinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQGetQueueSecurity(lpwcsformatname : windows_core::PCWSTR, requestedinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> windows_core::HRESULT);
-    MQGetQueueSecurity(lpwcsformatname.into_param().abi(), requestedinformation, psecuritydescriptor, nlength, lpnlengthneeded).ok()
+    MQGetQueueSecurity(lpwcsformatname.param().abi(), requestedinformation, psecuritydescriptor, nlength, lpnlengthneeded).ok()
 }
 #[inline]
 pub unsafe fn MQGetSecurityContext(lpcertbuffer: Option<*const core::ffi::c_void>, dwcertbufferlength: u32) -> windows_core::Result<super::super::Foundation::HANDLE> {
@@ -126,80 +126,80 @@ pub unsafe fn MQInstanceToFormatName(pguid: *const windows_core::GUID, lpwcsform
 #[inline]
 pub unsafe fn MQLocateBegin<P0>(lpwcscontext: P0, prestriction: Option<*const MQRESTRICTION>, pcolumns: *const MQCOLUMNSET, psort: *const MQSORTSET) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQLocateBegin(lpwcscontext : windows_core::PCWSTR, prestriction : *const MQRESTRICTION, pcolumns : *const MQCOLUMNSET, psort : *const MQSORTSET, phenum : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    MQLocateBegin(lpwcscontext.into_param().abi(), core::mem::transmute(prestriction.unwrap_or(std::ptr::null())), pcolumns, psort, &mut result__).map(|| result__)
+    MQLocateBegin(lpwcscontext.param().abi(), core::mem::transmute(prestriction.unwrap_or(std::ptr::null())), pcolumns, psort, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn MQLocateEnd<P0>(henum: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQLocateEnd(henum : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    MQLocateEnd(henum.into_param().abi()).ok()
+    MQLocateEnd(henum.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn MQLocateNext<P0>(henum: P0, pcprops: *mut u32, apropvar: *mut windows_core::PROPVARIANT) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQLocateNext(henum : super::super::Foundation:: HANDLE, pcprops : *mut u32, apropvar : *mut std::mem::MaybeUninit < windows_core::PROPVARIANT >) -> windows_core::HRESULT);
-    MQLocateNext(henum.into_param().abi(), pcprops, core::mem::transmute(apropvar)).ok()
+    MQLocateNext(henum.param().abi(), pcprops, core::mem::transmute(apropvar)).ok()
 }
 #[inline]
 pub unsafe fn MQMarkMessageRejected<P0>(hqueue: P0, ulllookupid: u64) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQMarkMessageRejected(hqueue : super::super::Foundation:: HANDLE, ulllookupid : u64) -> windows_core::HRESULT);
-    MQMarkMessageRejected(hqueue.into_param().abi(), ulllookupid).ok()
+    MQMarkMessageRejected(hqueue.param().abi(), ulllookupid).ok()
 }
 #[inline]
 pub unsafe fn MQMgmtAction<P0, P1, P2>(pcomputername: P0, pobjectname: P1, paction: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
-    P2: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQMgmtAction(pcomputername : windows_core::PCWSTR, pobjectname : windows_core::PCWSTR, paction : windows_core::PCWSTR) -> windows_core::HRESULT);
-    MQMgmtAction(pcomputername.into_param().abi(), pobjectname.into_param().abi(), paction.into_param().abi()).ok()
+    MQMgmtAction(pcomputername.param().abi(), pobjectname.param().abi(), paction.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn MQMgmtGetInfo<P0, P1>(pcomputername: P0, pobjectname: P1, pmgmtprops: *mut MQMGMTPROPS) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQMgmtGetInfo(pcomputername : windows_core::PCWSTR, pobjectname : windows_core::PCWSTR, pmgmtprops : *mut MQMGMTPROPS) -> windows_core::HRESULT);
-    MQMgmtGetInfo(pcomputername.into_param().abi(), pobjectname.into_param().abi(), pmgmtprops).ok()
+    MQMgmtGetInfo(pcomputername.param().abi(), pobjectname.param().abi(), pmgmtprops).ok()
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 #[inline]
 pub unsafe fn MQMoveMessage<P0>(hsourcequeue: isize, hdestinationqueue: isize, ulllookupid: u64, ptransaction: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::DistributedTransactionCoordinator::ITransaction>,
+    P0: windows_core::Param<super::DistributedTransactionCoordinator::ITransaction>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQMoveMessage(hsourcequeue : isize, hdestinationqueue : isize, ulllookupid : u64, ptransaction : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    MQMoveMessage(hsourcequeue, hdestinationqueue, ulllookupid, ptransaction.into_param().abi()).ok()
+    MQMoveMessage(hsourcequeue, hdestinationqueue, ulllookupid, ptransaction.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn MQOpenQueue<P0>(lpwcsformatname: P0, dwaccess: u32, dwsharemode: u32) -> windows_core::Result<isize>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQOpenQueue(lpwcsformatname : windows_core::PCWSTR, dwaccess : u32, dwsharemode : u32, phqueue : *mut isize) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    MQOpenQueue(lpwcsformatname.into_param().abi(), dwaccess, dwsharemode, &mut result__).map(|| result__)
+    MQOpenQueue(lpwcsformatname.param().abi(), dwaccess, dwsharemode, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn MQPathNameToFormatName<P0>(lpwcspathname: P0, lpwcsformatname: windows_core::PWSTR, lpdwformatnamelength: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQPathNameToFormatName(lpwcspathname : windows_core::PCWSTR, lpwcsformatname : windows_core::PWSTR, lpdwformatnamelength : *mut u32) -> windows_core::HRESULT);
-    MQPathNameToFormatName(lpwcspathname.into_param().abi(), core::mem::transmute(lpwcsformatname), lpdwformatnamelength).ok()
+    MQPathNameToFormatName(lpwcspathname.param().abi(), core::mem::transmute(lpwcsformatname), lpdwformatnamelength).ok()
 }
 #[inline]
 pub unsafe fn MQPurgeQueue(hqueue: isize) -> windows_core::Result<()> {
@@ -210,20 +210,20 @@ pub unsafe fn MQPurgeQueue(hqueue: isize) -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn MQReceiveMessage<P0, P1>(hsource: isize, dwtimeout: u32, dwaction: u32, pmessageprops: Option<*mut MQMSGPROPS>, lpoverlapped: Option<*mut super::IO::OVERLAPPED>, fnreceivecallback: PMQRECEIVECALLBACK, hcursor: P0, ptransaction: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: windows_core::IntoParam<super::DistributedTransactionCoordinator::ITransaction>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::DistributedTransactionCoordinator::ITransaction>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQReceiveMessage(hsource : isize, dwtimeout : u32, dwaction : u32, pmessageprops : *mut MQMSGPROPS, lpoverlapped : *mut super::IO:: OVERLAPPED, fnreceivecallback : PMQRECEIVECALLBACK, hcursor : super::super::Foundation:: HANDLE, ptransaction : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    MQReceiveMessage(hsource, dwtimeout, dwaction, core::mem::transmute(pmessageprops.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null_mut())), fnreceivecallback, hcursor.into_param().abi(), ptransaction.into_param().abi()).ok()
+    MQReceiveMessage(hsource, dwtimeout, dwaction, core::mem::transmute(pmessageprops.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null_mut())), fnreceivecallback, hcursor.param().abi(), ptransaction.param().abi()).ok()
 }
 #[cfg(all(feature = "Win32_System_DistributedTransactionCoordinator", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn MQReceiveMessageByLookupId<P0>(hsource: isize, ulllookupid: u64, dwlookupaction: u32, pmessageprops: Option<*mut MQMSGPROPS>, lpoverlapped: Option<*mut super::IO::OVERLAPPED>, fnreceivecallback: PMQRECEIVECALLBACK, ptransaction: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::DistributedTransactionCoordinator::ITransaction>,
+    P0: windows_core::Param<super::DistributedTransactionCoordinator::ITransaction>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQReceiveMessageByLookupId(hsource : isize, ulllookupid : u64, dwlookupaction : u32, pmessageprops : *mut MQMSGPROPS, lpoverlapped : *mut super::IO:: OVERLAPPED, fnreceivecallback : PMQRECEIVECALLBACK, ptransaction : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    MQReceiveMessageByLookupId(hsource, ulllookupid, dwlookupaction, core::mem::transmute(pmessageprops.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null_mut())), fnreceivecallback, ptransaction.into_param().abi()).ok()
+    MQReceiveMessageByLookupId(hsource, ulllookupid, dwlookupaction, core::mem::transmute(pmessageprops.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null_mut())), fnreceivecallback, ptransaction.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn MQRegisterCertificate(dwflags: u32, lpcertbuffer: *const core::ffi::c_void, dwcertbufferlength: u32) -> windows_core::Result<()> {
@@ -234,28 +234,28 @@ pub unsafe fn MQRegisterCertificate(dwflags: u32, lpcertbuffer: *const core::ffi
 #[inline]
 pub unsafe fn MQSendMessage<P0>(hdestinationqueue: isize, pmessageprops: *const MQMSGPROPS, ptransaction: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::DistributedTransactionCoordinator::ITransaction>,
+    P0: windows_core::Param<super::DistributedTransactionCoordinator::ITransaction>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQSendMessage(hdestinationqueue : isize, pmessageprops : *const MQMSGPROPS, ptransaction : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    MQSendMessage(hdestinationqueue, pmessageprops, ptransaction.into_param().abi()).ok()
+    MQSendMessage(hdestinationqueue, pmessageprops, ptransaction.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn MQSetQueueProperties<P0>(lpwcsformatname: P0, pqueueprops: *mut MQQUEUEPROPS) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQSetQueueProperties(lpwcsformatname : windows_core::PCWSTR, pqueueprops : *mut MQQUEUEPROPS) -> windows_core::HRESULT);
-    MQSetQueueProperties(lpwcsformatname.into_param().abi(), pqueueprops).ok()
+    MQSetQueueProperties(lpwcsformatname.param().abi(), pqueueprops).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn MQSetQueueSecurity<P0, P1>(lpwcsformatname: P0, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("mqrt.dll" "system" fn MQSetQueueSecurity(lpwcsformatname : windows_core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> windows_core::HRESULT);
-    MQSetQueueSecurity(lpwcsformatname.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi()).ok()
+    MQSetQueueSecurity(lpwcsformatname.param().abi(), securityinformation, psecuritydescriptor.param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQApplication, IMSMQApplication_Vtbl, 0xd7d6e085_dccd_11d0_aa4b_0060970debae);
@@ -265,10 +265,10 @@ windows_core::imp::interface_hierarchy!(IMSMQApplication, windows_core::IUnknown
 impl IMSMQApplication {
     pub unsafe fn MachineIdOfMachineName<P0>(&self, machinename: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).MachineIdOfMachineName)(windows_core::Interface::as_raw(self), machinename.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).MachineIdOfMachineName)(windows_core::Interface::as_raw(self), machinename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -285,20 +285,20 @@ windows_core::imp::interface_hierarchy!(IMSMQApplication2, windows_core::IUnknow
 impl IMSMQApplication2 {
     pub unsafe fn MachineIdOfMachineName<P0>(&self, machinename: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MachineIdOfMachineName)(windows_core::Interface::as_raw(self), machinename.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.MachineIdOfMachineName)(windows_core::Interface::as_raw(self), machinename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterCertificate(&self, flags: *const windows_core::VARIANT, externalcertificate: *const windows_core::VARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RegisterCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute(flags), core::mem::transmute(externalcertificate)).ok()
     }
     pub unsafe fn MachineNameOfMachineId<P0>(&self, bstrguid: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).MachineNameOfMachineId)(windows_core::Interface::as_raw(self), bstrguid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).MachineNameOfMachineId)(windows_core::Interface::as_raw(self), bstrguid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn MSMQVersionMajor(&self) -> windows_core::Result<i16> {
         let mut result__ = std::mem::zeroed();
@@ -345,20 +345,20 @@ windows_core::imp::interface_hierarchy!(IMSMQApplication3, windows_core::IUnknow
 impl IMSMQApplication3 {
     pub unsafe fn MachineIdOfMachineName<P0>(&self, machinename: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.MachineIdOfMachineName)(windows_core::Interface::as_raw(self), machinename.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.MachineIdOfMachineName)(windows_core::Interface::as_raw(self), machinename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterCertificate(&self, flags: *const windows_core::VARIANT, externalcertificate: *const windows_core::VARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.RegisterCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute(flags), core::mem::transmute(externalcertificate)).ok()
     }
     pub unsafe fn MachineNameOfMachineId<P0>(&self, bstrguid: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MachineNameOfMachineId)(windows_core::Interface::as_raw(self), bstrguid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.MachineNameOfMachineId)(windows_core::Interface::as_raw(self), bstrguid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn MSMQVersionMajor(&self) -> windows_core::Result<i16> {
         let mut result__ = std::mem::zeroed();
@@ -403,9 +403,9 @@ impl IMSMQApplication3 {
     }
     pub unsafe fn SetMachine<P0>(&self, bstrmachine: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMachine)(windows_core::Interface::as_raw(self), bstrmachine.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMachine)(windows_core::Interface::as_raw(self), bstrmachine.param().abi()).ok()
     }
     pub unsafe fn Machine(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -568,9 +568,9 @@ impl IMSMQDestination {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_IADs<P0>(&self, piads: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Com::IDispatch>,
+        P0: windows_core::Param<super::Com::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).putref_IADs)(windows_core::Interface::as_raw(self), piads.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_IADs)(windows_core::Interface::as_raw(self), piads.param().abi()).ok()
     }
     pub unsafe fn ADsPath(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -578,9 +578,9 @@ impl IMSMQDestination {
     }
     pub unsafe fn SetADsPath<P0>(&self, bstradspath: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetADsPath)(windows_core::Interface::as_raw(self), bstradspath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetADsPath)(windows_core::Interface::as_raw(self), bstradspath.param().abi()).ok()
     }
     pub unsafe fn PathName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -588,9 +588,9 @@ impl IMSMQDestination {
     }
     pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetPathName)(windows_core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPathName)(windows_core::Interface::as_raw(self), bstrpathname.param().abi()).ok()
     }
     pub unsafe fn FormatName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -598,9 +598,9 @@ impl IMSMQDestination {
     }
     pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFormatName)(windows_core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFormatName)(windows_core::Interface::as_raw(self), bstrformatname.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Destinations(&self) -> windows_core::Result<super::Com::IDispatch> {
@@ -610,9 +610,9 @@ impl IMSMQDestination {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Destinations<P0>(&self, pdestinations: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Com::IDispatch>,
+        P0: windows_core::Param<super::Com::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).putref_Destinations)(windows_core::Interface::as_raw(self), pdestinations.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_Destinations)(windows_core::Interface::as_raw(self), pdestinations.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> windows_core::Result<super::Com::IDispatch> {
@@ -823,9 +823,9 @@ impl IMSMQMessage {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueueInfo>,
+        P0: windows_core::Param<IMSMQQueueInfo>,
     {
-        (windows_core::Interface::vtable(self).putref_ResponseQueueInfo)(windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_ResponseQueueInfo)(windows_core::Interface::as_raw(self), pqinforesponse.param().abi()).ok()
     }
     pub unsafe fn AppSpecific(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -848,9 +848,9 @@ impl IMSMQMessage {
     }
     pub unsafe fn SetBody<P0>(&self, varbody: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetBody)(windows_core::Interface::as_raw(self), varbody.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBody)(windows_core::Interface::as_raw(self), varbody.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdminQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo> {
@@ -860,9 +860,9 @@ impl IMSMQMessage {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueueInfo>,
+        P0: windows_core::Param<IMSMQQueueInfo>,
     {
-        (windows_core::Interface::vtable(self).putref_AdminQueueInfo)(windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_AdminQueueInfo)(windows_core::Interface::as_raw(self), pqinfoadmin.param().abi()).ok()
     }
     pub unsafe fn Id(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -874,9 +874,9 @@ impl IMSMQMessage {
     }
     pub unsafe fn SetCorrelationId<P0>(&self, varmsgid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetCorrelationId)(windows_core::Interface::as_raw(self), varmsgid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCorrelationId)(windows_core::Interface::as_raw(self), varmsgid.param().abi()).ok()
     }
     pub unsafe fn Ack(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -891,9 +891,9 @@ impl IMSMQMessage {
     }
     pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetLabel)(windows_core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLabel)(windows_core::Interface::as_raw(self), bstrlabel.param().abi()).ok()
     }
     pub unsafe fn MaxTimeToReachQueue(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -942,9 +942,9 @@ impl IMSMQMessage {
     }
     pub unsafe fn SetSenderCertificate<P0>(&self, varsendercert: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetSenderCertificate)(windows_core::Interface::as_raw(self), varsendercert.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSenderCertificate)(windows_core::Interface::as_raw(self), varsendercert.param().abi()).ok()
     }
     pub unsafe fn SenderId(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -960,9 +960,9 @@ impl IMSMQMessage {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const windows_core::VARIANT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueue>,
+        P0: windows_core::Param<IMSMQQueue>,
     {
-        (windows_core::Interface::vtable(self).Send)(windows_core::Interface::as_raw(self), destinationqueue.into_param().abi(), core::mem::transmute(transaction)).ok()
+        (windows_core::Interface::vtable(self).Send)(windows_core::Interface::as_raw(self), destinationqueue.param().abi(), core::mem::transmute(transaction)).ok()
     }
     pub unsafe fn AttachCurrentSecurityContext(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AttachCurrentSecurityContext)(windows_core::Interface::as_raw(self)).ok()
@@ -1104,9 +1104,9 @@ impl IMSMQMessage2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseQueueInfo_v1<P0>(&self, pqinforesponse: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueueInfo>,
+        P0: windows_core::Param<IMSMQQueueInfo>,
     {
-        (windows_core::Interface::vtable(self).putref_ResponseQueueInfo_v1)(windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_ResponseQueueInfo_v1)(windows_core::Interface::as_raw(self), pqinforesponse.param().abi()).ok()
     }
     pub unsafe fn AppSpecific(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -1129,9 +1129,9 @@ impl IMSMQMessage2 {
     }
     pub unsafe fn SetBody<P0>(&self, varbody: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetBody)(windows_core::Interface::as_raw(self), varbody.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBody)(windows_core::Interface::as_raw(self), varbody.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdminQueueInfo_v1(&self) -> windows_core::Result<IMSMQQueueInfo> {
@@ -1141,9 +1141,9 @@ impl IMSMQMessage2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AdminQueueInfo_v1<P0>(&self, pqinfoadmin: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueueInfo>,
+        P0: windows_core::Param<IMSMQQueueInfo>,
     {
-        (windows_core::Interface::vtable(self).putref_AdminQueueInfo_v1)(windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_AdminQueueInfo_v1)(windows_core::Interface::as_raw(self), pqinfoadmin.param().abi()).ok()
     }
     pub unsafe fn Id(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -1155,9 +1155,9 @@ impl IMSMQMessage2 {
     }
     pub unsafe fn SetCorrelationId<P0>(&self, varmsgid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetCorrelationId)(windows_core::Interface::as_raw(self), varmsgid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCorrelationId)(windows_core::Interface::as_raw(self), varmsgid.param().abi()).ok()
     }
     pub unsafe fn Ack(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -1172,9 +1172,9 @@ impl IMSMQMessage2 {
     }
     pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetLabel)(windows_core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLabel)(windows_core::Interface::as_raw(self), bstrlabel.param().abi()).ok()
     }
     pub unsafe fn MaxTimeToReachQueue(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -1223,9 +1223,9 @@ impl IMSMQMessage2 {
     }
     pub unsafe fn SetSenderCertificate<P0>(&self, varsendercert: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetSenderCertificate)(windows_core::Interface::as_raw(self), varsendercert.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSenderCertificate)(windows_core::Interface::as_raw(self), varsendercert.param().abi()).ok()
     }
     pub unsafe fn SenderId(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -1241,9 +1241,9 @@ impl IMSMQMessage2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const windows_core::VARIANT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueue2>,
+        P0: windows_core::Param<IMSMQQueue2>,
     {
-        (windows_core::Interface::vtable(self).Send)(windows_core::Interface::as_raw(self), destinationqueue.into_param().abi(), core::mem::transmute(transaction)).ok()
+        (windows_core::Interface::vtable(self).Send)(windows_core::Interface::as_raw(self), destinationqueue.param().abi(), core::mem::transmute(transaction)).ok()
     }
     pub unsafe fn AttachCurrentSecurityContext(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AttachCurrentSecurityContext)(windows_core::Interface::as_raw(self)).ok()
@@ -1258,9 +1258,9 @@ impl IMSMQMessage2 {
     }
     pub unsafe fn SetExtension<P0>(&self, varextension: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetExtension)(windows_core::Interface::as_raw(self), varextension.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExtension)(windows_core::Interface::as_raw(self), varextension.param().abi()).ok()
     }
     pub unsafe fn ConnectorTypeGuid(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1268,9 +1268,9 @@ impl IMSMQMessage2 {
     }
     pub unsafe fn SetConnectorTypeGuid<P0>(&self, bstrguidconnectortype: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetConnectorTypeGuid)(windows_core::Interface::as_raw(self), bstrguidconnectortype.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetConnectorTypeGuid)(windows_core::Interface::as_raw(self), bstrguidconnectortype.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TransactionStatusQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo2> {
@@ -1283,9 +1283,9 @@ impl IMSMQMessage2 {
     }
     pub unsafe fn SetDestinationSymmetricKey<P0>(&self, vardestsymmkey: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetDestinationSymmetricKey)(windows_core::Interface::as_raw(self), vardestsymmkey.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDestinationSymmetricKey)(windows_core::Interface::as_raw(self), vardestsymmkey.param().abi()).ok()
     }
     pub unsafe fn Signature(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -1293,9 +1293,9 @@ impl IMSMQMessage2 {
     }
     pub unsafe fn SetSignature<P0>(&self, varsignature: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetSignature)(windows_core::Interface::as_raw(self), varsignature.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSignature)(windows_core::Interface::as_raw(self), varsignature.param().abi()).ok()
     }
     pub unsafe fn AuthenticationProviderType(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -1310,15 +1310,15 @@ impl IMSMQMessage2 {
     }
     pub unsafe fn SetAuthenticationProviderName<P0>(&self, bstrauthprovname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetAuthenticationProviderName)(windows_core::Interface::as_raw(self), bstrauthprovname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAuthenticationProviderName)(windows_core::Interface::as_raw(self), bstrauthprovname.param().abi()).ok()
     }
     pub unsafe fn SetSenderId<P0>(&self, varsenderid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetSenderId)(windows_core::Interface::as_raw(self), varsenderid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSenderId)(windows_core::Interface::as_raw(self), varsenderid.param().abi()).ok()
     }
     pub unsafe fn MsgClass(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -1352,9 +1352,9 @@ impl IMSMQMessage2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueueInfo2>,
+        P0: windows_core::Param<IMSMQQueueInfo2>,
     {
-        (windows_core::Interface::vtable(self).putref_ResponseQueueInfo)(windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_ResponseQueueInfo)(windows_core::Interface::as_raw(self), pqinforesponse.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdminQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo2> {
@@ -1364,9 +1364,9 @@ impl IMSMQMessage2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueueInfo2>,
+        P0: windows_core::Param<IMSMQQueueInfo2>,
     {
-        (windows_core::Interface::vtable(self).putref_AdminQueueInfo)(windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_AdminQueueInfo)(windows_core::Interface::as_raw(self), pqinfoadmin.param().abi()).ok()
     }
     pub unsafe fn ReceivedAuthenticationLevel(&self) -> windows_core::Result<i16> {
         let mut result__ = std::mem::zeroed();
@@ -1553,9 +1553,9 @@ impl IMSMQMessage3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseQueueInfo_v1<P0>(&self, pqinforesponse: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueueInfo>,
+        P0: windows_core::Param<IMSMQQueueInfo>,
     {
-        (windows_core::Interface::vtable(self).putref_ResponseQueueInfo_v1)(windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_ResponseQueueInfo_v1)(windows_core::Interface::as_raw(self), pqinforesponse.param().abi()).ok()
     }
     pub unsafe fn AppSpecific(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -1578,9 +1578,9 @@ impl IMSMQMessage3 {
     }
     pub unsafe fn SetBody<P0>(&self, varbody: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetBody)(windows_core::Interface::as_raw(self), varbody.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBody)(windows_core::Interface::as_raw(self), varbody.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdminQueueInfo_v1(&self) -> windows_core::Result<IMSMQQueueInfo> {
@@ -1590,9 +1590,9 @@ impl IMSMQMessage3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AdminQueueInfo_v1<P0>(&self, pqinfoadmin: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueueInfo>,
+        P0: windows_core::Param<IMSMQQueueInfo>,
     {
-        (windows_core::Interface::vtable(self).putref_AdminQueueInfo_v1)(windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_AdminQueueInfo_v1)(windows_core::Interface::as_raw(self), pqinfoadmin.param().abi()).ok()
     }
     pub unsafe fn Id(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -1604,9 +1604,9 @@ impl IMSMQMessage3 {
     }
     pub unsafe fn SetCorrelationId<P0>(&self, varmsgid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetCorrelationId)(windows_core::Interface::as_raw(self), varmsgid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCorrelationId)(windows_core::Interface::as_raw(self), varmsgid.param().abi()).ok()
     }
     pub unsafe fn Ack(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -1621,9 +1621,9 @@ impl IMSMQMessage3 {
     }
     pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetLabel)(windows_core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLabel)(windows_core::Interface::as_raw(self), bstrlabel.param().abi()).ok()
     }
     pub unsafe fn MaxTimeToReachQueue(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -1672,9 +1672,9 @@ impl IMSMQMessage3 {
     }
     pub unsafe fn SetSenderCertificate<P0>(&self, varsendercert: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetSenderCertificate)(windows_core::Interface::as_raw(self), varsendercert.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSenderCertificate)(windows_core::Interface::as_raw(self), varsendercert.param().abi()).ok()
     }
     pub unsafe fn SenderId(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -1690,9 +1690,9 @@ impl IMSMQMessage3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const windows_core::VARIANT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Com::IDispatch>,
+        P0: windows_core::Param<super::Com::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).Send)(windows_core::Interface::as_raw(self), destinationqueue.into_param().abi(), core::mem::transmute(transaction)).ok()
+        (windows_core::Interface::vtable(self).Send)(windows_core::Interface::as_raw(self), destinationqueue.param().abi(), core::mem::transmute(transaction)).ok()
     }
     pub unsafe fn AttachCurrentSecurityContext(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AttachCurrentSecurityContext)(windows_core::Interface::as_raw(self)).ok()
@@ -1707,9 +1707,9 @@ impl IMSMQMessage3 {
     }
     pub unsafe fn SetExtension<P0>(&self, varextension: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetExtension)(windows_core::Interface::as_raw(self), varextension.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExtension)(windows_core::Interface::as_raw(self), varextension.param().abi()).ok()
     }
     pub unsafe fn ConnectorTypeGuid(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1717,9 +1717,9 @@ impl IMSMQMessage3 {
     }
     pub unsafe fn SetConnectorTypeGuid<P0>(&self, bstrguidconnectortype: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetConnectorTypeGuid)(windows_core::Interface::as_raw(self), bstrguidconnectortype.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetConnectorTypeGuid)(windows_core::Interface::as_raw(self), bstrguidconnectortype.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TransactionStatusQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo3> {
@@ -1732,9 +1732,9 @@ impl IMSMQMessage3 {
     }
     pub unsafe fn SetDestinationSymmetricKey<P0>(&self, vardestsymmkey: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetDestinationSymmetricKey)(windows_core::Interface::as_raw(self), vardestsymmkey.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDestinationSymmetricKey)(windows_core::Interface::as_raw(self), vardestsymmkey.param().abi()).ok()
     }
     pub unsafe fn Signature(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -1742,9 +1742,9 @@ impl IMSMQMessage3 {
     }
     pub unsafe fn SetSignature<P0>(&self, varsignature: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetSignature)(windows_core::Interface::as_raw(self), varsignature.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSignature)(windows_core::Interface::as_raw(self), varsignature.param().abi()).ok()
     }
     pub unsafe fn AuthenticationProviderType(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -1759,15 +1759,15 @@ impl IMSMQMessage3 {
     }
     pub unsafe fn SetAuthenticationProviderName<P0>(&self, bstrauthprovname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetAuthenticationProviderName)(windows_core::Interface::as_raw(self), bstrauthprovname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAuthenticationProviderName)(windows_core::Interface::as_raw(self), bstrauthprovname.param().abi()).ok()
     }
     pub unsafe fn SetSenderId<P0>(&self, varsenderid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetSenderId)(windows_core::Interface::as_raw(self), varsenderid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSenderId)(windows_core::Interface::as_raw(self), varsenderid.param().abi()).ok()
     }
     pub unsafe fn MsgClass(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -1801,9 +1801,9 @@ impl IMSMQMessage3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseQueueInfo_v2<P0>(&self, pqinforesponse: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueueInfo2>,
+        P0: windows_core::Param<IMSMQQueueInfo2>,
     {
-        (windows_core::Interface::vtable(self).putref_ResponseQueueInfo_v2)(windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_ResponseQueueInfo_v2)(windows_core::Interface::as_raw(self), pqinforesponse.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdminQueueInfo_v2(&self) -> windows_core::Result<IMSMQQueueInfo2> {
@@ -1813,9 +1813,9 @@ impl IMSMQMessage3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AdminQueueInfo_v2<P0>(&self, pqinfoadmin: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueueInfo2>,
+        P0: windows_core::Param<IMSMQQueueInfo2>,
     {
-        (windows_core::Interface::vtable(self).putref_AdminQueueInfo_v2)(windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_AdminQueueInfo_v2)(windows_core::Interface::as_raw(self), pqinfoadmin.param().abi()).ok()
     }
     pub unsafe fn ReceivedAuthenticationLevel(&self) -> windows_core::Result<i16> {
         let mut result__ = std::mem::zeroed();
@@ -1829,9 +1829,9 @@ impl IMSMQMessage3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueueInfo3>,
+        P0: windows_core::Param<IMSMQQueueInfo3>,
     {
-        (windows_core::Interface::vtable(self).putref_ResponseQueueInfo)(windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_ResponseQueueInfo)(windows_core::Interface::as_raw(self), pqinforesponse.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdminQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo3> {
@@ -1841,9 +1841,9 @@ impl IMSMQMessage3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueueInfo3>,
+        P0: windows_core::Param<IMSMQQueueInfo3>,
     {
-        (windows_core::Interface::vtable(self).putref_AdminQueueInfo)(windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_AdminQueueInfo)(windows_core::Interface::as_raw(self), pqinfoadmin.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResponseDestination(&self) -> windows_core::Result<super::Com::IDispatch> {
@@ -1853,9 +1853,9 @@ impl IMSMQMessage3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseDestination<P0>(&self, pdestresponse: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Com::IDispatch>,
+        P0: windows_core::Param<super::Com::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).putref_ResponseDestination)(windows_core::Interface::as_raw(self), pdestresponse.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_ResponseDestination)(windows_core::Interface::as_raw(self), pdestresponse.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Destination(&self) -> windows_core::Result<super::Com::IDispatch> {
@@ -1891,15 +1891,15 @@ impl IMSMQMessage3 {
     }
     pub unsafe fn SetSoapHeader<P0>(&self, bstrsoapheader: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSoapHeader)(windows_core::Interface::as_raw(self), bstrsoapheader.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSoapHeader)(windows_core::Interface::as_raw(self), bstrsoapheader.param().abi()).ok()
     }
     pub unsafe fn SetSoapBody<P0>(&self, bstrsoapbody: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSoapBody)(windows_core::Interface::as_raw(self), bstrsoapbody.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSoapBody)(windows_core::Interface::as_raw(self), bstrsoapbody.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2119,9 +2119,9 @@ impl IMSMQMessage4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseQueueInfo_v1<P0>(&self, pqinforesponse: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueueInfo>,
+        P0: windows_core::Param<IMSMQQueueInfo>,
     {
-        (windows_core::Interface::vtable(self).putref_ResponseQueueInfo_v1)(windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_ResponseQueueInfo_v1)(windows_core::Interface::as_raw(self), pqinforesponse.param().abi()).ok()
     }
     pub unsafe fn AppSpecific(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -2144,9 +2144,9 @@ impl IMSMQMessage4 {
     }
     pub unsafe fn SetBody<P0>(&self, varbody: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetBody)(windows_core::Interface::as_raw(self), varbody.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBody)(windows_core::Interface::as_raw(self), varbody.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdminQueueInfo_v1(&self) -> windows_core::Result<IMSMQQueueInfo> {
@@ -2156,9 +2156,9 @@ impl IMSMQMessage4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AdminQueueInfo_v1<P0>(&self, pqinfoadmin: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueueInfo>,
+        P0: windows_core::Param<IMSMQQueueInfo>,
     {
-        (windows_core::Interface::vtable(self).putref_AdminQueueInfo_v1)(windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_AdminQueueInfo_v1)(windows_core::Interface::as_raw(self), pqinfoadmin.param().abi()).ok()
     }
     pub unsafe fn Id(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -2170,9 +2170,9 @@ impl IMSMQMessage4 {
     }
     pub unsafe fn SetCorrelationId<P0>(&self, varmsgid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetCorrelationId)(windows_core::Interface::as_raw(self), varmsgid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCorrelationId)(windows_core::Interface::as_raw(self), varmsgid.param().abi()).ok()
     }
     pub unsafe fn Ack(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -2187,9 +2187,9 @@ impl IMSMQMessage4 {
     }
     pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetLabel)(windows_core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLabel)(windows_core::Interface::as_raw(self), bstrlabel.param().abi()).ok()
     }
     pub unsafe fn MaxTimeToReachQueue(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -2238,9 +2238,9 @@ impl IMSMQMessage4 {
     }
     pub unsafe fn SetSenderCertificate<P0>(&self, varsendercert: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetSenderCertificate)(windows_core::Interface::as_raw(self), varsendercert.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSenderCertificate)(windows_core::Interface::as_raw(self), varsendercert.param().abi()).ok()
     }
     pub unsafe fn SenderId(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -2256,9 +2256,9 @@ impl IMSMQMessage4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const windows_core::VARIANT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Com::IDispatch>,
+        P0: windows_core::Param<super::Com::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).Send)(windows_core::Interface::as_raw(self), destinationqueue.into_param().abi(), core::mem::transmute(transaction)).ok()
+        (windows_core::Interface::vtable(self).Send)(windows_core::Interface::as_raw(self), destinationqueue.param().abi(), core::mem::transmute(transaction)).ok()
     }
     pub unsafe fn AttachCurrentSecurityContext(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AttachCurrentSecurityContext)(windows_core::Interface::as_raw(self)).ok()
@@ -2273,9 +2273,9 @@ impl IMSMQMessage4 {
     }
     pub unsafe fn SetExtension<P0>(&self, varextension: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetExtension)(windows_core::Interface::as_raw(self), varextension.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExtension)(windows_core::Interface::as_raw(self), varextension.param().abi()).ok()
     }
     pub unsafe fn ConnectorTypeGuid(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -2283,9 +2283,9 @@ impl IMSMQMessage4 {
     }
     pub unsafe fn SetConnectorTypeGuid<P0>(&self, bstrguidconnectortype: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetConnectorTypeGuid)(windows_core::Interface::as_raw(self), bstrguidconnectortype.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetConnectorTypeGuid)(windows_core::Interface::as_raw(self), bstrguidconnectortype.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TransactionStatusQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo4> {
@@ -2298,9 +2298,9 @@ impl IMSMQMessage4 {
     }
     pub unsafe fn SetDestinationSymmetricKey<P0>(&self, vardestsymmkey: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetDestinationSymmetricKey)(windows_core::Interface::as_raw(self), vardestsymmkey.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDestinationSymmetricKey)(windows_core::Interface::as_raw(self), vardestsymmkey.param().abi()).ok()
     }
     pub unsafe fn Signature(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -2308,9 +2308,9 @@ impl IMSMQMessage4 {
     }
     pub unsafe fn SetSignature<P0>(&self, varsignature: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetSignature)(windows_core::Interface::as_raw(self), varsignature.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSignature)(windows_core::Interface::as_raw(self), varsignature.param().abi()).ok()
     }
     pub unsafe fn AuthenticationProviderType(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -2325,15 +2325,15 @@ impl IMSMQMessage4 {
     }
     pub unsafe fn SetAuthenticationProviderName<P0>(&self, bstrauthprovname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetAuthenticationProviderName)(windows_core::Interface::as_raw(self), bstrauthprovname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAuthenticationProviderName)(windows_core::Interface::as_raw(self), bstrauthprovname.param().abi()).ok()
     }
     pub unsafe fn SetSenderId<P0>(&self, varsenderid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetSenderId)(windows_core::Interface::as_raw(self), varsenderid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSenderId)(windows_core::Interface::as_raw(self), varsenderid.param().abi()).ok()
     }
     pub unsafe fn MsgClass(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -2367,9 +2367,9 @@ impl IMSMQMessage4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseQueueInfo_v2<P0>(&self, pqinforesponse: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueueInfo2>,
+        P0: windows_core::Param<IMSMQQueueInfo2>,
     {
-        (windows_core::Interface::vtable(self).putref_ResponseQueueInfo_v2)(windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_ResponseQueueInfo_v2)(windows_core::Interface::as_raw(self), pqinforesponse.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdminQueueInfo_v2(&self) -> windows_core::Result<IMSMQQueueInfo2> {
@@ -2379,9 +2379,9 @@ impl IMSMQMessage4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AdminQueueInfo_v2<P0>(&self, pqinfoadmin: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueueInfo2>,
+        P0: windows_core::Param<IMSMQQueueInfo2>,
     {
-        (windows_core::Interface::vtable(self).putref_AdminQueueInfo_v2)(windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_AdminQueueInfo_v2)(windows_core::Interface::as_raw(self), pqinfoadmin.param().abi()).ok()
     }
     pub unsafe fn ReceivedAuthenticationLevel(&self) -> windows_core::Result<i16> {
         let mut result__ = std::mem::zeroed();
@@ -2395,9 +2395,9 @@ impl IMSMQMessage4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueueInfo4>,
+        P0: windows_core::Param<IMSMQQueueInfo4>,
     {
-        (windows_core::Interface::vtable(self).putref_ResponseQueueInfo)(windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_ResponseQueueInfo)(windows_core::Interface::as_raw(self), pqinforesponse.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdminQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo4> {
@@ -2407,9 +2407,9 @@ impl IMSMQMessage4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueueInfo4>,
+        P0: windows_core::Param<IMSMQQueueInfo4>,
     {
-        (windows_core::Interface::vtable(self).putref_AdminQueueInfo)(windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_AdminQueueInfo)(windows_core::Interface::as_raw(self), pqinfoadmin.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResponseDestination(&self) -> windows_core::Result<super::Com::IDispatch> {
@@ -2419,9 +2419,9 @@ impl IMSMQMessage4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseDestination<P0>(&self, pdestresponse: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Com::IDispatch>,
+        P0: windows_core::Param<super::Com::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).putref_ResponseDestination)(windows_core::Interface::as_raw(self), pdestresponse.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_ResponseDestination)(windows_core::Interface::as_raw(self), pdestresponse.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Destination(&self) -> windows_core::Result<super::Com::IDispatch> {
@@ -2457,15 +2457,15 @@ impl IMSMQMessage4 {
     }
     pub unsafe fn SetSoapHeader<P0>(&self, bstrsoapheader: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSoapHeader)(windows_core::Interface::as_raw(self), bstrsoapheader.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSoapHeader)(windows_core::Interface::as_raw(self), bstrsoapheader.param().abi()).ok()
     }
     pub unsafe fn SetSoapBody<P0>(&self, bstrsoapbody: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSoapBody)(windows_core::Interface::as_raw(self), bstrsoapbody.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSoapBody)(windows_core::Interface::as_raw(self), bstrsoapbody.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2711,9 +2711,9 @@ impl IMSMQPrivateDestination {
     }
     pub unsafe fn SetHandle<P0>(&self, varhandle: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetHandle)(windows_core::Interface::as_raw(self), varhandle.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetHandle)(windows_core::Interface::as_raw(self), varhandle.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2736,16 +2736,16 @@ impl IMSMQPrivateEvent {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FireArrivedEvent<P0>(&self, pq: P0, msgcursor: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueue>,
+        P0: windows_core::Param<IMSMQQueue>,
     {
-        (windows_core::Interface::vtable(self).FireArrivedEvent)(windows_core::Interface::as_raw(self), pq.into_param().abi(), msgcursor).ok()
+        (windows_core::Interface::vtable(self).FireArrivedEvent)(windows_core::Interface::as_raw(self), pq.param().abi(), msgcursor).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FireArrivedErrorEvent<P0>(&self, pq: P0, hrstatus: windows_core::HRESULT, msgcursor: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQQueue>,
+        P0: windows_core::Param<IMSMQQueue>,
     {
-        (windows_core::Interface::vtable(self).FireArrivedErrorEvent)(windows_core::Interface::as_raw(self), pq.into_param().abi(), hrstatus, msgcursor).ok()
+        (windows_core::Interface::vtable(self).FireArrivedErrorEvent)(windows_core::Interface::as_raw(self), pq.param().abi(), hrstatus, msgcursor).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2934,9 +2934,9 @@ impl IMSMQQueue {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQEvent>,
+        P0: windows_core::Param<IMSMQEvent>,
     {
-        (windows_core::Interface::vtable(self).EnableNotification)(windows_core::Interface::as_raw(self), event.into_param().abi(), core::mem::transmute(cursor), core::mem::transmute(receivetimeout)).ok()
+        (windows_core::Interface::vtable(self).EnableNotification)(windows_core::Interface::as_raw(self), event.param().abi(), core::mem::transmute(cursor), core::mem::transmute(receivetimeout)).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3039,9 +3039,9 @@ impl IMSMQQueue2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQEvent2>,
+        P0: windows_core::Param<IMSMQEvent2>,
     {
-        (windows_core::Interface::vtable(self).EnableNotification)(windows_core::Interface::as_raw(self), event.into_param().abi(), core::mem::transmute(cursor), core::mem::transmute(receivetimeout)).ok()
+        (windows_core::Interface::vtable(self).EnableNotification)(windows_core::Interface::as_raw(self), event.param().abi(), core::mem::transmute(cursor), core::mem::transmute(receivetimeout)).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3198,9 +3198,9 @@ impl IMSMQQueue3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQEvent3>,
+        P0: windows_core::Param<IMSMQEvent3>,
     {
-        (windows_core::Interface::vtable(self).EnableNotification)(windows_core::Interface::as_raw(self), event.into_param().abi(), core::mem::transmute(cursor), core::mem::transmute(receivetimeout)).ok()
+        (windows_core::Interface::vtable(self).EnableNotification)(windows_core::Interface::as_raw(self), event.param().abi(), core::mem::transmute(cursor), core::mem::transmute(receivetimeout)).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3257,26 +3257,26 @@ impl IMSMQQueue3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveByLookupId<P0>(&self, lookupid: P0, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReceiveByLookupId)(windows_core::Interface::as_raw(self), lookupid.into_param().abi(), core::mem::transmute(transaction), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ReceiveByLookupId)(windows_core::Interface::as_raw(self), lookupid.param().abi(), core::mem::transmute(transaction), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveNextByLookupId<P0>(&self, lookupid: P0, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReceiveNextByLookupId)(windows_core::Interface::as_raw(self), lookupid.into_param().abi(), core::mem::transmute(transaction), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ReceiveNextByLookupId)(windows_core::Interface::as_raw(self), lookupid.param().abi(), core::mem::transmute(transaction), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceivePreviousByLookupId<P0>(&self, lookupid: P0, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReceivePreviousByLookupId)(windows_core::Interface::as_raw(self), lookupid.into_param().abi(), core::mem::transmute(transaction), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ReceivePreviousByLookupId)(windows_core::Interface::as_raw(self), lookupid.param().abi(), core::mem::transmute(transaction), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveFirstByLookupId(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3> {
@@ -3291,26 +3291,26 @@ impl IMSMQQueue3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekByLookupId<P0>(&self, lookupid: P0, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).PeekByLookupId)(windows_core::Interface::as_raw(self), lookupid.into_param().abi(), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).PeekByLookupId)(windows_core::Interface::as_raw(self), lookupid.param().abi(), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekNextByLookupId<P0>(&self, lookupid: P0, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).PeekNextByLookupId)(windows_core::Interface::as_raw(self), lookupid.into_param().abi(), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).PeekNextByLookupId)(windows_core::Interface::as_raw(self), lookupid.param().abi(), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekPreviousByLookupId<P0>(&self, lookupid: P0, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).PeekPreviousByLookupId)(windows_core::Interface::as_raw(self), lookupid.into_param().abi(), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).PeekPreviousByLookupId)(windows_core::Interface::as_raw(self), lookupid.param().abi(), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekFirstByLookupId(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3> {
@@ -3479,9 +3479,9 @@ impl IMSMQQueue4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMSMQEvent3>,
+        P0: windows_core::Param<IMSMQEvent3>,
     {
-        (windows_core::Interface::vtable(self).EnableNotification)(windows_core::Interface::as_raw(self), event.into_param().abi(), core::mem::transmute(cursor), core::mem::transmute(receivetimeout)).ok()
+        (windows_core::Interface::vtable(self).EnableNotification)(windows_core::Interface::as_raw(self), event.param().abi(), core::mem::transmute(cursor), core::mem::transmute(receivetimeout)).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3538,26 +3538,26 @@ impl IMSMQQueue4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveByLookupId<P0>(&self, lookupid: P0, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReceiveByLookupId)(windows_core::Interface::as_raw(self), lookupid.into_param().abi(), core::mem::transmute(transaction), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ReceiveByLookupId)(windows_core::Interface::as_raw(self), lookupid.param().abi(), core::mem::transmute(transaction), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveNextByLookupId<P0>(&self, lookupid: P0, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReceiveNextByLookupId)(windows_core::Interface::as_raw(self), lookupid.into_param().abi(), core::mem::transmute(transaction), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ReceiveNextByLookupId)(windows_core::Interface::as_raw(self), lookupid.param().abi(), core::mem::transmute(transaction), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceivePreviousByLookupId<P0>(&self, lookupid: P0, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReceivePreviousByLookupId)(windows_core::Interface::as_raw(self), lookupid.into_param().abi(), core::mem::transmute(transaction), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ReceivePreviousByLookupId)(windows_core::Interface::as_raw(self), lookupid.param().abi(), core::mem::transmute(transaction), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveFirstByLookupId(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4> {
@@ -3572,26 +3572,26 @@ impl IMSMQQueue4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekByLookupId<P0>(&self, lookupid: P0, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).PeekByLookupId)(windows_core::Interface::as_raw(self), lookupid.into_param().abi(), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).PeekByLookupId)(windows_core::Interface::as_raw(self), lookupid.param().abi(), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekNextByLookupId<P0>(&self, lookupid: P0, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).PeekNextByLookupId)(windows_core::Interface::as_raw(self), lookupid.into_param().abi(), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).PeekNextByLookupId)(windows_core::Interface::as_raw(self), lookupid.param().abi(), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekPreviousByLookupId<P0>(&self, lookupid: P0, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).PeekPreviousByLookupId)(windows_core::Interface::as_raw(self), lookupid.into_param().abi(), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).PeekPreviousByLookupId)(windows_core::Interface::as_raw(self), lookupid.param().abi(), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekFirstByLookupId(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4> {
@@ -3613,10 +3613,10 @@ impl IMSMQQueue4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveByLookupIdAllowPeek<P0>(&self, lookupid: P0, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReceiveByLookupIdAllowPeek)(windows_core::Interface::as_raw(self), lookupid.into_param().abi(), core::mem::transmute(transaction), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ReceiveByLookupIdAllowPeek)(windows_core::Interface::as_raw(self), lookupid.param().abi(), core::mem::transmute(transaction), core::mem::transmute(wantdestinationqueue), core::mem::transmute(wantbody), core::mem::transmute(wantconnectortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3745,9 +3745,9 @@ impl IMSMQQueueInfo {
     }
     pub unsafe fn SetServiceTypeGuid<P0>(&self, bstrguidservicetype: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetServiceTypeGuid)(windows_core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetServiceTypeGuid)(windows_core::Interface::as_raw(self), bstrguidservicetype.param().abi()).ok()
     }
     pub unsafe fn Label(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3755,9 +3755,9 @@ impl IMSMQQueueInfo {
     }
     pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetLabel)(windows_core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLabel)(windows_core::Interface::as_raw(self), bstrlabel.param().abi()).ok()
     }
     pub unsafe fn PathName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3765,9 +3765,9 @@ impl IMSMQQueueInfo {
     }
     pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetPathName)(windows_core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPathName)(windows_core::Interface::as_raw(self), bstrpathname.param().abi()).ok()
     }
     pub unsafe fn FormatName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3775,9 +3775,9 @@ impl IMSMQQueueInfo {
     }
     pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFormatName)(windows_core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFormatName)(windows_core::Interface::as_raw(self), bstrformatname.param().abi()).ok()
     }
     pub unsafe fn IsTransactional(&self) -> windows_core::Result<i16> {
         let mut result__ = std::mem::zeroed();
@@ -3909,9 +3909,9 @@ impl IMSMQQueueInfo2 {
     }
     pub unsafe fn SetServiceTypeGuid<P0>(&self, bstrguidservicetype: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetServiceTypeGuid)(windows_core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetServiceTypeGuid)(windows_core::Interface::as_raw(self), bstrguidservicetype.param().abi()).ok()
     }
     pub unsafe fn Label(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3919,9 +3919,9 @@ impl IMSMQQueueInfo2 {
     }
     pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetLabel)(windows_core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLabel)(windows_core::Interface::as_raw(self), bstrlabel.param().abi()).ok()
     }
     pub unsafe fn PathName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3929,9 +3929,9 @@ impl IMSMQQueueInfo2 {
     }
     pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetPathName)(windows_core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPathName)(windows_core::Interface::as_raw(self), bstrpathname.param().abi()).ok()
     }
     pub unsafe fn FormatName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3939,9 +3939,9 @@ impl IMSMQQueueInfo2 {
     }
     pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFormatName)(windows_core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFormatName)(windows_core::Interface::as_raw(self), bstrformatname.param().abi()).ok()
     }
     pub unsafe fn IsTransactional(&self) -> windows_core::Result<i16> {
         let mut result__ = std::mem::zeroed();
@@ -4033,9 +4033,9 @@ impl IMSMQQueueInfo2 {
     }
     pub unsafe fn SetSecurity<P0>(&self, varsecurity: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetSecurity)(windows_core::Interface::as_raw(self), varsecurity.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSecurity)(windows_core::Interface::as_raw(self), varsecurity.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4099,9 +4099,9 @@ impl IMSMQQueueInfo3 {
     }
     pub unsafe fn SetServiceTypeGuid<P0>(&self, bstrguidservicetype: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetServiceTypeGuid)(windows_core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetServiceTypeGuid)(windows_core::Interface::as_raw(self), bstrguidservicetype.param().abi()).ok()
     }
     pub unsafe fn Label(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4109,9 +4109,9 @@ impl IMSMQQueueInfo3 {
     }
     pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetLabel)(windows_core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLabel)(windows_core::Interface::as_raw(self), bstrlabel.param().abi()).ok()
     }
     pub unsafe fn PathName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4119,9 +4119,9 @@ impl IMSMQQueueInfo3 {
     }
     pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetPathName)(windows_core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPathName)(windows_core::Interface::as_raw(self), bstrpathname.param().abi()).ok()
     }
     pub unsafe fn FormatName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4129,9 +4129,9 @@ impl IMSMQQueueInfo3 {
     }
     pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFormatName)(windows_core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFormatName)(windows_core::Interface::as_raw(self), bstrformatname.param().abi()).ok()
     }
     pub unsafe fn IsTransactional(&self) -> windows_core::Result<i16> {
         let mut result__ = std::mem::zeroed();
@@ -4223,9 +4223,9 @@ impl IMSMQQueueInfo3 {
     }
     pub unsafe fn SetSecurity<P0>(&self, varsecurity: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetSecurity)(windows_core::Interface::as_raw(self), varsecurity.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSecurity)(windows_core::Interface::as_raw(self), varsecurity.param().abi()).ok()
     }
     pub unsafe fn IsTransactional2(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -4241,9 +4241,9 @@ impl IMSMQQueueInfo3 {
     }
     pub unsafe fn SetMulticastAddress<P0>(&self, bstrmulticastaddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMulticastAddress)(windows_core::Interface::as_raw(self), bstrmulticastaddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMulticastAddress)(windows_core::Interface::as_raw(self), bstrmulticastaddress.param().abi()).ok()
     }
     pub unsafe fn ADsPath(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4316,9 +4316,9 @@ impl IMSMQQueueInfo4 {
     }
     pub unsafe fn SetServiceTypeGuid<P0>(&self, bstrguidservicetype: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetServiceTypeGuid)(windows_core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetServiceTypeGuid)(windows_core::Interface::as_raw(self), bstrguidservicetype.param().abi()).ok()
     }
     pub unsafe fn Label(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4326,9 +4326,9 @@ impl IMSMQQueueInfo4 {
     }
     pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetLabel)(windows_core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLabel)(windows_core::Interface::as_raw(self), bstrlabel.param().abi()).ok()
     }
     pub unsafe fn PathName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4336,9 +4336,9 @@ impl IMSMQQueueInfo4 {
     }
     pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetPathName)(windows_core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPathName)(windows_core::Interface::as_raw(self), bstrpathname.param().abi()).ok()
     }
     pub unsafe fn FormatName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4346,9 +4346,9 @@ impl IMSMQQueueInfo4 {
     }
     pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFormatName)(windows_core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFormatName)(windows_core::Interface::as_raw(self), bstrformatname.param().abi()).ok()
     }
     pub unsafe fn IsTransactional(&self) -> windows_core::Result<i16> {
         let mut result__ = std::mem::zeroed();
@@ -4440,9 +4440,9 @@ impl IMSMQQueueInfo4 {
     }
     pub unsafe fn SetSecurity<P0>(&self, varsecurity: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetSecurity)(windows_core::Interface::as_raw(self), varsecurity.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSecurity)(windows_core::Interface::as_raw(self), varsecurity.param().abi()).ok()
     }
     pub unsafe fn IsTransactional2(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -4458,9 +4458,9 @@ impl IMSMQQueueInfo4 {
     }
     pub unsafe fn SetMulticastAddress<P0>(&self, bstrmulticastaddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMulticastAddress)(windows_core::Interface::as_raw(self), bstrmulticastaddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMulticastAddress)(windows_core::Interface::as_raw(self), bstrmulticastaddress.param().abi()).ok()
     }
     pub unsafe fn ADsPath(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4749,9 +4749,9 @@ impl IMSMQTransaction2 {
     }
     pub unsafe fn InitNew<P0>(&self, vartransaction: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).InitNew)(windows_core::Interface::as_raw(self), vartransaction.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).InitNew)(windows_core::Interface::as_raw(self), vartransaction.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> windows_core::Result<super::Com::IDispatch> {
@@ -4787,9 +4787,9 @@ impl IMSMQTransaction3 {
     }
     pub unsafe fn InitNew<P0>(&self, vartransaction: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.InitNew)(windows_core::Interface::as_raw(self), vartransaction.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.InitNew)(windows_core::Interface::as_raw(self), vartransaction.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> windows_core::Result<super::Com::IDispatch> {

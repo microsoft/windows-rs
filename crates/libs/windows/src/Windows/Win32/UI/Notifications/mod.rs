@@ -3,10 +3,10 @@ windows_core::imp::interface_hierarchy!(INotificationActivationCallback, windows
 impl INotificationActivationCallback {
     pub unsafe fn Activate<P0, P1>(&self, appusermodelid: P0, invokedargs: P1, data: &[NOTIFICATION_USER_INPUT_DATA]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), appusermodelid.into_param().abi(), invokedargs.into_param().abi(), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), appusermodelid.param().abi(), invokedargs.param().abi(), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
     }
 }
 #[repr(C)]

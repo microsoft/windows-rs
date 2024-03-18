@@ -128,7 +128,7 @@ fn gen_windows_traits(writer: &Writer, def: metadata::TypeDef, name: &TokenStrea
         let type_kind = if is_copy {
             quote! { CopyType }
         } else {
-            quote! { ValueType }
+            quote! { CloneType }
         };
 
         let mut tokens = quote! {

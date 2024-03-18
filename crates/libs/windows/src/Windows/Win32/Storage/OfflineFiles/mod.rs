@@ -1,10 +1,10 @@
 #[inline]
 pub unsafe fn OfflineFilesEnable<P0>(benable: P0, pbrebootrequired: *mut super::super::Foundation::BOOL) -> u32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("cscapi.dll" "system" fn OfflineFilesEnable(benable : super::super::Foundation:: BOOL, pbrebootrequired : *mut super::super::Foundation:: BOOL) -> u32);
-    OfflineFilesEnable(benable.into_param().abi(), pbrebootrequired)
+    OfflineFilesEnable(benable.param().abi(), pbrebootrequired)
 }
 #[inline]
 pub unsafe fn OfflineFilesQueryStatus(pbactive: Option<*mut super::super::Foundation::BOOL>, pbenabled: Option<*mut super::super::Foundation::BOOL>) -> u32 {
@@ -76,83 +76,83 @@ windows_core::imp::interface_hierarchy!(IOfflineFilesCache, windows_core::IUnkno
 impl IOfflineFilesCache {
     pub unsafe fn Synchronize<P0, P1, P2, P3>(&self, hwndparent: P0, rgpszpaths: &[windows_core::PCWSTR], basync: P1, dwsynccontrol: u32, pisyncconflicthandler: P2, piprogress: P3, psyncid: Option<*const windows_core::GUID>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<IOfflineFilesSyncConflictHandler>,
-        P3: windows_core::IntoParam<IOfflineFilesSyncProgress>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<IOfflineFilesSyncConflictHandler>,
+        P3: windows_core::Param<IOfflineFilesSyncProgress>,
     {
-        (windows_core::Interface::vtable(self).Synchronize)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), basync.into_param().abi(), dwsynccontrol, pisyncconflicthandler.into_param().abi(), piprogress.into_param().abi(), core::mem::transmute(psyncid.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Synchronize)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), basync.param().abi(), dwsynccontrol, pisyncconflicthandler.param().abi(), piprogress.param().abi(), core::mem::transmute(psyncid.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn DeleteItems<P0, P1>(&self, rgpszpaths: &[windows_core::PCWSTR], dwflags: u32, basync: P0, piprogress: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P1: windows_core::IntoParam<IOfflineFilesSimpleProgress>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<IOfflineFilesSimpleProgress>,
     {
-        (windows_core::Interface::vtable(self).DeleteItems)(windows_core::Interface::as_raw(self), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), dwflags, basync.into_param().abi(), piprogress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteItems)(windows_core::Interface::as_raw(self), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), dwflags, basync.param().abi(), piprogress.param().abi()).ok()
     }
     pub unsafe fn DeleteItemsForUser<P0, P1, P2>(&self, pszuser: P0, rgpszpaths: &[windows_core::PCWSTR], dwflags: u32, basync: P1, piprogress: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<IOfflineFilesSimpleProgress>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<IOfflineFilesSimpleProgress>,
     {
-        (windows_core::Interface::vtable(self).DeleteItemsForUser)(windows_core::Interface::as_raw(self), pszuser.into_param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), dwflags, basync.into_param().abi(), piprogress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteItemsForUser)(windows_core::Interface::as_raw(self), pszuser.param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), dwflags, basync.param().abi(), piprogress.param().abi()).ok()
     }
     pub unsafe fn Pin<P0, P1, P2, P3>(&self, hwndparent: P0, rgpszpaths: &[windows_core::PCWSTR], bdeep: P1, basync: P2, dwpincontrolflags: u32, piprogress: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P3: windows_core::IntoParam<IOfflineFilesSyncProgress>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<IOfflineFilesSyncProgress>,
     {
-        (windows_core::Interface::vtable(self).Pin)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), bdeep.into_param().abi(), basync.into_param().abi(), dwpincontrolflags, piprogress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Pin)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), bdeep.param().abi(), basync.param().abi(), dwpincontrolflags, piprogress.param().abi()).ok()
     }
     pub unsafe fn Unpin<P0, P1, P2, P3>(&self, hwndparent: P0, rgpszpaths: &[windows_core::PCWSTR], bdeep: P1, basync: P2, dwpincontrolflags: u32, piprogress: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P3: windows_core::IntoParam<IOfflineFilesSyncProgress>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<IOfflineFilesSyncProgress>,
     {
-        (windows_core::Interface::vtable(self).Unpin)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), bdeep.into_param().abi(), basync.into_param().abi(), dwpincontrolflags, piprogress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Unpin)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), bdeep.param().abi(), basync.param().abi(), dwpincontrolflags, piprogress.param().abi()).ok()
     }
     pub unsafe fn GetEncryptionStatus(&self, pbencrypted: *mut super::super::Foundation::BOOL, pbpartial: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetEncryptionStatus)(windows_core::Interface::as_raw(self), pbencrypted, pbpartial).ok()
     }
     pub unsafe fn Encrypt<P0, P1, P2, P3>(&self, hwndparent: P0, bencrypt: P1, dwencryptioncontrolflags: u32, basync: P2, piprogress: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P3: windows_core::IntoParam<IOfflineFilesSyncProgress>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<IOfflineFilesSyncProgress>,
     {
-        (windows_core::Interface::vtable(self).Encrypt)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), bencrypt.into_param().abi(), dwencryptioncontrolflags, basync.into_param().abi(), piprogress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Encrypt)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), bencrypt.param().abi(), dwencryptioncontrolflags, basync.param().abi(), piprogress.param().abi()).ok()
     }
     pub unsafe fn FindItem<P0>(&self, pszpath: P0, dwqueryflags: u32) -> windows_core::Result<IOfflineFilesItem>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindItem)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), dwqueryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindItem)(windows_core::Interface::as_raw(self), pszpath.param().abi(), dwqueryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindItemEx<P0, P1, P2, P3, P4>(&self, pszpath: P0, pincludefilefilter: P1, pincludedirfilter: P2, pexcludefilefilter: P3, pexcludedirfilter: P4, dwqueryflags: u32) -> windows_core::Result<IOfflineFilesItem>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IOfflineFilesItemFilter>,
-        P2: windows_core::IntoParam<IOfflineFilesItemFilter>,
-        P3: windows_core::IntoParam<IOfflineFilesItemFilter>,
-        P4: windows_core::IntoParam<IOfflineFilesItemFilter>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IOfflineFilesItemFilter>,
+        P2: windows_core::Param<IOfflineFilesItemFilter>,
+        P3: windows_core::Param<IOfflineFilesItemFilter>,
+        P4: windows_core::Param<IOfflineFilesItemFilter>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindItemEx)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), pincludefilefilter.into_param().abi(), pincludedirfilter.into_param().abi(), pexcludefilefilter.into_param().abi(), pexcludedirfilter.into_param().abi(), dwqueryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindItemEx)(windows_core::Interface::as_raw(self), pszpath.param().abi(), pincludefilefilter.param().abi(), pincludedirfilter.param().abi(), pexcludefilefilter.param().abi(), pexcludedirfilter.param().abi(), dwqueryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RenameItem<P0, P1, P2>(&self, pszpathoriginal: P0, pszpathnew: P1, breplaceifexists: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).RenameItem)(windows_core::Interface::as_raw(self), pszpathoriginal.into_param().abi(), pszpathnew.into_param().abi(), breplaceifexists.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RenameItem)(windows_core::Interface::as_raw(self), pszpathoriginal.param().abi(), pszpathnew.param().abi(), breplaceifexists.param().abi()).ok()
     }
     pub unsafe fn GetLocation(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -166,17 +166,17 @@ impl IOfflineFilesCache {
     }
     pub unsafe fn ProcessAdminPinPolicy<P0, P1>(&self, ppinprogress: P0, punpinprogress: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IOfflineFilesSyncProgress>,
-        P1: windows_core::IntoParam<IOfflineFilesSyncProgress>,
+        P0: windows_core::Param<IOfflineFilesSyncProgress>,
+        P1: windows_core::Param<IOfflineFilesSyncProgress>,
     {
-        (windows_core::Interface::vtable(self).ProcessAdminPinPolicy)(windows_core::Interface::as_raw(self), ppinprogress.into_param().abi(), punpinprogress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ProcessAdminPinPolicy)(windows_core::Interface::as_raw(self), ppinprogress.param().abi(), punpinprogress.param().abi()).ok()
     }
     pub unsafe fn GetSettingObject<P0>(&self, pszsettingname: P0) -> windows_core::Result<IOfflineFilesSetting>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSettingObject)(windows_core::Interface::as_raw(self), pszsettingname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetSettingObject)(windows_core::Interface::as_raw(self), pszsettingname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumSettingObjects(&self) -> windows_core::Result<IEnumOfflineFilesSettings> {
         let mut result__ = std::mem::zeroed();
@@ -184,9 +184,9 @@ impl IOfflineFilesCache {
     }
     pub unsafe fn IsPathCacheable<P0>(&self, pszpath: P0, pbcacheable: *mut super::super::Foundation::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).IsPathCacheable)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), pbcacheable, psharecachingmode).ok()
+        (windows_core::Interface::vtable(self).IsPathCacheable)(windows_core::Interface::as_raw(self), pszpath.param().abi(), pbcacheable, psharecachingmode).ok()
     }
 }
 #[repr(C)]
@@ -215,83 +215,83 @@ windows_core::imp::interface_hierarchy!(IOfflineFilesCache2, windows_core::IUnkn
 impl IOfflineFilesCache2 {
     pub unsafe fn Synchronize<P0, P1, P2, P3>(&self, hwndparent: P0, rgpszpaths: &[windows_core::PCWSTR], basync: P1, dwsynccontrol: u32, pisyncconflicthandler: P2, piprogress: P3, psyncid: Option<*const windows_core::GUID>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<IOfflineFilesSyncConflictHandler>,
-        P3: windows_core::IntoParam<IOfflineFilesSyncProgress>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<IOfflineFilesSyncConflictHandler>,
+        P3: windows_core::Param<IOfflineFilesSyncProgress>,
     {
-        (windows_core::Interface::vtable(self).base__.Synchronize)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), basync.into_param().abi(), dwsynccontrol, pisyncconflicthandler.into_param().abi(), piprogress.into_param().abi(), core::mem::transmute(psyncid.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).base__.Synchronize)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), basync.param().abi(), dwsynccontrol, pisyncconflicthandler.param().abi(), piprogress.param().abi(), core::mem::transmute(psyncid.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn DeleteItems<P0, P1>(&self, rgpszpaths: &[windows_core::PCWSTR], dwflags: u32, basync: P0, piprogress: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P1: windows_core::IntoParam<IOfflineFilesSimpleProgress>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<IOfflineFilesSimpleProgress>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteItems)(windows_core::Interface::as_raw(self), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), dwflags, basync.into_param().abi(), piprogress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteItems)(windows_core::Interface::as_raw(self), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), dwflags, basync.param().abi(), piprogress.param().abi()).ok()
     }
     pub unsafe fn DeleteItemsForUser<P0, P1, P2>(&self, pszuser: P0, rgpszpaths: &[windows_core::PCWSTR], dwflags: u32, basync: P1, piprogress: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<IOfflineFilesSimpleProgress>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<IOfflineFilesSimpleProgress>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteItemsForUser)(windows_core::Interface::as_raw(self), pszuser.into_param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), dwflags, basync.into_param().abi(), piprogress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteItemsForUser)(windows_core::Interface::as_raw(self), pszuser.param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), dwflags, basync.param().abi(), piprogress.param().abi()).ok()
     }
     pub unsafe fn Pin<P0, P1, P2, P3>(&self, hwndparent: P0, rgpszpaths: &[windows_core::PCWSTR], bdeep: P1, basync: P2, dwpincontrolflags: u32, piprogress: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P3: windows_core::IntoParam<IOfflineFilesSyncProgress>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<IOfflineFilesSyncProgress>,
     {
-        (windows_core::Interface::vtable(self).base__.Pin)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), bdeep.into_param().abi(), basync.into_param().abi(), dwpincontrolflags, piprogress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Pin)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), bdeep.param().abi(), basync.param().abi(), dwpincontrolflags, piprogress.param().abi()).ok()
     }
     pub unsafe fn Unpin<P0, P1, P2, P3>(&self, hwndparent: P0, rgpszpaths: &[windows_core::PCWSTR], bdeep: P1, basync: P2, dwpincontrolflags: u32, piprogress: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P3: windows_core::IntoParam<IOfflineFilesSyncProgress>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<IOfflineFilesSyncProgress>,
     {
-        (windows_core::Interface::vtable(self).base__.Unpin)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), bdeep.into_param().abi(), basync.into_param().abi(), dwpincontrolflags, piprogress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Unpin)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), bdeep.param().abi(), basync.param().abi(), dwpincontrolflags, piprogress.param().abi()).ok()
     }
     pub unsafe fn GetEncryptionStatus(&self, pbencrypted: *mut super::super::Foundation::BOOL, pbpartial: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.GetEncryptionStatus)(windows_core::Interface::as_raw(self), pbencrypted, pbpartial).ok()
     }
     pub unsafe fn Encrypt<P0, P1, P2, P3>(&self, hwndparent: P0, bencrypt: P1, dwencryptioncontrolflags: u32, basync: P2, piprogress: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P3: windows_core::IntoParam<IOfflineFilesSyncProgress>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<IOfflineFilesSyncProgress>,
     {
-        (windows_core::Interface::vtable(self).base__.Encrypt)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), bencrypt.into_param().abi(), dwencryptioncontrolflags, basync.into_param().abi(), piprogress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Encrypt)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), bencrypt.param().abi(), dwencryptioncontrolflags, basync.param().abi(), piprogress.param().abi()).ok()
     }
     pub unsafe fn FindItem<P0>(&self, pszpath: P0, dwqueryflags: u32) -> windows_core::Result<IOfflineFilesItem>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindItem)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), dwqueryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.FindItem)(windows_core::Interface::as_raw(self), pszpath.param().abi(), dwqueryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindItemEx<P0, P1, P2, P3, P4>(&self, pszpath: P0, pincludefilefilter: P1, pincludedirfilter: P2, pexcludefilefilter: P3, pexcludedirfilter: P4, dwqueryflags: u32) -> windows_core::Result<IOfflineFilesItem>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IOfflineFilesItemFilter>,
-        P2: windows_core::IntoParam<IOfflineFilesItemFilter>,
-        P3: windows_core::IntoParam<IOfflineFilesItemFilter>,
-        P4: windows_core::IntoParam<IOfflineFilesItemFilter>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IOfflineFilesItemFilter>,
+        P2: windows_core::Param<IOfflineFilesItemFilter>,
+        P3: windows_core::Param<IOfflineFilesItemFilter>,
+        P4: windows_core::Param<IOfflineFilesItemFilter>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindItemEx)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), pincludefilefilter.into_param().abi(), pincludedirfilter.into_param().abi(), pexcludefilefilter.into_param().abi(), pexcludedirfilter.into_param().abi(), dwqueryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.FindItemEx)(windows_core::Interface::as_raw(self), pszpath.param().abi(), pincludefilefilter.param().abi(), pincludedirfilter.param().abi(), pexcludefilefilter.param().abi(), pexcludedirfilter.param().abi(), dwqueryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RenameItem<P0, P1, P2>(&self, pszpathoriginal: P0, pszpathnew: P1, breplaceifexists: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.RenameItem)(windows_core::Interface::as_raw(self), pszpathoriginal.into_param().abi(), pszpathnew.into_param().abi(), breplaceifexists.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RenameItem)(windows_core::Interface::as_raw(self), pszpathoriginal.param().abi(), pszpathnew.param().abi(), breplaceifexists.param().abi()).ok()
     }
     pub unsafe fn GetLocation(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -305,17 +305,17 @@ impl IOfflineFilesCache2 {
     }
     pub unsafe fn ProcessAdminPinPolicy<P0, P1>(&self, ppinprogress: P0, punpinprogress: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IOfflineFilesSyncProgress>,
-        P1: windows_core::IntoParam<IOfflineFilesSyncProgress>,
+        P0: windows_core::Param<IOfflineFilesSyncProgress>,
+        P1: windows_core::Param<IOfflineFilesSyncProgress>,
     {
-        (windows_core::Interface::vtable(self).base__.ProcessAdminPinPolicy)(windows_core::Interface::as_raw(self), ppinprogress.into_param().abi(), punpinprogress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.ProcessAdminPinPolicy)(windows_core::Interface::as_raw(self), ppinprogress.param().abi(), punpinprogress.param().abi()).ok()
     }
     pub unsafe fn GetSettingObject<P0>(&self, pszsettingname: P0) -> windows_core::Result<IOfflineFilesSetting>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSettingObject)(windows_core::Interface::as_raw(self), pszsettingname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetSettingObject)(windows_core::Interface::as_raw(self), pszsettingname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumSettingObjects(&self) -> windows_core::Result<IEnumOfflineFilesSettings> {
         let mut result__ = std::mem::zeroed();
@@ -323,17 +323,17 @@ impl IOfflineFilesCache2 {
     }
     pub unsafe fn IsPathCacheable<P0>(&self, pszpath: P0, pbcacheable: *mut super::super::Foundation::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.IsPathCacheable)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), pbcacheable, psharecachingmode).ok()
+        (windows_core::Interface::vtable(self).base__.IsPathCacheable)(windows_core::Interface::as_raw(self), pszpath.param().abi(), pbcacheable, psharecachingmode).ok()
     }
     pub unsafe fn RenameItemEx<P0, P1, P2>(&self, pszpathoriginal: P0, pszpathnew: P1, breplaceifexists: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).RenameItemEx)(windows_core::Interface::as_raw(self), pszpathoriginal.into_param().abi(), pszpathnew.into_param().abi(), breplaceifexists.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RenameItemEx)(windows_core::Interface::as_raw(self), pszpathoriginal.param().abi(), pszpathnew.param().abi(), breplaceifexists.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -386,23 +386,23 @@ impl IOfflineFilesConnectionInfo {
     }
     pub unsafe fn SetConnectState<P0>(&self, hwndparent: P0, dwflags: u32, connectstate: OFFLINEFILES_CONNECT_STATE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).SetConnectState)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), dwflags, connectstate).ok()
+        (windows_core::Interface::vtable(self).SetConnectState)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), dwflags, connectstate).ok()
     }
     pub unsafe fn TransitionOnline<P0>(&self, hwndparent: P0, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).TransitionOnline)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), dwflags).ok()
+        (windows_core::Interface::vtable(self).TransitionOnline)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), dwflags).ok()
     }
     pub unsafe fn TransitionOffline<P0, P1>(&self, hwndparent: P0, dwflags: u32, bforceopenfilesclosed: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).TransitionOffline)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), dwflags, bforceopenfilesclosed.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).TransitionOffline)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), dwflags, bforceopenfilesclosed.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -485,10 +485,10 @@ windows_core::imp::interface_hierarchy!(IOfflineFilesEvents, windows_core::IUnkn
 impl IOfflineFilesEvents {
     pub unsafe fn CacheMoved<P0, P1>(&self, pszoldpath: P0, psznewpath: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CacheMoved)(windows_core::Interface::as_raw(self), pszoldpath.into_param().abi(), psznewpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CacheMoved)(windows_core::Interface::as_raw(self), pszoldpath.param().abi(), psznewpath.param().abi()).ok()
     }
     pub unsafe fn CacheIsFull(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CacheIsFull)(windows_core::Interface::as_raw(self)).ok()
@@ -498,45 +498,45 @@ impl IOfflineFilesEvents {
     }
     pub unsafe fn Enabled<P0>(&self, benabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), benabled.param().abi()).ok()
     }
     pub unsafe fn EncryptionChanged<P0, P1, P2, P3>(&self, bwasencrypted: P0, bwaspartial: P1, bisencrypted: P2, bispartial: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P3: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).EncryptionChanged)(windows_core::Interface::as_raw(self), bwasencrypted.into_param().abi(), bwaspartial.into_param().abi(), bisencrypted.into_param().abi(), bispartial.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).EncryptionChanged)(windows_core::Interface::as_raw(self), bwasencrypted.param().abi(), bwaspartial.param().abi(), bisencrypted.param().abi(), bispartial.param().abi()).ok()
     }
     pub unsafe fn SyncBegin(&self, rsyncid: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SyncBegin)(windows_core::Interface::as_raw(self), rsyncid).ok()
     }
     pub unsafe fn SyncFileResult<P0>(&self, rsyncid: *const windows_core::GUID, pszfile: P0, hrresult: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SyncFileResult)(windows_core::Interface::as_raw(self), rsyncid, pszfile.into_param().abi(), hrresult).ok()
+        (windows_core::Interface::vtable(self).SyncFileResult)(windows_core::Interface::as_raw(self), rsyncid, pszfile.param().abi(), hrresult).ok()
     }
     pub unsafe fn SyncConflictRecAdded<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SyncConflictRecAdded)(windows_core::Interface::as_raw(self), pszconflictpath.into_param().abi(), pftconflictdatetime, conflictsyncstate).ok()
+        (windows_core::Interface::vtable(self).SyncConflictRecAdded)(windows_core::Interface::as_raw(self), pszconflictpath.param().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncConflictRecUpdated<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SyncConflictRecUpdated)(windows_core::Interface::as_raw(self), pszconflictpath.into_param().abi(), pftconflictdatetime, conflictsyncstate).ok()
+        (windows_core::Interface::vtable(self).SyncConflictRecUpdated)(windows_core::Interface::as_raw(self), pszconflictpath.param().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncConflictRecRemoved<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SyncConflictRecRemoved)(windows_core::Interface::as_raw(self), pszconflictpath.into_param().abi(), pftconflictdatetime, conflictsyncstate).ok()
+        (windows_core::Interface::vtable(self).SyncConflictRecRemoved)(windows_core::Interface::as_raw(self), pszconflictpath.param().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncEnd(&self, rsyncid: *const windows_core::GUID, hrresult: windows_core::HRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SyncEnd)(windows_core::Interface::as_raw(self), rsyncid, hrresult).ok()
@@ -549,66 +549,66 @@ impl IOfflineFilesEvents {
     }
     pub unsafe fn ItemDisconnected<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemDisconnected)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).ItemDisconnected)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemReconnected<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemReconnected)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).ItemReconnected)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemAvailableOffline<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).ItemAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemNotAvailableOffline<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemNotAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).ItemNotAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemPinned<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemPinned)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).ItemPinned)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemNotPinned<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemNotPinned)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).ItemNotPinned)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemModified<P0, P1, P2>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: P1, bmodifiedattributes: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).ItemModified)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype, bmodifieddata.into_param().abi(), bmodifiedattributes.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ItemModified)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype, bmodifieddata.param().abi(), bmodifiedattributes.param().abi()).ok()
     }
     pub unsafe fn ItemAddedToCache<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemAddedToCache)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).ItemAddedToCache)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemDeletedFromCache<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemDeletedFromCache)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).ItemDeletedFromCache)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemRenamed<P0, P1>(&self, pszoldpath: P0, psznewpath: P1, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ItemRenamed)(windows_core::Interface::as_raw(self), pszoldpath.into_param().abi(), psznewpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).ItemRenamed)(windows_core::Interface::as_raw(self), pszoldpath.param().abi(), psznewpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn DataLost(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DataLost)(windows_core::Interface::as_raw(self)).ok()
@@ -651,10 +651,10 @@ windows_core::imp::interface_hierarchy!(IOfflineFilesEvents2, windows_core::IUnk
 impl IOfflineFilesEvents2 {
     pub unsafe fn CacheMoved<P0, P1>(&self, pszoldpath: P0, psznewpath: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.CacheMoved)(windows_core::Interface::as_raw(self), pszoldpath.into_param().abi(), psznewpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.CacheMoved)(windows_core::Interface::as_raw(self), pszoldpath.param().abi(), psznewpath.param().abi()).ok()
     }
     pub unsafe fn CacheIsFull(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.CacheIsFull)(windows_core::Interface::as_raw(self)).ok()
@@ -664,45 +664,45 @@ impl IOfflineFilesEvents2 {
     }
     pub unsafe fn Enabled<P0>(&self, benabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.Enabled)(windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Enabled)(windows_core::Interface::as_raw(self), benabled.param().abi()).ok()
     }
     pub unsafe fn EncryptionChanged<P0, P1, P2, P3>(&self, bwasencrypted: P0, bwaspartial: P1, bisencrypted: P2, bispartial: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P3: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.EncryptionChanged)(windows_core::Interface::as_raw(self), bwasencrypted.into_param().abi(), bwaspartial.into_param().abi(), bisencrypted.into_param().abi(), bispartial.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.EncryptionChanged)(windows_core::Interface::as_raw(self), bwasencrypted.param().abi(), bwaspartial.param().abi(), bisencrypted.param().abi(), bispartial.param().abi()).ok()
     }
     pub unsafe fn SyncBegin(&self, rsyncid: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.SyncBegin)(windows_core::Interface::as_raw(self), rsyncid).ok()
     }
     pub unsafe fn SyncFileResult<P0>(&self, rsyncid: *const windows_core::GUID, pszfile: P0, hrresult: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SyncFileResult)(windows_core::Interface::as_raw(self), rsyncid, pszfile.into_param().abi(), hrresult).ok()
+        (windows_core::Interface::vtable(self).base__.SyncFileResult)(windows_core::Interface::as_raw(self), rsyncid, pszfile.param().abi(), hrresult).ok()
     }
     pub unsafe fn SyncConflictRecAdded<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SyncConflictRecAdded)(windows_core::Interface::as_raw(self), pszconflictpath.into_param().abi(), pftconflictdatetime, conflictsyncstate).ok()
+        (windows_core::Interface::vtable(self).base__.SyncConflictRecAdded)(windows_core::Interface::as_raw(self), pszconflictpath.param().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncConflictRecUpdated<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SyncConflictRecUpdated)(windows_core::Interface::as_raw(self), pszconflictpath.into_param().abi(), pftconflictdatetime, conflictsyncstate).ok()
+        (windows_core::Interface::vtable(self).base__.SyncConflictRecUpdated)(windows_core::Interface::as_raw(self), pszconflictpath.param().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncConflictRecRemoved<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SyncConflictRecRemoved)(windows_core::Interface::as_raw(self), pszconflictpath.into_param().abi(), pftconflictdatetime, conflictsyncstate).ok()
+        (windows_core::Interface::vtable(self).base__.SyncConflictRecRemoved)(windows_core::Interface::as_raw(self), pszconflictpath.param().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncEnd(&self, rsyncid: *const windows_core::GUID, hrresult: windows_core::HRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.SyncEnd)(windows_core::Interface::as_raw(self), rsyncid, hrresult).ok()
@@ -715,66 +715,66 @@ impl IOfflineFilesEvents2 {
     }
     pub unsafe fn ItemDisconnected<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.ItemDisconnected)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.ItemDisconnected)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemReconnected<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.ItemReconnected)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.ItemReconnected)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemAvailableOffline<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.ItemAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.ItemAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemNotAvailableOffline<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.ItemNotAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.ItemNotAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemPinned<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.ItemPinned)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.ItemPinned)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemNotPinned<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.ItemNotPinned)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.ItemNotPinned)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemModified<P0, P1, P2>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: P1, bmodifiedattributes: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.ItemModified)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype, bmodifieddata.into_param().abi(), bmodifiedattributes.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.ItemModified)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype, bmodifieddata.param().abi(), bmodifiedattributes.param().abi()).ok()
     }
     pub unsafe fn ItemAddedToCache<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.ItemAddedToCache)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.ItemAddedToCache)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemDeletedFromCache<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.ItemDeletedFromCache)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.ItemDeletedFromCache)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemRenamed<P0, P1>(&self, pszoldpath: P0, psznewpath: P1, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.ItemRenamed)(windows_core::Interface::as_raw(self), pszoldpath.into_param().abi(), psznewpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.ItemRenamed)(windows_core::Interface::as_raw(self), pszoldpath.param().abi(), psznewpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn DataLost(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.DataLost)(windows_core::Interface::as_raw(self)).ok()
@@ -828,10 +828,10 @@ windows_core::imp::interface_hierarchy!(IOfflineFilesEvents3, windows_core::IUnk
 impl IOfflineFilesEvents3 {
     pub unsafe fn CacheMoved<P0, P1>(&self, pszoldpath: P0, psznewpath: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.CacheMoved)(windows_core::Interface::as_raw(self), pszoldpath.into_param().abi(), psznewpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.CacheMoved)(windows_core::Interface::as_raw(self), pszoldpath.param().abi(), psznewpath.param().abi()).ok()
     }
     pub unsafe fn CacheIsFull(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.CacheIsFull)(windows_core::Interface::as_raw(self)).ok()
@@ -841,45 +841,45 @@ impl IOfflineFilesEvents3 {
     }
     pub unsafe fn Enabled<P0>(&self, benabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.Enabled)(windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.Enabled)(windows_core::Interface::as_raw(self), benabled.param().abi()).ok()
     }
     pub unsafe fn EncryptionChanged<P0, P1, P2, P3>(&self, bwasencrypted: P0, bwaspartial: P1, bisencrypted: P2, bispartial: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P3: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.EncryptionChanged)(windows_core::Interface::as_raw(self), bwasencrypted.into_param().abi(), bwaspartial.into_param().abi(), bisencrypted.into_param().abi(), bispartial.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.EncryptionChanged)(windows_core::Interface::as_raw(self), bwasencrypted.param().abi(), bwaspartial.param().abi(), bisencrypted.param().abi(), bispartial.param().abi()).ok()
     }
     pub unsafe fn SyncBegin(&self, rsyncid: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.SyncBegin)(windows_core::Interface::as_raw(self), rsyncid).ok()
     }
     pub unsafe fn SyncFileResult<P0>(&self, rsyncid: *const windows_core::GUID, pszfile: P0, hrresult: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SyncFileResult)(windows_core::Interface::as_raw(self), rsyncid, pszfile.into_param().abi(), hrresult).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SyncFileResult)(windows_core::Interface::as_raw(self), rsyncid, pszfile.param().abi(), hrresult).ok()
     }
     pub unsafe fn SyncConflictRecAdded<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SyncConflictRecAdded)(windows_core::Interface::as_raw(self), pszconflictpath.into_param().abi(), pftconflictdatetime, conflictsyncstate).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SyncConflictRecAdded)(windows_core::Interface::as_raw(self), pszconflictpath.param().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncConflictRecUpdated<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SyncConflictRecUpdated)(windows_core::Interface::as_raw(self), pszconflictpath.into_param().abi(), pftconflictdatetime, conflictsyncstate).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SyncConflictRecUpdated)(windows_core::Interface::as_raw(self), pszconflictpath.param().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncConflictRecRemoved<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SyncConflictRecRemoved)(windows_core::Interface::as_raw(self), pszconflictpath.into_param().abi(), pftconflictdatetime, conflictsyncstate).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SyncConflictRecRemoved)(windows_core::Interface::as_raw(self), pszconflictpath.param().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncEnd(&self, rsyncid: *const windows_core::GUID, hrresult: windows_core::HRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.SyncEnd)(windows_core::Interface::as_raw(self), rsyncid, hrresult).ok()
@@ -892,66 +892,66 @@ impl IOfflineFilesEvents3 {
     }
     pub unsafe fn ItemDisconnected<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.ItemDisconnected)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.base__.ItemDisconnected)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemReconnected<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.ItemReconnected)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.base__.ItemReconnected)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemAvailableOffline<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.ItemAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.base__.ItemAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemNotAvailableOffline<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.ItemNotAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.base__.ItemNotAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemPinned<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.ItemPinned)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.base__.ItemPinned)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemNotPinned<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.ItemNotPinned)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.base__.ItemNotPinned)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemModified<P0, P1, P2>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: P1, bmodifiedattributes: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.ItemModified)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype, bmodifieddata.into_param().abi(), bmodifiedattributes.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.ItemModified)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype, bmodifieddata.param().abi(), bmodifiedattributes.param().abi()).ok()
     }
     pub unsafe fn ItemAddedToCache<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.ItemAddedToCache)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.base__.ItemAddedToCache)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemDeletedFromCache<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.ItemDeletedFromCache)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.base__.ItemDeletedFromCache)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemRenamed<P0, P1>(&self, pszoldpath: P0, psznewpath: P1, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.ItemRenamed)(windows_core::Interface::as_raw(self), pszoldpath.into_param().abi(), psznewpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.base__.ItemRenamed)(windows_core::Interface::as_raw(self), pszoldpath.param().abi(), psznewpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn DataLost(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.DataLost)(windows_core::Interface::as_raw(self)).ok()
@@ -988,24 +988,24 @@ impl IOfflineFilesEvents3 {
     }
     pub unsafe fn TransparentCacheItemNotify<P0, P1, P2, P3>(&self, pszpath: P0, eventtype: OFFLINEFILES_EVENTS, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: P1, bmodifiedattributes: P2, pzsoldpath: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P3: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).TransparentCacheItemNotify)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), eventtype, itemtype, bmodifieddata.into_param().abi(), bmodifiedattributes.into_param().abi(), pzsoldpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).TransparentCacheItemNotify)(windows_core::Interface::as_raw(self), pszpath.param().abi(), eventtype, itemtype, bmodifieddata.param().abi(), bmodifiedattributes.param().abi(), pzsoldpath.param().abi()).ok()
     }
     pub unsafe fn PrefetchFileBegin<P0>(&self, pszpath: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).PrefetchFileBegin)(windows_core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).PrefetchFileBegin)(windows_core::Interface::as_raw(self), pszpath.param().abi()).ok()
     }
     pub unsafe fn PrefetchFileEnd<P0>(&self, pszpath: P0, hrresult: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).PrefetchFileEnd)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), hrresult).ok()
+        (windows_core::Interface::vtable(self).PrefetchFileEnd)(windows_core::Interface::as_raw(self), pszpath.param().abi(), hrresult).ok()
     }
 }
 #[repr(C)]
@@ -1020,10 +1020,10 @@ windows_core::imp::interface_hierarchy!(IOfflineFilesEvents4, windows_core::IUnk
 impl IOfflineFilesEvents4 {
     pub unsafe fn CacheMoved<P0, P1>(&self, pszoldpath: P0, psznewpath: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.CacheMoved)(windows_core::Interface::as_raw(self), pszoldpath.into_param().abi(), psznewpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.CacheMoved)(windows_core::Interface::as_raw(self), pszoldpath.param().abi(), psznewpath.param().abi()).ok()
     }
     pub unsafe fn CacheIsFull(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.CacheIsFull)(windows_core::Interface::as_raw(self)).ok()
@@ -1033,45 +1033,45 @@ impl IOfflineFilesEvents4 {
     }
     pub unsafe fn Enabled<P0>(&self, benabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.Enabled)(windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.Enabled)(windows_core::Interface::as_raw(self), benabled.param().abi()).ok()
     }
     pub unsafe fn EncryptionChanged<P0, P1, P2, P3>(&self, bwasencrypted: P0, bwaspartial: P1, bisencrypted: P2, bispartial: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P3: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.EncryptionChanged)(windows_core::Interface::as_raw(self), bwasencrypted.into_param().abi(), bwaspartial.into_param().abi(), bisencrypted.into_param().abi(), bispartial.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.EncryptionChanged)(windows_core::Interface::as_raw(self), bwasencrypted.param().abi(), bwaspartial.param().abi(), bisencrypted.param().abi(), bispartial.param().abi()).ok()
     }
     pub unsafe fn SyncBegin(&self, rsyncid: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.SyncBegin)(windows_core::Interface::as_raw(self), rsyncid).ok()
     }
     pub unsafe fn SyncFileResult<P0>(&self, rsyncid: *const windows_core::GUID, pszfile: P0, hrresult: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SyncFileResult)(windows_core::Interface::as_raw(self), rsyncid, pszfile.into_param().abi(), hrresult).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SyncFileResult)(windows_core::Interface::as_raw(self), rsyncid, pszfile.param().abi(), hrresult).ok()
     }
     pub unsafe fn SyncConflictRecAdded<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SyncConflictRecAdded)(windows_core::Interface::as_raw(self), pszconflictpath.into_param().abi(), pftconflictdatetime, conflictsyncstate).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SyncConflictRecAdded)(windows_core::Interface::as_raw(self), pszconflictpath.param().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncConflictRecUpdated<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SyncConflictRecUpdated)(windows_core::Interface::as_raw(self), pszconflictpath.into_param().abi(), pftconflictdatetime, conflictsyncstate).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SyncConflictRecUpdated)(windows_core::Interface::as_raw(self), pszconflictpath.param().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncConflictRecRemoved<P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SyncConflictRecRemoved)(windows_core::Interface::as_raw(self), pszconflictpath.into_param().abi(), pftconflictdatetime, conflictsyncstate).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SyncConflictRecRemoved)(windows_core::Interface::as_raw(self), pszconflictpath.param().abi(), pftconflictdatetime, conflictsyncstate).ok()
     }
     pub unsafe fn SyncEnd(&self, rsyncid: *const windows_core::GUID, hrresult: windows_core::HRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.SyncEnd)(windows_core::Interface::as_raw(self), rsyncid, hrresult).ok()
@@ -1084,66 +1084,66 @@ impl IOfflineFilesEvents4 {
     }
     pub unsafe fn ItemDisconnected<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ItemDisconnected)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.ItemDisconnected)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemReconnected<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ItemReconnected)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.ItemReconnected)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemAvailableOffline<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ItemAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.ItemAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemNotAvailableOffline<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ItemNotAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.ItemNotAvailableOffline)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemPinned<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ItemPinned)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.ItemPinned)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemNotPinned<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ItemNotPinned)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.ItemNotPinned)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemModified<P0, P1, P2>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: P1, bmodifiedattributes: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ItemModified)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype, bmodifieddata.into_param().abi(), bmodifiedattributes.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.ItemModified)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype, bmodifieddata.param().abi(), bmodifiedattributes.param().abi()).ok()
     }
     pub unsafe fn ItemAddedToCache<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ItemAddedToCache)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.ItemAddedToCache)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemDeletedFromCache<P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ItemDeletedFromCache)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.ItemDeletedFromCache)(windows_core::Interface::as_raw(self), pszpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn ItemRenamed<P0, P1>(&self, pszoldpath: P0, psznewpath: P1, itemtype: OFFLINEFILES_ITEM_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ItemRenamed)(windows_core::Interface::as_raw(self), pszoldpath.into_param().abi(), psznewpath.into_param().abi(), itemtype).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.ItemRenamed)(windows_core::Interface::as_raw(self), pszoldpath.param().abi(), psznewpath.param().abi(), itemtype).ok()
     }
     pub unsafe fn DataLost(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.DataLost)(windows_core::Interface::as_raw(self)).ok()
@@ -1180,24 +1180,24 @@ impl IOfflineFilesEvents4 {
     }
     pub unsafe fn TransparentCacheItemNotify<P0, P1, P2, P3>(&self, pszpath: P0, eventtype: OFFLINEFILES_EVENTS, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: P1, bmodifiedattributes: P2, pzsoldpath: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P3: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.TransparentCacheItemNotify)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), eventtype, itemtype, bmodifieddata.into_param().abi(), bmodifiedattributes.into_param().abi(), pzsoldpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.TransparentCacheItemNotify)(windows_core::Interface::as_raw(self), pszpath.param().abi(), eventtype, itemtype, bmodifieddata.param().abi(), bmodifiedattributes.param().abi(), pzsoldpath.param().abi()).ok()
     }
     pub unsafe fn PrefetchFileBegin<P0>(&self, pszpath: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.PrefetchFileBegin)(windows_core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.PrefetchFileBegin)(windows_core::Interface::as_raw(self), pszpath.param().abi()).ok()
     }
     pub unsafe fn PrefetchFileEnd<P0>(&self, pszpath: P0, hrresult: windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.PrefetchFileEnd)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), hrresult).ok()
+        (windows_core::Interface::vtable(self).base__.PrefetchFileEnd)(windows_core::Interface::as_raw(self), pszpath.param().abi(), hrresult).ok()
     }
     pub unsafe fn PrefetchCloseHandleBegin(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).PrefetchCloseHandleBegin)(windows_core::Interface::as_raw(self)).ok()
@@ -1345,13 +1345,13 @@ impl IOfflineFilesItemContainer {
     }
     pub unsafe fn EnumItemsEx<P0, P1, P2, P3>(&self, pincludefilefilter: P0, pincludedirfilter: P1, pexcludefilefilter: P2, pexcludedirfilter: P3, dwenumflags: u32, dwqueryflags: u32) -> windows_core::Result<IEnumOfflineFilesItems>
     where
-        P0: windows_core::IntoParam<IOfflineFilesItemFilter>,
-        P1: windows_core::IntoParam<IOfflineFilesItemFilter>,
-        P2: windows_core::IntoParam<IOfflineFilesItemFilter>,
-        P3: windows_core::IntoParam<IOfflineFilesItemFilter>,
+        P0: windows_core::Param<IOfflineFilesItemFilter>,
+        P1: windows_core::Param<IOfflineFilesItemFilter>,
+        P2: windows_core::Param<IOfflineFilesItemFilter>,
+        P3: windows_core::Param<IOfflineFilesItemFilter>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumItemsEx)(windows_core::Interface::as_raw(self), pincludefilefilter.into_param().abi(), pincludedirfilter.into_param().abi(), pexcludefilefilter.into_param().abi(), pexcludedirfilter.into_param().abi(), dwenumflags, dwqueryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumItemsEx)(windows_core::Interface::as_raw(self), pincludefilefilter.param().abi(), pincludedirfilter.param().abi(), pexcludefilefilter.param().abi(), pexcludedirfilter.param().abi(), dwenumflags, dwqueryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1601,17 +1601,17 @@ impl IOfflineFilesSimpleProgress {
     }
     pub unsafe fn ItemBegin<P0>(&self, pszfile: P0) -> windows_core::Result<OFFLINEFILES_OP_RESPONSE>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ItemBegin)(windows_core::Interface::as_raw(self), pszfile.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ItemBegin)(windows_core::Interface::as_raw(self), pszfile.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn ItemResult<P0>(&self, pszfile: P0, hrresult: windows_core::HRESULT) -> windows_core::Result<OFFLINEFILES_OP_RESPONSE>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ItemResult)(windows_core::Interface::as_raw(self), pszfile.into_param().abi(), hrresult, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ItemResult)(windows_core::Interface::as_raw(self), pszfile.param().abi(), hrresult, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -1625,9 +1625,9 @@ windows_core::imp::interface_hierarchy!(IOfflineFilesSuspend, windows_core::IUnk
 impl IOfflineFilesSuspend {
     pub unsafe fn SuspendRoot<P0>(&self, bsuspend: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SuspendRoot)(windows_core::Interface::as_raw(self), bsuspend.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SuspendRoot)(windows_core::Interface::as_raw(self), bsuspend.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1652,9 +1652,9 @@ windows_core::imp::interface_hierarchy!(IOfflineFilesSyncConflictHandler, window
 impl IOfflineFilesSyncConflictHandler {
     pub unsafe fn ResolveConflict<P0>(&self, pszpath: P0, fstateknown: u32, state: OFFLINEFILES_SYNC_STATE, fchangedetails: u32, pconflictresolution: *mut OFFLINEFILES_SYNC_CONFLICT_RESOLVE, ppsznewname: *mut windows_core::PWSTR) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ResolveConflict)(windows_core::Interface::as_raw(self), pszpath.into_param().abi(), fstateknown, state, fchangedetails, pconflictresolution, ppsznewname).ok()
+        (windows_core::Interface::vtable(self).ResolveConflict)(windows_core::Interface::as_raw(self), pszpath.param().abi(), fstateknown, state, fchangedetails, pconflictresolution, ppsznewname).ok()
     }
 }
 #[repr(C)]
@@ -1750,18 +1750,18 @@ impl IOfflineFilesSyncProgress {
     }
     pub unsafe fn SyncItemBegin<P0>(&self, pszfile: P0) -> windows_core::Result<OFFLINEFILES_OP_RESPONSE>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).SyncItemBegin)(windows_core::Interface::as_raw(self), pszfile.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).SyncItemBegin)(windows_core::Interface::as_raw(self), pszfile.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SyncItemResult<P0, P1>(&self, pszfile: P0, hrresult: windows_core::HRESULT, perrorinfo: P1) -> windows_core::Result<OFFLINEFILES_OP_RESPONSE>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IOfflineFilesSyncErrorInfo>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IOfflineFilesSyncErrorInfo>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).SyncItemResult)(windows_core::Interface::as_raw(self), pszfile.into_param().abi(), hrresult, perrorinfo.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).SyncItemResult)(windows_core::Interface::as_raw(self), pszfile.param().abi(), hrresult, perrorinfo.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

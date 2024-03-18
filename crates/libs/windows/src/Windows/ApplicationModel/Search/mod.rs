@@ -544,12 +544,12 @@ impl SearchPane {
     #[cfg(feature = "deprecated")]
     pub fn VisibilityChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneVisibilityChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneVisibilityChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).VisibilityChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VisibilityChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -560,12 +560,12 @@ impl SearchPane {
     #[cfg(feature = "deprecated")]
     pub fn QueryChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneQueryChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneQueryChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).QueryChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).QueryChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -576,12 +576,12 @@ impl SearchPane {
     #[cfg(feature = "deprecated")]
     pub fn SuggestionsRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneSuggestionsRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneSuggestionsRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SuggestionsRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SuggestionsRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -592,12 +592,12 @@ impl SearchPane {
     #[cfg(feature = "deprecated")]
     pub fn QuerySubmitted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneQuerySubmittedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneQuerySubmittedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).QuerySubmitted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).QuerySubmitted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -608,12 +608,12 @@ impl SearchPane {
     #[cfg(feature = "deprecated")]
     pub fn ResultSuggestionChosen<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneResultSuggestionChosenEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneResultSuggestionChosenEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResultSuggestionChosen)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ResultSuggestionChosen)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -624,10 +624,10 @@ impl SearchPane {
     #[cfg(feature = "deprecated")]
     pub fn SetLocalContentSuggestionSettings<P0>(&self, settings: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<LocalContentSuggestionSettings>,
+        P0: windows_core::Param<LocalContentSuggestionSettings>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLocalContentSuggestionSettings)(windows_core::Interface::as_raw(this), settings.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLocalContentSuggestionSettings)(windows_core::Interface::as_raw(this), settings.param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn ShowOverloadDefault(&self) -> windows_core::Result<()> {
@@ -1078,11 +1078,11 @@ impl SearchQueryLinguisticDetails {
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateInstance<P0>(querytextalternatives: P0, querytextcompositionstart: u32, querytextcompositionlength: u32) -> windows_core::Result<SearchQueryLinguisticDetails>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ISearchQueryLinguisticDetailsFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), querytextalternatives.into_param().abi(), querytextcompositionstart, querytextcompositionlength, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), querytextalternatives.param().abi(), querytextcompositionstart, querytextcompositionlength, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1122,18 +1122,18 @@ impl SearchSuggestionCollection {
     #[cfg(feature = "Foundation_Collections")]
     pub fn AppendQuerySuggestions<P0>(&self, suggestions: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AppendQuerySuggestions)(windows_core::Interface::as_raw(this), suggestions.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AppendQuerySuggestions)(windows_core::Interface::as_raw(this), suggestions.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn AppendResultSuggestion<P0>(&self, text: &windows_core::HSTRING, detailtext: &windows_core::HSTRING, tag: &windows_core::HSTRING, image: P0, imagealternatetext: &windows_core::HSTRING) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AppendResultSuggestion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), core::mem::transmute_copy(detailtext), core::mem::transmute_copy(tag), image.into_param().abi(), core::mem::transmute_copy(imagealternatetext)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AppendResultSuggestion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), core::mem::transmute_copy(detailtext), core::mem::transmute_copy(tag), image.param().abi(), core::mem::transmute_copy(imagealternatetext)).ok() }
     }
     pub fn AppendSearchSeparator(&self, label: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;

@@ -3,11 +3,11 @@ windows_core::imp::interface_hierarchy!(IRadialControllerConfigurationInterop, w
 impl IRadialControllerConfigurationInterop {
     pub unsafe fn GetForWindow<P0, T>(&self, hwnd: P0) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -20,11 +20,11 @@ windows_core::imp::interface_hierarchy!(IRadialControllerIndependentInputSourceI
 impl IRadialControllerIndependentInputSourceInterop {
     pub unsafe fn CreateForWindow<P0, T>(&self, hwnd: P0) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateForWindow)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateForWindow)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -37,11 +37,11 @@ windows_core::imp::interface_hierarchy!(IRadialControllerInterop, windows_core::
 impl IRadialControllerInterop {
     pub unsafe fn CreateForWindow<P0, T>(&self, hwnd: P0) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateForWindow)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateForWindow)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

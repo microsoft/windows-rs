@@ -516,12 +516,12 @@ impl SpeechContinuousRecognitionSession {
     }
     pub fn Completed<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SpeechContinuousRecognitionSession, SpeechContinuousRecognitionCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpeechContinuousRecognitionSession, SpeechContinuousRecognitionCompletedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCompleted(&self, value: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -530,12 +530,12 @@ impl SpeechContinuousRecognitionSession {
     }
     pub fn ResultGenerated<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SpeechContinuousRecognitionSession, SpeechContinuousRecognitionResultGeneratedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpeechContinuousRecognitionSession, SpeechContinuousRecognitionResultGeneratedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResultGenerated)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ResultGenerated)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveResultGenerated(&self, value: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -637,21 +637,21 @@ impl SpeechRecognitionGrammarFileConstraint {
     #[cfg(feature = "Storage")]
     pub fn Create<P0>(file: P0) -> windows_core::Result<SpeechRecognitionGrammarFileConstraint>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageFile>,
+        P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
         Self::ISpeechRecognitionGrammarFileConstraintFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage")]
     pub fn CreateWithTag<P0>(file: P0, tag: &windows_core::HSTRING) -> windows_core::Result<SpeechRecognitionGrammarFileConstraint>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageFile>,
+        P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
         Self::ISpeechRecognitionGrammarFileConstraintFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithTag)(windows_core::Interface::as_raw(this), file.into_param().abi(), core::mem::transmute_copy(tag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithTag)(windows_core::Interface::as_raw(this), file.param().abi(), core::mem::transmute_copy(tag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -779,21 +779,21 @@ impl SpeechRecognitionListConstraint {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<P0>(commands: P0) -> windows_core::Result<SpeechRecognitionListConstraint>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ISpeechRecognitionListConstraintFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), commands.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), commands.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithTag<P0>(commands: P0, tag: &windows_core::HSTRING) -> windows_core::Result<SpeechRecognitionListConstraint>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ISpeechRecognitionListConstraintFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithTag)(windows_core::Interface::as_raw(this), commands.into_param().abi(), core::mem::transmute_copy(tag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithTag)(windows_core::Interface::as_raw(this), commands.param().abi(), core::mem::transmute_copy(tag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1174,12 +1174,12 @@ impl SpeechRecognizer {
     }
     pub fn RecognitionQualityDegrading<P0>(&self, speechrecognitionqualitydegradinghandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognitionQualityDegradingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognitionQualityDegradingEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RecognitionQualityDegrading)(windows_core::Interface::as_raw(this), speechrecognitionqualitydegradinghandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RecognitionQualityDegrading)(windows_core::Interface::as_raw(this), speechrecognitionqualitydegradinghandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRecognitionQualityDegrading(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1188,12 +1188,12 @@ impl SpeechRecognizer {
     }
     pub fn StateChanged<P0>(&self, statechangedhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognizerStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognizerStateChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), statechangedhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), statechangedhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStateChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1223,12 +1223,12 @@ impl SpeechRecognizer {
     }
     pub fn HypothesisGenerated<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognitionHypothesisGeneratedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognitionHypothesisGeneratedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISpeechRecognizer2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).HypothesisGenerated)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HypothesisGenerated)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveHypothesisGenerated(&self, value: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1238,11 +1238,11 @@ impl SpeechRecognizer {
     #[cfg(feature = "Globalization")]
     pub fn Create<P0>(language: P0) -> windows_core::Result<SpeechRecognizer>
     where
-        P0: windows_core::IntoParam<super::super::Globalization::Language>,
+        P0: windows_core::Param<super::super::Globalization::Language>,
     {
         Self::ISpeechRecognizerFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), language.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), language.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Globalization")]
@@ -1269,11 +1269,11 @@ impl SpeechRecognizer {
     #[cfg(feature = "Globalization")]
     pub fn TrySetSystemSpeechLanguageAsync<P0>(speechlanguage: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::Globalization::Language>,
+        P0: windows_core::Param<super::super::Globalization::Language>,
     {
         Self::ISpeechRecognizerStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetSystemSpeechLanguageAsync)(windows_core::Interface::as_raw(this), speechlanguage.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TrySetSystemSpeechLanguageAsync)(windows_core::Interface::as_raw(this), speechlanguage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1447,11 +1447,11 @@ impl VoiceCommandManager {
     #[cfg(feature = "Storage")]
     pub fn InstallCommandSetsFromStorageFileAsync<P0>(file: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageFile>,
+        P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
         Self::IVoiceCommandManager(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).InstallCommandSetsFromStorageFileAsync)(windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InstallCommandSetsFromStorageFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1492,12 +1492,12 @@ impl VoiceCommandSet {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetPhraseListAsync<P0>(&self, phraselistname: &windows_core::HSTRING, phraselist: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetPhraseListAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(phraselistname), phraselist.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetPhraseListAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(phraselistname), phraselist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

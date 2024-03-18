@@ -55,11 +55,11 @@ impl RemoteTextConnection {
     }
     pub fn CreateInstance<P0>(connectionid: windows_core::GUID, pduforwarder: P0) -> windows_core::Result<RemoteTextConnection>
     where
-        P0: windows_core::IntoParam<RemoteTextConnectionDataHandler>,
+        P0: windows_core::Param<RemoteTextConnectionDataHandler>,
     {
         Self::IRemoteTextConnectionFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), connectionid, pduforwarder.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), connectionid, pduforwarder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

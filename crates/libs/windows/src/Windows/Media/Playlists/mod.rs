@@ -61,33 +61,33 @@ impl Playlist {
     #[cfg(feature = "Storage")]
     pub fn SaveAsAsync<P0>(&self, savelocation: P0, desiredname: &windows_core::HSTRING, option: super::super::Storage::NameCollisionOption) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::IStorageFolder>,
+        P0: windows_core::Param<super::super::Storage::IStorageFolder>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveAsAsync)(windows_core::Interface::as_raw(this), savelocation.into_param().abi(), core::mem::transmute_copy(desiredname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SaveAsAsync)(windows_core::Interface::as_raw(this), savelocation.param().abi(), core::mem::transmute_copy(desiredname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage")]
     pub fn SaveAsWithFormatAsync<P0>(&self, savelocation: P0, desiredname: &windows_core::HSTRING, option: super::super::Storage::NameCollisionOption, playlistformat: PlaylistFormat) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::IStorageFolder>,
+        P0: windows_core::Param<super::super::Storage::IStorageFolder>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveAsWithFormatAsync)(windows_core::Interface::as_raw(this), savelocation.into_param().abi(), core::mem::transmute_copy(desiredname), option, playlistformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SaveAsWithFormatAsync)(windows_core::Interface::as_raw(this), savelocation.param().abi(), core::mem::transmute_copy(desiredname), option, playlistformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage")]
     pub fn LoadAsync<P0>(file: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Playlist>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::IStorageFile>,
+        P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         Self::IPlaylistStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

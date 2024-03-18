@@ -17,11 +17,11 @@ impl InputActivationListenerPreview {
     #[cfg(feature = "UI_WindowManagement")]
     pub fn CreateForApplicationWindow<P0>(window: P0) -> windows_core::Result<super::InputActivationListener>
     where
-        P0: windows_core::IntoParam<super::super::WindowManagement::AppWindow>,
+        P0: windows_core::Param<super::super::WindowManagement::AppWindow>,
     {
         Self::IInputActivationListenerPreviewStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForApplicationWindow)(windows_core::Interface::as_raw(this), window.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForApplicationWindow)(windows_core::Interface::as_raw(this), window.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

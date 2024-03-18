@@ -823,12 +823,12 @@ impl StoreAvailability {
     }
     pub fn RequestPurchaseWithPurchasePropertiesAsync<P0>(&self, storepurchaseproperties: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>
     where
-        P0: windows_core::IntoParam<StorePurchaseProperties>,
+        P0: windows_core::Param<StorePurchaseProperties>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(windows_core::Interface::as_raw(this), storepurchaseproperties.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(windows_core::Interface::as_raw(this), storepurchaseproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1018,12 +1018,12 @@ impl StoreContext {
     }
     pub fn OfflineLicensesChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<StoreContext, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<StoreContext, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).OfflineLicensesChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).OfflineLicensesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveOfflineLicensesChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1061,57 +1061,57 @@ impl StoreContext {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStoreProductsAsync<P0, P1>(&self, productkinds: P0, storeids: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStoreProductsAsync)(windows_core::Interface::as_raw(this), productkinds.into_param().abi(), storeids.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetStoreProductsAsync)(windows_core::Interface::as_raw(this), productkinds.param().abi(), storeids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAssociatedStoreProductsAsync<P0>(&self, productkinds: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAssociatedStoreProductsAsync)(windows_core::Interface::as_raw(this), productkinds.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetAssociatedStoreProductsAsync)(windows_core::Interface::as_raw(this), productkinds.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAssociatedStoreProductsWithPagingAsync<P0>(&self, productkinds: P0, maxitemstoretrieveperpage: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAssociatedStoreProductsWithPagingAsync)(windows_core::Interface::as_raw(this), productkinds.into_param().abi(), maxitemstoretrieveperpage, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetAssociatedStoreProductsWithPagingAsync)(windows_core::Interface::as_raw(this), productkinds.param().abi(), maxitemstoretrieveperpage, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUserCollectionAsync<P0>(&self, productkinds: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetUserCollectionAsync)(windows_core::Interface::as_raw(this), productkinds.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetUserCollectionAsync)(windows_core::Interface::as_raw(this), productkinds.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUserCollectionWithPagingAsync<P0>(&self, productkinds: P0, maxitemstoretrieveperpage: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetUserCollectionWithPagingAsync)(windows_core::Interface::as_raw(this), productkinds.into_param().abi(), maxitemstoretrieveperpage, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetUserCollectionWithPagingAsync)(windows_core::Interface::as_raw(this), productkinds.param().abi(), maxitemstoretrieveperpage, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReportConsumableFulfillmentAsync(&self, productstoreid: &windows_core::HSTRING, quantity: u32, trackingid: windows_core::GUID) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreConsumableResult>> {
@@ -1131,12 +1131,12 @@ impl StoreContext {
     #[cfg(feature = "ApplicationModel")]
     pub fn AcquireStoreLicenseForOptionalPackageAsync<P0>(&self, optionalpackage: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreAcquireLicenseResult>>
     where
-        P0: windows_core::IntoParam<super::super::ApplicationModel::Package>,
+        P0: windows_core::Param<super::super::ApplicationModel::Package>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AcquireStoreLicenseForOptionalPackageAsync)(windows_core::Interface::as_raw(this), optionalpackage.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AcquireStoreLicenseForOptionalPackageAsync)(windows_core::Interface::as_raw(this), optionalpackage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestPurchaseAsync(&self, storeid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
@@ -1148,12 +1148,12 @@ impl StoreContext {
     }
     pub fn RequestPurchaseWithPurchasePropertiesAsync<P0>(&self, storeid: &windows_core::HSTRING, storepurchaseproperties: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>
     where
-        P0: windows_core::IntoParam<StorePurchaseProperties>,
+        P0: windows_core::Param<StorePurchaseProperties>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(storeid), storepurchaseproperties.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(storeid), storepurchaseproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1167,46 +1167,46 @@ impl StoreContext {
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestDownloadStorePackageUpdatesAsync<P0>(&self, storepackageupdates: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<StorePackageUpdate>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<StorePackageUpdate>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestDownloadStorePackageUpdatesAsync)(windows_core::Interface::as_raw(this), storepackageupdates.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestDownloadStorePackageUpdatesAsync)(windows_core::Interface::as_raw(this), storepackageupdates.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestDownloadAndInstallStorePackageUpdatesAsync<P0>(&self, storepackageupdates: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<StorePackageUpdate>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<StorePackageUpdate>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestDownloadAndInstallStorePackageUpdatesAsync)(windows_core::Interface::as_raw(this), storepackageupdates.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestDownloadAndInstallStorePackageUpdatesAsync)(windows_core::Interface::as_raw(this), storepackageupdates.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestDownloadAndInstallStorePackagesAsync<P0>(&self, storeids: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestDownloadAndInstallStorePackagesAsync)(windows_core::Interface::as_raw(this), storeids.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestDownloadAndInstallStorePackagesAsync)(windows_core::Interface::as_raw(this), storeids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindStoreProductForPackageAsync<P0, P1>(&self, productkinds: P0, package: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductResult>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-        P1: windows_core::IntoParam<super::super::ApplicationModel::Package>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<super::super::ApplicationModel::Package>,
     {
         let this = &windows_core::Interface::cast::<IStoreContext2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindStoreProductForPackageAsync)(windows_core::Interface::as_raw(this), productkinds.into_param().abi(), package.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindStoreProductForPackageAsync)(windows_core::Interface::as_raw(this), productkinds.param().abi(), package.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CanSilentlyDownloadStorePackageUpdates(&self) -> windows_core::Result<bool> {
@@ -1219,34 +1219,34 @@ impl StoreContext {
     #[cfg(feature = "Foundation_Collections")]
     pub fn TrySilentDownloadStorePackageUpdatesAsync<P0>(&self, storepackageupdates: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<StorePackageUpdate>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<StorePackageUpdate>>,
     {
         let this = &windows_core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySilentDownloadStorePackageUpdatesAsync)(windows_core::Interface::as_raw(this), storepackageupdates.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TrySilentDownloadStorePackageUpdatesAsync)(windows_core::Interface::as_raw(this), storepackageupdates.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn TrySilentDownloadAndInstallStorePackageUpdatesAsync<P0>(&self, storepackageupdates: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<StorePackageUpdate>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<StorePackageUpdate>>,
     {
         let this = &windows_core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySilentDownloadAndInstallStorePackageUpdatesAsync)(windows_core::Interface::as_raw(this), storepackageupdates.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TrySilentDownloadAndInstallStorePackageUpdatesAsync)(windows_core::Interface::as_raw(this), storepackageupdates.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "ApplicationModel")]
     pub fn CanAcquireStoreLicenseForOptionalPackageAsync<P0>(&self, optionalpackage: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>
     where
-        P0: windows_core::IntoParam<super::super::ApplicationModel::Package>,
+        P0: windows_core::Param<super::super::ApplicationModel::Package>,
     {
         let this = &windows_core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CanAcquireStoreLicenseForOptionalPackageAsync)(windows_core::Interface::as_raw(this), optionalpackage.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CanAcquireStoreLicenseForOptionalPackageAsync)(windows_core::Interface::as_raw(this), optionalpackage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CanAcquireStoreLicenseAsync(&self, productstoreid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>> {
@@ -1259,14 +1259,14 @@ impl StoreContext {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStoreProductsWithOptionsAsync<P0, P1, P2>(&self, productkinds: P0, storeids: P1, storeproductoptions: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-        P2: windows_core::IntoParam<StoreProductOptions>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P2: windows_core::Param<StoreProductOptions>,
     {
         let this = &windows_core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStoreProductsWithOptionsAsync)(windows_core::Interface::as_raw(this), productkinds.into_param().abi(), storeids.into_param().abi(), storeproductoptions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetStoreProductsWithOptionsAsync)(windows_core::Interface::as_raw(this), productkinds.param().abi(), storeids.param().abi(), storeproductoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1280,46 +1280,46 @@ impl StoreContext {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStoreQueueItemsAsync<P0>(&self, storeids: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStoreQueueItemsAsync)(windows_core::Interface::as_raw(this), storeids.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetStoreQueueItemsAsync)(windows_core::Interface::as_raw(this), storeids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync<P0, P1>(&self, storeids: P0, storepackageinstalloptions: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-        P1: windows_core::IntoParam<StorePackageInstallOptions>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<StorePackageInstallOptions>,
     {
         let this = &windows_core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync)(windows_core::Interface::as_raw(this), storeids.into_param().abi(), storepackageinstalloptions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync)(windows_core::Interface::as_raw(this), storeids.param().abi(), storepackageinstalloptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn DownloadAndInstallStorePackagesAsync<P0>(&self, storeids: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DownloadAndInstallStorePackagesAsync)(windows_core::Interface::as_raw(this), storeids.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DownloadAndInstallStorePackagesAsync)(windows_core::Interface::as_raw(this), storeids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "ApplicationModel")]
     pub fn RequestUninstallStorePackageAsync<P0>(&self, package: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>
     where
-        P0: windows_core::IntoParam<super::super::ApplicationModel::Package>,
+        P0: windows_core::Param<super::super::ApplicationModel::Package>,
     {
         let this = &windows_core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestUninstallStorePackageAsync)(windows_core::Interface::as_raw(this), package.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestUninstallStorePackageAsync)(windows_core::Interface::as_raw(this), package.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestUninstallStorePackageByStoreIdAsync(&self, storeid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>> {
@@ -1332,12 +1332,12 @@ impl StoreContext {
     #[cfg(feature = "ApplicationModel")]
     pub fn UninstallStorePackageAsync<P0>(&self, package: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>
     where
-        P0: windows_core::IntoParam<super::super::ApplicationModel::Package>,
+        P0: windows_core::Param<super::super::ApplicationModel::Package>,
     {
         let this = &windows_core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UninstallStorePackageAsync)(windows_core::Interface::as_raw(this), package.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UninstallStorePackageAsync)(windows_core::Interface::as_raw(this), package.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UninstallStorePackageByStoreIdAsync(&self, storeid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>> {
@@ -1357,34 +1357,34 @@ impl StoreContext {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetInstallOrderForAssociatedStoreQueueItemsAsync<P0>(&self, items: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<StoreQueueItem>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<StoreQueueItem>>,
     {
         let this = &windows_core::Interface::cast::<IStoreContext4>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetInstallOrderForAssociatedStoreQueueItemsAsync)(windows_core::Interface::as_raw(this), items.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetInstallOrderForAssociatedStoreQueueItemsAsync)(windows_core::Interface::as_raw(this), items.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUserPurchaseHistoryAsync<P0>(&self, productkinds: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IStoreContext5>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetUserPurchaseHistoryAsync)(windows_core::Interface::as_raw(this), productkinds.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetUserPurchaseHistoryAsync)(windows_core::Interface::as_raw(this), productkinds.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAssociatedStoreProductsByInAppOfferTokenAsync<P0>(&self, inappoffertokens: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IStoreContext5>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAssociatedStoreProductsByInAppOfferTokenAsync)(windows_core::Interface::as_raw(this), inappoffertokens.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetAssociatedStoreProductsByInAppOfferTokenAsync)(windows_core::Interface::as_raw(this), inappoffertokens.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestPurchaseByInAppOfferTokenAsync(&self, inappoffertoken: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
@@ -1403,11 +1403,11 @@ impl StoreContext {
     #[cfg(feature = "System")]
     pub fn GetForUser<P0>(user: P0) -> windows_core::Result<StoreContext>
     where
-        P0: windows_core::IntoParam<super::super::System::User>,
+        P0: windows_core::Param<super::super::System::User>,
     {
         Self::IStoreContextStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1582,12 +1582,12 @@ impl StorePackageLicense {
     }
     pub fn LicenseLost<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<StorePackageLicense, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<StorePackageLicense, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LicenseLost)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).LicenseLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveLicenseLost(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1904,12 +1904,12 @@ impl StoreProduct {
     }
     pub fn RequestPurchaseWithPurchasePropertiesAsync<P0>(&self, storepurchaseproperties: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>
     where
-        P0: windows_core::IntoParam<StorePurchaseProperties>,
+        P0: windows_core::Param<StorePurchaseProperties>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(windows_core::Interface::as_raw(this), storepurchaseproperties.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(windows_core::Interface::as_raw(this), storepurchaseproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn InAppOfferToken(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2202,12 +2202,12 @@ impl StoreQueueItem {
     }
     pub fn Completed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<StoreQueueItem, StoreQueueItemCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<StoreQueueItem, StoreQueueItemCompletedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2216,12 +2216,12 @@ impl StoreQueueItem {
     }
     pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<StoreQueueItem, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<StoreQueueItem, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2383,11 +2383,11 @@ pub struct StoreRequestHelper;
 impl StoreRequestHelper {
     pub fn SendRequestAsync<P0>(context: P0, requestkind: u32, parametersasjson: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreSendRequestResult>>
     where
-        P0: windows_core::IntoParam<StoreContext>,
+        P0: windows_core::Param<StoreContext>,
     {
         Self::IStoreRequestHelperStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), context.into_param().abi(), requestkind, core::mem::transmute_copy(parametersasjson), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), context.param().abi(), requestkind, core::mem::transmute_copy(parametersasjson), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -2562,12 +2562,12 @@ impl StoreSku {
     }
     pub fn RequestPurchaseWithPurchasePropertiesAsync<P0>(&self, storepurchaseproperties: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>
     where
-        P0: windows_core::IntoParam<StorePurchaseProperties>,
+        P0: windows_core::Param<StorePurchaseProperties>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(windows_core::Interface::as_raw(this), storepurchaseproperties.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(windows_core::Interface::as_raw(this), storepurchaseproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsSubscription(&self) -> windows_core::Result<bool> {
@@ -2990,7 +2990,7 @@ impl core::fmt::Debug for StorePackageUpdateStatus {
     }
 }
 impl windows_core::TypeKind for StorePackageUpdateStatus {
-    type TypeKind = windows_core::ValueType;
+    type TypeKind = windows_core::CloneType;
 }
 impl windows_core::RuntimeType for StorePackageUpdateStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Services.Store.StorePackageUpdateStatus;string;u8;u8;f8;f8;enum(Windows.Services.Store.StorePackageUpdateState;i4))");

@@ -509,10 +509,10 @@ impl JumpListItem {
     }
     pub fn SetLogo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLogo)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLogo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn CreateWithArguments(arguments: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<JumpListItem> {
         Self::IJumpListItemStatics(|this| unsafe {
@@ -605,10 +605,10 @@ impl SecondaryTile {
     #[cfg(feature = "deprecated")]
     pub fn SetLogo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLogo)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLogo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
@@ -621,10 +621,10 @@ impl SecondaryTile {
     #[cfg(feature = "deprecated")]
     pub fn SetSmallLogo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSmallLogo)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSmallLogo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn SmallLogo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
@@ -637,10 +637,10 @@ impl SecondaryTile {
     #[cfg(feature = "deprecated")]
     pub fn SetWideLogo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetWideLogo)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetWideLogo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn WideLogo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
@@ -652,10 +652,10 @@ impl SecondaryTile {
     }
     pub fn SetLockScreenBadgeLogo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLockScreenBadgeLogo)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLockScreenBadgeLogo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn LockScreenBadgeLogo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -810,12 +810,12 @@ impl SecondaryTile {
     }
     pub fn VisualElementsRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SecondaryTile, VisualElementsRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SecondaryTile, VisualElementsRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).VisualElementsRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VisualElementsRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveVisualElementsRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -825,22 +825,22 @@ impl SecondaryTile {
     #[cfg(feature = "deprecated")]
     pub fn CreateTile<P0>(tileid: &windows_core::HSTRING, shortname: &windows_core::HSTRING, displayname: &windows_core::HSTRING, arguments: &windows_core::HSTRING, tileoptions: TileOptions, logoreference: P0) -> windows_core::Result<SecondaryTile>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::ISecondaryTileFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), core::mem::transmute_copy(shortname), core::mem::transmute_copy(displayname), core::mem::transmute_copy(arguments), tileoptions, logoreference.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), core::mem::transmute_copy(shortname), core::mem::transmute_copy(displayname), core::mem::transmute_copy(arguments), tileoptions, logoreference.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "deprecated")]
     pub fn CreateWideTile<P0, P1>(tileid: &windows_core::HSTRING, shortname: &windows_core::HSTRING, displayname: &windows_core::HSTRING, arguments: &windows_core::HSTRING, tileoptions: TileOptions, logoreference: P0, widelogoreference: P1) -> windows_core::Result<SecondaryTile>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
-        P1: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
+        P1: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::ISecondaryTileFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWideTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), core::mem::transmute_copy(shortname), core::mem::transmute_copy(displayname), core::mem::transmute_copy(arguments), tileoptions, logoreference.into_param().abi(), widelogoreference.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWideTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), core::mem::transmute_copy(shortname), core::mem::transmute_copy(displayname), core::mem::transmute_copy(arguments), tileoptions, logoreference.param().abi(), widelogoreference.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithId(tileid: &windows_core::HSTRING) -> windows_core::Result<SecondaryTile> {
@@ -851,11 +851,11 @@ impl SecondaryTile {
     }
     pub fn CreateMinimalTile<P0>(tileid: &windows_core::HSTRING, displayname: &windows_core::HSTRING, arguments: &windows_core::HSTRING, square150x150logo: P0, desiredsize: TileSize) -> windows_core::Result<SecondaryTile>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::ISecondaryTileFactory2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMinimalTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), core::mem::transmute_copy(displayname), core::mem::transmute_copy(arguments), square150x150logo.into_param().abi(), desiredsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMinimalTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), core::mem::transmute_copy(displayname), core::mem::transmute_copy(arguments), square150x150logo.param().abi(), desiredsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Exists(tileid: &windows_core::HSTRING) -> windows_core::Result<bool> {
@@ -921,10 +921,10 @@ impl SecondaryTileVisualElements {
     #[cfg(feature = "deprecated")]
     pub fn SetSquare30x30Logo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSquare30x30Logo)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSquare30x30Logo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn Square30x30Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
@@ -937,10 +937,10 @@ impl SecondaryTileVisualElements {
     #[cfg(feature = "deprecated")]
     pub fn SetSquare70x70Logo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSquare70x70Logo)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSquare70x70Logo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn Square70x70Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
@@ -952,10 +952,10 @@ impl SecondaryTileVisualElements {
     }
     pub fn SetSquare150x150Logo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSquare150x150Logo)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSquare150x150Logo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Square150x150Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -966,10 +966,10 @@ impl SecondaryTileVisualElements {
     }
     pub fn SetWide310x150Logo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetWide310x150Logo)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetWide310x150Logo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Wide310x150Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -980,10 +980,10 @@ impl SecondaryTileVisualElements {
     }
     pub fn SetSquare310x310Logo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSquare310x310Logo)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSquare310x310Logo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Square310x310Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1049,10 +1049,10 @@ impl SecondaryTileVisualElements {
     }
     pub fn SetSquare71x71Logo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<ISecondaryTileVisualElements2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetSquare71x71Logo)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSquare71x71Logo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Square71x71Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<ISecondaryTileVisualElements2>(self)?;
@@ -1063,10 +1063,10 @@ impl SecondaryTileVisualElements {
     }
     pub fn SetSquare44x44Logo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<ISecondaryTileVisualElements3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetSquare44x44Logo)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSquare44x44Logo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Square44x44Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<ISecondaryTileVisualElements3>(self)?;
@@ -1111,34 +1111,34 @@ impl StartScreenManager {
     #[cfg(feature = "ApplicationModel_Core")]
     pub fn SupportsAppListEntry<P0>(&self, applistentry: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<super::super::ApplicationModel::Core::AppListEntry>,
+        P0: windows_core::Param<super::super::ApplicationModel::Core::AppListEntry>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SupportsAppListEntry)(windows_core::Interface::as_raw(this), applistentry.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SupportsAppListEntry)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
     pub fn ContainsAppListEntryAsync<P0>(&self, applistentry: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::ApplicationModel::Core::AppListEntry>,
+        P0: windows_core::Param<super::super::ApplicationModel::Core::AppListEntry>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContainsAppListEntryAsync)(windows_core::Interface::as_raw(this), applistentry.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ContainsAppListEntryAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
     pub fn RequestAddAppListEntryAsync<P0>(&self, applistentry: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::ApplicationModel::Core::AppListEntry>,
+        P0: windows_core::Param<super::super::ApplicationModel::Core::AppListEntry>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAddAppListEntryAsync)(windows_core::Interface::as_raw(this), applistentry.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestAddAppListEntryAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ContainsSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
@@ -1164,11 +1164,11 @@ impl StartScreenManager {
     #[cfg(feature = "System")]
     pub fn GetForUser<P0>(user: P0) -> windows_core::Result<StartScreenManager>
     where
-        P0: windows_core::IntoParam<super::super::System::User>,
+        P0: windows_core::Param<super::super::System::User>,
     {
         Self::IStartScreenManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1196,10 +1196,10 @@ windows_core::imp::interface_hierarchy!(TileMixedRealityModel, windows_core::IUn
 impl TileMixedRealityModel {
     pub fn SetUri<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1211,10 +1211,10 @@ impl TileMixedRealityModel {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn SetBoundingBox<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBoundingBox)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBoundingBox)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn BoundingBox(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>> {

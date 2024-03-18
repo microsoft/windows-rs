@@ -35,15 +35,15 @@ impl IObjectCollection {
     }
     pub unsafe fn AddObject<P0>(&self, punk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).AddObject)(windows_core::Interface::as_raw(self), punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddObject)(windows_core::Interface::as_raw(self), punk.param().abi()).ok()
     }
     pub unsafe fn AddFromArray<P0>(&self, poasource: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IObjectArray>,
+        P0: windows_core::Param<IObjectArray>,
     {
-        (windows_core::Interface::vtable(self).AddFromArray)(windows_core::Interface::as_raw(self), poasource.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddFromArray)(windows_core::Interface::as_raw(self), poasource.param().abi()).ok()
     }
     pub unsafe fn RemoveObjectAt(&self, uiindex: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveObjectAt)(windows_core::Interface::as_raw(self), uiindex).ok()

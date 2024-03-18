@@ -2,38 +2,38 @@
 #[inline]
 pub unsafe fn BindIFilterFromStorage<P0, P1>(pstg: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::System::Com::StructuredStorage::IStorage>,
-    P1: windows_core::IntoParam<windows_core::IUnknown>,
+    P0: windows_core::Param<super::super::System::Com::StructuredStorage::IStorage>,
+    P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("query.dll" "system" fn BindIFilterFromStorage(pstg : * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    BindIFilterFromStorage(pstg.into_param().abi(), punkouter.into_param().abi(), ppiunk).ok()
+    BindIFilterFromStorage(pstg.param().abi(), punkouter.param().abi(), ppiunk).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn BindIFilterFromStream<P0, P1>(pstm: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::System::Com::IStream>,
-    P1: windows_core::IntoParam<windows_core::IUnknown>,
+    P0: windows_core::Param<super::super::System::Com::IStream>,
+    P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("query.dll" "system" fn BindIFilterFromStream(pstm : * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    BindIFilterFromStream(pstm.into_param().abi(), punkouter.into_param().abi(), ppiunk).ok()
+    BindIFilterFromStream(pstm.param().abi(), punkouter.param().abi(), ppiunk).ok()
 }
 #[inline]
 pub unsafe fn LoadIFilter<P0, P1>(pwcspath: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::IUnknown>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("query.dll" "system" fn LoadIFilter(pwcspath : windows_core::PCWSTR, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    LoadIFilter(pwcspath.into_param().abi(), punkouter.into_param().abi(), ppiunk).ok()
+    LoadIFilter(pwcspath.param().abi(), punkouter.param().abi(), ppiunk).ok()
 }
 #[inline]
 pub unsafe fn LoadIFilterEx<P0>(pwcspath: P0, dwflags: u32, riid: *const windows_core::GUID, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("query.dll" "system" fn LoadIFilterEx(pwcspath : windows_core::PCWSTR, dwflags : u32, riid : *const windows_core::GUID, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    LoadIFilterEx(pwcspath.into_param().abi(), dwflags, riid, ppiunk).ok()
+    LoadIFilterEx(pwcspath.param().abi(), dwflags, riid, ppiunk).ok()
 }
 windows_core::imp::define_interface!(IFilter, IFilter_Vtbl, 0x89bcb740_6119_101a_bcb7_00dd010655af);
 windows_core::imp::interface_hierarchy!(IFilter, windows_core::IUnknown);
@@ -76,16 +76,16 @@ windows_core::imp::interface_hierarchy!(IPhraseSink, windows_core::IUnknown);
 impl IPhraseSink {
     pub unsafe fn PutSmallPhrase<P0, P1>(&self, pwcnoun: P0, cwcnoun: u32, pwcmodifier: P1, cwcmodifier: u32, ulattachmenttype: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).PutSmallPhrase)(windows_core::Interface::as_raw(self), pwcnoun.into_param().abi(), cwcnoun, pwcmodifier.into_param().abi(), cwcmodifier, ulattachmenttype).ok()
+        (windows_core::Interface::vtable(self).PutSmallPhrase)(windows_core::Interface::as_raw(self), pwcnoun.param().abi(), cwcnoun, pwcmodifier.param().abi(), cwcmodifier, ulattachmenttype).ok()
     }
     pub unsafe fn PutPhrase<P0>(&self, pwcphrase: P0, cwcphrase: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).PutPhrase)(windows_core::Interface::as_raw(self), pwcphrase.into_param().abi(), cwcphrase).ok()
+        (windows_core::Interface::vtable(self).PutPhrase)(windows_core::Interface::as_raw(self), pwcphrase.param().abi(), cwcphrase).ok()
     }
 }
 #[repr(C)]

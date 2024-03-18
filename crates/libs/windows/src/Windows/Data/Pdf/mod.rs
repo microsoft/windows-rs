@@ -123,41 +123,41 @@ impl PdfDocument {
     #[cfg(feature = "Storage")]
     pub fn LoadFromFileAsync<P0>(file: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::IStorageFile>,
+        P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         Self::IPdfDocumentStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadFromFileAsync)(windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadFromFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage")]
     pub fn LoadFromFileWithPasswordAsync<P0>(file: P0, password: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::IStorageFile>,
+        P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         Self::IPdfDocumentStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadFromFileWithPasswordAsync)(windows_core::Interface::as_raw(this), file.into_param().abi(), core::mem::transmute_copy(password), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadFromFileWithPasswordAsync)(windows_core::Interface::as_raw(this), file.param().abi(), core::mem::transmute_copy(password), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStreamAsync<P0>(inputstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
         Self::IPdfDocumentStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadFromStreamAsync)(windows_core::Interface::as_raw(this), inputstream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadFromStreamAsync)(windows_core::Interface::as_raw(this), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStreamWithPasswordAsync<P0>(inputstream: P0, password: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
         Self::IPdfDocumentStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadFromStreamWithPasswordAsync)(windows_core::Interface::as_raw(this), inputstream.into_param().abi(), core::mem::transmute_copy(password), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadFromStreamWithPasswordAsync)(windows_core::Interface::as_raw(this), inputstream.param().abi(), core::mem::transmute_copy(password), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -191,24 +191,24 @@ impl PdfPage {
     #[cfg(feature = "Storage_Streams")]
     pub fn RenderToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenderToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RenderToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn RenderWithOptionsToStreamAsync<P0, P1>(&self, outputstream: P0, options: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
-        P1: windows_core::IntoParam<PdfPageRenderOptions>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
+        P1: windows_core::Param<PdfPageRenderOptions>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenderWithOptionsToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.into_param().abi(), options.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RenderWithOptionsToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PreparePageAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {

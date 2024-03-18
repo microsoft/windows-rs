@@ -3,9 +3,9 @@ windows_core::imp::interface_hierarchy!(IUIApplication, windows_core::IUnknown);
 impl IUIApplication {
     pub unsafe fn OnViewChanged<P0>(&self, viewid: u32, typeid: UI_VIEWTYPE, view: P0, verb: UI_VIEWVERB, ureasoncode: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).OnViewChanged)(windows_core::Interface::as_raw(self), viewid, typeid, view.into_param().abi(), verb, ureasoncode).ok()
+        (windows_core::Interface::vtable(self).OnViewChanged)(windows_core::Interface::as_raw(self), viewid, typeid, view.param().abi(), verb, ureasoncode).ok()
     }
     pub unsafe fn OnCreateUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE) -> windows_core::Result<IUICommandHandler> {
         let mut result__ = std::mem::zeroed();
@@ -13,9 +13,9 @@ impl IUIApplication {
     }
     pub unsafe fn OnDestroyUICommand<P0>(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUICommandHandler>,
+        P0: windows_core::Param<IUICommandHandler>,
     {
-        (windows_core::Interface::vtable(self).OnDestroyUICommand)(windows_core::Interface::as_raw(self), commandid, typeid, commandhandler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnDestroyUICommand)(windows_core::Interface::as_raw(self), commandid, typeid, commandhandler.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -38,24 +38,24 @@ impl IUICollection {
     }
     pub unsafe fn Add<P0>(&self, item: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), item.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), item.param().abi()).ok()
     }
     pub unsafe fn Insert<P0>(&self, index: u32, item: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), index, item.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), index, item.param().abi()).ok()
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok()
     }
     pub unsafe fn Replace<P0>(&self, indexreplaced: u32, itemreplacewith: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Replace)(windows_core::Interface::as_raw(self), indexreplaced, itemreplacewith.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Replace)(windows_core::Interface::as_raw(self), indexreplaced, itemreplacewith.param().abi()).ok()
     }
     pub unsafe fn Clear(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok()
@@ -77,10 +77,10 @@ windows_core::imp::interface_hierarchy!(IUICollectionChangedEvent, windows_core:
 impl IUICollectionChangedEvent {
     pub unsafe fn OnChanged<P0, P1>(&self, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: P0, newindex: u32, newitem: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).OnChanged)(windows_core::Interface::as_raw(self), action, oldindex, olditem.into_param().abi(), newindex, newitem.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnChanged)(windows_core::Interface::as_raw(self), action, oldindex, olditem.param().abi(), newindex, newitem.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -94,9 +94,9 @@ impl IUICommandHandler {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Execute<P0>(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: Option<*const super::Shell::PropertiesSystem::PROPERTYKEY>, currentvalue: Option<*const windows_core::PROPVARIANT>, commandexecutionproperties: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUISimplePropertySet>,
+        P0: windows_core::Param<IUISimplePropertySet>,
     {
-        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), commandid, verb, core::mem::transmute(key.unwrap_or(std::ptr::null())), core::mem::transmute(currentvalue.unwrap_or(std::ptr::null())), commandexecutionproperties.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), commandid, verb, core::mem::transmute(key.unwrap_or(std::ptr::null())), core::mem::transmute(currentvalue.unwrap_or(std::ptr::null())), commandexecutionproperties.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn UpdateProperty(&self, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, currentvalue: Option<*const windows_core::PROPVARIANT>) -> windows_core::Result<windows_core::PROPVARIANT> {
@@ -145,9 +145,9 @@ windows_core::imp::interface_hierarchy!(IUIEventingManager, windows_core::IUnkno
 impl IUIEventingManager {
     pub unsafe fn SetEventLogger<P0>(&self, eventlogger: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIEventLogger>,
+        P0: windows_core::Param<IUIEventLogger>,
     {
-        (windows_core::Interface::vtable(self).SetEventLogger)(windows_core::Interface::as_raw(self), eventlogger.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventLogger)(windows_core::Interface::as_raw(self), eventlogger.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -160,20 +160,20 @@ windows_core::imp::interface_hierarchy!(IUIFramework, windows_core::IUnknown);
 impl IUIFramework {
     pub unsafe fn Initialize<P0, P1>(&self, framewnd: P0, application: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<IUIApplication>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<IUIApplication>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), framewnd.into_param().abi(), application.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), framewnd.param().abi(), application.param().abi()).ok()
     }
     pub unsafe fn Destroy(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Destroy)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn LoadUI<P0, P1>(&self, instance: P0, resourcename: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).LoadUI)(windows_core::Interface::as_raw(self), instance.into_param().abi(), resourcename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).LoadUI)(windows_core::Interface::as_raw(self), instance.param().abi(), resourcename.param().abi()).ok()
     }
     pub unsafe fn GetView(&self, viewid: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetView)(windows_core::Interface::as_raw(self), viewid, riid, ppv).ok()
@@ -243,10 +243,10 @@ impl IUIImageFromBitmap {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreateImage<P0>(&self, bitmap: P0, options: UI_OWNERSHIP) -> windows_core::Result<IUIImage>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+        P0: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateImage)(windows_core::Interface::as_raw(self), bitmap.into_param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateImage)(windows_core::Interface::as_raw(self), bitmap.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -267,16 +267,16 @@ impl IUIRibbon {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadSettingsFromStream<P0>(&self, pstream: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IStream>,
+        P0: windows_core::Param<super::super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).LoadSettingsFromStream)(windows_core::Interface::as_raw(self), pstream.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).LoadSettingsFromStream)(windows_core::Interface::as_raw(self), pstream.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveSettingsToStream<P0>(&self, pstream: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IStream>,
+        P0: windows_core::Param<super::super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).SaveSettingsToStream)(windows_core::Interface::as_raw(self), pstream.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SaveSettingsToStream)(windows_core::Interface::as_raw(self), pstream.param().abi()).ok()
     }
 }
 #[repr(C)]

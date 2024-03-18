@@ -125,27 +125,27 @@ impl CustomDevice {
     #[cfg(feature = "Storage_Streams")]
     pub fn SendIOControlAsync<P0, P1, P2>(&self, iocontrolcode: P0, inputbuffer: P1, outputbuffer: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>
     where
-        P0: windows_core::IntoParam<IIOControlCode>,
-        P1: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
-        P2: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<IIOControlCode>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P2: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendIOControlAsync)(windows_core::Interface::as_raw(this), iocontrolcode.into_param().abi(), inputbuffer.into_param().abi(), outputbuffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SendIOControlAsync)(windows_core::Interface::as_raw(this), iocontrolcode.param().abi(), inputbuffer.param().abi(), outputbuffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn TrySendIOControlAsync<P0, P1, P2>(&self, iocontrolcode: P0, inputbuffer: P1, outputbuffer: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<IIOControlCode>,
-        P1: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
-        P2: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<IIOControlCode>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P2: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySendIOControlAsync)(windows_core::Interface::as_raw(this), iocontrolcode.into_param().abi(), inputbuffer.into_param().abi(), outputbuffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TrySendIOControlAsync)(windows_core::Interface::as_raw(this), iocontrolcode.param().abi(), inputbuffer.param().abi(), outputbuffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetDeviceSelector(classguid: windows_core::GUID) -> windows_core::Result<windows_core::HSTRING> {

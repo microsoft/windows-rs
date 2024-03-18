@@ -426,42 +426,42 @@ impl DepthCorrelatedCoordinateMapper {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn UnprojectPoint<P0>(&self, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: P0) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnprojectPoint)(windows_core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UnprojectPoint)(windows_core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn UnprojectPoints<P0>(&self, sourcepoints: &[super::super::super::Foundation::Point], targetcoordinatesystem: P0, results: &mut [super::super::super::Foundation::Numerics::Vector3]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UnprojectPoints)(windows_core::Interface::as_raw(this), sourcepoints.len().try_into().unwrap(), sourcepoints.as_ptr(), targetcoordinatesystem.into_param().abi(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UnprojectPoints)(windows_core::Interface::as_raw(this), sourcepoints.len().try_into().unwrap(), sourcepoints.as_ptr(), targetcoordinatesystem.param().abi(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
     }
     #[cfg(feature = "Perception_Spatial")]
     pub fn MapPoint<P0, P1>(&self, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: P0, targetcameraintrinsics: P1) -> windows_core::Result<super::super::super::Foundation::Point>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
-        P1: windows_core::IntoParam<CameraIntrinsics>,
+        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P1: windows_core::Param<CameraIntrinsics>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapPoint)(windows_core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.into_param().abi(), targetcameraintrinsics.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MapPoint)(windows_core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.param().abi(), targetcameraintrinsics.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Perception_Spatial")]
     pub fn MapPoints<P0, P1>(&self, sourcepoints: &[super::super::super::Foundation::Point], targetcoordinatesystem: P0, targetcameraintrinsics: P1, results: &mut [super::super::super::Foundation::Point]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
-        P1: windows_core::IntoParam<CameraIntrinsics>,
+        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P1: windows_core::Param<CameraIntrinsics>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).MapPoints)(windows_core::Interface::as_raw(this), sourcepoints.len().try_into().unwrap(), sourcepoints.as_ptr(), targetcoordinatesystem.into_param().abi(), targetcameraintrinsics.into_param().abi(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).MapPoints)(windows_core::Interface::as_raw(this), sourcepoints.len().try_into().unwrap(), sourcepoints.as_ptr(), targetcoordinatesystem.param().abi(), targetcameraintrinsics.param().abi(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
     }
 }
 impl windows_core::RuntimeType for DepthCorrelatedCoordinateMapper {
@@ -583,10 +583,10 @@ impl FrameController {
     }
     pub fn SetPhotoConfirmationEnabled<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<bool>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<bool>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPhotoConfirmationEnabled)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPhotoConfirmationEnabled)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn FlashControl(&self) -> windows_core::Result<FrameFlashControl> {
         let this = &windows_core::Interface::cast::<IFrameController2>(self)?;
@@ -710,10 +710,10 @@ impl FrameExposureCompensationControl {
     }
     pub fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<f32>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<f32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for FrameExposureCompensationControl {
@@ -751,10 +751,10 @@ impl FrameExposureControl {
     }
     pub fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for FrameExposureControl {
@@ -922,10 +922,10 @@ impl FrameFocusControl {
     }
     pub fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<u32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for FrameFocusControl {
@@ -1007,10 +1007,10 @@ impl FrameIsoSpeedControl {
     }
     pub fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<u32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for FrameIsoSpeedControl {
@@ -1056,12 +1056,12 @@ impl VariablePhotoSequenceController {
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetHighestConcurrentFrameRate<P0>(&self, captureproperties: P0) -> windows_core::Result<super::super::MediaProperties::MediaRatio>
     where
-        P0: windows_core::IntoParam<super::super::MediaProperties::IMediaEncodingProperties>,
+        P0: windows_core::Param<super::super::MediaProperties::IMediaEncodingProperties>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(windows_core::Interface::as_raw(this), captureproperties.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(windows_core::Interface::as_raw(this), captureproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_MediaProperties")]

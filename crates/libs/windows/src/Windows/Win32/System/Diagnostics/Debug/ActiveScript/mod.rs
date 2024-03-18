@@ -3,18 +3,18 @@ windows_core::imp::interface_hierarchy!(AsyncIDebugApplicationNodeEvents, window
 impl AsyncIDebugApplicationNodeEvents {
     pub unsafe fn Begin_onAddChild<P0>(&self, prddpchild: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugApplicationNode>,
+        P0: windows_core::Param<IDebugApplicationNode>,
     {
-        (windows_core::Interface::vtable(self).Begin_onAddChild)(windows_core::Interface::as_raw(self), prddpchild.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Begin_onAddChild)(windows_core::Interface::as_raw(self), prddpchild.param().abi()).ok()
     }
     pub unsafe fn Finish_onAddChild(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Finish_onAddChild)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Begin_onRemoveChild<P0>(&self, prddpchild: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugApplicationNode>,
+        P0: windows_core::Param<IDebugApplicationNode>,
     {
-        (windows_core::Interface::vtable(self).Begin_onRemoveChild)(windows_core::Interface::as_raw(self), prddpchild.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Begin_onRemoveChild)(windows_core::Interface::as_raw(self), prddpchild.param().abi()).ok()
     }
     pub unsafe fn Finish_onRemoveChild(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Finish_onRemoveChild)(windows_core::Interface::as_raw(self)).ok()
@@ -27,9 +27,9 @@ impl AsyncIDebugApplicationNodeEvents {
     }
     pub unsafe fn Begin_onAttach<P0>(&self, prddpparent: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugApplicationNode>,
+        P0: windows_core::Param<IDebugApplicationNode>,
     {
-        (windows_core::Interface::vtable(self).Begin_onAttach)(windows_core::Interface::as_raw(self), prddpparent.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Begin_onAttach)(windows_core::Interface::as_raw(self), prddpparent.param().abi()).ok()
     }
     pub unsafe fn Finish_onAttach(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Finish_onAttach)(windows_core::Interface::as_raw(self)).ok()
@@ -52,9 +52,9 @@ windows_core::imp::interface_hierarchy!(IActiveScript, windows_core::IUnknown);
 impl IActiveScript {
     pub unsafe fn SetScriptSite<P0>(&self, pass: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IActiveScriptSite>,
+        P0: windows_core::Param<IActiveScriptSite>,
     {
-        (windows_core::Interface::vtable(self).SetScriptSite)(windows_core::Interface::as_raw(self), pass.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetScriptSite)(windows_core::Interface::as_raw(self), pass.param().abi()).ok()
     }
     pub unsafe fn GetScriptSite<T>(&self) -> windows_core::Result<T>
     where
@@ -75,9 +75,9 @@ impl IActiveScript {
     }
     pub unsafe fn AddNamedItem<P0>(&self, pstrname: P0, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddNamedItem)(windows_core::Interface::as_raw(self), pstrname.into_param().abi(), dwflags).ok()
+        (windows_core::Interface::vtable(self).AddNamedItem)(windows_core::Interface::as_raw(self), pstrname.param().abi(), dwflags).ok()
     }
     pub unsafe fn AddTypeLib(&self, rguidtypelib: *const windows_core::GUID, dwmajor: u32, dwminor: u32, dwflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AddTypeLib)(windows_core::Interface::as_raw(self), rguidtypelib, dwmajor, dwminor, dwflags).ok()
@@ -85,10 +85,10 @@ impl IActiveScript {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetScriptDispatch<P0>(&self, pstritemname: P0) -> windows_core::Result<super::super::super::Com::IDispatch>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetScriptDispatch)(windows_core::Interface::as_raw(self), pstritemname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetScriptDispatch)(windows_core::Interface::as_raw(self), pstritemname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentScriptThreadID(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -140,43 +140,43 @@ impl IActiveScriptAuthor {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddNamedItem<P0, P1>(&self, pszname: P0, dwflags: u32, pdisp: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::super::Com::IDispatch>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::super::Com::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).AddNamedItem)(windows_core::Interface::as_raw(self), pszname.into_param().abi(), dwflags, pdisp.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddNamedItem)(windows_core::Interface::as_raw(self), pszname.param().abi(), dwflags, pdisp.param().abi()).ok()
     }
     pub unsafe fn AddScriptlet<P0, P1, P2, P3, P4, P5>(&self, pszdefaultname: P0, pszcode: P1, pszitemname: P2, pszsubitemname: P3, pszeventname: P4, pszdelimiter: P5, dwcookie: u32, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
-        P3: windows_core::IntoParam<windows_core::PCWSTR>,
-        P4: windows_core::IntoParam<windows_core::PCWSTR>,
-        P5: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
+        P4: windows_core::Param<windows_core::PCWSTR>,
+        P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddScriptlet)(windows_core::Interface::as_raw(self), pszdefaultname.into_param().abi(), pszcode.into_param().abi(), pszitemname.into_param().abi(), pszsubitemname.into_param().abi(), pszeventname.into_param().abi(), pszdelimiter.into_param().abi(), dwcookie, dwflags).ok()
+        (windows_core::Interface::vtable(self).AddScriptlet)(windows_core::Interface::as_raw(self), pszdefaultname.param().abi(), pszcode.param().abi(), pszitemname.param().abi(), pszsubitemname.param().abi(), pszeventname.param().abi(), pszdelimiter.param().abi(), dwcookie, dwflags).ok()
     }
     pub unsafe fn ParseScriptText<P0, P1, P2>(&self, pszcode: P0, pszitemname: P1, pszdelimiter: P2, dwcookie: u32, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ParseScriptText)(windows_core::Interface::as_raw(self), pszcode.into_param().abi(), pszitemname.into_param().abi(), pszdelimiter.into_param().abi(), dwcookie, dwflags).ok()
+        (windows_core::Interface::vtable(self).ParseScriptText)(windows_core::Interface::as_raw(self), pszcode.param().abi(), pszitemname.param().abi(), pszdelimiter.param().abi(), dwcookie, dwflags).ok()
     }
     pub unsafe fn GetScriptTextAttributes<P0, P1>(&self, pszcode: P0, cch: u32, pszdelimiter: P1, dwflags: u32, pattr: *mut u16) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetScriptTextAttributes)(windows_core::Interface::as_raw(self), pszcode.into_param().abi(), cch, pszdelimiter.into_param().abi(), dwflags, pattr).ok()
+        (windows_core::Interface::vtable(self).GetScriptTextAttributes)(windows_core::Interface::as_raw(self), pszcode.param().abi(), cch, pszdelimiter.param().abi(), dwflags, pattr).ok()
     }
     pub unsafe fn GetScriptletTextAttributes<P0, P1>(&self, pszcode: P0, cch: u32, pszdelimiter: P1, dwflags: u32, pattr: *mut u16) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetScriptletTextAttributes)(windows_core::Interface::as_raw(self), pszcode.into_param().abi(), cch, pszdelimiter.into_param().abi(), dwflags, pattr).ok()
+        (windows_core::Interface::vtable(self).GetScriptletTextAttributes)(windows_core::Interface::as_raw(self), pszcode.param().abi(), cch, pszdelimiter.param().abi(), dwflags, pattr).ok()
     }
     pub unsafe fn GetRoot(&self) -> windows_core::Result<IScriptNode> {
         let mut result__ = std::mem::zeroed();
@@ -189,19 +189,19 @@ impl IActiveScriptAuthor {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEventHandler<P0, P1, P2, P3>(&self, pdisp: P0, pszitem: P1, pszsubitem: P2, pszevent: P3) -> windows_core::Result<IScriptEntry>
     where
-        P0: windows_core::IntoParam<super::super::super::Com::IDispatch>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
-        P3: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<super::super::super::Com::IDispatch>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetEventHandler)(windows_core::Interface::as_raw(self), pdisp.into_param().abi(), pszitem.into_param().abi(), pszsubitem.into_param().abi(), pszevent.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetEventHandler)(windows_core::Interface::as_raw(self), pdisp.param().abi(), pszitem.param().abi(), pszsubitem.param().abi(), pszevent.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RemoveNamedItem<P0>(&self, pszname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).RemoveNamedItem)(windows_core::Interface::as_raw(self), pszname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveNamedItem)(windows_core::Interface::as_raw(self), pszname.param().abi()).ok()
     }
     pub unsafe fn AddTypeLib(&self, rguidtypelib: *const windows_core::GUID, dwmajor: u32, dwminor: u32, dwflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AddTypeLib)(windows_core::Interface::as_raw(self), rguidtypelib, dwmajor, dwminor, dwflags).ok()
@@ -215,9 +215,9 @@ impl IActiveScriptAuthor {
     }
     pub unsafe fn GetInfoFromContext<P0>(&self, pszcode: P0, cchcode: u32, ichcurrentposition: u32, dwlisttypesrequested: u32, pdwlisttypesprovided: *mut u32, pichlistanchorposition: *mut u32, pichfuncanchorposition: *mut u32, pmemid: *mut i32, picurrentparameter: *mut i32, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetInfoFromContext)(windows_core::Interface::as_raw(self), pszcode.into_param().abi(), cchcode, ichcurrentposition, dwlisttypesrequested, pdwlisttypesprovided, pichlistanchorposition, pichfuncanchorposition, pmemid, picurrentparameter, core::mem::transmute(ppunk)).ok()
+        (windows_core::Interface::vtable(self).GetInfoFromContext)(windows_core::Interface::as_raw(self), pszcode.param().abi(), cchcode, ichcurrentposition, dwlisttypesrequested, pdwlisttypesprovided, pichlistanchorposition, pichfuncanchorposition, pmemid, picurrentparameter, core::mem::transmute(ppunk)).ok()
     }
     pub unsafe fn IsCommitChar(&self, ch: u16) -> windows_core::Result<super::super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -254,14 +254,14 @@ impl IActiveScriptAuthorProcedure {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ParseProcedureText<P0, P1, P2, P3, P4, P5>(&self, pszcode: P0, pszformalparams: P1, pszprocedurename: P2, pszitemname: P3, pszdelimiter: P4, dwcookie: u32, dwflags: u32, pdispfor: P5) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
-        P3: windows_core::IntoParam<windows_core::PCWSTR>,
-        P4: windows_core::IntoParam<windows_core::PCWSTR>,
-        P5: windows_core::IntoParam<super::super::super::Com::IDispatch>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
+        P4: windows_core::Param<windows_core::PCWSTR>,
+        P5: windows_core::Param<super::super::super::Com::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).ParseProcedureText)(windows_core::Interface::as_raw(self), pszcode.into_param().abi(), pszformalparams.into_param().abi(), pszprocedurename.into_param().abi(), pszitemname.into_param().abi(), pszdelimiter.into_param().abi(), dwcookie, dwflags, pdispfor.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ParseProcedureText)(windows_core::Interface::as_raw(self), pszcode.param().abi(), pszformalparams.param().abi(), pszprocedurename.param().abi(), pszitemname.param().abi(), pszdelimiter.param().abi(), dwcookie, dwflags, pdispfor.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -277,17 +277,17 @@ windows_core::imp::interface_hierarchy!(IActiveScriptDebug32, windows_core::IUnk
 impl IActiveScriptDebug32 {
     pub unsafe fn GetScriptTextAttributes<P0, P1>(&self, pstrcode: P0, unumcodechars: u32, pstrdelimiter: P1, dwflags: u32, pattr: *mut u16) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetScriptTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.into_param().abi(), unumcodechars, pstrdelimiter.into_param().abi(), dwflags, pattr).ok()
+        (windows_core::Interface::vtable(self).GetScriptTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), unumcodechars, pstrdelimiter.param().abi(), dwflags, pattr).ok()
     }
     pub unsafe fn GetScriptletTextAttributes<P0, P1>(&self, pstrcode: P0, unumcodechars: u32, pstrdelimiter: P1, dwflags: u32, pattr: *mut u16) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetScriptletTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.into_param().abi(), unumcodechars, pstrdelimiter.into_param().abi(), dwflags, pattr).ok()
+        (windows_core::Interface::vtable(self).GetScriptletTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), unumcodechars, pstrdelimiter.param().abi(), dwflags, pattr).ok()
     }
     pub unsafe fn EnumCodeContextsOfPosition(&self, dwsourcecontext: u32, ucharacteroffset: u32, unumchars: u32) -> windows_core::Result<IEnumDebugCodeContexts> {
         let mut result__ = std::mem::zeroed();
@@ -306,17 +306,17 @@ windows_core::imp::interface_hierarchy!(IActiveScriptDebug64, windows_core::IUnk
 impl IActiveScriptDebug64 {
     pub unsafe fn GetScriptTextAttributes<P0, P1>(&self, pstrcode: P0, unumcodechars: u32, pstrdelimiter: P1, dwflags: u32, pattr: *mut u16) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetScriptTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.into_param().abi(), unumcodechars, pstrdelimiter.into_param().abi(), dwflags, pattr).ok()
+        (windows_core::Interface::vtable(self).GetScriptTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), unumcodechars, pstrdelimiter.param().abi(), dwflags, pattr).ok()
     }
     pub unsafe fn GetScriptletTextAttributes<P0, P1>(&self, pstrcode: P0, unumcodechars: u32, pstrdelimiter: P1, dwflags: u32, pattr: *mut u16) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetScriptletTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.into_param().abi(), unumcodechars, pstrdelimiter.into_param().abi(), dwflags, pattr).ok()
+        (windows_core::Interface::vtable(self).GetScriptletTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), unumcodechars, pstrdelimiter.param().abi(), dwflags, pattr).ok()
     }
     pub unsafe fn EnumCodeContextsOfPosition(&self, dwsourcecontext: u64, ucharacteroffset: u32, unumchars: u32) -> windows_core::Result<IEnumDebugCodeContexts> {
         let mut result__ = std::mem::zeroed();
@@ -335,15 +335,15 @@ windows_core::imp::interface_hierarchy!(IActiveScriptEncode, windows_core::IUnkn
 impl IActiveScriptEncode {
     pub unsafe fn EncodeSection<P0>(&self, pchin: P0, cchin: u32, pchout: windows_core::PWSTR, cchout: u32, pcchret: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).EncodeSection)(windows_core::Interface::as_raw(self), pchin.into_param().abi(), cchin, core::mem::transmute(pchout), cchout, pcchret).ok()
+        (windows_core::Interface::vtable(self).EncodeSection)(windows_core::Interface::as_raw(self), pchin.param().abi(), cchin, core::mem::transmute(pchout), cchout, pcchret).ok()
     }
     pub unsafe fn DecodeScript<P0>(&self, pchin: P0, cchin: u32, pchout: windows_core::PWSTR, cchout: u32, pcchret: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).DecodeScript)(windows_core::Interface::as_raw(self), pchin.into_param().abi(), cchin, core::mem::transmute(pchout), cchout, pcchret).ok()
+        (windows_core::Interface::vtable(self).DecodeScript)(windows_core::Interface::as_raw(self), pchin.param().abi(), cchin, core::mem::transmute(pchout), cchout, pcchret).ok()
     }
     pub unsafe fn GetEncodeProgId(&self, pbstrout: *mut windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetEncodeProgId)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrout)).ok()
@@ -463,10 +463,10 @@ windows_core::imp::interface_hierarchy!(IActiveScriptHostEncode, windows_core::I
 impl IActiveScriptHostEncode {
     pub unsafe fn EncodeScriptHostFile<P0, P1>(&self, bstrinfile: P0, pbstroutfile: *mut windows_core::BSTR, cflags: u32, bstrdefaultlang: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).EncodeScriptHostFile)(windows_core::Interface::as_raw(self), bstrinfile.into_param().abi(), core::mem::transmute(pbstroutfile), cflags, bstrdefaultlang.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).EncodeScriptHostFile)(windows_core::Interface::as_raw(self), bstrinfile.param().abi(), core::mem::transmute(pbstroutfile), cflags, bstrdefaultlang.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -483,24 +483,24 @@ impl IActiveScriptParse32 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddScriptlet<P0, P1, P2, P3, P4, P5>(&self, pstrdefaultname: P0, pstrcode: P1, pstritemname: P2, pstrsubitemname: P3, pstreventname: P4, pstrdelimiter: P5, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut windows_core::BSTR, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
-        P3: windows_core::IntoParam<windows_core::PCWSTR>,
-        P4: windows_core::IntoParam<windows_core::PCWSTR>,
-        P5: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
+        P4: windows_core::Param<windows_core::PCWSTR>,
+        P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddScriptlet)(windows_core::Interface::as_raw(self), pstrdefaultname.into_param().abi(), pstrcode.into_param().abi(), pstritemname.into_param().abi(), pstrsubitemname.into_param().abi(), pstreventname.into_param().abi(), pstrdelimiter.into_param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, core::mem::transmute(pbstrname), pexcepinfo).ok()
+        (windows_core::Interface::vtable(self).AddScriptlet)(windows_core::Interface::as_raw(self), pstrdefaultname.param().abi(), pstrcode.param().abi(), pstritemname.param().abi(), pstrsubitemname.param().abi(), pstreventname.param().abi(), pstrdelimiter.param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, core::mem::transmute(pbstrname), pexcepinfo).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ParseScriptText<P0, P1, P2, P3>(&self, pstrcode: P0, pstritemname: P1, punkcontext: P2, pstrdelimiter: P3, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut windows_core::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::IUnknown>,
-        P3: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::IUnknown>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ParseScriptText)(windows_core::Interface::as_raw(self), pstrcode.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, core::mem::transmute(pvarresult), pexcepinfo).ok()
+        (windows_core::Interface::vtable(self).ParseScriptText)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), pstritemname.param().abi(), punkcontext.param().abi(), pstrdelimiter.param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, core::mem::transmute(pvarresult), pexcepinfo).ok()
     }
 }
 #[repr(C)]
@@ -525,24 +525,24 @@ impl IActiveScriptParse64 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddScriptlet<P0, P1, P2, P3, P4, P5>(&self, pstrdefaultname: P0, pstrcode: P1, pstritemname: P2, pstrsubitemname: P3, pstreventname: P4, pstrdelimiter: P5, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut windows_core::BSTR, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
-        P3: windows_core::IntoParam<windows_core::PCWSTR>,
-        P4: windows_core::IntoParam<windows_core::PCWSTR>,
-        P5: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
+        P4: windows_core::Param<windows_core::PCWSTR>,
+        P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddScriptlet)(windows_core::Interface::as_raw(self), pstrdefaultname.into_param().abi(), pstrcode.into_param().abi(), pstritemname.into_param().abi(), pstrsubitemname.into_param().abi(), pstreventname.into_param().abi(), pstrdelimiter.into_param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, core::mem::transmute(pbstrname), pexcepinfo).ok()
+        (windows_core::Interface::vtable(self).AddScriptlet)(windows_core::Interface::as_raw(self), pstrdefaultname.param().abi(), pstrcode.param().abi(), pstritemname.param().abi(), pstrsubitemname.param().abi(), pstreventname.param().abi(), pstrdelimiter.param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, core::mem::transmute(pbstrname), pexcepinfo).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ParseScriptText<P0, P1, P2, P3>(&self, pstrcode: P0, pstritemname: P1, punkcontext: P2, pstrdelimiter: P3, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut windows_core::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::IUnknown>,
-        P3: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::IUnknown>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ParseScriptText)(windows_core::Interface::as_raw(self), pstrcode.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, core::mem::transmute(pvarresult), pexcepinfo).ok()
+        (windows_core::Interface::vtable(self).ParseScriptText)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), pstritemname.param().abi(), punkcontext.param().abi(), pstrdelimiter.param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, core::mem::transmute(pvarresult), pexcepinfo).ok()
     }
 }
 #[repr(C)]
@@ -564,15 +564,15 @@ impl IActiveScriptParseProcedure2_32 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ParseProcedureText<P0, P1, P2, P3, P4, P5>(&self, pstrcode: P0, pstrformalparams: P1, pstrprocedurename: P2, pstritemname: P3, punkcontext: P4, pstrdelimiter: P5, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
-        P3: windows_core::IntoParam<windows_core::PCWSTR>,
-        P4: windows_core::IntoParam<windows_core::IUnknown>,
-        P5: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
+        P4: windows_core::Param<windows_core::IUnknown>,
+        P5: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ParseProcedureText)(windows_core::Interface::as_raw(self), pstrcode.into_param().abi(), pstrformalparams.into_param().abi(), pstrprocedurename.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.ParseProcedureText)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), pstrformalparams.param().abi(), pstrprocedurename.param().abi(), pstritemname.param().abi(), punkcontext.param().abi(), pstrdelimiter.param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -585,15 +585,15 @@ impl IActiveScriptParseProcedure2_64 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ParseProcedureText<P0, P1, P2, P3, P4, P5>(&self, pstrcode: P0, pstrformalparams: P1, pstrprocedurename: P2, pstritemname: P3, punkcontext: P4, pstrdelimiter: P5, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
-        P3: windows_core::IntoParam<windows_core::PCWSTR>,
-        P4: windows_core::IntoParam<windows_core::IUnknown>,
-        P5: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
+        P4: windows_core::Param<windows_core::IUnknown>,
+        P5: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ParseProcedureText)(windows_core::Interface::as_raw(self), pstrcode.into_param().abi(), pstrformalparams.into_param().abi(), pstrprocedurename.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.ParseProcedureText)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), pstrformalparams.param().abi(), pstrprocedurename.param().abi(), pstritemname.param().abi(), punkcontext.param().abi(), pstrdelimiter.param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -606,15 +606,15 @@ impl IActiveScriptParseProcedure32 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ParseProcedureText<P0, P1, P2, P3, P4, P5>(&self, pstrcode: P0, pstrformalparams: P1, pstrprocedurename: P2, pstritemname: P3, punkcontext: P4, pstrdelimiter: P5, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
-        P3: windows_core::IntoParam<windows_core::PCWSTR>,
-        P4: windows_core::IntoParam<windows_core::IUnknown>,
-        P5: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
+        P4: windows_core::Param<windows_core::IUnknown>,
+        P5: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ParseProcedureText)(windows_core::Interface::as_raw(self), pstrcode.into_param().abi(), pstrformalparams.into_param().abi(), pstrprocedurename.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ParseProcedureText)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), pstrformalparams.param().abi(), pstrprocedurename.param().abi(), pstritemname.param().abi(), punkcontext.param().abi(), pstrdelimiter.param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -631,15 +631,15 @@ impl IActiveScriptParseProcedure64 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ParseProcedureText<P0, P1, P2, P3, P4, P5>(&self, pstrcode: P0, pstrformalparams: P1, pstrprocedurename: P2, pstritemname: P3, punkcontext: P4, pstrdelimiter: P5, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
-        P3: windows_core::IntoParam<windows_core::PCWSTR>,
-        P4: windows_core::IntoParam<windows_core::IUnknown>,
-        P5: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
+        P4: windows_core::Param<windows_core::IUnknown>,
+        P5: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ParseProcedureText)(windows_core::Interface::as_raw(self), pstrcode.into_param().abi(), pstrformalparams.into_param().abi(), pstrprocedurename.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ParseProcedureText)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), pstrformalparams.param().abi(), pstrprocedurename.param().abi(), pstritemname.param().abi(), punkcontext.param().abi(), pstrdelimiter.param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -656,14 +656,14 @@ impl IActiveScriptParseProcedureOld32 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ParseProcedureText<P0, P1, P2, P3, P4>(&self, pstrcode: P0, pstrformalparams: P1, pstritemname: P2, punkcontext: P3, pstrdelimiter: P4, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
-        P3: windows_core::IntoParam<windows_core::IUnknown>,
-        P4: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::IUnknown>,
+        P4: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ParseProcedureText)(windows_core::Interface::as_raw(self), pstrcode.into_param().abi(), pstrformalparams.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ParseProcedureText)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), pstrformalparams.param().abi(), pstritemname.param().abi(), punkcontext.param().abi(), pstrdelimiter.param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -680,14 +680,14 @@ impl IActiveScriptParseProcedureOld64 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ParseProcedureText<P0, P1, P2, P3, P4>(&self, pstrcode: P0, pstrformalparams: P1, pstritemname: P2, punkcontext: P3, pstrdelimiter: P4, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> windows_core::Result<super::super::super::Com::IDispatch>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
-        P3: windows_core::IntoParam<windows_core::IUnknown>,
-        P4: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::IUnknown>,
+        P4: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ParseProcedureText)(windows_core::Interface::as_raw(self), pstrcode.into_param().abi(), pstrformalparams.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ParseProcedureText)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), pstrformalparams.param().abi(), pstritemname.param().abi(), punkcontext.param().abi(), pstrdelimiter.param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -709,17 +709,17 @@ impl IActiveScriptProfilerCallback {
     }
     pub unsafe fn ScriptCompiled<P0>(&self, scriptid: i32, r#type: PROFILER_SCRIPT_TYPE, pidebugdocumentcontext: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).ScriptCompiled)(windows_core::Interface::as_raw(self), scriptid, r#type, pidebugdocumentcontext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ScriptCompiled)(windows_core::Interface::as_raw(self), scriptid, r#type, pidebugdocumentcontext.param().abi()).ok()
     }
     pub unsafe fn FunctionCompiled<P0, P1, P2>(&self, functionid: i32, scriptid: i32, pwszfunctionname: P0, pwszfunctionnamehint: P1, pidebugdocumentcontext: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).FunctionCompiled)(windows_core::Interface::as_raw(self), functionid, scriptid, pwszfunctionname.into_param().abi(), pwszfunctionnamehint.into_param().abi(), pidebugdocumentcontext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).FunctionCompiled)(windows_core::Interface::as_raw(self), functionid, scriptid, pwszfunctionname.param().abi(), pwszfunctionnamehint.param().abi(), pidebugdocumentcontext.param().abi()).ok()
     }
     pub unsafe fn OnFunctionEnter(&self, scriptid: i32, functionid: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnFunctionEnter)(windows_core::Interface::as_raw(self), scriptid, functionid).ok()
@@ -749,17 +749,17 @@ impl IActiveScriptProfilerCallback2 {
     }
     pub unsafe fn ScriptCompiled<P0>(&self, scriptid: i32, r#type: PROFILER_SCRIPT_TYPE, pidebugdocumentcontext: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.ScriptCompiled)(windows_core::Interface::as_raw(self), scriptid, r#type, pidebugdocumentcontext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.ScriptCompiled)(windows_core::Interface::as_raw(self), scriptid, r#type, pidebugdocumentcontext.param().abi()).ok()
     }
     pub unsafe fn FunctionCompiled<P0, P1, P2>(&self, functionid: i32, scriptid: i32, pwszfunctionname: P0, pwszfunctionnamehint: P1, pidebugdocumentcontext: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.FunctionCompiled)(windows_core::Interface::as_raw(self), functionid, scriptid, pwszfunctionname.into_param().abi(), pwszfunctionnamehint.into_param().abi(), pidebugdocumentcontext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.FunctionCompiled)(windows_core::Interface::as_raw(self), functionid, scriptid, pwszfunctionname.param().abi(), pwszfunctionnamehint.param().abi(), pidebugdocumentcontext.param().abi()).ok()
     }
     pub unsafe fn OnFunctionEnter(&self, scriptid: i32, functionid: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.OnFunctionEnter)(windows_core::Interface::as_raw(self), scriptid, functionid).ok()
@@ -769,15 +769,15 @@ impl IActiveScriptProfilerCallback2 {
     }
     pub unsafe fn OnFunctionEnterByName<P0>(&self, pwszfunctionname: P0, r#type: PROFILER_SCRIPT_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OnFunctionEnterByName)(windows_core::Interface::as_raw(self), pwszfunctionname.into_param().abi(), r#type).ok()
+        (windows_core::Interface::vtable(self).OnFunctionEnterByName)(windows_core::Interface::as_raw(self), pwszfunctionname.param().abi(), r#type).ok()
     }
     pub unsafe fn OnFunctionExitByName<P0>(&self, pwszfunctionname: P0, r#type: PROFILER_SCRIPT_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OnFunctionExitByName)(windows_core::Interface::as_raw(self), pwszfunctionname.into_param().abi(), r#type).ok()
+        (windows_core::Interface::vtable(self).OnFunctionExitByName)(windows_core::Interface::as_raw(self), pwszfunctionname.param().abi(), r#type).ok()
     }
 }
 #[repr(C)]
@@ -797,17 +797,17 @@ impl IActiveScriptProfilerCallback3 {
     }
     pub unsafe fn ScriptCompiled<P0>(&self, scriptid: i32, r#type: PROFILER_SCRIPT_TYPE, pidebugdocumentcontext: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.ScriptCompiled)(windows_core::Interface::as_raw(self), scriptid, r#type, pidebugdocumentcontext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.ScriptCompiled)(windows_core::Interface::as_raw(self), scriptid, r#type, pidebugdocumentcontext.param().abi()).ok()
     }
     pub unsafe fn FunctionCompiled<P0, P1, P2>(&self, functionid: i32, scriptid: i32, pwszfunctionname: P0, pwszfunctionnamehint: P1, pidebugdocumentcontext: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.FunctionCompiled)(windows_core::Interface::as_raw(self), functionid, scriptid, pwszfunctionname.into_param().abi(), pwszfunctionnamehint.into_param().abi(), pidebugdocumentcontext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.FunctionCompiled)(windows_core::Interface::as_raw(self), functionid, scriptid, pwszfunctionname.param().abi(), pwszfunctionnamehint.param().abi(), pidebugdocumentcontext.param().abi()).ok()
     }
     pub unsafe fn OnFunctionEnter(&self, scriptid: i32, functionid: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.OnFunctionEnter)(windows_core::Interface::as_raw(self), scriptid, functionid).ok()
@@ -817,15 +817,15 @@ impl IActiveScriptProfilerCallback3 {
     }
     pub unsafe fn OnFunctionEnterByName<P0>(&self, pwszfunctionname: P0, r#type: PROFILER_SCRIPT_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.OnFunctionEnterByName)(windows_core::Interface::as_raw(self), pwszfunctionname.into_param().abi(), r#type).ok()
+        (windows_core::Interface::vtable(self).base__.OnFunctionEnterByName)(windows_core::Interface::as_raw(self), pwszfunctionname.param().abi(), r#type).ok()
     }
     pub unsafe fn OnFunctionExitByName<P0>(&self, pwszfunctionname: P0, r#type: PROFILER_SCRIPT_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.OnFunctionExitByName)(windows_core::Interface::as_raw(self), pwszfunctionname.into_param().abi(), r#type).ok()
+        (windows_core::Interface::vtable(self).base__.OnFunctionExitByName)(windows_core::Interface::as_raw(self), pwszfunctionname.param().abi(), r#type).ok()
     }
     pub unsafe fn SetWebWorkerId(&self, webworkerid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetWebWorkerId)(windows_core::Interface::as_raw(self), webworkerid).ok()
@@ -1039,9 +1039,9 @@ impl IActiveScriptSite {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetItemInfo<P0>(&self, pstrname: P0, dwreturnmask: u32, ppiunkitem: *mut Option<windows_core::IUnknown>, ppti: *mut Option<super::super::super::Com::ITypeInfo>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetItemInfo)(windows_core::Interface::as_raw(self), pstrname.into_param().abi(), dwreturnmask, core::mem::transmute(ppiunkitem), core::mem::transmute(ppti)).ok()
+        (windows_core::Interface::vtable(self).GetItemInfo)(windows_core::Interface::as_raw(self), pstrname.param().abi(), dwreturnmask, core::mem::transmute(ppiunkitem), core::mem::transmute(ppti)).ok()
     }
     pub unsafe fn GetDocVersionString(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1056,9 +1056,9 @@ impl IActiveScriptSite {
     }
     pub unsafe fn OnScriptError<P0>(&self, pscripterror: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IActiveScriptError>,
+        P0: windows_core::Param<IActiveScriptError>,
     {
-        (windows_core::Interface::vtable(self).OnScriptError)(windows_core::Interface::as_raw(self), pscripterror.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnScriptError)(windows_core::Interface::as_raw(self), pscripterror.param().abi()).ok()
     }
     pub unsafe fn OnEnterScript(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnEnterScript)(windows_core::Interface::as_raw(self)).ok()
@@ -1102,9 +1102,9 @@ impl IActiveScriptSiteDebug32 {
     }
     pub unsafe fn OnScriptErrorDebug<P0>(&self, perrordebug: P0, pfenterdebugger: *mut super::super::super::super::Foundation::BOOL, pfcallonscripterrorwhencontinuing: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IActiveScriptErrorDebug>,
+        P0: windows_core::Param<IActiveScriptErrorDebug>,
     {
-        (windows_core::Interface::vtable(self).OnScriptErrorDebug)(windows_core::Interface::as_raw(self), perrordebug.into_param().abi(), pfenterdebugger, pfcallonscripterrorwhencontinuing).ok()
+        (windows_core::Interface::vtable(self).OnScriptErrorDebug)(windows_core::Interface::as_raw(self), perrordebug.param().abi(), pfenterdebugger, pfcallonscripterrorwhencontinuing).ok()
     }
 }
 #[repr(C)]
@@ -1132,9 +1132,9 @@ impl IActiveScriptSiteDebug64 {
     }
     pub unsafe fn OnScriptErrorDebug<P0>(&self, perrordebug: P0, pfenterdebugger: *mut super::super::super::super::Foundation::BOOL, pfcallonscripterrorwhencontinuing: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IActiveScriptErrorDebug>,
+        P0: windows_core::Param<IActiveScriptErrorDebug>,
     {
-        (windows_core::Interface::vtable(self).OnScriptErrorDebug)(windows_core::Interface::as_raw(self), perrordebug.into_param().abi(), pfenterdebugger, pfcallonscripterrorwhencontinuing).ok()
+        (windows_core::Interface::vtable(self).OnScriptErrorDebug)(windows_core::Interface::as_raw(self), perrordebug.param().abi(), pfenterdebugger, pfcallonscripterrorwhencontinuing).ok()
     }
 }
 #[repr(C)]
@@ -1150,10 +1150,10 @@ windows_core::imp::interface_hierarchy!(IActiveScriptSiteDebugEx, windows_core::
 impl IActiveScriptSiteDebugEx {
     pub unsafe fn OnCanNotJITScriptErrorDebug<P0>(&self, perrordebug: P0) -> windows_core::Result<super::super::super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<IActiveScriptErrorDebug>,
+        P0: windows_core::Param<IActiveScriptErrorDebug>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnCanNotJITScriptErrorDebug)(windows_core::Interface::as_raw(self), perrordebug.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OnCanNotJITScriptErrorDebug)(windows_core::Interface::as_raw(self), perrordebug.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -1207,9 +1207,9 @@ impl IActiveScriptSiteWindow {
     }
     pub unsafe fn EnableModeless<P0>(&self, fenable: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).EnableModeless)(windows_core::Interface::as_raw(self), fenable.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).EnableModeless)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1243,11 +1243,11 @@ windows_core::imp::interface_hierarchy!(IActiveScriptStringCompare, windows_core
 impl IActiveScriptStringCompare {
     pub unsafe fn StrComp<P0, P1>(&self, bszstr1: P0, bszstr2: P1) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).StrComp)(windows_core::Interface::as_raw(self), bszstr1.into_param().abi(), bszstr2.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).StrComp)(windows_core::Interface::as_raw(self), bszstr1.param().abi(), bszstr2.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -1260,9 +1260,9 @@ windows_core::imp::interface_hierarchy!(IActiveScriptTraceInfo, windows_core::IU
 impl IActiveScriptTraceInfo {
     pub unsafe fn StartScriptTracing<P0>(&self, psitetraceinfo: P0, guidcontextid: windows_core::GUID) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IActiveScriptSiteTraceInfo>,
+        P0: windows_core::Param<IActiveScriptSiteTraceInfo>,
     {
-        (windows_core::Interface::vtable(self).StartScriptTracing)(windows_core::Interface::as_raw(self), psitetraceinfo.into_param().abi(), core::mem::transmute(guidcontextid)).ok()
+        (windows_core::Interface::vtable(self).StartScriptTracing)(windows_core::Interface::as_raw(self), psitetraceinfo.param().abi(), core::mem::transmute(guidcontextid)).ok()
     }
     pub unsafe fn StopScriptTracing(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).StopScriptTracing)(windows_core::Interface::as_raw(self)).ok()
@@ -1316,32 +1316,32 @@ impl IApplicationDebugger {
     }
     pub unsafe fn CreateInstanceAtDebugger<P0>(&self, rclsid: *const windows_core::GUID, punkouter: P0, dwclscontext: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateInstanceAtDebugger)(windows_core::Interface::as_raw(self), rclsid, punkouter.into_param().abi(), dwclscontext, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateInstanceAtDebugger)(windows_core::Interface::as_raw(self), rclsid, punkouter.param().abi(), dwclscontext, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn onDebugOutput<P0>(&self, pstr: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).onDebugOutput)(windows_core::Interface::as_raw(self), pstr.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).onDebugOutput)(windows_core::Interface::as_raw(self), pstr.param().abi()).ok()
     }
     pub unsafe fn onHandleBreakPoint<P0, P1>(&self, prpt: P0, br: BREAKREASON, perror: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IRemoteDebugApplicationThread>,
-        P1: windows_core::IntoParam<IActiveScriptErrorDebug>,
+        P0: windows_core::Param<IRemoteDebugApplicationThread>,
+        P1: windows_core::Param<IActiveScriptErrorDebug>,
     {
-        (windows_core::Interface::vtable(self).onHandleBreakPoint)(windows_core::Interface::as_raw(self), prpt.into_param().abi(), br, perror.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).onHandleBreakPoint)(windows_core::Interface::as_raw(self), prpt.param().abi(), br, perror.param().abi()).ok()
     }
     pub unsafe fn onClose(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).onClose)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn onDebuggerEvent<P0>(&self, riid: *const windows_core::GUID, punk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).onDebuggerEvent)(windows_core::Interface::as_raw(self), riid, punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).onDebuggerEvent)(windows_core::Interface::as_raw(self), riid, punk.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1359,15 +1359,15 @@ windows_core::imp::interface_hierarchy!(IApplicationDebuggerUI, windows_core::IU
 impl IApplicationDebuggerUI {
     pub unsafe fn BringDocumentToTop<P0>(&self, pddt: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugDocumentText>,
+        P0: windows_core::Param<IDebugDocumentText>,
     {
-        (windows_core::Interface::vtable(self).BringDocumentToTop)(windows_core::Interface::as_raw(self), pddt.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).BringDocumentToTop)(windows_core::Interface::as_raw(self), pddt.param().abi()).ok()
     }
     pub unsafe fn BringDocumentContextToTop<P0>(&self, pddc: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugDocumentContext>,
+        P0: windows_core::Param<IDebugDocumentContext>,
     {
-        (windows_core::Interface::vtable(self).BringDocumentContextToTop)(windows_core::Interface::as_raw(self), pddc.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).BringDocumentContextToTop)(windows_core::Interface::as_raw(self), pddc.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1382,10 +1382,10 @@ impl IBindEventHandler {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BindHandler<P0, P1>(&self, pstrevent: P0, pdisp: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::super::Com::IDispatch>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::super::Com::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).BindHandler)(windows_core::Interface::as_raw(self), pstrevent.into_param().abi(), pdisp.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).BindHandler)(windows_core::Interface::as_raw(self), pstrevent.param().abi(), pdisp.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1412,15 +1412,15 @@ impl IDebugApplication11032 {
     }
     pub unsafe fn SynchronousCallInMainThread<P0>(&self, pptc: P0, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugThreadCall32>,
+        P0: windows_core::Param<IDebugThreadCall32>,
     {
-        (windows_core::Interface::vtable(self).SynchronousCallInMainThread)(windows_core::Interface::as_raw(self), pptc.into_param().abi(), dwparam1, dwparam2, dwparam3).ok()
+        (windows_core::Interface::vtable(self).SynchronousCallInMainThread)(windows_core::Interface::as_raw(self), pptc.param().abi(), dwparam1, dwparam2, dwparam3).ok()
     }
     pub unsafe fn AsynchronousCallInMainThread<P0>(&self, pptc: P0, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugThreadCall32>,
+        P0: windows_core::Param<IDebugThreadCall32>,
     {
-        (windows_core::Interface::vtable(self).AsynchronousCallInMainThread)(windows_core::Interface::as_raw(self), pptc.into_param().abi(), dwparam1, dwparam2, dwparam3).ok()
+        (windows_core::Interface::vtable(self).AsynchronousCallInMainThread)(windows_core::Interface::as_raw(self), pptc.param().abi(), dwparam1, dwparam2, dwparam3).ok()
     }
     pub unsafe fn CallableWaitForHandles(&self, phandles: &[super::super::super::super::Foundation::HANDLE]) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -1450,15 +1450,15 @@ impl IDebugApplication11064 {
     }
     pub unsafe fn SynchronousCallInMainThread<P0>(&self, pptc: P0, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugThreadCall64>,
+        P0: windows_core::Param<IDebugThreadCall64>,
     {
-        (windows_core::Interface::vtable(self).SynchronousCallInMainThread)(windows_core::Interface::as_raw(self), pptc.into_param().abi(), dwparam1, dwparam2, dwparam3).ok()
+        (windows_core::Interface::vtable(self).SynchronousCallInMainThread)(windows_core::Interface::as_raw(self), pptc.param().abi(), dwparam1, dwparam2, dwparam3).ok()
     }
     pub unsafe fn AsynchronousCallInMainThread<P0>(&self, pptc: P0, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugThreadCall64>,
+        P0: windows_core::Param<IDebugThreadCall64>,
     {
-        (windows_core::Interface::vtable(self).AsynchronousCallInMainThread)(windows_core::Interface::as_raw(self), pptc.into_param().abi(), dwparam1, dwparam2, dwparam3).ok()
+        (windows_core::Interface::vtable(self).AsynchronousCallInMainThread)(windows_core::Interface::as_raw(self), pptc.param().abi(), dwparam1, dwparam2, dwparam3).ok()
     }
     pub unsafe fn CallableWaitForHandles(&self, phandles: &[super::super::super::super::Foundation::HANDLE]) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -1477,18 +1477,18 @@ windows_core::imp::interface_hierarchy!(IDebugApplication32, windows_core::IUnkn
 impl IDebugApplication32 {
     pub unsafe fn ResumeFromBreakPoint<P0>(&self, prptfocus: P0, bra: BREAKRESUMEACTION, era: ERRORRESUMEACTION) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IRemoteDebugApplicationThread>,
+        P0: windows_core::Param<IRemoteDebugApplicationThread>,
     {
-        (windows_core::Interface::vtable(self).base__.ResumeFromBreakPoint)(windows_core::Interface::as_raw(self), prptfocus.into_param().abi(), bra, era).ok()
+        (windows_core::Interface::vtable(self).base__.ResumeFromBreakPoint)(windows_core::Interface::as_raw(self), prptfocus.param().abi(), bra, era).ok()
     }
     pub unsafe fn CauseBreak(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.CauseBreak)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn ConnectDebugger<P0>(&self, pad: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IApplicationDebugger>,
+        P0: windows_core::Param<IApplicationDebugger>,
     {
-        (windows_core::Interface::vtable(self).base__.ConnectDebugger)(windows_core::Interface::as_raw(self), pad.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.ConnectDebugger)(windows_core::Interface::as_raw(self), pad.param().abi()).ok()
     }
     pub unsafe fn DisconnectDebugger(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.DisconnectDebugger)(windows_core::Interface::as_raw(self)).ok()
@@ -1499,10 +1499,10 @@ impl IDebugApplication32 {
     }
     pub unsafe fn CreateInstanceAtApplication<P0>(&self, rclsid: *const windows_core::GUID, punkouter: P0, dwclscontext: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateInstanceAtApplication)(windows_core::Interface::as_raw(self), rclsid, punkouter.into_param().abi(), dwclscontext, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateInstanceAtApplication)(windows_core::Interface::as_raw(self), rclsid, punkouter.param().abi(), dwclscontext, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn QueryAlive(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.QueryAlive)(windows_core::Interface::as_raw(self)).ok()
@@ -1525,18 +1525,18 @@ impl IDebugApplication32 {
     }
     pub unsafe fn SetName<P0>(&self, pstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), pstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), pstrname.param().abi()).ok()
     }
     pub unsafe fn StepOutComplete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).StepOutComplete)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn DebugOutput<P0>(&self, pstr: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).DebugOutput)(windows_core::Interface::as_raw(self), pstr.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DebugOutput)(windows_core::Interface::as_raw(self), pstr.param().abi()).ok()
     }
     pub unsafe fn StartDebugSession(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).StartDebugSession)(windows_core::Interface::as_raw(self)).ok()
@@ -1557,17 +1557,17 @@ impl IDebugApplication32 {
     }
     pub unsafe fn CreateAsyncDebugOperation<P0>(&self, psdo: P0) -> windows_core::Result<IDebugAsyncOperation>
     where
-        P0: windows_core::IntoParam<IDebugSyncOperation>,
+        P0: windows_core::Param<IDebugSyncOperation>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateAsyncDebugOperation)(windows_core::Interface::as_raw(self), psdo.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateAsyncDebugOperation)(windows_core::Interface::as_raw(self), psdo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddStackFrameSniffer<P0>(&self, pdsfs: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<IDebugStackFrameSniffer>,
+        P0: windows_core::Param<IDebugStackFrameSniffer>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddStackFrameSniffer)(windows_core::Interface::as_raw(self), pdsfs.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddStackFrameSniffer)(windows_core::Interface::as_raw(self), pdsfs.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveStackFrameSniffer(&self, dwcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveStackFrameSniffer)(windows_core::Interface::as_raw(self), dwcookie).ok()
@@ -1577,9 +1577,9 @@ impl IDebugApplication32 {
     }
     pub unsafe fn SynchronousCallInDebuggerThread<P0>(&self, pptc: P0, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugThreadCall32>,
+        P0: windows_core::Param<IDebugThreadCall32>,
     {
-        (windows_core::Interface::vtable(self).SynchronousCallInDebuggerThread)(windows_core::Interface::as_raw(self), pptc.into_param().abi(), dwparam1, dwparam2, dwparam3).ok()
+        (windows_core::Interface::vtable(self).SynchronousCallInDebuggerThread)(windows_core::Interface::as_raw(self), pptc.param().abi(), dwparam1, dwparam2, dwparam3).ok()
     }
     pub unsafe fn CreateApplicationNode(&self) -> windows_core::Result<IDebugApplicationNode> {
         let mut result__ = std::mem::zeroed();
@@ -1587,16 +1587,16 @@ impl IDebugApplication32 {
     }
     pub unsafe fn FireDebuggerEvent<P0>(&self, riid: *const windows_core::GUID, punk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).FireDebuggerEvent)(windows_core::Interface::as_raw(self), riid, punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).FireDebuggerEvent)(windows_core::Interface::as_raw(self), riid, punk.param().abi()).ok()
     }
     pub unsafe fn HandleRuntimeError<P0, P1>(&self, perrordebug: P0, pscriptsite: P1, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IActiveScriptErrorDebug>,
-        P1: windows_core::IntoParam<IActiveScriptSite>,
+        P0: windows_core::Param<IActiveScriptErrorDebug>,
+        P1: windows_core::Param<IActiveScriptSite>,
     {
-        (windows_core::Interface::vtable(self).HandleRuntimeError)(windows_core::Interface::as_raw(self), perrordebug.into_param().abi(), pscriptsite.into_param().abi(), pbra, perra, pfcallonscripterror).ok()
+        (windows_core::Interface::vtable(self).HandleRuntimeError)(windows_core::Interface::as_raw(self), perrordebug.param().abi(), pscriptsite.param().abi(), pbra, perra, pfcallonscripterror).ok()
     }
     pub unsafe fn FCanJitDebug(&self) -> super::super::super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).FCanJitDebug)(windows_core::Interface::as_raw(self))
@@ -1606,10 +1606,10 @@ impl IDebugApplication32 {
     }
     pub unsafe fn AddGlobalExpressionContextProvider<P0>(&self, pdsfs: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<IProvideExpressionContexts>,
+        P0: windows_core::Param<IProvideExpressionContexts>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddGlobalExpressionContextProvider)(windows_core::Interface::as_raw(self), pdsfs.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddGlobalExpressionContextProvider)(windows_core::Interface::as_raw(self), pdsfs.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveGlobalExpressionContextProvider(&self, dwcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveGlobalExpressionContextProvider)(windows_core::Interface::as_raw(self), dwcookie).ok()
@@ -1644,18 +1644,18 @@ windows_core::imp::interface_hierarchy!(IDebugApplication64, windows_core::IUnkn
 impl IDebugApplication64 {
     pub unsafe fn ResumeFromBreakPoint<P0>(&self, prptfocus: P0, bra: BREAKRESUMEACTION, era: ERRORRESUMEACTION) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IRemoteDebugApplicationThread>,
+        P0: windows_core::Param<IRemoteDebugApplicationThread>,
     {
-        (windows_core::Interface::vtable(self).base__.ResumeFromBreakPoint)(windows_core::Interface::as_raw(self), prptfocus.into_param().abi(), bra, era).ok()
+        (windows_core::Interface::vtable(self).base__.ResumeFromBreakPoint)(windows_core::Interface::as_raw(self), prptfocus.param().abi(), bra, era).ok()
     }
     pub unsafe fn CauseBreak(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.CauseBreak)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn ConnectDebugger<P0>(&self, pad: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IApplicationDebugger>,
+        P0: windows_core::Param<IApplicationDebugger>,
     {
-        (windows_core::Interface::vtable(self).base__.ConnectDebugger)(windows_core::Interface::as_raw(self), pad.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.ConnectDebugger)(windows_core::Interface::as_raw(self), pad.param().abi()).ok()
     }
     pub unsafe fn DisconnectDebugger(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.DisconnectDebugger)(windows_core::Interface::as_raw(self)).ok()
@@ -1666,10 +1666,10 @@ impl IDebugApplication64 {
     }
     pub unsafe fn CreateInstanceAtApplication<P0>(&self, rclsid: *const windows_core::GUID, punkouter: P0, dwclscontext: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateInstanceAtApplication)(windows_core::Interface::as_raw(self), rclsid, punkouter.into_param().abi(), dwclscontext, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateInstanceAtApplication)(windows_core::Interface::as_raw(self), rclsid, punkouter.param().abi(), dwclscontext, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn QueryAlive(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.QueryAlive)(windows_core::Interface::as_raw(self)).ok()
@@ -1692,18 +1692,18 @@ impl IDebugApplication64 {
     }
     pub unsafe fn SetName<P0>(&self, pstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), pstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), pstrname.param().abi()).ok()
     }
     pub unsafe fn StepOutComplete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).StepOutComplete)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn DebugOutput<P0>(&self, pstr: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).DebugOutput)(windows_core::Interface::as_raw(self), pstr.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DebugOutput)(windows_core::Interface::as_raw(self), pstr.param().abi()).ok()
     }
     pub unsafe fn StartDebugSession(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).StartDebugSession)(windows_core::Interface::as_raw(self)).ok()
@@ -1724,17 +1724,17 @@ impl IDebugApplication64 {
     }
     pub unsafe fn CreateAsyncDebugOperation<P0>(&self, psdo: P0) -> windows_core::Result<IDebugAsyncOperation>
     where
-        P0: windows_core::IntoParam<IDebugSyncOperation>,
+        P0: windows_core::Param<IDebugSyncOperation>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateAsyncDebugOperation)(windows_core::Interface::as_raw(self), psdo.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateAsyncDebugOperation)(windows_core::Interface::as_raw(self), psdo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddStackFrameSniffer<P0>(&self, pdsfs: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<IDebugStackFrameSniffer>,
+        P0: windows_core::Param<IDebugStackFrameSniffer>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddStackFrameSniffer)(windows_core::Interface::as_raw(self), pdsfs.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddStackFrameSniffer)(windows_core::Interface::as_raw(self), pdsfs.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveStackFrameSniffer(&self, dwcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveStackFrameSniffer)(windows_core::Interface::as_raw(self), dwcookie).ok()
@@ -1744,9 +1744,9 @@ impl IDebugApplication64 {
     }
     pub unsafe fn SynchronousCallInDebuggerThread<P0>(&self, pptc: P0, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugThreadCall64>,
+        P0: windows_core::Param<IDebugThreadCall64>,
     {
-        (windows_core::Interface::vtable(self).SynchronousCallInDebuggerThread)(windows_core::Interface::as_raw(self), pptc.into_param().abi(), dwparam1, dwparam2, dwparam3).ok()
+        (windows_core::Interface::vtable(self).SynchronousCallInDebuggerThread)(windows_core::Interface::as_raw(self), pptc.param().abi(), dwparam1, dwparam2, dwparam3).ok()
     }
     pub unsafe fn CreateApplicationNode(&self) -> windows_core::Result<IDebugApplicationNode> {
         let mut result__ = std::mem::zeroed();
@@ -1754,16 +1754,16 @@ impl IDebugApplication64 {
     }
     pub unsafe fn FireDebuggerEvent<P0>(&self, riid: *const windows_core::GUID, punk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).FireDebuggerEvent)(windows_core::Interface::as_raw(self), riid, punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).FireDebuggerEvent)(windows_core::Interface::as_raw(self), riid, punk.param().abi()).ok()
     }
     pub unsafe fn HandleRuntimeError<P0, P1>(&self, perrordebug: P0, pscriptsite: P1, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::super::Foundation::BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IActiveScriptErrorDebug>,
-        P1: windows_core::IntoParam<IActiveScriptSite>,
+        P0: windows_core::Param<IActiveScriptErrorDebug>,
+        P1: windows_core::Param<IActiveScriptSite>,
     {
-        (windows_core::Interface::vtable(self).HandleRuntimeError)(windows_core::Interface::as_raw(self), perrordebug.into_param().abi(), pscriptsite.into_param().abi(), pbra, perra, pfcallonscripterror).ok()
+        (windows_core::Interface::vtable(self).HandleRuntimeError)(windows_core::Interface::as_raw(self), perrordebug.param().abi(), pscriptsite.param().abi(), pbra, perra, pfcallonscripterror).ok()
     }
     pub unsafe fn FCanJitDebug(&self) -> super::super::super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).FCanJitDebug)(windows_core::Interface::as_raw(self))
@@ -1773,10 +1773,10 @@ impl IDebugApplication64 {
     }
     pub unsafe fn AddGlobalExpressionContextProvider<P0>(&self, pdsfs: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<IProvideExpressionContexts>,
+        P0: windows_core::Param<IProvideExpressionContexts>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddGlobalExpressionContextProvider)(windows_core::Interface::as_raw(self), pdsfs.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddGlobalExpressionContextProvider)(windows_core::Interface::as_raw(self), pdsfs.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveGlobalExpressionContextProvider(&self, dwcookie: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveGlobalExpressionContextProvider)(windows_core::Interface::as_raw(self), dwcookie).ok()
@@ -1831,18 +1831,18 @@ impl IDebugApplicationNode {
     }
     pub unsafe fn SetDocumentProvider<P0>(&self, pddp: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugDocumentProvider>,
+        P0: windows_core::Param<IDebugDocumentProvider>,
     {
-        (windows_core::Interface::vtable(self).SetDocumentProvider)(windows_core::Interface::as_raw(self), pddp.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDocumentProvider)(windows_core::Interface::as_raw(self), pddp.param().abi()).ok()
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Attach<P0>(&self, pdanparent: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugApplicationNode>,
+        P0: windows_core::Param<IDebugApplicationNode>,
     {
-        (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), pdanparent.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), pdanparent.param().abi()).ok()
     }
     pub unsafe fn Detach(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Detach)(windows_core::Interface::as_raw(self)).ok()
@@ -1870,9 +1870,9 @@ impl IDebugApplicationNode100 {
     }
     pub unsafe fn QueryIsChildNode<P0>(&self, psearchkey: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugDocument>,
+        P0: windows_core::Param<IDebugDocument>,
     {
-        (windows_core::Interface::vtable(self).QueryIsChildNode)(windows_core::Interface::as_raw(self), psearchkey.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).QueryIsChildNode)(windows_core::Interface::as_raw(self), psearchkey.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1887,24 +1887,24 @@ windows_core::imp::interface_hierarchy!(IDebugApplicationNodeEvents, windows_cor
 impl IDebugApplicationNodeEvents {
     pub unsafe fn onAddChild<P0>(&self, prddpchild: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugApplicationNode>,
+        P0: windows_core::Param<IDebugApplicationNode>,
     {
-        (windows_core::Interface::vtable(self).onAddChild)(windows_core::Interface::as_raw(self), prddpchild.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).onAddChild)(windows_core::Interface::as_raw(self), prddpchild.param().abi()).ok()
     }
     pub unsafe fn onRemoveChild<P0>(&self, prddpchild: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugApplicationNode>,
+        P0: windows_core::Param<IDebugApplicationNode>,
     {
-        (windows_core::Interface::vtable(self).onRemoveChild)(windows_core::Interface::as_raw(self), prddpchild.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).onRemoveChild)(windows_core::Interface::as_raw(self), prddpchild.param().abi()).ok()
     }
     pub unsafe fn onDetach(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).onDetach)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn onAttach<P0>(&self, prddpparent: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugApplicationNode>,
+        P0: windows_core::Param<IDebugApplicationNode>,
     {
-        (windows_core::Interface::vtable(self).onAttach)(windows_core::Interface::as_raw(self), prddpparent.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).onAttach)(windows_core::Interface::as_raw(self), prddpparent.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1935,10 +1935,10 @@ impl IDebugApplicationThread {
     }
     pub unsafe fn SetNextStatement<P0, P1>(&self, pstackframe: P0, pcodecontext: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugStackFrame>,
-        P1: windows_core::IntoParam<IDebugCodeContext>,
+        P0: windows_core::Param<IDebugStackFrame>,
+        P1: windows_core::Param<IDebugCodeContext>,
     {
-        (windows_core::Interface::vtable(self).base__.SetNextStatement)(windows_core::Interface::as_raw(self), pstackframe.into_param().abi(), pcodecontext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetNextStatement)(windows_core::Interface::as_raw(self), pstackframe.param().abi(), pcodecontext.param().abi()).ok()
     }
     pub unsafe fn GetState(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -1958,9 +1958,9 @@ impl IDebugApplicationThread {
     }
     pub unsafe fn SynchronousCallIntoThread32<P0>(&self, pstcb: P0, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugThreadCall32>,
+        P0: windows_core::Param<IDebugThreadCall32>,
     {
-        (windows_core::Interface::vtable(self).SynchronousCallIntoThread32)(windows_core::Interface::as_raw(self), pstcb.into_param().abi(), dwparam1, dwparam2, dwparam3).ok()
+        (windows_core::Interface::vtable(self).SynchronousCallIntoThread32)(windows_core::Interface::as_raw(self), pstcb.param().abi(), dwparam1, dwparam2, dwparam3).ok()
     }
     pub unsafe fn QueryIsCurrentThread(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).QueryIsCurrentThread)(windows_core::Interface::as_raw(self)).ok()
@@ -1970,15 +1970,15 @@ impl IDebugApplicationThread {
     }
     pub unsafe fn SetDescription<P0>(&self, pstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), pstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), pstrdescription.param().abi()).ok()
     }
     pub unsafe fn SetStateString<P0>(&self, pstrstate: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetStateString)(windows_core::Interface::as_raw(self), pstrstate.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetStateString)(windows_core::Interface::as_raw(self), pstrstate.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -2007,9 +2007,9 @@ impl IDebugApplicationThread11032 {
     }
     pub unsafe fn AsynchronousCallIntoThread<P0>(&self, pptc: P0, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugThreadCall32>,
+        P0: windows_core::Param<IDebugThreadCall32>,
     {
-        (windows_core::Interface::vtable(self).AsynchronousCallIntoThread)(windows_core::Interface::as_raw(self), pptc.into_param().abi(), dwparam1, dwparam2, dwparam3).ok()
+        (windows_core::Interface::vtable(self).AsynchronousCallIntoThread)(windows_core::Interface::as_raw(self), pptc.param().abi(), dwparam1, dwparam2, dwparam3).ok()
     }
 }
 #[repr(C)]
@@ -2037,9 +2037,9 @@ impl IDebugApplicationThread11064 {
     }
     pub unsafe fn AsynchronousCallIntoThread<P0>(&self, pptc: P0, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugThreadCall64>,
+        P0: windows_core::Param<IDebugThreadCall64>,
     {
-        (windows_core::Interface::vtable(self).AsynchronousCallIntoThread)(windows_core::Interface::as_raw(self), pptc.into_param().abi(), dwparam1, dwparam2, dwparam3).ok()
+        (windows_core::Interface::vtable(self).AsynchronousCallIntoThread)(windows_core::Interface::as_raw(self), pptc.param().abi(), dwparam1, dwparam2, dwparam3).ok()
     }
 }
 #[repr(C)]
@@ -2070,10 +2070,10 @@ impl IDebugApplicationThread64 {
     }
     pub unsafe fn SetNextStatement<P0, P1>(&self, pstackframe: P0, pcodecontext: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugStackFrame>,
-        P1: windows_core::IntoParam<IDebugCodeContext>,
+        P0: windows_core::Param<IDebugStackFrame>,
+        P1: windows_core::Param<IDebugCodeContext>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetNextStatement)(windows_core::Interface::as_raw(self), pstackframe.into_param().abi(), pcodecontext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetNextStatement)(windows_core::Interface::as_raw(self), pstackframe.param().abi(), pcodecontext.param().abi()).ok()
     }
     pub unsafe fn GetState(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -2093,9 +2093,9 @@ impl IDebugApplicationThread64 {
     }
     pub unsafe fn SynchronousCallIntoThread32<P0>(&self, pstcb: P0, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugThreadCall32>,
+        P0: windows_core::Param<IDebugThreadCall32>,
     {
-        (windows_core::Interface::vtable(self).base__.SynchronousCallIntoThread32)(windows_core::Interface::as_raw(self), pstcb.into_param().abi(), dwparam1, dwparam2, dwparam3).ok()
+        (windows_core::Interface::vtable(self).base__.SynchronousCallIntoThread32)(windows_core::Interface::as_raw(self), pstcb.param().abi(), dwparam1, dwparam2, dwparam3).ok()
     }
     pub unsafe fn QueryIsCurrentThread(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.QueryIsCurrentThread)(windows_core::Interface::as_raw(self)).ok()
@@ -2105,21 +2105,21 @@ impl IDebugApplicationThread64 {
     }
     pub unsafe fn SetDescription<P0>(&self, pstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), pstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), pstrdescription.param().abi()).ok()
     }
     pub unsafe fn SetStateString<P0>(&self, pstrstate: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetStateString)(windows_core::Interface::as_raw(self), pstrstate.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetStateString)(windows_core::Interface::as_raw(self), pstrstate.param().abi()).ok()
     }
     pub unsafe fn SynchronousCallIntoThread64<P0>(&self, pstcb: P0, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugThreadCall64>,
+        P0: windows_core::Param<IDebugThreadCall64>,
     {
-        (windows_core::Interface::vtable(self).SynchronousCallIntoThread64)(windows_core::Interface::as_raw(self), pstcb.into_param().abi(), dwparam1, dwparam2, dwparam3).ok()
+        (windows_core::Interface::vtable(self).SynchronousCallIntoThread64)(windows_core::Interface::as_raw(self), pstcb.param().abi(), dwparam1, dwparam2, dwparam3).ok()
     }
 }
 #[repr(C)]
@@ -2160,9 +2160,9 @@ impl IDebugAsyncOperation {
     }
     pub unsafe fn Start<P0>(&self, padocb: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugAsyncOperationCallBack>,
+        P0: windows_core::Param<IDebugAsyncOperationCallBack>,
     {
-        (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), padocb.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), padocb.param().abi()).ok()
     }
     pub unsafe fn Abort(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)).ok()
@@ -2263,49 +2263,49 @@ windows_core::imp::interface_hierarchy!(IDebugDocumentHelper32, windows_core::IU
 impl IDebugDocumentHelper32 {
     pub unsafe fn Init<P0, P1, P2>(&self, pda: P0, pszshortname: P1, pszlongname: P2, docattr: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugApplication32>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<IDebugApplication32>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), pda.into_param().abi(), pszshortname.into_param().abi(), pszlongname.into_param().abi(), docattr).ok()
+        (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), pda.param().abi(), pszshortname.param().abi(), pszlongname.param().abi(), docattr).ok()
     }
     pub unsafe fn Attach<P0>(&self, pddhparent: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugDocumentHelper32>,
+        P0: windows_core::Param<IDebugDocumentHelper32>,
     {
-        (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), pddhparent.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), pddhparent.param().abi()).ok()
     }
     pub unsafe fn Detach(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Detach)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn AddUnicodeText<P0>(&self, psztext: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddUnicodeText)(windows_core::Interface::as_raw(self), psztext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddUnicodeText)(windows_core::Interface::as_raw(self), psztext.param().abi()).ok()
     }
     pub unsafe fn AddDBCSText<P0>(&self, psztext: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddDBCSText)(windows_core::Interface::as_raw(self), psztext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddDBCSText)(windows_core::Interface::as_raw(self), psztext.param().abi()).ok()
     }
     pub unsafe fn SetDebugDocumentHost<P0>(&self, pddh: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugDocumentHost>,
+        P0: windows_core::Param<IDebugDocumentHost>,
     {
-        (windows_core::Interface::vtable(self).SetDebugDocumentHost)(windows_core::Interface::as_raw(self), pddh.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDebugDocumentHost)(windows_core::Interface::as_raw(self), pddh.param().abi()).ok()
     }
     pub unsafe fn AddDeferredText(&self, cchars: u32, dwtextstartcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AddDeferredText)(windows_core::Interface::as_raw(self), cchars, dwtextstartcookie).ok()
     }
     pub unsafe fn DefineScriptBlock<P0, P1>(&self, ulcharoffset: u32, cchars: u32, pas: P0, fscriptlet: P1) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<IActiveScript>,
-        P1: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<IActiveScript>,
+        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).DefineScriptBlock)(windows_core::Interface::as_raw(self), ulcharoffset, cchars, pas.into_param().abi(), fscriptlet.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).DefineScriptBlock)(windows_core::Interface::as_raw(self), ulcharoffset, cchars, pas.param().abi(), fscriptlet.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDefaultTextAttr(&self, statextattr: u16) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDefaultTextAttr)(windows_core::Interface::as_raw(self), statextattr).ok()
@@ -2315,15 +2315,15 @@ impl IDebugDocumentHelper32 {
     }
     pub unsafe fn SetLongName<P0>(&self, pszlongname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetLongName)(windows_core::Interface::as_raw(self), pszlongname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLongName)(windows_core::Interface::as_raw(self), pszlongname.param().abi()).ok()
     }
     pub unsafe fn SetShortName<P0>(&self, pszshortname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetShortName)(windows_core::Interface::as_raw(self), pszshortname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetShortName)(windows_core::Interface::as_raw(self), pszshortname.param().abi()).ok()
     }
     pub unsafe fn SetDocumentAttr(&self, pszattributes: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDocumentAttr)(windows_core::Interface::as_raw(self), pszattributes).ok()
@@ -2344,9 +2344,9 @@ impl IDebugDocumentHelper32 {
     }
     pub unsafe fn BringDocumentContextToTop<P0>(&self, pddc: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugDocumentContext>,
+        P0: windows_core::Param<IDebugDocumentContext>,
     {
-        (windows_core::Interface::vtable(self).BringDocumentContextToTop)(windows_core::Interface::as_raw(self), pddc.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).BringDocumentContextToTop)(windows_core::Interface::as_raw(self), pddc.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -2376,49 +2376,49 @@ windows_core::imp::interface_hierarchy!(IDebugDocumentHelper64, windows_core::IU
 impl IDebugDocumentHelper64 {
     pub unsafe fn Init<P0, P1, P2>(&self, pda: P0, pszshortname: P1, pszlongname: P2, docattr: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugApplication64>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<IDebugApplication64>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), pda.into_param().abi(), pszshortname.into_param().abi(), pszlongname.into_param().abi(), docattr).ok()
+        (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), pda.param().abi(), pszshortname.param().abi(), pszlongname.param().abi(), docattr).ok()
     }
     pub unsafe fn Attach<P0>(&self, pddhparent: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugDocumentHelper64>,
+        P0: windows_core::Param<IDebugDocumentHelper64>,
     {
-        (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), pddhparent.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), pddhparent.param().abi()).ok()
     }
     pub unsafe fn Detach(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Detach)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn AddUnicodeText<P0>(&self, psztext: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddUnicodeText)(windows_core::Interface::as_raw(self), psztext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddUnicodeText)(windows_core::Interface::as_raw(self), psztext.param().abi()).ok()
     }
     pub unsafe fn AddDBCSText<P0>(&self, psztext: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddDBCSText)(windows_core::Interface::as_raw(self), psztext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddDBCSText)(windows_core::Interface::as_raw(self), psztext.param().abi()).ok()
     }
     pub unsafe fn SetDebugDocumentHost<P0>(&self, pddh: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugDocumentHost>,
+        P0: windows_core::Param<IDebugDocumentHost>,
     {
-        (windows_core::Interface::vtable(self).SetDebugDocumentHost)(windows_core::Interface::as_raw(self), pddh.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDebugDocumentHost)(windows_core::Interface::as_raw(self), pddh.param().abi()).ok()
     }
     pub unsafe fn AddDeferredText(&self, cchars: u32, dwtextstartcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AddDeferredText)(windows_core::Interface::as_raw(self), cchars, dwtextstartcookie).ok()
     }
     pub unsafe fn DefineScriptBlock<P0, P1>(&self, ulcharoffset: u32, cchars: u32, pas: P0, fscriptlet: P1) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<IActiveScript>,
-        P1: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<IActiveScript>,
+        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).DefineScriptBlock)(windows_core::Interface::as_raw(self), ulcharoffset, cchars, pas.into_param().abi(), fscriptlet.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).DefineScriptBlock)(windows_core::Interface::as_raw(self), ulcharoffset, cchars, pas.param().abi(), fscriptlet.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDefaultTextAttr(&self, statextattr: u16) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDefaultTextAttr)(windows_core::Interface::as_raw(self), statextattr).ok()
@@ -2428,15 +2428,15 @@ impl IDebugDocumentHelper64 {
     }
     pub unsafe fn SetLongName<P0>(&self, pszlongname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetLongName)(windows_core::Interface::as_raw(self), pszlongname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLongName)(windows_core::Interface::as_raw(self), pszlongname.param().abi()).ok()
     }
     pub unsafe fn SetShortName<P0>(&self, pszshortname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetShortName)(windows_core::Interface::as_raw(self), pszshortname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetShortName)(windows_core::Interface::as_raw(self), pszshortname.param().abi()).ok()
     }
     pub unsafe fn SetDocumentAttr(&self, pszattributes: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDocumentAttr)(windows_core::Interface::as_raw(self), pszattributes).ok()
@@ -2457,9 +2457,9 @@ impl IDebugDocumentHelper64 {
     }
     pub unsafe fn BringDocumentContextToTop<P0>(&self, pddc: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugDocumentContext>,
+        P0: windows_core::Param<IDebugDocumentContext>,
     {
-        (windows_core::Interface::vtable(self).BringDocumentContextToTop)(windows_core::Interface::as_raw(self), pddc.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).BringDocumentContextToTop)(windows_core::Interface::as_raw(self), pddc.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -2492,10 +2492,10 @@ impl IDebugDocumentHost {
     }
     pub unsafe fn GetScriptTextAttributes<P0, P1>(&self, pstrcode: P0, unumcodechars: u32, pstrdelimiter: P1, dwflags: u32, pattr: *mut u16) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetScriptTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.into_param().abi(), unumcodechars, pstrdelimiter.into_param().abi(), dwflags, pattr).ok()
+        (windows_core::Interface::vtable(self).GetScriptTextAttributes)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), unumcodechars, pstrdelimiter.param().abi(), dwflags, pattr).ok()
     }
     pub unsafe fn OnCreateDocumentContext(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -2591,9 +2591,9 @@ impl IDebugDocumentText {
     }
     pub unsafe fn GetPositionOfContext<P0>(&self, psc: P0, pccharacterposition: *mut u32, cnumchars: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugDocumentContext>,
+        P0: windows_core::Param<IDebugDocumentContext>,
     {
-        (windows_core::Interface::vtable(self).GetPositionOfContext)(windows_core::Interface::as_raw(self), psc.into_param().abi(), pccharacterposition, cnumchars).ok()
+        (windows_core::Interface::vtable(self).GetPositionOfContext)(windows_core::Interface::as_raw(self), psc.param().abi(), pccharacterposition, cnumchars).ok()
     }
     pub unsafe fn GetContextOfPosition(&self, ccharacterposition: u32, cnumchars: u32) -> windows_core::Result<IDebugDocumentContext> {
         let mut result__ = std::mem::zeroed();
@@ -2641,9 +2641,9 @@ impl IDebugDocumentTextAuthor {
     }
     pub unsafe fn GetPositionOfContext<P0>(&self, psc: P0, pccharacterposition: *mut u32, cnumchars: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugDocumentContext>,
+        P0: windows_core::Param<IDebugDocumentContext>,
     {
-        (windows_core::Interface::vtable(self).base__.GetPositionOfContext)(windows_core::Interface::as_raw(self), psc.into_param().abi(), pccharacterposition, cnumchars).ok()
+        (windows_core::Interface::vtable(self).base__.GetPositionOfContext)(windows_core::Interface::as_raw(self), psc.param().abi(), pccharacterposition, cnumchars).ok()
     }
     pub unsafe fn GetContextOfPosition(&self, ccharacterposition: u32, cnumchars: u32) -> windows_core::Result<IDebugDocumentContext> {
         let mut result__ = std::mem::zeroed();
@@ -2724,9 +2724,9 @@ windows_core::imp::interface_hierarchy!(IDebugExpression, windows_core::IUnknown
 impl IDebugExpression {
     pub unsafe fn Start<P0>(&self, pdecb: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugExpressionCallBack>,
+        P0: windows_core::Param<IDebugExpressionCallBack>,
     {
-        (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), pdecb.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), pdecb.param().abi()).ok()
     }
     pub unsafe fn Abort(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)).ok()
@@ -2767,11 +2767,11 @@ windows_core::imp::interface_hierarchy!(IDebugExpressionContext, windows_core::I
 impl IDebugExpressionContext {
     pub unsafe fn ParseLanguageText<P0, P1>(&self, pstrcode: P0, nradix: u32, pstrdelimiter: P1, dwflags: u32) -> windows_core::Result<IDebugExpression>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ParseLanguageText)(windows_core::Interface::as_raw(self), pstrcode.into_param().abi(), nradix, pstrdelimiter.into_param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ParseLanguageText)(windows_core::Interface::as_raw(self), pstrcode.param().abi(), nradix, pstrdelimiter.param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLanguageInfo(&self, pbstrlanguagename: *mut windows_core::BSTR, planguageid: *mut windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLanguageInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrlanguagename), planguageid).ok()
@@ -2792,10 +2792,10 @@ impl IDebugFormatter {
     }
     pub unsafe fn GetVariantForString<P0>(&self, pwstrvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetVariantForString)(windows_core::Interface::as_raw(self), pwstrvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetVariantForString)(windows_core::Interface::as_raw(self), pwstrvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetStringForVarType(&self, vt: super::super::super::Variant::VARENUM, ptdescarraytype: *const super::super::super::Com::TYPEDESC) -> windows_core::Result<windows_core::BSTR> {
@@ -2818,28 +2818,28 @@ windows_core::imp::interface_hierarchy!(IDebugHelper, windows_core::IUnknown);
 impl IDebugHelper {
     pub unsafe fn CreatePropertyBrowser<P0, P1>(&self, pvar: *const windows_core::VARIANT, bstrname: P0, pdat: P1) -> windows_core::Result<super::IDebugProperty>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IDebugApplicationThread>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IDebugApplicationThread>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePropertyBrowser)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), bstrname.into_param().abi(), pdat.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePropertyBrowser)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), bstrname.param().abi(), pdat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreatePropertyBrowserEx<P0, P1, P2>(&self, pvar: *const windows_core::VARIANT, bstrname: P0, pdat: P1, pdf: P2) -> windows_core::Result<super::IDebugProperty>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IDebugApplicationThread>,
-        P2: windows_core::IntoParam<IDebugFormatter>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IDebugApplicationThread>,
+        P2: windows_core::Param<IDebugFormatter>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePropertyBrowserEx)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), bstrname.into_param().abi(), pdat.into_param().abi(), pdf.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePropertyBrowserEx)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), bstrname.param().abi(), pdat.param().abi(), pdf.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateSimpleConnectionPoint<P0>(&self, pdisp: P0) -> windows_core::Result<ISimpleConnectionPoint>
     where
-        P0: windows_core::IntoParam<super::super::super::Com::IDispatch>,
+        P0: windows_core::Param<super::super::super::Com::IDispatch>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateSimpleConnectionPoint)(windows_core::Interface::as_raw(self), pdisp.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateSimpleConnectionPoint)(windows_core::Interface::as_raw(self), pdisp.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -2857,9 +2857,9 @@ windows_core::imp::interface_hierarchy!(IDebugSessionProvider, windows_core::IUn
 impl IDebugSessionProvider {
     pub unsafe fn StartDebugSession<P0>(&self, pda: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IRemoteDebugApplication>,
+        P0: windows_core::Param<IRemoteDebugApplication>,
     {
-        (windows_core::Interface::vtable(self).StartDebugSession)(windows_core::Interface::as_raw(self), pda.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StartDebugSession)(windows_core::Interface::as_raw(self), pda.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -2876,17 +2876,17 @@ impl IDebugStackFrame {
     }
     pub unsafe fn GetDescriptionString<P0>(&self, flong: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDescriptionString)(windows_core::Interface::as_raw(self), flong.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetDescriptionString)(windows_core::Interface::as_raw(self), flong.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLanguageString<P0>(&self, flong: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetLanguageString)(windows_core::Interface::as_raw(self), flong.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetLanguageString)(windows_core::Interface::as_raw(self), flong.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetThread(&self) -> windows_core::Result<IDebugApplicationThread> {
         let mut result__ = std::mem::zeroed();
@@ -2915,17 +2915,17 @@ impl IDebugStackFrame110 {
     }
     pub unsafe fn GetDescriptionString<P0>(&self, flong: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetDescriptionString)(windows_core::Interface::as_raw(self), flong.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetDescriptionString)(windows_core::Interface::as_raw(self), flong.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLanguageString<P0>(&self, flong: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetLanguageString)(windows_core::Interface::as_raw(self), flong.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetLanguageString)(windows_core::Interface::as_raw(self), flong.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetThread(&self) -> windows_core::Result<IDebugApplicationThread> {
         let mut result__ = std::mem::zeroed();
@@ -3239,10 +3239,10 @@ windows_core::imp::interface_hierarchy!(IJsDebug, windows_core::IUnknown);
 impl IJsDebug {
     pub unsafe fn OpenVirtualProcess<P0>(&self, processid: u32, runtimejsbaseaddress: u64, pdatatarget: P0) -> windows_core::Result<IJsDebugProcess>
     where
-        P0: windows_core::IntoParam<IJsDebugDataTarget>,
+        P0: windows_core::Param<IJsDebugDataTarget>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenVirtualProcess)(windows_core::Interface::as_raw(self), processid, runtimejsbaseaddress, pdatatarget.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OpenVirtualProcess)(windows_core::Interface::as_raw(self), processid, runtimejsbaseaddress, pdatatarget.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -3354,9 +3354,9 @@ impl IJsDebugFrame {
     }
     pub unsafe fn Evaluate<P0>(&self, pexpressiontext: P0, ppdebugproperty: *mut Option<IJsDebugProperty>, perror: *mut windows_core::BSTR) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), pexpressiontext.into_param().abi(), core::mem::transmute(ppdebugproperty), core::mem::transmute(perror)).ok()
+        (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), pexpressiontext.param().abi(), core::mem::transmute(ppdebugproperty), core::mem::transmute(perror)).ok()
     }
 }
 #[repr(C)]
@@ -3379,10 +3379,10 @@ impl IJsDebugProcess {
     }
     pub unsafe fn CreateBreakPoint<P0>(&self, documentid: u64, characteroffset: u32, charactercount: u32, isenabled: P0) -> windows_core::Result<IJsDebugBreakPoint>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateBreakPoint)(windows_core::Interface::as_raw(self), documentid, characteroffset, charactercount, isenabled.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateBreakPoint)(windows_core::Interface::as_raw(self), documentid, characteroffset, charactercount, isenabled.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn PerformAsyncBreak(&self, threadid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).PerformAsyncBreak)(windows_core::Interface::as_raw(self), threadid).ok()
@@ -3452,10 +3452,10 @@ windows_core::imp::interface_hierarchy!(IMachineDebugManager, windows_core::IUnk
 impl IMachineDebugManager {
     pub unsafe fn AddApplication<P0>(&self, pda: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<IRemoteDebugApplication>,
+        P0: windows_core::Param<IRemoteDebugApplication>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddApplication)(windows_core::Interface::as_raw(self), pda.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddApplication)(windows_core::Interface::as_raw(self), pda.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveApplication(&self, dwappcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveApplication)(windows_core::Interface::as_raw(self), dwappcookie).ok()
@@ -3477,10 +3477,10 @@ windows_core::imp::interface_hierarchy!(IMachineDebugManagerCookie, windows_core
 impl IMachineDebugManagerCookie {
     pub unsafe fn AddApplication<P0>(&self, pda: P0, dwdebugappcookie: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<IRemoteDebugApplication>,
+        P0: windows_core::Param<IRemoteDebugApplication>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddApplication)(windows_core::Interface::as_raw(self), pda.into_param().abi(), dwdebugappcookie, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddApplication)(windows_core::Interface::as_raw(self), pda.param().abi(), dwdebugappcookie, &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveApplication(&self, dwdebugappcookie: u32, dwappcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveApplication)(windows_core::Interface::as_raw(self), dwdebugappcookie, dwappcookie).ok()
@@ -3502,15 +3502,15 @@ windows_core::imp::interface_hierarchy!(IMachineDebugManagerEvents, windows_core
 impl IMachineDebugManagerEvents {
     pub unsafe fn onAddApplication<P0>(&self, pda: P0, dwappcookie: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IRemoteDebugApplication>,
+        P0: windows_core::Param<IRemoteDebugApplication>,
     {
-        (windows_core::Interface::vtable(self).onAddApplication)(windows_core::Interface::as_raw(self), pda.into_param().abi(), dwappcookie).ok()
+        (windows_core::Interface::vtable(self).onAddApplication)(windows_core::Interface::as_raw(self), pda.param().abi(), dwappcookie).ok()
     }
     pub unsafe fn onRemoveApplication<P0>(&self, pda: P0, dwappcookie: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IRemoteDebugApplication>,
+        P0: windows_core::Param<IRemoteDebugApplication>,
     {
-        (windows_core::Interface::vtable(self).onRemoveApplication)(windows_core::Interface::as_raw(self), pda.into_param().abi(), dwappcookie).ok()
+        (windows_core::Interface::vtable(self).onRemoveApplication)(windows_core::Interface::as_raw(self), pda.param().abi(), dwappcookie).ok()
     }
 }
 #[repr(C)]
@@ -3532,20 +3532,20 @@ impl IProcessDebugManager32 {
     }
     pub unsafe fn AddApplication<P0>(&self, pda: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<IDebugApplication32>,
+        P0: windows_core::Param<IDebugApplication32>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddApplication)(windows_core::Interface::as_raw(self), pda.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddApplication)(windows_core::Interface::as_raw(self), pda.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveApplication(&self, dwappcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveApplication)(windows_core::Interface::as_raw(self), dwappcookie).ok()
     }
     pub unsafe fn CreateDebugDocumentHelper<P0>(&self, punkouter: P0) -> windows_core::Result<IDebugDocumentHelper32>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDebugDocumentHelper)(windows_core::Interface::as_raw(self), punkouter.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDebugDocumentHelper)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -3570,20 +3570,20 @@ impl IProcessDebugManager64 {
     }
     pub unsafe fn AddApplication<P0>(&self, pda: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<IDebugApplication64>,
+        P0: windows_core::Param<IDebugApplication64>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddApplication)(windows_core::Interface::as_raw(self), pda.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddApplication)(windows_core::Interface::as_raw(self), pda.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveApplication(&self, dwappcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveApplication)(windows_core::Interface::as_raw(self), dwappcookie).ok()
     }
     pub unsafe fn CreateDebugDocumentHelper<P0>(&self, punkouter: P0) -> windows_core::Result<IDebugDocumentHelper64>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDebugDocumentHelper)(windows_core::Interface::as_raw(self), punkouter.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDebugDocumentHelper)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -3613,18 +3613,18 @@ windows_core::imp::interface_hierarchy!(IRemoteDebugApplication, windows_core::I
 impl IRemoteDebugApplication {
     pub unsafe fn ResumeFromBreakPoint<P0>(&self, prptfocus: P0, bra: BREAKRESUMEACTION, era: ERRORRESUMEACTION) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IRemoteDebugApplicationThread>,
+        P0: windows_core::Param<IRemoteDebugApplicationThread>,
     {
-        (windows_core::Interface::vtable(self).ResumeFromBreakPoint)(windows_core::Interface::as_raw(self), prptfocus.into_param().abi(), bra, era).ok()
+        (windows_core::Interface::vtable(self).ResumeFromBreakPoint)(windows_core::Interface::as_raw(self), prptfocus.param().abi(), bra, era).ok()
     }
     pub unsafe fn CauseBreak(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CauseBreak)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn ConnectDebugger<P0>(&self, pad: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IApplicationDebugger>,
+        P0: windows_core::Param<IApplicationDebugger>,
     {
-        (windows_core::Interface::vtable(self).ConnectDebugger)(windows_core::Interface::as_raw(self), pad.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ConnectDebugger)(windows_core::Interface::as_raw(self), pad.param().abi()).ok()
     }
     pub unsafe fn DisconnectDebugger(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DisconnectDebugger)(windows_core::Interface::as_raw(self)).ok()
@@ -3635,10 +3635,10 @@ impl IRemoteDebugApplication {
     }
     pub unsafe fn CreateInstanceAtApplication<P0>(&self, rclsid: *const windows_core::GUID, punkouter: P0, dwclscontext: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateInstanceAtApplication)(windows_core::Interface::as_raw(self), rclsid, punkouter.into_param().abi(), dwclscontext, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateInstanceAtApplication)(windows_core::Interface::as_raw(self), rclsid, punkouter.param().abi(), dwclscontext, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn QueryAlive(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).QueryAlive)(windows_core::Interface::as_raw(self)).ok()
@@ -3702,57 +3702,57 @@ windows_core::imp::interface_hierarchy!(IRemoteDebugApplicationEvents, windows_c
 impl IRemoteDebugApplicationEvents {
     pub unsafe fn OnConnectDebugger<P0>(&self, pad: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IApplicationDebugger>,
+        P0: windows_core::Param<IApplicationDebugger>,
     {
-        (windows_core::Interface::vtable(self).OnConnectDebugger)(windows_core::Interface::as_raw(self), pad.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnConnectDebugger)(windows_core::Interface::as_raw(self), pad.param().abi()).ok()
     }
     pub unsafe fn OnDisconnectDebugger(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnDisconnectDebugger)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn OnSetName<P0>(&self, pstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OnSetName)(windows_core::Interface::as_raw(self), pstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnSetName)(windows_core::Interface::as_raw(self), pstrname.param().abi()).ok()
     }
     pub unsafe fn OnDebugOutput<P0>(&self, pstr: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OnDebugOutput)(windows_core::Interface::as_raw(self), pstr.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnDebugOutput)(windows_core::Interface::as_raw(self), pstr.param().abi()).ok()
     }
     pub unsafe fn OnClose(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnClose)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn OnEnterBreakPoint<P0>(&self, prdat: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IRemoteDebugApplicationThread>,
+        P0: windows_core::Param<IRemoteDebugApplicationThread>,
     {
-        (windows_core::Interface::vtable(self).OnEnterBreakPoint)(windows_core::Interface::as_raw(self), prdat.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnEnterBreakPoint)(windows_core::Interface::as_raw(self), prdat.param().abi()).ok()
     }
     pub unsafe fn OnLeaveBreakPoint<P0>(&self, prdat: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IRemoteDebugApplicationThread>,
+        P0: windows_core::Param<IRemoteDebugApplicationThread>,
     {
-        (windows_core::Interface::vtable(self).OnLeaveBreakPoint)(windows_core::Interface::as_raw(self), prdat.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnLeaveBreakPoint)(windows_core::Interface::as_raw(self), prdat.param().abi()).ok()
     }
     pub unsafe fn OnCreateThread<P0>(&self, prdat: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IRemoteDebugApplicationThread>,
+        P0: windows_core::Param<IRemoteDebugApplicationThread>,
     {
-        (windows_core::Interface::vtable(self).OnCreateThread)(windows_core::Interface::as_raw(self), prdat.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnCreateThread)(windows_core::Interface::as_raw(self), prdat.param().abi()).ok()
     }
     pub unsafe fn OnDestroyThread<P0>(&self, prdat: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IRemoteDebugApplicationThread>,
+        P0: windows_core::Param<IRemoteDebugApplicationThread>,
     {
-        (windows_core::Interface::vtable(self).OnDestroyThread)(windows_core::Interface::as_raw(self), prdat.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnDestroyThread)(windows_core::Interface::as_raw(self), prdat.param().abi()).ok()
     }
     pub unsafe fn OnBreakFlagChange<P0>(&self, abf: u32, prdatsteppingthread: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IRemoteDebugApplicationThread>,
+        P0: windows_core::Param<IRemoteDebugApplicationThread>,
     {
-        (windows_core::Interface::vtable(self).OnBreakFlagChange)(windows_core::Interface::as_raw(self), abf, prdatsteppingthread.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnBreakFlagChange)(windows_core::Interface::as_raw(self), abf, prdatsteppingthread.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -3789,10 +3789,10 @@ impl IRemoteDebugApplicationThread {
     }
     pub unsafe fn SetNextStatement<P0, P1>(&self, pstackframe: P0, pcodecontext: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugStackFrame>,
-        P1: windows_core::IntoParam<IDebugCodeContext>,
+        P0: windows_core::Param<IDebugStackFrame>,
+        P1: windows_core::Param<IDebugCodeContext>,
     {
-        (windows_core::Interface::vtable(self).SetNextStatement)(windows_core::Interface::as_raw(self), pstackframe.into_param().abi(), pcodecontext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetNextStatement)(windows_core::Interface::as_raw(self), pstackframe.param().abi(), pcodecontext.param().abi()).ok()
     }
     pub unsafe fn GetState(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -3883,21 +3883,21 @@ impl IScriptEntry {
     }
     pub unsafe fn CreateChildEntry<P0>(&self, isn: u32, dwcookie: u32, pszdelimiter: P0) -> windows_core::Result<IScriptEntry>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateChildEntry)(windows_core::Interface::as_raw(self), isn, dwcookie, pszdelimiter.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateChildEntry)(windows_core::Interface::as_raw(self), isn, dwcookie, pszdelimiter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateChildHandler<P0, P1, P2, P3>(&self, pszdefaultname: P0, prgpsznames: &[windows_core::PCWSTR], pszevent: P1, pszdelimiter: P2, ptisignature: P3, imethodsignature: u32, isn: u32, dwcookie: u32) -> windows_core::Result<IScriptEntry>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
-        P3: windows_core::IntoParam<super::super::super::Com::ITypeInfo>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<super::super::super::Com::ITypeInfo>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateChildHandler)(windows_core::Interface::as_raw(self), pszdefaultname.into_param().abi(), core::mem::transmute(prgpsznames.as_ptr()), prgpsznames.len().try_into().unwrap(), pszevent.into_param().abi(), pszdelimiter.into_param().abi(), ptisignature.into_param().abi(), imethodsignature, isn, dwcookie, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateChildHandler)(windows_core::Interface::as_raw(self), pszdefaultname.param().abi(), core::mem::transmute(prgpsznames.as_ptr()), prgpsznames.len().try_into().unwrap(), pszevent.param().abi(), pszdelimiter.param().abi(), ptisignature.param().abi(), imethodsignature, isn, dwcookie, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetText(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3905,9 +3905,9 @@ impl IScriptEntry {
     }
     pub unsafe fn SetText<P0>(&self, psz: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), psz.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), psz.param().abi()).ok()
     }
     pub unsafe fn GetBody(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3915,9 +3915,9 @@ impl IScriptEntry {
     }
     pub unsafe fn SetBody<P0>(&self, psz: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetBody)(windows_core::Interface::as_raw(self), psz.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBody)(windows_core::Interface::as_raw(self), psz.param().abi()).ok()
     }
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3925,9 +3925,9 @@ impl IScriptEntry {
     }
     pub unsafe fn SetName<P0>(&self, psz: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), psz.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), psz.param().abi()).ok()
     }
     pub unsafe fn GetItemName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3935,9 +3935,9 @@ impl IScriptEntry {
     }
     pub unsafe fn SetItemName<P0>(&self, psz: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetItemName)(windows_core::Interface::as_raw(self), psz.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetItemName)(windows_core::Interface::as_raw(self), psz.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSignature(&self, ppti: *mut Option<super::super::super::Com::ITypeInfo>, pimethod: *mut u32) -> windows_core::Result<()> {
@@ -3946,9 +3946,9 @@ impl IScriptEntry {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignature<P0>(&self, pti: P0, imethod: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Com::ITypeInfo>,
+        P0: windows_core::Param<super::super::super::Com::ITypeInfo>,
     {
-        (windows_core::Interface::vtable(self).SetSignature)(windows_core::Interface::as_raw(self), pti.into_param().abi(), imethod).ok()
+        (windows_core::Interface::vtable(self).SetSignature)(windows_core::Interface::as_raw(self), pti.param().abi(), imethod).ok()
     }
     pub unsafe fn GetRange(&self, pichmin: *mut u32, pcch: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRange)(windows_core::Interface::as_raw(self), pichmin, pcch).ok()
@@ -4033,21 +4033,21 @@ impl IScriptNode {
     }
     pub unsafe fn CreateChildEntry<P0>(&self, isn: u32, dwcookie: u32, pszdelimiter: P0) -> windows_core::Result<IScriptEntry>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateChildEntry)(windows_core::Interface::as_raw(self), isn, dwcookie, pszdelimiter.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateChildEntry)(windows_core::Interface::as_raw(self), isn, dwcookie, pszdelimiter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateChildHandler<P0, P1, P2, P3>(&self, pszdefaultname: P0, prgpsznames: &[windows_core::PCWSTR], pszevent: P1, pszdelimiter: P2, ptisignature: P3, imethodsignature: u32, isn: u32, dwcookie: u32) -> windows_core::Result<IScriptEntry>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
-        P3: windows_core::IntoParam<super::super::super::Com::ITypeInfo>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<super::super::super::Com::ITypeInfo>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateChildHandler)(windows_core::Interface::as_raw(self), pszdefaultname.into_param().abi(), core::mem::transmute(prgpsznames.as_ptr()), prgpsznames.len().try_into().unwrap(), pszevent.into_param().abi(), pszdelimiter.into_param().abi(), ptisignature.into_param().abi(), imethodsignature, isn, dwcookie, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateChildHandler)(windows_core::Interface::as_raw(self), pszdefaultname.param().abi(), core::mem::transmute(prgpsznames.as_ptr()), prgpsznames.len().try_into().unwrap(), pszevent.param().abi(), pszdelimiter.param().abi(), ptisignature.param().abi(), imethodsignature, isn, dwcookie, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -4102,21 +4102,21 @@ impl IScriptScriptlet {
     }
     pub unsafe fn CreateChildEntry<P0>(&self, isn: u32, dwcookie: u32, pszdelimiter: P0) -> windows_core::Result<IScriptEntry>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateChildEntry)(windows_core::Interface::as_raw(self), isn, dwcookie, pszdelimiter.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.CreateChildEntry)(windows_core::Interface::as_raw(self), isn, dwcookie, pszdelimiter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateChildHandler<P0, P1, P2, P3>(&self, pszdefaultname: P0, prgpsznames: &[windows_core::PCWSTR], pszevent: P1, pszdelimiter: P2, ptisignature: P3, imethodsignature: u32, isn: u32, dwcookie: u32) -> windows_core::Result<IScriptEntry>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
-        P3: windows_core::IntoParam<super::super::super::Com::ITypeInfo>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<super::super::super::Com::ITypeInfo>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateChildHandler)(windows_core::Interface::as_raw(self), pszdefaultname.into_param().abi(), core::mem::transmute(prgpsznames.as_ptr()), prgpsznames.len().try_into().unwrap(), pszevent.into_param().abi(), pszdelimiter.into_param().abi(), ptisignature.into_param().abi(), imethodsignature, isn, dwcookie, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.CreateChildHandler)(windows_core::Interface::as_raw(self), pszdefaultname.param().abi(), core::mem::transmute(prgpsznames.as_ptr()), prgpsznames.len().try_into().unwrap(), pszevent.param().abi(), pszdelimiter.param().abi(), ptisignature.param().abi(), imethodsignature, isn, dwcookie, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetText(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4124,9 +4124,9 @@ impl IScriptScriptlet {
     }
     pub unsafe fn SetText<P0>(&self, psz: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetText)(windows_core::Interface::as_raw(self), psz.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetText)(windows_core::Interface::as_raw(self), psz.param().abi()).ok()
     }
     pub unsafe fn GetBody(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4134,9 +4134,9 @@ impl IScriptScriptlet {
     }
     pub unsafe fn SetBody<P0>(&self, psz: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetBody)(windows_core::Interface::as_raw(self), psz.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetBody)(windows_core::Interface::as_raw(self), psz.param().abi()).ok()
     }
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4144,9 +4144,9 @@ impl IScriptScriptlet {
     }
     pub unsafe fn SetName<P0>(&self, psz: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), psz.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), psz.param().abi()).ok()
     }
     pub unsafe fn GetItemName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4154,9 +4154,9 @@ impl IScriptScriptlet {
     }
     pub unsafe fn SetItemName<P0>(&self, psz: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetItemName)(windows_core::Interface::as_raw(self), psz.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetItemName)(windows_core::Interface::as_raw(self), psz.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSignature(&self, ppti: *mut Option<super::super::super::Com::ITypeInfo>, pimethod: *mut u32) -> windows_core::Result<()> {
@@ -4165,9 +4165,9 @@ impl IScriptScriptlet {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignature<P0>(&self, pti: P0, imethod: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Com::ITypeInfo>,
+        P0: windows_core::Param<super::super::super::Com::ITypeInfo>,
     {
-        (windows_core::Interface::vtable(self).base__.SetSignature)(windows_core::Interface::as_raw(self), pti.into_param().abi(), imethod).ok()
+        (windows_core::Interface::vtable(self).base__.SetSignature)(windows_core::Interface::as_raw(self), pti.param().abi(), imethod).ok()
     }
     pub unsafe fn GetRange(&self, pichmin: *mut u32, pcch: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.GetRange)(windows_core::Interface::as_raw(self), pichmin, pcch).ok()
@@ -4178,9 +4178,9 @@ impl IScriptScriptlet {
     }
     pub unsafe fn SetSubItemName<P0>(&self, psz: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSubItemName)(windows_core::Interface::as_raw(self), psz.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSubItemName)(windows_core::Interface::as_raw(self), psz.param().abi()).ok()
     }
     pub unsafe fn GetEventName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4188,9 +4188,9 @@ impl IScriptScriptlet {
     }
     pub unsafe fn SetEventName<P0>(&self, psz: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetEventName)(windows_core::Interface::as_raw(self), psz.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventName)(windows_core::Interface::as_raw(self), psz.param().abi()).ok()
     }
     pub unsafe fn GetSimpleEventName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4198,9 +4198,9 @@ impl IScriptScriptlet {
     }
     pub unsafe fn SetSimpleEventName<P0>(&self, psz: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSimpleEventName)(windows_core::Interface::as_raw(self), psz.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSimpleEventName)(windows_core::Interface::as_raw(self), psz.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -4226,10 +4226,10 @@ impl ISimpleConnectionPoint {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Advise<P0>(&self, pdisp: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<super::super::super::Com::IDispatch>,
+        P0: windows_core::Param<super::super::super::Com::IDispatch>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), pdisp.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), pdisp.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), dwcookie).ok()
@@ -4252,9 +4252,9 @@ impl ITridentEventSink {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FireEvent<P0>(&self, pstrevent: P0, pdp: *const super::super::super::Com::DISPPARAMS, pvarres: *mut windows_core::VARIANT, pei: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).FireEvent)(windows_core::Interface::as_raw(self), pstrevent.into_param().abi(), pdp, core::mem::transmute(pvarres), pei).ok()
+        (windows_core::Interface::vtable(self).FireEvent)(windows_core::Interface::as_raw(self), pstrevent.param().abi(), pdp, core::mem::transmute(pvarres), pei).ok()
     }
 }
 #[repr(C)]
@@ -4270,10 +4270,10 @@ windows_core::imp::interface_hierarchy!(IWebAppDiagnosticsObjectInitialization, 
 impl IWebAppDiagnosticsObjectInitialization {
     pub unsafe fn Initialize<P0, P1>(&self, hpassedhandle: P0, pdebugapplication: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Foundation::HANDLE_PTR>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<super::super::super::super::Foundation::HANDLE_PTR>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), hpassedhandle.into_param().abi(), pdebugapplication.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), hpassedhandle.param().abi(), pdebugapplication.param().abi()).ok()
     }
 }
 #[repr(C)]

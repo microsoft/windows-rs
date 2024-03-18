@@ -1,10 +1,10 @@
 #[inline]
 pub unsafe fn DnsHostnameToComputerNameExW<P0>(hostname: P0, computername: windows_core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn DnsHostnameToComputerNameExW(hostname : windows_core::PCWSTR, computername : windows_core::PWSTR, nsize : *mut u32) -> super::super::Foundation:: BOOL);
-    DnsHostnameToComputerNameExW(hostname.into_param().abi(), core::mem::transmute(computername), nsize)
+    DnsHostnameToComputerNameExW(hostname.param().abi(), core::mem::transmute(computername), nsize)
 }
 #[inline]
 pub unsafe fn EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer: Option<&mut [u8]>) -> u32 {
@@ -87,10 +87,10 @@ pub unsafe fn GetProductInfo(dwosmajorversion: u32, dwosminorversion: u32, dwspm
 #[inline]
 pub unsafe fn GetSystemCpuSetInformation<P0>(information: Option<*mut SYSTEM_CPU_SET_INFORMATION>, bufferlength: u32, returnedlength: *mut u32, process: P0, flags: u32) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetSystemCpuSetInformation(information : *mut SYSTEM_CPU_SET_INFORMATION, bufferlength : u32, returnedlength : *mut u32, process : super::super::Foundation:: HANDLE, flags : u32) -> super::super::Foundation:: BOOL);
-    GetSystemCpuSetInformation(core::mem::transmute(information.unwrap_or(std::ptr::null_mut())), bufferlength, returnedlength, process.into_param().abi(), flags)
+    GetSystemCpuSetInformation(core::mem::transmute(information.unwrap_or(std::ptr::null_mut())), bufferlength, returnedlength, process.param().abi(), flags)
 }
 #[inline]
 pub unsafe fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE {
@@ -272,42 +272,42 @@ pub unsafe fn RtlSwitchedVVI(versioninfo: *const OSVERSIONINFOEXW, typemask: u32
 #[inline]
 pub unsafe fn SetComputerNameA<P0>(lpcomputername: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetComputerNameA(lpcomputername : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
-    SetComputerNameA(lpcomputername.into_param().abi()).ok()
+    SetComputerNameA(lpcomputername.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SetComputerNameEx2W<P0>(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: P0) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetComputerNameEx2W(nametype : COMPUTER_NAME_FORMAT, flags : u32, lpbuffer : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    SetComputerNameEx2W(nametype, flags, lpbuffer.into_param().abi())
+    SetComputerNameEx2W(nametype, flags, lpbuffer.param().abi())
 }
 #[inline]
 pub unsafe fn SetComputerNameExA<P0>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetComputerNameExA(nametype : COMPUTER_NAME_FORMAT, lpbuffer : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
-    SetComputerNameExA(nametype, lpbuffer.into_param().abi()).ok()
+    SetComputerNameExA(nametype, lpbuffer.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SetComputerNameExW<P0>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetComputerNameExW(nametype : COMPUTER_NAME_FORMAT, lpbuffer : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    SetComputerNameExW(nametype, lpbuffer.into_param().abi()).ok()
+    SetComputerNameExW(nametype, lpbuffer.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SetComputerNameW<P0>(lpcomputername: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetComputerNameW(lpcomputername : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    SetComputerNameW(lpcomputername.into_param().abi()).ok()
+    SetComputerNameW(lpcomputername.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SetLocalTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
@@ -322,18 +322,18 @@ pub unsafe fn SetSystemTime(lpsystemtime: *const super::super::Foundation::SYSTE
 #[inline]
 pub unsafe fn SetSystemTimeAdjustment<P0>(dwtimeadjustment: u32, btimeadjustmentdisabled: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetSystemTimeAdjustment(dwtimeadjustment : u32, btimeadjustmentdisabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    SetSystemTimeAdjustment(dwtimeadjustment, btimeadjustmentdisabled.into_param().abi()).ok()
+    SetSystemTimeAdjustment(dwtimeadjustment, btimeadjustmentdisabled.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SetSystemTimeAdjustmentPrecise<P0>(dwtimeadjustment: u64, btimeadjustmentdisabled: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("api-ms-win-core-sysinfo-l1-2-4.dll" "system" fn SetSystemTimeAdjustmentPrecise(dwtimeadjustment : u64, btimeadjustmentdisabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    SetSystemTimeAdjustmentPrecise(dwtimeadjustment, btimeadjustmentdisabled.into_param().abi()).ok()
+    SetSystemTimeAdjustmentPrecise(dwtimeadjustment, btimeadjustmentdisabled.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn VerSetConditionMask(conditionmask: u64, typemask: VER_FLAGS, condition: u8) -> u64 {

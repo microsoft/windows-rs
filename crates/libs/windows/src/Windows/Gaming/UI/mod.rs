@@ -76,11 +76,11 @@ pub struct GameBar;
 impl GameBar {
     pub fn VisibilityChanged<P0>(handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
         Self::IGameBarStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).VisibilityChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VisibilityChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveVisibilityChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -88,11 +88,11 @@ impl GameBar {
     }
     pub fn IsInputRedirectedChanged<P0>(handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
         Self::IGameBarStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsInputRedirectedChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsInputRedirectedChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveIsInputRedirectedChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -230,12 +230,12 @@ impl GameChatOverlayMessageSource {
     }
     pub fn MessageReceived<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<GameChatOverlayMessageSource, GameChatMessageReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GameChatOverlayMessageSource, GameChatMessageReceivedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MessageReceived)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MessageReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMessageReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -301,10 +301,10 @@ impl GameUIProviderActivatedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReportCompleted<P0>(&self, results: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::ValueSet>,
+        P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this), results.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this), results.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for GameUIProviderActivatedEventArgs {

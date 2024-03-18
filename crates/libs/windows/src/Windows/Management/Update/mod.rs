@@ -706,10 +706,10 @@ impl WindowsUpdateAdministrator {
     }
     pub fn ApproveWindowsUpdate<P0>(&self, updateid: &windows_core::HSTRING, approvaldata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<WindowsUpdateApprovalData>,
+        P0: windows_core::Param<WindowsUpdateApprovalData>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ApproveWindowsUpdate)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(updateid), approvaldata.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ApproveWindowsUpdate)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(updateid), approvaldata.param().abi()).ok() }
     }
     pub fn RevokeWindowsUpdateApproval(&self, updateid: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -749,11 +749,11 @@ impl WindowsUpdateAdministrator {
     }
     pub fn RequestRestart<P0>(restartoptions: P0) -> windows_core::Result<windows_core::HSTRING>
     where
-        P0: windows_core::IntoParam<WindowsUpdateRestartRequestOptions>,
+        P0: windows_core::Param<WindowsUpdateRestartRequestOptions>,
     {
         Self::IWindowsUpdateAdministratorStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestRestart)(windows_core::Interface::as_raw(this), restartoptions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestRestart)(windows_core::Interface::as_raw(this), restartoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CancelRestartRequest(requestrestarttoken: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -798,10 +798,10 @@ impl WindowsUpdateApprovalData {
     }
     pub fn SetSeeker<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<bool>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<bool>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSeeker)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSeeker)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn AllowDownloadOnMetered(&self) -> windows_core::Result<super::super::Foundation::IReference<bool>> {
         let this = self;
@@ -812,10 +812,10 @@ impl WindowsUpdateApprovalData {
     }
     pub fn SetAllowDownloadOnMetered<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<bool>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<bool>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAllowDownloadOnMetered)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAllowDownloadOnMetered)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ComplianceDeadlineInDays(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -826,10 +826,10 @@ impl WindowsUpdateApprovalData {
     }
     pub fn SetComplianceDeadlineInDays<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetComplianceDeadlineInDays)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetComplianceDeadlineInDays)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ComplianceGracePeriodInDays(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -840,10 +840,10 @@ impl WindowsUpdateApprovalData {
     }
     pub fn SetComplianceGracePeriodInDays<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetComplianceGracePeriodInDays)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetComplianceGracePeriodInDays)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn OptOutOfAutoReboot(&self) -> windows_core::Result<super::super::Foundation::IReference<bool>> {
         let this = self;
@@ -854,10 +854,10 @@ impl WindowsUpdateApprovalData {
     }
     pub fn SetOptOutOfAutoReboot<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<bool>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<bool>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetOptOutOfAutoReboot)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetOptOutOfAutoReboot)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for WindowsUpdateApprovalData {
@@ -1049,12 +1049,12 @@ windows_core::imp::interface_hierarchy!(WindowsUpdateManager, windows_core::IUnk
 impl WindowsUpdateManager {
     pub fn ScanningStateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScanningStateChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ScanningStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveScanningStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1063,12 +1063,12 @@ impl WindowsUpdateManager {
     }
     pub fn WorkingStateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).WorkingStateChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).WorkingStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveWorkingStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1077,12 +1077,12 @@ impl WindowsUpdateManager {
     }
     pub fn ProgressChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateProgressChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateProgressChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProgressChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ProgressChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveProgressChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1091,12 +1091,12 @@ impl WindowsUpdateManager {
     }
     pub fn AttentionRequiredReasonChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateAttentionRequiredReasonChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateAttentionRequiredReasonChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AttentionRequiredReasonChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AttentionRequiredReasonChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAttentionRequiredReasonChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1105,12 +1105,12 @@ impl WindowsUpdateManager {
     }
     pub fn ActionCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateActionCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateActionCompletedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActionCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ActionCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveActionCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1119,12 +1119,12 @@ impl WindowsUpdateManager {
     }
     pub fn ScanCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateScanCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateScanCompletedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScanCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ScanCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveScanCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1279,10 +1279,10 @@ impl WindowsUpdateRestartRequestOptions {
     }
     pub fn SetMoreInfoUrl<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMoreInfoUrl)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMoreInfoUrl)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ComplianceDeadlineInDays(&self) -> windows_core::Result<i32> {
         let this = self;
@@ -1330,11 +1330,11 @@ impl WindowsUpdateRestartRequestOptions {
     }
     pub fn CreateInstance<P0>(title: &windows_core::HSTRING, description: &windows_core::HSTRING, moreinfourl: P0, compliancedeadlineindays: i32, compliancegraceperiodindays: i32) -> windows_core::Result<WindowsUpdateRestartRequestOptions>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::IWindowsUpdateRestartRequestOptionsFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), core::mem::transmute_copy(description), moreinfourl.into_param().abi(), compliancedeadlineindays, compliancegraceperiodindays, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), core::mem::transmute_copy(description), moreinfourl.param().abi(), compliancedeadlineindays, compliancegraceperiodindays, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

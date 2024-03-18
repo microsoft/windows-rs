@@ -4,10 +4,10 @@ impl ILearningModelDeviceFactoryNative {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateFromD3D12CommandQueue<P0>(&self, value: P0) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>,
+        P0: windows_core::Param<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateFromD3D12CommandQueue)(windows_core::Interface::as_raw(self), value.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateFromD3D12CommandQueue)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -86,9 +86,9 @@ impl ITensorStaticsNative {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateFromD3D12Resource<P0>(&self, value: P0, shape: *mut i64, shapecount: i32, result: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
+        P0: windows_core::Param<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
     {
-        (windows_core::Interface::vtable(self).CreateFromD3D12Resource)(windows_core::Interface::as_raw(self), value.into_param().abi(), shape, shapecount, core::mem::transmute(result)).ok()
+        (windows_core::Interface::vtable(self).CreateFromD3D12Resource)(windows_core::Interface::as_raw(self), value.param().abi(), shape, shapecount, core::mem::transmute(result)).ok()
     }
 }
 #[repr(C)]

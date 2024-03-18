@@ -1,27 +1,27 @@
 #[inline]
 pub unsafe fn CreateDataModelManager<P0>(debughost: P0) -> windows_core::Result<IDataModelManager>
 where
-    P0: windows_core::IntoParam<IDebugHost>,
+    P0: windows_core::Param<IDebugHost>,
 {
     windows_targets::link!("dbgmodel.dll" "system" fn CreateDataModelManager(debughost : * mut core::ffi::c_void, manager : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    CreateDataModelManager(debughost.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    CreateDataModelManager(debughost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn DebugConnect<P0>(remoteoptions: P0, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbgeng.dll" "system" fn DebugConnect(remoteoptions : windows_core::PCSTR, interfaceid : *const windows_core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    DebugConnect(remoteoptions.into_param().abi(), interfaceid, interface).ok()
+    DebugConnect(remoteoptions.param().abi(), interfaceid, interface).ok()
 }
 #[inline]
 pub unsafe fn DebugConnectWide<P0>(remoteoptions: P0, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbgeng.dll" "system" fn DebugConnectWide(remoteoptions : windows_core::PCWSTR, interfaceid : *const windows_core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    DebugConnectWide(remoteoptions.into_param().abi(), interfaceid, interface).ok()
+    DebugConnectWide(remoteoptions.param().abi(), interfaceid, interface).ok()
 }
 #[inline]
 pub unsafe fn DebugCreate<T>() -> windows_core::Result<T>
@@ -50,9 +50,9 @@ impl DebugBaseEventCallbacks {
     }
     pub unsafe fn Breakpoint<P0>(&self, bp: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugBreakpoint>,
+        P0: windows_core::Param<IDebugBreakpoint>,
     {
-        (windows_core::Interface::vtable(self).base__.Breakpoint)(windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Breakpoint)(windows_core::Interface::as_raw(self), bp.param().abi()).ok()
     }
     pub unsafe fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Exception)(windows_core::Interface::as_raw(self), exception, firstchance).ok()
@@ -65,26 +65,26 @@ impl DebugBaseEventCallbacks {
     }
     pub unsafe fn CreateProcessA<P0, P1>(&self, imagefilehandle: u64, handle: u64, baseoffset: u64, modulesize: u32, modulename: P0, imagename: P1, checksum: u32, timedatestamp: u32, initialthreadhandle: u64, threaddataoffset: u64, startoffset: u64) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.CreateProcessA)(windows_core::Interface::as_raw(self), imagefilehandle, handle, baseoffset, modulesize, modulename.into_param().abi(), imagename.into_param().abi(), checksum, timedatestamp, initialthreadhandle, threaddataoffset, startoffset).ok()
+        (windows_core::Interface::vtable(self).base__.CreateProcessA)(windows_core::Interface::as_raw(self), imagefilehandle, handle, baseoffset, modulesize, modulename.param().abi(), imagename.param().abi(), checksum, timedatestamp, initialthreadhandle, threaddataoffset, startoffset).ok()
     }
     pub unsafe fn ExitProcess(&self, exitcode: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.ExitProcess)(windows_core::Interface::as_raw(self), exitcode).ok()
     }
     pub unsafe fn LoadModule<P0, P1>(&self, imagefilehandle: u64, baseoffset: u64, modulesize: u32, modulename: P0, imagename: P1, checksum: u32, timedatestamp: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.LoadModule)(windows_core::Interface::as_raw(self), imagefilehandle, baseoffset, modulesize, modulename.into_param().abi(), imagename.into_param().abi(), checksum, timedatestamp).ok()
+        (windows_core::Interface::vtable(self).base__.LoadModule)(windows_core::Interface::as_raw(self), imagefilehandle, baseoffset, modulesize, modulename.param().abi(), imagename.param().abi(), checksum, timedatestamp).ok()
     }
     pub unsafe fn UnloadModule<P0>(&self, imagebasename: P0, baseoffset: u64) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.UnloadModule)(windows_core::Interface::as_raw(self), imagebasename.into_param().abi(), baseoffset).ok()
+        (windows_core::Interface::vtable(self).base__.UnloadModule)(windows_core::Interface::as_raw(self), imagebasename.param().abi(), baseoffset).ok()
     }
     pub unsafe fn SystemError(&self, error: u32, level: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.SystemError)(windows_core::Interface::as_raw(self), error, level).ok()
@@ -115,9 +115,9 @@ impl DebugBaseEventCallbacksWide {
     }
     pub unsafe fn Breakpoint<P0>(&self, bp: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugBreakpoint2>,
+        P0: windows_core::Param<IDebugBreakpoint2>,
     {
-        (windows_core::Interface::vtable(self).base__.Breakpoint)(windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Breakpoint)(windows_core::Interface::as_raw(self), bp.param().abi()).ok()
     }
     pub unsafe fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Exception)(windows_core::Interface::as_raw(self), exception, firstchance).ok()
@@ -130,26 +130,26 @@ impl DebugBaseEventCallbacksWide {
     }
     pub unsafe fn CreateProcessA<P0, P1>(&self, imagefilehandle: u64, handle: u64, baseoffset: u64, modulesize: u32, modulename: P0, imagename: P1, checksum: u32, timedatestamp: u32, initialthreadhandle: u64, threaddataoffset: u64, startoffset: u64) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.CreateProcessA)(windows_core::Interface::as_raw(self), imagefilehandle, handle, baseoffset, modulesize, modulename.into_param().abi(), imagename.into_param().abi(), checksum, timedatestamp, initialthreadhandle, threaddataoffset, startoffset).ok()
+        (windows_core::Interface::vtable(self).base__.CreateProcessA)(windows_core::Interface::as_raw(self), imagefilehandle, handle, baseoffset, modulesize, modulename.param().abi(), imagename.param().abi(), checksum, timedatestamp, initialthreadhandle, threaddataoffset, startoffset).ok()
     }
     pub unsafe fn ExitProcess(&self, exitcode: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.ExitProcess)(windows_core::Interface::as_raw(self), exitcode).ok()
     }
     pub unsafe fn LoadModule<P0, P1>(&self, imagefilehandle: u64, baseoffset: u64, modulesize: u32, modulename: P0, imagename: P1, checksum: u32, timedatestamp: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.LoadModule)(windows_core::Interface::as_raw(self), imagefilehandle, baseoffset, modulesize, modulename.into_param().abi(), imagename.into_param().abi(), checksum, timedatestamp).ok()
+        (windows_core::Interface::vtable(self).base__.LoadModule)(windows_core::Interface::as_raw(self), imagefilehandle, baseoffset, modulesize, modulename.param().abi(), imagename.param().abi(), checksum, timedatestamp).ok()
     }
     pub unsafe fn UnloadModule<P0>(&self, imagebasename: P0, baseoffset: u64) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.UnloadModule)(windows_core::Interface::as_raw(self), imagebasename.into_param().abi(), baseoffset).ok()
+        (windows_core::Interface::vtable(self).base__.UnloadModule)(windows_core::Interface::as_raw(self), imagebasename.param().abi(), baseoffset).ok()
     }
     pub unsafe fn SystemError(&self, error: u32, level: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.SystemError)(windows_core::Interface::as_raw(self), error, level).ok()
@@ -176,10 +176,10 @@ windows_core::imp::interface_hierarchy!(ICodeAddressConcept, windows_core::IUnkn
 impl ICodeAddressConcept {
     pub unsafe fn GetContainingSymbol<P0>(&self, pcontextobject: P0) -> windows_core::Result<IDebugHostSymbol>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetContainingSymbol)(windows_core::Interface::as_raw(self), pcontextobject.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetContainingSymbol)(windows_core::Interface::as_raw(self), pcontextobject.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -192,11 +192,11 @@ windows_core::imp::interface_hierarchy!(IComparableConcept, windows_core::IUnkno
 impl IComparableConcept {
     pub unsafe fn CompareObjects<P0, P1>(&self, contextobject: P0, otherobject: P1) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<IModelObject>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CompareObjects)(windows_core::Interface::as_raw(self), contextobject.into_param().abi(), otherobject.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CompareObjects)(windows_core::Interface::as_raw(self), contextobject.param().abi(), otherobject.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -209,11 +209,11 @@ windows_core::imp::interface_hierarchy!(IDataModelConcept, windows_core::IUnknow
 impl IDataModelConcept {
     pub unsafe fn InitializeObject<P0, P1, P2>(&self, modelobject: P0, matchingtypesignature: P1, wildcardmatches: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<IDebugHostTypeSignature>,
-        P2: windows_core::IntoParam<IDebugHostSymbolEnumerator>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<IDebugHostTypeSignature>,
+        P2: windows_core::Param<IDebugHostSymbolEnumerator>,
     {
-        (windows_core::Interface::vtable(self).InitializeObject)(windows_core::Interface::as_raw(self), modelobject.into_param().abi(), matchingtypesignature.into_param().abi(), wildcardmatches.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).InitializeObject)(windows_core::Interface::as_raw(self), modelobject.param().abi(), matchingtypesignature.param().abi(), wildcardmatches.param().abi()).ok()
     }
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -238,40 +238,40 @@ impl IDataModelManager {
     }
     pub unsafe fn CreateErrorObject<P0>(&self, hrerror: windows_core::HRESULT, pwszmessage: P0) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateErrorObject)(windows_core::Interface::as_raw(self), hrerror, pwszmessage.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateErrorObject)(windows_core::Interface::as_raw(self), hrerror, pwszmessage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTypedObject<P0, P1>(&self, context: P0, objectlocation: Location, objecttype: P1) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
-        P1: windows_core::IntoParam<IDebugHostType>,
+        P0: windows_core::Param<IDebugHostContext>,
+        P1: windows_core::Param<IDebugHostType>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateTypedObject)(windows_core::Interface::as_raw(self), context.into_param().abi(), core::mem::transmute(objectlocation), objecttype.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateTypedObject)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(objectlocation), objecttype.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTypedObjectReference<P0, P1>(&self, context: P0, objectlocation: Location, objecttype: P1) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
-        P1: windows_core::IntoParam<IDebugHostType>,
+        P0: windows_core::Param<IDebugHostContext>,
+        P1: windows_core::Param<IDebugHostType>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateTypedObjectReference)(windows_core::Interface::as_raw(self), context.into_param().abi(), core::mem::transmute(objectlocation), objecttype.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateTypedObjectReference)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(objectlocation), objecttype.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSyntheticObject<P0>(&self, context: P0) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
+        P0: windows_core::Param<IDebugHostContext>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateSyntheticObject)(windows_core::Interface::as_raw(self), context.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateSyntheticObject)(windows_core::Interface::as_raw(self), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateDataModelObject<P0>(&self, datamodel: P0) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<IDataModelConcept>,
+        P0: windows_core::Param<IDataModelConcept>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDataModelObject)(windows_core::Interface::as_raw(self), datamodel.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDataModelObject)(windows_core::Interface::as_raw(self), datamodel.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const windows_core::VARIANT) -> windows_core::Result<IModelObject> {
         let mut result__ = std::mem::zeroed();
@@ -279,58 +279,58 @@ impl IDataModelManager {
     }
     pub unsafe fn CreateTypedIntrinsicObject<P0>(&self, intrinsicdata: *const windows_core::VARIANT, r#type: P0) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<IDebugHostType>,
+        P0: windows_core::Param<IDebugHostType>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateTypedIntrinsicObject)(windows_core::Interface::as_raw(self), core::mem::transmute(intrinsicdata), r#type.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateTypedIntrinsicObject)(windows_core::Interface::as_raw(self), core::mem::transmute(intrinsicdata), r#type.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetModelForTypeSignature<P0>(&self, typesignature: P0) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<IDebugHostTypeSignature>,
+        P0: windows_core::Param<IDebugHostTypeSignature>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetModelForTypeSignature)(windows_core::Interface::as_raw(self), typesignature.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetModelForTypeSignature)(windows_core::Interface::as_raw(self), typesignature.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetModelForType<P0>(&self, r#type: P0, datamodel: *mut Option<IModelObject>, typesignature: Option<*mut Option<IDebugHostTypeSignature>>, wildcardmatches: Option<*mut Option<IDebugHostSymbolEnumerator>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostType>,
+        P0: windows_core::Param<IDebugHostType>,
     {
-        (windows_core::Interface::vtable(self).GetModelForType)(windows_core::Interface::as_raw(self), r#type.into_param().abi(), core::mem::transmute(datamodel), core::mem::transmute(typesignature.unwrap_or(std::ptr::null_mut())), core::mem::transmute(wildcardmatches.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModelForType)(windows_core::Interface::as_raw(self), r#type.param().abi(), core::mem::transmute(datamodel), core::mem::transmute(typesignature.unwrap_or(std::ptr::null_mut())), core::mem::transmute(wildcardmatches.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn RegisterModelForTypeSignature<P0, P1>(&self, typesignature: P0, datamodel: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostTypeSignature>,
-        P1: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IDebugHostTypeSignature>,
+        P1: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).RegisterModelForTypeSignature)(windows_core::Interface::as_raw(self), typesignature.into_param().abi(), datamodel.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterModelForTypeSignature)(windows_core::Interface::as_raw(self), typesignature.param().abi(), datamodel.param().abi()).ok()
     }
     pub unsafe fn UnregisterModelForTypeSignature<P0, P1>(&self, datamodel: P0, typesignature: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<IDebugHostTypeSignature>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<IDebugHostTypeSignature>,
     {
-        (windows_core::Interface::vtable(self).UnregisterModelForTypeSignature)(windows_core::Interface::as_raw(self), datamodel.into_param().abi(), typesignature.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnregisterModelForTypeSignature)(windows_core::Interface::as_raw(self), datamodel.param().abi(), typesignature.param().abi()).ok()
     }
     pub unsafe fn RegisterExtensionForTypeSignature<P0, P1>(&self, typesignature: P0, datamodel: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostTypeSignature>,
-        P1: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IDebugHostTypeSignature>,
+        P1: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).RegisterExtensionForTypeSignature)(windows_core::Interface::as_raw(self), typesignature.into_param().abi(), datamodel.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterExtensionForTypeSignature)(windows_core::Interface::as_raw(self), typesignature.param().abi(), datamodel.param().abi()).ok()
     }
     pub unsafe fn UnregisterExtensionForTypeSignature<P0, P1>(&self, datamodel: P0, typesignature: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<IDebugHostTypeSignature>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<IDebugHostTypeSignature>,
     {
-        (windows_core::Interface::vtable(self).UnregisterExtensionForTypeSignature)(windows_core::Interface::as_raw(self), datamodel.into_param().abi(), typesignature.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnregisterExtensionForTypeSignature)(windows_core::Interface::as_raw(self), datamodel.param().abi(), typesignature.param().abi()).ok()
     }
     pub unsafe fn CreateMetadataStore<P0>(&self, parentstore: P0) -> windows_core::Result<IKeyStore>
     where
-        P0: windows_core::IntoParam<IKeyStore>,
+        P0: windows_core::Param<IKeyStore>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateMetadataStore)(windows_core::Interface::as_raw(self), parentstore.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateMetadataStore)(windows_core::Interface::as_raw(self), parentstore.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRootNamespace(&self) -> windows_core::Result<IModelObject> {
         let mut result__ = std::mem::zeroed();
@@ -338,23 +338,23 @@ impl IDataModelManager {
     }
     pub unsafe fn RegisterNamedModel<P0, P1>(&self, modelname: P0, modeobject: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).RegisterNamedModel)(windows_core::Interface::as_raw(self), modelname.into_param().abi(), modeobject.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterNamedModel)(windows_core::Interface::as_raw(self), modelname.param().abi(), modeobject.param().abi()).ok()
     }
     pub unsafe fn UnregisterNamedModel<P0>(&self, modelname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).UnregisterNamedModel)(windows_core::Interface::as_raw(self), modelname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnregisterNamedModel)(windows_core::Interface::as_raw(self), modelname.param().abi()).ok()
     }
     pub unsafe fn AcquireNamedModel<P0>(&self, modelname: P0) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AcquireNamedModel)(windows_core::Interface::as_raw(self), modelname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).AcquireNamedModel)(windows_core::Interface::as_raw(self), modelname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -393,40 +393,40 @@ impl IDataModelManager2 {
     }
     pub unsafe fn CreateErrorObject<P0>(&self, hrerror: windows_core::HRESULT, pwszmessage: P0) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateErrorObject)(windows_core::Interface::as_raw(self), hrerror, pwszmessage.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateErrorObject)(windows_core::Interface::as_raw(self), hrerror, pwszmessage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTypedObject<P0, P1>(&self, context: P0, objectlocation: Location, objecttype: P1) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
-        P1: windows_core::IntoParam<IDebugHostType>,
+        P0: windows_core::Param<IDebugHostContext>,
+        P1: windows_core::Param<IDebugHostType>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateTypedObject)(windows_core::Interface::as_raw(self), context.into_param().abi(), core::mem::transmute(objectlocation), objecttype.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateTypedObject)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(objectlocation), objecttype.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTypedObjectReference<P0, P1>(&self, context: P0, objectlocation: Location, objecttype: P1) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
-        P1: windows_core::IntoParam<IDebugHostType>,
+        P0: windows_core::Param<IDebugHostContext>,
+        P1: windows_core::Param<IDebugHostType>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateTypedObjectReference)(windows_core::Interface::as_raw(self), context.into_param().abi(), core::mem::transmute(objectlocation), objecttype.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateTypedObjectReference)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(objectlocation), objecttype.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSyntheticObject<P0>(&self, context: P0) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
+        P0: windows_core::Param<IDebugHostContext>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateSyntheticObject)(windows_core::Interface::as_raw(self), context.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateSyntheticObject)(windows_core::Interface::as_raw(self), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateDataModelObject<P0>(&self, datamodel: P0) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<IDataModelConcept>,
+        P0: windows_core::Param<IDataModelConcept>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateDataModelObject)(windows_core::Interface::as_raw(self), datamodel.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateDataModelObject)(windows_core::Interface::as_raw(self), datamodel.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const windows_core::VARIANT) -> windows_core::Result<IModelObject> {
         let mut result__ = std::mem::zeroed();
@@ -434,58 +434,58 @@ impl IDataModelManager2 {
     }
     pub unsafe fn CreateTypedIntrinsicObject<P0>(&self, intrinsicdata: *const windows_core::VARIANT, r#type: P0) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<IDebugHostType>,
+        P0: windows_core::Param<IDebugHostType>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateTypedIntrinsicObject)(windows_core::Interface::as_raw(self), core::mem::transmute(intrinsicdata), r#type.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateTypedIntrinsicObject)(windows_core::Interface::as_raw(self), core::mem::transmute(intrinsicdata), r#type.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetModelForTypeSignature<P0>(&self, typesignature: P0) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<IDebugHostTypeSignature>,
+        P0: windows_core::Param<IDebugHostTypeSignature>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetModelForTypeSignature)(windows_core::Interface::as_raw(self), typesignature.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetModelForTypeSignature)(windows_core::Interface::as_raw(self), typesignature.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetModelForType<P0>(&self, r#type: P0, datamodel: *mut Option<IModelObject>, typesignature: Option<*mut Option<IDebugHostTypeSignature>>, wildcardmatches: Option<*mut Option<IDebugHostSymbolEnumerator>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostType>,
+        P0: windows_core::Param<IDebugHostType>,
     {
-        (windows_core::Interface::vtable(self).base__.GetModelForType)(windows_core::Interface::as_raw(self), r#type.into_param().abi(), core::mem::transmute(datamodel), core::mem::transmute(typesignature.unwrap_or(std::ptr::null_mut())), core::mem::transmute(wildcardmatches.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).base__.GetModelForType)(windows_core::Interface::as_raw(self), r#type.param().abi(), core::mem::transmute(datamodel), core::mem::transmute(typesignature.unwrap_or(std::ptr::null_mut())), core::mem::transmute(wildcardmatches.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn RegisterModelForTypeSignature<P0, P1>(&self, typesignature: P0, datamodel: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostTypeSignature>,
-        P1: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IDebugHostTypeSignature>,
+        P1: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).base__.RegisterModelForTypeSignature)(windows_core::Interface::as_raw(self), typesignature.into_param().abi(), datamodel.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RegisterModelForTypeSignature)(windows_core::Interface::as_raw(self), typesignature.param().abi(), datamodel.param().abi()).ok()
     }
     pub unsafe fn UnregisterModelForTypeSignature<P0, P1>(&self, datamodel: P0, typesignature: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<IDebugHostTypeSignature>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<IDebugHostTypeSignature>,
     {
-        (windows_core::Interface::vtable(self).base__.UnregisterModelForTypeSignature)(windows_core::Interface::as_raw(self), datamodel.into_param().abi(), typesignature.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.UnregisterModelForTypeSignature)(windows_core::Interface::as_raw(self), datamodel.param().abi(), typesignature.param().abi()).ok()
     }
     pub unsafe fn RegisterExtensionForTypeSignature<P0, P1>(&self, typesignature: P0, datamodel: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostTypeSignature>,
-        P1: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IDebugHostTypeSignature>,
+        P1: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).base__.RegisterExtensionForTypeSignature)(windows_core::Interface::as_raw(self), typesignature.into_param().abi(), datamodel.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RegisterExtensionForTypeSignature)(windows_core::Interface::as_raw(self), typesignature.param().abi(), datamodel.param().abi()).ok()
     }
     pub unsafe fn UnregisterExtensionForTypeSignature<P0, P1>(&self, datamodel: P0, typesignature: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<IDebugHostTypeSignature>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<IDebugHostTypeSignature>,
     {
-        (windows_core::Interface::vtable(self).base__.UnregisterExtensionForTypeSignature)(windows_core::Interface::as_raw(self), datamodel.into_param().abi(), typesignature.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.UnregisterExtensionForTypeSignature)(windows_core::Interface::as_raw(self), datamodel.param().abi(), typesignature.param().abi()).ok()
     }
     pub unsafe fn CreateMetadataStore<P0>(&self, parentstore: P0) -> windows_core::Result<IKeyStore>
     where
-        P0: windows_core::IntoParam<IKeyStore>,
+        P0: windows_core::Param<IKeyStore>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateMetadataStore)(windows_core::Interface::as_raw(self), parentstore.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateMetadataStore)(windows_core::Interface::as_raw(self), parentstore.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRootNamespace(&self) -> windows_core::Result<IModelObject> {
         let mut result__ = std::mem::zeroed();
@@ -493,41 +493,41 @@ impl IDataModelManager2 {
     }
     pub unsafe fn RegisterNamedModel<P0, P1>(&self, modelname: P0, modeobject: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).base__.RegisterNamedModel)(windows_core::Interface::as_raw(self), modelname.into_param().abi(), modeobject.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RegisterNamedModel)(windows_core::Interface::as_raw(self), modelname.param().abi(), modeobject.param().abi()).ok()
     }
     pub unsafe fn UnregisterNamedModel<P0>(&self, modelname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.UnregisterNamedModel)(windows_core::Interface::as_raw(self), modelname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.UnregisterNamedModel)(windows_core::Interface::as_raw(self), modelname.param().abi()).ok()
     }
     pub unsafe fn AcquireNamedModel<P0>(&self, modelname: P0) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.AcquireNamedModel)(windows_core::Interface::as_raw(self), modelname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.AcquireNamedModel)(windows_core::Interface::as_raw(self), modelname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AcquireSubNamespace<P0, P1, P2, P3>(&self, modelname: P0, subnamespacemodelname: P1, accessname: P2, metadata: P3) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
-        P3: windows_core::IntoParam<IKeyStore>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<IKeyStore>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AcquireSubNamespace)(windows_core::Interface::as_raw(self), modelname.into_param().abi(), subnamespacemodelname.into_param().abi(), accessname.into_param().abi(), metadata.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).AcquireSubNamespace)(windows_core::Interface::as_raw(self), modelname.param().abi(), subnamespacemodelname.param().abi(), accessname.param().abi(), metadata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTypedIntrinsicObjectEx<P0, P1>(&self, context: P0, intrinsicdata: *const windows_core::VARIANT, r#type: P1) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
-        P1: windows_core::IntoParam<IDebugHostType>,
+        P0: windows_core::Param<IDebugHostContext>,
+        P1: windows_core::Param<IDebugHostType>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateTypedIntrinsicObjectEx)(windows_core::Interface::as_raw(self), context.into_param().abi(), core::mem::transmute(intrinsicdata), r#type.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateTypedIntrinsicObjectEx)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(intrinsicdata), r#type.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -541,31 +541,31 @@ windows_core::imp::interface_hierarchy!(IDataModelNameBinder, windows_core::IUnk
 impl IDataModelNameBinder {
     pub unsafe fn BindValue<P0, P1>(&self, contextobject: P0, name: P1, value: *mut Option<IModelObject>, metadata: Option<*mut Option<IKeyStore>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).BindValue)(windows_core::Interface::as_raw(self), contextobject.into_param().abi(), name.into_param().abi(), core::mem::transmute(value), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).BindValue)(windows_core::Interface::as_raw(self), contextobject.param().abi(), name.param().abi(), core::mem::transmute(value), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn BindReference<P0, P1>(&self, contextobject: P0, name: P1, reference: *mut Option<IModelObject>, metadata: Option<*mut Option<IKeyStore>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).BindReference)(windows_core::Interface::as_raw(self), contextobject.into_param().abi(), name.into_param().abi(), core::mem::transmute(reference), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).BindReference)(windows_core::Interface::as_raw(self), contextobject.param().abi(), name.param().abi(), core::mem::transmute(reference), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn EnumerateValues<P0>(&self, contextobject: P0) -> windows_core::Result<IKeyEnumerator>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumerateValues)(windows_core::Interface::as_raw(self), contextobject.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumerateValues)(windows_core::Interface::as_raw(self), contextobject.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumerateReferences<P0>(&self, contextobject: P0) -> windows_core::Result<IKeyEnumerator>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumerateReferences)(windows_core::Interface::as_raw(self), contextobject.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumerateReferences)(windows_core::Interface::as_raw(self), contextobject.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -585,22 +585,22 @@ impl IDataModelScript {
     }
     pub unsafe fn Rename<P0>(&self, scriptname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Rename)(windows_core::Interface::as_raw(self), scriptname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Rename)(windows_core::Interface::as_raw(self), scriptname.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Populate<P0>(&self, contentstream: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Com::IStream>,
+        P0: windows_core::Param<super::super::super::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).Populate)(windows_core::Interface::as_raw(self), contentstream.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Populate)(windows_core::Interface::as_raw(self), contentstream.param().abi()).ok()
     }
     pub unsafe fn Execute<P0>(&self, client: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDataModelScriptClient>,
+        P0: windows_core::Param<IDataModelScriptClient>,
     {
-        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), client.param().abi()).ok()
     }
     pub unsafe fn Unlink(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Unlink)(windows_core::Interface::as_raw(self)).ok()
@@ -611,9 +611,9 @@ impl IDataModelScript {
     }
     pub unsafe fn InvokeMain<P0>(&self, client: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDataModelScriptClient>,
+        P0: windows_core::Param<IDataModelScriptClient>,
     {
-        (windows_core::Interface::vtable(self).InvokeMain)(windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).InvokeMain)(windows_core::Interface::as_raw(self), client.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -635,9 +635,9 @@ windows_core::imp::interface_hierarchy!(IDataModelScriptClient, windows_core::IU
 impl IDataModelScriptClient {
     pub unsafe fn ReportError<P0>(&self, errclass: ErrorClass, hrfail: windows_core::HRESULT, message: P0, line: u32, position: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ReportError)(windows_core::Interface::as_raw(self), errclass, hrfail, message.into_param().abi(), line, position).ok()
+        (windows_core::Interface::vtable(self).ReportError)(windows_core::Interface::as_raw(self), errclass, hrfail, message.param().abi(), line, position).ok()
     }
 }
 #[repr(C)]
@@ -679,15 +679,15 @@ impl IDataModelScriptDebug {
     }
     pub unsafe fn StartDebugging<P0>(&self, debugclient: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDataModelScriptDebugClient>,
+        P0: windows_core::Param<IDataModelScriptDebugClient>,
     {
-        (windows_core::Interface::vtable(self).StartDebugging)(windows_core::Interface::as_raw(self), debugclient.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StartDebugging)(windows_core::Interface::as_raw(self), debugclient.param().abi()).ok()
     }
     pub unsafe fn StopDebugging<P0>(&self, debugclient: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDataModelScriptDebugClient>,
+        P0: windows_core::Param<IDataModelScriptDebugClient>,
     {
-        (windows_core::Interface::vtable(self).StopDebugging)(windows_core::Interface::as_raw(self), debugclient.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StopDebugging)(windows_core::Interface::as_raw(self), debugclient.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -738,22 +738,22 @@ impl IDataModelScriptDebug2 {
     }
     pub unsafe fn StartDebugging<P0>(&self, debugclient: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDataModelScriptDebugClient>,
+        P0: windows_core::Param<IDataModelScriptDebugClient>,
     {
-        (windows_core::Interface::vtable(self).base__.StartDebugging)(windows_core::Interface::as_raw(self), debugclient.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.StartDebugging)(windows_core::Interface::as_raw(self), debugclient.param().abi()).ok()
     }
     pub unsafe fn StopDebugging<P0>(&self, debugclient: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDataModelScriptDebugClient>,
+        P0: windows_core::Param<IDataModelScriptDebugClient>,
     {
-        (windows_core::Interface::vtable(self).base__.StopDebugging)(windows_core::Interface::as_raw(self), debugclient.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.StopDebugging)(windows_core::Interface::as_raw(self), debugclient.param().abi()).ok()
     }
     pub unsafe fn SetBreakpointAtFunction<P0>(&self, functionname: P0) -> windows_core::Result<IDataModelScriptDebugBreakpoint>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).SetBreakpointAtFunction)(windows_core::Interface::as_raw(self), functionname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).SetBreakpointAtFunction)(windows_core::Interface::as_raw(self), functionname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -815,10 +815,10 @@ windows_core::imp::interface_hierarchy!(IDataModelScriptDebugClient, windows_cor
 impl IDataModelScriptDebugClient {
     pub unsafe fn NotifyDebugEvent<P0, P1>(&self, peventinfo: *const ScriptDebugEventInformation, pscript: P0, peventdataobject: P1, resumeeventkind: *mut ScriptExecutionKind) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDataModelScript>,
-        P1: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IDataModelScript>,
+        P1: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).NotifyDebugEvent)(windows_core::Interface::as_raw(self), peventinfo, pscript.into_param().abi(), peventdataobject.into_param().abi(), resumeeventkind).ok()
+        (windows_core::Interface::vtable(self).NotifyDebugEvent)(windows_core::Interface::as_raw(self), peventinfo, pscript.param().abi(), peventdataobject.param().abi(), resumeeventkind).ok()
     }
 }
 #[repr(C)]
@@ -862,10 +862,10 @@ impl IDataModelScriptDebugStackFrame {
     }
     pub unsafe fn Evaluate<P0>(&self, pwszexpression: P0) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), pwszexpression.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), pwszexpression.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumerateLocals(&self) -> windows_core::Result<IDataModelScriptDebugVariableSetEnumerator> {
         let mut result__ = std::mem::zeroed();
@@ -908,9 +908,9 @@ windows_core::imp::interface_hierarchy!(IDataModelScriptHostContext, windows_cor
 impl IDataModelScriptHostContext {
     pub unsafe fn NotifyScriptChange<P0>(&self, script: P0, changekind: ScriptChangeKind) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDataModelScript>,
+        P0: windows_core::Param<IDataModelScript>,
     {
-        (windows_core::Interface::vtable(self).NotifyScriptChange)(windows_core::Interface::as_raw(self), script.into_param().abi(), changekind).ok()
+        (windows_core::Interface::vtable(self).NotifyScriptChange)(windows_core::Interface::as_raw(self), script.param().abi(), changekind).ok()
     }
     pub unsafe fn GetNamespaceObject(&self) -> windows_core::Result<IModelObject> {
         let mut result__ = std::mem::zeroed();
@@ -932,29 +932,29 @@ impl IDataModelScriptManager {
     }
     pub unsafe fn RegisterScriptProvider<P0>(&self, provider: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDataModelScriptProvider>,
+        P0: windows_core::Param<IDataModelScriptProvider>,
     {
-        (windows_core::Interface::vtable(self).RegisterScriptProvider)(windows_core::Interface::as_raw(self), provider.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterScriptProvider)(windows_core::Interface::as_raw(self), provider.param().abi()).ok()
     }
     pub unsafe fn UnregisterScriptProvider<P0>(&self, provider: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDataModelScriptProvider>,
+        P0: windows_core::Param<IDataModelScriptProvider>,
     {
-        (windows_core::Interface::vtable(self).UnregisterScriptProvider)(windows_core::Interface::as_raw(self), provider.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnregisterScriptProvider)(windows_core::Interface::as_raw(self), provider.param().abi()).ok()
     }
     pub unsafe fn FindProviderForScriptType<P0>(&self, scripttype: P0) -> windows_core::Result<IDataModelScriptProvider>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindProviderForScriptType)(windows_core::Interface::as_raw(self), scripttype.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindProviderForScriptType)(windows_core::Interface::as_raw(self), scripttype.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindProviderForScriptExtension<P0>(&self, scriptextension: P0) -> windows_core::Result<IDataModelScriptProvider>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindProviderForScriptExtension)(windows_core::Interface::as_raw(self), scriptextension.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindProviderForScriptExtension)(windows_core::Interface::as_raw(self), scriptextension.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumerateScriptProviders(&self) -> windows_core::Result<IDataModelScriptProviderEnumerator> {
         let mut result__ = std::mem::zeroed();
@@ -1095,15 +1095,15 @@ impl IDebugAdvanced2 {
     }
     pub unsafe fn GetSourceFileInformation<P0>(&self, which: u32, sourcefile: P0, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceFileInformation)(windows_core::Interface::as_raw(self), which, sourcefile.into_param().abi(), arg64, arg32, core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(infosize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceFileInformation)(windows_core::Interface::as_raw(self), which, sourcefile.param().abi(), arg64, arg32, core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(infosize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn FindSourceFileAndToken<P0>(&self, startelement: u32, modaddr: u64, file: P0, flags: u32, filetoken: Option<*const core::ffi::c_void>, filetokensize: u32, foundelement: Option<*mut u32>, buffer: Option<&mut [u8]>, foundsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).FindSourceFileAndToken)(windows_core::Interface::as_raw(self), startelement, modaddr, file.into_param().abi(), flags, core::mem::transmute(filetoken.unwrap_or(std::ptr::null())), filetokensize, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).FindSourceFileAndToken)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, core::mem::transmute(filetoken.unwrap_or(std::ptr::null())), filetokensize, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>, stringbuffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSymbolInformation)(windows_core::Interface::as_raw(self), which, arg64, arg32, core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(infosize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(stringbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), stringbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(stringsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -1137,15 +1137,15 @@ impl IDebugAdvanced3 {
     }
     pub unsafe fn GetSourceFileInformation<P0>(&self, which: u32, sourcefile: P0, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceFileInformation)(windows_core::Interface::as_raw(self), which, sourcefile.into_param().abi(), arg64, arg32, core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(infosize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceFileInformation)(windows_core::Interface::as_raw(self), which, sourcefile.param().abi(), arg64, arg32, core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(infosize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn FindSourceFileAndToken<P0>(&self, startelement: u32, modaddr: u64, file: P0, flags: u32, filetoken: Option<*const core::ffi::c_void>, filetokensize: u32, foundelement: Option<*mut u32>, buffer: Option<&mut [u8]>, foundsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).FindSourceFileAndToken)(windows_core::Interface::as_raw(self), startelement, modaddr, file.into_param().abi(), flags, core::mem::transmute(filetoken.unwrap_or(std::ptr::null())), filetokensize, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).FindSourceFileAndToken)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, core::mem::transmute(filetoken.unwrap_or(std::ptr::null())), filetokensize, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>, stringbuffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSymbolInformation)(windows_core::Interface::as_raw(self), which, arg64, arg32, core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(infosize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(stringbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), stringbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(stringsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -1155,15 +1155,15 @@ impl IDebugAdvanced3 {
     }
     pub unsafe fn GetSourceFileInformationWide<P0>(&self, which: u32, sourcefile: P0, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceFileInformationWide)(windows_core::Interface::as_raw(self), which, sourcefile.into_param().abi(), arg64, arg32, core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(infosize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceFileInformationWide)(windows_core::Interface::as_raw(self), which, sourcefile.param().abi(), arg64, arg32, core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(infosize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn FindSourceFileAndTokenWide<P0>(&self, startelement: u32, modaddr: u64, file: P0, flags: u32, filetoken: Option<*const core::ffi::c_void>, filetokensize: u32, foundelement: Option<*mut u32>, buffer: Option<&mut [u16]>, foundsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).FindSourceFileAndTokenWide)(windows_core::Interface::as_raw(self), startelement, modaddr, file.into_param().abi(), flags, core::mem::transmute(filetoken.unwrap_or(std::ptr::null())), filetokensize, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).FindSourceFileAndTokenWide)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, core::mem::transmute(filetoken.unwrap_or(std::ptr::null())), filetokensize, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolInformationWide(&self, which: u32, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>, stringbuffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSymbolInformationWide)(windows_core::Interface::as_raw(self), which, arg64, arg32, core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(infosize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(stringbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), stringbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(stringsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -1197,15 +1197,15 @@ impl IDebugAdvanced4 {
     }
     pub unsafe fn GetSourceFileInformation<P0>(&self, which: u32, sourcefile: P0, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceFileInformation)(windows_core::Interface::as_raw(self), which, sourcefile.into_param().abi(), arg64, arg32, core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(infosize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceFileInformation)(windows_core::Interface::as_raw(self), which, sourcefile.param().abi(), arg64, arg32, core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(infosize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn FindSourceFileAndToken<P0>(&self, startelement: u32, modaddr: u64, file: P0, flags: u32, filetoken: Option<*const core::ffi::c_void>, filetokensize: u32, foundelement: Option<*mut u32>, buffer: Option<&mut [u8]>, foundsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).FindSourceFileAndToken)(windows_core::Interface::as_raw(self), startelement, modaddr, file.into_param().abi(), flags, core::mem::transmute(filetoken.unwrap_or(std::ptr::null())), filetokensize, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).FindSourceFileAndToken)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, core::mem::transmute(filetoken.unwrap_or(std::ptr::null())), filetokensize, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>, stringbuffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSymbolInformation)(windows_core::Interface::as_raw(self), which, arg64, arg32, core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(infosize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(stringbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), stringbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(stringsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -1215,15 +1215,15 @@ impl IDebugAdvanced4 {
     }
     pub unsafe fn GetSourceFileInformationWide<P0>(&self, which: u32, sourcefile: P0, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceFileInformationWide)(windows_core::Interface::as_raw(self), which, sourcefile.into_param().abi(), arg64, arg32, core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(infosize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceFileInformationWide)(windows_core::Interface::as_raw(self), which, sourcefile.param().abi(), arg64, arg32, core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(infosize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn FindSourceFileAndTokenWide<P0>(&self, startelement: u32, modaddr: u64, file: P0, flags: u32, filetoken: Option<*const core::ffi::c_void>, filetokensize: u32, foundelement: Option<*mut u32>, buffer: Option<&mut [u16]>, foundsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).FindSourceFileAndTokenWide)(windows_core::Interface::as_raw(self), startelement, modaddr, file.into_param().abi(), flags, core::mem::transmute(filetoken.unwrap_or(std::ptr::null())), filetokensize, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).FindSourceFileAndTokenWide)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, core::mem::transmute(filetoken.unwrap_or(std::ptr::null())), filetokensize, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolInformationWide(&self, which: u32, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>, stringbuffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSymbolInformationWide)(windows_core::Interface::as_raw(self), which, arg64, arg32, core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(infosize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(stringbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), stringbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(stringsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -1323,18 +1323,18 @@ impl IDebugBreakpoint {
     }
     pub unsafe fn SetCommand<P0>(&self, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetCommand)(windows_core::Interface::as_raw(self), command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCommand)(windows_core::Interface::as_raw(self), command.param().abi()).ok()
     }
     pub unsafe fn GetOffsetExpression(&self, buffer: Option<&mut [u8]>, expressionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOffsetExpression)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(expressionsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetOffsetExpression<P0>(&self, expression: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOffsetExpression)(windows_core::Interface::as_raw(self), expression.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOffsetExpression)(windows_core::Interface::as_raw(self), expression.param().abi()).ok()
     }
     pub unsafe fn GetParameters(&self, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetParameters)(windows_core::Interface::as_raw(self), params).ok()
@@ -1428,18 +1428,18 @@ impl IDebugBreakpoint2 {
     }
     pub unsafe fn SetCommand<P0>(&self, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetCommand)(windows_core::Interface::as_raw(self), command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCommand)(windows_core::Interface::as_raw(self), command.param().abi()).ok()
     }
     pub unsafe fn GetOffsetExpression(&self, buffer: Option<&mut [u8]>, expressionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOffsetExpression)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(expressionsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetOffsetExpression<P0>(&self, expression: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOffsetExpression)(windows_core::Interface::as_raw(self), expression.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOffsetExpression)(windows_core::Interface::as_raw(self), expression.param().abi()).ok()
     }
     pub unsafe fn GetParameters(&self, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetParameters)(windows_core::Interface::as_raw(self), params).ok()
@@ -1449,18 +1449,18 @@ impl IDebugBreakpoint2 {
     }
     pub unsafe fn SetCommandWide<P0>(&self, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetCommandWide)(windows_core::Interface::as_raw(self), command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCommandWide)(windows_core::Interface::as_raw(self), command.param().abi()).ok()
     }
     pub unsafe fn GetOffsetExpressionWide(&self, buffer: Option<&mut [u16]>, expressionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOffsetExpressionWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(expressionsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetOffsetExpressionWide<P0>(&self, expression: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOffsetExpressionWide)(windows_core::Interface::as_raw(self), expression.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOffsetExpressionWide)(windows_core::Interface::as_raw(self), expression.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1555,18 +1555,18 @@ impl IDebugBreakpoint3 {
     }
     pub unsafe fn SetCommand<P0>(&self, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetCommand)(windows_core::Interface::as_raw(self), command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCommand)(windows_core::Interface::as_raw(self), command.param().abi()).ok()
     }
     pub unsafe fn GetOffsetExpression(&self, buffer: Option<&mut [u8]>, expressionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOffsetExpression)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(expressionsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetOffsetExpression<P0>(&self, expression: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOffsetExpression)(windows_core::Interface::as_raw(self), expression.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOffsetExpression)(windows_core::Interface::as_raw(self), expression.param().abi()).ok()
     }
     pub unsafe fn GetParameters(&self, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetParameters)(windows_core::Interface::as_raw(self), params).ok()
@@ -1576,18 +1576,18 @@ impl IDebugBreakpoint3 {
     }
     pub unsafe fn SetCommandWide<P0>(&self, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetCommandWide)(windows_core::Interface::as_raw(self), command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCommandWide)(windows_core::Interface::as_raw(self), command.param().abi()).ok()
     }
     pub unsafe fn GetOffsetExpressionWide(&self, buffer: Option<&mut [u16]>, expressionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOffsetExpressionWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(expressionsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetOffsetExpressionWide<P0>(&self, expression: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOffsetExpressionWide)(windows_core::Interface::as_raw(self), expression.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOffsetExpressionWide)(windows_core::Interface::as_raw(self), expression.param().abi()).ok()
     }
     pub unsafe fn GetGuid(&self) -> windows_core::Result<windows_core::GUID> {
         let mut result__ = std::mem::zeroed();
@@ -1629,31 +1629,31 @@ windows_core::imp::interface_hierarchy!(IDebugClient, windows_core::IUnknown);
 impl IDebugClient {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()).ok()
     }
     pub unsafe fn GetKernelConnectionOptions(&self, buffer: Option<&mut [u8]>, optionssize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(optionssize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetKernelConnectionOptions<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn StartProcessServer<P0>(&self, flags: u32, options: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).StartProcessServer)(windows_core::Interface::as_raw(self), flags, options.into_param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).StartProcessServer)(windows_core::Interface::as_raw(self), flags, options.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn ConnectProcessServer<P0>(&self, remoteoptions: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ConnectProcessServer)(windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ConnectProcessServer)(windows_core::Interface::as_raw(self), remoteoptions.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn DisconnectProcessServer(&self, server: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DisconnectProcessServer)(windows_core::Interface::as_raw(self), server).ok()
@@ -1663,10 +1663,10 @@ impl IDebugClient {
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableName<P0>(&self, server: u64, exename: P0, flags: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(windows_core::Interface::as_raw(self), server, exename.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: Option<&mut [u8]>, actualexenamesize: Option<*mut u32>, description: Option<&mut [u8]>, actualdescriptionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRunningProcessDescription)(
@@ -1688,15 +1688,15 @@ impl IDebugClient {
     }
     pub unsafe fn CreateProcessA<P0>(&self, server: u64, commandline: P0, createflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags).ok()
     }
     pub unsafe fn CreateProcessAndAttach<P0>(&self, server: u64, commandline: P0, createflags: u32, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttach)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttach)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn GetProcessOptions(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -1713,30 +1713,30 @@ impl IDebugClient {
     }
     pub unsafe fn OpenDumpFile<P0>(&self, dumpfile: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenDumpFile)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenDumpFile)(windows_core::Interface::as_raw(self), dumpfile.param().abi()).ok()
     }
     pub unsafe fn WriteDumpFile<P0>(&self, dumpfile: P0, qualifier: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFile)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi(), qualifier).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFile)(windows_core::Interface::as_raw(self), dumpfile.param().abi(), qualifier).ok()
     }
     pub unsafe fn ConnectSession(&self, flags: u32, historylimit: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ConnectSession)(windows_core::Interface::as_raw(self), flags, historylimit).ok()
     }
     pub unsafe fn StartServer<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).StartServer)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StartServer)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn OutputServers<P0>(&self, outputcontrol: u32, machine: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputServers)(windows_core::Interface::as_raw(self), outputcontrol, machine.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OutputServers)(windows_core::Interface::as_raw(self), outputcontrol, machine.param().abi(), flags).ok()
     }
     pub unsafe fn TerminateProcesses(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).TerminateProcesses)(windows_core::Interface::as_raw(self)).ok()
@@ -1756,9 +1756,9 @@ impl IDebugClient {
     }
     pub unsafe fn ExitDispatch<P0>(&self, client: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
-        (windows_core::Interface::vtable(self).ExitDispatch)(windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ExitDispatch)(windows_core::Interface::as_raw(self), client.param().abi()).ok()
     }
     pub unsafe fn CreateClient(&self) -> windows_core::Result<IDebugClient> {
         let mut result__ = std::mem::zeroed();
@@ -1770,9 +1770,9 @@ impl IDebugClient {
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugInputCallbacks>,
+        P0: windows_core::Param<IDebugInputCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetInputCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetInputCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks> {
         let mut result__ = std::mem::zeroed();
@@ -1780,9 +1780,9 @@ impl IDebugClient {
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugOutputCallbacks>,
+        P0: windows_core::Param<IDebugOutputCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetOutputCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputMask(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -1793,16 +1793,16 @@ impl IDebugClient {
     }
     pub unsafe fn GetOtherOutputMask<P0>(&self, client: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOtherOutputMask)(windows_core::Interface::as_raw(self), client.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOtherOutputMask)(windows_core::Interface::as_raw(self), client.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOtherOutputMask<P0>(&self, client: P0, mask: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
-        (windows_core::Interface::vtable(self).SetOtherOutputMask)(windows_core::Interface::as_raw(self), client.into_param().abi(), mask).ok()
+        (windows_core::Interface::vtable(self).SetOtherOutputMask)(windows_core::Interface::as_raw(self), client.param().abi(), mask).ok()
     }
     pub unsafe fn GetOutputWidth(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -1816,18 +1816,18 @@ impl IDebugClient {
     }
     pub unsafe fn SetOutputLinePrefix<P0>(&self, prefix: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi()).ok()
     }
     pub unsafe fn GetIdentity(&self, buffer: Option<&mut [u8]>, identitysize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(identitysize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputIdentity<P0>(&self, outputcontrol: u32, flags: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputIdentity)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputIdentity)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks> {
         let mut result__ = std::mem::zeroed();
@@ -1835,9 +1835,9 @@ impl IDebugClient {
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugEventCallbacks>,
+        P0: windows_core::Param<IDebugEventCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetEventCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn FlushCallbacks(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FlushCallbacks)(windows_core::Interface::as_raw(self)).ok()
@@ -1897,31 +1897,31 @@ windows_core::imp::interface_hierarchy!(IDebugClient2, windows_core::IUnknown);
 impl IDebugClient2 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()).ok()
     }
     pub unsafe fn GetKernelConnectionOptions(&self, buffer: Option<&mut [u8]>, optionssize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(optionssize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetKernelConnectionOptions<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn StartProcessServer<P0>(&self, flags: u32, options: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).StartProcessServer)(windows_core::Interface::as_raw(self), flags, options.into_param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).StartProcessServer)(windows_core::Interface::as_raw(self), flags, options.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn ConnectProcessServer<P0>(&self, remoteoptions: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ConnectProcessServer)(windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ConnectProcessServer)(windows_core::Interface::as_raw(self), remoteoptions.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn DisconnectProcessServer(&self, server: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DisconnectProcessServer)(windows_core::Interface::as_raw(self), server).ok()
@@ -1931,10 +1931,10 @@ impl IDebugClient2 {
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableName<P0>(&self, server: u64, exename: P0, flags: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(windows_core::Interface::as_raw(self), server, exename.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: Option<&mut [u8]>, actualexenamesize: Option<*mut u32>, description: Option<&mut [u8]>, actualdescriptionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRunningProcessDescription)(
@@ -1956,15 +1956,15 @@ impl IDebugClient2 {
     }
     pub unsafe fn CreateProcessA<P0>(&self, server: u64, commandline: P0, createflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags).ok()
     }
     pub unsafe fn CreateProcessAndAttach<P0>(&self, server: u64, commandline: P0, createflags: u32, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttach)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttach)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn GetProcessOptions(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -1981,30 +1981,30 @@ impl IDebugClient2 {
     }
     pub unsafe fn OpenDumpFile<P0>(&self, dumpfile: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenDumpFile)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenDumpFile)(windows_core::Interface::as_raw(self), dumpfile.param().abi()).ok()
     }
     pub unsafe fn WriteDumpFile<P0>(&self, dumpfile: P0, qualifier: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFile)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi(), qualifier).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFile)(windows_core::Interface::as_raw(self), dumpfile.param().abi(), qualifier).ok()
     }
     pub unsafe fn ConnectSession(&self, flags: u32, historylimit: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ConnectSession)(windows_core::Interface::as_raw(self), flags, historylimit).ok()
     }
     pub unsafe fn StartServer<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).StartServer)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StartServer)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn OutputServers<P0>(&self, outputcontrol: u32, machine: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputServers)(windows_core::Interface::as_raw(self), outputcontrol, machine.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OutputServers)(windows_core::Interface::as_raw(self), outputcontrol, machine.param().abi(), flags).ok()
     }
     pub unsafe fn TerminateProcesses(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).TerminateProcesses)(windows_core::Interface::as_raw(self)).ok()
@@ -2024,9 +2024,9 @@ impl IDebugClient2 {
     }
     pub unsafe fn ExitDispatch<P0>(&self, client: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
-        (windows_core::Interface::vtable(self).ExitDispatch)(windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ExitDispatch)(windows_core::Interface::as_raw(self), client.param().abi()).ok()
     }
     pub unsafe fn CreateClient(&self) -> windows_core::Result<IDebugClient> {
         let mut result__ = std::mem::zeroed();
@@ -2038,9 +2038,9 @@ impl IDebugClient2 {
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugInputCallbacks>,
+        P0: windows_core::Param<IDebugInputCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetInputCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetInputCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks> {
         let mut result__ = std::mem::zeroed();
@@ -2048,9 +2048,9 @@ impl IDebugClient2 {
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugOutputCallbacks>,
+        P0: windows_core::Param<IDebugOutputCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetOutputCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputMask(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -2061,16 +2061,16 @@ impl IDebugClient2 {
     }
     pub unsafe fn GetOtherOutputMask<P0>(&self, client: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOtherOutputMask)(windows_core::Interface::as_raw(self), client.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOtherOutputMask)(windows_core::Interface::as_raw(self), client.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOtherOutputMask<P0>(&self, client: P0, mask: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
-        (windows_core::Interface::vtable(self).SetOtherOutputMask)(windows_core::Interface::as_raw(self), client.into_param().abi(), mask).ok()
+        (windows_core::Interface::vtable(self).SetOtherOutputMask)(windows_core::Interface::as_raw(self), client.param().abi(), mask).ok()
     }
     pub unsafe fn GetOutputWidth(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -2084,18 +2084,18 @@ impl IDebugClient2 {
     }
     pub unsafe fn SetOutputLinePrefix<P0>(&self, prefix: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi()).ok()
     }
     pub unsafe fn GetIdentity(&self, buffer: Option<&mut [u8]>, identitysize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(identitysize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputIdentity<P0>(&self, outputcontrol: u32, flags: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputIdentity)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputIdentity)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks> {
         let mut result__ = std::mem::zeroed();
@@ -2103,25 +2103,25 @@ impl IDebugClient2 {
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugEventCallbacks>,
+        P0: windows_core::Param<IDebugEventCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetEventCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn FlushCallbacks(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FlushCallbacks)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn WriteDumpFile2<P0, P1>(&self, dumpfile: P0, qualifier: u32, formatflags: u32, comment: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFile2)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi(), qualifier, formatflags, comment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFile2)(windows_core::Interface::as_raw(self), dumpfile.param().abi(), qualifier, formatflags, comment.param().abi()).ok()
     }
     pub unsafe fn AddDumpInformationFile<P0>(&self, infofile: P0, r#type: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddDumpInformationFile)(windows_core::Interface::as_raw(self), infofile.into_param().abi(), r#type).ok()
+        (windows_core::Interface::vtable(self).AddDumpInformationFile)(windows_core::Interface::as_raw(self), infofile.param().abi(), r#type).ok()
     }
     pub unsafe fn EndProcessServer(&self, server: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndProcessServer)(windows_core::Interface::as_raw(self), server).ok()
@@ -2204,31 +2204,31 @@ windows_core::imp::interface_hierarchy!(IDebugClient3, windows_core::IUnknown);
 impl IDebugClient3 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()).ok()
     }
     pub unsafe fn GetKernelConnectionOptions(&self, buffer: Option<&mut [u8]>, optionssize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(optionssize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetKernelConnectionOptions<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn StartProcessServer<P0>(&self, flags: u32, options: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).StartProcessServer)(windows_core::Interface::as_raw(self), flags, options.into_param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).StartProcessServer)(windows_core::Interface::as_raw(self), flags, options.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn ConnectProcessServer<P0>(&self, remoteoptions: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ConnectProcessServer)(windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ConnectProcessServer)(windows_core::Interface::as_raw(self), remoteoptions.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn DisconnectProcessServer(&self, server: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DisconnectProcessServer)(windows_core::Interface::as_raw(self), server).ok()
@@ -2238,10 +2238,10 @@ impl IDebugClient3 {
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableName<P0>(&self, server: u64, exename: P0, flags: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(windows_core::Interface::as_raw(self), server, exename.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: Option<&mut [u8]>, actualexenamesize: Option<*mut u32>, description: Option<&mut [u8]>, actualdescriptionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRunningProcessDescription)(
@@ -2263,15 +2263,15 @@ impl IDebugClient3 {
     }
     pub unsafe fn CreateProcessA<P0>(&self, server: u64, commandline: P0, createflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags).ok()
     }
     pub unsafe fn CreateProcessAndAttach<P0>(&self, server: u64, commandline: P0, createflags: u32, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttach)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttach)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn GetProcessOptions(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -2288,30 +2288,30 @@ impl IDebugClient3 {
     }
     pub unsafe fn OpenDumpFile<P0>(&self, dumpfile: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenDumpFile)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenDumpFile)(windows_core::Interface::as_raw(self), dumpfile.param().abi()).ok()
     }
     pub unsafe fn WriteDumpFile<P0>(&self, dumpfile: P0, qualifier: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFile)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi(), qualifier).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFile)(windows_core::Interface::as_raw(self), dumpfile.param().abi(), qualifier).ok()
     }
     pub unsafe fn ConnectSession(&self, flags: u32, historylimit: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ConnectSession)(windows_core::Interface::as_raw(self), flags, historylimit).ok()
     }
     pub unsafe fn StartServer<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).StartServer)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StartServer)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn OutputServers<P0>(&self, outputcontrol: u32, machine: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputServers)(windows_core::Interface::as_raw(self), outputcontrol, machine.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OutputServers)(windows_core::Interface::as_raw(self), outputcontrol, machine.param().abi(), flags).ok()
     }
     pub unsafe fn TerminateProcesses(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).TerminateProcesses)(windows_core::Interface::as_raw(self)).ok()
@@ -2331,9 +2331,9 @@ impl IDebugClient3 {
     }
     pub unsafe fn ExitDispatch<P0>(&self, client: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
-        (windows_core::Interface::vtable(self).ExitDispatch)(windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ExitDispatch)(windows_core::Interface::as_raw(self), client.param().abi()).ok()
     }
     pub unsafe fn CreateClient(&self) -> windows_core::Result<IDebugClient> {
         let mut result__ = std::mem::zeroed();
@@ -2345,9 +2345,9 @@ impl IDebugClient3 {
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugInputCallbacks>,
+        P0: windows_core::Param<IDebugInputCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetInputCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetInputCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks> {
         let mut result__ = std::mem::zeroed();
@@ -2355,9 +2355,9 @@ impl IDebugClient3 {
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugOutputCallbacks>,
+        P0: windows_core::Param<IDebugOutputCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetOutputCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputMask(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -2368,16 +2368,16 @@ impl IDebugClient3 {
     }
     pub unsafe fn GetOtherOutputMask<P0>(&self, client: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOtherOutputMask)(windows_core::Interface::as_raw(self), client.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOtherOutputMask)(windows_core::Interface::as_raw(self), client.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOtherOutputMask<P0>(&self, client: P0, mask: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
-        (windows_core::Interface::vtable(self).SetOtherOutputMask)(windows_core::Interface::as_raw(self), client.into_param().abi(), mask).ok()
+        (windows_core::Interface::vtable(self).SetOtherOutputMask)(windows_core::Interface::as_raw(self), client.param().abi(), mask).ok()
     }
     pub unsafe fn GetOutputWidth(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -2391,18 +2391,18 @@ impl IDebugClient3 {
     }
     pub unsafe fn SetOutputLinePrefix<P0>(&self, prefix: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi()).ok()
     }
     pub unsafe fn GetIdentity(&self, buffer: Option<&mut [u8]>, identitysize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(identitysize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputIdentity<P0>(&self, outputcontrol: u32, flags: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputIdentity)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputIdentity)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks> {
         let mut result__ = std::mem::zeroed();
@@ -2410,25 +2410,25 @@ impl IDebugClient3 {
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugEventCallbacks>,
+        P0: windows_core::Param<IDebugEventCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetEventCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn FlushCallbacks(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FlushCallbacks)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn WriteDumpFile2<P0, P1>(&self, dumpfile: P0, qualifier: u32, formatflags: u32, comment: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFile2)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi(), qualifier, formatflags, comment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFile2)(windows_core::Interface::as_raw(self), dumpfile.param().abi(), qualifier, formatflags, comment.param().abi()).ok()
     }
     pub unsafe fn AddDumpInformationFile<P0>(&self, infofile: P0, r#type: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddDumpInformationFile)(windows_core::Interface::as_raw(self), infofile.into_param().abi(), r#type).ok()
+        (windows_core::Interface::vtable(self).AddDumpInformationFile)(windows_core::Interface::as_raw(self), infofile.param().abi(), r#type).ok()
     }
     pub unsafe fn EndProcessServer(&self, server: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndProcessServer)(windows_core::Interface::as_raw(self), server).ok()
@@ -2450,10 +2450,10 @@ impl IDebugClient3 {
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableNameWide<P0>(&self, server: u64, exename: P0, flags: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableNameWide)(windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableNameWide)(windows_core::Interface::as_raw(self), server, exename.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRunningProcessDescriptionWide(&self, server: u64, systemid: u32, flags: u32, exename: Option<&mut [u16]>, actualexenamesize: Option<*mut u32>, description: Option<&mut [u16]>, actualdescriptionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRunningProcessDescriptionWide)(
@@ -2472,15 +2472,15 @@ impl IDebugClient3 {
     }
     pub unsafe fn CreateProcessWide<P0>(&self, server: u64, commandline: P0, createflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessWide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessWide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags).ok()
     }
     pub unsafe fn CreateProcessAndAttachWide<P0>(&self, server: u64, commandline: P0, createflags: u32, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttachWide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttachWide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags, processid, attachflags).ok()
     }
 }
 #[repr(C)]
@@ -2549,31 +2549,31 @@ windows_core::imp::interface_hierarchy!(IDebugClient4, windows_core::IUnknown);
 impl IDebugClient4 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()).ok()
     }
     pub unsafe fn GetKernelConnectionOptions(&self, buffer: Option<&mut [u8]>, optionssize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(optionssize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetKernelConnectionOptions<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn StartProcessServer<P0>(&self, flags: u32, options: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).StartProcessServer)(windows_core::Interface::as_raw(self), flags, options.into_param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).StartProcessServer)(windows_core::Interface::as_raw(self), flags, options.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn ConnectProcessServer<P0>(&self, remoteoptions: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ConnectProcessServer)(windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ConnectProcessServer)(windows_core::Interface::as_raw(self), remoteoptions.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn DisconnectProcessServer(&self, server: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DisconnectProcessServer)(windows_core::Interface::as_raw(self), server).ok()
@@ -2583,10 +2583,10 @@ impl IDebugClient4 {
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableName<P0>(&self, server: u64, exename: P0, flags: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(windows_core::Interface::as_raw(self), server, exename.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: Option<&mut [u8]>, actualexenamesize: Option<*mut u32>, description: Option<&mut [u8]>, actualdescriptionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRunningProcessDescription)(
@@ -2608,15 +2608,15 @@ impl IDebugClient4 {
     }
     pub unsafe fn CreateProcessA<P0>(&self, server: u64, commandline: P0, createflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags).ok()
     }
     pub unsafe fn CreateProcessAndAttach<P0>(&self, server: u64, commandline: P0, createflags: u32, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttach)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttach)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn GetProcessOptions(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -2633,30 +2633,30 @@ impl IDebugClient4 {
     }
     pub unsafe fn OpenDumpFile<P0>(&self, dumpfile: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenDumpFile)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenDumpFile)(windows_core::Interface::as_raw(self), dumpfile.param().abi()).ok()
     }
     pub unsafe fn WriteDumpFile<P0>(&self, dumpfile: P0, qualifier: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFile)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi(), qualifier).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFile)(windows_core::Interface::as_raw(self), dumpfile.param().abi(), qualifier).ok()
     }
     pub unsafe fn ConnectSession(&self, flags: u32, historylimit: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ConnectSession)(windows_core::Interface::as_raw(self), flags, historylimit).ok()
     }
     pub unsafe fn StartServer<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).StartServer)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StartServer)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn OutputServers<P0>(&self, outputcontrol: u32, machine: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputServers)(windows_core::Interface::as_raw(self), outputcontrol, machine.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OutputServers)(windows_core::Interface::as_raw(self), outputcontrol, machine.param().abi(), flags).ok()
     }
     pub unsafe fn TerminateProcesses(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).TerminateProcesses)(windows_core::Interface::as_raw(self)).ok()
@@ -2676,9 +2676,9 @@ impl IDebugClient4 {
     }
     pub unsafe fn ExitDispatch<P0>(&self, client: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
-        (windows_core::Interface::vtable(self).ExitDispatch)(windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ExitDispatch)(windows_core::Interface::as_raw(self), client.param().abi()).ok()
     }
     pub unsafe fn CreateClient(&self) -> windows_core::Result<IDebugClient> {
         let mut result__ = std::mem::zeroed();
@@ -2690,9 +2690,9 @@ impl IDebugClient4 {
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugInputCallbacks>,
+        P0: windows_core::Param<IDebugInputCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetInputCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetInputCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks> {
         let mut result__ = std::mem::zeroed();
@@ -2700,9 +2700,9 @@ impl IDebugClient4 {
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugOutputCallbacks>,
+        P0: windows_core::Param<IDebugOutputCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetOutputCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputMask(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -2713,16 +2713,16 @@ impl IDebugClient4 {
     }
     pub unsafe fn GetOtherOutputMask<P0>(&self, client: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOtherOutputMask)(windows_core::Interface::as_raw(self), client.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOtherOutputMask)(windows_core::Interface::as_raw(self), client.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOtherOutputMask<P0>(&self, client: P0, mask: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
-        (windows_core::Interface::vtable(self).SetOtherOutputMask)(windows_core::Interface::as_raw(self), client.into_param().abi(), mask).ok()
+        (windows_core::Interface::vtable(self).SetOtherOutputMask)(windows_core::Interface::as_raw(self), client.param().abi(), mask).ok()
     }
     pub unsafe fn GetOutputWidth(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -2736,18 +2736,18 @@ impl IDebugClient4 {
     }
     pub unsafe fn SetOutputLinePrefix<P0>(&self, prefix: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi()).ok()
     }
     pub unsafe fn GetIdentity(&self, buffer: Option<&mut [u8]>, identitysize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(identitysize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputIdentity<P0>(&self, outputcontrol: u32, flags: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputIdentity)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputIdentity)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks> {
         let mut result__ = std::mem::zeroed();
@@ -2755,25 +2755,25 @@ impl IDebugClient4 {
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugEventCallbacks>,
+        P0: windows_core::Param<IDebugEventCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetEventCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn FlushCallbacks(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FlushCallbacks)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn WriteDumpFile2<P0, P1>(&self, dumpfile: P0, qualifier: u32, formatflags: u32, comment: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFile2)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi(), qualifier, formatflags, comment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFile2)(windows_core::Interface::as_raw(self), dumpfile.param().abi(), qualifier, formatflags, comment.param().abi()).ok()
     }
     pub unsafe fn AddDumpInformationFile<P0>(&self, infofile: P0, r#type: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddDumpInformationFile)(windows_core::Interface::as_raw(self), infofile.into_param().abi(), r#type).ok()
+        (windows_core::Interface::vtable(self).AddDumpInformationFile)(windows_core::Interface::as_raw(self), infofile.param().abi(), r#type).ok()
     }
     pub unsafe fn EndProcessServer(&self, server: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndProcessServer)(windows_core::Interface::as_raw(self), server).ok()
@@ -2795,10 +2795,10 @@ impl IDebugClient4 {
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableNameWide<P0>(&self, server: u64, exename: P0, flags: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableNameWide)(windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableNameWide)(windows_core::Interface::as_raw(self), server, exename.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRunningProcessDescriptionWide(&self, server: u64, systemid: u32, flags: u32, exename: Option<&mut [u16]>, actualexenamesize: Option<*mut u32>, description: Option<&mut [u16]>, actualdescriptionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRunningProcessDescriptionWide)(
@@ -2817,34 +2817,34 @@ impl IDebugClient4 {
     }
     pub unsafe fn CreateProcessWide<P0>(&self, server: u64, commandline: P0, createflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessWide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessWide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags).ok()
     }
     pub unsafe fn CreateProcessAndAttachWide<P0>(&self, server: u64, commandline: P0, createflags: u32, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttachWide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttachWide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn OpenDumpFileWide<P0>(&self, filename: P0, filehandle: u64) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenDumpFileWide)(windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle).ok()
+        (windows_core::Interface::vtable(self).OpenDumpFileWide)(windows_core::Interface::as_raw(self), filename.param().abi(), filehandle).ok()
     }
     pub unsafe fn WriteDumpFileWide<P0, P1>(&self, filename: P0, filehandle: u64, qualifier: u32, formatflags: u32, comment: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFileWide)(windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle, qualifier, formatflags, comment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFileWide)(windows_core::Interface::as_raw(self), filename.param().abi(), filehandle, qualifier, formatflags, comment.param().abi()).ok()
     }
     pub unsafe fn AddDumpInformationFileWide<P0>(&self, filename: P0, filehandle: u64, r#type: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddDumpInformationFileWide)(windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle, r#type).ok()
+        (windows_core::Interface::vtable(self).AddDumpInformationFileWide)(windows_core::Interface::as_raw(self), filename.param().abi(), filehandle, r#type).ok()
     }
     pub unsafe fn GetNumberDumpFiles(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -2929,31 +2929,31 @@ windows_core::imp::interface_hierarchy!(IDebugClient5, windows_core::IUnknown);
 impl IDebugClient5 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()).ok()
     }
     pub unsafe fn GetKernelConnectionOptions(&self, buffer: Option<&mut [u8]>, optionssize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(optionssize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetKernelConnectionOptions<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn StartProcessServer<P0>(&self, flags: u32, options: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).StartProcessServer)(windows_core::Interface::as_raw(self), flags, options.into_param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).StartProcessServer)(windows_core::Interface::as_raw(self), flags, options.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn ConnectProcessServer<P0>(&self, remoteoptions: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ConnectProcessServer)(windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ConnectProcessServer)(windows_core::Interface::as_raw(self), remoteoptions.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn DisconnectProcessServer(&self, server: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DisconnectProcessServer)(windows_core::Interface::as_raw(self), server).ok()
@@ -2963,10 +2963,10 @@ impl IDebugClient5 {
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableName<P0>(&self, server: u64, exename: P0, flags: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(windows_core::Interface::as_raw(self), server, exename.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: Option<&mut [u8]>, actualexenamesize: Option<*mut u32>, description: Option<&mut [u8]>, actualdescriptionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRunningProcessDescription)(
@@ -2988,15 +2988,15 @@ impl IDebugClient5 {
     }
     pub unsafe fn CreateProcessA<P0>(&self, server: u64, commandline: P0, createflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags).ok()
     }
     pub unsafe fn CreateProcessAndAttach<P0>(&self, server: u64, commandline: P0, createflags: u32, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttach)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttach)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn GetProcessOptions(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -3013,30 +3013,30 @@ impl IDebugClient5 {
     }
     pub unsafe fn OpenDumpFile<P0>(&self, dumpfile: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenDumpFile)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenDumpFile)(windows_core::Interface::as_raw(self), dumpfile.param().abi()).ok()
     }
     pub unsafe fn WriteDumpFile<P0>(&self, dumpfile: P0, qualifier: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFile)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi(), qualifier).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFile)(windows_core::Interface::as_raw(self), dumpfile.param().abi(), qualifier).ok()
     }
     pub unsafe fn ConnectSession(&self, flags: u32, historylimit: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ConnectSession)(windows_core::Interface::as_raw(self), flags, historylimit).ok()
     }
     pub unsafe fn StartServer<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).StartServer)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StartServer)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn OutputServers<P0>(&self, outputcontrol: u32, machine: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputServers)(windows_core::Interface::as_raw(self), outputcontrol, machine.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OutputServers)(windows_core::Interface::as_raw(self), outputcontrol, machine.param().abi(), flags).ok()
     }
     pub unsafe fn TerminateProcesses(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).TerminateProcesses)(windows_core::Interface::as_raw(self)).ok()
@@ -3056,9 +3056,9 @@ impl IDebugClient5 {
     }
     pub unsafe fn ExitDispatch<P0>(&self, client: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
-        (windows_core::Interface::vtable(self).ExitDispatch)(windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ExitDispatch)(windows_core::Interface::as_raw(self), client.param().abi()).ok()
     }
     pub unsafe fn CreateClient(&self) -> windows_core::Result<IDebugClient> {
         let mut result__ = std::mem::zeroed();
@@ -3070,9 +3070,9 @@ impl IDebugClient5 {
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugInputCallbacks>,
+        P0: windows_core::Param<IDebugInputCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetInputCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetInputCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks> {
         let mut result__ = std::mem::zeroed();
@@ -3080,9 +3080,9 @@ impl IDebugClient5 {
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugOutputCallbacks>,
+        P0: windows_core::Param<IDebugOutputCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetOutputCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputMask(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -3093,16 +3093,16 @@ impl IDebugClient5 {
     }
     pub unsafe fn GetOtherOutputMask<P0>(&self, client: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOtherOutputMask)(windows_core::Interface::as_raw(self), client.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOtherOutputMask)(windows_core::Interface::as_raw(self), client.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOtherOutputMask<P0>(&self, client: P0, mask: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
-        (windows_core::Interface::vtable(self).SetOtherOutputMask)(windows_core::Interface::as_raw(self), client.into_param().abi(), mask).ok()
+        (windows_core::Interface::vtable(self).SetOtherOutputMask)(windows_core::Interface::as_raw(self), client.param().abi(), mask).ok()
     }
     pub unsafe fn GetOutputWidth(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -3116,18 +3116,18 @@ impl IDebugClient5 {
     }
     pub unsafe fn SetOutputLinePrefix<P0>(&self, prefix: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi()).ok()
     }
     pub unsafe fn GetIdentity(&self, buffer: Option<&mut [u8]>, identitysize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(identitysize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputIdentity<P0>(&self, outputcontrol: u32, flags: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputIdentity)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputIdentity)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks> {
         let mut result__ = std::mem::zeroed();
@@ -3135,25 +3135,25 @@ impl IDebugClient5 {
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugEventCallbacks>,
+        P0: windows_core::Param<IDebugEventCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetEventCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn FlushCallbacks(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FlushCallbacks)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn WriteDumpFile2<P0, P1>(&self, dumpfile: P0, qualifier: u32, formatflags: u32, comment: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFile2)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi(), qualifier, formatflags, comment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFile2)(windows_core::Interface::as_raw(self), dumpfile.param().abi(), qualifier, formatflags, comment.param().abi()).ok()
     }
     pub unsafe fn AddDumpInformationFile<P0>(&self, infofile: P0, r#type: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddDumpInformationFile)(windows_core::Interface::as_raw(self), infofile.into_param().abi(), r#type).ok()
+        (windows_core::Interface::vtable(self).AddDumpInformationFile)(windows_core::Interface::as_raw(self), infofile.param().abi(), r#type).ok()
     }
     pub unsafe fn EndProcessServer(&self, server: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndProcessServer)(windows_core::Interface::as_raw(self), server).ok()
@@ -3175,10 +3175,10 @@ impl IDebugClient5 {
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableNameWide<P0>(&self, server: u64, exename: P0, flags: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableNameWide)(windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableNameWide)(windows_core::Interface::as_raw(self), server, exename.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRunningProcessDescriptionWide(&self, server: u64, systemid: u32, flags: u32, exename: Option<&mut [u16]>, actualexenamesize: Option<*mut u32>, description: Option<&mut [u16]>, actualdescriptionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRunningProcessDescriptionWide)(
@@ -3197,34 +3197,34 @@ impl IDebugClient5 {
     }
     pub unsafe fn CreateProcessWide<P0>(&self, server: u64, commandline: P0, createflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessWide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessWide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags).ok()
     }
     pub unsafe fn CreateProcessAndAttachWide<P0>(&self, server: u64, commandline: P0, createflags: u32, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttachWide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttachWide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn OpenDumpFileWide<P0>(&self, filename: P0, filehandle: u64) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenDumpFileWide)(windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle).ok()
+        (windows_core::Interface::vtable(self).OpenDumpFileWide)(windows_core::Interface::as_raw(self), filename.param().abi(), filehandle).ok()
     }
     pub unsafe fn WriteDumpFileWide<P0, P1>(&self, filename: P0, filehandle: u64, qualifier: u32, formatflags: u32, comment: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFileWide)(windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle, qualifier, formatflags, comment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFileWide)(windows_core::Interface::as_raw(self), filename.param().abi(), filehandle, qualifier, formatflags, comment.param().abi()).ok()
     }
     pub unsafe fn AddDumpInformationFileWide<P0>(&self, filename: P0, filehandle: u64, r#type: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddDumpInformationFileWide)(windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle, r#type).ok()
+        (windows_core::Interface::vtable(self).AddDumpInformationFileWide)(windows_core::Interface::as_raw(self), filename.param().abi(), filehandle, r#type).ok()
     }
     pub unsafe fn GetNumberDumpFiles(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -3238,43 +3238,43 @@ impl IDebugClient5 {
     }
     pub unsafe fn AttachKernelWide<P0>(&self, flags: u32, connectoptions: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AttachKernelWide)(windows_core::Interface::as_raw(self), flags, connectoptions.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AttachKernelWide)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()).ok()
     }
     pub unsafe fn GetKernelConnectionOptionsWide(&self, buffer: Option<&mut [u16]>, optionssize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(optionssize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetKernelConnectionOptionsWide<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn StartProcessServerWide<P0>(&self, flags: u32, options: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).StartProcessServerWide)(windows_core::Interface::as_raw(self), flags, options.into_param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).StartProcessServerWide)(windows_core::Interface::as_raw(self), flags, options.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn ConnectProcessServerWide<P0>(&self, remoteoptions: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ConnectProcessServerWide)(windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ConnectProcessServerWide)(windows_core::Interface::as_raw(self), remoteoptions.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn StartServerWide<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).StartServerWide)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StartServerWide)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn OutputServersWide<P0>(&self, outputcontrol: u32, machine: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputServersWide)(windows_core::Interface::as_raw(self), outputcontrol, machine.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OutputServersWide)(windows_core::Interface::as_raw(self), outputcontrol, machine.param().abi(), flags).ok()
     }
     pub unsafe fn GetOutputCallbacksWide(&self) -> windows_core::Result<IDebugOutputCallbacksWide> {
         let mut result__ = std::mem::zeroed();
@@ -3282,27 +3282,27 @@ impl IDebugClient5 {
     }
     pub unsafe fn SetOutputCallbacksWide<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugOutputCallbacksWide>,
+        P0: windows_core::Param<IDebugOutputCallbacksWide>,
     {
-        (windows_core::Interface::vtable(self).SetOutputCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputLinePrefixWide(&self, buffer: Option<&mut [u16]>, prefixsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(prefixsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetOutputLinePrefixWide<P0>(&self, prefix: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), prefix.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), prefix.param().abi()).ok()
     }
     pub unsafe fn GetIdentityWide(&self, buffer: Option<&mut [u16]>, identitysize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetIdentityWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(identitysize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputIdentityWide<P0>(&self, outputcontrol: u32, flags: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputIdentityWide)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputIdentityWide)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacksWide(&self) -> windows_core::Result<IDebugEventCallbacksWide> {
         let mut result__ = std::mem::zeroed();
@@ -3310,55 +3310,55 @@ impl IDebugClient5 {
     }
     pub unsafe fn SetEventCallbacksWide<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugEventCallbacksWide>,
+        P0: windows_core::Param<IDebugEventCallbacksWide>,
     {
-        (windows_core::Interface::vtable(self).SetEventCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn CreateProcess2<P0, P1, P2>(&self, server: u64, commandline: P0, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P1, environment: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
-        P2: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
+        P2: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcess2)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.into_param().abi(), environment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateProcess2)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi()).ok()
     }
     pub unsafe fn CreateProcess2Wide<P0, P1, P2>(&self, server: u64, commandline: P0, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P1, environment: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcess2Wide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.into_param().abi(), environment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateProcess2Wide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi()).ok()
     }
     pub unsafe fn CreateProcessAndAttach2<P0, P1, P2>(&self, server: u64, commandline: P0, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P1, environment: P2, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
-        P2: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
+        P2: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttach2)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.into_param().abi(), environment.into_param().abi(), processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttach2)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi(), processid, attachflags).ok()
     }
     pub unsafe fn CreateProcessAndAttach2Wide<P0, P1, P2>(&self, server: u64, commandline: P0, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P1, environment: P2, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttach2Wide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.into_param().abi(), environment.into_param().abi(), processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttach2Wide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi(), processid, attachflags).ok()
     }
     pub unsafe fn PushOutputLinePrefix<P0>(&self, newprefix: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).PushOutputLinePrefix)(windows_core::Interface::as_raw(self), newprefix.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).PushOutputLinePrefix)(windows_core::Interface::as_raw(self), newprefix.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn PushOutputLinePrefixWide<P0>(&self, newprefix: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).PushOutputLinePrefixWide)(windows_core::Interface::as_raw(self), newprefix.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).PushOutputLinePrefixWide)(windows_core::Interface::as_raw(self), newprefix.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn PopOutputLinePrefix(&self, handle: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).PopOutputLinePrefix)(windows_core::Interface::as_raw(self), handle).ok()
@@ -3380,18 +3380,18 @@ impl IDebugClient5 {
     }
     pub unsafe fn SetQuitLockString<P0>(&self, string: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetQuitLockString)(windows_core::Interface::as_raw(self), string.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetQuitLockString)(windows_core::Interface::as_raw(self), string.param().abi()).ok()
     }
     pub unsafe fn GetQuitLockStringWide(&self, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetQuitLockStringWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(stringsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetQuitLockStringWide<P0>(&self, string: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetQuitLockStringWide)(windows_core::Interface::as_raw(self), string.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetQuitLockStringWide)(windows_core::Interface::as_raw(self), string.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -3495,31 +3495,31 @@ windows_core::imp::interface_hierarchy!(IDebugClient6, windows_core::IUnknown);
 impl IDebugClient6 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()).ok()
     }
     pub unsafe fn GetKernelConnectionOptions(&self, buffer: Option<&mut [u8]>, optionssize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(optionssize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetKernelConnectionOptions<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn StartProcessServer<P0>(&self, flags: u32, options: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).StartProcessServer)(windows_core::Interface::as_raw(self), flags, options.into_param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).StartProcessServer)(windows_core::Interface::as_raw(self), flags, options.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn ConnectProcessServer<P0>(&self, remoteoptions: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ConnectProcessServer)(windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ConnectProcessServer)(windows_core::Interface::as_raw(self), remoteoptions.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn DisconnectProcessServer(&self, server: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DisconnectProcessServer)(windows_core::Interface::as_raw(self), server).ok()
@@ -3529,10 +3529,10 @@ impl IDebugClient6 {
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableName<P0>(&self, server: u64, exename: P0, flags: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(windows_core::Interface::as_raw(self), server, exename.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: Option<&mut [u8]>, actualexenamesize: Option<*mut u32>, description: Option<&mut [u8]>, actualdescriptionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRunningProcessDescription)(
@@ -3554,15 +3554,15 @@ impl IDebugClient6 {
     }
     pub unsafe fn CreateProcessA<P0>(&self, server: u64, commandline: P0, createflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags).ok()
     }
     pub unsafe fn CreateProcessAndAttach<P0>(&self, server: u64, commandline: P0, createflags: u32, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttach)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttach)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn GetProcessOptions(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -3579,30 +3579,30 @@ impl IDebugClient6 {
     }
     pub unsafe fn OpenDumpFile<P0>(&self, dumpfile: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenDumpFile)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenDumpFile)(windows_core::Interface::as_raw(self), dumpfile.param().abi()).ok()
     }
     pub unsafe fn WriteDumpFile<P0>(&self, dumpfile: P0, qualifier: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFile)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi(), qualifier).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFile)(windows_core::Interface::as_raw(self), dumpfile.param().abi(), qualifier).ok()
     }
     pub unsafe fn ConnectSession(&self, flags: u32, historylimit: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ConnectSession)(windows_core::Interface::as_raw(self), flags, historylimit).ok()
     }
     pub unsafe fn StartServer<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).StartServer)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StartServer)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn OutputServers<P0>(&self, outputcontrol: u32, machine: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputServers)(windows_core::Interface::as_raw(self), outputcontrol, machine.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OutputServers)(windows_core::Interface::as_raw(self), outputcontrol, machine.param().abi(), flags).ok()
     }
     pub unsafe fn TerminateProcesses(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).TerminateProcesses)(windows_core::Interface::as_raw(self)).ok()
@@ -3622,9 +3622,9 @@ impl IDebugClient6 {
     }
     pub unsafe fn ExitDispatch<P0>(&self, client: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
-        (windows_core::Interface::vtable(self).ExitDispatch)(windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ExitDispatch)(windows_core::Interface::as_raw(self), client.param().abi()).ok()
     }
     pub unsafe fn CreateClient(&self) -> windows_core::Result<IDebugClient> {
         let mut result__ = std::mem::zeroed();
@@ -3636,9 +3636,9 @@ impl IDebugClient6 {
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugInputCallbacks>,
+        P0: windows_core::Param<IDebugInputCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetInputCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetInputCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks> {
         let mut result__ = std::mem::zeroed();
@@ -3646,9 +3646,9 @@ impl IDebugClient6 {
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugOutputCallbacks>,
+        P0: windows_core::Param<IDebugOutputCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetOutputCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputMask(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -3659,16 +3659,16 @@ impl IDebugClient6 {
     }
     pub unsafe fn GetOtherOutputMask<P0>(&self, client: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOtherOutputMask)(windows_core::Interface::as_raw(self), client.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOtherOutputMask)(windows_core::Interface::as_raw(self), client.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOtherOutputMask<P0>(&self, client: P0, mask: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
-        (windows_core::Interface::vtable(self).SetOtherOutputMask)(windows_core::Interface::as_raw(self), client.into_param().abi(), mask).ok()
+        (windows_core::Interface::vtable(self).SetOtherOutputMask)(windows_core::Interface::as_raw(self), client.param().abi(), mask).ok()
     }
     pub unsafe fn GetOutputWidth(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -3682,18 +3682,18 @@ impl IDebugClient6 {
     }
     pub unsafe fn SetOutputLinePrefix<P0>(&self, prefix: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi()).ok()
     }
     pub unsafe fn GetIdentity(&self, buffer: Option<&mut [u8]>, identitysize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(identitysize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputIdentity<P0>(&self, outputcontrol: u32, flags: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputIdentity)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputIdentity)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks> {
         let mut result__ = std::mem::zeroed();
@@ -3701,25 +3701,25 @@ impl IDebugClient6 {
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugEventCallbacks>,
+        P0: windows_core::Param<IDebugEventCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetEventCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn FlushCallbacks(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FlushCallbacks)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn WriteDumpFile2<P0, P1>(&self, dumpfile: P0, qualifier: u32, formatflags: u32, comment: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFile2)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi(), qualifier, formatflags, comment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFile2)(windows_core::Interface::as_raw(self), dumpfile.param().abi(), qualifier, formatflags, comment.param().abi()).ok()
     }
     pub unsafe fn AddDumpInformationFile<P0>(&self, infofile: P0, r#type: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddDumpInformationFile)(windows_core::Interface::as_raw(self), infofile.into_param().abi(), r#type).ok()
+        (windows_core::Interface::vtable(self).AddDumpInformationFile)(windows_core::Interface::as_raw(self), infofile.param().abi(), r#type).ok()
     }
     pub unsafe fn EndProcessServer(&self, server: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndProcessServer)(windows_core::Interface::as_raw(self), server).ok()
@@ -3741,10 +3741,10 @@ impl IDebugClient6 {
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableNameWide<P0>(&self, server: u64, exename: P0, flags: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableNameWide)(windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableNameWide)(windows_core::Interface::as_raw(self), server, exename.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRunningProcessDescriptionWide(&self, server: u64, systemid: u32, flags: u32, exename: Option<&mut [u16]>, actualexenamesize: Option<*mut u32>, description: Option<&mut [u16]>, actualdescriptionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRunningProcessDescriptionWide)(
@@ -3763,34 +3763,34 @@ impl IDebugClient6 {
     }
     pub unsafe fn CreateProcessWide<P0>(&self, server: u64, commandline: P0, createflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessWide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessWide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags).ok()
     }
     pub unsafe fn CreateProcessAndAttachWide<P0>(&self, server: u64, commandline: P0, createflags: u32, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttachWide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttachWide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn OpenDumpFileWide<P0>(&self, filename: P0, filehandle: u64) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenDumpFileWide)(windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle).ok()
+        (windows_core::Interface::vtable(self).OpenDumpFileWide)(windows_core::Interface::as_raw(self), filename.param().abi(), filehandle).ok()
     }
     pub unsafe fn WriteDumpFileWide<P0, P1>(&self, filename: P0, filehandle: u64, qualifier: u32, formatflags: u32, comment: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFileWide)(windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle, qualifier, formatflags, comment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFileWide)(windows_core::Interface::as_raw(self), filename.param().abi(), filehandle, qualifier, formatflags, comment.param().abi()).ok()
     }
     pub unsafe fn AddDumpInformationFileWide<P0>(&self, filename: P0, filehandle: u64, r#type: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddDumpInformationFileWide)(windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle, r#type).ok()
+        (windows_core::Interface::vtable(self).AddDumpInformationFileWide)(windows_core::Interface::as_raw(self), filename.param().abi(), filehandle, r#type).ok()
     }
     pub unsafe fn GetNumberDumpFiles(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -3804,43 +3804,43 @@ impl IDebugClient6 {
     }
     pub unsafe fn AttachKernelWide<P0>(&self, flags: u32, connectoptions: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AttachKernelWide)(windows_core::Interface::as_raw(self), flags, connectoptions.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AttachKernelWide)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()).ok()
     }
     pub unsafe fn GetKernelConnectionOptionsWide(&self, buffer: Option<&mut [u16]>, optionssize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(optionssize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetKernelConnectionOptionsWide<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn StartProcessServerWide<P0>(&self, flags: u32, options: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).StartProcessServerWide)(windows_core::Interface::as_raw(self), flags, options.into_param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).StartProcessServerWide)(windows_core::Interface::as_raw(self), flags, options.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn ConnectProcessServerWide<P0>(&self, remoteoptions: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ConnectProcessServerWide)(windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ConnectProcessServerWide)(windows_core::Interface::as_raw(self), remoteoptions.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn StartServerWide<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).StartServerWide)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StartServerWide)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn OutputServersWide<P0>(&self, outputcontrol: u32, machine: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputServersWide)(windows_core::Interface::as_raw(self), outputcontrol, machine.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OutputServersWide)(windows_core::Interface::as_raw(self), outputcontrol, machine.param().abi(), flags).ok()
     }
     pub unsafe fn GetOutputCallbacksWide(&self) -> windows_core::Result<IDebugOutputCallbacksWide> {
         let mut result__ = std::mem::zeroed();
@@ -3848,27 +3848,27 @@ impl IDebugClient6 {
     }
     pub unsafe fn SetOutputCallbacksWide<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugOutputCallbacksWide>,
+        P0: windows_core::Param<IDebugOutputCallbacksWide>,
     {
-        (windows_core::Interface::vtable(self).SetOutputCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputLinePrefixWide(&self, buffer: Option<&mut [u16]>, prefixsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(prefixsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetOutputLinePrefixWide<P0>(&self, prefix: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), prefix.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), prefix.param().abi()).ok()
     }
     pub unsafe fn GetIdentityWide(&self, buffer: Option<&mut [u16]>, identitysize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetIdentityWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(identitysize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputIdentityWide<P0>(&self, outputcontrol: u32, flags: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputIdentityWide)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputIdentityWide)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacksWide(&self) -> windows_core::Result<IDebugEventCallbacksWide> {
         let mut result__ = std::mem::zeroed();
@@ -3876,55 +3876,55 @@ impl IDebugClient6 {
     }
     pub unsafe fn SetEventCallbacksWide<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugEventCallbacksWide>,
+        P0: windows_core::Param<IDebugEventCallbacksWide>,
     {
-        (windows_core::Interface::vtable(self).SetEventCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn CreateProcess2<P0, P1, P2>(&self, server: u64, commandline: P0, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P1, environment: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
-        P2: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
+        P2: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcess2)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.into_param().abi(), environment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateProcess2)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi()).ok()
     }
     pub unsafe fn CreateProcess2Wide<P0, P1, P2>(&self, server: u64, commandline: P0, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P1, environment: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcess2Wide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.into_param().abi(), environment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateProcess2Wide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi()).ok()
     }
     pub unsafe fn CreateProcessAndAttach2<P0, P1, P2>(&self, server: u64, commandline: P0, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P1, environment: P2, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
-        P2: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
+        P2: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttach2)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.into_param().abi(), environment.into_param().abi(), processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttach2)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi(), processid, attachflags).ok()
     }
     pub unsafe fn CreateProcessAndAttach2Wide<P0, P1, P2>(&self, server: u64, commandline: P0, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P1, environment: P2, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttach2Wide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.into_param().abi(), environment.into_param().abi(), processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttach2Wide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi(), processid, attachflags).ok()
     }
     pub unsafe fn PushOutputLinePrefix<P0>(&self, newprefix: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).PushOutputLinePrefix)(windows_core::Interface::as_raw(self), newprefix.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).PushOutputLinePrefix)(windows_core::Interface::as_raw(self), newprefix.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn PushOutputLinePrefixWide<P0>(&self, newprefix: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).PushOutputLinePrefixWide)(windows_core::Interface::as_raw(self), newprefix.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).PushOutputLinePrefixWide)(windows_core::Interface::as_raw(self), newprefix.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn PopOutputLinePrefix(&self, handle: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).PopOutputLinePrefix)(windows_core::Interface::as_raw(self), handle).ok()
@@ -3946,24 +3946,24 @@ impl IDebugClient6 {
     }
     pub unsafe fn SetQuitLockString<P0>(&self, string: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetQuitLockString)(windows_core::Interface::as_raw(self), string.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetQuitLockString)(windows_core::Interface::as_raw(self), string.param().abi()).ok()
     }
     pub unsafe fn GetQuitLockStringWide(&self, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetQuitLockStringWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(stringsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetQuitLockStringWide<P0>(&self, string: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetQuitLockStringWide)(windows_core::Interface::as_raw(self), string.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetQuitLockStringWide)(windows_core::Interface::as_raw(self), string.param().abi()).ok()
     }
     pub unsafe fn SetEventContextCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugEventContextCallbacks>,
+        P0: windows_core::Param<IDebugEventContextCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetEventContextCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventContextCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -4068,31 +4068,31 @@ windows_core::imp::interface_hierarchy!(IDebugClient7, windows_core::IUnknown);
 impl IDebugClient7 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()).ok()
     }
     pub unsafe fn GetKernelConnectionOptions(&self, buffer: Option<&mut [u8]>, optionssize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(optionssize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetKernelConnectionOptions<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn StartProcessServer<P0>(&self, flags: u32, options: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).StartProcessServer)(windows_core::Interface::as_raw(self), flags, options.into_param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).StartProcessServer)(windows_core::Interface::as_raw(self), flags, options.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn ConnectProcessServer<P0>(&self, remoteoptions: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ConnectProcessServer)(windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ConnectProcessServer)(windows_core::Interface::as_raw(self), remoteoptions.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn DisconnectProcessServer(&self, server: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DisconnectProcessServer)(windows_core::Interface::as_raw(self), server).ok()
@@ -4102,10 +4102,10 @@ impl IDebugClient7 {
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableName<P0>(&self, server: u64, exename: P0, flags: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(windows_core::Interface::as_raw(self), server, exename.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: Option<&mut [u8]>, actualexenamesize: Option<*mut u32>, description: Option<&mut [u8]>, actualdescriptionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRunningProcessDescription)(
@@ -4127,15 +4127,15 @@ impl IDebugClient7 {
     }
     pub unsafe fn CreateProcessA<P0>(&self, server: u64, commandline: P0, createflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags).ok()
     }
     pub unsafe fn CreateProcessAndAttach<P0>(&self, server: u64, commandline: P0, createflags: u32, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttach)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttach)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn GetProcessOptions(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -4152,30 +4152,30 @@ impl IDebugClient7 {
     }
     pub unsafe fn OpenDumpFile<P0>(&self, dumpfile: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenDumpFile)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenDumpFile)(windows_core::Interface::as_raw(self), dumpfile.param().abi()).ok()
     }
     pub unsafe fn WriteDumpFile<P0>(&self, dumpfile: P0, qualifier: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFile)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi(), qualifier).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFile)(windows_core::Interface::as_raw(self), dumpfile.param().abi(), qualifier).ok()
     }
     pub unsafe fn ConnectSession(&self, flags: u32, historylimit: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ConnectSession)(windows_core::Interface::as_raw(self), flags, historylimit).ok()
     }
     pub unsafe fn StartServer<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).StartServer)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StartServer)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn OutputServers<P0>(&self, outputcontrol: u32, machine: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputServers)(windows_core::Interface::as_raw(self), outputcontrol, machine.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OutputServers)(windows_core::Interface::as_raw(self), outputcontrol, machine.param().abi(), flags).ok()
     }
     pub unsafe fn TerminateProcesses(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).TerminateProcesses)(windows_core::Interface::as_raw(self)).ok()
@@ -4195,9 +4195,9 @@ impl IDebugClient7 {
     }
     pub unsafe fn ExitDispatch<P0>(&self, client: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
-        (windows_core::Interface::vtable(self).ExitDispatch)(windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ExitDispatch)(windows_core::Interface::as_raw(self), client.param().abi()).ok()
     }
     pub unsafe fn CreateClient(&self) -> windows_core::Result<IDebugClient> {
         let mut result__ = std::mem::zeroed();
@@ -4209,9 +4209,9 @@ impl IDebugClient7 {
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugInputCallbacks>,
+        P0: windows_core::Param<IDebugInputCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetInputCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetInputCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks> {
         let mut result__ = std::mem::zeroed();
@@ -4219,9 +4219,9 @@ impl IDebugClient7 {
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugOutputCallbacks>,
+        P0: windows_core::Param<IDebugOutputCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetOutputCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputMask(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -4232,16 +4232,16 @@ impl IDebugClient7 {
     }
     pub unsafe fn GetOtherOutputMask<P0>(&self, client: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOtherOutputMask)(windows_core::Interface::as_raw(self), client.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOtherOutputMask)(windows_core::Interface::as_raw(self), client.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOtherOutputMask<P0>(&self, client: P0, mask: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
-        (windows_core::Interface::vtable(self).SetOtherOutputMask)(windows_core::Interface::as_raw(self), client.into_param().abi(), mask).ok()
+        (windows_core::Interface::vtable(self).SetOtherOutputMask)(windows_core::Interface::as_raw(self), client.param().abi(), mask).ok()
     }
     pub unsafe fn GetOutputWidth(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -4255,18 +4255,18 @@ impl IDebugClient7 {
     }
     pub unsafe fn SetOutputLinePrefix<P0>(&self, prefix: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi()).ok()
     }
     pub unsafe fn GetIdentity(&self, buffer: Option<&mut [u8]>, identitysize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(identitysize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputIdentity<P0>(&self, outputcontrol: u32, flags: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputIdentity)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputIdentity)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks> {
         let mut result__ = std::mem::zeroed();
@@ -4274,25 +4274,25 @@ impl IDebugClient7 {
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugEventCallbacks>,
+        P0: windows_core::Param<IDebugEventCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetEventCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn FlushCallbacks(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FlushCallbacks)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn WriteDumpFile2<P0, P1>(&self, dumpfile: P0, qualifier: u32, formatflags: u32, comment: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFile2)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi(), qualifier, formatflags, comment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFile2)(windows_core::Interface::as_raw(self), dumpfile.param().abi(), qualifier, formatflags, comment.param().abi()).ok()
     }
     pub unsafe fn AddDumpInformationFile<P0>(&self, infofile: P0, r#type: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddDumpInformationFile)(windows_core::Interface::as_raw(self), infofile.into_param().abi(), r#type).ok()
+        (windows_core::Interface::vtable(self).AddDumpInformationFile)(windows_core::Interface::as_raw(self), infofile.param().abi(), r#type).ok()
     }
     pub unsafe fn EndProcessServer(&self, server: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndProcessServer)(windows_core::Interface::as_raw(self), server).ok()
@@ -4314,10 +4314,10 @@ impl IDebugClient7 {
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableNameWide<P0>(&self, server: u64, exename: P0, flags: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableNameWide)(windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableNameWide)(windows_core::Interface::as_raw(self), server, exename.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRunningProcessDescriptionWide(&self, server: u64, systemid: u32, flags: u32, exename: Option<&mut [u16]>, actualexenamesize: Option<*mut u32>, description: Option<&mut [u16]>, actualdescriptionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRunningProcessDescriptionWide)(
@@ -4336,34 +4336,34 @@ impl IDebugClient7 {
     }
     pub unsafe fn CreateProcessWide<P0>(&self, server: u64, commandline: P0, createflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessWide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessWide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags).ok()
     }
     pub unsafe fn CreateProcessAndAttachWide<P0>(&self, server: u64, commandline: P0, createflags: u32, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttachWide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttachWide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn OpenDumpFileWide<P0>(&self, filename: P0, filehandle: u64) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenDumpFileWide)(windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle).ok()
+        (windows_core::Interface::vtable(self).OpenDumpFileWide)(windows_core::Interface::as_raw(self), filename.param().abi(), filehandle).ok()
     }
     pub unsafe fn WriteDumpFileWide<P0, P1>(&self, filename: P0, filehandle: u64, qualifier: u32, formatflags: u32, comment: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFileWide)(windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle, qualifier, formatflags, comment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFileWide)(windows_core::Interface::as_raw(self), filename.param().abi(), filehandle, qualifier, formatflags, comment.param().abi()).ok()
     }
     pub unsafe fn AddDumpInformationFileWide<P0>(&self, filename: P0, filehandle: u64, r#type: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddDumpInformationFileWide)(windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle, r#type).ok()
+        (windows_core::Interface::vtable(self).AddDumpInformationFileWide)(windows_core::Interface::as_raw(self), filename.param().abi(), filehandle, r#type).ok()
     }
     pub unsafe fn GetNumberDumpFiles(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -4377,43 +4377,43 @@ impl IDebugClient7 {
     }
     pub unsafe fn AttachKernelWide<P0>(&self, flags: u32, connectoptions: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AttachKernelWide)(windows_core::Interface::as_raw(self), flags, connectoptions.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AttachKernelWide)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()).ok()
     }
     pub unsafe fn GetKernelConnectionOptionsWide(&self, buffer: Option<&mut [u16]>, optionssize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(optionssize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetKernelConnectionOptionsWide<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn StartProcessServerWide<P0>(&self, flags: u32, options: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).StartProcessServerWide)(windows_core::Interface::as_raw(self), flags, options.into_param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).StartProcessServerWide)(windows_core::Interface::as_raw(self), flags, options.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn ConnectProcessServerWide<P0>(&self, remoteoptions: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ConnectProcessServerWide)(windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ConnectProcessServerWide)(windows_core::Interface::as_raw(self), remoteoptions.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn StartServerWide<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).StartServerWide)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StartServerWide)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn OutputServersWide<P0>(&self, outputcontrol: u32, machine: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputServersWide)(windows_core::Interface::as_raw(self), outputcontrol, machine.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OutputServersWide)(windows_core::Interface::as_raw(self), outputcontrol, machine.param().abi(), flags).ok()
     }
     pub unsafe fn GetOutputCallbacksWide(&self) -> windows_core::Result<IDebugOutputCallbacksWide> {
         let mut result__ = std::mem::zeroed();
@@ -4421,27 +4421,27 @@ impl IDebugClient7 {
     }
     pub unsafe fn SetOutputCallbacksWide<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugOutputCallbacksWide>,
+        P0: windows_core::Param<IDebugOutputCallbacksWide>,
     {
-        (windows_core::Interface::vtable(self).SetOutputCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputLinePrefixWide(&self, buffer: Option<&mut [u16]>, prefixsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(prefixsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetOutputLinePrefixWide<P0>(&self, prefix: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), prefix.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), prefix.param().abi()).ok()
     }
     pub unsafe fn GetIdentityWide(&self, buffer: Option<&mut [u16]>, identitysize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetIdentityWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(identitysize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputIdentityWide<P0>(&self, outputcontrol: u32, flags: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputIdentityWide)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputIdentityWide)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacksWide(&self) -> windows_core::Result<IDebugEventCallbacksWide> {
         let mut result__ = std::mem::zeroed();
@@ -4449,55 +4449,55 @@ impl IDebugClient7 {
     }
     pub unsafe fn SetEventCallbacksWide<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugEventCallbacksWide>,
+        P0: windows_core::Param<IDebugEventCallbacksWide>,
     {
-        (windows_core::Interface::vtable(self).SetEventCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn CreateProcess2<P0, P1, P2>(&self, server: u64, commandline: P0, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P1, environment: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
-        P2: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
+        P2: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcess2)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.into_param().abi(), environment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateProcess2)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi()).ok()
     }
     pub unsafe fn CreateProcess2Wide<P0, P1, P2>(&self, server: u64, commandline: P0, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P1, environment: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcess2Wide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.into_param().abi(), environment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateProcess2Wide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi()).ok()
     }
     pub unsafe fn CreateProcessAndAttach2<P0, P1, P2>(&self, server: u64, commandline: P0, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P1, environment: P2, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
-        P2: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
+        P2: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttach2)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.into_param().abi(), environment.into_param().abi(), processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttach2)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi(), processid, attachflags).ok()
     }
     pub unsafe fn CreateProcessAndAttach2Wide<P0, P1, P2>(&self, server: u64, commandline: P0, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P1, environment: P2, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttach2Wide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.into_param().abi(), environment.into_param().abi(), processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttach2Wide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi(), processid, attachflags).ok()
     }
     pub unsafe fn PushOutputLinePrefix<P0>(&self, newprefix: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).PushOutputLinePrefix)(windows_core::Interface::as_raw(self), newprefix.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).PushOutputLinePrefix)(windows_core::Interface::as_raw(self), newprefix.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn PushOutputLinePrefixWide<P0>(&self, newprefix: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).PushOutputLinePrefixWide)(windows_core::Interface::as_raw(self), newprefix.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).PushOutputLinePrefixWide)(windows_core::Interface::as_raw(self), newprefix.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn PopOutputLinePrefix(&self, handle: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).PopOutputLinePrefix)(windows_core::Interface::as_raw(self), handle).ok()
@@ -4519,24 +4519,24 @@ impl IDebugClient7 {
     }
     pub unsafe fn SetQuitLockString<P0>(&self, string: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetQuitLockString)(windows_core::Interface::as_raw(self), string.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetQuitLockString)(windows_core::Interface::as_raw(self), string.param().abi()).ok()
     }
     pub unsafe fn GetQuitLockStringWide(&self, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetQuitLockStringWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(stringsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetQuitLockStringWide<P0>(&self, string: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetQuitLockStringWide)(windows_core::Interface::as_raw(self), string.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetQuitLockStringWide)(windows_core::Interface::as_raw(self), string.param().abi()).ok()
     }
     pub unsafe fn SetEventContextCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugEventContextCallbacks>,
+        P0: windows_core::Param<IDebugEventContextCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetEventContextCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventContextCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn SetClientContext(&self, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetClientContext)(windows_core::Interface::as_raw(self), context, contextsize).ok()
@@ -4645,31 +4645,31 @@ windows_core::imp::interface_hierarchy!(IDebugClient8, windows_core::IUnknown);
 impl IDebugClient8 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()).ok()
     }
     pub unsafe fn GetKernelConnectionOptions(&self, buffer: Option<&mut [u8]>, optionssize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(optionssize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetKernelConnectionOptions<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn StartProcessServer<P0>(&self, flags: u32, options: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).StartProcessServer)(windows_core::Interface::as_raw(self), flags, options.into_param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).StartProcessServer)(windows_core::Interface::as_raw(self), flags, options.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn ConnectProcessServer<P0>(&self, remoteoptions: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ConnectProcessServer)(windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ConnectProcessServer)(windows_core::Interface::as_raw(self), remoteoptions.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn DisconnectProcessServer(&self, server: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DisconnectProcessServer)(windows_core::Interface::as_raw(self), server).ok()
@@ -4679,10 +4679,10 @@ impl IDebugClient8 {
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableName<P0>(&self, server: u64, exename: P0, flags: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(windows_core::Interface::as_raw(self), server, exename.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: Option<&mut [u8]>, actualexenamesize: Option<*mut u32>, description: Option<&mut [u8]>, actualdescriptionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRunningProcessDescription)(
@@ -4704,15 +4704,15 @@ impl IDebugClient8 {
     }
     pub unsafe fn CreateProcessA<P0>(&self, server: u64, commandline: P0, createflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags).ok()
     }
     pub unsafe fn CreateProcessAndAttach<P0>(&self, server: u64, commandline: P0, createflags: u32, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttach)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttach)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn GetProcessOptions(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -4729,30 +4729,30 @@ impl IDebugClient8 {
     }
     pub unsafe fn OpenDumpFile<P0>(&self, dumpfile: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenDumpFile)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenDumpFile)(windows_core::Interface::as_raw(self), dumpfile.param().abi()).ok()
     }
     pub unsafe fn WriteDumpFile<P0>(&self, dumpfile: P0, qualifier: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFile)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi(), qualifier).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFile)(windows_core::Interface::as_raw(self), dumpfile.param().abi(), qualifier).ok()
     }
     pub unsafe fn ConnectSession(&self, flags: u32, historylimit: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ConnectSession)(windows_core::Interface::as_raw(self), flags, historylimit).ok()
     }
     pub unsafe fn StartServer<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).StartServer)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StartServer)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn OutputServers<P0>(&self, outputcontrol: u32, machine: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputServers)(windows_core::Interface::as_raw(self), outputcontrol, machine.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OutputServers)(windows_core::Interface::as_raw(self), outputcontrol, machine.param().abi(), flags).ok()
     }
     pub unsafe fn TerminateProcesses(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).TerminateProcesses)(windows_core::Interface::as_raw(self)).ok()
@@ -4772,9 +4772,9 @@ impl IDebugClient8 {
     }
     pub unsafe fn ExitDispatch<P0>(&self, client: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
-        (windows_core::Interface::vtable(self).ExitDispatch)(windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ExitDispatch)(windows_core::Interface::as_raw(self), client.param().abi()).ok()
     }
     pub unsafe fn CreateClient(&self) -> windows_core::Result<IDebugClient> {
         let mut result__ = std::mem::zeroed();
@@ -4786,9 +4786,9 @@ impl IDebugClient8 {
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugInputCallbacks>,
+        P0: windows_core::Param<IDebugInputCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetInputCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetInputCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks> {
         let mut result__ = std::mem::zeroed();
@@ -4796,9 +4796,9 @@ impl IDebugClient8 {
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugOutputCallbacks>,
+        P0: windows_core::Param<IDebugOutputCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetOutputCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputMask(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -4809,16 +4809,16 @@ impl IDebugClient8 {
     }
     pub unsafe fn GetOtherOutputMask<P0>(&self, client: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOtherOutputMask)(windows_core::Interface::as_raw(self), client.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOtherOutputMask)(windows_core::Interface::as_raw(self), client.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOtherOutputMask<P0>(&self, client: P0, mask: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugClient>,
+        P0: windows_core::Param<IDebugClient>,
     {
-        (windows_core::Interface::vtable(self).SetOtherOutputMask)(windows_core::Interface::as_raw(self), client.into_param().abi(), mask).ok()
+        (windows_core::Interface::vtable(self).SetOtherOutputMask)(windows_core::Interface::as_raw(self), client.param().abi(), mask).ok()
     }
     pub unsafe fn GetOutputWidth(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -4832,18 +4832,18 @@ impl IDebugClient8 {
     }
     pub unsafe fn SetOutputLinePrefix<P0>(&self, prefix: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi()).ok()
     }
     pub unsafe fn GetIdentity(&self, buffer: Option<&mut [u8]>, identitysize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(identitysize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputIdentity<P0>(&self, outputcontrol: u32, flags: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputIdentity)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputIdentity)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks> {
         let mut result__ = std::mem::zeroed();
@@ -4851,25 +4851,25 @@ impl IDebugClient8 {
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugEventCallbacks>,
+        P0: windows_core::Param<IDebugEventCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetEventCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn FlushCallbacks(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FlushCallbacks)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn WriteDumpFile2<P0, P1>(&self, dumpfile: P0, qualifier: u32, formatflags: u32, comment: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFile2)(windows_core::Interface::as_raw(self), dumpfile.into_param().abi(), qualifier, formatflags, comment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFile2)(windows_core::Interface::as_raw(self), dumpfile.param().abi(), qualifier, formatflags, comment.param().abi()).ok()
     }
     pub unsafe fn AddDumpInformationFile<P0>(&self, infofile: P0, r#type: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddDumpInformationFile)(windows_core::Interface::as_raw(self), infofile.into_param().abi(), r#type).ok()
+        (windows_core::Interface::vtable(self).AddDumpInformationFile)(windows_core::Interface::as_raw(self), infofile.param().abi(), r#type).ok()
     }
     pub unsafe fn EndProcessServer(&self, server: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndProcessServer)(windows_core::Interface::as_raw(self), server).ok()
@@ -4891,10 +4891,10 @@ impl IDebugClient8 {
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableNameWide<P0>(&self, server: u64, exename: P0, flags: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableNameWide)(windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableNameWide)(windows_core::Interface::as_raw(self), server, exename.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRunningProcessDescriptionWide(&self, server: u64, systemid: u32, flags: u32, exename: Option<&mut [u16]>, actualexenamesize: Option<*mut u32>, description: Option<&mut [u16]>, actualdescriptionsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRunningProcessDescriptionWide)(
@@ -4913,34 +4913,34 @@ impl IDebugClient8 {
     }
     pub unsafe fn CreateProcessWide<P0>(&self, server: u64, commandline: P0, createflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessWide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessWide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags).ok()
     }
     pub unsafe fn CreateProcessAndAttachWide<P0>(&self, server: u64, commandline: P0, createflags: u32, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttachWide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttachWide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn OpenDumpFileWide<P0>(&self, filename: P0, filehandle: u64) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenDumpFileWide)(windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle).ok()
+        (windows_core::Interface::vtable(self).OpenDumpFileWide)(windows_core::Interface::as_raw(self), filename.param().abi(), filehandle).ok()
     }
     pub unsafe fn WriteDumpFileWide<P0, P1>(&self, filename: P0, filehandle: u64, qualifier: u32, formatflags: u32, comment: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteDumpFileWide)(windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle, qualifier, formatflags, comment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteDumpFileWide)(windows_core::Interface::as_raw(self), filename.param().abi(), filehandle, qualifier, formatflags, comment.param().abi()).ok()
     }
     pub unsafe fn AddDumpInformationFileWide<P0>(&self, filename: P0, filehandle: u64, r#type: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddDumpInformationFileWide)(windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle, r#type).ok()
+        (windows_core::Interface::vtable(self).AddDumpInformationFileWide)(windows_core::Interface::as_raw(self), filename.param().abi(), filehandle, r#type).ok()
     }
     pub unsafe fn GetNumberDumpFiles(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -4954,43 +4954,43 @@ impl IDebugClient8 {
     }
     pub unsafe fn AttachKernelWide<P0>(&self, flags: u32, connectoptions: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AttachKernelWide)(windows_core::Interface::as_raw(self), flags, connectoptions.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AttachKernelWide)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()).ok()
     }
     pub unsafe fn GetKernelConnectionOptionsWide(&self, buffer: Option<&mut [u16]>, optionssize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(optionssize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetKernelConnectionOptionsWide<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn StartProcessServerWide<P0>(&self, flags: u32, options: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).StartProcessServerWide)(windows_core::Interface::as_raw(self), flags, options.into_param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).StartProcessServerWide)(windows_core::Interface::as_raw(self), flags, options.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn ConnectProcessServerWide<P0>(&self, remoteoptions: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ConnectProcessServerWide)(windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ConnectProcessServerWide)(windows_core::Interface::as_raw(self), remoteoptions.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn StartServerWide<P0>(&self, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).StartServerWide)(windows_core::Interface::as_raw(self), options.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StartServerWide)(windows_core::Interface::as_raw(self), options.param().abi()).ok()
     }
     pub unsafe fn OutputServersWide<P0>(&self, outputcontrol: u32, machine: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputServersWide)(windows_core::Interface::as_raw(self), outputcontrol, machine.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OutputServersWide)(windows_core::Interface::as_raw(self), outputcontrol, machine.param().abi(), flags).ok()
     }
     pub unsafe fn GetOutputCallbacksWide(&self) -> windows_core::Result<IDebugOutputCallbacksWide> {
         let mut result__ = std::mem::zeroed();
@@ -4998,27 +4998,27 @@ impl IDebugClient8 {
     }
     pub unsafe fn SetOutputCallbacksWide<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugOutputCallbacksWide>,
+        P0: windows_core::Param<IDebugOutputCallbacksWide>,
     {
-        (windows_core::Interface::vtable(self).SetOutputCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn GetOutputLinePrefixWide(&self, buffer: Option<&mut [u16]>, prefixsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(prefixsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetOutputLinePrefixWide<P0>(&self, prefix: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), prefix.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), prefix.param().abi()).ok()
     }
     pub unsafe fn GetIdentityWide(&self, buffer: Option<&mut [u16]>, identitysize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetIdentityWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(identitysize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn OutputIdentityWide<P0>(&self, outputcontrol: u32, flags: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputIdentityWide)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputIdentityWide)(windows_core::Interface::as_raw(self), outputcontrol, flags, format.param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacksWide(&self) -> windows_core::Result<IDebugEventCallbacksWide> {
         let mut result__ = std::mem::zeroed();
@@ -5026,55 +5026,55 @@ impl IDebugClient8 {
     }
     pub unsafe fn SetEventCallbacksWide<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugEventCallbacksWide>,
+        P0: windows_core::Param<IDebugEventCallbacksWide>,
     {
-        (windows_core::Interface::vtable(self).SetEventCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn CreateProcess2<P0, P1, P2>(&self, server: u64, commandline: P0, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P1, environment: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
-        P2: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
+        P2: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcess2)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.into_param().abi(), environment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateProcess2)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi()).ok()
     }
     pub unsafe fn CreateProcess2Wide<P0, P1, P2>(&self, server: u64, commandline: P0, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P1, environment: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcess2Wide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.into_param().abi(), environment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateProcess2Wide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi()).ok()
     }
     pub unsafe fn CreateProcessAndAttach2<P0, P1, P2>(&self, server: u64, commandline: P0, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P1, environment: P2, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
-        P2: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
+        P2: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttach2)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.into_param().abi(), environment.into_param().abi(), processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttach2)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi(), processid, attachflags).ok()
     }
     pub unsafe fn CreateProcessAndAttach2Wide<P0, P1, P2>(&self, server: u64, commandline: P0, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P1, environment: P2, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessAndAttach2Wide)(windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.into_param().abi(), environment.into_param().abi(), processid, attachflags).ok()
+        (windows_core::Interface::vtable(self).CreateProcessAndAttach2Wide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi(), processid, attachflags).ok()
     }
     pub unsafe fn PushOutputLinePrefix<P0>(&self, newprefix: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).PushOutputLinePrefix)(windows_core::Interface::as_raw(self), newprefix.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).PushOutputLinePrefix)(windows_core::Interface::as_raw(self), newprefix.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn PushOutputLinePrefixWide<P0>(&self, newprefix: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).PushOutputLinePrefixWide)(windows_core::Interface::as_raw(self), newprefix.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).PushOutputLinePrefixWide)(windows_core::Interface::as_raw(self), newprefix.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn PopOutputLinePrefix(&self, handle: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).PopOutputLinePrefix)(windows_core::Interface::as_raw(self), handle).ok()
@@ -5096,33 +5096,33 @@ impl IDebugClient8 {
     }
     pub unsafe fn SetQuitLockString<P0>(&self, string: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetQuitLockString)(windows_core::Interface::as_raw(self), string.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetQuitLockString)(windows_core::Interface::as_raw(self), string.param().abi()).ok()
     }
     pub unsafe fn GetQuitLockStringWide(&self, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetQuitLockStringWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(stringsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetQuitLockStringWide<P0>(&self, string: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetQuitLockStringWide)(windows_core::Interface::as_raw(self), string.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetQuitLockStringWide)(windows_core::Interface::as_raw(self), string.param().abi()).ok()
     }
     pub unsafe fn SetEventContextCallbacks<P0>(&self, callbacks: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugEventContextCallbacks>,
+        P0: windows_core::Param<IDebugEventContextCallbacks>,
     {
-        (windows_core::Interface::vtable(self).SetEventContextCallbacks)(windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventContextCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok()
     }
     pub unsafe fn SetClientContext(&self, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetClientContext)(windows_core::Interface::as_raw(self), context, contextsize).ok()
     }
     pub unsafe fn OpenDumpFileWide2<P0>(&self, filename: P0, filehandle: u64, alternatearch: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenDumpFileWide2)(windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle, alternatearch).ok()
+        (windows_core::Interface::vtable(self).OpenDumpFileWide2)(windows_core::Interface::as_raw(self), filename.param().abi(), filehandle, alternatearch).ok()
     }
 }
 #[repr(C)]
@@ -5245,10 +5245,10 @@ impl IDebugControl {
     }
     pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.into_param().abi(), append.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
     }
     pub unsafe fn CloseLogFile(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CloseLogFile)(windows_core::Interface::as_raw(self)).ok()
@@ -5265,45 +5265,45 @@ impl IDebugControl {
     }
     pub unsafe fn ReturnInput<P0>(&self, buffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ReturnInput)(windows_core::Interface::as_raw(self), buffer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReturnInput)(windows_core::Interface::as_raw(self), buffer.param().abi()).ok()
     }
     pub unsafe fn Output<P0>(&self, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok()
     }
     pub unsafe fn OutputVaList<P0>(&self, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok()
     }
     pub unsafe fn ControlledOutput<P0>(&self, outputcontrol: u32, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok()
     }
     pub unsafe fn ControlledOutputVaList<P0>(&self, outputcontrol: u32, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok()
     }
     pub unsafe fn OutputPrompt<P0>(&self, outputcontrol: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok()
     }
     pub unsafe fn OutputPromptVaList<P0>(&self, outputcontrol: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok()
     }
     pub unsafe fn GetPromptText(&self, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -5323,10 +5323,10 @@ impl IDebugControl {
     }
     pub unsafe fn Assemble<P0>(&self, offset: u64, instr: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Assemble)(windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Assemble)(windows_core::Interface::as_raw(self), offset, instr.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: Option<&mut [u8]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(disassemblysize.unwrap_or(std::ptr::null_mut())), endoffset).ok()
@@ -5469,9 +5469,9 @@ impl IDebugControl {
     }
     pub unsafe fn SetTextMacro<P0>(&self, slot: u32, r#macro: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextMacro)(windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextMacro)(windows_core::Interface::as_raw(self), slot, r#macro.param().abi()).ok()
     }
     pub unsafe fn GetRadix(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -5482,9 +5482,9 @@ impl IDebugControl {
     }
     pub unsafe fn Evaluate<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.into_param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in, outtype, out).ok()
@@ -5494,15 +5494,15 @@ impl IDebugControl {
     }
     pub unsafe fn Execute<P0>(&self, outputcontrol: u32, command: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), outputcontrol, command.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), outputcontrol, command.param().abi(), flags).ok()
     }
     pub unsafe fn ExecuteCommandFile<P0>(&self, outputcontrol: u32, commandfile: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ExecuteCommandFile)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).ExecuteCommandFile)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.param().abi(), flags).ok()
     }
     pub unsafe fn GetNumberBreakpoints(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -5525,39 +5525,39 @@ impl IDebugControl {
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugBreakpoint>,
+        P0: windows_core::Param<IDebugBreakpoint>,
     {
-        (windows_core::Interface::vtable(self).RemoveBreakpoint)(windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveBreakpoint)(windows_core::Interface::as_raw(self), bp.param().abi()).ok()
     }
     pub unsafe fn AddExtension<P0>(&self, path: P0, flags: u32) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddExtension)(windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddExtension)(windows_core::Interface::as_raw(self), path.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveExtension)(windows_core::Interface::as_raw(self), handle).ok()
     }
     pub unsafe fn GetExtensionByPath<P0>(&self, path: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetExtensionByPath)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetExtensionByPath)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CallExtension<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
     pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
+        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
     }
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
@@ -5578,9 +5578,9 @@ impl IDebugControl {
     }
     pub unsafe fn SetEventFilterCommand<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok()
@@ -5593,9 +5593,9 @@ impl IDebugControl {
     }
     pub unsafe fn SetSpecificFilterArgument<P0>(&self, index: u32, argument: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.param().abi()).ok()
     }
     pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: Option<*const u32>, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, core::mem::transmute(codes.unwrap_or(std::ptr::null())), start, params).ok()
@@ -5608,9 +5608,9 @@ impl IDebugControl {
     }
     pub unsafe fn SetExceptionFilterSecondCommand<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn WaitForEvent(&self, flags: u32, timeout: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).WaitForEvent)(windows_core::Interface::as_raw(self), flags, timeout).ok()
@@ -5742,10 +5742,10 @@ impl IDebugControl2 {
     }
     pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.into_param().abi(), append.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
     }
     pub unsafe fn CloseLogFile(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CloseLogFile)(windows_core::Interface::as_raw(self)).ok()
@@ -5762,45 +5762,45 @@ impl IDebugControl2 {
     }
     pub unsafe fn ReturnInput<P0>(&self, buffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ReturnInput)(windows_core::Interface::as_raw(self), buffer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReturnInput)(windows_core::Interface::as_raw(self), buffer.param().abi()).ok()
     }
     pub unsafe fn Output<P0>(&self, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok()
     }
     pub unsafe fn OutputVaList<P0>(&self, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok()
     }
     pub unsafe fn ControlledOutput<P0>(&self, outputcontrol: u32, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok()
     }
     pub unsafe fn ControlledOutputVaList<P0>(&self, outputcontrol: u32, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok()
     }
     pub unsafe fn OutputPrompt<P0>(&self, outputcontrol: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok()
     }
     pub unsafe fn OutputPromptVaList<P0>(&self, outputcontrol: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok()
     }
     pub unsafe fn GetPromptText(&self, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -5820,10 +5820,10 @@ impl IDebugControl2 {
     }
     pub unsafe fn Assemble<P0>(&self, offset: u64, instr: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Assemble)(windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Assemble)(windows_core::Interface::as_raw(self), offset, instr.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: Option<&mut [u8]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(disassemblysize.unwrap_or(std::ptr::null_mut())), endoffset).ok()
@@ -5966,9 +5966,9 @@ impl IDebugControl2 {
     }
     pub unsafe fn SetTextMacro<P0>(&self, slot: u32, r#macro: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextMacro)(windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextMacro)(windows_core::Interface::as_raw(self), slot, r#macro.param().abi()).ok()
     }
     pub unsafe fn GetRadix(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -5979,9 +5979,9 @@ impl IDebugControl2 {
     }
     pub unsafe fn Evaluate<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.into_param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in, outtype, out).ok()
@@ -5991,15 +5991,15 @@ impl IDebugControl2 {
     }
     pub unsafe fn Execute<P0>(&self, outputcontrol: u32, command: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), outputcontrol, command.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), outputcontrol, command.param().abi(), flags).ok()
     }
     pub unsafe fn ExecuteCommandFile<P0>(&self, outputcontrol: u32, commandfile: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ExecuteCommandFile)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).ExecuteCommandFile)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.param().abi(), flags).ok()
     }
     pub unsafe fn GetNumberBreakpoints(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -6022,39 +6022,39 @@ impl IDebugControl2 {
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugBreakpoint>,
+        P0: windows_core::Param<IDebugBreakpoint>,
     {
-        (windows_core::Interface::vtable(self).RemoveBreakpoint)(windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveBreakpoint)(windows_core::Interface::as_raw(self), bp.param().abi()).ok()
     }
     pub unsafe fn AddExtension<P0>(&self, path: P0, flags: u32) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddExtension)(windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddExtension)(windows_core::Interface::as_raw(self), path.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveExtension)(windows_core::Interface::as_raw(self), handle).ok()
     }
     pub unsafe fn GetExtensionByPath<P0>(&self, path: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetExtensionByPath)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetExtensionByPath)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CallExtension<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
     pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
+        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
     }
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
@@ -6075,9 +6075,9 @@ impl IDebugControl2 {
     }
     pub unsafe fn SetEventFilterCommand<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok()
@@ -6090,9 +6090,9 @@ impl IDebugControl2 {
     }
     pub unsafe fn SetSpecificFilterArgument<P0>(&self, index: u32, argument: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.param().abi()).ok()
     }
     pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: Option<*const u32>, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, core::mem::transmute(codes.unwrap_or(std::ptr::null())), start, params).ok()
@@ -6105,9 +6105,9 @@ impl IDebugControl2 {
     }
     pub unsafe fn SetExceptionFilterSecondCommand<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn WaitForEvent(&self, flags: u32, timeout: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).WaitForEvent)(windows_core::Interface::as_raw(self), flags, timeout).ok()
@@ -6133,11 +6133,11 @@ impl IDebugControl2 {
     }
     pub unsafe fn GetTextReplacement<P0>(&self, srctext: P0, index: u32, srcbuffer: Option<&mut [u8]>, srcsize: Option<*mut u32>, dstbuffer: Option<&mut [u8]>, dstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         (windows_core::Interface::vtable(self).GetTextReplacement)(
             windows_core::Interface::as_raw(self),
-            srctext.into_param().abi(),
+            srctext.param().abi(),
             index,
             core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
             srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
@@ -6150,10 +6150,10 @@ impl IDebugControl2 {
     }
     pub unsafe fn SetTextReplacement<P0, P1>(&self, srctext: P0, dsttext: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextReplacement)(windows_core::Interface::as_raw(self), srctext.into_param().abi(), dsttext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextReplacement)(windows_core::Interface::as_raw(self), srctext.param().abi(), dsttext.param().abi()).ok()
     }
     pub unsafe fn RemoveTextReplacements(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveTextReplacements)(windows_core::Interface::as_raw(self)).ok()
@@ -6293,10 +6293,10 @@ impl IDebugControl3 {
     }
     pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.into_param().abi(), append.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
     }
     pub unsafe fn CloseLogFile(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CloseLogFile)(windows_core::Interface::as_raw(self)).ok()
@@ -6313,45 +6313,45 @@ impl IDebugControl3 {
     }
     pub unsafe fn ReturnInput<P0>(&self, buffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ReturnInput)(windows_core::Interface::as_raw(self), buffer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReturnInput)(windows_core::Interface::as_raw(self), buffer.param().abi()).ok()
     }
     pub unsafe fn Output<P0>(&self, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok()
     }
     pub unsafe fn OutputVaList<P0>(&self, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok()
     }
     pub unsafe fn ControlledOutput<P0>(&self, outputcontrol: u32, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok()
     }
     pub unsafe fn ControlledOutputVaList<P0>(&self, outputcontrol: u32, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok()
     }
     pub unsafe fn OutputPrompt<P0>(&self, outputcontrol: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok()
     }
     pub unsafe fn OutputPromptVaList<P0>(&self, outputcontrol: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok()
     }
     pub unsafe fn GetPromptText(&self, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -6371,10 +6371,10 @@ impl IDebugControl3 {
     }
     pub unsafe fn Assemble<P0>(&self, offset: u64, instr: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Assemble)(windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Assemble)(windows_core::Interface::as_raw(self), offset, instr.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: Option<&mut [u8]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(disassemblysize.unwrap_or(std::ptr::null_mut())), endoffset).ok()
@@ -6517,9 +6517,9 @@ impl IDebugControl3 {
     }
     pub unsafe fn SetTextMacro<P0>(&self, slot: u32, r#macro: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextMacro)(windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextMacro)(windows_core::Interface::as_raw(self), slot, r#macro.param().abi()).ok()
     }
     pub unsafe fn GetRadix(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -6530,9 +6530,9 @@ impl IDebugControl3 {
     }
     pub unsafe fn Evaluate<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.into_param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in, outtype, out).ok()
@@ -6542,15 +6542,15 @@ impl IDebugControl3 {
     }
     pub unsafe fn Execute<P0>(&self, outputcontrol: u32, command: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), outputcontrol, command.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), outputcontrol, command.param().abi(), flags).ok()
     }
     pub unsafe fn ExecuteCommandFile<P0>(&self, outputcontrol: u32, commandfile: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ExecuteCommandFile)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).ExecuteCommandFile)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.param().abi(), flags).ok()
     }
     pub unsafe fn GetNumberBreakpoints(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -6573,39 +6573,39 @@ impl IDebugControl3 {
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugBreakpoint>,
+        P0: windows_core::Param<IDebugBreakpoint>,
     {
-        (windows_core::Interface::vtable(self).RemoveBreakpoint)(windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveBreakpoint)(windows_core::Interface::as_raw(self), bp.param().abi()).ok()
     }
     pub unsafe fn AddExtension<P0>(&self, path: P0, flags: u32) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddExtension)(windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddExtension)(windows_core::Interface::as_raw(self), path.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveExtension)(windows_core::Interface::as_raw(self), handle).ok()
     }
     pub unsafe fn GetExtensionByPath<P0>(&self, path: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetExtensionByPath)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetExtensionByPath)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CallExtension<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
     pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
+        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
     }
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
@@ -6626,9 +6626,9 @@ impl IDebugControl3 {
     }
     pub unsafe fn SetEventFilterCommand<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok()
@@ -6641,9 +6641,9 @@ impl IDebugControl3 {
     }
     pub unsafe fn SetSpecificFilterArgument<P0>(&self, index: u32, argument: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.param().abi()).ok()
     }
     pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: Option<*const u32>, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, core::mem::transmute(codes.unwrap_or(std::ptr::null())), start, params).ok()
@@ -6656,9 +6656,9 @@ impl IDebugControl3 {
     }
     pub unsafe fn SetExceptionFilterSecondCommand<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn WaitForEvent(&self, flags: u32, timeout: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).WaitForEvent)(windows_core::Interface::as_raw(self), flags, timeout).ok()
@@ -6684,11 +6684,11 @@ impl IDebugControl3 {
     }
     pub unsafe fn GetTextReplacement<P0>(&self, srctext: P0, index: u32, srcbuffer: Option<&mut [u8]>, srcsize: Option<*mut u32>, dstbuffer: Option<&mut [u8]>, dstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         (windows_core::Interface::vtable(self).GetTextReplacement)(
             windows_core::Interface::as_raw(self),
-            srctext.into_param().abi(),
+            srctext.param().abi(),
             index,
             core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
             srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
@@ -6701,10 +6701,10 @@ impl IDebugControl3 {
     }
     pub unsafe fn SetTextReplacement<P0, P1>(&self, srctext: P0, dsttext: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextReplacement)(windows_core::Interface::as_raw(self), srctext.into_param().abi(), dsttext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextReplacement)(windows_core::Interface::as_raw(self), srctext.param().abi(), dsttext.param().abi()).ok()
     }
     pub unsafe fn RemoveTextReplacements(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveTextReplacements)(windows_core::Interface::as_raw(self)).ok()
@@ -6734,9 +6734,9 @@ impl IDebugControl3 {
     }
     pub unsafe fn SetExpressionSyntaxByName<P0>(&self, abbrevname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExpressionSyntaxByName)(windows_core::Interface::as_raw(self), abbrevname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExpressionSyntaxByName)(windows_core::Interface::as_raw(self), abbrevname.param().abi()).ok()
     }
     pub unsafe fn GetNumberExpressionSyntaxes(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -6761,9 +6761,9 @@ impl IDebugControl3 {
     }
     pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetEventIndexDescription)(windows_core::Interface::as_raw(self), index, which, buffer.into_param().abi(), buffersize, core::mem::transmute(descsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetEventIndexDescription)(windows_core::Interface::as_raw(self), index, which, buffer.param().abi(), buffersize, core::mem::transmute(descsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentEventIndex(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -6918,10 +6918,10 @@ impl IDebugControl4 {
     }
     pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.into_param().abi(), append.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
     }
     pub unsafe fn CloseLogFile(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CloseLogFile)(windows_core::Interface::as_raw(self)).ok()
@@ -6938,45 +6938,45 @@ impl IDebugControl4 {
     }
     pub unsafe fn ReturnInput<P0>(&self, buffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ReturnInput)(windows_core::Interface::as_raw(self), buffer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReturnInput)(windows_core::Interface::as_raw(self), buffer.param().abi()).ok()
     }
     pub unsafe fn Output<P0>(&self, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok()
     }
     pub unsafe fn OutputVaList<P0>(&self, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok()
     }
     pub unsafe fn ControlledOutput<P0>(&self, outputcontrol: u32, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok()
     }
     pub unsafe fn ControlledOutputVaList<P0>(&self, outputcontrol: u32, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok()
     }
     pub unsafe fn OutputPrompt<P0>(&self, outputcontrol: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok()
     }
     pub unsafe fn OutputPromptVaList<P0>(&self, outputcontrol: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok()
     }
     pub unsafe fn GetPromptText(&self, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -6996,10 +6996,10 @@ impl IDebugControl4 {
     }
     pub unsafe fn Assemble<P0>(&self, offset: u64, instr: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Assemble)(windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Assemble)(windows_core::Interface::as_raw(self), offset, instr.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: Option<&mut [u8]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(disassemblysize.unwrap_or(std::ptr::null_mut())), endoffset).ok()
@@ -7142,9 +7142,9 @@ impl IDebugControl4 {
     }
     pub unsafe fn SetTextMacro<P0>(&self, slot: u32, r#macro: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextMacro)(windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextMacro)(windows_core::Interface::as_raw(self), slot, r#macro.param().abi()).ok()
     }
     pub unsafe fn GetRadix(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -7155,9 +7155,9 @@ impl IDebugControl4 {
     }
     pub unsafe fn Evaluate<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.into_param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in, outtype, out).ok()
@@ -7167,15 +7167,15 @@ impl IDebugControl4 {
     }
     pub unsafe fn Execute<P0>(&self, outputcontrol: u32, command: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), outputcontrol, command.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), outputcontrol, command.param().abi(), flags).ok()
     }
     pub unsafe fn ExecuteCommandFile<P0>(&self, outputcontrol: u32, commandfile: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ExecuteCommandFile)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).ExecuteCommandFile)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.param().abi(), flags).ok()
     }
     pub unsafe fn GetNumberBreakpoints(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -7198,39 +7198,39 @@ impl IDebugControl4 {
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugBreakpoint>,
+        P0: windows_core::Param<IDebugBreakpoint>,
     {
-        (windows_core::Interface::vtable(self).RemoveBreakpoint)(windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveBreakpoint)(windows_core::Interface::as_raw(self), bp.param().abi()).ok()
     }
     pub unsafe fn AddExtension<P0>(&self, path: P0, flags: u32) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddExtension)(windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddExtension)(windows_core::Interface::as_raw(self), path.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveExtension)(windows_core::Interface::as_raw(self), handle).ok()
     }
     pub unsafe fn GetExtensionByPath<P0>(&self, path: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetExtensionByPath)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetExtensionByPath)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CallExtension<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
     pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
+        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
     }
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
@@ -7251,9 +7251,9 @@ impl IDebugControl4 {
     }
     pub unsafe fn SetEventFilterCommand<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok()
@@ -7266,9 +7266,9 @@ impl IDebugControl4 {
     }
     pub unsafe fn SetSpecificFilterArgument<P0>(&self, index: u32, argument: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.param().abi()).ok()
     }
     pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: Option<*const u32>, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, core::mem::transmute(codes.unwrap_or(std::ptr::null())), start, params).ok()
@@ -7281,9 +7281,9 @@ impl IDebugControl4 {
     }
     pub unsafe fn SetExceptionFilterSecondCommand<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn WaitForEvent(&self, flags: u32, timeout: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).WaitForEvent)(windows_core::Interface::as_raw(self), flags, timeout).ok()
@@ -7309,11 +7309,11 @@ impl IDebugControl4 {
     }
     pub unsafe fn GetTextReplacement<P0>(&self, srctext: P0, index: u32, srcbuffer: Option<&mut [u8]>, srcsize: Option<*mut u32>, dstbuffer: Option<&mut [u8]>, dstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         (windows_core::Interface::vtable(self).GetTextReplacement)(
             windows_core::Interface::as_raw(self),
-            srctext.into_param().abi(),
+            srctext.param().abi(),
             index,
             core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
             srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
@@ -7326,10 +7326,10 @@ impl IDebugControl4 {
     }
     pub unsafe fn SetTextReplacement<P0, P1>(&self, srctext: P0, dsttext: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextReplacement)(windows_core::Interface::as_raw(self), srctext.into_param().abi(), dsttext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextReplacement)(windows_core::Interface::as_raw(self), srctext.param().abi(), dsttext.param().abi()).ok()
     }
     pub unsafe fn RemoveTextReplacements(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveTextReplacements)(windows_core::Interface::as_raw(self)).ok()
@@ -7359,9 +7359,9 @@ impl IDebugControl4 {
     }
     pub unsafe fn SetExpressionSyntaxByName<P0>(&self, abbrevname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExpressionSyntaxByName)(windows_core::Interface::as_raw(self), abbrevname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExpressionSyntaxByName)(windows_core::Interface::as_raw(self), abbrevname.param().abi()).ok()
     }
     pub unsafe fn GetNumberExpressionSyntaxes(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -7386,9 +7386,9 @@ impl IDebugControl4 {
     }
     pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetEventIndexDescription)(windows_core::Interface::as_raw(self), index, which, buffer.into_param().abi(), buffersize, core::mem::transmute(descsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetEventIndexDescription)(windows_core::Interface::as_raw(self), index, which, buffer.param().abi(), buffersize, core::mem::transmute(descsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentEventIndex(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -7403,65 +7403,65 @@ impl IDebugControl4 {
     }
     pub unsafe fn OpenLogFileWide<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.into_param().abi(), append.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
     }
     pub unsafe fn InputWide(&self, buffer: &mut [u16], inputsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).InputWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(inputsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReturnInputWide<P0>(&self, buffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ReturnInputWide)(windows_core::Interface::as_raw(self), buffer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReturnInputWide)(windows_core::Interface::as_raw(self), buffer.param().abi()).ok()
     }
     pub unsafe fn OutputWide<P0>(&self, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputWide)(windows_core::Interface::as_raw(self), mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputWide)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok()
     }
     pub unsafe fn OutputVaListWide<P0>(&self, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputVaListWide)(windows_core::Interface::as_raw(self), mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputVaListWide)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok()
     }
     pub unsafe fn ControlledOutputWide<P0>(&self, outputcontrol: u32, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutputWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ControlledOutputWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok()
     }
     pub unsafe fn ControlledOutputVaListWide<P0>(&self, outputcontrol: u32, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutputVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).ControlledOutputVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok()
     }
     pub unsafe fn OutputPromptWide<P0>(&self, outputcontrol: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPromptWide)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputPromptWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok()
     }
     pub unsafe fn OutputPromptVaListWide<P0>(&self, outputcontrol: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPromptVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputPromptVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok()
     }
     pub unsafe fn GetPromptTextWide(&self, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPromptTextWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn AssembleWide<P0>(&self, offset: u64, instr: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AssembleWide)(windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AssembleWide)(windows_core::Interface::as_raw(self), offset, instr.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn DisassembleWide(&self, offset: u64, flags: u32, buffer: Option<&mut [u16]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DisassembleWide)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(disassemblysize.unwrap_or(std::ptr::null_mut())), endoffset).ok()
@@ -7484,27 +7484,27 @@ impl IDebugControl4 {
     }
     pub unsafe fn SetTextMacroWide<P0>(&self, slot: u32, r#macro: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextMacroWide)(windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextMacroWide)(windows_core::Interface::as_raw(self), slot, r#macro.param().abi()).ok()
     }
     pub unsafe fn EvaluateWide<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).EvaluateWide)(windows_core::Interface::as_raw(self), expression.into_param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).EvaluateWide)(windows_core::Interface::as_raw(self), expression.param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ExecuteWide<P0>(&self, outputcontrol: u32, command: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ExecuteWide)(windows_core::Interface::as_raw(self), outputcontrol, command.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).ExecuteWide)(windows_core::Interface::as_raw(self), outputcontrol, command.param().abi(), flags).ok()
     }
     pub unsafe fn ExecuteCommandFileWide<P0>(&self, outputcontrol: u32, commandfile: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ExecuteCommandFileWide)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).ExecuteCommandFileWide)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.param().abi(), flags).ok()
     }
     pub unsafe fn GetBreakpointByIndex2(&self, index: u32) -> windows_core::Result<IDebugBreakpoint2> {
         let mut result__ = std::mem::zeroed();
@@ -7520,36 +7520,36 @@ impl IDebugControl4 {
     }
     pub unsafe fn RemoveBreakpoint2<P0>(&self, bp: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugBreakpoint2>,
+        P0: windows_core::Param<IDebugBreakpoint2>,
     {
-        (windows_core::Interface::vtable(self).RemoveBreakpoint2)(windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveBreakpoint2)(windows_core::Interface::as_raw(self), bp.param().abi()).ok()
     }
     pub unsafe fn AddExtensionWide<P0>(&self, path: P0, flags: u32) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddExtensionWide)(windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddExtensionWide)(windows_core::Interface::as_raw(self), path.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetExtensionByPathWide<P0>(&self, path: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetExtensionByPathWide)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetExtensionByPathWide)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CallExtensionWide<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CallExtensionWide)(windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CallExtensionWide)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
     pub unsafe fn GetExtensionFunctionWide<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunctionWide)(windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
+        (windows_core::Interface::vtable(self).GetExtensionFunctionWide)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
     }
     pub unsafe fn GetEventFilterTextWide(&self, index: u32, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetEventFilterTextWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -7559,38 +7559,38 @@ impl IDebugControl4 {
     }
     pub unsafe fn SetEventFilterCommandWide<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn GetSpecificFilterArgumentWide(&self, index: u32, buffer: Option<&mut [u16]>, argumentsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(argumentsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetSpecificFilterArgumentWide<P0>(&self, index: u32, argument: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, argument.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, argument.param().abi()).ok()
     }
     pub unsafe fn GetExceptionFilterSecondCommandWide(&self, index: u32, buffer: Option<&mut [u16]>, commandsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(commandsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetExceptionFilterSecondCommandWide<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn GetLastEventInformationWide(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>, description: Option<&mut [u16]>, descriptionused: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLastEventInformationWide)(windows_core::Interface::as_raw(self), r#type, processid, threadid, core::mem::transmute(extrainformation.unwrap_or(std::ptr::null_mut())), extrainformationsize, core::mem::transmute(extrainformationused.unwrap_or(std::ptr::null_mut())), core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(descriptionused.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetTextReplacementWide<P0>(&self, srctext: P0, index: u32, srcbuffer: Option<&mut [u16]>, srcsize: Option<*mut u32>, dstbuffer: Option<&mut [u16]>, dstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).GetTextReplacementWide)(
             windows_core::Interface::as_raw(self),
-            srctext.into_param().abi(),
+            srctext.param().abi(),
             index,
             core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
             srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
@@ -7603,16 +7603,16 @@ impl IDebugControl4 {
     }
     pub unsafe fn SetTextReplacementWide<P0, P1>(&self, srctext: P0, dsttext: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextReplacementWide)(windows_core::Interface::as_raw(self), srctext.into_param().abi(), dsttext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextReplacementWide)(windows_core::Interface::as_raw(self), srctext.param().abi(), dsttext.param().abi()).ok()
     }
     pub unsafe fn SetExpressionSyntaxByNameWide<P0>(&self, abbrevname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExpressionSyntaxByNameWide)(windows_core::Interface::as_raw(self), abbrevname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExpressionSyntaxByNameWide)(windows_core::Interface::as_raw(self), abbrevname.param().abi()).ok()
     }
     pub unsafe fn GetExpressionSyntaxNamesWide(&self, index: u32, fullnamebuffer: Option<&mut [u16]>, fullnamesize: Option<*mut u32>, abbrevnamebuffer: Option<&mut [u16]>, abbrevnamesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExpressionSyntaxNamesWide)(
@@ -7629,27 +7629,27 @@ impl IDebugControl4 {
     }
     pub unsafe fn GetEventIndexDescriptionWide<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetEventIndexDescriptionWide)(windows_core::Interface::as_raw(self), index, which, buffer.into_param().abi(), buffersize, core::mem::transmute(descsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetEventIndexDescriptionWide)(windows_core::Interface::as_raw(self), index, which, buffer.param().abi(), buffersize, core::mem::transmute(descsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetLogFile2(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, flags: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFile2)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(std::ptr::null_mut())), flags).ok()
     }
     pub unsafe fn OpenLogFile2<P0>(&self, file: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile2)(windows_core::Interface::as_raw(self), file.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile2)(windows_core::Interface::as_raw(self), file.param().abi(), flags).ok()
     }
     pub unsafe fn GetLogFile2Wide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, flags: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFile2Wide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(std::ptr::null_mut())), flags).ok()
     }
     pub unsafe fn OpenLogFile2Wide<P0>(&self, file: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile2Wide)(windows_core::Interface::as_raw(self), file.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile2Wide)(windows_core::Interface::as_raw(self), file.param().abi(), flags).ok()
     }
     pub unsafe fn GetSystemVersionValues(&self, platformid: *mut u32, win32major: *mut u32, win32minor: *mut u32, kdmajor: Option<*mut u32>, kdminor: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSystemVersionValues)(windows_core::Interface::as_raw(self), platformid, win32major, win32minor, core::mem::transmute(kdmajor.unwrap_or(std::ptr::null_mut())), core::mem::transmute(kdminor.unwrap_or(std::ptr::null_mut()))).ok()
@@ -7876,10 +7876,10 @@ impl IDebugControl5 {
     }
     pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.into_param().abi(), append.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
     }
     pub unsafe fn CloseLogFile(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CloseLogFile)(windows_core::Interface::as_raw(self)).ok()
@@ -7896,45 +7896,45 @@ impl IDebugControl5 {
     }
     pub unsafe fn ReturnInput<P0>(&self, buffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ReturnInput)(windows_core::Interface::as_raw(self), buffer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReturnInput)(windows_core::Interface::as_raw(self), buffer.param().abi()).ok()
     }
     pub unsafe fn Output<P0>(&self, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok()
     }
     pub unsafe fn OutputVaList<P0>(&self, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok()
     }
     pub unsafe fn ControlledOutput<P0>(&self, outputcontrol: u32, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok()
     }
     pub unsafe fn ControlledOutputVaList<P0>(&self, outputcontrol: u32, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok()
     }
     pub unsafe fn OutputPrompt<P0>(&self, outputcontrol: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok()
     }
     pub unsafe fn OutputPromptVaList<P0>(&self, outputcontrol: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok()
     }
     pub unsafe fn GetPromptText(&self, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -7954,10 +7954,10 @@ impl IDebugControl5 {
     }
     pub unsafe fn Assemble<P0>(&self, offset: u64, instr: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Assemble)(windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Assemble)(windows_core::Interface::as_raw(self), offset, instr.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: Option<&mut [u8]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(disassemblysize.unwrap_or(std::ptr::null_mut())), endoffset).ok()
@@ -8100,9 +8100,9 @@ impl IDebugControl5 {
     }
     pub unsafe fn SetTextMacro<P0>(&self, slot: u32, r#macro: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextMacro)(windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextMacro)(windows_core::Interface::as_raw(self), slot, r#macro.param().abi()).ok()
     }
     pub unsafe fn GetRadix(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -8113,9 +8113,9 @@ impl IDebugControl5 {
     }
     pub unsafe fn Evaluate<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.into_param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in, outtype, out).ok()
@@ -8125,15 +8125,15 @@ impl IDebugControl5 {
     }
     pub unsafe fn Execute<P0>(&self, outputcontrol: u32, command: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), outputcontrol, command.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), outputcontrol, command.param().abi(), flags).ok()
     }
     pub unsafe fn ExecuteCommandFile<P0>(&self, outputcontrol: u32, commandfile: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ExecuteCommandFile)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).ExecuteCommandFile)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.param().abi(), flags).ok()
     }
     pub unsafe fn GetNumberBreakpoints(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -8156,39 +8156,39 @@ impl IDebugControl5 {
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugBreakpoint>,
+        P0: windows_core::Param<IDebugBreakpoint>,
     {
-        (windows_core::Interface::vtable(self).RemoveBreakpoint)(windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveBreakpoint)(windows_core::Interface::as_raw(self), bp.param().abi()).ok()
     }
     pub unsafe fn AddExtension<P0>(&self, path: P0, flags: u32) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddExtension)(windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddExtension)(windows_core::Interface::as_raw(self), path.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveExtension)(windows_core::Interface::as_raw(self), handle).ok()
     }
     pub unsafe fn GetExtensionByPath<P0>(&self, path: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetExtensionByPath)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetExtensionByPath)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CallExtension<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
     pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
+        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
     }
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
@@ -8209,9 +8209,9 @@ impl IDebugControl5 {
     }
     pub unsafe fn SetEventFilterCommand<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok()
@@ -8224,9 +8224,9 @@ impl IDebugControl5 {
     }
     pub unsafe fn SetSpecificFilterArgument<P0>(&self, index: u32, argument: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.param().abi()).ok()
     }
     pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: Option<*const u32>, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, core::mem::transmute(codes.unwrap_or(std::ptr::null())), start, params).ok()
@@ -8239,9 +8239,9 @@ impl IDebugControl5 {
     }
     pub unsafe fn SetExceptionFilterSecondCommand<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn WaitForEvent(&self, flags: u32, timeout: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).WaitForEvent)(windows_core::Interface::as_raw(self), flags, timeout).ok()
@@ -8267,11 +8267,11 @@ impl IDebugControl5 {
     }
     pub unsafe fn GetTextReplacement<P0>(&self, srctext: P0, index: u32, srcbuffer: Option<&mut [u8]>, srcsize: Option<*mut u32>, dstbuffer: Option<&mut [u8]>, dstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         (windows_core::Interface::vtable(self).GetTextReplacement)(
             windows_core::Interface::as_raw(self),
-            srctext.into_param().abi(),
+            srctext.param().abi(),
             index,
             core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
             srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
@@ -8284,10 +8284,10 @@ impl IDebugControl5 {
     }
     pub unsafe fn SetTextReplacement<P0, P1>(&self, srctext: P0, dsttext: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextReplacement)(windows_core::Interface::as_raw(self), srctext.into_param().abi(), dsttext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextReplacement)(windows_core::Interface::as_raw(self), srctext.param().abi(), dsttext.param().abi()).ok()
     }
     pub unsafe fn RemoveTextReplacements(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveTextReplacements)(windows_core::Interface::as_raw(self)).ok()
@@ -8317,9 +8317,9 @@ impl IDebugControl5 {
     }
     pub unsafe fn SetExpressionSyntaxByName<P0>(&self, abbrevname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExpressionSyntaxByName)(windows_core::Interface::as_raw(self), abbrevname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExpressionSyntaxByName)(windows_core::Interface::as_raw(self), abbrevname.param().abi()).ok()
     }
     pub unsafe fn GetNumberExpressionSyntaxes(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -8344,9 +8344,9 @@ impl IDebugControl5 {
     }
     pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetEventIndexDescription)(windows_core::Interface::as_raw(self), index, which, buffer.into_param().abi(), buffersize, core::mem::transmute(descsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetEventIndexDescription)(windows_core::Interface::as_raw(self), index, which, buffer.param().abi(), buffersize, core::mem::transmute(descsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentEventIndex(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -8361,65 +8361,65 @@ impl IDebugControl5 {
     }
     pub unsafe fn OpenLogFileWide<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.into_param().abi(), append.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
     }
     pub unsafe fn InputWide(&self, buffer: &mut [u16], inputsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).InputWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(inputsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReturnInputWide<P0>(&self, buffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ReturnInputWide)(windows_core::Interface::as_raw(self), buffer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReturnInputWide)(windows_core::Interface::as_raw(self), buffer.param().abi()).ok()
     }
     pub unsafe fn OutputWide<P0>(&self, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputWide)(windows_core::Interface::as_raw(self), mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputWide)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok()
     }
     pub unsafe fn OutputVaListWide<P0>(&self, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputVaListWide)(windows_core::Interface::as_raw(self), mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputVaListWide)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok()
     }
     pub unsafe fn ControlledOutputWide<P0>(&self, outputcontrol: u32, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutputWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ControlledOutputWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok()
     }
     pub unsafe fn ControlledOutputVaListWide<P0>(&self, outputcontrol: u32, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutputVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).ControlledOutputVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok()
     }
     pub unsafe fn OutputPromptWide<P0>(&self, outputcontrol: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPromptWide)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputPromptWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok()
     }
     pub unsafe fn OutputPromptVaListWide<P0>(&self, outputcontrol: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPromptVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputPromptVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok()
     }
     pub unsafe fn GetPromptTextWide(&self, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPromptTextWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn AssembleWide<P0>(&self, offset: u64, instr: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AssembleWide)(windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AssembleWide)(windows_core::Interface::as_raw(self), offset, instr.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn DisassembleWide(&self, offset: u64, flags: u32, buffer: Option<&mut [u16]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DisassembleWide)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(disassemblysize.unwrap_or(std::ptr::null_mut())), endoffset).ok()
@@ -8442,27 +8442,27 @@ impl IDebugControl5 {
     }
     pub unsafe fn SetTextMacroWide<P0>(&self, slot: u32, r#macro: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextMacroWide)(windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextMacroWide)(windows_core::Interface::as_raw(self), slot, r#macro.param().abi()).ok()
     }
     pub unsafe fn EvaluateWide<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).EvaluateWide)(windows_core::Interface::as_raw(self), expression.into_param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).EvaluateWide)(windows_core::Interface::as_raw(self), expression.param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ExecuteWide<P0>(&self, outputcontrol: u32, command: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ExecuteWide)(windows_core::Interface::as_raw(self), outputcontrol, command.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).ExecuteWide)(windows_core::Interface::as_raw(self), outputcontrol, command.param().abi(), flags).ok()
     }
     pub unsafe fn ExecuteCommandFileWide<P0>(&self, outputcontrol: u32, commandfile: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ExecuteCommandFileWide)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).ExecuteCommandFileWide)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.param().abi(), flags).ok()
     }
     pub unsafe fn GetBreakpointByIndex2(&self, index: u32) -> windows_core::Result<IDebugBreakpoint2> {
         let mut result__ = std::mem::zeroed();
@@ -8478,36 +8478,36 @@ impl IDebugControl5 {
     }
     pub unsafe fn RemoveBreakpoint2<P0>(&self, bp: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugBreakpoint2>,
+        P0: windows_core::Param<IDebugBreakpoint2>,
     {
-        (windows_core::Interface::vtable(self).RemoveBreakpoint2)(windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveBreakpoint2)(windows_core::Interface::as_raw(self), bp.param().abi()).ok()
     }
     pub unsafe fn AddExtensionWide<P0>(&self, path: P0, flags: u32) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddExtensionWide)(windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddExtensionWide)(windows_core::Interface::as_raw(self), path.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetExtensionByPathWide<P0>(&self, path: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetExtensionByPathWide)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetExtensionByPathWide)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CallExtensionWide<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CallExtensionWide)(windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CallExtensionWide)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
     pub unsafe fn GetExtensionFunctionWide<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunctionWide)(windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
+        (windows_core::Interface::vtable(self).GetExtensionFunctionWide)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
     }
     pub unsafe fn GetEventFilterTextWide(&self, index: u32, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetEventFilterTextWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -8517,38 +8517,38 @@ impl IDebugControl5 {
     }
     pub unsafe fn SetEventFilterCommandWide<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn GetSpecificFilterArgumentWide(&self, index: u32, buffer: Option<&mut [u16]>, argumentsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(argumentsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetSpecificFilterArgumentWide<P0>(&self, index: u32, argument: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, argument.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, argument.param().abi()).ok()
     }
     pub unsafe fn GetExceptionFilterSecondCommandWide(&self, index: u32, buffer: Option<&mut [u16]>, commandsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(commandsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetExceptionFilterSecondCommandWide<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn GetLastEventInformationWide(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>, description: Option<&mut [u16]>, descriptionused: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLastEventInformationWide)(windows_core::Interface::as_raw(self), r#type, processid, threadid, core::mem::transmute(extrainformation.unwrap_or(std::ptr::null_mut())), extrainformationsize, core::mem::transmute(extrainformationused.unwrap_or(std::ptr::null_mut())), core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(descriptionused.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetTextReplacementWide<P0>(&self, srctext: P0, index: u32, srcbuffer: Option<&mut [u16]>, srcsize: Option<*mut u32>, dstbuffer: Option<&mut [u16]>, dstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).GetTextReplacementWide)(
             windows_core::Interface::as_raw(self),
-            srctext.into_param().abi(),
+            srctext.param().abi(),
             index,
             core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
             srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
@@ -8561,16 +8561,16 @@ impl IDebugControl5 {
     }
     pub unsafe fn SetTextReplacementWide<P0, P1>(&self, srctext: P0, dsttext: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextReplacementWide)(windows_core::Interface::as_raw(self), srctext.into_param().abi(), dsttext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextReplacementWide)(windows_core::Interface::as_raw(self), srctext.param().abi(), dsttext.param().abi()).ok()
     }
     pub unsafe fn SetExpressionSyntaxByNameWide<P0>(&self, abbrevname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExpressionSyntaxByNameWide)(windows_core::Interface::as_raw(self), abbrevname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExpressionSyntaxByNameWide)(windows_core::Interface::as_raw(self), abbrevname.param().abi()).ok()
     }
     pub unsafe fn GetExpressionSyntaxNamesWide(&self, index: u32, fullnamebuffer: Option<&mut [u16]>, fullnamesize: Option<*mut u32>, abbrevnamebuffer: Option<&mut [u16]>, abbrevnamesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExpressionSyntaxNamesWide)(
@@ -8587,27 +8587,27 @@ impl IDebugControl5 {
     }
     pub unsafe fn GetEventIndexDescriptionWide<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetEventIndexDescriptionWide)(windows_core::Interface::as_raw(self), index, which, buffer.into_param().abi(), buffersize, core::mem::transmute(descsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetEventIndexDescriptionWide)(windows_core::Interface::as_raw(self), index, which, buffer.param().abi(), buffersize, core::mem::transmute(descsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetLogFile2(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, flags: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFile2)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(std::ptr::null_mut())), flags).ok()
     }
     pub unsafe fn OpenLogFile2<P0>(&self, file: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile2)(windows_core::Interface::as_raw(self), file.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile2)(windows_core::Interface::as_raw(self), file.param().abi(), flags).ok()
     }
     pub unsafe fn GetLogFile2Wide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, flags: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFile2Wide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(std::ptr::null_mut())), flags).ok()
     }
     pub unsafe fn OpenLogFile2Wide<P0>(&self, file: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile2Wide)(windows_core::Interface::as_raw(self), file.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile2Wide)(windows_core::Interface::as_raw(self), file.param().abi(), flags).ok()
     }
     pub unsafe fn GetSystemVersionValues(&self, platformid: *mut u32, win32major: *mut u32, win32minor: *mut u32, kdmajor: Option<*mut u32>, kdminor: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSystemVersionValues)(windows_core::Interface::as_raw(self), platformid, win32major, win32minor, core::mem::transmute(kdmajor.unwrap_or(std::ptr::null_mut())), core::mem::transmute(kdminor.unwrap_or(std::ptr::null_mut()))).ok()
@@ -8855,10 +8855,10 @@ impl IDebugControl6 {
     }
     pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.into_param().abi(), append.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
     }
     pub unsafe fn CloseLogFile(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CloseLogFile)(windows_core::Interface::as_raw(self)).ok()
@@ -8875,45 +8875,45 @@ impl IDebugControl6 {
     }
     pub unsafe fn ReturnInput<P0>(&self, buffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ReturnInput)(windows_core::Interface::as_raw(self), buffer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReturnInput)(windows_core::Interface::as_raw(self), buffer.param().abi()).ok()
     }
     pub unsafe fn Output<P0>(&self, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok()
     }
     pub unsafe fn OutputVaList<P0>(&self, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok()
     }
     pub unsafe fn ControlledOutput<P0>(&self, outputcontrol: u32, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok()
     }
     pub unsafe fn ControlledOutputVaList<P0>(&self, outputcontrol: u32, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok()
     }
     pub unsafe fn OutputPrompt<P0>(&self, outputcontrol: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok()
     }
     pub unsafe fn OutputPromptVaList<P0>(&self, outputcontrol: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok()
     }
     pub unsafe fn GetPromptText(&self, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -8933,10 +8933,10 @@ impl IDebugControl6 {
     }
     pub unsafe fn Assemble<P0>(&self, offset: u64, instr: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Assemble)(windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Assemble)(windows_core::Interface::as_raw(self), offset, instr.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: Option<&mut [u8]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(disassemblysize.unwrap_or(std::ptr::null_mut())), endoffset).ok()
@@ -9079,9 +9079,9 @@ impl IDebugControl6 {
     }
     pub unsafe fn SetTextMacro<P0>(&self, slot: u32, r#macro: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextMacro)(windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextMacro)(windows_core::Interface::as_raw(self), slot, r#macro.param().abi()).ok()
     }
     pub unsafe fn GetRadix(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -9092,9 +9092,9 @@ impl IDebugControl6 {
     }
     pub unsafe fn Evaluate<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.into_param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in, outtype, out).ok()
@@ -9104,15 +9104,15 @@ impl IDebugControl6 {
     }
     pub unsafe fn Execute<P0>(&self, outputcontrol: u32, command: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), outputcontrol, command.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), outputcontrol, command.param().abi(), flags).ok()
     }
     pub unsafe fn ExecuteCommandFile<P0>(&self, outputcontrol: u32, commandfile: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ExecuteCommandFile)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).ExecuteCommandFile)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.param().abi(), flags).ok()
     }
     pub unsafe fn GetNumberBreakpoints(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -9135,39 +9135,39 @@ impl IDebugControl6 {
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugBreakpoint>,
+        P0: windows_core::Param<IDebugBreakpoint>,
     {
-        (windows_core::Interface::vtable(self).RemoveBreakpoint)(windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveBreakpoint)(windows_core::Interface::as_raw(self), bp.param().abi()).ok()
     }
     pub unsafe fn AddExtension<P0>(&self, path: P0, flags: u32) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddExtension)(windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddExtension)(windows_core::Interface::as_raw(self), path.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveExtension)(windows_core::Interface::as_raw(self), handle).ok()
     }
     pub unsafe fn GetExtensionByPath<P0>(&self, path: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetExtensionByPath)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetExtensionByPath)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CallExtension<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
     pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
+        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
     }
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
@@ -9188,9 +9188,9 @@ impl IDebugControl6 {
     }
     pub unsafe fn SetEventFilterCommand<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok()
@@ -9203,9 +9203,9 @@ impl IDebugControl6 {
     }
     pub unsafe fn SetSpecificFilterArgument<P0>(&self, index: u32, argument: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.param().abi()).ok()
     }
     pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: Option<*const u32>, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, core::mem::transmute(codes.unwrap_or(std::ptr::null())), start, params).ok()
@@ -9218,9 +9218,9 @@ impl IDebugControl6 {
     }
     pub unsafe fn SetExceptionFilterSecondCommand<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn WaitForEvent(&self, flags: u32, timeout: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).WaitForEvent)(windows_core::Interface::as_raw(self), flags, timeout).ok()
@@ -9246,11 +9246,11 @@ impl IDebugControl6 {
     }
     pub unsafe fn GetTextReplacement<P0>(&self, srctext: P0, index: u32, srcbuffer: Option<&mut [u8]>, srcsize: Option<*mut u32>, dstbuffer: Option<&mut [u8]>, dstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         (windows_core::Interface::vtable(self).GetTextReplacement)(
             windows_core::Interface::as_raw(self),
-            srctext.into_param().abi(),
+            srctext.param().abi(),
             index,
             core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
             srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
@@ -9263,10 +9263,10 @@ impl IDebugControl6 {
     }
     pub unsafe fn SetTextReplacement<P0, P1>(&self, srctext: P0, dsttext: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextReplacement)(windows_core::Interface::as_raw(self), srctext.into_param().abi(), dsttext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextReplacement)(windows_core::Interface::as_raw(self), srctext.param().abi(), dsttext.param().abi()).ok()
     }
     pub unsafe fn RemoveTextReplacements(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveTextReplacements)(windows_core::Interface::as_raw(self)).ok()
@@ -9296,9 +9296,9 @@ impl IDebugControl6 {
     }
     pub unsafe fn SetExpressionSyntaxByName<P0>(&self, abbrevname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExpressionSyntaxByName)(windows_core::Interface::as_raw(self), abbrevname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExpressionSyntaxByName)(windows_core::Interface::as_raw(self), abbrevname.param().abi()).ok()
     }
     pub unsafe fn GetNumberExpressionSyntaxes(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -9323,9 +9323,9 @@ impl IDebugControl6 {
     }
     pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetEventIndexDescription)(windows_core::Interface::as_raw(self), index, which, buffer.into_param().abi(), buffersize, core::mem::transmute(descsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetEventIndexDescription)(windows_core::Interface::as_raw(self), index, which, buffer.param().abi(), buffersize, core::mem::transmute(descsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentEventIndex(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -9340,65 +9340,65 @@ impl IDebugControl6 {
     }
     pub unsafe fn OpenLogFileWide<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.into_param().abi(), append.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
     }
     pub unsafe fn InputWide(&self, buffer: &mut [u16], inputsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).InputWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(inputsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReturnInputWide<P0>(&self, buffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ReturnInputWide)(windows_core::Interface::as_raw(self), buffer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReturnInputWide)(windows_core::Interface::as_raw(self), buffer.param().abi()).ok()
     }
     pub unsafe fn OutputWide<P0>(&self, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputWide)(windows_core::Interface::as_raw(self), mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputWide)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok()
     }
     pub unsafe fn OutputVaListWide<P0>(&self, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputVaListWide)(windows_core::Interface::as_raw(self), mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputVaListWide)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok()
     }
     pub unsafe fn ControlledOutputWide<P0>(&self, outputcontrol: u32, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutputWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ControlledOutputWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok()
     }
     pub unsafe fn ControlledOutputVaListWide<P0>(&self, outputcontrol: u32, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutputVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).ControlledOutputVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok()
     }
     pub unsafe fn OutputPromptWide<P0>(&self, outputcontrol: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPromptWide)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputPromptWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok()
     }
     pub unsafe fn OutputPromptVaListWide<P0>(&self, outputcontrol: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPromptVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputPromptVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok()
     }
     pub unsafe fn GetPromptTextWide(&self, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPromptTextWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn AssembleWide<P0>(&self, offset: u64, instr: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AssembleWide)(windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AssembleWide)(windows_core::Interface::as_raw(self), offset, instr.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn DisassembleWide(&self, offset: u64, flags: u32, buffer: Option<&mut [u16]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DisassembleWide)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(disassemblysize.unwrap_or(std::ptr::null_mut())), endoffset).ok()
@@ -9421,27 +9421,27 @@ impl IDebugControl6 {
     }
     pub unsafe fn SetTextMacroWide<P0>(&self, slot: u32, r#macro: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextMacroWide)(windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextMacroWide)(windows_core::Interface::as_raw(self), slot, r#macro.param().abi()).ok()
     }
     pub unsafe fn EvaluateWide<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).EvaluateWide)(windows_core::Interface::as_raw(self), expression.into_param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).EvaluateWide)(windows_core::Interface::as_raw(self), expression.param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ExecuteWide<P0>(&self, outputcontrol: u32, command: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ExecuteWide)(windows_core::Interface::as_raw(self), outputcontrol, command.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).ExecuteWide)(windows_core::Interface::as_raw(self), outputcontrol, command.param().abi(), flags).ok()
     }
     pub unsafe fn ExecuteCommandFileWide<P0>(&self, outputcontrol: u32, commandfile: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ExecuteCommandFileWide)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).ExecuteCommandFileWide)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.param().abi(), flags).ok()
     }
     pub unsafe fn GetBreakpointByIndex2(&self, index: u32) -> windows_core::Result<IDebugBreakpoint2> {
         let mut result__ = std::mem::zeroed();
@@ -9457,36 +9457,36 @@ impl IDebugControl6 {
     }
     pub unsafe fn RemoveBreakpoint2<P0>(&self, bp: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugBreakpoint2>,
+        P0: windows_core::Param<IDebugBreakpoint2>,
     {
-        (windows_core::Interface::vtable(self).RemoveBreakpoint2)(windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveBreakpoint2)(windows_core::Interface::as_raw(self), bp.param().abi()).ok()
     }
     pub unsafe fn AddExtensionWide<P0>(&self, path: P0, flags: u32) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddExtensionWide)(windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddExtensionWide)(windows_core::Interface::as_raw(self), path.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetExtensionByPathWide<P0>(&self, path: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetExtensionByPathWide)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetExtensionByPathWide)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CallExtensionWide<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CallExtensionWide)(windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CallExtensionWide)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
     pub unsafe fn GetExtensionFunctionWide<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunctionWide)(windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
+        (windows_core::Interface::vtable(self).GetExtensionFunctionWide)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
     }
     pub unsafe fn GetEventFilterTextWide(&self, index: u32, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetEventFilterTextWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -9496,38 +9496,38 @@ impl IDebugControl6 {
     }
     pub unsafe fn SetEventFilterCommandWide<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn GetSpecificFilterArgumentWide(&self, index: u32, buffer: Option<&mut [u16]>, argumentsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(argumentsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetSpecificFilterArgumentWide<P0>(&self, index: u32, argument: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, argument.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, argument.param().abi()).ok()
     }
     pub unsafe fn GetExceptionFilterSecondCommandWide(&self, index: u32, buffer: Option<&mut [u16]>, commandsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(commandsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetExceptionFilterSecondCommandWide<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn GetLastEventInformationWide(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>, description: Option<&mut [u16]>, descriptionused: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLastEventInformationWide)(windows_core::Interface::as_raw(self), r#type, processid, threadid, core::mem::transmute(extrainformation.unwrap_or(std::ptr::null_mut())), extrainformationsize, core::mem::transmute(extrainformationused.unwrap_or(std::ptr::null_mut())), core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(descriptionused.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetTextReplacementWide<P0>(&self, srctext: P0, index: u32, srcbuffer: Option<&mut [u16]>, srcsize: Option<*mut u32>, dstbuffer: Option<&mut [u16]>, dstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).GetTextReplacementWide)(
             windows_core::Interface::as_raw(self),
-            srctext.into_param().abi(),
+            srctext.param().abi(),
             index,
             core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
             srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
@@ -9540,16 +9540,16 @@ impl IDebugControl6 {
     }
     pub unsafe fn SetTextReplacementWide<P0, P1>(&self, srctext: P0, dsttext: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextReplacementWide)(windows_core::Interface::as_raw(self), srctext.into_param().abi(), dsttext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextReplacementWide)(windows_core::Interface::as_raw(self), srctext.param().abi(), dsttext.param().abi()).ok()
     }
     pub unsafe fn SetExpressionSyntaxByNameWide<P0>(&self, abbrevname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExpressionSyntaxByNameWide)(windows_core::Interface::as_raw(self), abbrevname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExpressionSyntaxByNameWide)(windows_core::Interface::as_raw(self), abbrevname.param().abi()).ok()
     }
     pub unsafe fn GetExpressionSyntaxNamesWide(&self, index: u32, fullnamebuffer: Option<&mut [u16]>, fullnamesize: Option<*mut u32>, abbrevnamebuffer: Option<&mut [u16]>, abbrevnamesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExpressionSyntaxNamesWide)(
@@ -9566,27 +9566,27 @@ impl IDebugControl6 {
     }
     pub unsafe fn GetEventIndexDescriptionWide<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetEventIndexDescriptionWide)(windows_core::Interface::as_raw(self), index, which, buffer.into_param().abi(), buffersize, core::mem::transmute(descsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetEventIndexDescriptionWide)(windows_core::Interface::as_raw(self), index, which, buffer.param().abi(), buffersize, core::mem::transmute(descsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetLogFile2(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, flags: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFile2)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(std::ptr::null_mut())), flags).ok()
     }
     pub unsafe fn OpenLogFile2<P0>(&self, file: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile2)(windows_core::Interface::as_raw(self), file.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile2)(windows_core::Interface::as_raw(self), file.param().abi(), flags).ok()
     }
     pub unsafe fn GetLogFile2Wide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, flags: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFile2Wide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(std::ptr::null_mut())), flags).ok()
     }
     pub unsafe fn OpenLogFile2Wide<P0>(&self, file: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile2Wide)(windows_core::Interface::as_raw(self), file.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile2Wide)(windows_core::Interface::as_raw(self), file.param().abi(), flags).ok()
     }
     pub unsafe fn GetSystemVersionValues(&self, platformid: *mut u32, win32major: *mut u32, win32minor: *mut u32, kdmajor: Option<*mut u32>, kdminor: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSystemVersionValues)(windows_core::Interface::as_raw(self), platformid, win32major, win32minor, core::mem::transmute(kdmajor.unwrap_or(std::ptr::null_mut())), core::mem::transmute(kdminor.unwrap_or(std::ptr::null_mut()))).ok()
@@ -9843,10 +9843,10 @@ impl IDebugControl7 {
     }
     pub unsafe fn OpenLogFile<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.into_param().abi(), append.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
     }
     pub unsafe fn CloseLogFile(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CloseLogFile)(windows_core::Interface::as_raw(self)).ok()
@@ -9863,45 +9863,45 @@ impl IDebugControl7 {
     }
     pub unsafe fn ReturnInput<P0>(&self, buffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ReturnInput)(windows_core::Interface::as_raw(self), buffer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReturnInput)(windows_core::Interface::as_raw(self), buffer.param().abi()).ok()
     }
     pub unsafe fn Output<P0>(&self, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok()
     }
     pub unsafe fn OutputVaList<P0>(&self, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok()
     }
     pub unsafe fn ControlledOutput<P0>(&self, outputcontrol: u32, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok()
     }
     pub unsafe fn ControlledOutputVaList<P0>(&self, outputcontrol: u32, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok()
     }
     pub unsafe fn OutputPrompt<P0>(&self, outputcontrol: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok()
     }
     pub unsafe fn OutputPromptVaList<P0>(&self, outputcontrol: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok()
     }
     pub unsafe fn GetPromptText(&self, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -9921,10 +9921,10 @@ impl IDebugControl7 {
     }
     pub unsafe fn Assemble<P0>(&self, offset: u64, instr: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Assemble)(windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Assemble)(windows_core::Interface::as_raw(self), offset, instr.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: Option<&mut [u8]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(disassemblysize.unwrap_or(std::ptr::null_mut())), endoffset).ok()
@@ -10067,9 +10067,9 @@ impl IDebugControl7 {
     }
     pub unsafe fn SetTextMacro<P0>(&self, slot: u32, r#macro: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextMacro)(windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextMacro)(windows_core::Interface::as_raw(self), slot, r#macro.param().abi()).ok()
     }
     pub unsafe fn GetRadix(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -10080,9 +10080,9 @@ impl IDebugControl7 {
     }
     pub unsafe fn Evaluate<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.into_param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in, outtype, out).ok()
@@ -10092,15 +10092,15 @@ impl IDebugControl7 {
     }
     pub unsafe fn Execute<P0>(&self, outputcontrol: u32, command: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), outputcontrol, command.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), outputcontrol, command.param().abi(), flags).ok()
     }
     pub unsafe fn ExecuteCommandFile<P0>(&self, outputcontrol: u32, commandfile: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ExecuteCommandFile)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).ExecuteCommandFile)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.param().abi(), flags).ok()
     }
     pub unsafe fn GetNumberBreakpoints(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -10123,39 +10123,39 @@ impl IDebugControl7 {
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugBreakpoint>,
+        P0: windows_core::Param<IDebugBreakpoint>,
     {
-        (windows_core::Interface::vtable(self).RemoveBreakpoint)(windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveBreakpoint)(windows_core::Interface::as_raw(self), bp.param().abi()).ok()
     }
     pub unsafe fn AddExtension<P0>(&self, path: P0, flags: u32) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddExtension)(windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddExtension)(windows_core::Interface::as_raw(self), path.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveExtension)(windows_core::Interface::as_raw(self), handle).ok()
     }
     pub unsafe fn GetExtensionByPath<P0>(&self, path: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetExtensionByPath)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetExtensionByPath)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CallExtension<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
     pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
+        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
     }
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
@@ -10176,9 +10176,9 @@ impl IDebugControl7 {
     }
     pub unsafe fn SetEventFilterCommand<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok()
@@ -10191,9 +10191,9 @@ impl IDebugControl7 {
     }
     pub unsafe fn SetSpecificFilterArgument<P0>(&self, index: u32, argument: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.param().abi()).ok()
     }
     pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: Option<*const u32>, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, core::mem::transmute(codes.unwrap_or(std::ptr::null())), start, params).ok()
@@ -10206,9 +10206,9 @@ impl IDebugControl7 {
     }
     pub unsafe fn SetExceptionFilterSecondCommand<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn WaitForEvent(&self, flags: u32, timeout: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).WaitForEvent)(windows_core::Interface::as_raw(self), flags, timeout).ok()
@@ -10234,11 +10234,11 @@ impl IDebugControl7 {
     }
     pub unsafe fn GetTextReplacement<P0>(&self, srctext: P0, index: u32, srcbuffer: Option<&mut [u8]>, srcsize: Option<*mut u32>, dstbuffer: Option<&mut [u8]>, dstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         (windows_core::Interface::vtable(self).GetTextReplacement)(
             windows_core::Interface::as_raw(self),
-            srctext.into_param().abi(),
+            srctext.param().abi(),
             index,
             core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
             srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
@@ -10251,10 +10251,10 @@ impl IDebugControl7 {
     }
     pub unsafe fn SetTextReplacement<P0, P1>(&self, srctext: P0, dsttext: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextReplacement)(windows_core::Interface::as_raw(self), srctext.into_param().abi(), dsttext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextReplacement)(windows_core::Interface::as_raw(self), srctext.param().abi(), dsttext.param().abi()).ok()
     }
     pub unsafe fn RemoveTextReplacements(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveTextReplacements)(windows_core::Interface::as_raw(self)).ok()
@@ -10284,9 +10284,9 @@ impl IDebugControl7 {
     }
     pub unsafe fn SetExpressionSyntaxByName<P0>(&self, abbrevname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExpressionSyntaxByName)(windows_core::Interface::as_raw(self), abbrevname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExpressionSyntaxByName)(windows_core::Interface::as_raw(self), abbrevname.param().abi()).ok()
     }
     pub unsafe fn GetNumberExpressionSyntaxes(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -10311,9 +10311,9 @@ impl IDebugControl7 {
     }
     pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetEventIndexDescription)(windows_core::Interface::as_raw(self), index, which, buffer.into_param().abi(), buffersize, core::mem::transmute(descsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetEventIndexDescription)(windows_core::Interface::as_raw(self), index, which, buffer.param().abi(), buffersize, core::mem::transmute(descsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentEventIndex(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -10328,65 +10328,65 @@ impl IDebugControl7 {
     }
     pub unsafe fn OpenLogFileWide<P0, P1>(&self, file: P0, append: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.into_param().abi(), append.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.param().abi(), append.param().abi()).ok()
     }
     pub unsafe fn InputWide(&self, buffer: &mut [u16], inputsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).InputWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(inputsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReturnInputWide<P0>(&self, buffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ReturnInputWide)(windows_core::Interface::as_raw(self), buffer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReturnInputWide)(windows_core::Interface::as_raw(self), buffer.param().abi()).ok()
     }
     pub unsafe fn OutputWide<P0>(&self, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputWide)(windows_core::Interface::as_raw(self), mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputWide)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok()
     }
     pub unsafe fn OutputVaListWide<P0>(&self, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputVaListWide)(windows_core::Interface::as_raw(self), mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputVaListWide)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok()
     }
     pub unsafe fn ControlledOutputWide<P0>(&self, outputcontrol: u32, mask: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutputWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ControlledOutputWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok()
     }
     pub unsafe fn ControlledOutputVaListWide<P0>(&self, outputcontrol: u32, mask: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ControlledOutputVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).ControlledOutputVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok()
     }
     pub unsafe fn OutputPromptWide<P0>(&self, outputcontrol: u32, format: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPromptWide)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputPromptWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok()
     }
     pub unsafe fn OutputPromptVaListWide<P0>(&self, outputcontrol: u32, format: P0, args: *const i8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputPromptVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, format.into_param().abi(), args).ok()
+        (windows_core::Interface::vtable(self).OutputPromptVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok()
     }
     pub unsafe fn GetPromptTextWide(&self, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPromptTextWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn AssembleWide<P0>(&self, offset: u64, instr: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AssembleWide)(windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AssembleWide)(windows_core::Interface::as_raw(self), offset, instr.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn DisassembleWide(&self, offset: u64, flags: u32, buffer: Option<&mut [u16]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DisassembleWide)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(disassemblysize.unwrap_or(std::ptr::null_mut())), endoffset).ok()
@@ -10409,27 +10409,27 @@ impl IDebugControl7 {
     }
     pub unsafe fn SetTextMacroWide<P0>(&self, slot: u32, r#macro: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextMacroWide)(windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextMacroWide)(windows_core::Interface::as_raw(self), slot, r#macro.param().abi()).ok()
     }
     pub unsafe fn EvaluateWide<P0>(&self, expression: P0, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).EvaluateWide)(windows_core::Interface::as_raw(self), expression.into_param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).EvaluateWide)(windows_core::Interface::as_raw(self), expression.param().abi(), desiredtype, value, core::mem::transmute(remainderindex.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ExecuteWide<P0>(&self, outputcontrol: u32, command: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ExecuteWide)(windows_core::Interface::as_raw(self), outputcontrol, command.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).ExecuteWide)(windows_core::Interface::as_raw(self), outputcontrol, command.param().abi(), flags).ok()
     }
     pub unsafe fn ExecuteCommandFileWide<P0>(&self, outputcontrol: u32, commandfile: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ExecuteCommandFileWide)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).ExecuteCommandFileWide)(windows_core::Interface::as_raw(self), outputcontrol, commandfile.param().abi(), flags).ok()
     }
     pub unsafe fn GetBreakpointByIndex2(&self, index: u32) -> windows_core::Result<IDebugBreakpoint2> {
         let mut result__ = std::mem::zeroed();
@@ -10445,36 +10445,36 @@ impl IDebugControl7 {
     }
     pub unsafe fn RemoveBreakpoint2<P0>(&self, bp: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugBreakpoint2>,
+        P0: windows_core::Param<IDebugBreakpoint2>,
     {
-        (windows_core::Interface::vtable(self).RemoveBreakpoint2)(windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveBreakpoint2)(windows_core::Interface::as_raw(self), bp.param().abi()).ok()
     }
     pub unsafe fn AddExtensionWide<P0>(&self, path: P0, flags: u32) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddExtensionWide)(windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddExtensionWide)(windows_core::Interface::as_raw(self), path.param().abi(), flags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetExtensionByPathWide<P0>(&self, path: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetExtensionByPathWide)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetExtensionByPathWide)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CallExtensionWide<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CallExtensionWide)(windows_core::Interface::as_raw(self), handle, function.into_param().abi(), arguments.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CallExtensionWide)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
     pub unsafe fn GetExtensionFunctionWide<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunctionWide)(windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
+        (windows_core::Interface::vtable(self).GetExtensionFunctionWide)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
     }
     pub unsafe fn GetEventFilterTextWide(&self, index: u32, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetEventFilterTextWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -10484,38 +10484,38 @@ impl IDebugControl7 {
     }
     pub unsafe fn SetEventFilterCommandWide<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn GetSpecificFilterArgumentWide(&self, index: u32, buffer: Option<&mut [u16]>, argumentsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(argumentsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetSpecificFilterArgumentWide<P0>(&self, index: u32, argument: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, argument.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, argument.param().abi()).ok()
     }
     pub unsafe fn GetExceptionFilterSecondCommandWide(&self, index: u32, buffer: Option<&mut [u16]>, commandsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(commandsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetExceptionFilterSecondCommandWide<P0>(&self, index: u32, command: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, command.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, command.param().abi()).ok()
     }
     pub unsafe fn GetLastEventInformationWide(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>, description: Option<&mut [u16]>, descriptionused: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLastEventInformationWide)(windows_core::Interface::as_raw(self), r#type, processid, threadid, core::mem::transmute(extrainformation.unwrap_or(std::ptr::null_mut())), extrainformationsize, core::mem::transmute(extrainformationused.unwrap_or(std::ptr::null_mut())), core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(descriptionused.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetTextReplacementWide<P0>(&self, srctext: P0, index: u32, srcbuffer: Option<&mut [u16]>, srcsize: Option<*mut u32>, dstbuffer: Option<&mut [u16]>, dstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).GetTextReplacementWide)(
             windows_core::Interface::as_raw(self),
-            srctext.into_param().abi(),
+            srctext.param().abi(),
             index,
             core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
             srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
@@ -10528,16 +10528,16 @@ impl IDebugControl7 {
     }
     pub unsafe fn SetTextReplacementWide<P0, P1>(&self, srctext: P0, dsttext: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTextReplacementWide)(windows_core::Interface::as_raw(self), srctext.into_param().abi(), dsttext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTextReplacementWide)(windows_core::Interface::as_raw(self), srctext.param().abi(), dsttext.param().abi()).ok()
     }
     pub unsafe fn SetExpressionSyntaxByNameWide<P0>(&self, abbrevname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExpressionSyntaxByNameWide)(windows_core::Interface::as_raw(self), abbrevname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExpressionSyntaxByNameWide)(windows_core::Interface::as_raw(self), abbrevname.param().abi()).ok()
     }
     pub unsafe fn GetExpressionSyntaxNamesWide(&self, index: u32, fullnamebuffer: Option<&mut [u16]>, fullnamesize: Option<*mut u32>, abbrevnamebuffer: Option<&mut [u16]>, abbrevnamesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExpressionSyntaxNamesWide)(
@@ -10554,27 +10554,27 @@ impl IDebugControl7 {
     }
     pub unsafe fn GetEventIndexDescriptionWide<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetEventIndexDescriptionWide)(windows_core::Interface::as_raw(self), index, which, buffer.into_param().abi(), buffersize, core::mem::transmute(descsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetEventIndexDescriptionWide)(windows_core::Interface::as_raw(self), index, which, buffer.param().abi(), buffersize, core::mem::transmute(descsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetLogFile2(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, flags: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFile2)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(std::ptr::null_mut())), flags).ok()
     }
     pub unsafe fn OpenLogFile2<P0>(&self, file: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile2)(windows_core::Interface::as_raw(self), file.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile2)(windows_core::Interface::as_raw(self), file.param().abi(), flags).ok()
     }
     pub unsafe fn GetLogFile2Wide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, flags: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLogFile2Wide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filesize.unwrap_or(std::ptr::null_mut())), flags).ok()
     }
     pub unsafe fn OpenLogFile2Wide<P0>(&self, file: P0, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OpenLogFile2Wide)(windows_core::Interface::as_raw(self), file.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).OpenLogFile2Wide)(windows_core::Interface::as_raw(self), file.param().abi(), flags).ok()
     }
     pub unsafe fn GetSystemVersionValues(&self, platformid: *mut u32, win32major: *mut u32, win32minor: *mut u32, kdmajor: Option<*mut u32>, kdminor: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSystemVersionValues)(windows_core::Interface::as_raw(self), platformid, win32major, win32minor, core::mem::transmute(kdmajor.unwrap_or(std::ptr::null_mut())), core::mem::transmute(kdminor.unwrap_or(std::ptr::null_mut()))).ok()
@@ -11362,9 +11362,9 @@ impl IDebugEventCallbacks {
     }
     pub unsafe fn Breakpoint<P0>(&self, bp: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugBreakpoint>,
+        P0: windows_core::Param<IDebugBreakpoint>,
     {
-        (windows_core::Interface::vtable(self).Breakpoint)(windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Breakpoint)(windows_core::Interface::as_raw(self), bp.param().abi()).ok()
     }
     pub unsafe fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Exception)(windows_core::Interface::as_raw(self), exception, firstchance).ok()
@@ -11377,26 +11377,26 @@ impl IDebugEventCallbacks {
     }
     pub unsafe fn CreateProcessA<P0, P1>(&self, imagefilehandle: u64, handle: u64, baseoffset: u64, modulesize: u32, modulename: P0, imagename: P1, checksum: u32, timedatestamp: u32, initialthreadhandle: u64, threaddataoffset: u64, startoffset: u64) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), imagefilehandle, handle, baseoffset, modulesize, modulename.into_param().abi(), imagename.into_param().abi(), checksum, timedatestamp, initialthreadhandle, threaddataoffset, startoffset).ok()
+        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), imagefilehandle, handle, baseoffset, modulesize, modulename.param().abi(), imagename.param().abi(), checksum, timedatestamp, initialthreadhandle, threaddataoffset, startoffset).ok()
     }
     pub unsafe fn ExitProcess(&self, exitcode: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ExitProcess)(windows_core::Interface::as_raw(self), exitcode).ok()
     }
     pub unsafe fn LoadModule<P0, P1>(&self, imagefilehandle: u64, baseoffset: u64, modulesize: u32, modulename: P0, imagename: P1, checksum: u32, timedatestamp: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).LoadModule)(windows_core::Interface::as_raw(self), imagefilehandle, baseoffset, modulesize, modulename.into_param().abi(), imagename.into_param().abi(), checksum, timedatestamp).ok()
+        (windows_core::Interface::vtable(self).LoadModule)(windows_core::Interface::as_raw(self), imagefilehandle, baseoffset, modulesize, modulename.param().abi(), imagename.param().abi(), checksum, timedatestamp).ok()
     }
     pub unsafe fn UnloadModule<P0>(&self, imagebasename: P0, baseoffset: u64) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).UnloadModule)(windows_core::Interface::as_raw(self), imagebasename.into_param().abi(), baseoffset).ok()
+        (windows_core::Interface::vtable(self).UnloadModule)(windows_core::Interface::as_raw(self), imagebasename.param().abi(), baseoffset).ok()
     }
     pub unsafe fn SystemError(&self, error: u32, level: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SystemError)(windows_core::Interface::as_raw(self), error, level).ok()
@@ -11441,9 +11441,9 @@ impl IDebugEventCallbacksWide {
     }
     pub unsafe fn Breakpoint<P0>(&self, bp: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugBreakpoint2>,
+        P0: windows_core::Param<IDebugBreakpoint2>,
     {
-        (windows_core::Interface::vtable(self).Breakpoint)(windows_core::Interface::as_raw(self), bp.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Breakpoint)(windows_core::Interface::as_raw(self), bp.param().abi()).ok()
     }
     pub unsafe fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Exception)(windows_core::Interface::as_raw(self), exception, firstchance).ok()
@@ -11456,26 +11456,26 @@ impl IDebugEventCallbacksWide {
     }
     pub unsafe fn CreateProcessA<P0, P1>(&self, imagefilehandle: u64, handle: u64, baseoffset: u64, modulesize: u32, modulename: P0, imagename: P1, checksum: u32, timedatestamp: u32, initialthreadhandle: u64, threaddataoffset: u64, startoffset: u64) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), imagefilehandle, handle, baseoffset, modulesize, modulename.into_param().abi(), imagename.into_param().abi(), checksum, timedatestamp, initialthreadhandle, threaddataoffset, startoffset).ok()
+        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), imagefilehandle, handle, baseoffset, modulesize, modulename.param().abi(), imagename.param().abi(), checksum, timedatestamp, initialthreadhandle, threaddataoffset, startoffset).ok()
     }
     pub unsafe fn ExitProcess(&self, exitcode: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ExitProcess)(windows_core::Interface::as_raw(self), exitcode).ok()
     }
     pub unsafe fn LoadModule<P0, P1>(&self, imagefilehandle: u64, baseoffset: u64, modulesize: u32, modulename: P0, imagename: P1, checksum: u32, timedatestamp: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).LoadModule)(windows_core::Interface::as_raw(self), imagefilehandle, baseoffset, modulesize, modulename.into_param().abi(), imagename.into_param().abi(), checksum, timedatestamp).ok()
+        (windows_core::Interface::vtable(self).LoadModule)(windows_core::Interface::as_raw(self), imagefilehandle, baseoffset, modulesize, modulename.param().abi(), imagename.param().abi(), checksum, timedatestamp).ok()
     }
     pub unsafe fn UnloadModule<P0>(&self, imagebasename: P0, baseoffset: u64) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).UnloadModule)(windows_core::Interface::as_raw(self), imagebasename.into_param().abi(), baseoffset).ok()
+        (windows_core::Interface::vtable(self).UnloadModule)(windows_core::Interface::as_raw(self), imagebasename.param().abi(), baseoffset).ok()
     }
     pub unsafe fn SystemError(&self, error: u32, level: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SystemError)(windows_core::Interface::as_raw(self), error, level).ok()
@@ -11520,9 +11520,9 @@ impl IDebugEventContextCallbacks {
     }
     pub unsafe fn Breakpoint<P0>(&self, bp: P0, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugBreakpoint2>,
+        P0: windows_core::Param<IDebugBreakpoint2>,
     {
-        (windows_core::Interface::vtable(self).Breakpoint)(windows_core::Interface::as_raw(self), bp.into_param().abi(), context, contextsize).ok()
+        (windows_core::Interface::vtable(self).Breakpoint)(windows_core::Interface::as_raw(self), bp.param().abi(), context, contextsize).ok()
     }
     pub unsafe fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Exception)(windows_core::Interface::as_raw(self), exception, firstchance, context, contextsize).ok()
@@ -11535,26 +11535,26 @@ impl IDebugEventContextCallbacks {
     }
     pub unsafe fn CreateProcessA<P0, P1>(&self, imagefilehandle: u64, handle: u64, baseoffset: u64, modulesize: u32, modulename: P0, imagename: P1, checksum: u32, timedatestamp: u32, initialthreadhandle: u64, threaddataoffset: u64, startoffset: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), imagefilehandle, handle, baseoffset, modulesize, modulename.into_param().abi(), imagename.into_param().abi(), checksum, timedatestamp, initialthreadhandle, threaddataoffset, startoffset, context, contextsize).ok()
+        (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), imagefilehandle, handle, baseoffset, modulesize, modulename.param().abi(), imagename.param().abi(), checksum, timedatestamp, initialthreadhandle, threaddataoffset, startoffset, context, contextsize).ok()
     }
     pub unsafe fn ExitProcess(&self, exitcode: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ExitProcess)(windows_core::Interface::as_raw(self), exitcode, context, contextsize).ok()
     }
     pub unsafe fn LoadModule<P0, P1>(&self, imagefilehandle: u64, baseoffset: u64, modulesize: u32, modulename: P0, imagename: P1, checksum: u32, timedatestamp: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).LoadModule)(windows_core::Interface::as_raw(self), imagefilehandle, baseoffset, modulesize, modulename.into_param().abi(), imagename.into_param().abi(), checksum, timedatestamp, context, contextsize).ok()
+        (windows_core::Interface::vtable(self).LoadModule)(windows_core::Interface::as_raw(self), imagefilehandle, baseoffset, modulesize, modulename.param().abi(), imagename.param().abi(), checksum, timedatestamp, context, contextsize).ok()
     }
     pub unsafe fn UnloadModule<P0>(&self, imagebasename: P0, baseoffset: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).UnloadModule)(windows_core::Interface::as_raw(self), imagebasename.into_param().abi(), baseoffset, context, contextsize).ok()
+        (windows_core::Interface::vtable(self).UnloadModule)(windows_core::Interface::as_raw(self), imagebasename.param().abi(), baseoffset, context, contextsize).ok()
     }
     pub unsafe fn SystemError(&self, error: u32, level: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SystemError)(windows_core::Interface::as_raw(self), error, level, context, contextsize).ok()
@@ -11603,18 +11603,18 @@ impl IDebugFAEntryTags {
     }
     pub unsafe fn SetProperties<P0, P1>(&self, tag: DEBUG_FLR_PARAM_TYPE, name: P0, description: P1, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), tag, name.into_param().abi(), description.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), tag, name.param().abi(), description.param().abi(), flags).ok()
     }
     pub unsafe fn GetTagByName<P0, P1>(&self, pluginid: P0, tagname: P1) -> windows_core::Result<DEBUG_FLR_PARAM_TYPE>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTagByName)(windows_core::Interface::as_raw(self), pluginid.into_param().abi(), tagname.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetTagByName)(windows_core::Interface::as_raw(self), pluginid.param().abi(), tagname.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn IsValidTagToSet(&self, tag: DEBUG_FLR_PARAM_TYPE) -> super::super::super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).IsValidTagToSet)(windows_core::Interface::as_raw(self), tag)
@@ -11712,15 +11712,15 @@ impl IDebugFailureAnalysis2 {
     }
     pub unsafe fn SetString<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, str: P0) -> *mut FA_ENTRY
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetString)(windows_core::Interface::as_raw(self), tag, str.into_param().abi())
+        (windows_core::Interface::vtable(self).SetString)(windows_core::Interface::as_raw(self), tag, str.param().abi())
     }
     pub unsafe fn SetExtensionCommand<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, extension: P0) -> *mut FA_ENTRY
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExtensionCommand)(windows_core::Interface::as_raw(self), tag, extension.into_param().abi())
+        (windows_core::Interface::vtable(self).SetExtensionCommand)(windows_core::Interface::as_raw(self), tag, extension.param().abi())
     }
     pub unsafe fn SetUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY {
         (windows_core::Interface::vtable(self).SetUlong)(windows_core::Interface::as_raw(self), tag, value)
@@ -11733,15 +11733,15 @@ impl IDebugFailureAnalysis2 {
     }
     pub unsafe fn AddString<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, str: P0) -> *mut FA_ENTRY
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddString)(windows_core::Interface::as_raw(self), tag, str.into_param().abi())
+        (windows_core::Interface::vtable(self).AddString)(windows_core::Interface::as_raw(self), tag, str.param().abi())
     }
     pub unsafe fn AddExtensionCommand<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, extension: P0) -> *mut FA_ENTRY
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddExtensionCommand)(windows_core::Interface::as_raw(self), tag, extension.into_param().abi())
+        (windows_core::Interface::vtable(self).AddExtensionCommand)(windows_core::Interface::as_raw(self), tag, extension.param().abi())
     }
     pub unsafe fn AddUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY {
         (windows_core::Interface::vtable(self).AddUlong)(windows_core::Interface::as_raw(self), tag, value)
@@ -11763,9 +11763,9 @@ impl IDebugFailureAnalysis2 {
     }
     pub unsafe fn AddStructuredAnalysisData<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, analysis: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugFailureAnalysis2>,
+        P0: windows_core::Param<IDebugFailureAnalysis2>,
     {
-        (windows_core::Interface::vtable(self).AddStructuredAnalysisData)(windows_core::Interface::as_raw(self), tag, analysis.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddStructuredAnalysisData)(windows_core::Interface::as_raw(self), tag, analysis.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -11833,15 +11833,15 @@ impl IDebugFailureAnalysis3 {
     }
     pub unsafe fn SetString<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, str: P0) -> *mut FA_ENTRY
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetString)(windows_core::Interface::as_raw(self), tag, str.into_param().abi())
+        (windows_core::Interface::vtable(self).SetString)(windows_core::Interface::as_raw(self), tag, str.param().abi())
     }
     pub unsafe fn SetExtensionCommand<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, extension: P0) -> *mut FA_ENTRY
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExtensionCommand)(windows_core::Interface::as_raw(self), tag, extension.into_param().abi())
+        (windows_core::Interface::vtable(self).SetExtensionCommand)(windows_core::Interface::as_raw(self), tag, extension.param().abi())
     }
     pub unsafe fn SetUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY {
         (windows_core::Interface::vtable(self).SetUlong)(windows_core::Interface::as_raw(self), tag, value)
@@ -11854,15 +11854,15 @@ impl IDebugFailureAnalysis3 {
     }
     pub unsafe fn AddString<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, str: P0) -> *mut FA_ENTRY
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddString)(windows_core::Interface::as_raw(self), tag, str.into_param().abi())
+        (windows_core::Interface::vtable(self).AddString)(windows_core::Interface::as_raw(self), tag, str.param().abi())
     }
     pub unsafe fn AddExtensionCommand<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, extension: P0) -> *mut FA_ENTRY
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddExtensionCommand)(windows_core::Interface::as_raw(self), tag, extension.into_param().abi())
+        (windows_core::Interface::vtable(self).AddExtensionCommand)(windows_core::Interface::as_raw(self), tag, extension.param().abi())
     }
     pub unsafe fn AddUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY {
         (windows_core::Interface::vtable(self).AddUlong)(windows_core::Interface::as_raw(self), tag, value)
@@ -11884,15 +11884,15 @@ impl IDebugFailureAnalysis3 {
     }
     pub unsafe fn AddStructuredAnalysisData<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, analysis: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugFailureAnalysis2>,
+        P0: windows_core::Param<IDebugFailureAnalysis2>,
     {
-        (windows_core::Interface::vtable(self).AddStructuredAnalysisData)(windows_core::Interface::as_raw(self), tag, analysis.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddStructuredAnalysisData)(windows_core::Interface::as_raw(self), tag, analysis.param().abi()).ok()
     }
     pub unsafe fn AddThreads<P0>(&self, pdebugfailurethreadenum: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).AddThreads)(windows_core::Interface::as_raw(self), pdebugfailurethreadenum.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddThreads)(windows_core::Interface::as_raw(self), pdebugfailurethreadenum.param().abi()).ok()
     }
     pub unsafe fn AttributeGet(&self, nindex: u32) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -11904,34 +11904,34 @@ impl IDebugFailureAnalysis3 {
     }
     pub unsafe fn AttributeSet<P0>(&self, nindex: u32, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AttributeSet)(windows_core::Interface::as_raw(self), nindex, value.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AttributeSet)(windows_core::Interface::as_raw(self), nindex, value.param().abi()).ok()
     }
     pub unsafe fn BlameApplication<P0>(&self, postfix: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).BlameApplication)(windows_core::Interface::as_raw(self), postfix.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).BlameApplication)(windows_core::Interface::as_raw(self), postfix.param().abi()).ok()
     }
     pub unsafe fn BlameProcess<P0>(&self, postfix: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).BlameProcess)(windows_core::Interface::as_raw(self), postfix.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).BlameProcess)(windows_core::Interface::as_raw(self), postfix.param().abi()).ok()
     }
     pub unsafe fn BlameThread<P0>(&self, pthread: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).BlameThread)(windows_core::Interface::as_raw(self), pthread.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).BlameThread)(windows_core::Interface::as_raw(self), pthread.param().abi()).ok()
     }
     pub unsafe fn BlameStitch<P0, P1>(&self, pthread: P0, stitch: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).BlameStitch)(windows_core::Interface::as_raw(self), pthread.into_param().abi(), stitch.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).BlameStitch)(windows_core::Interface::as_raw(self), pthread.param().abi(), stitch.param().abi()).ok()
     }
     pub unsafe fn BlameTEB(&self, address: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).BlameTEB)(windows_core::Interface::as_raw(self), address).ok()
@@ -11951,29 +11951,29 @@ impl IDebugFailureAnalysis3 {
     }
     pub unsafe fn ProblemClassSetBSTR<P0>(&self, nindex: u32, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ProblemClassSetBSTR)(windows_core::Interface::as_raw(self), nindex, value.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ProblemClassSetBSTR)(windows_core::Interface::as_raw(self), nindex, value.param().abi()).ok()
     }
     pub unsafe fn SetAdditionalXML<P0, P1>(&self, key: P0, pxmldomelement: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetAdditionalXML)(windows_core::Interface::as_raw(self), key.into_param().abi(), pxmldomelement.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAdditionalXML)(windows_core::Interface::as_raw(self), key.param().abi(), pxmldomelement.param().abi()).ok()
     }
     pub unsafe fn GetAdditionalXML<P0>(&self, key: P0) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAdditionalXML)(windows_core::Interface::as_raw(self), key.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAdditionalXML)(windows_core::Interface::as_raw(self), key.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteAdditionalXML<P0>(&self, key: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).DeleteAdditionalXML)(windows_core::Interface::as_raw(self), key.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteAdditionalXML)(windows_core::Interface::as_raw(self), key.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -12055,10 +12055,10 @@ impl IDebugHostBaseClass {
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> windows_core::Result<IDebugHostSymbolEnumerator>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSymbolKind(&self) -> windows_core::Result<SymbolKind> {
         let mut result__ = std::mem::zeroed();
@@ -12078,10 +12078,10 @@ impl IDebugHostBaseClass {
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IDebugHostSymbol>,
+        P0: windows_core::Param<IDebugHostSymbol>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.param().abi(), comparisonflags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetOffset(&self) -> windows_core::Result<u64> {
         let mut result__ = std::mem::zeroed();
@@ -12102,10 +12102,10 @@ impl IDebugHostConstant {
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> windows_core::Result<IDebugHostSymbolEnumerator>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSymbolKind(&self) -> windows_core::Result<SymbolKind> {
         let mut result__ = std::mem::zeroed();
@@ -12125,10 +12125,10 @@ impl IDebugHostConstant {
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IDebugHostSymbol>,
+        P0: windows_core::Param<IDebugHostSymbol>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.param().abi(), comparisonflags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetValue(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -12145,10 +12145,10 @@ windows_core::imp::interface_hierarchy!(IDebugHostContext, windows_core::IUnknow
 impl IDebugHostContext {
     pub unsafe fn IsEqualTo<P0>(&self, pcontext: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
+        P0: windows_core::Param<IDebugHostContext>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsEqualTo)(windows_core::Interface::as_raw(self), pcontext.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).IsEqualTo)(windows_core::Interface::as_raw(self), pcontext.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -12165,10 +12165,10 @@ impl IDebugHostData {
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> windows_core::Result<IDebugHostSymbolEnumerator>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSymbolKind(&self) -> windows_core::Result<SymbolKind> {
         let mut result__ = std::mem::zeroed();
@@ -12188,10 +12188,10 @@ impl IDebugHostData {
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IDebugHostSymbol>,
+        P0: windows_core::Param<IDebugHostSymbol>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.param().abi(), comparisonflags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetLocationKind(&self) -> windows_core::Result<LocationKind> {
         let mut result__ = std::mem::zeroed();
@@ -12218,9 +12218,9 @@ windows_core::imp::interface_hierarchy!(IDebugHostErrorSink, windows_core::IUnkn
 impl IDebugHostErrorSink {
     pub unsafe fn ReportError<P0>(&self, errclass: ErrorClass, hrerror: windows_core::HRESULT, message: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ReportError)(windows_core::Interface::as_raw(self), errclass, hrerror, message.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReportError)(windows_core::Interface::as_raw(self), errclass, hrerror, message.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -12233,19 +12233,19 @@ windows_core::imp::interface_hierarchy!(IDebugHostEvaluator, windows_core::IUnkn
 impl IDebugHostEvaluator {
     pub unsafe fn EvaluateExpression<P0, P1, P2>(&self, context: P0, expression: P1, bindingcontext: P2, result: *mut Option<IModelObject>, metadata: Option<*mut Option<IKeyStore>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IDebugHostContext>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).EvaluateExpression)(windows_core::Interface::as_raw(self), context.into_param().abi(), expression.into_param().abi(), bindingcontext.into_param().abi(), core::mem::transmute(result), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).EvaluateExpression)(windows_core::Interface::as_raw(self), context.param().abi(), expression.param().abi(), bindingcontext.param().abi(), core::mem::transmute(result), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn EvaluateExtendedExpression<P0, P1, P2>(&self, context: P0, expression: P1, bindingcontext: P2, result: *mut Option<IModelObject>, metadata: Option<*mut Option<IKeyStore>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IDebugHostContext>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).EvaluateExtendedExpression)(windows_core::Interface::as_raw(self), context.into_param().abi(), expression.into_param().abi(), bindingcontext.into_param().abi(), core::mem::transmute(result), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).EvaluateExtendedExpression)(windows_core::Interface::as_raw(self), context.param().abi(), expression.param().abi(), bindingcontext.param().abi(), core::mem::transmute(result), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
     }
 }
 #[repr(C)]
@@ -12259,26 +12259,26 @@ windows_core::imp::interface_hierarchy!(IDebugHostEvaluator2, windows_core::IUnk
 impl IDebugHostEvaluator2 {
     pub unsafe fn EvaluateExpression<P0, P1, P2>(&self, context: P0, expression: P1, bindingcontext: P2, result: *mut Option<IModelObject>, metadata: Option<*mut Option<IKeyStore>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IDebugHostContext>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).base__.EvaluateExpression)(windows_core::Interface::as_raw(self), context.into_param().abi(), expression.into_param().abi(), bindingcontext.into_param().abi(), core::mem::transmute(result), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).base__.EvaluateExpression)(windows_core::Interface::as_raw(self), context.param().abi(), expression.param().abi(), bindingcontext.param().abi(), core::mem::transmute(result), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn EvaluateExtendedExpression<P0, P1, P2>(&self, context: P0, expression: P1, bindingcontext: P2, result: *mut Option<IModelObject>, metadata: Option<*mut Option<IKeyStore>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IDebugHostContext>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).base__.EvaluateExtendedExpression)(windows_core::Interface::as_raw(self), context.into_param().abi(), expression.into_param().abi(), bindingcontext.into_param().abi(), core::mem::transmute(result), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).base__.EvaluateExtendedExpression)(windows_core::Interface::as_raw(self), context.param().abi(), expression.param().abi(), bindingcontext.param().abi(), core::mem::transmute(result), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn AssignTo<P0, P1>(&self, assignmentreference: P0, assignmentvalue: P1, assignmentresult: *mut Option<IModelObject>, assignmentmetadata: Option<*mut Option<IKeyStore>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).AssignTo)(windows_core::Interface::as_raw(self), assignmentreference.into_param().abi(), assignmentvalue.into_param().abi(), core::mem::transmute(assignmentresult), core::mem::transmute(assignmentmetadata.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).AssignTo)(windows_core::Interface::as_raw(self), assignmentreference.param().abi(), assignmentvalue.param().abi(), core::mem::transmute(assignmentresult), core::mem::transmute(assignmentmetadata.unwrap_or(std::ptr::null_mut()))).ok()
     }
 }
 #[repr(C)]
@@ -12291,16 +12291,16 @@ windows_core::imp::interface_hierarchy!(IDebugHostExtensibility, windows_core::I
 impl IDebugHostExtensibility {
     pub unsafe fn CreateFunctionAlias<P0, P1>(&self, aliasname: P0, functionobject: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).CreateFunctionAlias)(windows_core::Interface::as_raw(self), aliasname.into_param().abi(), functionobject.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateFunctionAlias)(windows_core::Interface::as_raw(self), aliasname.param().abi(), functionobject.param().abi()).ok()
     }
     pub unsafe fn DestroyFunctionAlias<P0>(&self, aliasname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).DestroyFunctionAlias)(windows_core::Interface::as_raw(self), aliasname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DestroyFunctionAlias)(windows_core::Interface::as_raw(self), aliasname.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -12318,10 +12318,10 @@ impl IDebugHostField {
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> windows_core::Result<IDebugHostSymbolEnumerator>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSymbolKind(&self) -> windows_core::Result<SymbolKind> {
         let mut result__ = std::mem::zeroed();
@@ -12341,10 +12341,10 @@ impl IDebugHostField {
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IDebugHostSymbol>,
+        P0: windows_core::Param<IDebugHostSymbol>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.param().abi(), comparisonflags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetLocationKind(&self) -> windows_core::Result<LocationKind> {
         let mut result__ = std::mem::zeroed();
@@ -12376,34 +12376,34 @@ windows_core::imp::interface_hierarchy!(IDebugHostMemory, windows_core::IUnknown
 impl IDebugHostMemory {
     pub unsafe fn ReadBytes<P0>(&self, context: P0, location: Location, buffer: *mut core::ffi::c_void, buffersize: u64, bytesread: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
+        P0: windows_core::Param<IDebugHostContext>,
     {
-        (windows_core::Interface::vtable(self).ReadBytes)(windows_core::Interface::as_raw(self), context.into_param().abi(), core::mem::transmute(location), buffer, buffersize, core::mem::transmute(bytesread.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).ReadBytes)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(location), buffer, buffersize, core::mem::transmute(bytesread.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn WriteBytes<P0>(&self, context: P0, location: Location, buffer: *const core::ffi::c_void, buffersize: u64, byteswritten: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
+        P0: windows_core::Param<IDebugHostContext>,
     {
-        (windows_core::Interface::vtable(self).WriteBytes)(windows_core::Interface::as_raw(self), context.into_param().abi(), core::mem::transmute(location), buffer, buffersize, core::mem::transmute(byteswritten.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).WriteBytes)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(location), buffer, buffersize, core::mem::transmute(byteswritten.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadPointers<P0>(&self, context: P0, location: Location, pointers: &mut [u64]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
+        P0: windows_core::Param<IDebugHostContext>,
     {
-        (windows_core::Interface::vtable(self).ReadPointers)(windows_core::Interface::as_raw(self), context.into_param().abi(), core::mem::transmute(location), pointers.len().try_into().unwrap(), core::mem::transmute(pointers.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).ReadPointers)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(location), pointers.len().try_into().unwrap(), core::mem::transmute(pointers.as_ptr())).ok()
     }
     pub unsafe fn WritePointers<P0>(&self, context: P0, location: Location, pointers: &[u64]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
+        P0: windows_core::Param<IDebugHostContext>,
     {
-        (windows_core::Interface::vtable(self).WritePointers)(windows_core::Interface::as_raw(self), context.into_param().abi(), core::mem::transmute(location), pointers.len().try_into().unwrap(), core::mem::transmute(pointers.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).WritePointers)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(location), pointers.len().try_into().unwrap(), core::mem::transmute(pointers.as_ptr())).ok()
     }
     pub unsafe fn GetDisplayStringForLocation<P0>(&self, context: P0, location: Location, verbose: u8) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
+        P0: windows_core::Param<IDebugHostContext>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDisplayStringForLocation)(windows_core::Interface::as_raw(self), context.into_param().abi(), core::mem::transmute(location), verbose, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetDisplayStringForLocation)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(location), verbose, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -12420,41 +12420,41 @@ windows_core::imp::interface_hierarchy!(IDebugHostMemory2, windows_core::IUnknow
 impl IDebugHostMemory2 {
     pub unsafe fn ReadBytes<P0>(&self, context: P0, location: Location, buffer: *mut core::ffi::c_void, buffersize: u64, bytesread: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
+        P0: windows_core::Param<IDebugHostContext>,
     {
-        (windows_core::Interface::vtable(self).base__.ReadBytes)(windows_core::Interface::as_raw(self), context.into_param().abi(), core::mem::transmute(location), buffer, buffersize, core::mem::transmute(bytesread.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).base__.ReadBytes)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(location), buffer, buffersize, core::mem::transmute(bytesread.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn WriteBytes<P0>(&self, context: P0, location: Location, buffer: *const core::ffi::c_void, buffersize: u64, byteswritten: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
+        P0: windows_core::Param<IDebugHostContext>,
     {
-        (windows_core::Interface::vtable(self).base__.WriteBytes)(windows_core::Interface::as_raw(self), context.into_param().abi(), core::mem::transmute(location), buffer, buffersize, core::mem::transmute(byteswritten.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).base__.WriteBytes)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(location), buffer, buffersize, core::mem::transmute(byteswritten.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadPointers<P0>(&self, context: P0, location: Location, pointers: &mut [u64]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
+        P0: windows_core::Param<IDebugHostContext>,
     {
-        (windows_core::Interface::vtable(self).base__.ReadPointers)(windows_core::Interface::as_raw(self), context.into_param().abi(), core::mem::transmute(location), pointers.len().try_into().unwrap(), core::mem::transmute(pointers.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.ReadPointers)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(location), pointers.len().try_into().unwrap(), core::mem::transmute(pointers.as_ptr())).ok()
     }
     pub unsafe fn WritePointers<P0>(&self, context: P0, location: Location, pointers: &[u64]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
+        P0: windows_core::Param<IDebugHostContext>,
     {
-        (windows_core::Interface::vtable(self).base__.WritePointers)(windows_core::Interface::as_raw(self), context.into_param().abi(), core::mem::transmute(location), pointers.len().try_into().unwrap(), core::mem::transmute(pointers.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.WritePointers)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(location), pointers.len().try_into().unwrap(), core::mem::transmute(pointers.as_ptr())).ok()
     }
     pub unsafe fn GetDisplayStringForLocation<P0>(&self, context: P0, location: Location, verbose: u8) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
+        P0: windows_core::Param<IDebugHostContext>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetDisplayStringForLocation)(windows_core::Interface::as_raw(self), context.into_param().abi(), core::mem::transmute(location), verbose, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetDisplayStringForLocation)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(location), verbose, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn LinearizeLocation<P0>(&self, context: P0, location: Location) -> windows_core::Result<Location>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
+        P0: windows_core::Param<IDebugHostContext>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).LinearizeLocation)(windows_core::Interface::as_raw(self), context.into_param().abi(), core::mem::transmute(location), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).LinearizeLocation)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(location), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -12471,10 +12471,10 @@ impl IDebugHostModule {
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> windows_core::Result<IDebugHostSymbolEnumerator>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSymbolKind(&self) -> windows_core::Result<SymbolKind> {
         let mut result__ = std::mem::zeroed();
@@ -12494,10 +12494,10 @@ impl IDebugHostModule {
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IDebugHostSymbol>,
+        P0: windows_core::Param<IDebugHostSymbol>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.param().abi(), comparisonflags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetImageName(&self, allowpath: u8) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -12512,10 +12512,10 @@ impl IDebugHostModule {
     }
     pub unsafe fn FindTypeByName<P0>(&self, typename: P0) -> windows_core::Result<IDebugHostType>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindTypeByName)(windows_core::Interface::as_raw(self), typename.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindTypeByName)(windows_core::Interface::as_raw(self), typename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindSymbolByRVA(&self, rva: u64) -> windows_core::Result<IDebugHostSymbol> {
         let mut result__ = std::mem::zeroed();
@@ -12523,10 +12523,10 @@ impl IDebugHostModule {
     }
     pub unsafe fn FindSymbolByName<P0>(&self, symbolname: P0) -> windows_core::Result<IDebugHostSymbol>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindSymbolByName)(windows_core::Interface::as_raw(self), symbolname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindSymbolByName)(windows_core::Interface::as_raw(self), symbolname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -12548,10 +12548,10 @@ impl IDebugHostModule2 {
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> windows_core::Result<IDebugHostSymbolEnumerator>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSymbolKind(&self) -> windows_core::Result<SymbolKind> {
         let mut result__ = std::mem::zeroed();
@@ -12571,10 +12571,10 @@ impl IDebugHostModule2 {
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IDebugHostSymbol>,
+        P0: windows_core::Param<IDebugHostSymbol>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.param().abi(), comparisonflags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetImageName(&self, allowpath: u8) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -12589,10 +12589,10 @@ impl IDebugHostModule2 {
     }
     pub unsafe fn FindTypeByName<P0>(&self, typename: P0) -> windows_core::Result<IDebugHostType>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindTypeByName)(windows_core::Interface::as_raw(self), typename.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.FindTypeByName)(windows_core::Interface::as_raw(self), typename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindSymbolByRVA(&self, rva: u64) -> windows_core::Result<IDebugHostSymbol> {
         let mut result__ = std::mem::zeroed();
@@ -12600,10 +12600,10 @@ impl IDebugHostModule2 {
     }
     pub unsafe fn FindSymbolByName<P0>(&self, symbolname: P0) -> windows_core::Result<IDebugHostSymbol>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindSymbolByName)(windows_core::Interface::as_raw(self), symbolname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.FindSymbolByName)(windows_core::Interface::as_raw(self), symbolname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindContainingSymbolByRVA(&self, rva: u64, symbol: *mut Option<IDebugHostSymbol>, offset: *mut u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FindContainingSymbolByRVA)(windows_core::Interface::as_raw(self), rva, core::mem::transmute(symbol), offset).ok()
@@ -12619,10 +12619,10 @@ windows_core::imp::interface_hierarchy!(IDebugHostModuleSignature, windows_core:
 impl IDebugHostModuleSignature {
     pub unsafe fn IsMatch<P0>(&self, pmodule: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IDebugHostModule>,
+        P0: windows_core::Param<IDebugHostModule>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsMatch)(windows_core::Interface::as_raw(self), pmodule.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).IsMatch)(windows_core::Interface::as_raw(self), pmodule.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -12639,10 +12639,10 @@ impl IDebugHostPublic {
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> windows_core::Result<IDebugHostSymbolEnumerator>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSymbolKind(&self) -> windows_core::Result<SymbolKind> {
         let mut result__ = std::mem::zeroed();
@@ -12662,10 +12662,10 @@ impl IDebugHostPublic {
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IDebugHostSymbol>,
+        P0: windows_core::Param<IDebugHostSymbol>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.param().abi(), comparisonflags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetLocationKind(&self) -> windows_core::Result<LocationKind> {
         let mut result__ = std::mem::zeroed();
@@ -12687,10 +12687,10 @@ windows_core::imp::interface_hierarchy!(IDebugHostScriptHost, windows_core::IUnk
 impl IDebugHostScriptHost {
     pub unsafe fn CreateContext<P0>(&self, script: P0) -> windows_core::Result<IDataModelScriptHostContext>
     where
-        P0: windows_core::IntoParam<IDataModelScript>,
+        P0: windows_core::Param<IDataModelScript>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateContext)(windows_core::Interface::as_raw(self), script.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateContext)(windows_core::Interface::as_raw(self), script.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -12720,10 +12720,10 @@ impl IDebugHostSymbol {
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> windows_core::Result<IDebugHostSymbolEnumerator>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSymbolKind(&self) -> windows_core::Result<SymbolKind> {
         let mut result__ = std::mem::zeroed();
@@ -12743,10 +12743,10 @@ impl IDebugHostSymbol {
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IDebugHostSymbol>,
+        P0: windows_core::Param<IDebugHostSymbol>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.param().abi(), comparisonflags, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -12769,10 +12769,10 @@ impl IDebugHostSymbol2 {
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> windows_core::Result<IDebugHostSymbolEnumerator>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSymbolKind(&self) -> windows_core::Result<SymbolKind> {
         let mut result__ = std::mem::zeroed();
@@ -12792,10 +12792,10 @@ impl IDebugHostSymbol2 {
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IDebugHostSymbol>,
+        P0: windows_core::Param<IDebugHostSymbol>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.param().abi(), comparisonflags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetLanguage(&self) -> windows_core::Result<LanguageKind> {
         let mut result__ = std::mem::zeroed();
@@ -12829,59 +12829,59 @@ windows_core::imp::interface_hierarchy!(IDebugHostSymbols, windows_core::IUnknow
 impl IDebugHostSymbols {
     pub unsafe fn CreateModuleSignature<P0, P1, P2>(&self, pwszmodulename: P0, pwszminversion: P1, pwszmaxversion: P2) -> windows_core::Result<IDebugHostModuleSignature>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateModuleSignature)(windows_core::Interface::as_raw(self), pwszmodulename.into_param().abi(), pwszminversion.into_param().abi(), pwszmaxversion.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateModuleSignature)(windows_core::Interface::as_raw(self), pwszmodulename.param().abi(), pwszminversion.param().abi(), pwszmaxversion.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTypeSignature<P0, P1>(&self, signaturespecification: P0, module: P1) -> windows_core::Result<IDebugHostTypeSignature>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IDebugHostModule>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IDebugHostModule>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateTypeSignature)(windows_core::Interface::as_raw(self), signaturespecification.into_param().abi(), module.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateTypeSignature)(windows_core::Interface::as_raw(self), signaturespecification.param().abi(), module.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTypeSignatureForModuleRange<P0, P1, P2, P3>(&self, signaturespecification: P0, modulename: P1, minversion: P2, maxversion: P3) -> windows_core::Result<IDebugHostTypeSignature>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
-        P3: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateTypeSignatureForModuleRange)(windows_core::Interface::as_raw(self), signaturespecification.into_param().abi(), modulename.into_param().abi(), minversion.into_param().abi(), maxversion.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateTypeSignatureForModuleRange)(windows_core::Interface::as_raw(self), signaturespecification.param().abi(), modulename.param().abi(), minversion.param().abi(), maxversion.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumerateModules<P0>(&self, context: P0) -> windows_core::Result<IDebugHostSymbolEnumerator>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
+        P0: windows_core::Param<IDebugHostContext>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumerateModules)(windows_core::Interface::as_raw(self), context.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumerateModules)(windows_core::Interface::as_raw(self), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindModuleByName<P0, P1>(&self, context: P0, modulename: P1) -> windows_core::Result<IDebugHostModule>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<IDebugHostContext>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindModuleByName)(windows_core::Interface::as_raw(self), context.into_param().abi(), modulename.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindModuleByName)(windows_core::Interface::as_raw(self), context.param().abi(), modulename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindModuleByLocation<P0>(&self, context: P0, modulelocation: Location) -> windows_core::Result<IDebugHostModule>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
+        P0: windows_core::Param<IDebugHostContext>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindModuleByLocation)(windows_core::Interface::as_raw(self), context.into_param().abi(), core::mem::transmute(modulelocation), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindModuleByLocation)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(modulelocation), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetMostDerivedObject<P0, P1>(&self, pcontext: P0, location: Location, objecttype: P1, derivedlocation: *mut Location, derivedtype: *mut Option<IDebugHostType>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostContext>,
-        P1: windows_core::IntoParam<IDebugHostType>,
+        P0: windows_core::Param<IDebugHostContext>,
+        P1: windows_core::Param<IDebugHostType>,
     {
-        (windows_core::Interface::vtable(self).GetMostDerivedObject)(windows_core::Interface::as_raw(self), pcontext.into_param().abi(), core::mem::transmute(location), objecttype.into_param().abi(), derivedlocation, core::mem::transmute(derivedtype)).ok()
+        (windows_core::Interface::vtable(self).GetMostDerivedObject)(windows_core::Interface::as_raw(self), pcontext.param().abi(), core::mem::transmute(location), objecttype.param().abi(), derivedlocation, core::mem::transmute(derivedtype)).ok()
     }
 }
 #[repr(C)]
@@ -12904,10 +12904,10 @@ impl IDebugHostType {
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> windows_core::Result<IDebugHostSymbolEnumerator>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSymbolKind(&self) -> windows_core::Result<SymbolKind> {
         let mut result__ = std::mem::zeroed();
@@ -12927,10 +12927,10 @@ impl IDebugHostType {
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IDebugHostSymbol>,
+        P0: windows_core::Param<IDebugHostSymbol>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.param().abi(), comparisonflags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetTypeKind(&self) -> windows_core::Result<TypeKind> {
         let mut result__ = std::mem::zeroed();
@@ -13038,10 +13038,10 @@ impl IDebugHostType2 {
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> windows_core::Result<IDebugHostSymbolEnumerator>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.EnumerateChildren)(windows_core::Interface::as_raw(self), kind, name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSymbolKind(&self) -> windows_core::Result<SymbolKind> {
         let mut result__ = std::mem::zeroed();
@@ -13061,10 +13061,10 @@ impl IDebugHostType2 {
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IDebugHostSymbol>,
+        P0: windows_core::Param<IDebugHostSymbol>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.CompareAgainst)(windows_core::Interface::as_raw(self), pcomparisonsymbol.param().abi(), comparisonflags, &mut result__).map(|| result__)
     }
     pub unsafe fn GetTypeKind(&self) -> windows_core::Result<TypeKind> {
         let mut result__ = std::mem::zeroed();
@@ -13178,16 +13178,16 @@ impl IDebugHostTypeSignature {
     }
     pub unsafe fn IsMatch<P0>(&self, r#type: P0, ismatch: *mut bool, wildcardmatches: Option<*mut Option<IDebugHostSymbolEnumerator>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugHostType>,
+        P0: windows_core::Param<IDebugHostType>,
     {
-        (windows_core::Interface::vtable(self).IsMatch)(windows_core::Interface::as_raw(self), r#type.into_param().abi(), ismatch, core::mem::transmute(wildcardmatches.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).IsMatch)(windows_core::Interface::as_raw(self), r#type.param().abi(), ismatch, core::mem::transmute(wildcardmatches.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CompareAgainst<P0>(&self, typesignature: P0) -> windows_core::Result<SignatureComparison>
     where
-        P0: windows_core::IntoParam<IDebugHostTypeSignature>,
+        P0: windows_core::Param<IDebugHostTypeSignature>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CompareAgainst)(windows_core::Interface::as_raw(self), typesignature.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CompareAgainst)(windows_core::Interface::as_raw(self), typesignature.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -13218,9 +13218,9 @@ windows_core::imp::interface_hierarchy!(IDebugOutputCallbacks, windows_core::IUn
 impl IDebugOutputCallbacks {
     pub unsafe fn Output<P0>(&self, mask: u32, text: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, text.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, text.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -13233,9 +13233,9 @@ windows_core::imp::interface_hierarchy!(IDebugOutputCallbacks2, windows_core::IU
 impl IDebugOutputCallbacks2 {
     pub unsafe fn Output<P0>(&self, mask: u32, text: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, text.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, text.param().abi()).ok()
     }
     pub unsafe fn GetInterestMask(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -13243,9 +13243,9 @@ impl IDebugOutputCallbacks2 {
     }
     pub unsafe fn Output2<P0>(&self, which: u32, flags: u32, arg: u64, text: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Output2)(windows_core::Interface::as_raw(self), which, flags, arg, text.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Output2)(windows_core::Interface::as_raw(self), which, flags, arg, text.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -13260,9 +13260,9 @@ windows_core::imp::interface_hierarchy!(IDebugOutputCallbacksWide, windows_core:
 impl IDebugOutputCallbacksWide {
     pub unsafe fn Output<P0>(&self, mask: u32, text: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, text.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, text.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -13275,9 +13275,9 @@ windows_core::imp::interface_hierarchy!(IDebugOutputStream, windows_core::IUnkno
 impl IDebugOutputStream {
     pub unsafe fn Write<P0>(&self, psz: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), psz.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), psz.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -13290,11 +13290,11 @@ windows_core::imp::interface_hierarchy!(IDebugPlmClient, windows_core::IUnknown)
 impl IDebugPlmClient {
     pub unsafe fn LaunchPlmPackageForDebugWide<P0, P1, P2>(&self, server: u64, timeout: u32, packagefullname: P0, appname: P1, arguments: P2, processid: *mut u32, threadid: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).LaunchPlmPackageForDebugWide)(windows_core::Interface::as_raw(self), server, timeout, packagefullname.into_param().abi(), appname.into_param().abi(), arguments.into_param().abi(), processid, threadid).ok()
+        (windows_core::Interface::vtable(self).LaunchPlmPackageForDebugWide)(windows_core::Interface::as_raw(self), server, timeout, packagefullname.param().abi(), appname.param().abi(), arguments.param().abi(), processid, threadid).ok()
     }
 }
 #[repr(C)]
@@ -13307,18 +13307,18 @@ windows_core::imp::interface_hierarchy!(IDebugPlmClient2, windows_core::IUnknown
 impl IDebugPlmClient2 {
     pub unsafe fn LaunchPlmPackageForDebugWide<P0, P1, P2>(&self, server: u64, timeout: u32, packagefullname: P0, appname: P1, arguments: P2, processid: *mut u32, threadid: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).LaunchPlmPackageForDebugWide)(windows_core::Interface::as_raw(self), server, timeout, packagefullname.into_param().abi(), appname.into_param().abi(), arguments.into_param().abi(), processid, threadid).ok()
+        (windows_core::Interface::vtable(self).LaunchPlmPackageForDebugWide)(windows_core::Interface::as_raw(self), server, timeout, packagefullname.param().abi(), appname.param().abi(), arguments.param().abi(), processid, threadid).ok()
     }
     pub unsafe fn LaunchPlmBgTaskForDebugWide<P0, P1>(&self, server: u64, timeout: u32, packagefullname: P0, backgroundtaskid: P1, processid: *mut u32, threadid: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).LaunchPlmBgTaskForDebugWide)(windows_core::Interface::as_raw(self), server, timeout, packagefullname.into_param().abi(), backgroundtaskid.into_param().abi(), processid, threadid).ok()
+        (windows_core::Interface::vtable(self).LaunchPlmBgTaskForDebugWide)(windows_core::Interface::as_raw(self), server, timeout, packagefullname.param().abi(), backgroundtaskid.param().abi(), processid, threadid).ok()
     }
 }
 #[repr(C)]
@@ -13332,76 +13332,76 @@ windows_core::imp::interface_hierarchy!(IDebugPlmClient3, windows_core::IUnknown
 impl IDebugPlmClient3 {
     pub unsafe fn LaunchPlmPackageForDebugWide<P0, P1, P2>(&self, server: u64, timeout: u32, packagefullname: P0, appname: P1, arguments: P2, processid: *mut u32, threadid: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).LaunchPlmPackageForDebugWide)(windows_core::Interface::as_raw(self), server, timeout, packagefullname.into_param().abi(), appname.into_param().abi(), arguments.into_param().abi(), processid, threadid).ok()
+        (windows_core::Interface::vtable(self).LaunchPlmPackageForDebugWide)(windows_core::Interface::as_raw(self), server, timeout, packagefullname.param().abi(), appname.param().abi(), arguments.param().abi(), processid, threadid).ok()
     }
     pub unsafe fn LaunchPlmBgTaskForDebugWide<P0, P1>(&self, server: u64, timeout: u32, packagefullname: P0, backgroundtaskid: P1, processid: *mut u32, threadid: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).LaunchPlmBgTaskForDebugWide)(windows_core::Interface::as_raw(self), server, timeout, packagefullname.into_param().abi(), backgroundtaskid.into_param().abi(), processid, threadid).ok()
+        (windows_core::Interface::vtable(self).LaunchPlmBgTaskForDebugWide)(windows_core::Interface::as_raw(self), server, timeout, packagefullname.param().abi(), backgroundtaskid.param().abi(), processid, threadid).ok()
     }
     pub unsafe fn QueryPlmPackageWide<P0, P1>(&self, server: u64, packagefullname: P0, stream: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IDebugOutputStream>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IDebugOutputStream>,
     {
-        (windows_core::Interface::vtable(self).QueryPlmPackageWide)(windows_core::Interface::as_raw(self), server, packagefullname.into_param().abi(), stream.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).QueryPlmPackageWide)(windows_core::Interface::as_raw(self), server, packagefullname.param().abi(), stream.param().abi()).ok()
     }
     pub unsafe fn QueryPlmPackageList<P0>(&self, server: u64, stream: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDebugOutputStream>,
+        P0: windows_core::Param<IDebugOutputStream>,
     {
-        (windows_core::Interface::vtable(self).QueryPlmPackageList)(windows_core::Interface::as_raw(self), server, stream.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).QueryPlmPackageList)(windows_core::Interface::as_raw(self), server, stream.param().abi()).ok()
     }
     pub unsafe fn EnablePlmPackageDebugWide<P0>(&self, server: u64, packagefullname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).EnablePlmPackageDebugWide)(windows_core::Interface::as_raw(self), server, packagefullname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).EnablePlmPackageDebugWide)(windows_core::Interface::as_raw(self), server, packagefullname.param().abi()).ok()
     }
     pub unsafe fn DisablePlmPackageDebugWide<P0>(&self, server: u64, packagefullname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).DisablePlmPackageDebugWide)(windows_core::Interface::as_raw(self), server, packagefullname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DisablePlmPackageDebugWide)(windows_core::Interface::as_raw(self), server, packagefullname.param().abi()).ok()
     }
     pub unsafe fn SuspendPlmPackageWide<P0>(&self, server: u64, packagefullname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SuspendPlmPackageWide)(windows_core::Interface::as_raw(self), server, packagefullname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SuspendPlmPackageWide)(windows_core::Interface::as_raw(self), server, packagefullname.param().abi()).ok()
     }
     pub unsafe fn ResumePlmPackageWide<P0>(&self, server: u64, packagefullname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ResumePlmPackageWide)(windows_core::Interface::as_raw(self), server, packagefullname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ResumePlmPackageWide)(windows_core::Interface::as_raw(self), server, packagefullname.param().abi()).ok()
     }
     pub unsafe fn TerminatePlmPackageWide<P0>(&self, server: u64, packagefullname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).TerminatePlmPackageWide)(windows_core::Interface::as_raw(self), server, packagefullname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).TerminatePlmPackageWide)(windows_core::Interface::as_raw(self), server, packagefullname.param().abi()).ok()
     }
     pub unsafe fn LaunchAndDebugPlmAppWide<P0, P1, P2>(&self, server: u64, packagefullname: P0, appname: P1, arguments: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).LaunchAndDebugPlmAppWide)(windows_core::Interface::as_raw(self), server, packagefullname.into_param().abi(), appname.into_param().abi(), arguments.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).LaunchAndDebugPlmAppWide)(windows_core::Interface::as_raw(self), server, packagefullname.param().abi(), appname.param().abi(), arguments.param().abi()).ok()
     }
     pub unsafe fn ActivateAndDebugPlmBgTaskWide<P0, P1>(&self, server: u64, packagefullname: P0, backgroundtaskid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ActivateAndDebugPlmBgTaskWide)(windows_core::Interface::as_raw(self), server, packagefullname.into_param().abi(), backgroundtaskid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ActivateAndDebugPlmBgTaskWide)(windows_core::Interface::as_raw(self), server, packagefullname.param().abi(), backgroundtaskid.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -13431,10 +13431,10 @@ impl IDebugRegisters {
     }
     pub unsafe fn GetIndexByName<P0>(&self, name: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetIndexByName)(windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetIndexByName)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetValue(&self, register: u32, value: *mut DEBUG_VALUE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), register, value).ok()
@@ -13491,10 +13491,10 @@ impl IDebugRegisters2 {
     }
     pub unsafe fn GetIndexByName<P0>(&self, name: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetIndexByName)(windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetIndexByName)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetValue(&self, register: u32, value: *mut DEBUG_VALUE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), register, value).ok()
@@ -13528,10 +13528,10 @@ impl IDebugRegisters2 {
     }
     pub unsafe fn GetIndexByNameWide<P0>(&self, name: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetIndexByNameWide)(windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetIndexByNameWide)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNumberPseudoRegisters(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -13545,17 +13545,17 @@ impl IDebugRegisters2 {
     }
     pub unsafe fn GetPseudoIndexByName<P0>(&self, name: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPseudoIndexByName)(windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetPseudoIndexByName)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPseudoIndexByNameWide<P0>(&self, name: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPseudoIndexByNameWide)(windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetPseudoIndexByNameWide)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPseudoValues(&self, source: u32, count: u32, indices: Option<*const u32>, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPseudoValues)(windows_core::Interface::as_raw(self), source, count, core::mem::transmute(indices.unwrap_or(std::ptr::null())), start, values).ok()
@@ -13624,15 +13624,15 @@ impl IDebugSymbolGroup {
     }
     pub unsafe fn AddSymbol<P0>(&self, name: P0, index: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddSymbol)(windows_core::Interface::as_raw(self), name.into_param().abi(), index).ok()
+        (windows_core::Interface::vtable(self).AddSymbol)(windows_core::Interface::as_raw(self), name.param().abi(), index).ok()
     }
     pub unsafe fn RemoveSymbolByName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).RemoveSymbolByName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveSymbolByName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn RemoveSymbolByIndex(&self, index: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveSymbolByIndex)(windows_core::Interface::as_raw(self), index).ok()
@@ -13645,24 +13645,24 @@ impl IDebugSymbolGroup {
     }
     pub unsafe fn ExpandSymbol<P0>(&self, index: u32, expand: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).ExpandSymbol)(windows_core::Interface::as_raw(self), index, expand.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ExpandSymbol)(windows_core::Interface::as_raw(self), index, expand.param().abi()).ok()
     }
     pub unsafe fn OutputSymbols(&self, outputcontrol: u32, flags: u32, start: u32, count: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OutputSymbols)(windows_core::Interface::as_raw(self), outputcontrol, flags, start, count).ok()
     }
     pub unsafe fn WriteSymbol<P0>(&self, index: u32, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteSymbol)(windows_core::Interface::as_raw(self), index, value.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteSymbol)(windows_core::Interface::as_raw(self), index, value.param().abi()).ok()
     }
     pub unsafe fn OutputAsType<P0>(&self, index: u32, r#type: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputAsType)(windows_core::Interface::as_raw(self), index, r#type.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputAsType)(windows_core::Interface::as_raw(self), index, r#type.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -13688,15 +13688,15 @@ impl IDebugSymbolGroup2 {
     }
     pub unsafe fn AddSymbol<P0>(&self, name: P0, index: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddSymbol)(windows_core::Interface::as_raw(self), name.into_param().abi(), index).ok()
+        (windows_core::Interface::vtable(self).AddSymbol)(windows_core::Interface::as_raw(self), name.param().abi(), index).ok()
     }
     pub unsafe fn RemoveSymbolByName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).RemoveSymbolByName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveSymbolByName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn RemoveSymbolByIndex(&self, index: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveSymbolByIndex)(windows_core::Interface::as_raw(self), index).ok()
@@ -13709,51 +13709,51 @@ impl IDebugSymbolGroup2 {
     }
     pub unsafe fn ExpandSymbol<P0>(&self, index: u32, expand: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).ExpandSymbol)(windows_core::Interface::as_raw(self), index, expand.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ExpandSymbol)(windows_core::Interface::as_raw(self), index, expand.param().abi()).ok()
     }
     pub unsafe fn OutputSymbols(&self, outputcontrol: u32, flags: u32, start: u32, count: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OutputSymbols)(windows_core::Interface::as_raw(self), outputcontrol, flags, start, count).ok()
     }
     pub unsafe fn WriteSymbol<P0>(&self, index: u32, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteSymbol)(windows_core::Interface::as_raw(self), index, value.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteSymbol)(windows_core::Interface::as_raw(self), index, value.param().abi()).ok()
     }
     pub unsafe fn OutputAsType<P0>(&self, index: u32, r#type: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputAsType)(windows_core::Interface::as_raw(self), index, r#type.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputAsType)(windows_core::Interface::as_raw(self), index, r#type.param().abi()).ok()
     }
     pub unsafe fn AddSymbolWide<P0>(&self, name: P0, index: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddSymbolWide)(windows_core::Interface::as_raw(self), name.into_param().abi(), index).ok()
+        (windows_core::Interface::vtable(self).AddSymbolWide)(windows_core::Interface::as_raw(self), name.param().abi(), index).ok()
     }
     pub unsafe fn RemoveSymbolByNameWide<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).RemoveSymbolByNameWide)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveSymbolByNameWide)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn GetSymbolNameWide(&self, index: u32, buffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSymbolNameWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn WriteSymbolWide<P0>(&self, index: u32, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteSymbolWide)(windows_core::Interface::as_raw(self), index, value.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteSymbolWide)(windows_core::Interface::as_raw(self), index, value.param().abi()).ok()
     }
     pub unsafe fn OutputAsTypeWide<P0>(&self, index: u32, r#type: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OutputAsTypeWide)(windows_core::Interface::as_raw(self), index, r#type.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OutputAsTypeWide)(windows_core::Interface::as_raw(self), index, r#type.param().abi()).ok()
     }
     pub unsafe fn GetSymbolTypeName(&self, index: u32, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSymbolTypeName)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -13831,10 +13831,10 @@ impl IDebugSymbols {
     }
     pub unsafe fn GetOffsetByName<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOffsetByName)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOffsetByName)(windows_core::Interface::as_raw(self), symbol.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNearNameByOffset(&self, offset: u64, delta: i32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNearNameByOffset)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(displacement.unwrap_or(std::ptr::null_mut()))).ok()
@@ -13844,10 +13844,10 @@ impl IDebugSymbols {
     }
     pub unsafe fn GetOffsetByLine<P0>(&self, line: u32, file: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOffsetByLine)(windows_core::Interface::as_raw(self), line, file.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOffsetByLine)(windows_core::Interface::as_raw(self), line, file.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNumberModules(&self, loaded: *mut u32, unloaded: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNumberModules)(windows_core::Interface::as_raw(self), loaded, unloaded).ok()
@@ -13858,9 +13858,9 @@ impl IDebugSymbols {
     }
     pub unsafe fn GetModuleByModuleName<P0>(&self, name: P0, startindex: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleByModuleName)(windows_core::Interface::as_raw(self), name.into_param().abi(), startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleByModuleName)(windows_core::Interface::as_raw(self), name.param().abi(), startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleByOffset(&self, offset: u64, startindex: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetModuleByOffset)(windows_core::Interface::as_raw(self), offset, startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
@@ -13887,20 +13887,20 @@ impl IDebugSymbols {
     }
     pub unsafe fn GetSymbolModule<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSymbolModule)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetSymbolModule)(windows_core::Interface::as_raw(self), symbol.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTypeName(&self, module: u64, typeid: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTypeName)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetTypeId<P0>(&self, module: u64, name: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTypeId)(windows_core::Interface::as_raw(self), module, name.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetTypeId)(windows_core::Interface::as_raw(self), module, name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTypeSize(&self, module: u64, typeid: u32) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -13908,16 +13908,16 @@ impl IDebugSymbols {
     }
     pub unsafe fn GetFieldOffset<P0>(&self, module: u64, typeid: u32, field: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFieldOffset)(windows_core::Interface::as_raw(self), module, typeid, field.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetFieldOffset)(windows_core::Interface::as_raw(self), module, typeid, field.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSymbolTypeId<P0>(&self, symbol: P0, typeid: *mut u32, module: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSymbolTypeId)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSymbolTypeId)(windows_core::Interface::as_raw(self), symbol.param().abi(), typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetOffsetTypeId(&self, offset: u64, typeid: *mut u32, module: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOffsetTypeId)(windows_core::Interface::as_raw(self), offset, typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
@@ -13951,10 +13951,10 @@ impl IDebugSymbols {
     }
     pub unsafe fn GetScopeSymbolGroup<P0>(&self, flags: u32, update: P0) -> windows_core::Result<IDebugSymbolGroup>
     where
-        P0: windows_core::IntoParam<IDebugSymbolGroup>,
+        P0: windows_core::Param<IDebugSymbolGroup>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSymbolGroup(&self) -> windows_core::Result<IDebugSymbolGroup> {
         let mut result__ = std::mem::zeroed();
@@ -13962,10 +13962,10 @@ impl IDebugSymbols {
     }
     pub unsafe fn StartSymbolMatch<P0>(&self, pattern: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).StartSymbolMatch)(windows_core::Interface::as_raw(self), pattern.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).StartSymbolMatch)(windows_core::Interface::as_raw(self), pattern.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNextSymbolMatch(&self, handle: u64, buffer: Option<&mut [u8]>, matchsize: Option<*mut u32>, offset: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNextSymbolMatch)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(matchsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
@@ -13975,39 +13975,39 @@ impl IDebugSymbols {
     }
     pub unsafe fn Reload<P0>(&self, module: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Reload)(windows_core::Interface::as_raw(self), module.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Reload)(windows_core::Interface::as_raw(self), module.param().abi()).ok()
     }
     pub unsafe fn GetSymbolPath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSymbolPath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetSymbolPath<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSymbolPath)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSymbolPath)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendSymbolPath<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendSymbolPath)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendSymbolPath)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn GetImagePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetImagePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetImagePath<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetImagePath)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetImagePath)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendImagePath<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendImagePath)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendImagePath)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn GetSourcePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSourcePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -14017,27 +14017,27 @@ impl IDebugSymbols {
     }
     pub unsafe fn SetSourcePath<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSourcePath)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSourcePath)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendSourcePath<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendSourcePath)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendSourcePath)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn FindSourceFile<P0>(&self, startelement: u32, file: P0, flags: u32, foundelement: Option<*mut u32>, buffer: Option<&mut [u8]>, foundsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.into_param().abi(), flags, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSourceFileLineOffsets<P0>(&self, file: P0, buffer: Option<&mut [u64]>, filelines: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.into_param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filelines.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filelines.unwrap_or(std::ptr::null_mut()))).ok()
     }
 }
 #[repr(C)]
@@ -14114,10 +14114,10 @@ impl IDebugSymbols2 {
     }
     pub unsafe fn GetOffsetByName<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOffsetByName)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOffsetByName)(windows_core::Interface::as_raw(self), symbol.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNearNameByOffset(&self, offset: u64, delta: i32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNearNameByOffset)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(displacement.unwrap_or(std::ptr::null_mut()))).ok()
@@ -14127,10 +14127,10 @@ impl IDebugSymbols2 {
     }
     pub unsafe fn GetOffsetByLine<P0>(&self, line: u32, file: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOffsetByLine)(windows_core::Interface::as_raw(self), line, file.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOffsetByLine)(windows_core::Interface::as_raw(self), line, file.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNumberModules(&self, loaded: *mut u32, unloaded: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNumberModules)(windows_core::Interface::as_raw(self), loaded, unloaded).ok()
@@ -14141,9 +14141,9 @@ impl IDebugSymbols2 {
     }
     pub unsafe fn GetModuleByModuleName<P0>(&self, name: P0, startindex: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleByModuleName)(windows_core::Interface::as_raw(self), name.into_param().abi(), startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleByModuleName)(windows_core::Interface::as_raw(self), name.param().abi(), startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleByOffset(&self, offset: u64, startindex: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetModuleByOffset)(windows_core::Interface::as_raw(self), offset, startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
@@ -14170,20 +14170,20 @@ impl IDebugSymbols2 {
     }
     pub unsafe fn GetSymbolModule<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSymbolModule)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetSymbolModule)(windows_core::Interface::as_raw(self), symbol.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTypeName(&self, module: u64, typeid: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTypeName)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetTypeId<P0>(&self, module: u64, name: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTypeId)(windows_core::Interface::as_raw(self), module, name.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetTypeId)(windows_core::Interface::as_raw(self), module, name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTypeSize(&self, module: u64, typeid: u32) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -14191,16 +14191,16 @@ impl IDebugSymbols2 {
     }
     pub unsafe fn GetFieldOffset<P0>(&self, module: u64, typeid: u32, field: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFieldOffset)(windows_core::Interface::as_raw(self), module, typeid, field.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetFieldOffset)(windows_core::Interface::as_raw(self), module, typeid, field.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSymbolTypeId<P0>(&self, symbol: P0, typeid: *mut u32, module: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSymbolTypeId)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSymbolTypeId)(windows_core::Interface::as_raw(self), symbol.param().abi(), typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetOffsetTypeId(&self, offset: u64, typeid: *mut u32, module: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOffsetTypeId)(windows_core::Interface::as_raw(self), offset, typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
@@ -14234,10 +14234,10 @@ impl IDebugSymbols2 {
     }
     pub unsafe fn GetScopeSymbolGroup<P0>(&self, flags: u32, update: P0) -> windows_core::Result<IDebugSymbolGroup>
     where
-        P0: windows_core::IntoParam<IDebugSymbolGroup>,
+        P0: windows_core::Param<IDebugSymbolGroup>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSymbolGroup(&self) -> windows_core::Result<IDebugSymbolGroup> {
         let mut result__ = std::mem::zeroed();
@@ -14245,10 +14245,10 @@ impl IDebugSymbols2 {
     }
     pub unsafe fn StartSymbolMatch<P0>(&self, pattern: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).StartSymbolMatch)(windows_core::Interface::as_raw(self), pattern.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).StartSymbolMatch)(windows_core::Interface::as_raw(self), pattern.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNextSymbolMatch(&self, handle: u64, buffer: Option<&mut [u8]>, matchsize: Option<*mut u32>, offset: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNextSymbolMatch)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(matchsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
@@ -14258,39 +14258,39 @@ impl IDebugSymbols2 {
     }
     pub unsafe fn Reload<P0>(&self, module: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Reload)(windows_core::Interface::as_raw(self), module.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Reload)(windows_core::Interface::as_raw(self), module.param().abi()).ok()
     }
     pub unsafe fn GetSymbolPath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSymbolPath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetSymbolPath<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSymbolPath)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSymbolPath)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendSymbolPath<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendSymbolPath)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendSymbolPath)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn GetImagePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetImagePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetImagePath<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetImagePath)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetImagePath)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendImagePath<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendImagePath)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendImagePath)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn GetSourcePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSourcePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -14300,33 +14300,33 @@ impl IDebugSymbols2 {
     }
     pub unsafe fn SetSourcePath<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSourcePath)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSourcePath)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendSourcePath<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendSourcePath)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendSourcePath)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn FindSourceFile<P0>(&self, startelement: u32, file: P0, flags: u32, foundelement: Option<*mut u32>, buffer: Option<&mut [u8]>, foundsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.into_param().abi(), flags, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSourceFileLineOffsets<P0>(&self, file: P0, buffer: Option<&mut [u64]>, filelines: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.into_param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filelines.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filelines.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleVersionInformation<P0>(&self, index: u32, base: u64, item: P0, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, verinfosize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleVersionInformation)(windows_core::Interface::as_raw(self), index, base, item.into_param().abi(), core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(verinfosize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleVersionInformation)(windows_core::Interface::as_raw(self), index, base, item.param().abi(), core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(verinfosize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleNameString(&self, which: u32, index: u32, base: u64, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetModuleNameString)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -14433,10 +14433,10 @@ impl IDebugSymbols3 {
     }
     pub unsafe fn GetOffsetByName<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOffsetByName)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOffsetByName)(windows_core::Interface::as_raw(self), symbol.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNearNameByOffset(&self, offset: u64, delta: i32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNearNameByOffset)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(displacement.unwrap_or(std::ptr::null_mut()))).ok()
@@ -14446,10 +14446,10 @@ impl IDebugSymbols3 {
     }
     pub unsafe fn GetOffsetByLine<P0>(&self, line: u32, file: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOffsetByLine)(windows_core::Interface::as_raw(self), line, file.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOffsetByLine)(windows_core::Interface::as_raw(self), line, file.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNumberModules(&self, loaded: *mut u32, unloaded: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNumberModules)(windows_core::Interface::as_raw(self), loaded, unloaded).ok()
@@ -14460,9 +14460,9 @@ impl IDebugSymbols3 {
     }
     pub unsafe fn GetModuleByModuleName<P0>(&self, name: P0, startindex: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleByModuleName)(windows_core::Interface::as_raw(self), name.into_param().abi(), startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleByModuleName)(windows_core::Interface::as_raw(self), name.param().abi(), startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleByOffset(&self, offset: u64, startindex: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetModuleByOffset)(windows_core::Interface::as_raw(self), offset, startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
@@ -14489,20 +14489,20 @@ impl IDebugSymbols3 {
     }
     pub unsafe fn GetSymbolModule<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSymbolModule)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetSymbolModule)(windows_core::Interface::as_raw(self), symbol.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTypeName(&self, module: u64, typeid: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTypeName)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetTypeId<P0>(&self, module: u64, name: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTypeId)(windows_core::Interface::as_raw(self), module, name.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetTypeId)(windows_core::Interface::as_raw(self), module, name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTypeSize(&self, module: u64, typeid: u32) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -14510,16 +14510,16 @@ impl IDebugSymbols3 {
     }
     pub unsafe fn GetFieldOffset<P0>(&self, module: u64, typeid: u32, field: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFieldOffset)(windows_core::Interface::as_raw(self), module, typeid, field.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetFieldOffset)(windows_core::Interface::as_raw(self), module, typeid, field.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSymbolTypeId<P0>(&self, symbol: P0, typeid: *mut u32, module: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSymbolTypeId)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSymbolTypeId)(windows_core::Interface::as_raw(self), symbol.param().abi(), typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetOffsetTypeId(&self, offset: u64, typeid: *mut u32, module: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOffsetTypeId)(windows_core::Interface::as_raw(self), offset, typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
@@ -14553,10 +14553,10 @@ impl IDebugSymbols3 {
     }
     pub unsafe fn GetScopeSymbolGroup<P0>(&self, flags: u32, update: P0) -> windows_core::Result<IDebugSymbolGroup>
     where
-        P0: windows_core::IntoParam<IDebugSymbolGroup>,
+        P0: windows_core::Param<IDebugSymbolGroup>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSymbolGroup(&self) -> windows_core::Result<IDebugSymbolGroup> {
         let mut result__ = std::mem::zeroed();
@@ -14564,10 +14564,10 @@ impl IDebugSymbols3 {
     }
     pub unsafe fn StartSymbolMatch<P0>(&self, pattern: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).StartSymbolMatch)(windows_core::Interface::as_raw(self), pattern.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).StartSymbolMatch)(windows_core::Interface::as_raw(self), pattern.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNextSymbolMatch(&self, handle: u64, buffer: Option<&mut [u8]>, matchsize: Option<*mut u32>, offset: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNextSymbolMatch)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(matchsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
@@ -14577,39 +14577,39 @@ impl IDebugSymbols3 {
     }
     pub unsafe fn Reload<P0>(&self, module: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Reload)(windows_core::Interface::as_raw(self), module.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Reload)(windows_core::Interface::as_raw(self), module.param().abi()).ok()
     }
     pub unsafe fn GetSymbolPath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSymbolPath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetSymbolPath<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSymbolPath)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSymbolPath)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendSymbolPath<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendSymbolPath)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendSymbolPath)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn GetImagePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetImagePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetImagePath<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetImagePath)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetImagePath)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendImagePath<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendImagePath)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendImagePath)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn GetSourcePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSourcePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -14619,33 +14619,33 @@ impl IDebugSymbols3 {
     }
     pub unsafe fn SetSourcePath<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSourcePath)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSourcePath)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendSourcePath<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendSourcePath)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendSourcePath)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn FindSourceFile<P0>(&self, startelement: u32, file: P0, flags: u32, foundelement: Option<*mut u32>, buffer: Option<&mut [u8]>, foundsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.into_param().abi(), flags, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSourceFileLineOffsets<P0>(&self, file: P0, buffer: Option<&mut [u64]>, filelines: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.into_param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filelines.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filelines.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleVersionInformation<P0>(&self, index: u32, base: u64, item: P0, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, verinfosize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleVersionInformation)(windows_core::Interface::as_raw(self), index, base, item.into_param().abi(), core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(verinfosize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleVersionInformation)(windows_core::Interface::as_raw(self), index, base, item.param().abi(), core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(verinfosize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleNameString(&self, which: u32, index: u32, base: u64, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetModuleNameString)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -14674,10 +14674,10 @@ impl IDebugSymbols3 {
     }
     pub unsafe fn GetOffsetByNameWide<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOffsetByNameWide)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOffsetByNameWide)(windows_core::Interface::as_raw(self), symbol.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNearNameByOffsetWide(&self, offset: u64, delta: i32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNearNameByOffsetWide)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(displacement.unwrap_or(std::ptr::null_mut()))).ok()
@@ -14687,53 +14687,53 @@ impl IDebugSymbols3 {
     }
     pub unsafe fn GetOffsetByLineWide<P0>(&self, line: u32, file: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOffsetByLineWide)(windows_core::Interface::as_raw(self), line, file.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOffsetByLineWide)(windows_core::Interface::as_raw(self), line, file.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetModuleByModuleNameWide<P0>(&self, name: P0, startindex: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleByModuleNameWide)(windows_core::Interface::as_raw(self), name.into_param().abi(), startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleByModuleNameWide)(windows_core::Interface::as_raw(self), name.param().abi(), startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolModuleWide<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSymbolModuleWide)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetSymbolModuleWide)(windows_core::Interface::as_raw(self), symbol.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTypeNameWide(&self, module: u64, typeid: u32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTypeNameWide)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetTypeIdWide<P0>(&self, module: u64, name: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTypeIdWide)(windows_core::Interface::as_raw(self), module, name.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetTypeIdWide)(windows_core::Interface::as_raw(self), module, name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFieldOffsetWide<P0>(&self, module: u64, typeid: u32, field: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFieldOffsetWide)(windows_core::Interface::as_raw(self), module, typeid, field.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetFieldOffsetWide)(windows_core::Interface::as_raw(self), module, typeid, field.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSymbolTypeIdWide<P0>(&self, symbol: P0, typeid: *mut u32, module: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSymbolTypeIdWide)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSymbolTypeIdWide)(windows_core::Interface::as_raw(self), symbol.param().abi(), typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetScopeSymbolGroup2<P0>(&self, flags: u32, update: P0) -> windows_core::Result<IDebugSymbolGroup2>
     where
-        P0: windows_core::IntoParam<IDebugSymbolGroup2>,
+        P0: windows_core::Param<IDebugSymbolGroup2>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetScopeSymbolGroup2)(windows_core::Interface::as_raw(self), flags, update.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetScopeSymbolGroup2)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSymbolGroup2(&self) -> windows_core::Result<IDebugSymbolGroup2> {
         let mut result__ = std::mem::zeroed();
@@ -14741,49 +14741,49 @@ impl IDebugSymbols3 {
     }
     pub unsafe fn StartSymbolMatchWide<P0>(&self, pattern: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).StartSymbolMatchWide)(windows_core::Interface::as_raw(self), pattern.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).StartSymbolMatchWide)(windows_core::Interface::as_raw(self), pattern.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNextSymbolMatchWide(&self, handle: u64, buffer: Option<&mut [u16]>, matchsize: Option<*mut u32>, offset: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNextSymbolMatchWide)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(matchsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReloadWide<P0>(&self, module: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ReloadWide)(windows_core::Interface::as_raw(self), module.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReloadWide)(windows_core::Interface::as_raw(self), module.param().abi()).ok()
     }
     pub unsafe fn GetSymbolPathWide(&self, buffer: Option<&mut [u16]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSymbolPathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetSymbolPathWide<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSymbolPathWide)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSymbolPathWide)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendSymbolPathWide<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendSymbolPathWide)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendSymbolPathWide)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn GetImagePathWide(&self, buffer: Option<&mut [u16]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetImagePathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetImagePathWide<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetImagePathWide)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetImagePathWide)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendImagePathWide<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendImagePathWide)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendImagePathWide)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn GetSourcePathWide(&self, buffer: Option<&mut [u16]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSourcePathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -14793,33 +14793,33 @@ impl IDebugSymbols3 {
     }
     pub unsafe fn SetSourcePathWide<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSourcePathWide)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSourcePathWide)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendSourcePathWide<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendSourcePathWide)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendSourcePathWide)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn FindSourceFileWide<P0>(&self, startelement: u32, file: P0, flags: u32, foundelement: Option<*mut u32>, buffer: Option<&mut [u16]>, foundsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).FindSourceFileWide)(windows_core::Interface::as_raw(self), startelement, file.into_param().abi(), flags, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).FindSourceFileWide)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSourceFileLineOffsetsWide<P0>(&self, file: P0, buffer: Option<&mut [u64]>, filelines: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceFileLineOffsetsWide)(windows_core::Interface::as_raw(self), file.into_param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filelines.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceFileLineOffsetsWide)(windows_core::Interface::as_raw(self), file.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filelines.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleVersionInformationWide<P0>(&self, index: u32, base: u64, item: P0, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, verinfosize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleVersionInformationWide)(windows_core::Interface::as_raw(self), index, base, item.into_param().abi(), core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(verinfosize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleVersionInformationWide)(windows_core::Interface::as_raw(self), index, base, item.param().abi(), core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(verinfosize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleNameStringWide(&self, which: u32, index: u32, base: u64, buffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetModuleNameStringWide)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -14835,32 +14835,32 @@ impl IDebugSymbols3 {
     }
     pub unsafe fn GetModuleByModuleName2<P0>(&self, name: P0, startindex: u32, flags: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleByModuleName2)(windows_core::Interface::as_raw(self), name.into_param().abi(), startindex, flags, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleByModuleName2)(windows_core::Interface::as_raw(self), name.param().abi(), startindex, flags, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleByModuleName2Wide<P0>(&self, name: P0, startindex: u32, flags: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleByModuleName2Wide)(windows_core::Interface::as_raw(self), name.into_param().abi(), startindex, flags, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleByModuleName2Wide)(windows_core::Interface::as_raw(self), name.param().abi(), startindex, flags, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleByOffset2(&self, offset: u64, startindex: u32, flags: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetModuleByOffset2)(windows_core::Interface::as_raw(self), offset, startindex, flags, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn AddSyntheticModule<P0, P1>(&self, base: u64, size: u32, imagepath: P0, modulename: P1, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddSyntheticModule)(windows_core::Interface::as_raw(self), base, size, imagepath.into_param().abi(), modulename.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).AddSyntheticModule)(windows_core::Interface::as_raw(self), base, size, imagepath.param().abi(), modulename.param().abi(), flags).ok()
     }
     pub unsafe fn AddSyntheticModuleWide<P0, P1>(&self, base: u64, size: u32, imagepath: P0, modulename: P1, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddSyntheticModuleWide)(windows_core::Interface::as_raw(self), base, size, imagepath.into_param().abi(), modulename.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).AddSyntheticModuleWide)(windows_core::Interface::as_raw(self), base, size, imagepath.param().abi(), modulename.param().abi(), flags).ok()
     }
     pub unsafe fn RemoveSyntheticModule(&self, base: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveSyntheticModule)(windows_core::Interface::as_raw(self), base).ok()
@@ -14886,27 +14886,27 @@ impl IDebugSymbols3 {
     }
     pub unsafe fn GetFieldTypeAndOffset<P0>(&self, module: u64, containertypeid: u32, field: P0, fieldtypeid: Option<*mut u32>, offset: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetFieldTypeAndOffset)(windows_core::Interface::as_raw(self), module, containertypeid, field.into_param().abi(), core::mem::transmute(fieldtypeid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetFieldTypeAndOffset)(windows_core::Interface::as_raw(self), module, containertypeid, field.param().abi(), core::mem::transmute(fieldtypeid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetFieldTypeAndOffsetWide<P0>(&self, module: u64, containertypeid: u32, field: P0, fieldtypeid: Option<*mut u32>, offset: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetFieldTypeAndOffsetWide)(windows_core::Interface::as_raw(self), module, containertypeid, field.into_param().abi(), core::mem::transmute(fieldtypeid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetFieldTypeAndOffsetWide)(windows_core::Interface::as_raw(self), module, containertypeid, field.param().abi(), core::mem::transmute(fieldtypeid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn AddSyntheticSymbol<P0>(&self, offset: u64, size: u32, name: P0, flags: u32, id: Option<*mut DEBUG_MODULE_AND_ID>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddSyntheticSymbol)(windows_core::Interface::as_raw(self), offset, size, name.into_param().abi(), flags, core::mem::transmute(id.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).AddSyntheticSymbol)(windows_core::Interface::as_raw(self), offset, size, name.param().abi(), flags, core::mem::transmute(id.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn AddSyntheticSymbolWide<P0>(&self, offset: u64, size: u32, name: P0, flags: u32, id: Option<*mut DEBUG_MODULE_AND_ID>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddSyntheticSymbolWide)(windows_core::Interface::as_raw(self), offset, size, name.into_param().abi(), flags, core::mem::transmute(id.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).AddSyntheticSymbolWide)(windows_core::Interface::as_raw(self), offset, size, name.param().abi(), flags, core::mem::transmute(id.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn RemoveSyntheticSymbol(&self, id: *const DEBUG_MODULE_AND_ID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveSyntheticSymbol)(windows_core::Interface::as_raw(self), id).ok()
@@ -14916,15 +14916,15 @@ impl IDebugSymbols3 {
     }
     pub unsafe fn GetSymbolEntriesByName<P0>(&self, symbol: P0, flags: u32, ids: Option<&mut [DEBUG_MODULE_AND_ID]>, entries: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSymbolEntriesByName)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), flags, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entries.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSymbolEntriesByName)(windows_core::Interface::as_raw(self), symbol.param().abi(), flags, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entries.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolEntriesByNameWide<P0>(&self, symbol: P0, flags: u32, ids: Option<&mut [DEBUG_MODULE_AND_ID]>, entries: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSymbolEntriesByNameWide)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), flags, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entries.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSymbolEntriesByNameWide)(windows_core::Interface::as_raw(self), symbol.param().abi(), flags, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entries.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolEntryByToken(&self, modulebase: u64, token: u32) -> windows_core::Result<DEBUG_MODULE_AND_ID> {
         let mut result__ = std::mem::zeroed();
@@ -14951,15 +14951,15 @@ impl IDebugSymbols3 {
     }
     pub unsafe fn GetSourceEntriesByLine<P0>(&self, line: u32, file: P0, flags: u32, entries: Option<&mut [DEBUG_SYMBOL_SOURCE_ENTRY]>, entriesavail: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceEntriesByLine)(windows_core::Interface::as_raw(self), line, file.into_param().abi(), flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entriesavail.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceEntriesByLine)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entriesavail.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSourceEntriesByLineWide<P0>(&self, line: u32, file: P0, flags: u32, entries: Option<&mut [DEBUG_SYMBOL_SOURCE_ENTRY]>, entriesavail: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceEntriesByLineWide)(windows_core::Interface::as_raw(self), line, file.into_param().abi(), flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entriesavail.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceEntriesByLineWide)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entriesavail.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSourceEntryString(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSourceEntryString)(windows_core::Interface::as_raw(self), entry, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(stringsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -15122,10 +15122,10 @@ impl IDebugSymbols4 {
     }
     pub unsafe fn GetOffsetByName<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOffsetByName)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOffsetByName)(windows_core::Interface::as_raw(self), symbol.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNearNameByOffset(&self, offset: u64, delta: i32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNearNameByOffset)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(displacement.unwrap_or(std::ptr::null_mut()))).ok()
@@ -15135,10 +15135,10 @@ impl IDebugSymbols4 {
     }
     pub unsafe fn GetOffsetByLine<P0>(&self, line: u32, file: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOffsetByLine)(windows_core::Interface::as_raw(self), line, file.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOffsetByLine)(windows_core::Interface::as_raw(self), line, file.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNumberModules(&self, loaded: *mut u32, unloaded: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNumberModules)(windows_core::Interface::as_raw(self), loaded, unloaded).ok()
@@ -15149,9 +15149,9 @@ impl IDebugSymbols4 {
     }
     pub unsafe fn GetModuleByModuleName<P0>(&self, name: P0, startindex: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleByModuleName)(windows_core::Interface::as_raw(self), name.into_param().abi(), startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleByModuleName)(windows_core::Interface::as_raw(self), name.param().abi(), startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleByOffset(&self, offset: u64, startindex: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetModuleByOffset)(windows_core::Interface::as_raw(self), offset, startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
@@ -15178,20 +15178,20 @@ impl IDebugSymbols4 {
     }
     pub unsafe fn GetSymbolModule<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSymbolModule)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetSymbolModule)(windows_core::Interface::as_raw(self), symbol.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTypeName(&self, module: u64, typeid: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTypeName)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetTypeId<P0>(&self, module: u64, name: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTypeId)(windows_core::Interface::as_raw(self), module, name.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetTypeId)(windows_core::Interface::as_raw(self), module, name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTypeSize(&self, module: u64, typeid: u32) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -15199,16 +15199,16 @@ impl IDebugSymbols4 {
     }
     pub unsafe fn GetFieldOffset<P0>(&self, module: u64, typeid: u32, field: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFieldOffset)(windows_core::Interface::as_raw(self), module, typeid, field.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetFieldOffset)(windows_core::Interface::as_raw(self), module, typeid, field.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSymbolTypeId<P0>(&self, symbol: P0, typeid: *mut u32, module: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSymbolTypeId)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSymbolTypeId)(windows_core::Interface::as_raw(self), symbol.param().abi(), typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetOffsetTypeId(&self, offset: u64, typeid: *mut u32, module: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOffsetTypeId)(windows_core::Interface::as_raw(self), offset, typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
@@ -15242,10 +15242,10 @@ impl IDebugSymbols4 {
     }
     pub unsafe fn GetScopeSymbolGroup<P0>(&self, flags: u32, update: P0) -> windows_core::Result<IDebugSymbolGroup>
     where
-        P0: windows_core::IntoParam<IDebugSymbolGroup>,
+        P0: windows_core::Param<IDebugSymbolGroup>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSymbolGroup(&self) -> windows_core::Result<IDebugSymbolGroup> {
         let mut result__ = std::mem::zeroed();
@@ -15253,10 +15253,10 @@ impl IDebugSymbols4 {
     }
     pub unsafe fn StartSymbolMatch<P0>(&self, pattern: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).StartSymbolMatch)(windows_core::Interface::as_raw(self), pattern.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).StartSymbolMatch)(windows_core::Interface::as_raw(self), pattern.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNextSymbolMatch(&self, handle: u64, buffer: Option<&mut [u8]>, matchsize: Option<*mut u32>, offset: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNextSymbolMatch)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(matchsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
@@ -15266,39 +15266,39 @@ impl IDebugSymbols4 {
     }
     pub unsafe fn Reload<P0>(&self, module: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Reload)(windows_core::Interface::as_raw(self), module.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Reload)(windows_core::Interface::as_raw(self), module.param().abi()).ok()
     }
     pub unsafe fn GetSymbolPath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSymbolPath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetSymbolPath<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSymbolPath)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSymbolPath)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendSymbolPath<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendSymbolPath)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendSymbolPath)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn GetImagePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetImagePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetImagePath<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetImagePath)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetImagePath)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendImagePath<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendImagePath)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendImagePath)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn GetSourcePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSourcePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -15308,33 +15308,33 @@ impl IDebugSymbols4 {
     }
     pub unsafe fn SetSourcePath<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSourcePath)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSourcePath)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendSourcePath<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendSourcePath)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendSourcePath)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn FindSourceFile<P0>(&self, startelement: u32, file: P0, flags: u32, foundelement: Option<*mut u32>, buffer: Option<&mut [u8]>, foundsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.into_param().abi(), flags, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSourceFileLineOffsets<P0>(&self, file: P0, buffer: Option<&mut [u64]>, filelines: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.into_param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filelines.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filelines.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleVersionInformation<P0>(&self, index: u32, base: u64, item: P0, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, verinfosize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleVersionInformation)(windows_core::Interface::as_raw(self), index, base, item.into_param().abi(), core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(verinfosize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleVersionInformation)(windows_core::Interface::as_raw(self), index, base, item.param().abi(), core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(verinfosize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleNameString(&self, which: u32, index: u32, base: u64, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetModuleNameString)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -15363,10 +15363,10 @@ impl IDebugSymbols4 {
     }
     pub unsafe fn GetOffsetByNameWide<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOffsetByNameWide)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOffsetByNameWide)(windows_core::Interface::as_raw(self), symbol.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNearNameByOffsetWide(&self, offset: u64, delta: i32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNearNameByOffsetWide)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(displacement.unwrap_or(std::ptr::null_mut()))).ok()
@@ -15376,53 +15376,53 @@ impl IDebugSymbols4 {
     }
     pub unsafe fn GetOffsetByLineWide<P0>(&self, line: u32, file: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOffsetByLineWide)(windows_core::Interface::as_raw(self), line, file.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOffsetByLineWide)(windows_core::Interface::as_raw(self), line, file.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetModuleByModuleNameWide<P0>(&self, name: P0, startindex: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleByModuleNameWide)(windows_core::Interface::as_raw(self), name.into_param().abi(), startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleByModuleNameWide)(windows_core::Interface::as_raw(self), name.param().abi(), startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolModuleWide<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSymbolModuleWide)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetSymbolModuleWide)(windows_core::Interface::as_raw(self), symbol.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTypeNameWide(&self, module: u64, typeid: u32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTypeNameWide)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetTypeIdWide<P0>(&self, module: u64, name: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTypeIdWide)(windows_core::Interface::as_raw(self), module, name.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetTypeIdWide)(windows_core::Interface::as_raw(self), module, name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFieldOffsetWide<P0>(&self, module: u64, typeid: u32, field: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFieldOffsetWide)(windows_core::Interface::as_raw(self), module, typeid, field.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetFieldOffsetWide)(windows_core::Interface::as_raw(self), module, typeid, field.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSymbolTypeIdWide<P0>(&self, symbol: P0, typeid: *mut u32, module: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSymbolTypeIdWide)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSymbolTypeIdWide)(windows_core::Interface::as_raw(self), symbol.param().abi(), typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetScopeSymbolGroup2<P0>(&self, flags: u32, update: P0) -> windows_core::Result<IDebugSymbolGroup2>
     where
-        P0: windows_core::IntoParam<IDebugSymbolGroup2>,
+        P0: windows_core::Param<IDebugSymbolGroup2>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetScopeSymbolGroup2)(windows_core::Interface::as_raw(self), flags, update.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetScopeSymbolGroup2)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSymbolGroup2(&self) -> windows_core::Result<IDebugSymbolGroup2> {
         let mut result__ = std::mem::zeroed();
@@ -15430,49 +15430,49 @@ impl IDebugSymbols4 {
     }
     pub unsafe fn StartSymbolMatchWide<P0>(&self, pattern: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).StartSymbolMatchWide)(windows_core::Interface::as_raw(self), pattern.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).StartSymbolMatchWide)(windows_core::Interface::as_raw(self), pattern.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNextSymbolMatchWide(&self, handle: u64, buffer: Option<&mut [u16]>, matchsize: Option<*mut u32>, offset: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNextSymbolMatchWide)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(matchsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReloadWide<P0>(&self, module: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ReloadWide)(windows_core::Interface::as_raw(self), module.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReloadWide)(windows_core::Interface::as_raw(self), module.param().abi()).ok()
     }
     pub unsafe fn GetSymbolPathWide(&self, buffer: Option<&mut [u16]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSymbolPathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetSymbolPathWide<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSymbolPathWide)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSymbolPathWide)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendSymbolPathWide<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendSymbolPathWide)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendSymbolPathWide)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn GetImagePathWide(&self, buffer: Option<&mut [u16]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetImagePathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetImagePathWide<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetImagePathWide)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetImagePathWide)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendImagePathWide<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendImagePathWide)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendImagePathWide)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn GetSourcePathWide(&self, buffer: Option<&mut [u16]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSourcePathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -15482,33 +15482,33 @@ impl IDebugSymbols4 {
     }
     pub unsafe fn SetSourcePathWide<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSourcePathWide)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSourcePathWide)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendSourcePathWide<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendSourcePathWide)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendSourcePathWide)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn FindSourceFileWide<P0>(&self, startelement: u32, file: P0, flags: u32, foundelement: Option<*mut u32>, buffer: Option<&mut [u16]>, foundsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).FindSourceFileWide)(windows_core::Interface::as_raw(self), startelement, file.into_param().abi(), flags, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).FindSourceFileWide)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSourceFileLineOffsetsWide<P0>(&self, file: P0, buffer: Option<&mut [u64]>, filelines: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceFileLineOffsetsWide)(windows_core::Interface::as_raw(self), file.into_param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filelines.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceFileLineOffsetsWide)(windows_core::Interface::as_raw(self), file.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filelines.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleVersionInformationWide<P0>(&self, index: u32, base: u64, item: P0, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, verinfosize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleVersionInformationWide)(windows_core::Interface::as_raw(self), index, base, item.into_param().abi(), core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(verinfosize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleVersionInformationWide)(windows_core::Interface::as_raw(self), index, base, item.param().abi(), core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(verinfosize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleNameStringWide(&self, which: u32, index: u32, base: u64, buffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetModuleNameStringWide)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -15524,32 +15524,32 @@ impl IDebugSymbols4 {
     }
     pub unsafe fn GetModuleByModuleName2<P0>(&self, name: P0, startindex: u32, flags: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleByModuleName2)(windows_core::Interface::as_raw(self), name.into_param().abi(), startindex, flags, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleByModuleName2)(windows_core::Interface::as_raw(self), name.param().abi(), startindex, flags, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleByModuleName2Wide<P0>(&self, name: P0, startindex: u32, flags: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleByModuleName2Wide)(windows_core::Interface::as_raw(self), name.into_param().abi(), startindex, flags, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleByModuleName2Wide)(windows_core::Interface::as_raw(self), name.param().abi(), startindex, flags, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleByOffset2(&self, offset: u64, startindex: u32, flags: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetModuleByOffset2)(windows_core::Interface::as_raw(self), offset, startindex, flags, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn AddSyntheticModule<P0, P1>(&self, base: u64, size: u32, imagepath: P0, modulename: P1, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddSyntheticModule)(windows_core::Interface::as_raw(self), base, size, imagepath.into_param().abi(), modulename.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).AddSyntheticModule)(windows_core::Interface::as_raw(self), base, size, imagepath.param().abi(), modulename.param().abi(), flags).ok()
     }
     pub unsafe fn AddSyntheticModuleWide<P0, P1>(&self, base: u64, size: u32, imagepath: P0, modulename: P1, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddSyntheticModuleWide)(windows_core::Interface::as_raw(self), base, size, imagepath.into_param().abi(), modulename.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).AddSyntheticModuleWide)(windows_core::Interface::as_raw(self), base, size, imagepath.param().abi(), modulename.param().abi(), flags).ok()
     }
     pub unsafe fn RemoveSyntheticModule(&self, base: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveSyntheticModule)(windows_core::Interface::as_raw(self), base).ok()
@@ -15575,27 +15575,27 @@ impl IDebugSymbols4 {
     }
     pub unsafe fn GetFieldTypeAndOffset<P0>(&self, module: u64, containertypeid: u32, field: P0, fieldtypeid: Option<*mut u32>, offset: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetFieldTypeAndOffset)(windows_core::Interface::as_raw(self), module, containertypeid, field.into_param().abi(), core::mem::transmute(fieldtypeid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetFieldTypeAndOffset)(windows_core::Interface::as_raw(self), module, containertypeid, field.param().abi(), core::mem::transmute(fieldtypeid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetFieldTypeAndOffsetWide<P0>(&self, module: u64, containertypeid: u32, field: P0, fieldtypeid: Option<*mut u32>, offset: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetFieldTypeAndOffsetWide)(windows_core::Interface::as_raw(self), module, containertypeid, field.into_param().abi(), core::mem::transmute(fieldtypeid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetFieldTypeAndOffsetWide)(windows_core::Interface::as_raw(self), module, containertypeid, field.param().abi(), core::mem::transmute(fieldtypeid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn AddSyntheticSymbol<P0>(&self, offset: u64, size: u32, name: P0, flags: u32, id: Option<*mut DEBUG_MODULE_AND_ID>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddSyntheticSymbol)(windows_core::Interface::as_raw(self), offset, size, name.into_param().abi(), flags, core::mem::transmute(id.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).AddSyntheticSymbol)(windows_core::Interface::as_raw(self), offset, size, name.param().abi(), flags, core::mem::transmute(id.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn AddSyntheticSymbolWide<P0>(&self, offset: u64, size: u32, name: P0, flags: u32, id: Option<*mut DEBUG_MODULE_AND_ID>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddSyntheticSymbolWide)(windows_core::Interface::as_raw(self), offset, size, name.into_param().abi(), flags, core::mem::transmute(id.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).AddSyntheticSymbolWide)(windows_core::Interface::as_raw(self), offset, size, name.param().abi(), flags, core::mem::transmute(id.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn RemoveSyntheticSymbol(&self, id: *const DEBUG_MODULE_AND_ID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveSyntheticSymbol)(windows_core::Interface::as_raw(self), id).ok()
@@ -15605,15 +15605,15 @@ impl IDebugSymbols4 {
     }
     pub unsafe fn GetSymbolEntriesByName<P0>(&self, symbol: P0, flags: u32, ids: Option<&mut [DEBUG_MODULE_AND_ID]>, entries: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSymbolEntriesByName)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), flags, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entries.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSymbolEntriesByName)(windows_core::Interface::as_raw(self), symbol.param().abi(), flags, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entries.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolEntriesByNameWide<P0>(&self, symbol: P0, flags: u32, ids: Option<&mut [DEBUG_MODULE_AND_ID]>, entries: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSymbolEntriesByNameWide)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), flags, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entries.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSymbolEntriesByNameWide)(windows_core::Interface::as_raw(self), symbol.param().abi(), flags, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entries.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolEntryByToken(&self, modulebase: u64, token: u32) -> windows_core::Result<DEBUG_MODULE_AND_ID> {
         let mut result__ = std::mem::zeroed();
@@ -15640,15 +15640,15 @@ impl IDebugSymbols4 {
     }
     pub unsafe fn GetSourceEntriesByLine<P0>(&self, line: u32, file: P0, flags: u32, entries: Option<&mut [DEBUG_SYMBOL_SOURCE_ENTRY]>, entriesavail: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceEntriesByLine)(windows_core::Interface::as_raw(self), line, file.into_param().abi(), flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entriesavail.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceEntriesByLine)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entriesavail.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSourceEntriesByLineWide<P0>(&self, line: u32, file: P0, flags: u32, entries: Option<&mut [DEBUG_SYMBOL_SOURCE_ENTRY]>, entriesavail: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceEntriesByLineWide)(windows_core::Interface::as_raw(self), line, file.into_param().abi(), flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entriesavail.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceEntriesByLineWide)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entriesavail.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSourceEntryString(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSourceEntryString)(windows_core::Interface::as_raw(self), entry, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(stringsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -15839,10 +15839,10 @@ impl IDebugSymbols5 {
     }
     pub unsafe fn GetOffsetByName<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOffsetByName)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOffsetByName)(windows_core::Interface::as_raw(self), symbol.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNearNameByOffset(&self, offset: u64, delta: i32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNearNameByOffset)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(displacement.unwrap_or(std::ptr::null_mut()))).ok()
@@ -15852,10 +15852,10 @@ impl IDebugSymbols5 {
     }
     pub unsafe fn GetOffsetByLine<P0>(&self, line: u32, file: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOffsetByLine)(windows_core::Interface::as_raw(self), line, file.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOffsetByLine)(windows_core::Interface::as_raw(self), line, file.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNumberModules(&self, loaded: *mut u32, unloaded: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNumberModules)(windows_core::Interface::as_raw(self), loaded, unloaded).ok()
@@ -15866,9 +15866,9 @@ impl IDebugSymbols5 {
     }
     pub unsafe fn GetModuleByModuleName<P0>(&self, name: P0, startindex: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleByModuleName)(windows_core::Interface::as_raw(self), name.into_param().abi(), startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleByModuleName)(windows_core::Interface::as_raw(self), name.param().abi(), startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleByOffset(&self, offset: u64, startindex: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetModuleByOffset)(windows_core::Interface::as_raw(self), offset, startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
@@ -15895,20 +15895,20 @@ impl IDebugSymbols5 {
     }
     pub unsafe fn GetSymbolModule<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSymbolModule)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetSymbolModule)(windows_core::Interface::as_raw(self), symbol.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTypeName(&self, module: u64, typeid: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTypeName)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetTypeId<P0>(&self, module: u64, name: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTypeId)(windows_core::Interface::as_raw(self), module, name.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetTypeId)(windows_core::Interface::as_raw(self), module, name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTypeSize(&self, module: u64, typeid: u32) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -15916,16 +15916,16 @@ impl IDebugSymbols5 {
     }
     pub unsafe fn GetFieldOffset<P0>(&self, module: u64, typeid: u32, field: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFieldOffset)(windows_core::Interface::as_raw(self), module, typeid, field.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetFieldOffset)(windows_core::Interface::as_raw(self), module, typeid, field.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSymbolTypeId<P0>(&self, symbol: P0, typeid: *mut u32, module: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSymbolTypeId)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSymbolTypeId)(windows_core::Interface::as_raw(self), symbol.param().abi(), typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetOffsetTypeId(&self, offset: u64, typeid: *mut u32, module: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOffsetTypeId)(windows_core::Interface::as_raw(self), offset, typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
@@ -15959,10 +15959,10 @@ impl IDebugSymbols5 {
     }
     pub unsafe fn GetScopeSymbolGroup<P0>(&self, flags: u32, update: P0) -> windows_core::Result<IDebugSymbolGroup>
     where
-        P0: windows_core::IntoParam<IDebugSymbolGroup>,
+        P0: windows_core::Param<IDebugSymbolGroup>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetScopeSymbolGroup)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSymbolGroup(&self) -> windows_core::Result<IDebugSymbolGroup> {
         let mut result__ = std::mem::zeroed();
@@ -15970,10 +15970,10 @@ impl IDebugSymbols5 {
     }
     pub unsafe fn StartSymbolMatch<P0>(&self, pattern: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).StartSymbolMatch)(windows_core::Interface::as_raw(self), pattern.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).StartSymbolMatch)(windows_core::Interface::as_raw(self), pattern.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNextSymbolMatch(&self, handle: u64, buffer: Option<&mut [u8]>, matchsize: Option<*mut u32>, offset: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNextSymbolMatch)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(matchsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
@@ -15983,39 +15983,39 @@ impl IDebugSymbols5 {
     }
     pub unsafe fn Reload<P0>(&self, module: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Reload)(windows_core::Interface::as_raw(self), module.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Reload)(windows_core::Interface::as_raw(self), module.param().abi()).ok()
     }
     pub unsafe fn GetSymbolPath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSymbolPath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetSymbolPath<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSymbolPath)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSymbolPath)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendSymbolPath<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendSymbolPath)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendSymbolPath)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn GetImagePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetImagePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetImagePath<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetImagePath)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetImagePath)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendImagePath<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendImagePath)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendImagePath)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn GetSourcePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSourcePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -16025,33 +16025,33 @@ impl IDebugSymbols5 {
     }
     pub unsafe fn SetSourcePath<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSourcePath)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSourcePath)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendSourcePath<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendSourcePath)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendSourcePath)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn FindSourceFile<P0>(&self, startelement: u32, file: P0, flags: u32, foundelement: Option<*mut u32>, buffer: Option<&mut [u8]>, foundsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.into_param().abi(), flags, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSourceFileLineOffsets<P0>(&self, file: P0, buffer: Option<&mut [u64]>, filelines: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.into_param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filelines.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filelines.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleVersionInformation<P0>(&self, index: u32, base: u64, item: P0, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, verinfosize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleVersionInformation)(windows_core::Interface::as_raw(self), index, base, item.into_param().abi(), core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(verinfosize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleVersionInformation)(windows_core::Interface::as_raw(self), index, base, item.param().abi(), core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(verinfosize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleNameString(&self, which: u32, index: u32, base: u64, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetModuleNameString)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -16080,10 +16080,10 @@ impl IDebugSymbols5 {
     }
     pub unsafe fn GetOffsetByNameWide<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOffsetByNameWide)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOffsetByNameWide)(windows_core::Interface::as_raw(self), symbol.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNearNameByOffsetWide(&self, offset: u64, delta: i32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNearNameByOffsetWide)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(displacement.unwrap_or(std::ptr::null_mut()))).ok()
@@ -16093,53 +16093,53 @@ impl IDebugSymbols5 {
     }
     pub unsafe fn GetOffsetByLineWide<P0>(&self, line: u32, file: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOffsetByLineWide)(windows_core::Interface::as_raw(self), line, file.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOffsetByLineWide)(windows_core::Interface::as_raw(self), line, file.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetModuleByModuleNameWide<P0>(&self, name: P0, startindex: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleByModuleNameWide)(windows_core::Interface::as_raw(self), name.into_param().abi(), startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleByModuleNameWide)(windows_core::Interface::as_raw(self), name.param().abi(), startindex, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolModuleWide<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSymbolModuleWide)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetSymbolModuleWide)(windows_core::Interface::as_raw(self), symbol.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTypeNameWide(&self, module: u64, typeid: u32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTypeNameWide)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetTypeIdWide<P0>(&self, module: u64, name: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTypeIdWide)(windows_core::Interface::as_raw(self), module, name.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetTypeIdWide)(windows_core::Interface::as_raw(self), module, name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFieldOffsetWide<P0>(&self, module: u64, typeid: u32, field: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFieldOffsetWide)(windows_core::Interface::as_raw(self), module, typeid, field.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetFieldOffsetWide)(windows_core::Interface::as_raw(self), module, typeid, field.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSymbolTypeIdWide<P0>(&self, symbol: P0, typeid: *mut u32, module: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSymbolTypeIdWide)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSymbolTypeIdWide)(windows_core::Interface::as_raw(self), symbol.param().abi(), typeid, core::mem::transmute(module.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetScopeSymbolGroup2<P0>(&self, flags: u32, update: P0) -> windows_core::Result<IDebugSymbolGroup2>
     where
-        P0: windows_core::IntoParam<IDebugSymbolGroup2>,
+        P0: windows_core::Param<IDebugSymbolGroup2>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetScopeSymbolGroup2)(windows_core::Interface::as_raw(self), flags, update.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetScopeSymbolGroup2)(windows_core::Interface::as_raw(self), flags, update.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSymbolGroup2(&self) -> windows_core::Result<IDebugSymbolGroup2> {
         let mut result__ = std::mem::zeroed();
@@ -16147,49 +16147,49 @@ impl IDebugSymbols5 {
     }
     pub unsafe fn StartSymbolMatchWide<P0>(&self, pattern: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).StartSymbolMatchWide)(windows_core::Interface::as_raw(self), pattern.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).StartSymbolMatchWide)(windows_core::Interface::as_raw(self), pattern.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNextSymbolMatchWide(&self, handle: u64, buffer: Option<&mut [u16]>, matchsize: Option<*mut u32>, offset: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNextSymbolMatchWide)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(matchsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReloadWide<P0>(&self, module: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ReloadWide)(windows_core::Interface::as_raw(self), module.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReloadWide)(windows_core::Interface::as_raw(self), module.param().abi()).ok()
     }
     pub unsafe fn GetSymbolPathWide(&self, buffer: Option<&mut [u16]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSymbolPathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetSymbolPathWide<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSymbolPathWide)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSymbolPathWide)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendSymbolPathWide<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendSymbolPathWide)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendSymbolPathWide)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn GetImagePathWide(&self, buffer: Option<&mut [u16]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetImagePathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetImagePathWide<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetImagePathWide)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetImagePathWide)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendImagePathWide<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendImagePathWide)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendImagePathWide)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn GetSourcePathWide(&self, buffer: Option<&mut [u16]>, pathsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSourcePathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -16199,33 +16199,33 @@ impl IDebugSymbols5 {
     }
     pub unsafe fn SetSourcePathWide<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSourcePathWide)(windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSourcePathWide)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
     }
     pub unsafe fn AppendSourcePathWide<P0>(&self, addition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AppendSourcePathWide)(windows_core::Interface::as_raw(self), addition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AppendSourcePathWide)(windows_core::Interface::as_raw(self), addition.param().abi()).ok()
     }
     pub unsafe fn FindSourceFileWide<P0>(&self, startelement: u32, file: P0, flags: u32, foundelement: Option<*mut u32>, buffer: Option<&mut [u16]>, foundsize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).FindSourceFileWide)(windows_core::Interface::as_raw(self), startelement, file.into_param().abi(), flags, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).FindSourceFileWide)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, core::mem::transmute(foundelement.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(foundsize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSourceFileLineOffsetsWide<P0>(&self, file: P0, buffer: Option<&mut [u64]>, filelines: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceFileLineOffsetsWide)(windows_core::Interface::as_raw(self), file.into_param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filelines.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceFileLineOffsetsWide)(windows_core::Interface::as_raw(self), file.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(filelines.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleVersionInformationWide<P0>(&self, index: u32, base: u64, item: P0, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, verinfosize: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleVersionInformationWide)(windows_core::Interface::as_raw(self), index, base, item.into_param().abi(), core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(verinfosize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleVersionInformationWide)(windows_core::Interface::as_raw(self), index, base, item.param().abi(), core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, core::mem::transmute(verinfosize.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleNameStringWide(&self, which: u32, index: u32, base: u64, buffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetModuleNameStringWide)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(namesize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -16241,32 +16241,32 @@ impl IDebugSymbols5 {
     }
     pub unsafe fn GetModuleByModuleName2<P0>(&self, name: P0, startindex: u32, flags: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleByModuleName2)(windows_core::Interface::as_raw(self), name.into_param().abi(), startindex, flags, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleByModuleName2)(windows_core::Interface::as_raw(self), name.param().abi(), startindex, flags, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleByModuleName2Wide<P0>(&self, name: P0, startindex: u32, flags: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetModuleByModuleName2Wide)(windows_core::Interface::as_raw(self), name.into_param().abi(), startindex, flags, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetModuleByModuleName2Wide)(windows_core::Interface::as_raw(self), name.param().abi(), startindex, flags, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetModuleByOffset2(&self, offset: u64, startindex: u32, flags: u32, index: Option<*mut u32>, base: Option<*mut u64>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetModuleByOffset2)(windows_core::Interface::as_raw(self), offset, startindex, flags, core::mem::transmute(index.unwrap_or(std::ptr::null_mut())), core::mem::transmute(base.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn AddSyntheticModule<P0, P1>(&self, base: u64, size: u32, imagepath: P0, modulename: P1, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
-        P1: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddSyntheticModule)(windows_core::Interface::as_raw(self), base, size, imagepath.into_param().abi(), modulename.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).AddSyntheticModule)(windows_core::Interface::as_raw(self), base, size, imagepath.param().abi(), modulename.param().abi(), flags).ok()
     }
     pub unsafe fn AddSyntheticModuleWide<P0, P1>(&self, base: u64, size: u32, imagepath: P0, modulename: P1, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddSyntheticModuleWide)(windows_core::Interface::as_raw(self), base, size, imagepath.into_param().abi(), modulename.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).AddSyntheticModuleWide)(windows_core::Interface::as_raw(self), base, size, imagepath.param().abi(), modulename.param().abi(), flags).ok()
     }
     pub unsafe fn RemoveSyntheticModule(&self, base: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveSyntheticModule)(windows_core::Interface::as_raw(self), base).ok()
@@ -16292,27 +16292,27 @@ impl IDebugSymbols5 {
     }
     pub unsafe fn GetFieldTypeAndOffset<P0>(&self, module: u64, containertypeid: u32, field: P0, fieldtypeid: Option<*mut u32>, offset: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetFieldTypeAndOffset)(windows_core::Interface::as_raw(self), module, containertypeid, field.into_param().abi(), core::mem::transmute(fieldtypeid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetFieldTypeAndOffset)(windows_core::Interface::as_raw(self), module, containertypeid, field.param().abi(), core::mem::transmute(fieldtypeid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetFieldTypeAndOffsetWide<P0>(&self, module: u64, containertypeid: u32, field: P0, fieldtypeid: Option<*mut u32>, offset: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetFieldTypeAndOffsetWide)(windows_core::Interface::as_raw(self), module, containertypeid, field.into_param().abi(), core::mem::transmute(fieldtypeid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetFieldTypeAndOffsetWide)(windows_core::Interface::as_raw(self), module, containertypeid, field.param().abi(), core::mem::transmute(fieldtypeid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(offset.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn AddSyntheticSymbol<P0>(&self, offset: u64, size: u32, name: P0, flags: u32, id: Option<*mut DEBUG_MODULE_AND_ID>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).AddSyntheticSymbol)(windows_core::Interface::as_raw(self), offset, size, name.into_param().abi(), flags, core::mem::transmute(id.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).AddSyntheticSymbol)(windows_core::Interface::as_raw(self), offset, size, name.param().abi(), flags, core::mem::transmute(id.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn AddSyntheticSymbolWide<P0>(&self, offset: u64, size: u32, name: P0, flags: u32, id: Option<*mut DEBUG_MODULE_AND_ID>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddSyntheticSymbolWide)(windows_core::Interface::as_raw(self), offset, size, name.into_param().abi(), flags, core::mem::transmute(id.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).AddSyntheticSymbolWide)(windows_core::Interface::as_raw(self), offset, size, name.param().abi(), flags, core::mem::transmute(id.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn RemoveSyntheticSymbol(&self, id: *const DEBUG_MODULE_AND_ID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveSyntheticSymbol)(windows_core::Interface::as_raw(self), id).ok()
@@ -16322,15 +16322,15 @@ impl IDebugSymbols5 {
     }
     pub unsafe fn GetSymbolEntriesByName<P0>(&self, symbol: P0, flags: u32, ids: Option<&mut [DEBUG_MODULE_AND_ID]>, entries: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSymbolEntriesByName)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), flags, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entries.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSymbolEntriesByName)(windows_core::Interface::as_raw(self), symbol.param().abi(), flags, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entries.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolEntriesByNameWide<P0>(&self, symbol: P0, flags: u32, ids: Option<&mut [DEBUG_MODULE_AND_ID]>, entries: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSymbolEntriesByNameWide)(windows_core::Interface::as_raw(self), symbol.into_param().abi(), flags, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entries.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSymbolEntriesByNameWide)(windows_core::Interface::as_raw(self), symbol.param().abi(), flags, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entries.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolEntryByToken(&self, modulebase: u64, token: u32) -> windows_core::Result<DEBUG_MODULE_AND_ID> {
         let mut result__ = std::mem::zeroed();
@@ -16357,15 +16357,15 @@ impl IDebugSymbols5 {
     }
     pub unsafe fn GetSourceEntriesByLine<P0>(&self, line: u32, file: P0, flags: u32, entries: Option<&mut [DEBUG_SYMBOL_SOURCE_ENTRY]>, entriesavail: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceEntriesByLine)(windows_core::Interface::as_raw(self), line, file.into_param().abi(), flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entriesavail.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceEntriesByLine)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entriesavail.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSourceEntriesByLineWide<P0>(&self, line: u32, file: P0, flags: u32, entries: Option<&mut [DEBUG_SYMBOL_SOURCE_ENTRY]>, entriesavail: Option<*mut u32>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetSourceEntriesByLineWide)(windows_core::Interface::as_raw(self), line, file.into_param().abi(), flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entriesavail.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetSourceEntriesByLineWide)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entriesavail.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSourceEntryString(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSourceEntryString)(windows_core::Interface::as_raw(self), entry, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(stringsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -17296,29 +17296,29 @@ windows_core::imp::interface_hierarchy!(IDynamicConceptProviderConcept, windows_
 impl IDynamicConceptProviderConcept {
     pub unsafe fn GetConcept<P0>(&self, contextobject: P0, conceptid: *const windows_core::GUID, conceptinterface: *mut Option<windows_core::IUnknown>, conceptmetadata: Option<*mut Option<IKeyStore>>, hasconcept: *mut bool) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).GetConcept)(windows_core::Interface::as_raw(self), contextobject.into_param().abi(), conceptid, core::mem::transmute(conceptinterface), core::mem::transmute(conceptmetadata.unwrap_or(std::ptr::null_mut())), hasconcept).ok()
+        (windows_core::Interface::vtable(self).GetConcept)(windows_core::Interface::as_raw(self), contextobject.param().abi(), conceptid, core::mem::transmute(conceptinterface), core::mem::transmute(conceptmetadata.unwrap_or(std::ptr::null_mut())), hasconcept).ok()
     }
     pub unsafe fn SetConcept<P0, P1, P2>(&self, contextobject: P0, conceptid: *const windows_core::GUID, conceptinterface: P1, conceptmetadata: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
-        P2: windows_core::IntoParam<IKeyStore>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<windows_core::IUnknown>,
+        P2: windows_core::Param<IKeyStore>,
     {
-        (windows_core::Interface::vtable(self).SetConcept)(windows_core::Interface::as_raw(self), contextobject.into_param().abi(), conceptid, conceptinterface.into_param().abi(), conceptmetadata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetConcept)(windows_core::Interface::as_raw(self), contextobject.param().abi(), conceptid, conceptinterface.param().abi(), conceptmetadata.param().abi()).ok()
     }
     pub unsafe fn NotifyParent<P0>(&self, parentmodel: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).NotifyParent)(windows_core::Interface::as_raw(self), parentmodel.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).NotifyParent)(windows_core::Interface::as_raw(self), parentmodel.param().abi()).ok()
     }
     pub unsafe fn NotifyParentChange<P0>(&self, parentmodel: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).NotifyParentChange)(windows_core::Interface::as_raw(self), parentmodel.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).NotifyParentChange)(windows_core::Interface::as_raw(self), parentmodel.param().abi()).ok()
     }
     pub unsafe fn NotifyDestruct(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).NotifyDestruct)(windows_core::Interface::as_raw(self)).ok()
@@ -17338,26 +17338,26 @@ windows_core::imp::interface_hierarchy!(IDynamicKeyProviderConcept, windows_core
 impl IDynamicKeyProviderConcept {
     pub unsafe fn GetKey<P0, P1>(&self, contextobject: P0, key: P1, keyvalue: Option<*mut Option<IModelObject>>, metadata: Option<*mut Option<IKeyStore>>, haskey: Option<*mut bool>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetKey)(windows_core::Interface::as_raw(self), contextobject.into_param().abi(), key.into_param().abi(), core::mem::transmute(keyvalue.unwrap_or(std::ptr::null_mut())), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(haskey.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetKey)(windows_core::Interface::as_raw(self), contextobject.param().abi(), key.param().abi(), core::mem::transmute(keyvalue.unwrap_or(std::ptr::null_mut())), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(haskey.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetKey<P0, P1, P2, P3>(&self, contextobject: P0, key: P1, keyvalue: P2, metadata: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<IModelObject>,
-        P3: windows_core::IntoParam<IKeyStore>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<IModelObject>,
+        P3: windows_core::Param<IKeyStore>,
     {
-        (windows_core::Interface::vtable(self).SetKey)(windows_core::Interface::as_raw(self), contextobject.into_param().abi(), key.into_param().abi(), keyvalue.into_param().abi(), metadata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKey)(windows_core::Interface::as_raw(self), contextobject.param().abi(), key.param().abi(), keyvalue.param().abi(), metadata.param().abi()).ok()
     }
     pub unsafe fn EnumerateKeys<P0>(&self, contextobject: P0) -> windows_core::Result<IKeyEnumerator>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumerateKeys)(windows_core::Interface::as_raw(self), contextobject.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumerateKeys)(windows_core::Interface::as_raw(self), contextobject.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -17372,11 +17372,11 @@ windows_core::imp::interface_hierarchy!(IEquatableConcept, windows_core::IUnknow
 impl IEquatableConcept {
     pub unsafe fn AreObjectsEqual<P0, P1>(&self, contextobject: P0, otherobject: P1) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<IModelObject>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AreObjectsEqual)(windows_core::Interface::as_raw(self), contextobject.into_param().abi(), otherobject.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AreObjectsEqual)(windows_core::Interface::as_raw(self), contextobject.param().abi(), otherobject.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -17401,23 +17401,23 @@ windows_core::imp::interface_hierarchy!(IIndexableConcept, windows_core::IUnknow
 impl IIndexableConcept {
     pub unsafe fn GetDimensionality<P0>(&self, contextobject: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDimensionality)(windows_core::Interface::as_raw(self), contextobject.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetDimensionality)(windows_core::Interface::as_raw(self), contextobject.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAt<P0>(&self, contextobject: P0, indexers: &[Option<IModelObject>], object: *mut Option<IModelObject>, metadata: Option<*mut Option<IKeyStore>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), contextobject.into_param().abi(), indexers.len().try_into().unwrap(), core::mem::transmute(indexers.as_ptr()), core::mem::transmute(object), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), contextobject.param().abi(), indexers.len().try_into().unwrap(), core::mem::transmute(indexers.as_ptr()), core::mem::transmute(object), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetAt<P0, P1>(&self, contextobject: P0, indexers: &[Option<IModelObject>], value: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), contextobject.into_param().abi(), indexers.len().try_into().unwrap(), core::mem::transmute(indexers.as_ptr()), value.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAt)(windows_core::Interface::as_raw(self), contextobject.param().abi(), indexers.len().try_into().unwrap(), core::mem::transmute(indexers.as_ptr()), value.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -17432,17 +17432,17 @@ windows_core::imp::interface_hierarchy!(IIterableConcept, windows_core::IUnknown
 impl IIterableConcept {
     pub unsafe fn GetDefaultIndexDimensionality<P0>(&self, contextobject: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDefaultIndexDimensionality)(windows_core::Interface::as_raw(self), contextobject.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetDefaultIndexDimensionality)(windows_core::Interface::as_raw(self), contextobject.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetIterator<P0>(&self, contextobject: P0) -> windows_core::Result<IModelIterator>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetIterator)(windows_core::Interface::as_raw(self), contextobject.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetIterator)(windows_core::Interface::as_raw(self), contextobject.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -17472,30 +17472,30 @@ windows_core::imp::interface_hierarchy!(IKeyStore, windows_core::IUnknown);
 impl IKeyStore {
     pub unsafe fn GetKey<P0>(&self, key: P0, object: Option<*mut Option<IModelObject>>, metadata: Option<*mut Option<IKeyStore>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetKey)(windows_core::Interface::as_raw(self), key.into_param().abi(), core::mem::transmute(object.unwrap_or(std::ptr::null_mut())), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetKey)(windows_core::Interface::as_raw(self), key.param().abi(), core::mem::transmute(object.unwrap_or(std::ptr::null_mut())), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetKey<P0, P1, P2>(&self, key: P0, object: P1, metadata: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IModelObject>,
-        P2: windows_core::IntoParam<IKeyStore>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IModelObject>,
+        P2: windows_core::Param<IKeyStore>,
     {
-        (windows_core::Interface::vtable(self).SetKey)(windows_core::Interface::as_raw(self), key.into_param().abi(), object.into_param().abi(), metadata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKey)(windows_core::Interface::as_raw(self), key.param().abi(), object.param().abi(), metadata.param().abi()).ok()
     }
     pub unsafe fn GetKeyValue<P0>(&self, key: P0, object: Option<*mut Option<IModelObject>>, metadata: Option<*mut Option<IKeyStore>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetKeyValue)(windows_core::Interface::as_raw(self), key.into_param().abi(), core::mem::transmute(object.unwrap_or(std::ptr::null_mut())), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetKeyValue)(windows_core::Interface::as_raw(self), key.param().abi(), core::mem::transmute(object.unwrap_or(std::ptr::null_mut())), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetKeyValue<P0, P1>(&self, key: P0, object: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).SetKeyValue)(windows_core::Interface::as_raw(self), key.into_param().abi(), object.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKeyValue)(windows_core::Interface::as_raw(self), key.param().abi(), object.param().abi()).ok()
     }
     pub unsafe fn ClearKeys(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ClearKeys)(windows_core::Interface::as_raw(self)).ok()
@@ -17549,16 +17549,16 @@ impl IModelKeyReference {
     }
     pub unsafe fn SetKey<P0, P1>(&self, object: P0, metadata: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<IKeyStore>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<IKeyStore>,
     {
-        (windows_core::Interface::vtable(self).SetKey)(windows_core::Interface::as_raw(self), object.into_param().abi(), metadata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKey)(windows_core::Interface::as_raw(self), object.param().abi(), metadata.param().abi()).ok()
     }
     pub unsafe fn SetKeyValue<P0>(&self, object: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).SetKeyValue)(windows_core::Interface::as_raw(self), object.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKeyValue)(windows_core::Interface::as_raw(self), object.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -17595,22 +17595,22 @@ impl IModelKeyReference2 {
     }
     pub unsafe fn SetKey<P0, P1>(&self, object: P0, metadata: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<IKeyStore>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<IKeyStore>,
     {
-        (windows_core::Interface::vtable(self).base__.SetKey)(windows_core::Interface::as_raw(self), object.into_param().abi(), metadata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetKey)(windows_core::Interface::as_raw(self), object.param().abi(), metadata.param().abi()).ok()
     }
     pub unsafe fn SetKeyValue<P0>(&self, object: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).base__.SetKeyValue)(windows_core::Interface::as_raw(self), object.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetKeyValue)(windows_core::Interface::as_raw(self), object.param().abi()).ok()
     }
     pub unsafe fn OverrideContextObject<P0>(&self, newcontextobject: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).OverrideContextObject)(windows_core::Interface::as_raw(self), newcontextobject.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OverrideContextObject)(windows_core::Interface::as_raw(self), newcontextobject.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -17623,9 +17623,9 @@ windows_core::imp::interface_hierarchy!(IModelMethod, windows_core::IUnknown);
 impl IModelMethod {
     pub unsafe fn Call<P0>(&self, pcontextobject: P0, pparguments: &[Option<IModelObject>], ppresult: *mut Option<IModelObject>, ppmetadata: Option<*mut Option<IKeyStore>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).Call)(windows_core::Interface::as_raw(self), pcontextobject.into_param().abi(), pparguments.len().try_into().unwrap(), core::mem::transmute(pparguments.as_ptr()), core::mem::transmute(ppresult), core::mem::transmute(ppmetadata.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Call)(windows_core::Interface::as_raw(self), pcontextobject.param().abi(), pparguments.len().try_into().unwrap(), core::mem::transmute(pparguments.as_ptr()), core::mem::transmute(ppresult), core::mem::transmute(ppmetadata.unwrap_or(std::ptr::null_mut()))).ok()
     }
 }
 #[repr(C)]
@@ -17655,16 +17655,16 @@ impl IModelObject {
     }
     pub unsafe fn GetKeyValue<P0>(&self, key: P0, object: Option<*mut Option<IModelObject>>, metadata: Option<*mut Option<IKeyStore>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetKeyValue)(windows_core::Interface::as_raw(self), key.into_param().abi(), core::mem::transmute(object.unwrap_or(std::ptr::null_mut())), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetKeyValue)(windows_core::Interface::as_raw(self), key.param().abi(), core::mem::transmute(object.unwrap_or(std::ptr::null_mut())), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetKeyValue<P0, P1>(&self, key: P0, object: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).SetKeyValue)(windows_core::Interface::as_raw(self), key.into_param().abi(), object.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKeyValue)(windows_core::Interface::as_raw(self), key.param().abi(), object.param().abi()).ok()
     }
     pub unsafe fn EnumerateKeyValues(&self) -> windows_core::Result<IKeyEnumerator> {
         let mut result__ = std::mem::zeroed();
@@ -17672,10 +17672,10 @@ impl IModelObject {
     }
     pub unsafe fn GetRawValue<P0>(&self, kind: SymbolKind, name: P0, searchflags: u32) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRawValue)(windows_core::Interface::as_raw(self), kind, name.into_param().abi(), searchflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetRawValue)(windows_core::Interface::as_raw(self), kind, name.param().abi(), searchflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumerateRawValues(&self, kind: SymbolKind, searchflags: u32) -> windows_core::Result<IRawEnumerator> {
         let mut result__ = std::mem::zeroed();
@@ -17712,36 +17712,36 @@ impl IModelObject {
     }
     pub unsafe fn AddParentModel<P0, P1>(&self, model: P0, contextobject: P1, r#override: u8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).AddParentModel)(windows_core::Interface::as_raw(self), model.into_param().abi(), contextobject.into_param().abi(), r#override).ok()
+        (windows_core::Interface::vtable(self).AddParentModel)(windows_core::Interface::as_raw(self), model.param().abi(), contextobject.param().abi(), r#override).ok()
     }
     pub unsafe fn RemoveParentModel<P0>(&self, model: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).RemoveParentModel)(windows_core::Interface::as_raw(self), model.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveParentModel)(windows_core::Interface::as_raw(self), model.param().abi()).ok()
     }
     pub unsafe fn GetKey<P0>(&self, key: P0, object: Option<*mut Option<IModelObject>>, metadata: Option<*mut Option<IKeyStore>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetKey)(windows_core::Interface::as_raw(self), key.into_param().abi(), core::mem::transmute(object.unwrap_or(std::ptr::null_mut())), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetKey)(windows_core::Interface::as_raw(self), key.param().abi(), core::mem::transmute(object.unwrap_or(std::ptr::null_mut())), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetKeyReference<P0>(&self, key: P0, objectreference: Option<*mut Option<IModelObject>>, metadata: Option<*mut Option<IKeyStore>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetKeyReference)(windows_core::Interface::as_raw(self), key.into_param().abi(), core::mem::transmute(objectreference.unwrap_or(std::ptr::null_mut())), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetKeyReference)(windows_core::Interface::as_raw(self), key.param().abi(), core::mem::transmute(objectreference.unwrap_or(std::ptr::null_mut())), core::mem::transmute(metadata.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetKey<P0, P1, P2>(&self, key: P0, object: P1, metadata: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IModelObject>,
-        P2: windows_core::IntoParam<IKeyStore>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IModelObject>,
+        P2: windows_core::Param<IKeyStore>,
     {
-        (windows_core::Interface::vtable(self).SetKey)(windows_core::Interface::as_raw(self), key.into_param().abi(), object.into_param().abi(), metadata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetKey)(windows_core::Interface::as_raw(self), key.param().abi(), object.param().abi(), metadata.param().abi()).ok()
     }
     pub unsafe fn ClearKeys(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ClearKeys)(windows_core::Interface::as_raw(self)).ok()
@@ -17756,20 +17756,20 @@ impl IModelObject {
     }
     pub unsafe fn SetConcept<P0, P1>(&self, conceptid: *const windows_core::GUID, conceptinterface: P0, conceptmetadata: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
-        P1: windows_core::IntoParam<IKeyStore>,
+        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<IKeyStore>,
     {
-        (windows_core::Interface::vtable(self).SetConcept)(windows_core::Interface::as_raw(self), conceptid, conceptinterface.into_param().abi(), conceptmetadata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetConcept)(windows_core::Interface::as_raw(self), conceptid, conceptinterface.param().abi(), conceptmetadata.param().abi()).ok()
     }
     pub unsafe fn ClearConcepts(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ClearConcepts)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetRawReference<P0>(&self, kind: SymbolKind, name: P0, searchflags: u32) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRawReference)(windows_core::Interface::as_raw(self), kind, name.into_param().abi(), searchflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetRawReference)(windows_core::Interface::as_raw(self), kind, name.param().abi(), searchflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumerateRawReferences(&self, kind: SymbolKind, searchflags: u32) -> windows_core::Result<IRawEnumerator> {
         let mut result__ = std::mem::zeroed();
@@ -17777,30 +17777,30 @@ impl IModelObject {
     }
     pub unsafe fn SetContextForDataModel<P0, P1>(&self, datamodelobject: P0, context: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetContextForDataModel)(windows_core::Interface::as_raw(self), datamodelobject.into_param().abi(), context.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetContextForDataModel)(windows_core::Interface::as_raw(self), datamodelobject.param().abi(), context.param().abi()).ok()
     }
     pub unsafe fn GetContextForDataModel<P0>(&self, datamodelobject: P0) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetContextForDataModel)(windows_core::Interface::as_raw(self), datamodelobject.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetContextForDataModel)(windows_core::Interface::as_raw(self), datamodelobject.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Compare<P0>(&self, other: P0, ppresult: Option<*mut Option<IModelObject>>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), other.into_param().abi(), core::mem::transmute(ppresult.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), other.param().abi(), core::mem::transmute(ppresult.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn IsEqualTo<P0>(&self, other: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsEqualTo)(windows_core::Interface::as_raw(self), other.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).IsEqualTo)(windows_core::Interface::as_raw(self), other.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -17848,19 +17848,19 @@ windows_core::imp::interface_hierarchy!(IModelPropertyAccessor, windows_core::IU
 impl IModelPropertyAccessor {
     pub unsafe fn GetValue<P0, P1>(&self, key: P0, contextobject: P1) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IModelObject>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), key.into_param().abi(), contextobject.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), key.param().abi(), contextobject.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetValue<P0, P1, P2>(&self, key: P0, contextobject: P1, value: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IModelObject>,
-        P2: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IModelObject>,
+        P2: windows_core::Param<IModelObject>,
     {
-        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), key.into_param().abi(), contextobject.into_param().abi(), value.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), key.param().abi(), contextobject.param().abi(), value.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -17874,10 +17874,10 @@ windows_core::imp::interface_hierarchy!(IPreferredRuntimeTypeConcept, windows_co
 impl IPreferredRuntimeTypeConcept {
     pub unsafe fn CastToPreferredRuntimeType<P0>(&self, contextobject: P0) -> windows_core::Result<IModelObject>
     where
-        P0: windows_core::IntoParam<IModelObject>,
+        P0: windows_core::Param<IModelObject>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CastToPreferredRuntimeType)(windows_core::Interface::as_raw(self), contextobject.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CastToPreferredRuntimeType)(windows_core::Interface::as_raw(self), contextobject.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -17906,11 +17906,11 @@ windows_core::imp::interface_hierarchy!(IStringDisplayableConcept, windows_core:
 impl IStringDisplayableConcept {
     pub unsafe fn ToDisplayString<P0, P1>(&self, contextobject: P0, metadata: P1) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<IModelObject>,
-        P1: windows_core::IntoParam<IKeyStore>,
+        P0: windows_core::Param<IModelObject>,
+        P1: windows_core::Param<IKeyStore>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ToDisplayString)(windows_core::Interface::as_raw(self), contextobject.into_param().abi(), metadata.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ToDisplayString)(windows_core::Interface::as_raw(self), contextobject.param().abi(), metadata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

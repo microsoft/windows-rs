@@ -12,20 +12,20 @@ pub struct CoreUserActivityManager;
 impl CoreUserActivityManager {
     pub fn CreateUserActivitySessionInBackground<P0>(activity: P0) -> windows_core::Result<super::UserActivitySession>
     where
-        P0: windows_core::IntoParam<super::UserActivity>,
+        P0: windows_core::Param<super::UserActivity>,
     {
         Self::ICoreUserActivityManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateUserActivitySessionInBackground)(windows_core::Interface::as_raw(this), activity.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateUserActivitySessionInBackground)(windows_core::Interface::as_raw(this), activity.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn DeleteUserActivitySessionsInTimeRangeAsync<P0>(channel: P0, starttime: super::super::super::Foundation::DateTime, endtime: super::super::super::Foundation::DateTime) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::UserActivityChannel>,
+        P0: windows_core::Param<super::UserActivityChannel>,
     {
         Self::ICoreUserActivityManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteUserActivitySessionsInTimeRangeAsync)(windows_core::Interface::as_raw(this), channel.into_param().abi(), starttime, endtime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DeleteUserActivitySessionsInTimeRangeAsync)(windows_core::Interface::as_raw(this), channel.param().abi(), starttime, endtime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

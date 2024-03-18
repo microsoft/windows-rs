@@ -81,12 +81,12 @@ impl OcrEngine {
     #[cfg(feature = "Graphics_Imaging")]
     pub fn RecognizeAsync<P0>(&self, bitmap: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<OcrResult>>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::SoftwareBitmap>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::SoftwareBitmap>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RecognizeAsync)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RecognizeAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Globalization")]
@@ -113,21 +113,21 @@ impl OcrEngine {
     #[cfg(feature = "Globalization")]
     pub fn IsLanguageSupported<P0>(language: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<super::super::Globalization::Language>,
+        P0: windows_core::Param<super::super::Globalization::Language>,
     {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsLanguageSupported)(windows_core::Interface::as_raw(this), language.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsLanguageSupported)(windows_core::Interface::as_raw(this), language.param().abi(), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "Globalization")]
     pub fn TryCreateFromLanguage<P0>(language: P0) -> windows_core::Result<OcrEngine>
     where
-        P0: windows_core::IntoParam<super::super::Globalization::Language>,
+        P0: windows_core::Param<super::super::Globalization::Language>,
     {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCreateFromLanguage)(windows_core::Interface::as_raw(this), language.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCreateFromLanguage)(windows_core::Interface::as_raw(this), language.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn TryCreateFromUserProfileLanguages() -> windows_core::Result<OcrEngine> {

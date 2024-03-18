@@ -21,10 +21,10 @@ pub unsafe fn WinHttpCloseHandle(hinternet: *mut core::ffi::c_void) -> windows_c
 #[inline]
 pub unsafe fn WinHttpConnect<P0>(hsession: *mut core::ffi::c_void, pswzservername: P0, nserverport: u16, dwreserved: u32) -> *mut core::ffi::c_void
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winhttp.dll" "system" fn WinHttpConnect(hsession : *mut core::ffi::c_void, pswzservername : windows_core::PCWSTR, nserverport : u16, dwreserved : u32) -> *mut core::ffi::c_void);
-    WinHttpConnect(hsession, pswzservername.into_param().abi(), nserverport, dwreserved)
+    WinHttpConnect(hsession, pswzservername.param().abi(), nserverport, dwreserved)
 }
 #[inline]
 pub unsafe fn WinHttpCrackUrl(pwszurl: &[u16], dwflags: u32, lpurlcomponents: *mut URL_COMPONENTS) -> windows_core::Result<()> {
@@ -84,26 +84,26 @@ pub unsafe fn WinHttpGetIEProxyConfigForCurrentUser(pproxyconfig: *mut WINHTTP_C
 #[inline]
 pub unsafe fn WinHttpGetProxyForUrl<P0>(hsession: *mut core::ffi::c_void, lpcwszurl: P0, pautoproxyoptions: *mut WINHTTP_AUTOPROXY_OPTIONS, pproxyinfo: *mut WINHTTP_PROXY_INFO) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winhttp.dll" "system" fn WinHttpGetProxyForUrl(hsession : *mut core::ffi::c_void, lpcwszurl : windows_core::PCWSTR, pautoproxyoptions : *mut WINHTTP_AUTOPROXY_OPTIONS, pproxyinfo : *mut WINHTTP_PROXY_INFO) -> super::super::Foundation:: BOOL);
-    WinHttpGetProxyForUrl(hsession, lpcwszurl.into_param().abi(), pautoproxyoptions, pproxyinfo).ok()
+    WinHttpGetProxyForUrl(hsession, lpcwszurl.param().abi(), pautoproxyoptions, pproxyinfo).ok()
 }
 #[inline]
 pub unsafe fn WinHttpGetProxyForUrlEx<P0>(hresolver: *const core::ffi::c_void, pcwszurl: P0, pautoproxyoptions: *const WINHTTP_AUTOPROXY_OPTIONS, pcontext: usize) -> u32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winhttp.dll" "system" fn WinHttpGetProxyForUrlEx(hresolver : *const core::ffi::c_void, pcwszurl : windows_core::PCWSTR, pautoproxyoptions : *const WINHTTP_AUTOPROXY_OPTIONS, pcontext : usize) -> u32);
-    WinHttpGetProxyForUrlEx(hresolver, pcwszurl.into_param().abi(), pautoproxyoptions, pcontext)
+    WinHttpGetProxyForUrlEx(hresolver, pcwszurl.param().abi(), pautoproxyoptions, pcontext)
 }
 #[inline]
 pub unsafe fn WinHttpGetProxyForUrlEx2<P0>(hresolver: *const core::ffi::c_void, pcwszurl: P0, pautoproxyoptions: *const WINHTTP_AUTOPROXY_OPTIONS, pinterfaceselectioncontext: Option<&[u8]>, pcontext: usize) -> u32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winhttp.dll" "system" fn WinHttpGetProxyForUrlEx2(hresolver : *const core::ffi::c_void, pcwszurl : windows_core::PCWSTR, pautoproxyoptions : *const WINHTTP_AUTOPROXY_OPTIONS, cbinterfaceselectioncontext : u32, pinterfaceselectioncontext : *const u8, pcontext : usize) -> u32);
-    WinHttpGetProxyForUrlEx2(hresolver, pcwszurl.into_param().abi(), pautoproxyoptions, pinterfaceselectioncontext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinterfaceselectioncontext.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcontext)
+    WinHttpGetProxyForUrlEx2(hresolver, pcwszurl.param().abi(), pautoproxyoptions, pinterfaceselectioncontext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinterfaceselectioncontext.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcontext)
 }
 #[inline]
 pub unsafe fn WinHttpGetProxyResult(hresolver: *const core::ffi::c_void, pproxyresult: *mut WINHTTP_PROXY_RESULT) -> u32 {
@@ -133,23 +133,23 @@ pub unsafe fn WinHttpGetProxySettingsVersion(hsession: *const core::ffi::c_void,
 #[inline]
 pub unsafe fn WinHttpOpen<P0, P1, P2>(pszagentw: P0, dwaccesstype: WINHTTP_ACCESS_TYPE, pszproxyw: P1, pszproxybypassw: P2, dwflags: u32) -> *mut core::ffi::c_void
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
-    P2: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winhttp.dll" "system" fn WinHttpOpen(pszagentw : windows_core::PCWSTR, dwaccesstype : WINHTTP_ACCESS_TYPE, pszproxyw : windows_core::PCWSTR, pszproxybypassw : windows_core::PCWSTR, dwflags : u32) -> *mut core::ffi::c_void);
-    WinHttpOpen(pszagentw.into_param().abi(), dwaccesstype, pszproxyw.into_param().abi(), pszproxybypassw.into_param().abi(), dwflags)
+    WinHttpOpen(pszagentw.param().abi(), dwaccesstype, pszproxyw.param().abi(), pszproxybypassw.param().abi(), dwflags)
 }
 #[inline]
 pub unsafe fn WinHttpOpenRequest<P0, P1, P2, P3>(hconnect: *mut core::ffi::c_void, pwszverb: P0, pwszobjectname: P1, pwszversion: P2, pwszreferrer: P3, ppwszaccepttypes: *const windows_core::PCWSTR, dwflags: WINHTTP_OPEN_REQUEST_FLAGS) -> *mut core::ffi::c_void
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
-    P2: windows_core::IntoParam<windows_core::PCWSTR>,
-    P3: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winhttp.dll" "system" fn WinHttpOpenRequest(hconnect : *mut core::ffi::c_void, pwszverb : windows_core::PCWSTR, pwszobjectname : windows_core::PCWSTR, pwszversion : windows_core::PCWSTR, pwszreferrer : windows_core::PCWSTR, ppwszaccepttypes : *const windows_core::PCWSTR, dwflags : WINHTTP_OPEN_REQUEST_FLAGS) -> *mut core::ffi::c_void);
-    WinHttpOpenRequest(hconnect, pwszverb.into_param().abi(), pwszobjectname.into_param().abi(), pwszversion.into_param().abi(), pwszreferrer.into_param().abi(), ppwszaccepttypes, dwflags)
+    WinHttpOpenRequest(hconnect, pwszverb.param().abi(), pwszobjectname.param().abi(), pwszversion.param().abi(), pwszreferrer.param().abi(), ppwszaccepttypes, dwflags)
 }
 #[inline]
 pub unsafe fn WinHttpQueryAuthSchemes(hrequest: *mut core::ffi::c_void, lpdwsupportedschemes: *mut u32, lpdwfirstscheme: *mut u32, pdwauthtarget: *mut u32) -> windows_core::Result<()> {
@@ -169,10 +169,10 @@ pub unsafe fn WinHttpQueryDataAvailable(hrequest: *mut core::ffi::c_void, lpdwnu
 #[inline]
 pub unsafe fn WinHttpQueryHeaders<P0>(hrequest: *mut core::ffi::c_void, dwinfolevel: u32, pwszname: P0, lpbuffer: Option<*mut core::ffi::c_void>, lpdwbufferlength: *mut u32, lpdwindex: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winhttp.dll" "system" fn WinHttpQueryHeaders(hrequest : *mut core::ffi::c_void, dwinfolevel : u32, pwszname : windows_core::PCWSTR, lpbuffer : *mut core::ffi::c_void, lpdwbufferlength : *mut u32, lpdwindex : *mut u32) -> super::super::Foundation:: BOOL);
-    WinHttpQueryHeaders(hrequest, dwinfolevel, pwszname.into_param().abi(), core::mem::transmute(lpbuffer.unwrap_or(std::ptr::null_mut())), lpdwbufferlength, lpdwindex).ok()
+    WinHttpQueryHeaders(hrequest, dwinfolevel, pwszname.param().abi(), core::mem::transmute(lpbuffer.unwrap_or(std::ptr::null_mut())), lpdwbufferlength, lpdwindex).ok()
 }
 #[inline]
 pub unsafe fn WinHttpQueryHeadersEx(hrequest: *const core::ffi::c_void, dwinfolevel: u32, ullflags: u64, uicodepage: u32, pdwindex: Option<*mut u32>, pheadername: Option<*const WINHTTP_HEADER_NAME>, pbuffer: Option<*mut core::ffi::c_void>, pdwbufferlength: *mut u32, ppheaders: Option<*mut *mut WINHTTP_EXTENDED_HEADER>, pdwheaderscount: *mut u32) -> u32 {
@@ -197,12 +197,12 @@ pub unsafe fn WinHttpReadDataEx(hrequest: *mut core::ffi::c_void, lpbuffer: *mut
 #[inline]
 pub unsafe fn WinHttpReadProxySettings<P0, P1, P2>(hsession: *const core::ffi::c_void, pcwszconnectionname: P0, ffallbacktodefaultsettings: P1, fsetautodiscoverfordefaultsettings: P2, pdwsettingsversion: *mut u32, pfdefaultsettingsarereturned: *mut super::super::Foundation::BOOL, pwinhttpproxysettings: *mut WINHTTP_PROXY_SETTINGS) -> u32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-    P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("winhttp.dll" "system" fn WinHttpReadProxySettings(hsession : *const core::ffi::c_void, pcwszconnectionname : windows_core::PCWSTR, ffallbacktodefaultsettings : super::super::Foundation:: BOOL, fsetautodiscoverfordefaultsettings : super::super::Foundation:: BOOL, pdwsettingsversion : *mut u32, pfdefaultsettingsarereturned : *mut super::super::Foundation:: BOOL, pwinhttpproxysettings : *mut WINHTTP_PROXY_SETTINGS) -> u32);
-    WinHttpReadProxySettings(hsession, pcwszconnectionname.into_param().abi(), ffallbacktodefaultsettings.into_param().abi(), fsetautodiscoverfordefaultsettings.into_param().abi(), pdwsettingsversion, pfdefaultsettingsarereturned, pwinhttpproxysettings)
+    WinHttpReadProxySettings(hsession, pcwszconnectionname.param().abi(), ffallbacktodefaultsettings.param().abi(), fsetautodiscoverfordefaultsettings.param().abi(), pdwsettingsversion, pfdefaultsettingsarereturned, pwinhttpproxysettings)
 }
 #[inline]
 pub unsafe fn WinHttpReceiveResponse(hrequest: *mut core::ffi::c_void, lpreserved: *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -227,11 +227,11 @@ pub unsafe fn WinHttpSendRequest(hrequest: *mut core::ffi::c_void, lpszheaders: 
 #[inline]
 pub unsafe fn WinHttpSetCredentials<P0, P1>(hrequest: *mut core::ffi::c_void, authtargets: u32, authscheme: u32, pwszusername: P0, pwszpassword: P1, pauthparams: *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winhttp.dll" "system" fn WinHttpSetCredentials(hrequest : *mut core::ffi::c_void, authtargets : u32, authscheme : u32, pwszusername : windows_core::PCWSTR, pwszpassword : windows_core::PCWSTR, pauthparams : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    WinHttpSetCredentials(hrequest, authtargets, authscheme, pwszusername.into_param().abi(), pwszpassword.into_param().abi(), pauthparams).ok()
+    WinHttpSetCredentials(hrequest, authtargets, authscheme, pwszusername.param().abi(), pwszpassword.param().abi(), pauthparams).ok()
 }
 #[inline]
 pub unsafe fn WinHttpSetDefaultProxyConfiguration(pproxyinfo: *mut WINHTTP_PROXY_INFO) -> windows_core::Result<()> {
@@ -246,10 +246,10 @@ pub unsafe fn WinHttpSetOption(hinternet: Option<*const core::ffi::c_void>, dwop
 #[inline]
 pub unsafe fn WinHttpSetProxySettingsPerUser<P0>(fproxysettingsperuser: P0) -> u32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("winhttp.dll" "system" fn WinHttpSetProxySettingsPerUser(fproxysettingsperuser : super::super::Foundation:: BOOL) -> u32);
-    WinHttpSetProxySettingsPerUser(fproxysettingsperuser.into_param().abi())
+    WinHttpSetProxySettingsPerUser(fproxysettingsperuser.param().abi())
 }
 #[inline]
 pub unsafe fn WinHttpSetStatusCallback(hinternet: *mut core::ffi::c_void, lpfninternetcallback: WINHTTP_STATUS_CALLBACK, dwnotificationflags: u32, dwreserved: usize) -> WINHTTP_STATUS_CALLBACK {
@@ -269,10 +269,10 @@ pub unsafe fn WinHttpTimeFromSystemTime(pst: *const super::super::Foundation::SY
 #[inline]
 pub unsafe fn WinHttpTimeToSystemTime<P0>(pwsztime: P0, pst: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winhttp.dll" "system" fn WinHttpTimeToSystemTime(pwsztime : windows_core::PCWSTR, pst : *mut super::super::Foundation:: SYSTEMTIME) -> super::super::Foundation:: BOOL);
-    WinHttpTimeToSystemTime(pwsztime.into_param().abi(), pst).ok()
+    WinHttpTimeToSystemTime(pwsztime.param().abi(), pst).ok()
 }
 #[inline]
 pub unsafe fn WinHttpUnregisterProxyChangeNotification(hregistration: *const core::ffi::c_void) -> u32 {
@@ -317,10 +317,10 @@ pub unsafe fn WinHttpWriteData(hrequest: *mut core::ffi::c_void, lpbuffer: Optio
 #[inline]
 pub unsafe fn WinHttpWriteProxySettings<P0>(hsession: *const core::ffi::c_void, fforceupdate: P0, pwinhttpproxysettings: *const WINHTTP_PROXY_SETTINGS) -> u32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("winhttp.dll" "system" fn WinHttpWriteProxySettings(hsession : *const core::ffi::c_void, fforceupdate : super::super::Foundation:: BOOL, pwinhttpproxysettings : *const WINHTTP_PROXY_SETTINGS) -> u32);
-    WinHttpWriteProxySettings(hsession, fforceupdate.into_param().abi(), pwinhttpproxysettings)
+    WinHttpWriteProxySettings(hsession, fforceupdate.param().abi(), pwinhttpproxysettings)
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWinHttpRequest, IWinHttpRequest_Vtbl, 0x016fe2ec_b2c8_45f8_b23b_39e53a75396b);
@@ -330,39 +330,39 @@ windows_core::imp::interface_hierarchy!(IWinHttpRequest, windows_core::IUnknown,
 impl IWinHttpRequest {
     pub unsafe fn SetProxy<P0, P1>(&self, proxysetting: i32, proxyserver: P0, bypasslist: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetProxy)(windows_core::Interface::as_raw(self), proxysetting, proxyserver.into_param().abi(), bypasslist.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetProxy)(windows_core::Interface::as_raw(self), proxysetting, proxyserver.param().abi(), bypasslist.param().abi()).ok()
     }
     pub unsafe fn SetCredentials<P0, P1>(&self, username: P0, password: P1, flags: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetCredentials)(windows_core::Interface::as_raw(self), username.into_param().abi(), password.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).SetCredentials)(windows_core::Interface::as_raw(self), username.param().abi(), password.param().abi(), flags).ok()
     }
     pub unsafe fn Open<P0, P1, P2>(&self, method: P0, url: P1, r#async: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), method.into_param().abi(), url.into_param().abi(), r#async.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), method.param().abi(), url.param().abi(), r#async.param().abi()).ok()
     }
     pub unsafe fn SetRequestHeader<P0, P1>(&self, header: P0, value: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetRequestHeader)(windows_core::Interface::as_raw(self), header.into_param().abi(), value.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetRequestHeader)(windows_core::Interface::as_raw(self), header.param().abi(), value.param().abi()).ok()
     }
     pub unsafe fn GetResponseHeader<P0>(&self, header: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetResponseHeader)(windows_core::Interface::as_raw(self), header.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetResponseHeader)(windows_core::Interface::as_raw(self), header.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetAllResponseHeaders(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -370,9 +370,9 @@ impl IWinHttpRequest {
     }
     pub unsafe fn Send<P0>(&self, body: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).Send)(windows_core::Interface::as_raw(self), body.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Send)(windows_core::Interface::as_raw(self), body.param().abi()).ok()
     }
     pub unsafe fn Status(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -400,16 +400,16 @@ impl IWinHttpRequest {
     }
     pub unsafe fn put_Option<P0>(&self, option: WinHttpRequestOption, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).put_Option)(windows_core::Interface::as_raw(self), option, value.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).put_Option)(windows_core::Interface::as_raw(self), option, value.param().abi()).ok()
     }
     pub unsafe fn WaitForResponse<P0>(&self, timeout: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).WaitForResponse)(windows_core::Interface::as_raw(self), timeout.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).WaitForResponse)(windows_core::Interface::as_raw(self), timeout.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Abort(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)).ok()
@@ -419,9 +419,9 @@ impl IWinHttpRequest {
     }
     pub unsafe fn SetClientCertificate<P0>(&self, clientcertificate: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetClientCertificate)(windows_core::Interface::as_raw(self), clientcertificate.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetClientCertificate)(windows_core::Interface::as_raw(self), clientcertificate.param().abi()).ok()
     }
     pub unsafe fn SetAutoLogonPolicy(&self, autologonpolicy: WinHttpRequestAutoLogonPolicy) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetAutoLogonPolicy)(windows_core::Interface::as_raw(self), autologonpolicy).ok()
@@ -456,9 +456,9 @@ windows_core::imp::interface_hierarchy!(IWinHttpRequestEvents, windows_core::IUn
 impl IWinHttpRequestEvents {
     pub unsafe fn OnResponseStart<P0>(&self, status: i32, contenttype: P0)
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).OnResponseStart)(windows_core::Interface::as_raw(self), status, contenttype.into_param().abi())
+        (windows_core::Interface::vtable(self).OnResponseStart)(windows_core::Interface::as_raw(self), status, contenttype.param().abi())
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnResponseDataAvailable(&self, data: *const *const super::super::System::Com::SAFEARRAY) {
@@ -469,9 +469,9 @@ impl IWinHttpRequestEvents {
     }
     pub unsafe fn OnError<P0>(&self, errornumber: i32, errordescription: P0)
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).OnError)(windows_core::Interface::as_raw(self), errornumber, errordescription.into_param().abi())
+        (windows_core::Interface::vtable(self).OnError)(windows_core::Interface::as_raw(self), errornumber, errordescription.param().abi())
     }
 }
 #[repr(C)]

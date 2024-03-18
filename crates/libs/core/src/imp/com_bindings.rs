@@ -8,11 +8,11 @@ pub unsafe fn CoCreateGuid() -> windows_core::Result<windows_core::GUID> {
 #[inline]
 pub unsafe fn RoGetAgileReference<P0>(options: AgileReferenceOptions, riid: *const windows_core::GUID, punk: P0) -> windows_core::Result<IAgileReference>
 where
-    P0: windows_core::IntoParam<windows_core::IUnknown>,
+    P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("ole32.dll" "system" fn RoGetAgileReference(options : AgileReferenceOptions, riid : *const windows_core::GUID, punk : * mut core::ffi::c_void, ppagilereference : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    RoGetAgileReference(options, riid, punk.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    RoGetAgileReference(options, riid, punk.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
 #[repr(transparent)]
@@ -870,11 +870,11 @@ impl PropertyValue {
     }
     pub fn CreateInspectable<P0>(value: P0) -> windows_core::Result<windows_core::IInspectable>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInspectable)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInspectable)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateGuid(value: windows_core::GUID) -> windows_core::Result<windows_core::IInspectable> {

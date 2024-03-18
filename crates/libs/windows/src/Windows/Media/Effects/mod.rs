@@ -148,17 +148,17 @@ impl IBasicAudioEffect {
     #[cfg(feature = "Media_MediaProperties")]
     pub fn SetEncodingProperties<P0>(&self, encodingproperties: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::AudioEncodingProperties>,
+        P0: windows_core::Param<super::MediaProperties::AudioEncodingProperties>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetEncodingProperties)(windows_core::Interface::as_raw(this), encodingproperties.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetEncodingProperties)(windows_core::Interface::as_raw(this), encodingproperties.param().abi()).ok() }
     }
     pub fn ProcessFrame<P0>(&self, context: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ProcessAudioFrameContext>,
+        P0: windows_core::Param<ProcessAudioFrameContext>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ProcessFrame)(windows_core::Interface::as_raw(this), context.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ProcessFrame)(windows_core::Interface::as_raw(this), context.param().abi()).ok() }
     }
     pub fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()> {
         let this = self;
@@ -171,10 +171,10 @@ impl IBasicAudioEffect {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetProperties<P0>(&self, configuration: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         let this = &windows_core::Interface::cast::<super::IMediaExtension>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetProperties)(windows_core::Interface::as_raw(this), configuration.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetProperties)(windows_core::Interface::as_raw(this), configuration.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for IBasicAudioEffect {
@@ -232,18 +232,18 @@ impl IBasicVideoEffect {
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
     pub fn SetEncodingProperties<P0, P1>(&self, encodingproperties: P0, device: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::VideoEncodingProperties>,
-        P1: windows_core::IntoParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>,
+        P0: windows_core::Param<super::MediaProperties::VideoEncodingProperties>,
+        P1: windows_core::Param<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetEncodingProperties)(windows_core::Interface::as_raw(this), encodingproperties.into_param().abi(), device.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetEncodingProperties)(windows_core::Interface::as_raw(this), encodingproperties.param().abi(), device.param().abi()).ok() }
     }
     pub fn ProcessFrame<P0>(&self, context: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ProcessVideoFrameContext>,
+        P0: windows_core::Param<ProcessVideoFrameContext>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ProcessFrame)(windows_core::Interface::as_raw(this), context.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ProcessFrame)(windows_core::Interface::as_raw(this), context.param().abi()).ok() }
     }
     pub fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()> {
         let this = self;
@@ -256,10 +256,10 @@ impl IBasicVideoEffect {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetProperties<P0>(&self, configuration: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         let this = &windows_core::Interface::cast::<super::IMediaExtension>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetProperties)(windows_core::Interface::as_raw(this), configuration.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetProperties)(windows_core::Interface::as_raw(this), configuration.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for IBasicVideoEffect {
@@ -345,18 +345,18 @@ impl IVideoCompositor {
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
     pub fn SetEncodingProperties<P0, P1>(&self, backgroundproperties: P0, device: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::VideoEncodingProperties>,
-        P1: windows_core::IntoParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>,
+        P0: windows_core::Param<super::MediaProperties::VideoEncodingProperties>,
+        P1: windows_core::Param<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetEncodingProperties)(windows_core::Interface::as_raw(this), backgroundproperties.into_param().abi(), device.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetEncodingProperties)(windows_core::Interface::as_raw(this), backgroundproperties.param().abi(), device.param().abi()).ok() }
     }
     pub fn CompositeFrame<P0>(&self, context: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<CompositeVideoFrameContext>,
+        P0: windows_core::Param<CompositeVideoFrameContext>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).CompositeFrame)(windows_core::Interface::as_raw(this), context.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).CompositeFrame)(windows_core::Interface::as_raw(this), context.param().abi()).ok() }
     }
     pub fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()> {
         let this = self;
@@ -369,10 +369,10 @@ impl IVideoCompositor {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetProperties<P0>(&self, configuration: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         let this = &windows_core::Interface::cast::<super::IMediaExtension>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetProperties)(windows_core::Interface::as_raw(this), configuration.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetProperties)(windows_core::Interface::as_raw(this), configuration.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for IVideoCompositor {
@@ -574,12 +574,12 @@ windows_core::imp::interface_hierarchy!(AudioCaptureEffectsManager, windows_core
 impl AudioCaptureEffectsManager {
     pub fn AudioCaptureEffectsChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AudioCaptureEffectsChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AudioCaptureEffectsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAudioCaptureEffectsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -662,11 +662,11 @@ impl AudioEffectDefinition {
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithProperties<P0>(activatableclassid: &windows_core::HSTRING, props: P0) -> windows_core::Result<AudioEffectDefinition>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         Self::IAudioEffectDefinitionFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), props.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), props.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -733,12 +733,12 @@ windows_core::imp::interface_hierarchy!(AudioRenderEffectsManager, windows_core:
 impl AudioRenderEffectsManager {
     pub fn AudioRenderEffectsChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AudioRenderEffectsChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AudioRenderEffectsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAudioRenderEffectsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -817,12 +817,12 @@ impl CompositeVideoFrameContext {
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_Editing"))]
     pub fn GetOverlayForSurface<P0>(&self, surfacetooverlay: P0) -> windows_core::Result<super::Editing::MediaOverlay>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>,
+        P0: windows_core::Param<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetOverlayForSurface)(windows_core::Interface::as_raw(this), surfacetooverlay.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetOverlayForSurface)(windows_core::Interface::as_raw(this), surfacetooverlay.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -984,11 +984,11 @@ impl VideoCompositorDefinition {
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithProperties<P0>(activatableclassid: &windows_core::HSTRING, props: P0) -> windows_core::Result<VideoCompositorDefinition>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         Self::IVideoCompositorDefinitionFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), props.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), props.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1039,11 +1039,11 @@ impl VideoEffectDefinition {
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithProperties<P0>(activatableclassid: &windows_core::HSTRING, props: P0) -> windows_core::Result<VideoEffectDefinition>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         Self::IVideoEffectDefinitionFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), props.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), props.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

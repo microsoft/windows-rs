@@ -409,12 +409,12 @@ impl AppInstallItem {
     }
     pub fn Completed<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Foundation::TypedEventHandler<AppInstallItem, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<AppInstallItem, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCompleted(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -423,12 +423,12 @@ impl AppInstallItem {
     }
     pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Foundation::TypedEventHandler<AppInstallItem, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<AppInstallItem, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -575,12 +575,12 @@ impl AppInstallManager {
     }
     pub fn ItemCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Foundation::TypedEventHandler<AppInstallManager, AppInstallManagerItemEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<AppInstallManager, AppInstallManagerItemEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ItemCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ItemCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveItemCompleted(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -589,12 +589,12 @@ impl AppInstallManager {
     }
     pub fn ItemStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Foundation::TypedEventHandler<AppInstallManager, AppInstallManagerItemEventArgs>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<AppInstallManager, AppInstallManagerItemEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ItemStatusChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ItemStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveItemStatusChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -724,79 +724,79 @@ impl AppInstallManager {
     #[cfg(all(feature = "Foundation_Collections", feature = "Management_Deployment"))]
     pub fn StartProductInstallAsync<P0>(&self, productid: &windows_core::HSTRING, catalogid: &windows_core::HSTRING, flightid: &windows_core::HSTRING, clientid: &windows_core::HSTRING, repair: bool, forceuseofnonremovablestorage: bool, correlationvector: &windows_core::HSTRING, targetvolume: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Management::Deployment::PackageVolume>,
+        P0: windows_core::Param<super::super::super::super::Management::Deployment::PackageVolume>,
     {
         let this = &windows_core::Interface::cast::<IAppInstallManager3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartProductInstallAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(productid), core::mem::transmute_copy(catalogid), core::mem::transmute_copy(flightid), core::mem::transmute_copy(clientid), repair, forceuseofnonremovablestorage, core::mem::transmute_copy(correlationvector), targetvolume.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartProductInstallAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(productid), core::mem::transmute_copy(catalogid), core::mem::transmute_copy(flightid), core::mem::transmute_copy(clientid), repair, forceuseofnonremovablestorage, core::mem::transmute_copy(correlationvector), targetvolume.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Management_Deployment", feature = "System"))]
     pub fn StartProductInstallForUserAsync<P0, P1>(&self, user: P0, productid: &windows_core::HSTRING, catalogid: &windows_core::HSTRING, flightid: &windows_core::HSTRING, clientid: &windows_core::HSTRING, repair: bool, forceuseofnonremovablestorage: bool, correlationvector: &windows_core::HSTRING, targetvolume: P1) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>
     where
-        P0: windows_core::IntoParam<super::super::super::super::System::User>,
-        P1: windows_core::IntoParam<super::super::super::super::Management::Deployment::PackageVolume>,
+        P0: windows_core::Param<super::super::super::super::System::User>,
+        P1: windows_core::Param<super::super::super::super::Management::Deployment::PackageVolume>,
     {
         let this = &windows_core::Interface::cast::<IAppInstallManager3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartProductInstallForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(productid), core::mem::transmute_copy(catalogid), core::mem::transmute_copy(flightid), core::mem::transmute_copy(clientid), repair, forceuseofnonremovablestorage, core::mem::transmute_copy(correlationvector), targetvolume.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartProductInstallForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(productid), core::mem::transmute_copy(catalogid), core::mem::transmute_copy(flightid), core::mem::transmute_copy(clientid), repair, forceuseofnonremovablestorage, core::mem::transmute_copy(correlationvector), targetvolume.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "System")]
     pub fn UpdateAppByPackageFamilyNameForUserAsync<P0>(&self, user: P0, packagefamilyname: &windows_core::HSTRING, correlationvector: &windows_core::HSTRING) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>
     where
-        P0: windows_core::IntoParam<super::super::super::super::System::User>,
+        P0: windows_core::Param<super::super::super::super::System::User>,
     {
         let this = &windows_core::Interface::cast::<IAppInstallManager3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateAppByPackageFamilyNameForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(packagefamilyname), core::mem::transmute_copy(correlationvector), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateAppByPackageFamilyNameForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(packagefamilyname), core::mem::transmute_copy(correlationvector), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "System")]
     pub fn SearchForUpdatesForUserAsync<P0>(&self, user: P0, productid: &windows_core::HSTRING, skuid: &windows_core::HSTRING, catalogid: &windows_core::HSTRING, correlationvector: &windows_core::HSTRING) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>
     where
-        P0: windows_core::IntoParam<super::super::super::super::System::User>,
+        P0: windows_core::Param<super::super::super::super::System::User>,
     {
         let this = &windows_core::Interface::cast::<IAppInstallManager3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SearchForUpdatesForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(productid), core::mem::transmute_copy(skuid), core::mem::transmute_copy(catalogid), core::mem::transmute_copy(correlationvector), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SearchForUpdatesForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(productid), core::mem::transmute_copy(skuid), core::mem::transmute_copy(catalogid), core::mem::transmute_copy(correlationvector), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
     pub fn SearchForAllUpdatesForUserAsync<P0>(&self, user: P0, correlationvector: &windows_core::HSTRING) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>
     where
-        P0: windows_core::IntoParam<super::super::super::super::System::User>,
+        P0: windows_core::Param<super::super::super::super::System::User>,
     {
         let this = &windows_core::Interface::cast::<IAppInstallManager3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SearchForAllUpdatesForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(correlationvector), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SearchForAllUpdatesForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(correlationvector), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "System")]
     pub fn GetIsAppAllowedToInstallForUserAsync<P0>(&self, user: P0, productid: &windows_core::HSTRING, skuid: &windows_core::HSTRING, catalogid: &windows_core::HSTRING, correlationvector: &windows_core::HSTRING) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::super::super::System::User>,
+        P0: windows_core::Param<super::super::super::super::System::User>,
     {
         let this = &windows_core::Interface::cast::<IAppInstallManager3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetIsAppAllowedToInstallForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(productid), core::mem::transmute_copy(skuid), core::mem::transmute_copy(catalogid), core::mem::transmute_copy(correlationvector), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetIsAppAllowedToInstallForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(productid), core::mem::transmute_copy(skuid), core::mem::transmute_copy(catalogid), core::mem::transmute_copy(correlationvector), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "System")]
     pub fn GetIsApplicableForUserAsync<P0>(&self, user: P0, productid: &windows_core::HSTRING, skuid: &windows_core::HSTRING) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::super::super::System::User>,
+        P0: windows_core::Param<super::super::super::super::System::User>,
     {
         let this = &windows_core::Interface::cast::<IAppInstallManager3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetIsApplicableForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(productid), core::mem::transmute_copy(skuid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetIsApplicableForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(productid), core::mem::transmute_copy(skuid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MoveToFrontOfDownloadQueue(&self, productid: &windows_core::HSTRING, correlationvector: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -813,12 +813,12 @@ impl AppInstallManager {
     #[cfg(feature = "System")]
     pub fn GetFreeUserEntitlementForUserAsync<P0>(&self, user: P0, storeid: &windows_core::HSTRING, campaignid: &windows_core::HSTRING, correlationvector: &windows_core::HSTRING) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>>
     where
-        P0: windows_core::IntoParam<super::super::super::super::System::User>,
+        P0: windows_core::Param<super::super::super::super::System::User>,
     {
         let this = &windows_core::Interface::cast::<IAppInstallManager4>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFreeUserEntitlementForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(storeid), core::mem::transmute_copy(campaignid), core::mem::transmute_copy(correlationvector), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetFreeUserEntitlementForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(storeid), core::mem::transmute_copy(campaignid), core::mem::transmute_copy(correlationvector), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetFreeDeviceEntitlementAsync(&self, storeid: &windows_core::HSTRING, campaignid: &windows_core::HSTRING, correlationvector: &windows_core::HSTRING) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<GetEntitlementResult>> {
@@ -839,69 +839,69 @@ impl AppInstallManager {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SearchForAllUpdatesWithUpdateOptionsAsync<P0>(&self, correlationvector: &windows_core::HSTRING, clientid: &windows_core::HSTRING, updateoptions: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>
     where
-        P0: windows_core::IntoParam<AppUpdateOptions>,
+        P0: windows_core::Param<AppUpdateOptions>,
     {
         let this = &windows_core::Interface::cast::<IAppInstallManager6>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SearchForAllUpdatesWithUpdateOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(correlationvector), core::mem::transmute_copy(clientid), updateoptions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SearchForAllUpdatesWithUpdateOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(correlationvector), core::mem::transmute_copy(clientid), updateoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
     pub fn SearchForAllUpdatesWithUpdateOptionsForUserAsync<P0, P1>(&self, user: P0, correlationvector: &windows_core::HSTRING, clientid: &windows_core::HSTRING, updateoptions: P1) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>
     where
-        P0: windows_core::IntoParam<super::super::super::super::System::User>,
-        P1: windows_core::IntoParam<AppUpdateOptions>,
+        P0: windows_core::Param<super::super::super::super::System::User>,
+        P1: windows_core::Param<AppUpdateOptions>,
     {
         let this = &windows_core::Interface::cast::<IAppInstallManager6>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SearchForAllUpdatesWithUpdateOptionsForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(correlationvector), core::mem::transmute_copy(clientid), updateoptions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SearchForAllUpdatesWithUpdateOptionsForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(correlationvector), core::mem::transmute_copy(clientid), updateoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SearchForUpdatesWithUpdateOptionsAsync<P0>(&self, productid: &windows_core::HSTRING, skuid: &windows_core::HSTRING, correlationvector: &windows_core::HSTRING, clientid: &windows_core::HSTRING, updateoptions: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>
     where
-        P0: windows_core::IntoParam<AppUpdateOptions>,
+        P0: windows_core::Param<AppUpdateOptions>,
     {
         let this = &windows_core::Interface::cast::<IAppInstallManager6>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SearchForUpdatesWithUpdateOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(productid), core::mem::transmute_copy(skuid), core::mem::transmute_copy(correlationvector), core::mem::transmute_copy(clientid), updateoptions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SearchForUpdatesWithUpdateOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(productid), core::mem::transmute_copy(skuid), core::mem::transmute_copy(correlationvector), core::mem::transmute_copy(clientid), updateoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "System")]
     pub fn SearchForUpdatesWithUpdateOptionsForUserAsync<P0, P1>(&self, user: P0, productid: &windows_core::HSTRING, skuid: &windows_core::HSTRING, correlationvector: &windows_core::HSTRING, clientid: &windows_core::HSTRING, updateoptions: P1) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<AppInstallItem>>
     where
-        P0: windows_core::IntoParam<super::super::super::super::System::User>,
-        P1: windows_core::IntoParam<AppUpdateOptions>,
+        P0: windows_core::Param<super::super::super::super::System::User>,
+        P1: windows_core::Param<AppUpdateOptions>,
     {
         let this = &windows_core::Interface::cast::<IAppInstallManager6>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SearchForUpdatesWithUpdateOptionsForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(productid), core::mem::transmute_copy(skuid), core::mem::transmute_copy(correlationvector), core::mem::transmute_copy(clientid), updateoptions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SearchForUpdatesWithUpdateOptionsForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(productid), core::mem::transmute_copy(skuid), core::mem::transmute_copy(correlationvector), core::mem::transmute_copy(clientid), updateoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn StartProductInstallWithOptionsAsync<P0>(&self, productid: &windows_core::HSTRING, flightid: &windows_core::HSTRING, clientid: &windows_core::HSTRING, correlationvector: &windows_core::HSTRING, installoptions: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>
     where
-        P0: windows_core::IntoParam<AppInstallOptions>,
+        P0: windows_core::Param<AppInstallOptions>,
     {
         let this = &windows_core::Interface::cast::<IAppInstallManager6>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartProductInstallWithOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(productid), core::mem::transmute_copy(flightid), core::mem::transmute_copy(clientid), core::mem::transmute_copy(correlationvector), installoptions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartProductInstallWithOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(productid), core::mem::transmute_copy(flightid), core::mem::transmute_copy(clientid), core::mem::transmute_copy(correlationvector), installoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
     pub fn StartProductInstallWithOptionsForUserAsync<P0, P1>(&self, user: P0, productid: &windows_core::HSTRING, flightid: &windows_core::HSTRING, clientid: &windows_core::HSTRING, correlationvector: &windows_core::HSTRING, installoptions: P1) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<AppInstallItem>>>
     where
-        P0: windows_core::IntoParam<super::super::super::super::System::User>,
-        P1: windows_core::IntoParam<AppInstallOptions>,
+        P0: windows_core::Param<super::super::super::super::System::User>,
+        P1: windows_core::Param<AppInstallOptions>,
     {
         let this = &windows_core::Interface::cast::<IAppInstallManager6>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartProductInstallWithOptionsForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(productid), core::mem::transmute_copy(flightid), core::mem::transmute_copy(clientid), core::mem::transmute_copy(correlationvector), installoptions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartProductInstallWithOptionsForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(productid), core::mem::transmute_copy(flightid), core::mem::transmute_copy(clientid), core::mem::transmute_copy(correlationvector), installoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetIsPackageIdentityAllowedToInstallAsync(&self, correlationvector: &windows_core::HSTRING, packageidentityname: &windows_core::HSTRING, publishercertificatename: &windows_core::HSTRING) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>> {
@@ -914,12 +914,12 @@ impl AppInstallManager {
     #[cfg(feature = "System")]
     pub fn GetIsPackageIdentityAllowedToInstallForUserAsync<P0>(&self, user: P0, correlationvector: &windows_core::HSTRING, packageidentityname: &windows_core::HSTRING, publishercertificatename: &windows_core::HSTRING) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::super::super::System::User>,
+        P0: windows_core::Param<super::super::super::super::System::User>,
     {
         let this = &windows_core::Interface::cast::<IAppInstallManager6>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetIsPackageIdentityAllowedToInstallForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(correlationvector), core::mem::transmute_copy(packageidentityname), core::mem::transmute_copy(publishercertificatename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetIsPackageIdentityAllowedToInstallForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(correlationvector), core::mem::transmute_copy(packageidentityname), core::mem::transmute_copy(publishercertificatename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CanInstallForAllUsers(&self) -> windows_core::Result<bool> {
@@ -1034,10 +1034,10 @@ impl AppInstallOptions {
     #[cfg(feature = "Management_Deployment")]
     pub fn SetTargetVolume<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Management::Deployment::PackageVolume>,
+        P0: windows_core::Param<super::super::super::super::Management::Deployment::PackageVolume>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTargetVolume)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTargetVolume)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn LaunchAfterInstall(&self) -> windows_core::Result<bool> {
         let this = self;

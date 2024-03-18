@@ -102,9 +102,9 @@ impl INetwork {
     }
     pub unsafe fn SetName<P0>(&self, sznetworknewname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), sznetworknewname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), sznetworknewname.param().abi()).ok()
     }
     pub unsafe fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -112,9 +112,9 @@ impl INetwork {
     }
     pub unsafe fn SetDescription<P0>(&self, szdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), szdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), szdescription.param().abi()).ok()
     }
     pub unsafe fn GetNetworkId(&self) -> windows_core::Result<windows_core::GUID> {
         let mut result__ = std::mem::zeroed();
@@ -185,9 +185,9 @@ impl INetwork2 {
     }
     pub unsafe fn SetName<P0>(&self, sznetworknewname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), sznetworknewname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), sznetworknewname.param().abi()).ok()
     }
     pub unsafe fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -195,9 +195,9 @@ impl INetwork2 {
     }
     pub unsafe fn SetDescription<P0>(&self, szdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), szdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), szdescription.param().abi()).ok()
     }
     pub unsafe fn GetNetworkId(&self) -> windows_core::Result<windows_core::GUID> {
         let mut result__ = std::mem::zeroed();
@@ -402,9 +402,9 @@ impl INetworkCostManager {
     }
     pub unsafe fn SetDestinationAddresses<P0>(&self, pdestipaddrlist: &[NLM_SOCKADDR], bappend: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetDestinationAddresses)(windows_core::Interface::as_raw(self), pdestipaddrlist.len().try_into().unwrap(), core::mem::transmute(pdestipaddrlist.as_ptr()), bappend.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDestinationAddresses)(windows_core::Interface::as_raw(self), pdestipaddrlist.len().try_into().unwrap(), core::mem::transmute(pdestipaddrlist.as_ptr()), bappend.param().abi()).ok()
     }
 }
 #[repr(C)]

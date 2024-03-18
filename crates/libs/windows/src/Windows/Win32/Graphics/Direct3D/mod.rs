@@ -43,9 +43,9 @@ windows_core::imp::define_interface!(ID3DInclude, ID3DInclude_Vtbl);
 impl ID3DInclude {
     pub unsafe fn Open<P0>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P0, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCSTR>,
+        P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), includetype, pfilename.into_param().abi(), pparentdata, ppdata, pbytes).ok()
+        (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), includetype, pfilename.param().abi(), pparentdata, ppdata, pbytes).ok()
     }
     pub unsafe fn Close(&self, pdata: *const core::ffi::c_void) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), pdata).ok()

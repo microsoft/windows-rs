@@ -2,40 +2,40 @@
 #[inline]
 pub unsafe fn CreateSecurityPage<P0>(psi: P0) -> windows_core::Result<super::super::super::UI::Controls::HPROPSHEETPAGE>
 where
-    P0: windows_core::IntoParam<ISecurityInformation>,
+    P0: windows_core::Param<ISecurityInformation>,
 {
     windows_targets::link!("aclui.dll" "system" fn CreateSecurityPage(psi : * mut core::ffi::c_void) -> super::super::super::UI::Controls:: HPROPSHEETPAGE);
-    let result__ = CreateSecurityPage(psi.into_param().abi());
+    let result__ = CreateSecurityPage(psi.param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn EditSecurity<P0, P1>(hwndowner: P0, psi: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<ISecurityInformation>,
+    P0: windows_core::Param<super::super::super::Foundation::HWND>,
+    P1: windows_core::Param<ISecurityInformation>,
 {
     windows_targets::link!("aclui.dll" "system" fn EditSecurity(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    EditSecurity(hwndowner.into_param().abi(), psi.into_param().abi()).ok()
+    EditSecurity(hwndowner.param().abi(), psi.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn EditSecurityAdvanced<P0, P1>(hwndowner: P0, psi: P1, usipage: SI_PAGE_TYPE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<ISecurityInformation>,
+    P0: windows_core::Param<super::super::super::Foundation::HWND>,
+    P1: windows_core::Param<ISecurityInformation>,
 {
     windows_targets::link!("aclui.dll" "system" fn EditSecurityAdvanced(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void, usipage : SI_PAGE_TYPE) -> windows_core::HRESULT);
-    EditSecurityAdvanced(hwndowner.into_param().abi(), psi.into_param().abi(), usipage).ok()
+    EditSecurityAdvanced(hwndowner.param().abi(), psi.param().abi(), usipage).ok()
 }
 windows_core::imp::define_interface!(IEffectivePermission, IEffectivePermission_Vtbl, 0x3853dc76_9f35_407c_88a1_d19344365fbc);
 windows_core::imp::interface_hierarchy!(IEffectivePermission, windows_core::IUnknown);
 impl IEffectivePermission {
     pub unsafe fn GetEffectivePermission<P0, P1, P2>(&self, pguidobjecttype: *const windows_core::GUID, pusersid: P0, pszservername: P1, psd: P2, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::PSID>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<super::super::PSECURITY_DESCRIPTOR>,
+        P0: windows_core::Param<super::super::super::Foundation::PSID>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<super::super::PSECURITY_DESCRIPTOR>,
     {
-        (windows_core::Interface::vtable(self).GetEffectivePermission)(windows_core::Interface::as_raw(self), pguidobjecttype, pusersid.into_param().abi(), pszservername.into_param().abi(), psd.into_param().abi(), ppobjecttypelist, pcobjecttypelistlength, ppgrantedaccesslist, pcgrantedaccesslistlength).ok()
+        (windows_core::Interface::vtable(self).GetEffectivePermission)(windows_core::Interface::as_raw(self), pguidobjecttype, pusersid.param().abi(), pszservername.param().abi(), psd.param().abi(), ppobjecttypelist, pcobjecttypelistlength, ppgrantedaccesslist, pcgrantedaccesslistlength).ok()
     }
 }
 #[repr(C)]
@@ -64,15 +64,15 @@ impl IEffectivePermission2 {
         peffpermresultlists: *mut EFFPERM_RESULT_LIST,
     ) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::PSID>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::PSID>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<super::super::super::Foundation::PSID>,
+        P1: windows_core::Param<super::super::super::Foundation::PSID>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).ComputeEffectivePermissionWithSecondarySecurity)(
             windows_core::Interface::as_raw(self),
-            psid.into_param().abi(),
-            pdevicesid.into_param().abi(),
-            pszservername.into_param().abi(),
+            psid.param().abi(),
+            pdevicesid.param().abi(),
+            pszservername.param().abi(),
             psecurityobjects,
             dwsecurityobjectcount,
             core::mem::transmute(pusergroups.unwrap_or(std::ptr::null())),
@@ -101,15 +101,15 @@ impl ISecurityInformation {
     }
     pub unsafe fn GetSecurity<P0>(&self, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR, fdefault: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).GetSecurity)(windows_core::Interface::as_raw(self), requestedinformation, ppsecuritydescriptor, fdefault.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).GetSecurity)(windows_core::Interface::as_raw(self), requestedinformation, ppsecuritydescriptor, fdefault.param().abi()).ok()
     }
     pub unsafe fn SetSecurity<P0>(&self, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::PSECURITY_DESCRIPTOR>,
+        P0: windows_core::Param<super::super::PSECURITY_DESCRIPTOR>,
     {
-        (windows_core::Interface::vtable(self).SetSecurity)(windows_core::Interface::as_raw(self), securityinformation, psecuritydescriptor.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSecurity)(windows_core::Interface::as_raw(self), securityinformation, psecuritydescriptor.param().abi()).ok()
     }
     pub unsafe fn GetAccessRights(&self, pguidobjecttype: *const windows_core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetAccessRights)(windows_core::Interface::as_raw(self), pguidobjecttype, dwflags, ppaccess, pcaccesses, pidefaultaccess).ok()
@@ -123,9 +123,9 @@ impl ISecurityInformation {
     #[cfg(feature = "Win32_UI_Controls")]
     pub unsafe fn PropertySheetPageCallback<P0>(&self, hwnd: P0, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).PropertySheetPageCallback)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), umsg, upage).ok()
+        (windows_core::Interface::vtable(self).PropertySheetPageCallback)(windows_core::Interface::as_raw(self), hwnd.param().abi(), umsg, upage).ok()
     }
 }
 #[repr(C)]
@@ -172,9 +172,9 @@ impl ISecurityInformation3 {
     }
     pub unsafe fn OpenElevatedEditor<P0>(&self, hwnd: P0, upage: SI_PAGE_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).OpenElevatedEditor)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), upage).ok()
+        (windows_core::Interface::vtable(self).OpenElevatedEditor)(windows_core::Interface::as_raw(self), hwnd.param().abi(), upage).ok()
     }
 }
 #[repr(C)]

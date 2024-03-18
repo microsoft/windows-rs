@@ -3,28 +3,28 @@ windows_core::imp::interface_hierarchy!(AsyncIBackgroundCopyCallback, windows_co
 impl AsyncIBackgroundCopyCallback {
     pub unsafe fn Begin_JobTransferred<P0>(&self, pjob: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyJob>,
+        P0: windows_core::Param<IBackgroundCopyJob>,
     {
-        (windows_core::Interface::vtable(self).Begin_JobTransferred)(windows_core::Interface::as_raw(self), pjob.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Begin_JobTransferred)(windows_core::Interface::as_raw(self), pjob.param().abi()).ok()
     }
     pub unsafe fn Finish_JobTransferred(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Finish_JobTransferred)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Begin_JobError<P0, P1>(&self, pjob: P0, perror: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyJob>,
-        P1: windows_core::IntoParam<IBackgroundCopyError>,
+        P0: windows_core::Param<IBackgroundCopyJob>,
+        P1: windows_core::Param<IBackgroundCopyError>,
     {
-        (windows_core::Interface::vtable(self).Begin_JobError)(windows_core::Interface::as_raw(self), pjob.into_param().abi(), perror.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Begin_JobError)(windows_core::Interface::as_raw(self), pjob.param().abi(), perror.param().abi()).ok()
     }
     pub unsafe fn Finish_JobError(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Finish_JobError)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Begin_JobModification<P0>(&self, pjob: P0, dwreserved: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyJob>,
+        P0: windows_core::Param<IBackgroundCopyJob>,
     {
-        (windows_core::Interface::vtable(self).Begin_JobModification)(windows_core::Interface::as_raw(self), pjob.into_param().abi(), dwreserved).ok()
+        (windows_core::Interface::vtable(self).Begin_JobModification)(windows_core::Interface::as_raw(self), pjob.param().abi(), dwreserved).ok()
     }
     pub unsafe fn Finish_JobModification(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Finish_JobModification)(windows_core::Interface::as_raw(self)).ok()
@@ -79,10 +79,10 @@ impl IBITSExtensionSetupFactory {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetObject<P0>(&self, path: P0) -> windows_core::Result<IBITSExtensionSetup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -99,22 +99,22 @@ windows_core::imp::interface_hierarchy!(IBackgroundCopyCallback, windows_core::I
 impl IBackgroundCopyCallback {
     pub unsafe fn JobTransferred<P0>(&self, pjob: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyJob>,
+        P0: windows_core::Param<IBackgroundCopyJob>,
     {
-        (windows_core::Interface::vtable(self).JobTransferred)(windows_core::Interface::as_raw(self), pjob.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).JobTransferred)(windows_core::Interface::as_raw(self), pjob.param().abi()).ok()
     }
     pub unsafe fn JobError<P0, P1>(&self, pjob: P0, perror: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyJob>,
-        P1: windows_core::IntoParam<IBackgroundCopyError>,
+        P0: windows_core::Param<IBackgroundCopyJob>,
+        P1: windows_core::Param<IBackgroundCopyError>,
     {
-        (windows_core::Interface::vtable(self).JobError)(windows_core::Interface::as_raw(self), pjob.into_param().abi(), perror.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).JobError)(windows_core::Interface::as_raw(self), pjob.param().abi(), perror.param().abi()).ok()
     }
     pub unsafe fn JobModification<P0>(&self, pjob: P0, dwreserved: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyJob>,
+        P0: windows_core::Param<IBackgroundCopyJob>,
     {
-        (windows_core::Interface::vtable(self).JobModification)(windows_core::Interface::as_raw(self), pjob.into_param().abi(), dwreserved).ok()
+        (windows_core::Interface::vtable(self).JobModification)(windows_core::Interface::as_raw(self), pjob.param().abi(), dwreserved).ok()
     }
 }
 #[repr(C)]
@@ -129,24 +129,24 @@ windows_core::imp::interface_hierarchy!(IBackgroundCopyCallback1, windows_core::
 impl IBackgroundCopyCallback1 {
     pub unsafe fn OnStatus<P0, P1>(&self, pgroup: P0, pjob: P1, dwfileindex: u32, dwstatus: u32, dwnumofretries: u32, dwwin32result: u32, dwtransportresult: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyGroup>,
-        P1: windows_core::IntoParam<IBackgroundCopyJob1>,
+        P0: windows_core::Param<IBackgroundCopyGroup>,
+        P1: windows_core::Param<IBackgroundCopyJob1>,
     {
-        (windows_core::Interface::vtable(self).OnStatus)(windows_core::Interface::as_raw(self), pgroup.into_param().abi(), pjob.into_param().abi(), dwfileindex, dwstatus, dwnumofretries, dwwin32result, dwtransportresult).ok()
+        (windows_core::Interface::vtable(self).OnStatus)(windows_core::Interface::as_raw(self), pgroup.param().abi(), pjob.param().abi(), dwfileindex, dwstatus, dwnumofretries, dwwin32result, dwtransportresult).ok()
     }
     pub unsafe fn OnProgress<P0, P1>(&self, progresstype: u32, pgroup: P0, pjob: P1, dwfileindex: u32, dwprogressvalue: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyGroup>,
-        P1: windows_core::IntoParam<IBackgroundCopyJob1>,
+        P0: windows_core::Param<IBackgroundCopyGroup>,
+        P1: windows_core::Param<IBackgroundCopyJob1>,
     {
-        (windows_core::Interface::vtable(self).OnProgress)(windows_core::Interface::as_raw(self), progresstype, pgroup.into_param().abi(), pjob.into_param().abi(), dwfileindex, dwprogressvalue).ok()
+        (windows_core::Interface::vtable(self).OnProgress)(windows_core::Interface::as_raw(self), progresstype, pgroup.param().abi(), pjob.param().abi(), dwfileindex, dwprogressvalue).ok()
     }
     pub unsafe fn OnProgressEx<P0, P1>(&self, progresstype: u32, pgroup: P0, pjob: P1, dwfileindex: u32, dwprogressvalue: u32, pbyte: &[u8]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyGroup>,
-        P1: windows_core::IntoParam<IBackgroundCopyJob1>,
+        P0: windows_core::Param<IBackgroundCopyGroup>,
+        P1: windows_core::Param<IBackgroundCopyJob1>,
     {
-        (windows_core::Interface::vtable(self).OnProgressEx)(windows_core::Interface::as_raw(self), progresstype, pgroup.into_param().abi(), pjob.into_param().abi(), dwfileindex, dwprogressvalue, pbyte.len().try_into().unwrap(), core::mem::transmute(pbyte.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).OnProgressEx)(windows_core::Interface::as_raw(self), progresstype, pgroup.param().abi(), pjob.param().abi(), dwfileindex, dwprogressvalue, pbyte.len().try_into().unwrap(), core::mem::transmute(pbyte.as_ptr())).ok()
     }
 }
 #[repr(C)]
@@ -161,29 +161,29 @@ windows_core::imp::interface_hierarchy!(IBackgroundCopyCallback2, windows_core::
 impl IBackgroundCopyCallback2 {
     pub unsafe fn JobTransferred<P0>(&self, pjob: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyJob>,
+        P0: windows_core::Param<IBackgroundCopyJob>,
     {
-        (windows_core::Interface::vtable(self).base__.JobTransferred)(windows_core::Interface::as_raw(self), pjob.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.JobTransferred)(windows_core::Interface::as_raw(self), pjob.param().abi()).ok()
     }
     pub unsafe fn JobError<P0, P1>(&self, pjob: P0, perror: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyJob>,
-        P1: windows_core::IntoParam<IBackgroundCopyError>,
+        P0: windows_core::Param<IBackgroundCopyJob>,
+        P1: windows_core::Param<IBackgroundCopyError>,
     {
-        (windows_core::Interface::vtable(self).base__.JobError)(windows_core::Interface::as_raw(self), pjob.into_param().abi(), perror.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.JobError)(windows_core::Interface::as_raw(self), pjob.param().abi(), perror.param().abi()).ok()
     }
     pub unsafe fn JobModification<P0>(&self, pjob: P0, dwreserved: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyJob>,
+        P0: windows_core::Param<IBackgroundCopyJob>,
     {
-        (windows_core::Interface::vtable(self).base__.JobModification)(windows_core::Interface::as_raw(self), pjob.into_param().abi(), dwreserved).ok()
+        (windows_core::Interface::vtable(self).base__.JobModification)(windows_core::Interface::as_raw(self), pjob.param().abi(), dwreserved).ok()
     }
     pub unsafe fn FileTransferred<P0, P1>(&self, pjob: P0, pfile: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyJob>,
-        P1: windows_core::IntoParam<IBackgroundCopyFile>,
+        P0: windows_core::Param<IBackgroundCopyJob>,
+        P1: windows_core::Param<IBackgroundCopyFile>,
     {
-        (windows_core::Interface::vtable(self).FileTransferred)(windows_core::Interface::as_raw(self), pjob.into_param().abi(), pfile.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).FileTransferred)(windows_core::Interface::as_raw(self), pjob.param().abi(), pfile.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -196,36 +196,36 @@ windows_core::imp::interface_hierarchy!(IBackgroundCopyCallback3, windows_core::
 impl IBackgroundCopyCallback3 {
     pub unsafe fn JobTransferred<P0>(&self, pjob: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyJob>,
+        P0: windows_core::Param<IBackgroundCopyJob>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.JobTransferred)(windows_core::Interface::as_raw(self), pjob.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.JobTransferred)(windows_core::Interface::as_raw(self), pjob.param().abi()).ok()
     }
     pub unsafe fn JobError<P0, P1>(&self, pjob: P0, perror: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyJob>,
-        P1: windows_core::IntoParam<IBackgroundCopyError>,
+        P0: windows_core::Param<IBackgroundCopyJob>,
+        P1: windows_core::Param<IBackgroundCopyError>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.JobError)(windows_core::Interface::as_raw(self), pjob.into_param().abi(), perror.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.JobError)(windows_core::Interface::as_raw(self), pjob.param().abi(), perror.param().abi()).ok()
     }
     pub unsafe fn JobModification<P0>(&self, pjob: P0, dwreserved: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyJob>,
+        P0: windows_core::Param<IBackgroundCopyJob>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.JobModification)(windows_core::Interface::as_raw(self), pjob.into_param().abi(), dwreserved).ok()
+        (windows_core::Interface::vtable(self).base__.base__.JobModification)(windows_core::Interface::as_raw(self), pjob.param().abi(), dwreserved).ok()
     }
     pub unsafe fn FileTransferred<P0, P1>(&self, pjob: P0, pfile: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyJob>,
-        P1: windows_core::IntoParam<IBackgroundCopyFile>,
+        P0: windows_core::Param<IBackgroundCopyJob>,
+        P1: windows_core::Param<IBackgroundCopyFile>,
     {
-        (windows_core::Interface::vtable(self).base__.FileTransferred)(windows_core::Interface::as_raw(self), pjob.into_param().abi(), pfile.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.FileTransferred)(windows_core::Interface::as_raw(self), pjob.param().abi(), pfile.param().abi()).ok()
     }
     pub unsafe fn FileRangesTransferred<P0, P1>(&self, job: P0, file: P1, ranges: &[BG_FILE_RANGE]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyJob>,
-        P1: windows_core::IntoParam<IBackgroundCopyFile>,
+        P0: windows_core::Param<IBackgroundCopyJob>,
+        P1: windows_core::Param<IBackgroundCopyFile>,
     {
-        (windows_core::Interface::vtable(self).FileRangesTransferred)(windows_core::Interface::as_raw(self), job.into_param().abi(), file.into_param().abi(), ranges.len().try_into().unwrap(), core::mem::transmute(ranges.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).FileRangesTransferred)(windows_core::Interface::as_raw(self), job.param().abi(), file.param().abi(), ranges.len().try_into().unwrap(), core::mem::transmute(ranges.as_ptr())).ok()
     }
 }
 #[repr(C)]
@@ -306,9 +306,9 @@ impl IBackgroundCopyFile2 {
     }
     pub unsafe fn SetRemoteName<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetRemoteName)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetRemoteName)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -336,9 +336,9 @@ impl IBackgroundCopyFile3 {
     }
     pub unsafe fn SetRemoteName<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetRemoteName)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetRemoteName)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetTemporaryName(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -346,9 +346,9 @@ impl IBackgroundCopyFile3 {
     }
     pub unsafe fn SetValidationState<P0>(&self, state: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetValidationState)(windows_core::Interface::as_raw(self), state.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetValidationState)(windows_core::Interface::as_raw(self), state.param().abi()).ok()
     }
     pub unsafe fn GetValidationState(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -386,9 +386,9 @@ impl IBackgroundCopyFile4 {
     }
     pub unsafe fn SetRemoteName<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetRemoteName)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetRemoteName)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetTemporaryName(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -396,9 +396,9 @@ impl IBackgroundCopyFile4 {
     }
     pub unsafe fn SetValidationState<P0>(&self, state: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetValidationState)(windows_core::Interface::as_raw(self), state.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetValidationState)(windows_core::Interface::as_raw(self), state.param().abi()).ok()
     }
     pub unsafe fn GetValidationState(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -436,9 +436,9 @@ impl IBackgroundCopyFile5 {
     }
     pub unsafe fn SetRemoteName<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetRemoteName)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SetRemoteName)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetTemporaryName(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -446,9 +446,9 @@ impl IBackgroundCopyFile5 {
     }
     pub unsafe fn SetValidationState<P0>(&self, state: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetValidationState)(windows_core::Interface::as_raw(self), state.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetValidationState)(windows_core::Interface::as_raw(self), state.param().abi()).ok()
     }
     pub unsafe fn GetValidationState(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -494,9 +494,9 @@ impl IBackgroundCopyFile6 {
     }
     pub unsafe fn SetRemoteName<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetRemoteName)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetRemoteName)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetTemporaryName(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -504,9 +504,9 @@ impl IBackgroundCopyFile6 {
     }
     pub unsafe fn SetValidationState<P0>(&self, state: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetValidationState)(windows_core::Interface::as_raw(self), state.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SetValidationState)(windows_core::Interface::as_raw(self), state.param().abi()).ok()
     }
     pub unsafe fn GetValidationState(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -598,9 +598,9 @@ impl IBackgroundCopyGroup {
     }
     pub unsafe fn SetNotificationPointer<P0>(&self, iid: *const windows_core::GUID, punk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetNotificationPointer)(windows_core::Interface::as_raw(self), iid, punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetNotificationPointer)(windows_core::Interface::as_raw(self), iid, punk.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -630,10 +630,10 @@ impl IBackgroundCopyJob {
     }
     pub unsafe fn AddFile<P0, P1>(&self, remoteurl: P0, localname: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddFile)(windows_core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddFile)(windows_core::Interface::as_raw(self), remoteurl.param().abi(), localname.param().abi()).ok()
     }
     pub unsafe fn EnumFiles(&self) -> windows_core::Result<IEnumBackgroundCopyFiles> {
         let mut result__ = std::mem::zeroed();
@@ -679,9 +679,9 @@ impl IBackgroundCopyJob {
     }
     pub unsafe fn SetDisplayName<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDisplayName)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDisplayName)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetDisplayName(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -689,9 +689,9 @@ impl IBackgroundCopyJob {
     }
     pub unsafe fn SetDescription<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetDescription(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -713,9 +713,9 @@ impl IBackgroundCopyJob {
     }
     pub unsafe fn SetNotifyInterface<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetNotifyInterface)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetNotifyInterface)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetNotifyInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -741,10 +741,10 @@ impl IBackgroundCopyJob {
     }
     pub unsafe fn SetProxySettings<P0, P1>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: P0, proxybypasslist: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetProxySettings)(windows_core::Interface::as_raw(self), proxyusage, proxylist.into_param().abi(), proxybypasslist.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetProxySettings)(windows_core::Interface::as_raw(self), proxyusage, proxylist.param().abi(), proxybypasslist.param().abi()).ok()
     }
     pub unsafe fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut windows_core::PWSTR, pproxybypasslist: *mut windows_core::PWSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetProxySettings)(windows_core::Interface::as_raw(self), pproxyusage, pproxylist, pproxybypasslist).ok()
@@ -841,10 +841,10 @@ impl IBackgroundCopyJob2 {
     }
     pub unsafe fn AddFile<P0, P1>(&self, remoteurl: P0, localname: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.AddFile)(windows_core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddFile)(windows_core::Interface::as_raw(self), remoteurl.param().abi(), localname.param().abi()).ok()
     }
     pub unsafe fn EnumFiles(&self) -> windows_core::Result<IEnumBackgroundCopyFiles> {
         let mut result__ = std::mem::zeroed();
@@ -890,9 +890,9 @@ impl IBackgroundCopyJob2 {
     }
     pub unsafe fn SetDisplayName<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDisplayName)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDisplayName)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetDisplayName(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -900,9 +900,9 @@ impl IBackgroundCopyJob2 {
     }
     pub unsafe fn SetDescription<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetDescription(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -924,9 +924,9 @@ impl IBackgroundCopyJob2 {
     }
     pub unsafe fn SetNotifyInterface<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.SetNotifyInterface)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetNotifyInterface)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetNotifyInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -952,10 +952,10 @@ impl IBackgroundCopyJob2 {
     }
     pub unsafe fn SetProxySettings<P0, P1>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: P0, proxybypasslist: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetProxySettings)(windows_core::Interface::as_raw(self), proxyusage, proxylist.into_param().abi(), proxybypasslist.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetProxySettings)(windows_core::Interface::as_raw(self), proxyusage, proxylist.param().abi(), proxybypasslist.param().abi()).ok()
     }
     pub unsafe fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut windows_core::PWSTR, pproxybypasslist: *mut windows_core::PWSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.GetProxySettings)(windows_core::Interface::as_raw(self), pproxyusage, pproxylist, pproxybypasslist).ok()
@@ -965,10 +965,10 @@ impl IBackgroundCopyJob2 {
     }
     pub unsafe fn SetNotifyCmdLine<P0, P1>(&self, program: P0, parameters: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetNotifyCmdLine)(windows_core::Interface::as_raw(self), program.into_param().abi(), parameters.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetNotifyCmdLine)(windows_core::Interface::as_raw(self), program.param().abi(), parameters.param().abi()).ok()
     }
     pub unsafe fn GetNotifyCmdLine(&self, pprogram: *mut windows_core::PWSTR, pparameters: *mut windows_core::PWSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNotifyCmdLine)(windows_core::Interface::as_raw(self), pprogram, pparameters).ok()
@@ -981,9 +981,9 @@ impl IBackgroundCopyJob2 {
     }
     pub unsafe fn SetReplyFileName<P0>(&self, replyfilename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetReplyFileName)(windows_core::Interface::as_raw(self), replyfilename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetReplyFileName)(windows_core::Interface::as_raw(self), replyfilename.param().abi()).ok()
     }
     pub unsafe fn GetReplyFileName(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1016,10 +1016,10 @@ impl IBackgroundCopyJob3 {
     }
     pub unsafe fn AddFile<P0, P1>(&self, remoteurl: P0, localname: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddFile)(windows_core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddFile)(windows_core::Interface::as_raw(self), remoteurl.param().abi(), localname.param().abi()).ok()
     }
     pub unsafe fn EnumFiles(&self) -> windows_core::Result<IEnumBackgroundCopyFiles> {
         let mut result__ = std::mem::zeroed();
@@ -1065,9 +1065,9 @@ impl IBackgroundCopyJob3 {
     }
     pub unsafe fn SetDisplayName<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetDisplayName)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetDisplayName)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetDisplayName(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1075,9 +1075,9 @@ impl IBackgroundCopyJob3 {
     }
     pub unsafe fn SetDescription<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetDescription(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1099,9 +1099,9 @@ impl IBackgroundCopyJob3 {
     }
     pub unsafe fn SetNotifyInterface<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetNotifyInterface)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetNotifyInterface)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetNotifyInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -1127,10 +1127,10 @@ impl IBackgroundCopyJob3 {
     }
     pub unsafe fn SetProxySettings<P0, P1>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: P0, proxybypasslist: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetProxySettings)(windows_core::Interface::as_raw(self), proxyusage, proxylist.into_param().abi(), proxybypasslist.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetProxySettings)(windows_core::Interface::as_raw(self), proxyusage, proxylist.param().abi(), proxybypasslist.param().abi()).ok()
     }
     pub unsafe fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut windows_core::PWSTR, pproxybypasslist: *mut windows_core::PWSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.GetProxySettings)(windows_core::Interface::as_raw(self), pproxyusage, pproxylist, pproxybypasslist).ok()
@@ -1140,10 +1140,10 @@ impl IBackgroundCopyJob3 {
     }
     pub unsafe fn SetNotifyCmdLine<P0, P1>(&self, program: P0, parameters: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetNotifyCmdLine)(windows_core::Interface::as_raw(self), program.into_param().abi(), parameters.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetNotifyCmdLine)(windows_core::Interface::as_raw(self), program.param().abi(), parameters.param().abi()).ok()
     }
     pub unsafe fn GetNotifyCmdLine(&self, pprogram: *mut windows_core::PWSTR, pparameters: *mut windows_core::PWSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.GetNotifyCmdLine)(windows_core::Interface::as_raw(self), pprogram, pparameters).ok()
@@ -1156,9 +1156,9 @@ impl IBackgroundCopyJob3 {
     }
     pub unsafe fn SetReplyFileName<P0>(&self, replyfilename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetReplyFileName)(windows_core::Interface::as_raw(self), replyfilename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetReplyFileName)(windows_core::Interface::as_raw(self), replyfilename.param().abi()).ok()
     }
     pub unsafe fn GetReplyFileName(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1172,17 +1172,17 @@ impl IBackgroundCopyJob3 {
     }
     pub unsafe fn ReplaceRemotePrefix<P0, P1>(&self, oldprefix: P0, newprefix: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ReplaceRemotePrefix)(windows_core::Interface::as_raw(self), oldprefix.into_param().abi(), newprefix.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReplaceRemotePrefix)(windows_core::Interface::as_raw(self), oldprefix.param().abi(), newprefix.param().abi()).ok()
     }
     pub unsafe fn AddFileWithRanges<P0, P1>(&self, remoteurl: P0, localname: P1, ranges: &[BG_FILE_RANGE]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddFileWithRanges)(windows_core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi(), ranges.len().try_into().unwrap(), core::mem::transmute(ranges.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).AddFileWithRanges)(windows_core::Interface::as_raw(self), remoteurl.param().abi(), localname.param().abi(), ranges.len().try_into().unwrap(), core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn SetFileACLFlags(&self, flags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetFileACLFlags)(windows_core::Interface::as_raw(self), flags).ok()
@@ -1208,10 +1208,10 @@ impl IBackgroundCopyJob4 {
     }
     pub unsafe fn AddFile<P0, P1>(&self, remoteurl: P0, localname: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AddFile)(windows_core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.AddFile)(windows_core::Interface::as_raw(self), remoteurl.param().abi(), localname.param().abi()).ok()
     }
     pub unsafe fn EnumFiles(&self) -> windows_core::Result<IEnumBackgroundCopyFiles> {
         let mut result__ = std::mem::zeroed();
@@ -1257,9 +1257,9 @@ impl IBackgroundCopyJob4 {
     }
     pub unsafe fn SetDisplayName<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetDisplayName)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SetDisplayName)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetDisplayName(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1267,9 +1267,9 @@ impl IBackgroundCopyJob4 {
     }
     pub unsafe fn SetDescription<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetDescription)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SetDescription)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetDescription(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1291,9 +1291,9 @@ impl IBackgroundCopyJob4 {
     }
     pub unsafe fn SetNotifyInterface<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetNotifyInterface)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SetNotifyInterface)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetNotifyInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -1319,10 +1319,10 @@ impl IBackgroundCopyJob4 {
     }
     pub unsafe fn SetProxySettings<P0, P1>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: P0, proxybypasslist: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetProxySettings)(windows_core::Interface::as_raw(self), proxyusage, proxylist.into_param().abi(), proxybypasslist.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SetProxySettings)(windows_core::Interface::as_raw(self), proxyusage, proxylist.param().abi(), proxybypasslist.param().abi()).ok()
     }
     pub unsafe fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut windows_core::PWSTR, pproxybypasslist: *mut windows_core::PWSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.GetProxySettings)(windows_core::Interface::as_raw(self), pproxyusage, pproxylist, pproxybypasslist).ok()
@@ -1332,10 +1332,10 @@ impl IBackgroundCopyJob4 {
     }
     pub unsafe fn SetNotifyCmdLine<P0, P1>(&self, program: P0, parameters: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetNotifyCmdLine)(windows_core::Interface::as_raw(self), program.into_param().abi(), parameters.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetNotifyCmdLine)(windows_core::Interface::as_raw(self), program.param().abi(), parameters.param().abi()).ok()
     }
     pub unsafe fn GetNotifyCmdLine(&self, pprogram: *mut windows_core::PWSTR, pparameters: *mut windows_core::PWSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.GetNotifyCmdLine)(windows_core::Interface::as_raw(self), pprogram, pparameters).ok()
@@ -1348,9 +1348,9 @@ impl IBackgroundCopyJob4 {
     }
     pub unsafe fn SetReplyFileName<P0>(&self, replyfilename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetReplyFileName)(windows_core::Interface::as_raw(self), replyfilename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetReplyFileName)(windows_core::Interface::as_raw(self), replyfilename.param().abi()).ok()
     }
     pub unsafe fn GetReplyFileName(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1364,17 +1364,17 @@ impl IBackgroundCopyJob4 {
     }
     pub unsafe fn ReplaceRemotePrefix<P0, P1>(&self, oldprefix: P0, newprefix: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.ReplaceRemotePrefix)(windows_core::Interface::as_raw(self), oldprefix.into_param().abi(), newprefix.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.ReplaceRemotePrefix)(windows_core::Interface::as_raw(self), oldprefix.param().abi(), newprefix.param().abi()).ok()
     }
     pub unsafe fn AddFileWithRanges<P0, P1>(&self, remoteurl: P0, localname: P1, ranges: &[BG_FILE_RANGE]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.AddFileWithRanges)(windows_core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi(), ranges.len().try_into().unwrap(), core::mem::transmute(ranges.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.AddFileWithRanges)(windows_core::Interface::as_raw(self), remoteurl.param().abi(), localname.param().abi(), ranges.len().try_into().unwrap(), core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn SetFileACLFlags(&self, flags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.SetFileACLFlags)(windows_core::Interface::as_raw(self), flags).ok()
@@ -1424,10 +1424,10 @@ impl IBackgroundCopyJob5 {
     }
     pub unsafe fn AddFile<P0, P1>(&self, remoteurl: P0, localname: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AddFile)(windows_core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AddFile)(windows_core::Interface::as_raw(self), remoteurl.param().abi(), localname.param().abi()).ok()
     }
     pub unsafe fn EnumFiles(&self) -> windows_core::Result<IEnumBackgroundCopyFiles> {
         let mut result__ = std::mem::zeroed();
@@ -1473,9 +1473,9 @@ impl IBackgroundCopyJob5 {
     }
     pub unsafe fn SetDisplayName<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetDisplayName)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetDisplayName)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetDisplayName(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1483,9 +1483,9 @@ impl IBackgroundCopyJob5 {
     }
     pub unsafe fn SetDescription<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetDescription)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetDescription)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetDescription(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1507,9 +1507,9 @@ impl IBackgroundCopyJob5 {
     }
     pub unsafe fn SetNotifyInterface<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetNotifyInterface)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetNotifyInterface)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn GetNotifyInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -1535,10 +1535,10 @@ impl IBackgroundCopyJob5 {
     }
     pub unsafe fn SetProxySettings<P0, P1>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: P0, proxybypasslist: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetProxySettings)(windows_core::Interface::as_raw(self), proxyusage, proxylist.into_param().abi(), proxybypasslist.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetProxySettings)(windows_core::Interface::as_raw(self), proxyusage, proxylist.param().abi(), proxybypasslist.param().abi()).ok()
     }
     pub unsafe fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut windows_core::PWSTR, pproxybypasslist: *mut windows_core::PWSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetProxySettings)(windows_core::Interface::as_raw(self), pproxyusage, pproxylist, pproxybypasslist).ok()
@@ -1548,10 +1548,10 @@ impl IBackgroundCopyJob5 {
     }
     pub unsafe fn SetNotifyCmdLine<P0, P1>(&self, program: P0, parameters: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetNotifyCmdLine)(windows_core::Interface::as_raw(self), program.into_param().abi(), parameters.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SetNotifyCmdLine)(windows_core::Interface::as_raw(self), program.param().abi(), parameters.param().abi()).ok()
     }
     pub unsafe fn GetNotifyCmdLine(&self, pprogram: *mut windows_core::PWSTR, pparameters: *mut windows_core::PWSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.GetNotifyCmdLine)(windows_core::Interface::as_raw(self), pprogram, pparameters).ok()
@@ -1564,9 +1564,9 @@ impl IBackgroundCopyJob5 {
     }
     pub unsafe fn SetReplyFileName<P0>(&self, replyfilename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetReplyFileName)(windows_core::Interface::as_raw(self), replyfilename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SetReplyFileName)(windows_core::Interface::as_raw(self), replyfilename.param().abi()).ok()
     }
     pub unsafe fn GetReplyFileName(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1580,17 +1580,17 @@ impl IBackgroundCopyJob5 {
     }
     pub unsafe fn ReplaceRemotePrefix<P0, P1>(&self, oldprefix: P0, newprefix: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.ReplaceRemotePrefix)(windows_core::Interface::as_raw(self), oldprefix.into_param().abi(), newprefix.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.ReplaceRemotePrefix)(windows_core::Interface::as_raw(self), oldprefix.param().abi(), newprefix.param().abi()).ok()
     }
     pub unsafe fn AddFileWithRanges<P0, P1>(&self, remoteurl: P0, localname: P1, ranges: &[BG_FILE_RANGE]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddFileWithRanges)(windows_core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi(), ranges.len().try_into().unwrap(), core::mem::transmute(ranges.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddFileWithRanges)(windows_core::Interface::as_raw(self), remoteurl.param().abi(), localname.param().abi(), ranges.len().try_into().unwrap(), core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn SetFileACLFlags(&self, flags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.SetFileACLFlags)(windows_core::Interface::as_raw(self), flags).ok()
@@ -1640,16 +1640,16 @@ windows_core::imp::interface_hierarchy!(IBackgroundCopyJobHttpOptions, windows_c
 impl IBackgroundCopyJobHttpOptions {
     pub unsafe fn SetClientCertificateByID<P0>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, pcerthashblob: &[u8; 20]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetClientCertificateByID)(windows_core::Interface::as_raw(self), storelocation, storename.into_param().abi(), core::mem::transmute(pcerthashblob.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).SetClientCertificateByID)(windows_core::Interface::as_raw(self), storelocation, storename.param().abi(), core::mem::transmute(pcerthashblob.as_ptr())).ok()
     }
     pub unsafe fn SetClientCertificateByName<P0, P1>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, subjectname: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetClientCertificateByName)(windows_core::Interface::as_raw(self), storelocation, storename.into_param().abi(), subjectname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetClientCertificateByName)(windows_core::Interface::as_raw(self), storelocation, storename.param().abi(), subjectname.param().abi()).ok()
     }
     pub unsafe fn RemoveClientCertificate(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveClientCertificate)(windows_core::Interface::as_raw(self)).ok()
@@ -1659,9 +1659,9 @@ impl IBackgroundCopyJobHttpOptions {
     }
     pub unsafe fn SetCustomHeaders<P0>(&self, requestheaders: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetCustomHeaders)(windows_core::Interface::as_raw(self), requestheaders.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCustomHeaders)(windows_core::Interface::as_raw(self), requestheaders.param().abi()).ok()
     }
     pub unsafe fn GetCustomHeaders(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1692,16 +1692,16 @@ windows_core::imp::interface_hierarchy!(IBackgroundCopyJobHttpOptions2, windows_
 impl IBackgroundCopyJobHttpOptions2 {
     pub unsafe fn SetClientCertificateByID<P0>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, pcerthashblob: &[u8; 20]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetClientCertificateByID)(windows_core::Interface::as_raw(self), storelocation, storename.into_param().abi(), core::mem::transmute(pcerthashblob.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.SetClientCertificateByID)(windows_core::Interface::as_raw(self), storelocation, storename.param().abi(), core::mem::transmute(pcerthashblob.as_ptr())).ok()
     }
     pub unsafe fn SetClientCertificateByName<P0, P1>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, subjectname: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetClientCertificateByName)(windows_core::Interface::as_raw(self), storelocation, storename.into_param().abi(), subjectname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetClientCertificateByName)(windows_core::Interface::as_raw(self), storelocation, storename.param().abi(), subjectname.param().abi()).ok()
     }
     pub unsafe fn RemoveClientCertificate(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.RemoveClientCertificate)(windows_core::Interface::as_raw(self)).ok()
@@ -1711,9 +1711,9 @@ impl IBackgroundCopyJobHttpOptions2 {
     }
     pub unsafe fn SetCustomHeaders<P0>(&self, requestheaders: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetCustomHeaders)(windows_core::Interface::as_raw(self), requestheaders.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetCustomHeaders)(windows_core::Interface::as_raw(self), requestheaders.param().abi()).ok()
     }
     pub unsafe fn GetCustomHeaders(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1728,9 +1728,9 @@ impl IBackgroundCopyJobHttpOptions2 {
     }
     pub unsafe fn SetHttpMethod<P0>(&self, method: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetHttpMethod)(windows_core::Interface::as_raw(self), method.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetHttpMethod)(windows_core::Interface::as_raw(self), method.param().abi()).ok()
     }
     pub unsafe fn GetHttpMethod(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1748,16 +1748,16 @@ windows_core::imp::interface_hierarchy!(IBackgroundCopyJobHttpOptions3, windows_
 impl IBackgroundCopyJobHttpOptions3 {
     pub unsafe fn SetClientCertificateByID<P0>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, pcerthashblob: &[u8; 20]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetClientCertificateByID)(windows_core::Interface::as_raw(self), storelocation, storename.into_param().abi(), core::mem::transmute(pcerthashblob.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetClientCertificateByID)(windows_core::Interface::as_raw(self), storelocation, storename.param().abi(), core::mem::transmute(pcerthashblob.as_ptr())).ok()
     }
     pub unsafe fn SetClientCertificateByName<P0, P1>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, subjectname: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetClientCertificateByName)(windows_core::Interface::as_raw(self), storelocation, storename.into_param().abi(), subjectname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetClientCertificateByName)(windows_core::Interface::as_raw(self), storelocation, storename.param().abi(), subjectname.param().abi()).ok()
     }
     pub unsafe fn RemoveClientCertificate(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.RemoveClientCertificate)(windows_core::Interface::as_raw(self)).ok()
@@ -1767,9 +1767,9 @@ impl IBackgroundCopyJobHttpOptions3 {
     }
     pub unsafe fn SetCustomHeaders<P0>(&self, requestheaders: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetCustomHeaders)(windows_core::Interface::as_raw(self), requestheaders.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetCustomHeaders)(windows_core::Interface::as_raw(self), requestheaders.param().abi()).ok()
     }
     pub unsafe fn GetCustomHeaders(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1784,9 +1784,9 @@ impl IBackgroundCopyJobHttpOptions3 {
     }
     pub unsafe fn SetHttpMethod<P0>(&self, method: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetHttpMethod)(windows_core::Interface::as_raw(self), method.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetHttpMethod)(windows_core::Interface::as_raw(self), method.param().abi()).ok()
     }
     pub unsafe fn GetHttpMethod(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1794,9 +1794,9 @@ impl IBackgroundCopyJobHttpOptions3 {
     }
     pub unsafe fn SetServerCertificateValidationInterface<P0>(&self, certvalidationcallback: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetServerCertificateValidationInterface)(windows_core::Interface::as_raw(self), certvalidationcallback.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetServerCertificateValidationInterface)(windows_core::Interface::as_raw(self), certvalidationcallback.param().abi()).ok()
     }
     pub unsafe fn MakeCustomHeadersWriteOnly(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).MakeCustomHeadersWriteOnly)(windows_core::Interface::as_raw(self)).ok()
@@ -1813,9 +1813,9 @@ windows_core::imp::interface_hierarchy!(IBackgroundCopyManager, windows_core::IU
 impl IBackgroundCopyManager {
     pub unsafe fn CreateJob<P0>(&self, displayname: P0, r#type: BG_JOB_TYPE, pjobid: *mut windows_core::GUID, ppjob: *mut Option<IBackgroundCopyJob>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateJob)(windows_core::Interface::as_raw(self), displayname.into_param().abi(), r#type, pjobid, core::mem::transmute(ppjob)).ok()
+        (windows_core::Interface::vtable(self).CreateJob)(windows_core::Interface::as_raw(self), displayname.param().abi(), r#type, pjobid, core::mem::transmute(ppjob)).ok()
     }
     pub unsafe fn GetJob(&self, jobid: *const windows_core::GUID) -> windows_core::Result<IBackgroundCopyJob> {
         let mut result__ = std::mem::zeroed();
@@ -1866,10 +1866,10 @@ windows_core::imp::interface_hierarchy!(IBackgroundCopyServerCertificateValidati
 impl IBackgroundCopyServerCertificateValidationCallback {
     pub unsafe fn ValidateServerCertificate<P0, P1>(&self, job: P0, file: P1, certdata: &[u8], certencodingtype: u32, certstoredata: &[u8]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCopyJob>,
-        P1: windows_core::IntoParam<IBackgroundCopyFile>,
+        P0: windows_core::Param<IBackgroundCopyJob>,
+        P1: windows_core::Param<IBackgroundCopyFile>,
     {
-        (windows_core::Interface::vtable(self).ValidateServerCertificate)(windows_core::Interface::as_raw(self), job.into_param().abi(), file.into_param().abi(), certdata.len().try_into().unwrap(), core::mem::transmute(certdata.as_ptr()), certencodingtype, certstoredata.len().try_into().unwrap(), core::mem::transmute(certstoredata.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).ValidateServerCertificate)(windows_core::Interface::as_raw(self), job.param().abi(), file.param().abi(), certdata.len().try_into().unwrap(), core::mem::transmute(certdata.as_ptr()), certencodingtype, certstoredata.len().try_into().unwrap(), core::mem::transmute(certstoredata.as_ptr())).ok()
     }
 }
 #[repr(C)]
@@ -1940,9 +1940,9 @@ impl IBitsPeerCacheAdministration {
     }
     pub unsafe fn DeleteUrl<P0>(&self, url: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).DeleteUrl)(windows_core::Interface::as_raw(self), url.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteUrl)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
     }
     pub unsafe fn EnumPeers(&self) -> windows_core::Result<IEnumBitsPeers> {
         let mut result__ = std::mem::zeroed();

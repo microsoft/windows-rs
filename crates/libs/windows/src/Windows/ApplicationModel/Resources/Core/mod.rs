@@ -244,12 +244,12 @@ impl NamedResource {
     }
     pub fn ResolveForContext<P0>(&self, resourcecontext: P0) -> windows_core::Result<ResourceCandidate>
     where
-        P0: windows_core::IntoParam<ResourceContext>,
+        P0: windows_core::Param<ResourceContext>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResolveForContext)(windows_core::Interface::as_raw(this), resourcecontext.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ResolveForContext)(windows_core::Interface::as_raw(this), resourcecontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -263,12 +263,12 @@ impl NamedResource {
     #[cfg(feature = "Foundation_Collections")]
     pub fn ResolveAllForContext<P0>(&self, resourcecontext: P0) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>>
     where
-        P0: windows_core::IntoParam<ResourceContext>,
+        P0: windows_core::Param<ResourceContext>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResolveAllForContext)(windows_core::Interface::as_raw(this), resourcecontext.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ResolveAllForContext)(windows_core::Interface::as_raw(this), resourcecontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -405,12 +405,12 @@ impl ResourceCandidateVectorView {
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<ResourceCandidate>,
+        P0: windows_core::Param<ResourceCandidate>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -482,18 +482,18 @@ impl ResourceContext {
     #[cfg(feature = "Foundation_Collections")]
     pub fn ResetQualifierValues<P0>(&self, qualifiernames: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ResetQualifierValues)(windows_core::Interface::as_raw(this), qualifiernames.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ResetQualifierValues)(windows_core::Interface::as_raw(this), qualifiernames.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn OverrideToMatch<P0>(&self, result: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<ResourceQualifier>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<ResourceQualifier>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).OverrideToMatch)(windows_core::Interface::as_raw(this), result.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).OverrideToMatch)(windows_core::Interface::as_raw(this), result.param().abi()).ok() }
     }
     pub fn Clone(&self) -> windows_core::Result<ResourceContext> {
         let this = self;
@@ -513,19 +513,19 @@ impl ResourceContext {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetLanguages<P0>(&self, languages: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLanguages)(windows_core::Interface::as_raw(this), languages.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLanguages)(windows_core::Interface::as_raw(this), languages.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateMatchingContext<P0>(result: P0) -> windows_core::Result<ResourceContext>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<ResourceQualifier>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<ResourceQualifier>>,
     {
         Self::IResourceContextStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMatchingContext)(windows_core::Interface::as_raw(this), result.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMatchingContext)(windows_core::Interface::as_raw(this), result.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetForCurrentView() -> windows_core::Result<ResourceContext> {
@@ -543,9 +543,9 @@ impl ResourceContext {
     #[cfg(feature = "Foundation_Collections")]
     pub fn ResetGlobalQualifierValuesForSpecifiedQualifiers<P0>(qualifiernames: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
-        Self::IResourceContextStatics2(|this| unsafe { (windows_core::Interface::vtable(this).ResetGlobalQualifierValuesForSpecifiedQualifiers)(windows_core::Interface::as_raw(this), qualifiernames.into_param().abi()).ok() })
+        Self::IResourceContextStatics2(|this| unsafe { (windows_core::Interface::vtable(this).ResetGlobalQualifierValuesForSpecifiedQualifiers)(windows_core::Interface::as_raw(this), qualifiernames.param().abi()).ok() })
     }
     pub fn GetForViewIndependentUse() -> windows_core::Result<ResourceContext> {
         Self::IResourceContextStatics2(|this| unsafe {
@@ -559,11 +559,11 @@ impl ResourceContext {
     #[cfg(feature = "UI")]
     pub fn GetForUIContext<P0>(context: P0) -> windows_core::Result<ResourceContext>
     where
-        P0: windows_core::IntoParam<super::super::super::UI::UIContext>,
+        P0: windows_core::Param<super::super::super::UI::UIContext>,
     {
         Self::IResourceContextStatics4(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -713,18 +713,18 @@ impl ResourceManager {
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn LoadPriFiles<P0>(&self, files: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).LoadPriFiles)(windows_core::Interface::as_raw(this), files.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).LoadPriFiles)(windows_core::Interface::as_raw(this), files.param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn UnloadPriFiles<P0>(&self, files: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UnloadPriFiles)(windows_core::Interface::as_raw(this), files.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UnloadPriFiles)(windows_core::Interface::as_raw(this), files.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAllNamedResourcesForPackage(&self, packagename: &windows_core::HSTRING, resourcelayoutinfo: ResourceLayoutInfo) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<NamedResource>> {
@@ -832,12 +832,12 @@ impl ResourceMap {
     }
     pub fn GetValueForContext<P0>(&self, resource: &windows_core::HSTRING, context: P0) -> windows_core::Result<ResourceCandidate>
     where
-        P0: windows_core::IntoParam<ResourceContext>,
+        P0: windows_core::Param<ResourceContext>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetValueForContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resource), context.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetValueForContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resource), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetSubtree(&self, reference: &windows_core::HSTRING) -> windows_core::Result<ResourceMap> {
@@ -1282,12 +1282,12 @@ impl ResourceQualifierObservableMap {
     #[cfg(feature = "Foundation_Collections")]
     pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1366,12 +1366,12 @@ impl ResourceQualifierVectorView {
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<ResourceQualifier>,
+        P0: windows_core::Param<ResourceQualifier>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]

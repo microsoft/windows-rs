@@ -210,10 +210,10 @@ impl Direct3D11CaptureFramePool {
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn Recreate<P0>(&self, device: P0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::DirectX::Direct3D11::IDirect3DDevice>,
+        P0: windows_core::Param<super::DirectX::Direct3D11::IDirect3DDevice>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Recreate)(windows_core::Interface::as_raw(this), device.into_param().abi(), pixelformat, numberofbuffers, size).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Recreate)(windows_core::Interface::as_raw(this), device.param().abi(), pixelformat, numberofbuffers, size).ok() }
     }
     pub fn TryGetNextFrame(&self) -> windows_core::Result<Direct3D11CaptureFrame> {
         let this = self;
@@ -224,12 +224,12 @@ impl Direct3D11CaptureFramePool {
     }
     pub fn FrameArrived<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<Direct3D11CaptureFramePool, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Direct3D11CaptureFramePool, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FrameArrived)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FrameArrived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveFrameArrived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -238,12 +238,12 @@ impl Direct3D11CaptureFramePool {
     }
     pub fn CreateCaptureSession<P0>(&self, item: P0) -> windows_core::Result<GraphicsCaptureSession>
     where
-        P0: windows_core::IntoParam<GraphicsCaptureItem>,
+        P0: windows_core::Param<GraphicsCaptureItem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCaptureSession)(windows_core::Interface::as_raw(this), item.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCaptureSession)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "System")]
@@ -257,21 +257,21 @@ impl Direct3D11CaptureFramePool {
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn Create<P0>(device: P0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> windows_core::Result<Direct3D11CaptureFramePool>
     where
-        P0: windows_core::IntoParam<super::DirectX::Direct3D11::IDirect3DDevice>,
+        P0: windows_core::Param<super::DirectX::Direct3D11::IDirect3DDevice>,
     {
         Self::IDirect3D11CaptureFramePoolStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), device.into_param().abi(), pixelformat, numberofbuffers, size, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), device.param().abi(), pixelformat, numberofbuffers, size, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn CreateFreeThreaded<P0>(device: P0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> windows_core::Result<Direct3D11CaptureFramePool>
     where
-        P0: windows_core::IntoParam<super::DirectX::Direct3D11::IDirect3DDevice>,
+        P0: windows_core::Param<super::DirectX::Direct3D11::IDirect3DDevice>,
     {
         Self::IDirect3D11CaptureFramePoolStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFreeThreaded)(windows_core::Interface::as_raw(this), device.into_param().abi(), pixelformat, numberofbuffers, size, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFreeThreaded)(windows_core::Interface::as_raw(this), device.param().abi(), pixelformat, numberofbuffers, size, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -336,12 +336,12 @@ impl GraphicsCaptureItem {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<GraphicsCaptureItem, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GraphicsCaptureItem, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -351,11 +351,11 @@ impl GraphicsCaptureItem {
     #[cfg(feature = "UI_Composition")]
     pub fn CreateFromVisual<P0>(visual: P0) -> windows_core::Result<GraphicsCaptureItem>
     where
-        P0: windows_core::IntoParam<super::super::UI::Composition::Visual>,
+        P0: windows_core::Param<super::super::UI::Composition::Visual>,
     {
         Self::IGraphicsCaptureItemStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromVisual)(windows_core::Interface::as_raw(this), visual.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromVisual)(windows_core::Interface::as_raw(this), visual.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "UI")]

@@ -99,12 +99,12 @@ impl IContactInformation {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetDisplayPictureAsync<P0>(&self, stream: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetDisplayPictureAsync)(windows_core::Interface::as_raw(this), stream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetDisplayPictureAsync)(windows_core::Interface::as_raw(this), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -571,12 +571,12 @@ impl ContactInformation {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetDisplayPictureAsync<P0>(&self, stream: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetDisplayPictureAsync)(windows_core::Interface::as_raw(this), stream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetDisplayPictureAsync)(windows_core::Interface::as_raw(this), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -614,11 +614,11 @@ impl ContactInformation {
     #[cfg(feature = "Storage_Streams")]
     pub fn ParseVcardAsync<P0>(vcard: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ContactInformation>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
     {
         Self::IContactInformationStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ParseVcardAsync)(windows_core::Interface::as_raw(this), vcard.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ParseVcardAsync)(windows_core::Interface::as_raw(this), vcard.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -766,12 +766,12 @@ impl ContactStore {
     }
     pub fn CreateContactQueryWithOptions<P0>(&self, options: P0) -> windows_core::Result<ContactQueryResult>
     where
-        P0: windows_core::IntoParam<ContactQueryOptions>,
+        P0: windows_core::Param<ContactQueryOptions>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateContactQueryWithOptions)(windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateContactQueryWithOptions)(windows_core::Interface::as_raw(this), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DeleteAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
@@ -807,12 +807,12 @@ impl ContactStore {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SaveExtendedPropertiesAsync<P0>(&self, data: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveExtendedPropertiesAsync)(windows_core::Interface::as_raw(this), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SaveExtendedPropertiesAsync)(windows_core::Interface::as_raw(this), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateMeContactAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoredContact>> {
@@ -1145,12 +1145,12 @@ impl StoredContact {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetDisplayPictureAsync<P0>(&self, stream: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
     {
         let this = &windows_core::Interface::cast::<IContactInformation>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetDisplayPictureAsync)(windows_core::Interface::as_raw(this), stream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetDisplayPictureAsync)(windows_core::Interface::as_raw(this), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1245,21 +1245,21 @@ impl StoredContact {
     }
     pub fn CreateStoredContact<P0>(store: P0) -> windows_core::Result<StoredContact>
     where
-        P0: windows_core::IntoParam<ContactStore>,
+        P0: windows_core::Param<ContactStore>,
     {
         Self::IStoredContactFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateStoredContact)(windows_core::Interface::as_raw(this), store.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateStoredContact)(windows_core::Interface::as_raw(this), store.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateStoredContactFromInformation<P0, P1>(store: P0, contact: P1) -> windows_core::Result<StoredContact>
     where
-        P0: windows_core::IntoParam<ContactStore>,
-        P1: windows_core::IntoParam<ContactInformation>,
+        P0: windows_core::Param<ContactStore>,
+        P1: windows_core::Param<ContactInformation>,
     {
         Self::IStoredContactFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateStoredContactFromInformation)(windows_core::Interface::as_raw(this), store.into_param().abi(), contact.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateStoredContactFromInformation)(windows_core::Interface::as_raw(this), store.param().abi(), contact.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

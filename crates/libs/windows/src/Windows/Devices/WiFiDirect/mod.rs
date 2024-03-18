@@ -238,10 +238,10 @@ impl WiFiDirectAdvertisement {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetInformationElements<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetInformationElements)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetInformationElements)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ListenStateDiscoverability(&self) -> windows_core::Result<WiFiDirectAdvertisementListenStateDiscoverability> {
         let this = self;
@@ -321,12 +321,12 @@ impl WiFiDirectAdvertisementPublisher {
     }
     pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WiFiDirectAdvertisementPublisher, WiFiDirectAdvertisementPublisherStatusChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WiFiDirectAdvertisementPublisher, WiFiDirectAdvertisementPublisherStatusChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -400,12 +400,12 @@ impl WiFiDirectConnectionListener {
     }
     pub fn ConnectionRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WiFiDirectConnectionListener, WiFiDirectConnectionRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WiFiDirectConnectionListener, WiFiDirectConnectionRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectionRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ConnectionRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveConnectionRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -576,12 +576,12 @@ impl WiFiDirectDevice {
     }
     pub fn ConnectionStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WiFiDirectDevice, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WiFiDirectDevice, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectionStatusChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ConnectionStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveConnectionStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -616,11 +616,11 @@ impl WiFiDirectDevice {
     }
     pub fn FromIdAsync2<P0>(deviceid: &windows_core::HSTRING, connectionparameters: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiDirectDevice>>
     where
-        P0: windows_core::IntoParam<WiFiDirectConnectionParameters>,
+        P0: windows_core::Param<WiFiDirectConnectionParameters>,
     {
         Self::IWiFiDirectDeviceStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), connectionparameters.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), connectionparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -669,10 +669,10 @@ impl WiFiDirectInformationElement {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetOui<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetOui)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetOui)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn OuiType(&self) -> windows_core::Result<u8> {
         let this = self;
@@ -696,29 +696,29 @@ impl WiFiDirectInformationElement {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn CreateFromBuffer<P0>(buffer: P0) -> windows_core::Result<super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::IWiFiDirectInformationElementStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation_Collections"))]
     pub fn CreateFromDeviceInformation<P0>(deviceinformation: P0) -> windows_core::Result<super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>>
     where
-        P0: windows_core::IntoParam<super::Enumeration::DeviceInformation>,
+        P0: windows_core::Param<super::Enumeration::DeviceInformation>,
     {
         Self::IWiFiDirectInformationElementStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromDeviceInformation)(windows_core::Interface::as_raw(this), deviceinformation.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromDeviceInformation)(windows_core::Interface::as_raw(this), deviceinformation.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -777,10 +777,10 @@ impl WiFiDirectLegacySettings {
     #[cfg(feature = "Security_Credentials")]
     pub fn SetPassphrase<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Security::Credentials::PasswordCredential>,
+        P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPassphrase)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPassphrase)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for WiFiDirectLegacySettings {

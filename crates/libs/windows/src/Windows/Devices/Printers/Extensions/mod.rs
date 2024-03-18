@@ -136,12 +136,12 @@ impl Print3DWorkflow {
     }
     pub fn PrintRequested<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrintRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrintRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrintRequested)(windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PrintRequested)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePrintRequested(&self, eventcookie: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -150,12 +150,12 @@ impl Print3DWorkflow {
     }
     pub fn PrinterChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrinterChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrinterChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IPrint3DWorkflow2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrinterChanged)(windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PrinterChanged)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePrinterChanged(&self, eventcookie: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -193,10 +193,10 @@ impl Print3DWorkflowPrintRequestedEventArgs {
     }
     pub fn SetSource<P0>(&self, source: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSource)(windows_core::Interface::as_raw(this), source.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSource)(windows_core::Interface::as_raw(this), source.param().abi()).ok() }
     }
     pub fn SetSourceChanged(&self, value: bool) -> windows_core::Result<()> {
         let this = self;
@@ -307,12 +307,12 @@ impl PrintTaskConfiguration {
     }
     pub fn SaveRequested<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<PrintTaskConfiguration, PrintTaskConfigurationSaveRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintTaskConfiguration, PrintTaskConfigurationSaveRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveRequested)(windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SaveRequested)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSaveRequested(&self, eventcookie: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -341,10 +341,10 @@ impl PrintTaskConfigurationSaveRequest {
     }
     pub fn Save<P0>(&self, printerextensioncontext: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Save)(windows_core::Interface::as_raw(this), printerextensioncontext.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Save)(windows_core::Interface::as_raw(this), printerextensioncontext.param().abi()).ok() }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<PrintTaskConfigurationSaveRequestedDeferral> {
         let this = self;

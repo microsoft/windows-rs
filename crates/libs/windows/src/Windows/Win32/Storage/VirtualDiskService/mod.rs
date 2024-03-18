@@ -28,11 +28,11 @@ windows_core::imp::interface_hierarchy!(IVdsAdmin, windows_core::IUnknown);
 impl IVdsAdmin {
     pub unsafe fn RegisterProvider<P0, P1, P2>(&self, providerid: windows_core::GUID, providerclsid: windows_core::GUID, pwszname: P0, r#type: VDS_PROVIDER_TYPE, pwszmachinename: P1, pwszversion: P2, guidversionid: windows_core::GUID) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).RegisterProvider)(windows_core::Interface::as_raw(self), core::mem::transmute(providerid), core::mem::transmute(providerclsid), pwszname.into_param().abi(), r#type, pwszmachinename.into_param().abi(), pwszversion.into_param().abi(), core::mem::transmute(guidversionid)).ok()
+        (windows_core::Interface::vtable(self).RegisterProvider)(windows_core::Interface::as_raw(self), core::mem::transmute(providerid), core::mem::transmute(providerclsid), pwszname.param().abi(), r#type, pwszmachinename.param().abi(), pwszversion.param().abi(), core::mem::transmute(guidversionid)).ok()
     }
     pub unsafe fn UnregisterProvider(&self, providerid: windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnregisterProvider)(windows_core::Interface::as_raw(self), core::mem::transmute(providerid)).ok()
@@ -59,10 +59,10 @@ impl IVdsAdvancedDisk {
     }
     pub unsafe fn DeletePartition<P0, P1>(&self, ulloffset: u64, bforce: P0, bforceprotected: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).DeletePartition)(windows_core::Interface::as_raw(self), ulloffset, bforce.into_param().abi(), bforceprotected.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePartition)(windows_core::Interface::as_raw(self), ulloffset, bforce.param().abi(), bforceprotected.param().abi()).ok()
     }
     pub unsafe fn ChangeAttributes(&self, ulloffset: u64, para: *const CHANGE_ATTRIBUTES_PARAMETERS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ChangeAttributes)(windows_core::Interface::as_raw(self), ulloffset, para).ok()
@@ -78,22 +78,22 @@ impl IVdsAdvancedDisk {
     }
     pub unsafe fn FormatPartition<P0, P1, P2, P3>(&self, ulloffset: u64, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: P0, dwunitallocationsize: u32, bforce: P1, bquickformat: P2, benablecompression: P3) -> windows_core::Result<IVdsAsync>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P3: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FormatPartition)(windows_core::Interface::as_raw(self), ulloffset, r#type, pwszlabel.into_param().abi(), dwunitallocationsize, bforce.into_param().abi(), bquickformat.into_param().abi(), benablecompression.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FormatPartition)(windows_core::Interface::as_raw(self), ulloffset, r#type, pwszlabel.param().abi(), dwunitallocationsize, bforce.param().abi(), bquickformat.param().abi(), benablecompression.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Clean<P0, P1, P2>(&self, bforce: P0, bforceoem: P1, bfullclean: P2) -> windows_core::Result<IVdsAsync>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Clean)(windows_core::Interface::as_raw(self), bforce.into_param().abi(), bforceoem.into_param().abi(), bfullclean.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Clean)(windows_core::Interface::as_raw(self), bforce.param().abi(), bforceoem.param().abi(), bfullclean.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -115,9 +115,9 @@ windows_core::imp::interface_hierarchy!(IVdsAdvancedDisk2, windows_core::IUnknow
 impl IVdsAdvancedDisk2 {
     pub unsafe fn ChangePartitionType<P0>(&self, ulloffset: u64, bforce: P0, para: *const CHANGE_PARTITION_TYPE_PARAMETERS) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).ChangePartitionType)(windows_core::Interface::as_raw(self), ulloffset, bforce.into_param().abi(), para).ok()
+        (windows_core::Interface::vtable(self).ChangePartitionType)(windows_core::Interface::as_raw(self), ulloffset, bforce.param().abi(), para).ok()
     }
 }
 #[repr(C)]
@@ -314,9 +314,9 @@ windows_core::imp::interface_hierarchy!(IVdsDisk2, windows_core::IUnknown);
 impl IVdsDisk2 {
     pub unsafe fn SetSANMode<P0>(&self, benable: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetSANMode)(windows_core::Interface::as_raw(self), benable.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSANMode)(windows_core::Interface::as_raw(self), benable.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -371,14 +371,14 @@ impl IVdsDiskPartitionMF {
     }
     pub unsafe fn FormatPartitionEx<P0, P1, P2, P3, P4>(&self, ulloffset: u64, pwszfilesystemtypename: P0, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P1, bforce: P2, bquickformat: P3, benablecompression: P4) -> windows_core::Result<IVdsAsync>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P3: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P4: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<super::super::Foundation::BOOL>,
+        P4: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FormatPartitionEx)(windows_core::Interface::as_raw(self), ulloffset, pwszfilesystemtypename.into_param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.into_param().abi(), bforce.into_param().abi(), bquickformat.into_param().abi(), benablecompression.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FormatPartitionEx)(windows_core::Interface::as_raw(self), ulloffset, pwszfilesystemtypename.param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.param().abi(), bforce.param().abi(), bquickformat.param().abi(), benablecompression.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -394,11 +394,11 @@ windows_core::imp::interface_hierarchy!(IVdsDiskPartitionMF2, windows_core::IUnk
 impl IVdsDiskPartitionMF2 {
     pub unsafe fn FormatPartitionEx2<P0, P1>(&self, ulloffset: u64, pwszfilesystemtypename: P0, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P1, options: u32) -> windows_core::Result<IVdsAsync>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FormatPartitionEx2)(windows_core::Interface::as_raw(self), ulloffset, pwszfilesystemtypename.into_param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.into_param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FormatPartitionEx2)(windows_core::Interface::as_raw(self), ulloffset, pwszfilesystemtypename.param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -493,10 +493,10 @@ windows_core::imp::interface_hierarchy!(IVdsHwProviderPrivate, windows_core::IUn
 impl IVdsHwProviderPrivate {
     pub unsafe fn QueryIfCreatedLun<P0>(&self, pwszdevicepath: P0, pvdsluninformation: *const VDS_LUN_INFORMATION) -> windows_core::Result<windows_core::GUID>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).QueryIfCreatedLun)(windows_core::Interface::as_raw(self), pwszdevicepath.into_param().abi(), pvdsluninformation, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).QueryIfCreatedLun)(windows_core::Interface::as_raw(self), pwszdevicepath.param().abi(), pvdsluninformation, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -525,10 +525,10 @@ impl IVdsHwProviderStoragePools {
     }
     pub unsafe fn CreateLunInStoragePool<P0>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: windows_core::GUID, pwszunmaskinglist: P0, phints2: *const VDS_HINTS2) -> windows_core::Result<IVdsAsync>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateLunInStoragePool)(windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, core::mem::transmute(storagepoolid), pwszunmaskinglist.into_param().abi(), phints2, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateLunInStoragePool)(windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, core::mem::transmute(storagepoolid), pwszunmaskinglist.param().abi(), phints2, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: windows_core::GUID, phints2: *const VDS_HINTS2) -> windows_core::Result<u64> {
         let mut result__ = std::mem::zeroed();
@@ -580,11 +580,11 @@ impl IVdsIscsiInitiatorAdapter {
     }
     pub unsafe fn LoginToTarget<P0, P1>(&self, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: windows_core::GUID, targetportalid: windows_core::GUID, initiatorportalid: windows_core::GUID, ulloginflags: u32, bheaderdigest: P0, bdatadigest: P1, authtype: VDS_ISCSI_AUTH_TYPE) -> windows_core::Result<IVdsAsync>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).LoginToTarget)(windows_core::Interface::as_raw(self), logintype, core::mem::transmute(targetid), core::mem::transmute(targetportalid), core::mem::transmute(initiatorportalid), ulloginflags, bheaderdigest.into_param().abi(), bdatadigest.into_param().abi(), authtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).LoginToTarget)(windows_core::Interface::as_raw(self), logintype, core::mem::transmute(targetid), core::mem::transmute(targetportalid), core::mem::transmute(initiatorportalid), ulloginflags, bheaderdigest.param().abi(), bdatadigest.param().abi(), authtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn LogoutFromTarget(&self, targetid: windows_core::GUID) -> windows_core::Result<IVdsAsync> {
         let mut result__ = std::mem::zeroed();
@@ -745,21 +745,21 @@ impl IVdsIscsiTarget {
     }
     pub unsafe fn SetFriendlyName<P0>(&self, pwszfriendlyname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFriendlyName)(windows_core::Interface::as_raw(self), pwszfriendlyname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFriendlyName)(windows_core::Interface::as_raw(self), pwszfriendlyname.param().abi()).ok()
     }
     pub unsafe fn SetSharedSecret<P0>(&self, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSharedSecret)(windows_core::Interface::as_raw(self), ptargetsharedsecret, pwszinitiatorname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSharedSecret)(windows_core::Interface::as_raw(self), ptargetsharedsecret, pwszinitiatorname.param().abi()).ok()
     }
     pub unsafe fn RememberInitiatorSharedSecret<P0>(&self, pwszinitiatorname: P0, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).RememberInitiatorSharedSecret)(windows_core::Interface::as_raw(self), pwszinitiatorname.into_param().abi(), pinitiatorsharedsecret).ok()
+        (windows_core::Interface::vtable(self).RememberInitiatorSharedSecret)(windows_core::Interface::as_raw(self), pwszinitiatorname.param().abi(), pinitiatorsharedsecret).ok()
     }
     pub unsafe fn GetConnectedInitiators(&self, pppwszinitiatorlist: *mut *mut windows_core::PWSTR, plnumberofinitiators: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetConnectedInitiators)(windows_core::Interface::as_raw(self), pppwszinitiatorlist, plnumberofinitiators).ok()
@@ -822,9 +822,9 @@ impl IVdsLun {
     }
     pub unsafe fn SetMask<P0>(&self, pwszunmaskinglist: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMask)(windows_core::Interface::as_raw(self), pwszunmaskinglist.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMask)(windows_core::Interface::as_raw(self), pwszunmaskinglist.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -947,9 +947,9 @@ windows_core::imp::interface_hierarchy!(IVdsLunNaming, windows_core::IUnknown);
 impl IVdsLunNaming {
     pub unsafe fn SetFriendlyName<P0>(&self, pwszfriendlyname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFriendlyName)(windows_core::Interface::as_raw(self), pwszfriendlyname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFriendlyName)(windows_core::Interface::as_raw(self), pwszfriendlyname.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1025,10 +1025,10 @@ impl IVdsOpenVDisk {
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn Attach<P0>(&self, pstringsecuritydescriptor: P0, flags: super::Vhd::ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, timeoutinms: u32) -> windows_core::Result<IVdsAsync>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), pstringsecuritydescriptor.into_param().abi(), flags, providerspecificflags, timeoutinms, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), pstringsecuritydescriptor.param().abi(), flags, providerspecificflags, timeoutinms, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn Detach(&self, flags: super::Vhd::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> windows_core::Result<()> {
@@ -1106,16 +1106,16 @@ impl IVdsPack {
     }
     pub unsafe fn AddDisk<P0>(&self, diskid: windows_core::GUID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).AddDisk)(windows_core::Interface::as_raw(self), core::mem::transmute(diskid), partitionstyle, bashotspare.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddDisk)(windows_core::Interface::as_raw(self), core::mem::transmute(diskid), partitionstyle, bashotspare.param().abi()).ok()
     }
     pub unsafe fn MigrateDisks<P0, P1>(&self, pdiskarray: *const windows_core::GUID, lnumberofdisks: i32, targetpack: windows_core::GUID, bforce: P0, bqueryonly: P1, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).MigrateDisks)(windows_core::Interface::as_raw(self), pdiskarray, lnumberofdisks, core::mem::transmute(targetpack), bforce.into_param().abi(), bqueryonly.into_param().abi(), presults, pbrebootneeded).ok()
+        (windows_core::Interface::vtable(self).MigrateDisks)(windows_core::Interface::as_raw(self), pdiskarray, lnumberofdisks, core::mem::transmute(targetpack), bforce.param().abi(), bqueryonly.param().abi(), presults, pbrebootneeded).ok()
     }
     pub unsafe fn ReplaceDisk(&self, olddiskid: windows_core::GUID, newdiskid: windows_core::GUID) -> windows_core::Result<IVdsAsync> {
         let mut result__ = std::mem::zeroed();
@@ -1177,16 +1177,16 @@ impl IVdsProviderPrivate {
     }
     pub unsafe fn OnLoad<P0, P1>(&self, pwszmachinename: P0, pcallbackobject: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).OnLoad)(windows_core::Interface::as_raw(self), pwszmachinename.into_param().abi(), pcallbackobject.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnLoad)(windows_core::Interface::as_raw(self), pwszmachinename.param().abi(), pcallbackobject.param().abi()).ok()
     }
     pub unsafe fn OnUnload<P0>(&self, bforceunload: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OnUnload)(windows_core::Interface::as_raw(self), bforceunload.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnUnload)(windows_core::Interface::as_raw(self), bforceunload.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1271,10 +1271,10 @@ impl IVdsService {
     }
     pub unsafe fn Advise<P0>(&self, psink: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<IVdsAdviseSink>,
+        P0: windows_core::Param<IVdsAdviseSink>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), psink.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), psink.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), dwcookie).ok()
@@ -1328,9 +1328,9 @@ windows_core::imp::interface_hierarchy!(IVdsServiceInitialization, windows_core:
 impl IVdsServiceInitialization {
     pub unsafe fn Initialize<P0>(&self, pwszmachinename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pwszmachinename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pwszmachinename.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1381,10 +1381,10 @@ windows_core::imp::interface_hierarchy!(IVdsServiceLoader, windows_core::IUnknow
 impl IVdsServiceLoader {
     pub unsafe fn LoadService<P0>(&self, pwszmachinename: P0) -> windows_core::Result<IVdsService>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).LoadService)(windows_core::Interface::as_raw(self), pwszmachinename.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).LoadService)(windows_core::Interface::as_raw(self), pwszmachinename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1414,10 +1414,10 @@ windows_core::imp::interface_hierarchy!(IVdsServiceSw, windows_core::IUnknown);
 impl IVdsServiceSw {
     pub unsafe fn GetDiskObject<P0>(&self, pwszdeviceid: P0) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDiskObject)(windows_core::Interface::as_raw(self), pwszdeviceid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetDiskObject)(windows_core::Interface::as_raw(self), pwszdeviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1434,9 +1434,9 @@ impl IVdsServiceUninstallDisk {
     }
     pub unsafe fn UninstallDisks<P0>(&self, pdiskidarray: *const windows_core::GUID, ulcount: u32, bforce: P0, pbreboot: *mut u8, presults: *mut windows_core::HRESULT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOLEAN>,
+        P0: windows_core::Param<super::super::Foundation::BOOLEAN>,
     {
-        (windows_core::Interface::vtable(self).UninstallDisks)(windows_core::Interface::as_raw(self), pdiskidarray, ulcount, bforce.into_param().abi(), pbreboot, presults).ok()
+        (windows_core::Interface::vtable(self).UninstallDisks)(windows_core::Interface::as_raw(self), pdiskidarray, ulcount, bforce.param().abi(), pbreboot, presults).ok()
     }
 }
 #[repr(C)]
@@ -1514,10 +1514,10 @@ impl IVdsSubSystem {
     }
     pub unsafe fn CreateLun<P0>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: &[windows_core::GUID], pwszunmaskinglist: P0, phints: *const VDS_HINTS) -> windows_core::Result<IVdsAsync>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateLun)(windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len().try_into().unwrap(), pwszunmaskinglist.into_param().abi(), phints, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateLun)(windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len().try_into().unwrap(), pwszunmaskinglist.param().abi(), phints, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ReplaceDrive(&self, drivetobereplaced: windows_core::GUID, replacementdrive: windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ReplaceDrive)(windows_core::Interface::as_raw(self), core::mem::transmute(drivetobereplaced), core::mem::transmute(replacementdrive)).ok()
@@ -1558,10 +1558,10 @@ impl IVdsSubSystem2 {
     }
     pub unsafe fn CreateLun2<P0>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: &[windows_core::GUID], pwszunmaskinglist: P0, phints2: *const VDS_HINTS2) -> windows_core::Result<IVdsAsync>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateLun2)(windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len().try_into().unwrap(), pwszunmaskinglist.into_param().abi(), phints2, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateLun2)(windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len().try_into().unwrap(), pwszunmaskinglist.param().abi(), phints2, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: &[windows_core::GUID], phints2: *const VDS_HINTS2) -> windows_core::Result<u64> {
         let mut result__ = std::mem::zeroed();
@@ -1585,9 +1585,9 @@ impl IVdsSubSystemImportTarget {
     }
     pub unsafe fn SetImportTarget<P0>(&self, pwsziscsiname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetImportTarget)(windows_core::Interface::as_raw(self), pwsziscsiname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetImportTarget)(windows_core::Interface::as_raw(self), pwsziscsiname.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1622,11 +1622,11 @@ impl IVdsSubSystemIscsi {
     }
     pub unsafe fn CreateTarget<P0, P1>(&self, pwsziscsiname: P0, pwszfriendlyname: P1) -> windows_core::Result<IVdsAsync>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateTarget)(windows_core::Interface::as_raw(self), pwsziscsiname.into_param().abi(), pwszfriendlyname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateTarget)(windows_core::Interface::as_raw(self), pwsziscsiname.param().abi(), pwszfriendlyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetIpsecGroupPresharedKey)(windows_core::Interface::as_raw(self), pipseckey).ok()
@@ -1645,9 +1645,9 @@ windows_core::imp::interface_hierarchy!(IVdsSubSystemNaming, windows_core::IUnkn
 impl IVdsSubSystemNaming {
     pub unsafe fn SetFriendlyName<P0>(&self, pwszfriendlyname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFriendlyName)(windows_core::Interface::as_raw(self), pwszfriendlyname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFriendlyName)(windows_core::Interface::as_raw(self), pwszfriendlyname.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1718,31 +1718,31 @@ impl IVdsVdProvider {
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn CreateVDisk<P0, P1>(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: P0, pstringsecuritydescriptor: P1, flags: super::Vhd::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, reserved: u32, pcreatediskparameters: *const VDS_CREATE_VDISK_PARAMETERS, ppasync: *mut Option<IVdsAsync>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateVDisk)(windows_core::Interface::as_raw(self), virtualdevicetype, ppath.into_param().abi(), pstringsecuritydescriptor.into_param().abi(), flags, providerspecificflags, reserved, pcreatediskparameters, core::mem::transmute(ppasync)).ok()
+        (windows_core::Interface::vtable(self).CreateVDisk)(windows_core::Interface::as_raw(self), virtualdevicetype, ppath.param().abi(), pstringsecuritydescriptor.param().abi(), flags, providerspecificflags, reserved, pcreatediskparameters, core::mem::transmute(ppasync)).ok()
     }
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn AddVDisk<P0>(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: P0, ppvdisk: *mut Option<IVdsVDisk>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddVDisk)(windows_core::Interface::as_raw(self), virtualdevicetype, ppath.into_param().abi(), core::mem::transmute(ppvdisk)).ok()
+        (windows_core::Interface::vtable(self).AddVDisk)(windows_core::Interface::as_raw(self), virtualdevicetype, ppath.param().abi(), core::mem::transmute(ppvdisk)).ok()
     }
     pub unsafe fn GetDiskFromVDisk<P0>(&self, pvdisk: P0) -> windows_core::Result<IVdsDisk>
     where
-        P0: windows_core::IntoParam<IVdsVDisk>,
+        P0: windows_core::Param<IVdsVDisk>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDiskFromVDisk)(windows_core::Interface::as_raw(self), pvdisk.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetDiskFromVDisk)(windows_core::Interface::as_raw(self), pvdisk.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetVDiskFromDisk<P0>(&self, pdisk: P0) -> windows_core::Result<IVdsVDisk>
     where
-        P0: windows_core::IntoParam<IVdsDisk>,
+        P0: windows_core::Param<IVdsDisk>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetVDiskFromDisk)(windows_core::Interface::as_raw(self), pdisk.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetVDiskFromDisk)(windows_core::Interface::as_raw(self), pdisk.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1796,15 +1796,15 @@ impl IVdsVolume {
     }
     pub unsafe fn Delete<P0>(&self, bforce: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), bforce.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), bforce.param().abi()).ok()
     }
     pub unsafe fn SetFlags<P0>(&self, ulflags: u32, brevertonclose: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), ulflags, brevertonclose.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), ulflags, brevertonclose.param().abi()).ok()
     }
     pub unsafe fn ClearFlags(&self, ulflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ClearFlags)(windows_core::Interface::as_raw(self), ulflags).ok()
@@ -1845,19 +1845,19 @@ impl IVdsVolumeMF {
     }
     pub unsafe fn Format<P0, P1, P2, P3>(&self, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: P0, dwunitallocationsize: u32, bforce: P1, bquickformat: P2, benablecompression: P3) -> windows_core::Result<IVdsAsync>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P3: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Format)(windows_core::Interface::as_raw(self), r#type, pwszlabel.into_param().abi(), dwunitallocationsize, bforce.into_param().abi(), bquickformat.into_param().abi(), benablecompression.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Format)(windows_core::Interface::as_raw(self), r#type, pwszlabel.param().abi(), dwunitallocationsize, bforce.param().abi(), bquickformat.param().abi(), benablecompression.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddAccessPath<P0>(&self, pwszpath: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddAccessPath)(windows_core::Interface::as_raw(self), pwszpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddAccessPath)(windows_core::Interface::as_raw(self), pwszpath.param().abi()).ok()
     }
     pub unsafe fn QueryAccessPaths(&self, pwszpatharray: *mut *mut windows_core::PWSTR, plnumberofaccesspaths: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).QueryAccessPaths)(windows_core::Interface::as_raw(self), pwszpatharray, plnumberofaccesspaths).ok()
@@ -1867,20 +1867,20 @@ impl IVdsVolumeMF {
     }
     pub unsafe fn DeleteAccessPath<P0, P1>(&self, pwszpath: P0, bforce: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).DeleteAccessPath)(windows_core::Interface::as_raw(self), pwszpath.into_param().abi(), bforce.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteAccessPath)(windows_core::Interface::as_raw(self), pwszpath.param().abi(), bforce.param().abi()).ok()
     }
     pub unsafe fn Mount(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Mount)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Dismount<P0, P1>(&self, bforce: P0, bpermanent: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).Dismount)(windows_core::Interface::as_raw(self), bforce.into_param().abi(), bpermanent.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Dismount)(windows_core::Interface::as_raw(self), bforce.param().abi(), bpermanent.param().abi()).ok()
     }
     pub unsafe fn SetFileSystemFlags(&self, ulflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetFileSystemFlags)(windows_core::Interface::as_raw(self), ulflags).ok()
@@ -1915,14 +1915,14 @@ impl IVdsVolumeMF2 {
     }
     pub unsafe fn FormatEx<P0, P1, P2, P3, P4>(&self, pwszfilesystemtypename: P0, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P1, bforce: P2, bquickformat: P3, benablecompression: P4) -> windows_core::Result<IVdsAsync>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P3: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P4: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<super::super::Foundation::BOOL>,
+        P4: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FormatEx)(windows_core::Interface::as_raw(self), pwszfilesystemtypename.into_param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.into_param().abi(), bforce.into_param().abi(), bquickformat.into_param().abi(), benablecompression.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FormatEx)(windows_core::Interface::as_raw(self), pwszfilesystemtypename.param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.param().abi(), bforce.param().abi(), bquickformat.param().abi(), benablecompression.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1940,11 +1940,11 @@ impl IVdsVolumeMF3 {
     }
     pub unsafe fn FormatEx2<P0, P1>(&self, pwszfilesystemtypename: P0, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P1, options: u32) -> windows_core::Result<IVdsAsync>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FormatEx2)(windows_core::Interface::as_raw(self), pwszfilesystemtypename.into_param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.into_param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FormatEx2)(windows_core::Interface::as_raw(self), pwszfilesystemtypename.param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn OfflineVolume(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OfflineVolume)(windows_core::Interface::as_raw(self)).ok()

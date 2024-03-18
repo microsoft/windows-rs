@@ -156,10 +156,10 @@ windows_core::imp::interface_hierarchy!(IBackgroundTask, windows_core::IUnknown,
 impl IBackgroundTask {
     pub fn Run<P0>(&self, taskinstance: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundTaskInstance>,
+        P0: windows_core::Param<IBackgroundTaskInstance>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Run)(windows_core::Interface::as_raw(this), taskinstance.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Run)(windows_core::Interface::as_raw(this), taskinstance.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for IBackgroundTask {
@@ -280,12 +280,12 @@ impl IBackgroundTaskInstance {
     }
     pub fn Canceled<P0>(&self, cancelhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<BackgroundTaskCanceledEventHandler>,
+        P0: windows_core::Param<BackgroundTaskCanceledEventHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), cancelhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), cancelhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCanceled(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -368,12 +368,12 @@ impl IBackgroundTaskInstance2 {
     }
     pub fn Canceled<P0>(&self, cancelhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<BackgroundTaskCanceledEventHandler>,
+        P0: windows_core::Param<BackgroundTaskCanceledEventHandler>,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), cancelhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), cancelhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCanceled(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -449,12 +449,12 @@ impl IBackgroundTaskInstance4 {
     }
     pub fn Canceled<P0>(&self, cancelhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<BackgroundTaskCanceledEventHandler>,
+        P0: windows_core::Param<BackgroundTaskCanceledEventHandler>,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), cancelhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), cancelhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCanceled(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -516,12 +516,12 @@ impl IBackgroundTaskRegistration {
     }
     pub fn Progress<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<BackgroundTaskProgressEventHandler>,
+        P0: windows_core::Param<BackgroundTaskProgressEventHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Progress)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Progress)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveProgress(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -530,12 +530,12 @@ impl IBackgroundTaskRegistration {
     }
     pub fn Completed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<BackgroundTaskCompletedEventHandler>,
+        P0: windows_core::Param<BackgroundTaskCompletedEventHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCompleted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -588,12 +588,12 @@ impl IBackgroundTaskRegistration2 {
     }
     pub fn Progress<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<BackgroundTaskProgressEventHandler>,
+        P0: windows_core::Param<BackgroundTaskProgressEventHandler>,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Progress)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Progress)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveProgress(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -602,12 +602,12 @@ impl IBackgroundTaskRegistration2 {
     }
     pub fn Completed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<BackgroundTaskCompletedEventHandler>,
+        P0: windows_core::Param<BackgroundTaskCompletedEventHandler>,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCompleted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -654,12 +654,12 @@ impl IBackgroundTaskRegistration3 {
     }
     pub fn Progress<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<BackgroundTaskProgressEventHandler>,
+        P0: windows_core::Param<BackgroundTaskProgressEventHandler>,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Progress)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Progress)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveProgress(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -668,12 +668,12 @@ impl IBackgroundTaskRegistration3 {
     }
     pub fn Completed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<BackgroundTaskCompletedEventHandler>,
+        P0: windows_core::Param<BackgroundTaskCompletedEventHandler>,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCompleted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1565,10 +1565,10 @@ windows_core::imp::required_hierarchy!(AppBroadcastTrigger, IBackgroundTrigger);
 impl AppBroadcastTrigger {
     pub fn SetProviderInfo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<AppBroadcastTriggerProviderInfo>,
+        P0: windows_core::Param<AppBroadcastTriggerProviderInfo>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetProviderInfo)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetProviderInfo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ProviderInfo(&self) -> windows_core::Result<AppBroadcastTriggerProviderInfo> {
         let this = self;
@@ -1708,12 +1708,12 @@ impl ApplicationTrigger {
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestAsyncWithArguments<P0>(&self, arguments: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::ValueSet>,
+        P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAsyncWithArguments)(windows_core::Interface::as_raw(this), arguments.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestAsyncWithArguments)(windows_core::Interface::as_raw(this), arguments.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1881,17 +1881,17 @@ impl BackgroundTaskBuilder {
     }
     pub fn SetTrigger<P0>(&self, trigger: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundTrigger>,
+        P0: windows_core::Param<IBackgroundTrigger>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTrigger)(windows_core::Interface::as_raw(this), trigger.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTrigger)(windows_core::Interface::as_raw(this), trigger.param().abi()).ok() }
     }
     pub fn AddCondition<P0>(&self, condition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundCondition>,
+        P0: windows_core::Param<IBackgroundCondition>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddCondition)(windows_core::Interface::as_raw(this), condition.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddCondition)(windows_core::Interface::as_raw(this), condition.param().abi()).ok() }
     }
     pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -1942,10 +1942,10 @@ impl BackgroundTaskBuilder {
     }
     pub fn SetTaskGroup<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<BackgroundTaskRegistrationGroup>,
+        P0: windows_core::Param<BackgroundTaskRegistrationGroup>,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTaskBuilder4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetTaskGroup)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTaskGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn SetTaskEntryPointClsid(&self, taskentrypoint: windows_core::GUID) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IBackgroundTaskBuilder5>(self)?;
@@ -2067,12 +2067,12 @@ impl BackgroundTaskRegistration {
     }
     pub fn Progress<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<BackgroundTaskProgressEventHandler>,
+        P0: windows_core::Param<BackgroundTaskProgressEventHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Progress)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Progress)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveProgress(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2081,12 +2081,12 @@ impl BackgroundTaskRegistration {
     }
     pub fn Completed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<BackgroundTaskCompletedEventHandler>,
+        P0: windows_core::Param<BackgroundTaskCompletedEventHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCompleted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2176,12 +2176,12 @@ impl BackgroundTaskRegistrationGroup {
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn BackgroundActivated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<BackgroundTaskRegistrationGroup, super::Activation::BackgroundActivatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<BackgroundTaskRegistrationGroup, super::Activation::BackgroundActivatedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).BackgroundActivated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).BackgroundActivated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveBackgroundActivated(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2273,10 +2273,10 @@ impl BluetoothLEAdvertisementPublisherTrigger {
     }
     pub fn SetPreferredTransmitPowerLevelInDBm<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<i16>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<i16>>,
     {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherTrigger2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPreferredTransmitPowerLevelInDBm)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPreferredTransmitPowerLevelInDBm)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn UseExtendedFormat(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherTrigger2>(self)?;
@@ -2376,10 +2376,10 @@ impl BluetoothLEAdvertisementWatcherTrigger {
     #[cfg(feature = "Devices_Bluetooth")]
     pub fn SetSignalStrengthFilter<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Devices::Bluetooth::BluetoothSignalStrengthFilter>,
+        P0: windows_core::Param<super::super::Devices::Bluetooth::BluetoothSignalStrengthFilter>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSignalStrengthFilter)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSignalStrengthFilter)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
     pub fn AdvertisementFilter(&self) -> windows_core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter> {
@@ -2392,10 +2392,10 @@ impl BluetoothLEAdvertisementWatcherTrigger {
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
     pub fn SetAdvertisementFilter<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter>,
+        P0: windows_core::Param<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAdvertisementFilter)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAdvertisementFilter)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn AllowExtendedAdvertisements(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcherTrigger2>(self)?;
@@ -2955,21 +2955,21 @@ impl GattCharacteristicNotificationTrigger {
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub fn Create<P0>(characteristic: P0) -> windows_core::Result<GattCharacteristicNotificationTrigger>
     where
-        P0: windows_core::IntoParam<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>,
+        P0: windows_core::Param<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>,
     {
         Self::IGattCharacteristicNotificationTriggerFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), characteristic.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), characteristic.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile"))]
     pub fn CreateWithEventTriggeringMode<P0>(characteristic: P0, eventtriggeringmode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> windows_core::Result<GattCharacteristicNotificationTrigger>
     where
-        P0: windows_core::IntoParam<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>,
+        P0: windows_core::Param<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>,
     {
         Self::IGattCharacteristicNotificationTriggerFactory2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithEventTriggeringMode)(windows_core::Interface::as_raw(this), characteristic.into_param().abi(), eventtriggeringmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithEventTriggeringMode)(windows_core::Interface::as_raw(this), characteristic.param().abi(), eventtriggeringmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -3019,10 +3019,10 @@ impl GattServiceProviderTrigger {
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub fn SetAdvertisingParameters<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters>,
+        P0: windows_core::Param<super::super::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAdvertisingParameters)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAdvertisingParameters)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub fn AdvertisingParameters(&self) -> windows_core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters> {
@@ -3230,12 +3230,12 @@ impl MediaProcessingTrigger {
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestAsyncWithArguments<P0>(&self, arguments: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::ValueSet>,
+        P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAsyncWithArguments)(windows_core::Interface::as_raw(this), arguments.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestAsyncWithArguments)(windows_core::Interface::as_raw(this), arguments.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -3663,10 +3663,10 @@ impl RfcommConnectionTrigger {
     #[cfg(feature = "Networking")]
     pub fn SetRemoteHostName<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Networking::HostName>,
+        P0: windows_core::Param<super::super::Networking::HostName>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRemoteHostName)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRemoteHostName)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for RfcommConnectionTrigger {
@@ -3721,11 +3721,11 @@ impl SensorDataThresholdTrigger {
     #[cfg(feature = "Devices_Sensors")]
     pub fn Create<P0>(threshold: P0) -> windows_core::Result<SensorDataThresholdTrigger>
     where
-        P0: windows_core::IntoParam<super::super::Devices::Sensors::ISensorDataThreshold>,
+        P0: windows_core::Param<super::super::Devices::Sensors::ISensorDataThreshold>,
     {
         Self::ISensorDataThresholdTriggerFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), threshold.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), threshold.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -3792,11 +3792,11 @@ impl SmsMessageReceivedTrigger {
     #[cfg(feature = "Devices_Sms")]
     pub fn Create<P0>(filterrules: P0) -> windows_core::Result<SmsMessageReceivedTrigger>
     where
-        P0: windows_core::IntoParam<super::super::Devices::Sms::SmsFilterRules>,
+        P0: windows_core::Param<super::super::Devices::Sms::SmsFilterRules>,
     {
         Self::ISmsMessageReceivedTriggerFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), filterrules.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), filterrules.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -3859,11 +3859,11 @@ impl StorageLibraryChangeTrackerTrigger {
     #[cfg(feature = "Storage")]
     pub fn Create<P0>(tracker: P0) -> windows_core::Result<StorageLibraryChangeTrackerTrigger>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageLibraryChangeTracker>,
+        P0: windows_core::Param<super::super::Storage::StorageLibraryChangeTracker>,
     {
         Self::IStorageLibraryChangeTrackerTriggerFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), tracker.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), tracker.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -3893,21 +3893,21 @@ impl StorageLibraryContentChangedTrigger {
     #[cfg(feature = "Storage")]
     pub fn Create<P0>(storagelibrary: P0) -> windows_core::Result<StorageLibraryContentChangedTrigger>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageLibrary>,
+        P0: windows_core::Param<super::super::Storage::StorageLibrary>,
     {
         Self::IStorageLibraryContentChangedTriggerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), storagelibrary.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), storagelibrary.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn CreateFromLibraries<P0>(storagelibraries: P0) -> windows_core::Result<StorageLibraryContentChangedTrigger>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<super::super::Storage::StorageLibrary>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Storage::StorageLibrary>>,
     {
         Self::IStorageLibraryContentChangedTriggerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromLibraries)(windows_core::Interface::as_raw(this), storagelibraries.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromLibraries)(windows_core::Interface::as_raw(this), storagelibraries.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -4516,10 +4516,10 @@ impl BackgroundTaskCanceledEventHandler {
     }
     pub fn Invoke<P0>(&self, sender: P0, reason: BackgroundTaskCancellationReason) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IBackgroundTaskInstance>,
+        P0: windows_core::Param<IBackgroundTaskInstance>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.into_param().abi(), reason).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), reason).ok() }
     }
 }
 #[repr(C)]
@@ -4576,11 +4576,11 @@ impl BackgroundTaskCompletedEventHandler {
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<BackgroundTaskRegistration>,
-        P1: windows_core::IntoParam<BackgroundTaskCompletedEventArgs>,
+        P0: windows_core::Param<BackgroundTaskRegistration>,
+        P1: windows_core::Param<BackgroundTaskCompletedEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.into_param().abi(), args.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), args.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -4637,11 +4637,11 @@ impl BackgroundTaskProgressEventHandler {
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<BackgroundTaskRegistration>,
-        P1: windows_core::IntoParam<BackgroundTaskProgressEventArgs>,
+        P0: windows_core::Param<BackgroundTaskRegistration>,
+        P1: windows_core::Param<BackgroundTaskProgressEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.into_param().abi(), args.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), args.param().abi()).ok() }
     }
 }
 #[repr(C)]

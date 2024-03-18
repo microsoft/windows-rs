@@ -3,20 +3,20 @@ windows_core::imp::interface_hierarchy!(IGraphicsCaptureItemInterop, windows_cor
 impl IGraphicsCaptureItemInterop {
     pub unsafe fn CreateForWindow<P0, T>(&self, window: P0) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateForWindow)(windows_core::Interface::as_raw(self), window.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateForWindow)(windows_core::Interface::as_raw(self), window.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreateForMonitor<P0, T>(&self, monitor: P0) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Graphics::Gdi::HMONITOR>,
+        P0: windows_core::Param<super::super::super::super::Graphics::Gdi::HMONITOR>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateForMonitor)(windows_core::Interface::as_raw(self), monitor.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateForMonitor)(windows_core::Interface::as_raw(self), monitor.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

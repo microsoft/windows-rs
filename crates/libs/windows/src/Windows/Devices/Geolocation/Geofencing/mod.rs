@@ -124,38 +124,38 @@ impl Geofence {
     }
     pub fn Create<P0>(id: &windows_core::HSTRING, geoshape: P0) -> windows_core::Result<Geofence>
     where
-        P0: windows_core::IntoParam<super::IGeoshape>,
+        P0: windows_core::Param<super::IGeoshape>,
     {
         Self::IGeofenceFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), geoshape.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), geoshape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithMonitorStates<P0>(id: &windows_core::HSTRING, geoshape: P0, monitoredstates: MonitoredGeofenceStates, singleuse: bool) -> windows_core::Result<Geofence>
     where
-        P0: windows_core::IntoParam<super::IGeoshape>,
+        P0: windows_core::Param<super::IGeoshape>,
     {
         Self::IGeofenceFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithMonitorStates)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), geoshape.into_param().abi(), monitoredstates, singleuse, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithMonitorStates)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), geoshape.param().abi(), monitoredstates, singleuse, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithMonitorStatesAndDwellTime<P0>(id: &windows_core::HSTRING, geoshape: P0, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan) -> windows_core::Result<Geofence>
     where
-        P0: windows_core::IntoParam<super::IGeoshape>,
+        P0: windows_core::Param<super::IGeoshape>,
     {
         Self::IGeofenceFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithMonitorStatesAndDwellTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), geoshape.into_param().abi(), monitoredstates, singleuse, dwelltime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithMonitorStatesAndDwellTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), geoshape.param().abi(), monitoredstates, singleuse, dwelltime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration<P0>(id: &windows_core::HSTRING, geoshape: P0, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan, starttime: super::super::super::Foundation::DateTime, duration: super::super::super::Foundation::TimeSpan) -> windows_core::Result<Geofence>
     where
-        P0: windows_core::IntoParam<super::IGeoshape>,
+        P0: windows_core::Param<super::IGeoshape>,
     {
         Self::IGeofenceFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithMonitorStatesDwellTimeStartTimeAndDuration)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), geoshape.into_param().abi(), monitoredstates, singleuse, dwelltime, starttime, duration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithMonitorStatesDwellTimeStartTimeAndDuration)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), geoshape.param().abi(), monitoredstates, singleuse, dwelltime, starttime, duration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -205,12 +205,12 @@ impl GeofenceMonitor {
     }
     pub fn GeofenceStateChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GeofenceStateChanged)(windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GeofenceStateChanged)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveGeofenceStateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -227,12 +227,12 @@ impl GeofenceMonitor {
     }
     pub fn StatusChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

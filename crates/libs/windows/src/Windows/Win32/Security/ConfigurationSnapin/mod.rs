@@ -6,9 +6,9 @@ impl ISceSvcAttachmentData {
     }
     pub unsafe fn Initialize<P0>(&self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: P0, pscesvchandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ISceSvcAttachmentPersistInfo>,
+        P0: windows_core::Param<ISceSvcAttachmentPersistInfo>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), lpservicename, lptemplatename, lpscesvcpersistinfo.into_param().abi(), pscesvchandle).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), lpservicename, lptemplatename, lpscesvcpersistinfo.param().abi(), pscesvchandle).ok()
     }
     pub unsafe fn FreeBuffer(&self, pvdata: *mut core::ffi::c_void) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FreeBuffer)(windows_core::Interface::as_raw(self), pvdata).ok()

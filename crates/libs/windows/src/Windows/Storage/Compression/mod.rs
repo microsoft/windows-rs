@@ -80,32 +80,32 @@ impl Compressor {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateCompressor<P0>(underlyingstream: P0) -> windows_core::Result<Compressor>
     where
-        P0: windows_core::IntoParam<super::Streams::IOutputStream>,
+        P0: windows_core::Param<super::Streams::IOutputStream>,
     {
         Self::ICompressorFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCompressor)(windows_core::Interface::as_raw(this), underlyingstream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCompressor)(windows_core::Interface::as_raw(this), underlyingstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateCompressorEx<P0>(underlyingstream: P0, algorithm: CompressAlgorithm, blocksize: u32) -> windows_core::Result<Compressor>
     where
-        P0: windows_core::IntoParam<super::Streams::IOutputStream>,
+        P0: windows_core::Param<super::Streams::IOutputStream>,
     {
         Self::ICompressorFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCompressorEx)(windows_core::Interface::as_raw(this), underlyingstream.into_param().abi(), algorithm, blocksize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCompressorEx)(windows_core::Interface::as_raw(this), underlyingstream.param().abi(), algorithm, blocksize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: windows_core::IntoParam<super::Streams::IBuffer>,
+        P0: windows_core::Param<super::Streams::IBuffer>,
     {
         let this = &windows_core::Interface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -156,22 +156,22 @@ impl Decompressor {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateDecompressor<P0>(underlyingstream: P0) -> windows_core::Result<Decompressor>
     where
-        P0: windows_core::IntoParam<super::Streams::IInputStream>,
+        P0: windows_core::Param<super::Streams::IInputStream>,
     {
         Self::IDecompressorFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDecompressor)(windows_core::Interface::as_raw(this), underlyingstream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateDecompressor)(windows_core::Interface::as_raw(this), underlyingstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::Streams::InputStreamOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>
     where
-        P0: windows_core::IntoParam<super::Streams::IBuffer>,
+        P0: windows_core::Param<super::Streams::IBuffer>,
     {
         let this = &windows_core::Interface::cast::<super::Streams::IInputStream>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.into_param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[doc(hidden)]

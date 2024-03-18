@@ -12,10 +12,10 @@ windows_core::imp::required_hierarchy!(IAsyncAction, IAsyncInfo);
 impl IAsyncAction {
     pub fn SetCompleted<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<AsyncActionCompletedHandler>,
+        P0: windows_core::Param<AsyncActionCompletedHandler>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCompleted)(windows_core::Interface::as_raw(this), handler.param().abi()).ok() }
     }
     pub fn Completed(&self) -> windows_core::Result<AsyncActionCompletedHandler> {
         let this = self;
@@ -112,10 +112,10 @@ impl<TProgress: windows_core::RuntimeType + 'static> windows_core::CanInto<IAsyn
 impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress<TProgress> {
     pub fn SetProgress<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<AsyncActionProgressHandler<TProgress>>,
+        P0: windows_core::Param<AsyncActionProgressHandler<TProgress>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetProgress)(windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetProgress)(windows_core::Interface::as_raw(this), handler.param().abi()).ok() }
     }
     pub fn Progress(&self) -> windows_core::Result<AsyncActionProgressHandler<TProgress>> {
         let this = self;
@@ -126,10 +126,10 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress<TP
     }
     pub fn SetCompleted<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<AsyncActionWithProgressCompletedHandler<TProgress>>,
+        P0: windows_core::Param<AsyncActionWithProgressCompletedHandler<TProgress>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCompleted)(windows_core::Interface::as_raw(this), handler.param().abi()).ok() }
     }
     pub fn Completed(&self) -> windows_core::Result<AsyncActionWithProgressCompletedHandler<TProgress>> {
         let this = self;
@@ -281,10 +281,10 @@ impl<TResult: windows_core::RuntimeType + 'static> windows_core::CanInto<IAsyncI
 impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
     pub fn SetCompleted<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<AsyncOperationCompletedHandler<TResult>>,
+        P0: windows_core::Param<AsyncOperationCompletedHandler<TResult>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCompleted)(windows_core::Interface::as_raw(this), handler.param().abi()).ok() }
     }
     pub fn Completed(&self) -> windows_core::Result<AsyncOperationCompletedHandler<TResult>> {
         let this = self;
@@ -393,10 +393,10 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
 impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> IAsyncOperationWithProgress<TResult, TProgress> {
     pub fn SetProgress<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<AsyncOperationProgressHandler<TResult, TProgress>>,
+        P0: windows_core::Param<AsyncOperationProgressHandler<TResult, TProgress>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetProgress)(windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetProgress)(windows_core::Interface::as_raw(this), handler.param().abi()).ok() }
     }
     pub fn Progress(&self) -> windows_core::Result<AsyncOperationProgressHandler<TResult, TProgress>> {
         let this = self;
@@ -407,10 +407,10 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
     }
     pub fn SetCompleted<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>,
+        P0: windows_core::Param<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCompleted)(windows_core::Interface::as_raw(this), handler.param().abi()).ok() }
     }
     pub fn Completed(&self) -> windows_core::Result<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>> {
         let this = self;
@@ -619,12 +619,12 @@ impl IMemoryBufferReference {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<TypedEventHandler<IMemoryBufferReference, windows_core::IInspectable>>,
+        P0: windows_core::Param<TypedEventHandler<IMemoryBufferReference, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosed(&self, cookie: EventRegistrationToken) -> windows_core::Result<()> {
@@ -1596,11 +1596,11 @@ impl Deferral {
     }
     pub fn Create<P0>(handler: P0) -> windows_core::Result<Deferral>
     where
-        P0: windows_core::IntoParam<DeferralCompletedHandler>,
+        P0: windows_core::Param<DeferralCompletedHandler>,
     {
         Self::IDeferralFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1773,11 +1773,11 @@ impl PropertyValue {
     }
     pub fn CreateInspectable<P0>(value: P0) -> windows_core::Result<windows_core::IInspectable>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInspectable)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInspectable)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateGuid(value: windows_core::GUID) -> windows_core::Result<windows_core::IInspectable> {
@@ -2071,12 +2071,12 @@ impl Uri {
     }
     pub fn Equals<P0>(&self, puri: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<Uri>,
+        P0: windows_core::Param<Uri>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Equals)(windows_core::Interface::as_raw(this), puri.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Equals)(windows_core::Interface::as_raw(this), puri.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn CombineUri(&self, relativeuri: &windows_core::HSTRING) -> windows_core::Result<Uri> {
@@ -2169,12 +2169,12 @@ impl WwwFormUrlDecoder {
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IWwwFormUrlDecoderEntry>,
+        P0: windows_core::Param<IWwwFormUrlDecoderEntry>,
     {
         let this = &windows_core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -2547,10 +2547,10 @@ impl AsyncActionCompletedHandler {
     }
     pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAsyncAction>,
+        P0: windows_core::Param<IAsyncAction>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.into_param().abi(), asyncstatus).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.param().abi(), asyncstatus).ok() }
     }
 }
 #[repr(C)]
@@ -2611,11 +2611,11 @@ impl<TProgress: windows_core::RuntimeType + 'static> AsyncActionProgressHandler<
     }
     pub fn Invoke<P0, P1>(&self, asyncinfo: P0, progressinfo: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAsyncActionWithProgress<TProgress>>,
-        P1: windows_core::IntoParam<TProgress>,
+        P0: windows_core::Param<IAsyncActionWithProgress<TProgress>>,
+        P1: windows_core::Param<TProgress>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.into_param().abi(), progressinfo.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.param().abi(), progressinfo.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -2691,10 +2691,10 @@ impl<TProgress: windows_core::RuntimeType + 'static> AsyncActionWithProgressComp
     }
     pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAsyncActionWithProgress<TProgress>>,
+        P0: windows_core::Param<IAsyncActionWithProgress<TProgress>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.into_param().abi(), asyncstatus).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.param().abi(), asyncstatus).ok() }
     }
 }
 #[repr(C)]
@@ -2770,10 +2770,10 @@ impl<TResult: windows_core::RuntimeType + 'static> AsyncOperationCompletedHandle
     }
     pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAsyncOperation<TResult>>,
+        P0: windows_core::Param<IAsyncOperation<TResult>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.into_param().abi(), asyncstatus).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.param().abi(), asyncstatus).ok() }
     }
 }
 #[repr(C)]
@@ -2850,11 +2850,11 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
     }
     pub fn Invoke<P0, P1>(&self, asyncinfo: P0, progressinfo: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAsyncOperationWithProgress<TResult, TProgress>>,
-        P1: windows_core::IntoParam<TProgress>,
+        P0: windows_core::Param<IAsyncOperationWithProgress<TResult, TProgress>>,
+        P1: windows_core::Param<TProgress>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.into_param().abi(), progressinfo.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.param().abi(), progressinfo.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -2935,10 +2935,10 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
     }
     pub fn Invoke<P0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAsyncOperationWithProgress<TResult, TProgress>>,
+        P0: windows_core::Param<IAsyncOperationWithProgress<TResult, TProgress>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.into_param().abi(), asyncstatus).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), asyncinfo.param().abi(), asyncstatus).ok() }
     }
 }
 #[repr(C)]
@@ -3075,11 +3075,11 @@ impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
-        P1: windows_core::IntoParam<T>,
+        P0: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<T>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.into_param().abi(), args.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), args.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -3156,11 +3156,11 @@ impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::Runtim
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<TSender>,
-        P1: windows_core::IntoParam<TResult>,
+        P0: windows_core::Param<TSender>,
+        P1: windows_core::Param<TResult>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.into_param().abi(), args.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), args.param().abi()).ok() }
     }
 }
 #[repr(C)]

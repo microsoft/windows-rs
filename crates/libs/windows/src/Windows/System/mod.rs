@@ -1247,12 +1247,12 @@ windows_core::imp::interface_hierarchy!(AppDiagnosticInfoWatcher, windows_core::
 impl AppDiagnosticInfoWatcher {
     pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, AppDiagnosticInfoWatcherEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, AppDiagnosticInfoWatcherEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAdded(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1261,12 +1261,12 @@ impl AppDiagnosticInfoWatcher {
     }
     pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, AppDiagnosticInfoWatcherEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, AppDiagnosticInfoWatcherEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRemoved(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1275,12 +1275,12 @@ impl AppDiagnosticInfoWatcher {
     }
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveEnumerationCompleted(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1289,12 +1289,12 @@ impl AppDiagnosticInfoWatcher {
     }
     pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStopped(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1600,12 +1600,12 @@ windows_core::imp::interface_hierarchy!(AppResourceGroupInfoWatcher, windows_cor
 impl AppResourceGroupInfoWatcher {
     pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAdded(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1614,12 +1614,12 @@ impl AppResourceGroupInfoWatcher {
     }
     pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRemoved(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1628,12 +1628,12 @@ impl AppResourceGroupInfoWatcher {
     }
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveEnumerationCompleted(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1642,12 +1642,12 @@ impl AppResourceGroupInfoWatcher {
     }
     pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStopped(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1656,12 +1656,12 @@ impl AppResourceGroupInfoWatcher {
     }
     pub fn ExecutionStateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherExecutionStateChangedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherExecutionStateChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ExecutionStateChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ExecutionStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveExecutionStateChanged(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1928,12 +1928,12 @@ impl AppUriHandlerRegistration {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAppAddedHostsAsync<P0>(&self, hosts: P0) -> windows_core::Result<super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::Foundation::Collections::IIterable<AppUriHandlerHost>>,
+        P0: windows_core::Param<super::Foundation::Collections::IIterable<AppUriHandlerHost>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetAppAddedHostsAsync)(windows_core::Interface::as_raw(this), hosts.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetAppAddedHostsAsync)(windows_core::Interface::as_raw(this), hosts.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1947,10 +1947,10 @@ impl AppUriHandlerRegistration {
     #[cfg(feature = "Foundation_Collections")]
     pub fn UpdateHosts<P0>(&self, hosts: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Foundation::Collections::IIterable<AppUriHandlerHost>>,
+        P0: windows_core::Param<super::Foundation::Collections::IIterable<AppUriHandlerHost>>,
     {
         let this = &windows_core::Interface::cast::<IAppUriHandlerRegistration2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).UpdateHosts)(windows_core::Interface::as_raw(this), hosts.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdateHosts)(windows_core::Interface::as_raw(this), hosts.param().abi()).ok() }
     }
     pub fn PackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IAppUriHandlerRegistration2>(self)?;
@@ -2006,11 +2006,11 @@ impl AppUriHandlerRegistrationManager {
     }
     pub fn GetForUser<P0>(user: P0) -> windows_core::Result<AppUriHandlerRegistrationManager>
     where
-        P0: windows_core::IntoParam<User>,
+        P0: windows_core::Param<User>,
     {
         Self::IAppUriHandlerRegistrationManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetForPackage(packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<AppUriHandlerRegistrationManager> {
@@ -2021,11 +2021,11 @@ impl AppUriHandlerRegistrationManager {
     }
     pub fn GetForPackageForUser<P0>(packagefamilyname: &windows_core::HSTRING, user: P0) -> windows_core::Result<AppUriHandlerRegistrationManager>
     where
-        P0: windows_core::IntoParam<User>,
+        P0: windows_core::Param<User>,
     {
         Self::IAppUriHandlerRegistrationManagerStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForPackageForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), user.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForPackageForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -2079,32 +2079,32 @@ impl DispatcherQueue {
     }
     pub fn TryEnqueue<P0>(&self, callback: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<DispatcherQueueHandler>,
+        P0: windows_core::Param<DispatcherQueueHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryEnqueue)(windows_core::Interface::as_raw(this), callback.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TryEnqueue)(windows_core::Interface::as_raw(this), callback.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn TryEnqueueWithPriority<P0>(&self, priority: DispatcherQueuePriority, callback: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<DispatcherQueueHandler>,
+        P0: windows_core::Param<DispatcherQueueHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryEnqueueWithPriority)(windows_core::Interface::as_raw(this), priority, callback.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TryEnqueueWithPriority)(windows_core::Interface::as_raw(this), priority, callback.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn ShutdownStarting<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<DispatcherQueue, DispatcherQueueShutdownStartingEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<DispatcherQueue, DispatcherQueueShutdownStartingEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShutdownStarting)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ShutdownStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveShutdownStarting(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2113,12 +2113,12 @@ impl DispatcherQueue {
     }
     pub fn ShutdownCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<DispatcherQueue, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<DispatcherQueue, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShutdownCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ShutdownCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveShutdownCompleted(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2268,12 +2268,12 @@ impl DispatcherQueueTimer {
     }
     pub fn Tick<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<DispatcherQueueTimer, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<DispatcherQueueTimer, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Tick)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Tick)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTick(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2454,113 +2454,113 @@ impl Launcher {
     #[cfg(feature = "Storage")]
     pub fn LaunchFileAsync<P0>(file: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::Storage::IStorageFile>,
+        P0: windows_core::Param<super::Storage::IStorageFile>,
     {
         Self::ILauncherStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchFileAsync)(windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage")]
     pub fn LaunchFileWithOptionsAsync<P0, P1>(file: P0, options: P1) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::Storage::IStorageFile>,
-        P1: windows_core::IntoParam<LauncherOptions>,
+        P0: windows_core::Param<super::Storage::IStorageFile>,
+        P1: windows_core::Param<LauncherOptions>,
     {
         Self::ILauncherStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchFileWithOptionsAsync)(windows_core::Interface::as_raw(this), file.into_param().abi(), options.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchFileWithOptionsAsync)(windows_core::Interface::as_raw(this), file.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn LaunchUriAsync<P0>(uri: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::Foundation::Uri>,
+        P0: windows_core::Param<super::Foundation::Uri>,
     {
         Self::ILauncherStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchUriAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchUriAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn LaunchUriWithOptionsAsync<P0, P1>(uri: P0, options: P1) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::Foundation::Uri>,
-        P1: windows_core::IntoParam<LauncherOptions>,
+        P0: windows_core::Param<super::Foundation::Uri>,
+        P1: windows_core::Param<LauncherOptions>,
     {
         Self::ILauncherStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchUriWithOptionsAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), options.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchUriWithOptionsAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn LaunchUriForResultsAsync<P0, P1>(uri: P0, options: P1) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>
     where
-        P0: windows_core::IntoParam<super::Foundation::Uri>,
-        P1: windows_core::IntoParam<LauncherOptions>,
+        P0: windows_core::Param<super::Foundation::Uri>,
+        P1: windows_core::Param<LauncherOptions>,
     {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchUriForResultsAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), options.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchUriForResultsAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn LaunchUriForResultsWithDataAsync<P0, P1, P2>(uri: P0, options: P1, inputdata: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>
     where
-        P0: windows_core::IntoParam<super::Foundation::Uri>,
-        P1: windows_core::IntoParam<LauncherOptions>,
-        P2: windows_core::IntoParam<super::Foundation::Collections::ValueSet>,
+        P0: windows_core::Param<super::Foundation::Uri>,
+        P1: windows_core::Param<LauncherOptions>,
+        P2: windows_core::Param<super::Foundation::Collections::ValueSet>,
     {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchUriForResultsWithDataAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchUriForResultsWithDataAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), options.param().abi(), inputdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn LaunchUriWithDataAsync<P0, P1, P2>(uri: P0, options: P1, inputdata: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::Foundation::Uri>,
-        P1: windows_core::IntoParam<LauncherOptions>,
-        P2: windows_core::IntoParam<super::Foundation::Collections::ValueSet>,
+        P0: windows_core::Param<super::Foundation::Uri>,
+        P1: windows_core::Param<LauncherOptions>,
+        P2: windows_core::Param<super::Foundation::Collections::ValueSet>,
     {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchUriWithDataAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchUriWithDataAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), options.param().abi(), inputdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn QueryUriSupportAsync<P0>(uri: P0, launchquerysupporttype: LaunchQuerySupportType) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
     where
-        P0: windows_core::IntoParam<super::Foundation::Uri>,
+        P0: windows_core::Param<super::Foundation::Uri>,
     {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).QueryUriSupportAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), launchquerysupporttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).QueryUriSupportAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), launchquerysupporttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn QueryUriSupportWithPackageFamilyNameAsync<P0>(uri: P0, launchquerysupporttype: LaunchQuerySupportType, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
     where
-        P0: windows_core::IntoParam<super::Foundation::Uri>,
+        P0: windows_core::Param<super::Foundation::Uri>,
     {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).QueryUriSupportWithPackageFamilyNameAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), launchquerysupporttype, core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).QueryUriSupportWithPackageFamilyNameAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), launchquerysupporttype, core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage")]
     pub fn QueryFileSupportAsync<P0>(file: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
     where
-        P0: windows_core::IntoParam<super::Storage::StorageFile>,
+        P0: windows_core::Param<super::Storage::StorageFile>,
     {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).QueryFileSupportAsync)(windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).QueryFileSupportAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage")]
     pub fn QueryFileSupportWithPackageFamilyNameAsync<P0>(file: P0, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
     where
-        P0: windows_core::IntoParam<super::Storage::StorageFile>,
+        P0: windows_core::Param<super::Storage::StorageFile>,
     {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).QueryFileSupportWithPackageFamilyNameAsync)(windows_core::Interface::as_raw(this), file.into_param().abi(), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).QueryFileSupportWithPackageFamilyNameAsync)(windows_core::Interface::as_raw(this), file.param().abi(), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
@@ -2587,108 +2587,108 @@ impl Launcher {
     #[cfg(feature = "Storage")]
     pub fn LaunchFolderAsync<P0>(folder: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::Storage::IStorageFolder>,
+        P0: windows_core::Param<super::Storage::IStorageFolder>,
     {
         Self::ILauncherStatics3(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchFolderAsync)(windows_core::Interface::as_raw(this), folder.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchFolderAsync)(windows_core::Interface::as_raw(this), folder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage")]
     pub fn LaunchFolderWithOptionsAsync<P0, P1>(folder: P0, options: P1) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::Storage::IStorageFolder>,
-        P1: windows_core::IntoParam<FolderLauncherOptions>,
+        P0: windows_core::Param<super::Storage::IStorageFolder>,
+        P1: windows_core::Param<FolderLauncherOptions>,
     {
         Self::ILauncherStatics3(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchFolderWithOptionsAsync)(windows_core::Interface::as_raw(this), folder.into_param().abi(), options.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchFolderWithOptionsAsync)(windows_core::Interface::as_raw(this), folder.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn QueryAppUriSupportAsync<P0>(uri: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
     where
-        P0: windows_core::IntoParam<super::Foundation::Uri>,
+        P0: windows_core::Param<super::Foundation::Uri>,
     {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).QueryAppUriSupportAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).QueryAppUriSupportAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn QueryAppUriSupportWithPackageFamilyNameAsync<P0>(uri: P0, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
     where
-        P0: windows_core::IntoParam<super::Foundation::Uri>,
+        P0: windows_core::Param<super::Foundation::Uri>,
     {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).QueryAppUriSupportWithPackageFamilyNameAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).QueryAppUriSupportWithPackageFamilyNameAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindAppUriHandlersAsync<P0>(uri: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>
     where
-        P0: windows_core::IntoParam<super::Foundation::Uri>,
+        P0: windows_core::Param<super::Foundation::Uri>,
     {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindAppUriHandlersAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindAppUriHandlersAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn LaunchUriForUserAsync<P0, P1>(user: P0, uri: P1) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>>
     where
-        P0: windows_core::IntoParam<User>,
-        P1: windows_core::IntoParam<super::Foundation::Uri>,
+        P0: windows_core::Param<User>,
+        P1: windows_core::Param<super::Foundation::Uri>,
     {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchUriForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchUriForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn LaunchUriWithOptionsForUserAsync<P0, P1, P2>(user: P0, uri: P1, options: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>>
     where
-        P0: windows_core::IntoParam<User>,
-        P1: windows_core::IntoParam<super::Foundation::Uri>,
-        P2: windows_core::IntoParam<LauncherOptions>,
+        P0: windows_core::Param<User>,
+        P1: windows_core::Param<super::Foundation::Uri>,
+        P2: windows_core::Param<LauncherOptions>,
     {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchUriWithOptionsForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchUriWithOptionsForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), uri.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn LaunchUriWithDataForUserAsync<P0, P1, P2, P3>(user: P0, uri: P1, options: P2, inputdata: P3) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>>
     where
-        P0: windows_core::IntoParam<User>,
-        P1: windows_core::IntoParam<super::Foundation::Uri>,
-        P2: windows_core::IntoParam<LauncherOptions>,
-        P3: windows_core::IntoParam<super::Foundation::Collections::ValueSet>,
+        P0: windows_core::Param<User>,
+        P1: windows_core::Param<super::Foundation::Uri>,
+        P2: windows_core::Param<LauncherOptions>,
+        P3: windows_core::Param<super::Foundation::Collections::ValueSet>,
     {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchUriWithDataForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchUriWithDataForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), uri.param().abi(), options.param().abi(), inputdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn LaunchUriForResultsForUserAsync<P0, P1, P2>(user: P0, uri: P1, options: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>
     where
-        P0: windows_core::IntoParam<User>,
-        P1: windows_core::IntoParam<super::Foundation::Uri>,
-        P2: windows_core::IntoParam<LauncherOptions>,
+        P0: windows_core::Param<User>,
+        P1: windows_core::Param<super::Foundation::Uri>,
+        P2: windows_core::Param<LauncherOptions>,
     {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchUriForResultsForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchUriForResultsForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), uri.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn LaunchUriForResultsWithDataForUserAsync<P0, P1, P2, P3>(user: P0, uri: P1, options: P2, inputdata: P3) -> windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>
     where
-        P0: windows_core::IntoParam<User>,
-        P1: windows_core::IntoParam<super::Foundation::Uri>,
-        P2: windows_core::IntoParam<LauncherOptions>,
-        P3: windows_core::IntoParam<super::Foundation::Collections::ValueSet>,
+        P0: windows_core::Param<User>,
+        P1: windows_core::Param<super::Foundation::Uri>,
+        P2: windows_core::Param<LauncherOptions>,
+        P3: windows_core::Param<super::Foundation::Collections::ValueSet>,
     {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchUriForResultsWithDataForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchUriForResultsWithDataForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), uri.param().abi(), options.param().abi(), inputdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn LaunchFolderPathAsync(path: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>> {
@@ -2699,30 +2699,30 @@ impl Launcher {
     }
     pub fn LaunchFolderPathWithOptionsAsync<P0>(path: &windows_core::HSTRING, options: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<FolderLauncherOptions>,
+        P0: windows_core::Param<FolderLauncherOptions>,
     {
         Self::ILauncherStatics5(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchFolderPathWithOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(path), options.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchFolderPathWithOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(path), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn LaunchFolderPathForUserAsync<P0>(user: P0, path: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<User>,
+        P0: windows_core::Param<User>,
     {
         Self::ILauncherStatics5(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchFolderPathForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchFolderPathForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn LaunchFolderPathWithOptionsForUserAsync<P0, P1>(user: P0, path: &windows_core::HSTRING, options: P1) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<User>,
-        P1: windows_core::IntoParam<FolderLauncherOptions>,
+        P0: windows_core::Param<User>,
+        P1: windows_core::Param<FolderLauncherOptions>,
     {
         Self::ILauncherStatics5(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchFolderPathWithOptionsForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(path), options.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchFolderPathWithOptionsForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(path), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -2827,10 +2827,10 @@ impl LauncherOptions {
     }
     pub fn SetFallbackUri<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Foundation::Uri>,
+        P0: windows_core::Param<super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetFallbackUri)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetFallbackUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -2865,10 +2865,10 @@ impl LauncherOptions {
     #[cfg(feature = "Storage_Search")]
     pub fn SetNeighboringFilesQuery<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Storage::Search::StorageFileQueryResult>,
+        P0: windows_core::Param<super::Storage::Search::StorageFileQueryResult>,
     {
         let this = &windows_core::Interface::cast::<ILauncherOptions2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNeighboringFilesQuery)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNeighboringFilesQuery)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn IgnoreAppUriHandlers(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ILauncherOptions3>(self)?;
@@ -2932,10 +2932,10 @@ impl LauncherUIOptions {
     }
     pub fn SetInvocationPoint<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Foundation::IReference<super::Foundation::Point>>,
+        P0: windows_core::Param<super::Foundation::IReference<super::Foundation::Point>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetInvocationPoint)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetInvocationPoint)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn SelectionRect(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::Rect>> {
         let this = self;
@@ -2946,10 +2946,10 @@ impl LauncherUIOptions {
     }
     pub fn SetSelectionRect<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Foundation::IReference<super::Foundation::Rect>>,
+        P0: windows_core::Param<super::Foundation::IReference<super::Foundation::Rect>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSelectionRect)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSelectionRect)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "UI_Popups")]
     pub fn PreferredPlacement(&self) -> windows_core::Result<super::UI::Popups::Placement> {
@@ -2999,11 +2999,11 @@ impl MemoryManager {
     }
     pub fn AppMemoryUsageIncreased<P0>(handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::EventHandler<windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
         Self::IMemoryManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppMemoryUsageIncreased)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AppMemoryUsageIncreased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveAppMemoryUsageIncreased(token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3011,11 +3011,11 @@ impl MemoryManager {
     }
     pub fn AppMemoryUsageDecreased<P0>(handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::EventHandler<windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
         Self::IMemoryManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppMemoryUsageDecreased)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AppMemoryUsageDecreased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveAppMemoryUsageDecreased(token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3023,11 +3023,11 @@ impl MemoryManager {
     }
     pub fn AppMemoryUsageLimitChanging<P0>(handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::EventHandler<AppMemoryUsageLimitChangingEventArgs>>,
+        P0: windows_core::Param<super::Foundation::EventHandler<AppMemoryUsageLimitChangingEventArgs>>,
     {
         Self::IMemoryManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppMemoryUsageLimitChanging)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AppMemoryUsageLimitChanging)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveAppMemoryUsageLimitChanging(token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3091,11 +3091,11 @@ impl ProcessLauncher {
     }
     pub fn RunToCompletionAsyncWithOptions<P0>(filename: &windows_core::HSTRING, args: &windows_core::HSTRING, options: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<ProcessLauncherResult>>
     where
-        P0: windows_core::IntoParam<ProcessLauncherOptions>,
+        P0: windows_core::Param<ProcessLauncherOptions>,
     {
         Self::IProcessLauncherStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RunToCompletionAsyncWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filename), core::mem::transmute_copy(args), options.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RunToCompletionAsyncWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filename), core::mem::transmute_copy(args), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -3130,10 +3130,10 @@ impl ProcessLauncherOptions {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetStandardInput<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Storage::Streams::IInputStream>,
+        P0: windows_core::Param<super::Storage::Streams::IInputStream>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetStandardInput)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetStandardInput)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn StandardOutput(&self) -> windows_core::Result<super::Storage::Streams::IOutputStream> {
@@ -3146,10 +3146,10 @@ impl ProcessLauncherOptions {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetStandardOutput<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Storage::Streams::IOutputStream>,
+        P0: windows_core::Param<super::Storage::Streams::IOutputStream>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetStandardOutput)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetStandardOutput)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn StandardError(&self) -> windows_core::Result<super::Storage::Streams::IOutputStream> {
@@ -3162,10 +3162,10 @@ impl ProcessLauncherOptions {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetStandardError<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Storage::Streams::IOutputStream>,
+        P0: windows_core::Param<super::Storage::Streams::IOutputStream>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetStandardError)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetStandardError)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn WorkingDirectory(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -3256,10 +3256,10 @@ impl ProtocolForResultsOperation {
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReportCompleted<P0>(&self, data: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Foundation::Collections::ValueSet>,
+        P0: windows_core::Param<super::Foundation::Collections::ValueSet>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this), data.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this), data.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for ProtocolForResultsOperation {
@@ -3279,37 +3279,37 @@ impl RemoteLauncher {
     #[cfg(feature = "System_RemoteSystems")]
     pub fn LaunchUriAsync<P0, P1>(remotesystemconnectionrequest: P0, uri: P1) -> windows_core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>
     where
-        P0: windows_core::IntoParam<RemoteSystems::RemoteSystemConnectionRequest>,
-        P1: windows_core::IntoParam<super::Foundation::Uri>,
+        P0: windows_core::Param<RemoteSystems::RemoteSystemConnectionRequest>,
+        P1: windows_core::Param<super::Foundation::Uri>,
     {
         Self::IRemoteLauncherStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchUriAsync)(windows_core::Interface::as_raw(this), remotesystemconnectionrequest.into_param().abi(), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchUriAsync)(windows_core::Interface::as_raw(this), remotesystemconnectionrequest.param().abi(), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System_RemoteSystems")]
     pub fn LaunchUriWithOptionsAsync<P0, P1, P2>(remotesystemconnectionrequest: P0, uri: P1, options: P2) -> windows_core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>
     where
-        P0: windows_core::IntoParam<RemoteSystems::RemoteSystemConnectionRequest>,
-        P1: windows_core::IntoParam<super::Foundation::Uri>,
-        P2: windows_core::IntoParam<RemoteLauncherOptions>,
+        P0: windows_core::Param<RemoteSystems::RemoteSystemConnectionRequest>,
+        P1: windows_core::Param<super::Foundation::Uri>,
+        P2: windows_core::Param<RemoteLauncherOptions>,
     {
         Self::IRemoteLauncherStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchUriWithOptionsAsync)(windows_core::Interface::as_raw(this), remotesystemconnectionrequest.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchUriWithOptionsAsync)(windows_core::Interface::as_raw(this), remotesystemconnectionrequest.param().abi(), uri.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "System_RemoteSystems"))]
     pub fn LaunchUriWithDataAsync<P0, P1, P2, P3>(remotesystemconnectionrequest: P0, uri: P1, options: P2, inputdata: P3) -> windows_core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>
     where
-        P0: windows_core::IntoParam<RemoteSystems::RemoteSystemConnectionRequest>,
-        P1: windows_core::IntoParam<super::Foundation::Uri>,
-        P2: windows_core::IntoParam<RemoteLauncherOptions>,
-        P3: windows_core::IntoParam<super::Foundation::Collections::ValueSet>,
+        P0: windows_core::Param<RemoteSystems::RemoteSystemConnectionRequest>,
+        P1: windows_core::Param<super::Foundation::Uri>,
+        P2: windows_core::Param<RemoteLauncherOptions>,
+        P3: windows_core::Param<super::Foundation::Collections::ValueSet>,
     {
         Self::IRemoteLauncherStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchUriWithDataAsync)(windows_core::Interface::as_raw(this), remotesystemconnectionrequest.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchUriWithDataAsync)(windows_core::Interface::as_raw(this), remotesystemconnectionrequest.param().abi(), uri.param().abi(), options.param().abi(), inputdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -3342,10 +3342,10 @@ impl RemoteLauncherOptions {
     }
     pub fn SetFallbackUri<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Foundation::Uri>,
+        P0: windows_core::Param<super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetFallbackUri)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetFallbackUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn PreferredAppIds(&self) -> windows_core::Result<super::Foundation::Collections::IVector<windows_core::HSTRING>> {
@@ -3482,12 +3482,12 @@ impl User {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetPropertiesAsync<P0>(&self, values: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IPropertySet>>
     where
-        P0: windows_core::IntoParam<super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPropertiesAsync)(windows_core::Interface::as_raw(this), values.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPropertiesAsync)(windows_core::Interface::as_raw(this), values.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -3678,11 +3678,11 @@ impl UserDeviceAssociation {
     }
     pub fn UserDeviceAssociationChanged<P0>(handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::EventHandler<UserDeviceAssociationChangedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::EventHandler<UserDeviceAssociationChangedEventArgs>>,
     {
         Self::IUserDeviceAssociationStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserDeviceAssociationChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UserDeviceAssociationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveUserDeviceAssociationChanged(token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3768,10 +3768,10 @@ impl UserPicker {
     }
     pub fn SetSuggestedSelectedUser<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<User>,
+        P0: windows_core::Param<User>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSuggestedSelectedUser)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSuggestedSelectedUser)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn PickSingleUserAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<User>> {
         let this = self;
@@ -3826,12 +3826,12 @@ impl UserWatcher {
     }
     pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAdded(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3840,12 +3840,12 @@ impl UserWatcher {
     }
     pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRemoved(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3854,12 +3854,12 @@ impl UserWatcher {
     }
     pub fn Updated<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveUpdated(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3868,12 +3868,12 @@ impl UserWatcher {
     }
     pub fn AuthenticationStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AuthenticationStatusChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AuthenticationStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAuthenticationStatusChanged(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3882,12 +3882,12 @@ impl UserWatcher {
     }
     pub fn AuthenticationStatusChanging<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<UserWatcher, UserAuthenticationStatusChangingEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<UserWatcher, UserAuthenticationStatusChangingEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AuthenticationStatusChanging)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AuthenticationStatusChanging)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAuthenticationStatusChanging(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3896,12 +3896,12 @@ impl UserWatcher {
     }
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<UserWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<UserWatcher, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveEnumerationCompleted(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3910,12 +3910,12 @@ impl UserWatcher {
     }
     pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<UserWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<UserWatcher, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStopped(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

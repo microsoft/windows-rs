@@ -4,10 +4,10 @@ impl IDummyHICONIncluder {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn Dummy<P0, P1>(&self, h1: P0, h2: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::UI::WindowsAndMessaging::HICON>,
-        P1: windows_core::IntoParam<super::super::super::Graphics::Gdi::HDC>,
+        P0: windows_core::Param<super::super::super::UI::WindowsAndMessaging::HICON>,
+        P1: windows_core::Param<super::super::super::Graphics::Gdi::HDC>,
     {
-        (windows_core::Interface::vtable(self).Dummy)(windows_core::Interface::as_raw(self), h1.into_param().abi(), h2.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Dummy)(windows_core::Interface::as_raw(self), h1.param().abi(), h2.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -24,16 +24,16 @@ impl IThumbnailExtractor {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn ExtractThumbnail<P0>(&self, pstg: P0, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::StructuredStorage::IStorage>,
+        P0: windows_core::Param<super::StructuredStorage::IStorage>,
     {
-        (windows_core::Interface::vtable(self).ExtractThumbnail)(windows_core::Interface::as_raw(self), pstg.into_param().abi(), ullength, ulheight, puloutputlength, puloutputheight, phoutputbitmap).ok()
+        (windows_core::Interface::vtable(self).ExtractThumbnail)(windows_core::Interface::as_raw(self), pstg.param().abi(), ullength, ulheight, puloutputlength, puloutputheight, phoutputbitmap).ok()
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn OnFileUpdated<P0>(&self, pstg: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::StructuredStorage::IStorage>,
+        P0: windows_core::Param<super::StructuredStorage::IStorage>,
     {
-        (windows_core::Interface::vtable(self).OnFileUpdated)(windows_core::Interface::as_raw(self), pstg.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnFileUpdated)(windows_core::Interface::as_raw(self), pstg.param().abi()).ok()
     }
 }
 #[repr(C)]

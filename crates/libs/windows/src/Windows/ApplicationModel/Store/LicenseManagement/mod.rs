@@ -56,22 +56,22 @@ impl LicenseManager {
     #[cfg(feature = "Storage_Streams")]
     pub fn AddLicenseAsync<P0>(license: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::ILicenseManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddLicenseAsync)(windows_core::Interface::as_raw(this), license.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AddLicenseAsync)(windows_core::Interface::as_raw(this), license.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSatisfactionInfosAsync<P0, P1>(contentids: P0, keyids: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ILicenseManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSatisfactionInfosAsync)(windows_core::Interface::as_raw(this), contentids.into_param().abi(), keyids.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetSatisfactionInfosAsync)(windows_core::Interface::as_raw(this), contentids.param().abi(), keyids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn RefreshLicensesAsync(refreshoption: LicenseRefreshOption) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {

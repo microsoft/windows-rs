@@ -2,36 +2,36 @@
 #[inline]
 pub unsafe fn ActivateKeyboardLayout<P0>(hkl: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> windows_core::Result<super::super::TextServices::HKL>
 where
-    P0: windows_core::IntoParam<super::super::TextServices::HKL>,
+    P0: windows_core::Param<super::super::TextServices::HKL>,
 {
     windows_targets::link!("user32.dll" "system" fn ActivateKeyboardLayout(hkl : super::super::TextServices:: HKL, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices:: HKL);
-    let result__ = ActivateKeyboardLayout(hkl.into_param().abi(), flags);
+    let result__ = ActivateKeyboardLayout(hkl.param().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn BlockInput<P0>(fblockit: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn BlockInput(fblockit : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    BlockInput(fblockit.into_param().abi()).ok()
+    BlockInput(fblockit.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn DragDetect<P0>(hwnd: P0, pt: super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn DragDetect(hwnd : super::super::super::Foundation:: HWND, pt : super::super::super::Foundation:: POINT) -> super::super::super::Foundation:: BOOL);
-    DragDetect(hwnd.into_param().abi(), core::mem::transmute(pt))
+    DragDetect(hwnd.param().abi(), core::mem::transmute(pt))
 }
 #[inline]
 pub unsafe fn EnableWindow<P0, P1>(hwnd: P0, benable: P1) -> super::super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn EnableWindow(hwnd : super::super::super::Foundation:: HWND, benable : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    EnableWindow(hwnd.into_param().abi(), benable.into_param().abi())
+    EnableWindow(hwnd.param().abi(), benable.param().abi())
 }
 #[inline]
 pub unsafe fn GetActiveWindow() -> super::super::super::Foundation::HWND {
@@ -123,29 +123,29 @@ pub unsafe fn GetMouseMovePointsEx(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpp
 #[inline]
 pub unsafe fn IsWindowEnabled<P0>(hwnd: P0) -> super::super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn IsWindowEnabled(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: BOOL);
-    IsWindowEnabled(hwnd.into_param().abi())
+    IsWindowEnabled(hwnd.param().abi())
 }
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn LoadKeyboardLayoutA<P0>(pwszklid: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> windows_core::Result<super::super::TextServices::HKL>
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn LoadKeyboardLayoutA(pwszklid : windows_core::PCSTR, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices:: HKL);
-    let result__ = LoadKeyboardLayoutA(pwszklid.into_param().abi(), flags);
+    let result__ = LoadKeyboardLayoutA(pwszklid.param().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn LoadKeyboardLayoutW<P0>(pwszklid: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> windows_core::Result<super::super::TextServices::HKL>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn LoadKeyboardLayoutW(pwszklid : windows_core::PCWSTR, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices:: HKL);
-    let result__ = LoadKeyboardLayoutW(pwszklid.into_param().abi(), flags);
+    let result__ = LoadKeyboardLayoutW(pwszklid.param().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -157,19 +157,19 @@ pub unsafe fn MapVirtualKeyA(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE) -> u32 
 #[inline]
 pub unsafe fn MapVirtualKeyExA<P0>(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: P0) -> u32
 where
-    P0: windows_core::IntoParam<super::super::TextServices::HKL>,
+    P0: windows_core::Param<super::super::TextServices::HKL>,
 {
     windows_targets::link!("user32.dll" "system" fn MapVirtualKeyExA(ucode : u32, umaptype : MAP_VIRTUAL_KEY_TYPE, dwhkl : super::super::TextServices:: HKL) -> u32);
-    MapVirtualKeyExA(ucode, umaptype, dwhkl.into_param().abi())
+    MapVirtualKeyExA(ucode, umaptype, dwhkl.param().abi())
 }
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn MapVirtualKeyExW<P0>(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: P0) -> u32
 where
-    P0: windows_core::IntoParam<super::super::TextServices::HKL>,
+    P0: windows_core::Param<super::super::TextServices::HKL>,
 {
     windows_targets::link!("user32.dll" "system" fn MapVirtualKeyExW(ucode : u32, umaptype : MAP_VIRTUAL_KEY_TYPE, dwhkl : super::super::TextServices:: HKL) -> u32);
-    MapVirtualKeyExW(ucode, umaptype, dwhkl.into_param().abi())
+    MapVirtualKeyExW(ucode, umaptype, dwhkl.param().abi())
 }
 #[inline]
 pub unsafe fn MapVirtualKeyW(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE) -> u32 {
@@ -184,10 +184,10 @@ pub unsafe fn OemKeyScan(woemchar: u16) -> u32 {
 #[inline]
 pub unsafe fn RegisterHotKey<P0>(hwnd: P0, id: i32, fsmodifiers: HOT_KEY_MODIFIERS, vk: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn RegisterHotKey(hwnd : super::super::super::Foundation:: HWND, id : i32, fsmodifiers : HOT_KEY_MODIFIERS, vk : u32) -> super::super::super::Foundation:: BOOL);
-    RegisterHotKey(hwnd.into_param().abi(), id, fsmodifiers, vk).ok()
+    RegisterHotKey(hwnd.param().abi(), id, fsmodifiers, vk).ok()
 }
 #[inline]
 pub unsafe fn ReleaseCapture() -> windows_core::Result<()> {
@@ -202,18 +202,18 @@ pub unsafe fn SendInput(pinputs: &[INPUT], cbsize: i32) -> u32 {
 #[inline]
 pub unsafe fn SetActiveWindow<P0>(hwnd: P0) -> super::super::super::Foundation::HWND
 where
-    P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn SetActiveWindow(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: HWND);
-    SetActiveWindow(hwnd.into_param().abi())
+    SetActiveWindow(hwnd.param().abi())
 }
 #[inline]
 pub unsafe fn SetCapture<P0>(hwnd: P0) -> super::super::super::Foundation::HWND
 where
-    P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn SetCapture(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: HWND);
-    SetCapture(hwnd.into_param().abi())
+    SetCapture(hwnd.param().abi())
 }
 #[inline]
 pub unsafe fn SetDoubleClickTime(param0: u32) -> windows_core::Result<()> {
@@ -223,10 +223,10 @@ pub unsafe fn SetDoubleClickTime(param0: u32) -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn SetFocus<P0>(hwnd: P0) -> super::super::super::Foundation::HWND
 where
-    P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn SetFocus(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: HWND);
-    SetFocus(hwnd.into_param().abi())
+    SetFocus(hwnd.param().abi())
 }
 #[inline]
 pub unsafe fn SetKeyboardState(lpkeystate: &[u8; 256]) -> windows_core::Result<()> {
@@ -236,10 +236,10 @@ pub unsafe fn SetKeyboardState(lpkeystate: &[u8; 256]) -> windows_core::Result<(
 #[inline]
 pub unsafe fn SwapMouseButton<P0>(fswap: P0) -> super::super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn SwapMouseButton(fswap : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    SwapMouseButton(fswap.into_param().abi())
+    SwapMouseButton(fswap.param().abi())
 }
 #[inline]
 pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: Option<&[u8; 256]>, lpchar: *mut u16, uflags: u32) -> i32 {
@@ -250,10 +250,10 @@ pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: Option<&[u8; 25
 #[inline]
 pub unsafe fn ToAsciiEx<P0>(uvirtkey: u32, uscancode: u32, lpkeystate: Option<&[u8; 256]>, lpchar: *mut u16, uflags: u32, dwhkl: P0) -> i32
 where
-    P0: windows_core::IntoParam<super::super::TextServices::HKL>,
+    P0: windows_core::Param<super::super::TextServices::HKL>,
 {
     windows_targets::link!("user32.dll" "system" fn ToAsciiEx(uvirtkey : u32, uscancode : u32, lpkeystate : *const u8, lpchar : *mut u16, uflags : u32, dwhkl : super::super::TextServices:: HKL) -> i32);
-    ToAsciiEx(uvirtkey, uscancode, core::mem::transmute(lpkeystate.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpchar, uflags, dwhkl.into_param().abi())
+    ToAsciiEx(uvirtkey, uscancode, core::mem::transmute(lpkeystate.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpchar, uflags, dwhkl.param().abi())
 }
 #[inline]
 pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: Option<&[u8; 256]>, pwszbuff: &mut [u16], wflags: u32) -> i32 {
@@ -264,10 +264,10 @@ pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: Option<&[u8; 
 #[inline]
 pub unsafe fn ToUnicodeEx<P0>(wvirtkey: u32, wscancode: u32, lpkeystate: &[u8; 256], pwszbuff: &mut [u16], wflags: u32, dwhkl: P0) -> i32
 where
-    P0: windows_core::IntoParam<super::super::TextServices::HKL>,
+    P0: windows_core::Param<super::super::TextServices::HKL>,
 {
     windows_targets::link!("user32.dll" "system" fn ToUnicodeEx(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : windows_core::PWSTR, cchbuff : i32, wflags : u32, dwhkl : super::super::TextServices:: HKL) -> i32);
-    ToUnicodeEx(wvirtkey, wscancode, core::mem::transmute(lpkeystate.as_ptr()), core::mem::transmute(pwszbuff.as_ptr()), pwszbuff.len().try_into().unwrap(), wflags, dwhkl.into_param().abi())
+    ToUnicodeEx(wvirtkey, wscancode, core::mem::transmute(lpkeystate.as_ptr()), core::mem::transmute(pwszbuff.as_ptr()), pwszbuff.len().try_into().unwrap(), wflags, dwhkl.param().abi())
 }
 #[inline]
 pub unsafe fn TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> windows_core::Result<()> {
@@ -278,18 +278,18 @@ pub unsafe fn TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> windows_cor
 #[inline]
 pub unsafe fn UnloadKeyboardLayout<P0>(hkl: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::TextServices::HKL>,
+    P0: windows_core::Param<super::super::TextServices::HKL>,
 {
     windows_targets::link!("user32.dll" "system" fn UnloadKeyboardLayout(hkl : super::super::TextServices:: HKL) -> super::super::super::Foundation:: BOOL);
-    UnloadKeyboardLayout(hkl.into_param().abi()).ok()
+    UnloadKeyboardLayout(hkl.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn UnregisterHotKey<P0>(hwnd: P0, id: i32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn UnregisterHotKey(hwnd : super::super::super::Foundation:: HWND, id : i32) -> super::super::super::Foundation:: BOOL);
-    UnregisterHotKey(hwnd.into_param().abi(), id).ok()
+    UnregisterHotKey(hwnd.param().abi(), id).ok()
 }
 #[inline]
 pub unsafe fn VkKeyScanA(ch: i8) -> i16 {
@@ -300,19 +300,19 @@ pub unsafe fn VkKeyScanA(ch: i8) -> i16 {
 #[inline]
 pub unsafe fn VkKeyScanExA<P0>(ch: i8, dwhkl: P0) -> i16
 where
-    P0: windows_core::IntoParam<super::super::TextServices::HKL>,
+    P0: windows_core::Param<super::super::TextServices::HKL>,
 {
     windows_targets::link!("user32.dll" "system" fn VkKeyScanExA(ch : i8, dwhkl : super::super::TextServices:: HKL) -> i16);
-    VkKeyScanExA(ch, dwhkl.into_param().abi())
+    VkKeyScanExA(ch, dwhkl.param().abi())
 }
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn VkKeyScanExW<P0>(ch: u16, dwhkl: P0) -> i16
 where
-    P0: windows_core::IntoParam<super::super::TextServices::HKL>,
+    P0: windows_core::Param<super::super::TextServices::HKL>,
 {
     windows_targets::link!("user32.dll" "system" fn VkKeyScanExW(ch : u16, dwhkl : super::super::TextServices:: HKL) -> i16);
-    VkKeyScanExW(ch, dwhkl.into_param().abi())
+    VkKeyScanExW(ch, dwhkl.param().abi())
 }
 #[inline]
 pub unsafe fn VkKeyScanW(ch: u16) -> i16 {

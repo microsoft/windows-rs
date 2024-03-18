@@ -58,11 +58,11 @@ impl PlatformDiagnosticActions {
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryEscalateScenario<P0>(scenarioid: windows_core::GUID, escalationtype: PlatformDiagnosticEscalationType, outputdirectory: &windows_core::HSTRING, timestampoutputdirectory: bool, forceescalationupload: bool, triggers: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>,
     {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryEscalateScenario)(windows_core::Interface::as_raw(this), scenarioid, escalationtype, core::mem::transmute_copy(outputdirectory), timestampoutputdirectory, forceescalationupload, triggers.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TryEscalateScenario)(windows_core::Interface::as_raw(this), scenarioid, escalationtype, core::mem::transmute_copy(outputdirectory), timestampoutputdirectory, forceescalationupload, triggers.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn DownloadLatestSettingsForNamespace(partner: &windows_core::HSTRING, feature: &windows_core::HSTRING, isscenarionamespace: bool, downloadovercostednetwork: bool, downloadoverbattery: bool) -> windows_core::Result<PlatformDiagnosticActionState> {

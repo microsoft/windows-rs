@@ -68,17 +68,17 @@ impl IReferenceClock {
     }
     pub unsafe fn AdviseTime<P0>(&self, basetime: i64, streamtime: i64, hevent: P0) -> windows_core::Result<usize>
     where
-        P0: windows_core::IntoParam<super::Foundation::HANDLE>,
+        P0: windows_core::Param<super::Foundation::HANDLE>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AdviseTime)(windows_core::Interface::as_raw(self), basetime, streamtime, hevent.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AdviseTime)(windows_core::Interface::as_raw(self), basetime, streamtime, hevent.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn AdvisePeriodic<P0>(&self, starttime: i64, periodtime: i64, hsemaphore: P0) -> windows_core::Result<usize>
     where
-        P0: windows_core::IntoParam<super::Foundation::HANDLE>,
+        P0: windows_core::Param<super::Foundation::HANDLE>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AdvisePeriodic)(windows_core::Interface::as_raw(self), starttime, periodtime, hsemaphore.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AdvisePeriodic)(windows_core::Interface::as_raw(self), starttime, periodtime, hsemaphore.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), dwadvisecookie).ok()
@@ -101,17 +101,17 @@ impl IReferenceClock2 {
     }
     pub unsafe fn AdviseTime<P0>(&self, basetime: i64, streamtime: i64, hevent: P0) -> windows_core::Result<usize>
     where
-        P0: windows_core::IntoParam<super::Foundation::HANDLE>,
+        P0: windows_core::Param<super::Foundation::HANDLE>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.AdviseTime)(windows_core::Interface::as_raw(self), basetime, streamtime, hevent.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.AdviseTime)(windows_core::Interface::as_raw(self), basetime, streamtime, hevent.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn AdvisePeriodic<P0>(&self, starttime: i64, periodtime: i64, hsemaphore: P0) -> windows_core::Result<usize>
     where
-        P0: windows_core::IntoParam<super::Foundation::HANDLE>,
+        P0: windows_core::Param<super::Foundation::HANDLE>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.AdvisePeriodic)(windows_core::Interface::as_raw(self), starttime, periodtime, hsemaphore.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.AdvisePeriodic)(windows_core::Interface::as_raw(self), starttime, periodtime, hsemaphore.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Unadvise)(windows_core::Interface::as_raw(self), dwadvisecookie).ok()

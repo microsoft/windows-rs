@@ -12,12 +12,12 @@ impl IUriToStreamResolver {
     #[cfg(feature = "Storage_Streams")]
     pub fn UriToStreamAsync<P0>(&self, uri: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>
     where
-        P0: windows_core::IntoParam<super::Foundation::Uri>,
+        P0: windows_core::Param<super::Foundation::Uri>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UriToStreamAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UriToStreamAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

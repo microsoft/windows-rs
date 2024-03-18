@@ -3,10 +3,10 @@ windows_core::imp::interface_hierarchy!(IIsolatedEnvironmentInterop, windows_cor
 impl IIsolatedEnvironmentInterop {
     pub unsafe fn GetHostHwndInterop<P0>(&self, containerhwnd: P0) -> windows_core::Result<super::super::super::Foundation::HWND>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::super::Foundation::HWND>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetHostHwndInterop)(windows_core::Interface::as_raw(self), containerhwnd.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetHostHwndInterop)(windows_core::Interface::as_raw(self), containerhwnd.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

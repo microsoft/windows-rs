@@ -622,12 +622,12 @@ impl PhotoImportFindItemsResult {
     }
     pub fn SelectionChanged<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportSelectionChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportSelectionChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectionChanged)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SelectionChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSelectionChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -643,12 +643,12 @@ impl PhotoImportFindItemsResult {
     }
     pub fn ItemImported<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportItemImportedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportItemImportedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ItemImported)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ItemImported)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveItemImported(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1068,10 +1068,10 @@ impl PhotoImportSession {
     #[cfg(feature = "Storage")]
     pub fn SetDestinationFolder<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::IStorageFolder>,
+        P0: windows_core::Param<super::super::Storage::IStorageFolder>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDestinationFolder)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDestinationFolder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage")]
     pub fn DestinationFolder(&self) -> windows_core::Result<super::super::Storage::IStorageFolder> {
@@ -1330,11 +1330,11 @@ impl PhotoImportSource {
     #[cfg(feature = "Storage")]
     pub fn FromFolderAsync<P0>(sourcerootfolder: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::IStorageFolder>,
+        P0: windows_core::Param<super::super::Storage::IStorageFolder>,
     {
         Self::IPhotoImportSourceStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromFolderAsync)(windows_core::Interface::as_raw(this), sourcerootfolder.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromFolderAsync)(windows_core::Interface::as_raw(this), sourcerootfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

@@ -22,9 +22,9 @@ impl IWCNDevice {
     }
     pub unsafe fn Connect<P0>(&self, pnotify: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWCNConnectNotify>,
+        P0: windows_core::Param<IWCNConnectNotify>,
     {
-        (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), pnotify.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), pnotify.param().abi()).ok()
     }
     pub unsafe fn GetAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, pbbuffer: &mut [u8], pdwbufferused: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetAttribute)(windows_core::Interface::as_raw(self), attributetype, pbbuffer.len().try_into().unwrap(), core::mem::transmute(pbbuffer.as_ptr()), pdwbufferused).ok()
@@ -41,9 +41,9 @@ impl IWCNDevice {
     }
     pub unsafe fn SetNetworkProfile<P0>(&self, pszprofilexml: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetNetworkProfile)(windows_core::Interface::as_raw(self), pszprofilexml.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetNetworkProfile)(windows_core::Interface::as_raw(self), pszprofilexml.param().abi()).ok()
     }
     pub unsafe fn GetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, pbbuffer: &mut [u8], pdwbufferused: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetVendorExtension)(windows_core::Interface::as_raw(self), pvendorextspec, pbbuffer.len().try_into().unwrap(), core::mem::transmute(pbbuffer.as_ptr()), pdwbufferused).ok()

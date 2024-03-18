@@ -129,23 +129,23 @@ impl OnlineIdAuthenticator {
     }
     pub fn AuthenticateUserAsync<P0>(&self, request: P0) -> windows_core::Result<UserAuthenticationOperation>
     where
-        P0: windows_core::IntoParam<OnlineIdServiceTicketRequest>,
+        P0: windows_core::Param<OnlineIdServiceTicketRequest>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AuthenticateUserAsync)(windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AuthenticateUserAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn AuthenticateUserAsyncAdvanced<P0>(&self, requests: P0, credentialprompttype: CredentialPromptType) -> windows_core::Result<UserAuthenticationOperation>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AuthenticateUserAsyncAdvanced)(windows_core::Interface::as_raw(this), requests.into_param().abi(), credentialprompttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AuthenticateUserAsyncAdvanced)(windows_core::Interface::as_raw(this), requests.param().abi(), credentialprompttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SignOutUserAsync(&self) -> windows_core::Result<SignOutUserOperation> {
@@ -292,11 +292,11 @@ impl OnlineIdSystemAuthenticator {
     #[cfg(feature = "System")]
     pub fn GetForUser<P0>(user: P0) -> windows_core::Result<OnlineIdSystemAuthenticatorForUser>
     where
-        P0: windows_core::IntoParam<super::super::super::System::User>,
+        P0: windows_core::Param<super::super::super::System::User>,
     {
         Self::IOnlineIdSystemAuthenticatorStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -315,12 +315,12 @@ windows_core::imp::interface_hierarchy!(OnlineIdSystemAuthenticatorForUser, wind
 impl OnlineIdSystemAuthenticatorForUser {
     pub fn GetTicketAsync<P0>(&self, request: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>>
     where
-        P0: windows_core::IntoParam<OnlineIdServiceTicketRequest>,
+        P0: windows_core::Param<OnlineIdServiceTicketRequest>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetTicketAsync)(windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetTicketAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetApplicationId(&self, value: windows_core::GUID) -> windows_core::Result<()> {
@@ -434,10 +434,10 @@ windows_core::imp::required_hierarchy!(SignOutUserOperation, super::super::super
 impl SignOutUserOperation {
     pub fn SetCompleted<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::AsyncActionCompletedHandler>,
+        P0: windows_core::Param<super::super::super::Foundation::AsyncActionCompletedHandler>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCompleted)(windows_core::Interface::as_raw(this), handler.param().abi()).ok() }
     }
     pub fn Completed(&self) -> windows_core::Result<super::super::super::Foundation::AsyncActionCompletedHandler> {
         let this = self;
@@ -558,10 +558,10 @@ impl UserAuthenticationOperation {
     }
     pub fn SetCompleted<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::AsyncOperationCompletedHandler<UserIdentity>>,
+        P0: windows_core::Param<super::super::super::Foundation::AsyncOperationCompletedHandler<UserIdentity>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCompleted)(windows_core::Interface::as_raw(this), handler.param().abi()).ok() }
     }
     pub fn Completed(&self) -> windows_core::Result<super::super::super::Foundation::AsyncOperationCompletedHandler<UserIdentity>> {
         let this = self;

@@ -166,10 +166,10 @@ impl NotesWindowManagerPreview {
     #[cfg(feature = "Storage_Streams")]
     pub fn ShowNoteWithPlacement<P0>(&self, noteviewid: i32, data: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ShowNoteWithPlacement)(windows_core::Interface::as_raw(this), noteviewid, data.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ShowNoteWithPlacement)(windows_core::Interface::as_raw(this), noteviewid, data.param().abi()).ok() }
     }
     pub fn HideNote(&self, noteviewid: i32) -> windows_core::Result<()> {
         let this = self;
@@ -197,22 +197,22 @@ impl NotesWindowManagerPreview {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetNotesThumbnailAsync<P0>(&self, thumbnail: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetNotesThumbnailAsync)(windows_core::Interface::as_raw(this), thumbnail.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetNotesThumbnailAsync)(windows_core::Interface::as_raw(this), thumbnail.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SystemLockStateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemLockStateChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemLockStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSystemLockStateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -221,12 +221,12 @@ impl NotesWindowManagerPreview {
     }
     pub fn NotePlacementChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, NotePlacementChangedPreviewEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, NotePlacementChangedPreviewEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).NotePlacementChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NotePlacementChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveNotePlacementChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -235,12 +235,12 @@ impl NotesWindowManagerPreview {
     }
     pub fn NoteVisibilityChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, NoteVisibilityChangedPreviewEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, NoteVisibilityChangedPreviewEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).NoteVisibilityChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NoteVisibilityChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveNoteVisibilityChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -249,19 +249,19 @@ impl NotesWindowManagerPreview {
     }
     pub fn ShowNoteRelativeToWithOptions<P0>(&self, noteviewid: i32, anchornoteviewid: i32, options: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<NotesWindowManagerPreviewShowNoteOptions>,
+        P0: windows_core::Param<NotesWindowManagerPreviewShowNoteOptions>,
     {
         let this = &windows_core::Interface::cast::<INotesWindowManagerPreview2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ShowNoteRelativeToWithOptions)(windows_core::Interface::as_raw(this), noteviewid, anchornoteviewid, options.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ShowNoteRelativeToWithOptions)(windows_core::Interface::as_raw(this), noteviewid, anchornoteviewid, options.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn ShowNoteWithPlacementWithOptions<P0, P1>(&self, noteviewid: i32, data: P0, options: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::IntoParam<NotesWindowManagerPreviewShowNoteOptions>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<NotesWindowManagerPreviewShowNoteOptions>,
     {
         let this = &windows_core::Interface::cast::<INotesWindowManagerPreview2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ShowNoteWithPlacementWithOptions)(windows_core::Interface::as_raw(this), noteviewid, data.into_param().abi(), options.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ShowNoteWithPlacementWithOptions)(windows_core::Interface::as_raw(this), noteviewid, data.param().abi(), options.param().abi()).ok() }
     }
     pub fn SetFocusToPreviousView(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<INotesWindowManagerPreview2>(self)?;
@@ -270,12 +270,12 @@ impl NotesWindowManagerPreview {
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetThumbnailImageForTaskSwitcherAsync<P0>(&self, bitmap: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::super::Graphics::Imaging::SoftwareBitmap>,
+        P0: windows_core::Param<super::super::super::Graphics::Imaging::SoftwareBitmap>,
     {
         let this = &windows_core::Interface::cast::<INotesWindowManagerPreview2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetThumbnailImageForTaskSwitcherAsync)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetThumbnailImageForTaskSwitcherAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetForCurrentApp() -> windows_core::Result<NotesWindowManagerPreview> {

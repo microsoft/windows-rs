@@ -1,10 +1,10 @@
 #[inline]
 pub unsafe fn DoMsCtfMonitor<P0>(dwflags: u32, heventforservicestop: P0) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("msctfmonitor.dll" "system" fn DoMsCtfMonitor(dwflags : u32, heventforservicestop : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    DoMsCtfMonitor(dwflags, heventforservicestop.into_param().abi())
+    DoMsCtfMonitor(dwflags, heventforservicestop.param().abi())
 }
 #[inline]
 pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> windows_core::Result<()> {
@@ -26,10 +26,10 @@ impl IAccClientDocMgr {
     }
     pub unsafe fn LookupByHWND<P0>(&self, hwnd: P0, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).LookupByHWND)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).LookupByHWND)(windows_core::Interface::as_raw(self), hwnd.param().abi(), riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn LookupByPoint(&self, pt: super::super::Foundation::POINT, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -67,16 +67,16 @@ impl IAccDictionary {
     }
     pub unsafe fn LookupMnemonicTerm<P0>(&self, bstrmnemonic: P0) -> windows_core::Result<windows_core::GUID>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).LookupMnemonicTerm)(windows_core::Interface::as_raw(self), bstrmnemonic.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).LookupMnemonicTerm)(windows_core::Interface::as_raw(self), bstrmnemonic.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn ConvertValueToString<P0>(&self, term: *const windows_core::GUID, lcid: u32, varvalue: P0, pbstrresult: *mut windows_core::BSTR, plcid: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).ConvertValueToString)(windows_core::Interface::as_raw(self), term, lcid, varvalue.into_param().abi(), core::mem::transmute(pbstrresult), plcid).ok()
+        (windows_core::Interface::vtable(self).ConvertValueToString)(windows_core::Interface::as_raw(self), term, lcid, varvalue.param().abi(), core::mem::transmute(pbstrresult), plcid).ok()
     }
 }
 #[repr(C)]
@@ -93,21 +93,21 @@ windows_core::imp::interface_hierarchy!(IAccServerDocMgr, windows_core::IUnknown
 impl IAccServerDocMgr {
     pub unsafe fn NewDocument<P0>(&self, riid: *const windows_core::GUID, punk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).NewDocument)(windows_core::Interface::as_raw(self), riid, punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).NewDocument)(windows_core::Interface::as_raw(self), riid, punk.param().abi()).ok()
     }
     pub unsafe fn RevokeDocument<P0>(&self, punk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).RevokeDocument)(windows_core::Interface::as_raw(self), punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RevokeDocument)(windows_core::Interface::as_raw(self), punk.param().abi()).ok()
     }
     pub unsafe fn OnDocumentFocus<P0>(&self, punk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).OnDocumentFocus)(windows_core::Interface::as_raw(self), punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnDocumentFocus)(windows_core::Interface::as_raw(self), punk.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -122,15 +122,15 @@ windows_core::imp::interface_hierarchy!(IAccStore, windows_core::IUnknown);
 impl IAccStore {
     pub unsafe fn Register<P0>(&self, riid: *const windows_core::GUID, punk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Register)(windows_core::Interface::as_raw(self), riid, punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Register)(windows_core::Interface::as_raw(self), riid, punk.param().abi()).ok()
     }
     pub unsafe fn Unregister<P0>(&self, punk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Unregister)(windows_core::Interface::as_raw(self), punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Unregister)(windows_core::Interface::as_raw(self), punk.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDocuments(&self) -> windows_core::Result<super::super::System::Com::IEnumUnknown> {
@@ -139,10 +139,10 @@ impl IAccStore {
     }
     pub unsafe fn LookupByHWND<P0>(&self, hwnd: P0, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).LookupByHWND)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).LookupByHWND)(windows_core::Interface::as_raw(self), hwnd.param().abi(), riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn LookupByPoint(&self, pt: super::super::Foundation::POINT, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -150,9 +150,9 @@ impl IAccStore {
     }
     pub unsafe fn OnDocumentFocus<P0>(&self, punk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).OnDocumentFocus)(windows_core::Interface::as_raw(self), punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnDocumentFocus)(windows_core::Interface::as_raw(self), punk.param().abi()).ok()
     }
     pub unsafe fn GetFocused(&self, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -185,29 +185,29 @@ impl IAnchor {
     }
     pub unsafe fn IsEqual<P0>(&self, pawith: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<IAnchor>,
+        P0: windows_core::Param<IAnchor>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsEqual)(windows_core::Interface::as_raw(self), pawith.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).IsEqual)(windows_core::Interface::as_raw(self), pawith.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Compare<P0>(&self, pawith: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<IAnchor>,
+        P0: windows_core::Param<IAnchor>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), pawith.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), pawith.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Shift<P0>(&self, dwflags: u32, cchreq: i32, pcch: *mut i32, pahaltanchor: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAnchor>,
+        P0: windows_core::Param<IAnchor>,
     {
-        (windows_core::Interface::vtable(self).Shift)(windows_core::Interface::as_raw(self), dwflags, cchreq, pcch, pahaltanchor.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Shift)(windows_core::Interface::as_raw(self), dwflags, cchreq, pcch, pahaltanchor.param().abi()).ok()
     }
     pub unsafe fn ShiftTo<P0>(&self, pasite: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAnchor>,
+        P0: windows_core::Param<IAnchor>,
     {
-        (windows_core::Interface::vtable(self).ShiftTo)(windows_core::Interface::as_raw(self), pasite.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ShiftTo)(windows_core::Interface::as_raw(self), pasite.param().abi()).ok()
     }
     pub unsafe fn ShiftRegion(&self, dwflags: u32, dir: TsShiftDir) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -264,10 +264,10 @@ windows_core::imp::interface_hierarchy!(ICoCreateLocally, windows_core::IUnknown
 impl ICoCreateLocally {
     pub unsafe fn CoCreateLocally<P0, P1>(&self, rclsid: *const windows_core::GUID, dwclscontext: u32, riid: *const windows_core::GUID, punk: *mut Option<windows_core::IUnknown>, riidparam: *const windows_core::GUID, punkparam: P0, varparam: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).CoCreateLocally)(windows_core::Interface::as_raw(self), rclsid, dwclscontext, riid, core::mem::transmute(punk), riidparam, punkparam.into_param().abi(), varparam.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CoCreateLocally)(windows_core::Interface::as_raw(self), rclsid, dwclscontext, riid, core::mem::transmute(punk), riidparam, punkparam.param().abi(), varparam.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -280,11 +280,11 @@ windows_core::imp::interface_hierarchy!(ICoCreatedLocally, windows_core::IUnknow
 impl ICoCreatedLocally {
     pub unsafe fn LocalInit<P0, P1, P2>(&self, punklocalobject: P0, riidparam: *const windows_core::GUID, punkparam: P1, varparam: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
-        P2: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<windows_core::IUnknown>,
+        P2: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).LocalInit)(windows_core::Interface::as_raw(self), punklocalobject.into_param().abi(), riidparam, punkparam.into_param().abi(), varparam.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).LocalInit)(windows_core::Interface::as_raw(self), punklocalobject.param().abi(), riidparam, punkparam.param().abi(), varparam.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -297,9 +297,9 @@ windows_core::imp::interface_hierarchy!(IDocWrap, windows_core::IUnknown);
 impl IDocWrap {
     pub unsafe fn SetDoc<P0>(&self, riid: *const windows_core::GUID, punk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetDoc)(windows_core::Interface::as_raw(self), riid, punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDoc)(windows_core::Interface::as_raw(self), riid, punk.param().abi()).ok()
     }
     pub unsafe fn GetWrappedDoc(&self, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -746,15 +746,15 @@ windows_core::imp::interface_hierarchy!(ITextStoreACP, windows_core::IUnknown);
 impl ITextStoreACP {
     pub unsafe fn AdviseSink<P0>(&self, riid: *const windows_core::GUID, punk: P0, dwmask: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).AdviseSink)(windows_core::Interface::as_raw(self), riid, punk.into_param().abi(), dwmask).ok()
+        (windows_core::Interface::vtable(self).AdviseSink)(windows_core::Interface::as_raw(self), riid, punk.param().abi(), dwmask).ok()
     }
     pub unsafe fn UnadviseSink<P0>(&self, punk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).UnadviseSink)(windows_core::Interface::as_raw(self), punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnadviseSink)(windows_core::Interface::as_raw(self), punk.param().abi()).ok()
     }
     pub unsafe fn RequestLock(&self, dwlockflags: u32) -> windows_core::Result<windows_core::HRESULT> {
         let mut result__ = std::mem::zeroed();
@@ -797,10 +797,10 @@ impl ITextStoreACP {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEmbedded<P0>(&self, dwflags: u32, acpstart: i32, acpend: i32, pdataobject: P0) -> windows_core::Result<TS_TEXTCHANGE>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IDataObject>,
+        P0: windows_core::Param<super::super::System::Com::IDataObject>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).InsertEmbedded)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pdataobject.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).InsertEmbedded)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pdataobject.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn InsertTextAtSelection(&self, dwflags: u32, pchtext: &[u16], pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).InsertTextAtSelection)(windows_core::Interface::as_raw(self), dwflags, core::mem::transmute(pchtext.as_ptr()), pchtext.len().try_into().unwrap(), pacpstart, pacpend, pchange).ok()
@@ -808,9 +808,9 @@ impl ITextStoreACP {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEmbeddedAtSelection<P0>(&self, dwflags: u32, pdataobject: P0, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IDataObject>,
+        P0: windows_core::Param<super::super::System::Com::IDataObject>,
     {
-        (windows_core::Interface::vtable(self).InsertEmbeddedAtSelection)(windows_core::Interface::as_raw(self), dwflags, pdataobject.into_param().abi(), pacpstart, pacpend, pchange).ok()
+        (windows_core::Interface::vtable(self).InsertEmbeddedAtSelection)(windows_core::Interface::as_raw(self), dwflags, pdataobject.param().abi(), pacpstart, pacpend, pchange).ok()
     }
     pub unsafe fn RequestSupportedAttrs(&self, dwflags: u32, pafilterattrs: &[windows_core::GUID]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RequestSupportedAttrs)(windows_core::Interface::as_raw(self), dwflags, pafilterattrs.len().try_into().unwrap(), core::mem::transmute(pafilterattrs.as_ptr())).ok()
@@ -898,15 +898,15 @@ windows_core::imp::interface_hierarchy!(ITextStoreACP2, windows_core::IUnknown);
 impl ITextStoreACP2 {
     pub unsafe fn AdviseSink<P0>(&self, riid: *const windows_core::GUID, punk: P0, dwmask: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).AdviseSink)(windows_core::Interface::as_raw(self), riid, punk.into_param().abi(), dwmask).ok()
+        (windows_core::Interface::vtable(self).AdviseSink)(windows_core::Interface::as_raw(self), riid, punk.param().abi(), dwmask).ok()
     }
     pub unsafe fn UnadviseSink<P0>(&self, punk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).UnadviseSink)(windows_core::Interface::as_raw(self), punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnadviseSink)(windows_core::Interface::as_raw(self), punk.param().abi()).ok()
     }
     pub unsafe fn RequestLock(&self, dwlockflags: u32) -> windows_core::Result<windows_core::HRESULT> {
         let mut result__ = std::mem::zeroed();
@@ -949,10 +949,10 @@ impl ITextStoreACP2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEmbedded<P0>(&self, dwflags: u32, acpstart: i32, acpend: i32, pdataobject: P0) -> windows_core::Result<TS_TEXTCHANGE>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IDataObject>,
+        P0: windows_core::Param<super::super::System::Com::IDataObject>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).InsertEmbedded)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pdataobject.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).InsertEmbedded)(windows_core::Interface::as_raw(self), dwflags, acpstart, acpend, pdataobject.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn InsertTextAtSelection(&self, dwflags: u32, pchtext: &[u16], pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).InsertTextAtSelection)(windows_core::Interface::as_raw(self), dwflags, core::mem::transmute(pchtext.as_ptr()), pchtext.len().try_into().unwrap(), pacpstart, pacpend, pchange).ok()
@@ -960,9 +960,9 @@ impl ITextStoreACP2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEmbeddedAtSelection<P0>(&self, dwflags: u32, pdataobject: P0, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IDataObject>,
+        P0: windows_core::Param<super::super::System::Com::IDataObject>,
     {
-        (windows_core::Interface::vtable(self).InsertEmbeddedAtSelection)(windows_core::Interface::as_raw(self), dwflags, pdataobject.into_param().abi(), pacpstart, pacpend, pchange).ok()
+        (windows_core::Interface::vtable(self).InsertEmbeddedAtSelection)(windows_core::Interface::as_raw(self), dwflags, pdataobject.param().abi(), pacpstart, pacpend, pchange).ok()
     }
     pub unsafe fn RequestSupportedAttrs(&self, dwflags: u32, pafilterattrs: &[windows_core::GUID]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RequestSupportedAttrs)(windows_core::Interface::as_raw(self), dwflags, pafilterattrs.len().try_into().unwrap(), core::mem::transmute(pafilterattrs.as_ptr())).ok()
@@ -1058,26 +1058,26 @@ impl ITextStoreACPServices {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Serialize<P0, P1, P2>(&self, pprop: P0, prange: P1, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfProperty>,
-        P1: windows_core::IntoParam<ITfRange>,
-        P2: windows_core::IntoParam<super::super::System::Com::IStream>,
+        P0: windows_core::Param<ITfProperty>,
+        P1: windows_core::Param<ITfRange>,
+        P2: windows_core::Param<super::super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), pprop.into_param().abi(), prange.into_param().abi(), phdr, pstream.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), pprop.param().abi(), prange.param().abi(), phdr, pstream.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Unserialize<P0, P1, P2>(&self, pprop: P0, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: P1, ploader: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfProperty>,
-        P1: windows_core::IntoParam<super::super::System::Com::IStream>,
-        P2: windows_core::IntoParam<ITfPersistentPropertyLoaderACP>,
+        P0: windows_core::Param<ITfProperty>,
+        P1: windows_core::Param<super::super::System::Com::IStream>,
+        P2: windows_core::Param<ITfPersistentPropertyLoaderACP>,
     {
-        (windows_core::Interface::vtable(self).Unserialize)(windows_core::Interface::as_raw(self), pprop.into_param().abi(), phdr, pstream.into_param().abi(), ploader.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Unserialize)(windows_core::Interface::as_raw(self), pprop.param().abi(), phdr, pstream.param().abi(), ploader.param().abi()).ok()
     }
     pub unsafe fn ForceLoadProperty<P0>(&self, pprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfProperty>,
+        P0: windows_core::Param<ITfProperty>,
     {
-        (windows_core::Interface::vtable(self).ForceLoadProperty)(windows_core::Interface::as_raw(self), pprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ForceLoadProperty)(windows_core::Interface::as_raw(self), pprop.param().abi()).ok()
     }
     pub unsafe fn CreateRange(&self, acpstart: i32, acpend: i32) -> windows_core::Result<ITfRangeACP> {
         let mut result__ = std::mem::zeroed();
@@ -1179,15 +1179,15 @@ windows_core::imp::interface_hierarchy!(ITextStoreAnchor, windows_core::IUnknown
 impl ITextStoreAnchor {
     pub unsafe fn AdviseSink<P0>(&self, riid: *const windows_core::GUID, punk: P0, dwmask: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).AdviseSink)(windows_core::Interface::as_raw(self), riid, punk.into_param().abi(), dwmask).ok()
+        (windows_core::Interface::vtable(self).AdviseSink)(windows_core::Interface::as_raw(self), riid, punk.param().abi(), dwmask).ok()
     }
     pub unsafe fn UnadviseSink<P0>(&self, punk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).UnadviseSink)(windows_core::Interface::as_raw(self), punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnadviseSink)(windows_core::Interface::as_raw(self), punk.param().abi()).ok()
     }
     pub unsafe fn RequestLock(&self, dwlockflags: u32) -> windows_core::Result<windows_core::HRESULT> {
         let mut result__ = std::mem::zeroed();
@@ -1199,10 +1199,10 @@ impl ITextStoreAnchor {
     }
     pub unsafe fn QueryInsert<P0, P1>(&self, pateststart: P0, patestend: P1, cch: u32, pparesultstart: *mut Option<IAnchor>, pparesultend: *mut Option<IAnchor>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAnchor>,
-        P1: windows_core::IntoParam<IAnchor>,
+        P0: windows_core::Param<IAnchor>,
+        P1: windows_core::Param<IAnchor>,
     {
-        (windows_core::Interface::vtable(self).QueryInsert)(windows_core::Interface::as_raw(self), pateststart.into_param().abi(), patestend.into_param().abi(), cch, core::mem::transmute(pparesultstart), core::mem::transmute(pparesultend)).ok()
+        (windows_core::Interface::vtable(self).QueryInsert)(windows_core::Interface::as_raw(self), pateststart.param().abi(), patestend.param().abi(), cch, core::mem::transmute(pparesultstart), core::mem::transmute(pparesultend)).ok()
     }
     pub unsafe fn GetSelection(&self, ulindex: u32, pselection: &mut [TS_SELECTION_ANCHOR], pcfetched: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), ulindex, pselection.len().try_into().unwrap(), core::mem::transmute(pselection.as_ptr()), pcfetched).ok()
@@ -1212,65 +1212,65 @@ impl ITextStoreAnchor {
     }
     pub unsafe fn GetText<P0, P1, P2>(&self, dwflags: u32, pastart: P0, paend: P1, pchtext: &mut [u16], pcch: *mut u32, fupdateanchor: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAnchor>,
-        P1: windows_core::IntoParam<IAnchor>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<IAnchor>,
+        P1: windows_core::Param<IAnchor>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), dwflags, pastart.into_param().abi(), paend.into_param().abi(), core::mem::transmute(pchtext.as_ptr()), pchtext.len().try_into().unwrap(), pcch, fupdateanchor.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), dwflags, pastart.param().abi(), paend.param().abi(), core::mem::transmute(pchtext.as_ptr()), pchtext.len().try_into().unwrap(), pcch, fupdateanchor.param().abi()).ok()
     }
     pub unsafe fn SetText<P0, P1>(&self, dwflags: u32, pastart: P0, paend: P1, pchtext: &[u16]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAnchor>,
-        P1: windows_core::IntoParam<IAnchor>,
+        P0: windows_core::Param<IAnchor>,
+        P1: windows_core::Param<IAnchor>,
     {
-        (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), dwflags, pastart.into_param().abi(), paend.into_param().abi(), core::mem::transmute(pchtext.as_ptr()), pchtext.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), dwflags, pastart.param().abi(), paend.param().abi(), core::mem::transmute(pchtext.as_ptr()), pchtext.len().try_into().unwrap()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFormattedText<P0, P1>(&self, pastart: P0, paend: P1) -> windows_core::Result<super::super::System::Com::IDataObject>
     where
-        P0: windows_core::IntoParam<IAnchor>,
-        P1: windows_core::IntoParam<IAnchor>,
+        P0: windows_core::Param<IAnchor>,
+        P1: windows_core::Param<IAnchor>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFormattedText)(windows_core::Interface::as_raw(self), pastart.into_param().abi(), paend.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetFormattedText)(windows_core::Interface::as_raw(self), pastart.param().abi(), paend.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetEmbedded<P0>(&self, dwflags: u32, papos: P0, rguidservice: *const windows_core::GUID, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::IntoParam<IAnchor>,
+        P0: windows_core::Param<IAnchor>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetEmbedded)(windows_core::Interface::as_raw(self), dwflags, papos.into_param().abi(), rguidservice, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetEmbedded)(windows_core::Interface::as_raw(self), dwflags, papos.param().abi(), rguidservice, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEmbedded<P0, P1, P2>(&self, dwflags: u32, pastart: P0, paend: P1, pdataobject: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAnchor>,
-        P1: windows_core::IntoParam<IAnchor>,
-        P2: windows_core::IntoParam<super::super::System::Com::IDataObject>,
+        P0: windows_core::Param<IAnchor>,
+        P1: windows_core::Param<IAnchor>,
+        P2: windows_core::Param<super::super::System::Com::IDataObject>,
     {
-        (windows_core::Interface::vtable(self).InsertEmbedded)(windows_core::Interface::as_raw(self), dwflags, pastart.into_param().abi(), paend.into_param().abi(), pdataobject.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).InsertEmbedded)(windows_core::Interface::as_raw(self), dwflags, pastart.param().abi(), paend.param().abi(), pdataobject.param().abi()).ok()
     }
     pub unsafe fn RequestSupportedAttrs(&self, dwflags: u32, pafilterattrs: &[windows_core::GUID]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RequestSupportedAttrs)(windows_core::Interface::as_raw(self), dwflags, pafilterattrs.len().try_into().unwrap(), core::mem::transmute(pafilterattrs.as_ptr())).ok()
     }
     pub unsafe fn RequestAttrsAtPosition<P0>(&self, papos: P0, pafilterattrs: &[windows_core::GUID], dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAnchor>,
+        P0: windows_core::Param<IAnchor>,
     {
-        (windows_core::Interface::vtable(self).RequestAttrsAtPosition)(windows_core::Interface::as_raw(self), papos.into_param().abi(), pafilterattrs.len().try_into().unwrap(), core::mem::transmute(pafilterattrs.as_ptr()), dwflags).ok()
+        (windows_core::Interface::vtable(self).RequestAttrsAtPosition)(windows_core::Interface::as_raw(self), papos.param().abi(), pafilterattrs.len().try_into().unwrap(), core::mem::transmute(pafilterattrs.as_ptr()), dwflags).ok()
     }
     pub unsafe fn RequestAttrsTransitioningAtPosition<P0>(&self, papos: P0, pafilterattrs: &[windows_core::GUID], dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAnchor>,
+        P0: windows_core::Param<IAnchor>,
     {
-        (windows_core::Interface::vtable(self).RequestAttrsTransitioningAtPosition)(windows_core::Interface::as_raw(self), papos.into_param().abi(), pafilterattrs.len().try_into().unwrap(), core::mem::transmute(pafilterattrs.as_ptr()), dwflags).ok()
+        (windows_core::Interface::vtable(self).RequestAttrsTransitioningAtPosition)(windows_core::Interface::as_raw(self), papos.param().abi(), pafilterattrs.len().try_into().unwrap(), core::mem::transmute(pafilterattrs.as_ptr()), dwflags).ok()
     }
     pub unsafe fn FindNextAttrTransition<P0, P1>(&self, pastart: P0, pahalt: P1, pafilterattrs: &[windows_core::GUID], dwflags: u32, pffound: *mut super::super::Foundation::BOOL, plfoundoffset: *mut i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAnchor>,
-        P1: windows_core::IntoParam<IAnchor>,
+        P0: windows_core::Param<IAnchor>,
+        P1: windows_core::Param<IAnchor>,
     {
-        (windows_core::Interface::vtable(self).FindNextAttrTransition)(windows_core::Interface::as_raw(self), pastart.into_param().abi(), pahalt.into_param().abi(), pafilterattrs.len().try_into().unwrap(), core::mem::transmute(pafilterattrs.as_ptr()), dwflags, pffound, plfoundoffset).ok()
+        (windows_core::Interface::vtable(self).FindNextAttrTransition)(windows_core::Interface::as_raw(self), pastart.param().abi(), pahalt.param().abi(), pafilterattrs.len().try_into().unwrap(), core::mem::transmute(pafilterattrs.as_ptr()), dwflags, pffound, plfoundoffset).ok()
     }
     pub unsafe fn RetrieveRequestedAttrs(&self, paattrvals: &mut [TS_ATTRVAL], pcfetched: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RetrieveRequestedAttrs)(windows_core::Interface::as_raw(self), paattrvals.len().try_into().unwrap(), core::mem::transmute(paattrvals.as_ptr()), pcfetched).ok()
@@ -1293,10 +1293,10 @@ impl ITextStoreAnchor {
     }
     pub unsafe fn GetTextExt<P0, P1>(&self, vcview: u32, pastart: P0, paend: P1, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAnchor>,
-        P1: windows_core::IntoParam<IAnchor>,
+        P0: windows_core::Param<IAnchor>,
+        P1: windows_core::Param<IAnchor>,
     {
-        (windows_core::Interface::vtable(self).GetTextExt)(windows_core::Interface::as_raw(self), vcview, pastart.into_param().abi(), paend.into_param().abi(), prc, pfclipped).ok()
+        (windows_core::Interface::vtable(self).GetTextExt)(windows_core::Interface::as_raw(self), vcview, pastart.param().abi(), paend.param().abi(), prc, pfclipped).ok()
     }
     pub unsafe fn GetScreenExt(&self, vcview: u32) -> windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = std::mem::zeroed();
@@ -1317,9 +1317,9 @@ impl ITextStoreAnchor {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEmbeddedAtSelection<P0>(&self, dwflags: u32, pdataobject: P0, ppastart: *mut Option<IAnchor>, ppaend: *mut Option<IAnchor>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IDataObject>,
+        P0: windows_core::Param<super::super::System::Com::IDataObject>,
     {
-        (windows_core::Interface::vtable(self).InsertEmbeddedAtSelection)(windows_core::Interface::as_raw(self), dwflags, pdataobject.into_param().abi(), core::mem::transmute(ppastart), core::mem::transmute(ppaend)).ok()
+        (windows_core::Interface::vtable(self).InsertEmbeddedAtSelection)(windows_core::Interface::as_raw(self), dwflags, pdataobject.param().abi(), core::mem::transmute(ppastart), core::mem::transmute(ppaend)).ok()
     }
 }
 #[repr(C)]
@@ -1370,10 +1370,10 @@ windows_core::imp::interface_hierarchy!(ITextStoreAnchorEx, windows_core::IUnkno
 impl ITextStoreAnchorEx {
     pub unsafe fn ScrollToRect<P0, P1>(&self, pstart: P0, pend: P1, rc: super::super::Foundation::RECT, dwposition: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAnchor>,
-        P1: windows_core::IntoParam<IAnchor>,
+        P0: windows_core::Param<IAnchor>,
+        P1: windows_core::Param<IAnchor>,
     {
-        (windows_core::Interface::vtable(self).ScrollToRect)(windows_core::Interface::as_raw(self), pstart.into_param().abi(), pend.into_param().abi(), core::mem::transmute(rc), dwposition).ok()
+        (windows_core::Interface::vtable(self).ScrollToRect)(windows_core::Interface::as_raw(self), pstart.param().abi(), pend.param().abi(), core::mem::transmute(rc), dwposition).ok()
     }
 }
 #[repr(C)]
@@ -1386,10 +1386,10 @@ windows_core::imp::interface_hierarchy!(ITextStoreAnchorSink, windows_core::IUnk
 impl ITextStoreAnchorSink {
     pub unsafe fn OnTextChange<P0, P1>(&self, dwflags: TEXT_STORE_CHANGE_FLAGS, pastart: P0, paend: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAnchor>,
-        P1: windows_core::IntoParam<IAnchor>,
+        P0: windows_core::Param<IAnchor>,
+        P1: windows_core::Param<IAnchor>,
     {
-        (windows_core::Interface::vtable(self).OnTextChange)(windows_core::Interface::as_raw(self), dwflags, pastart.into_param().abi(), paend.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnTextChange)(windows_core::Interface::as_raw(self), dwflags, pastart.param().abi(), paend.param().abi()).ok()
     }
     pub unsafe fn OnSelectionChange(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnSelectionChange)(windows_core::Interface::as_raw(self)).ok()
@@ -1402,10 +1402,10 @@ impl ITextStoreAnchorSink {
     }
     pub unsafe fn OnAttrsChange<P0, P1>(&self, pastart: P0, paend: P1, paattrs: &[windows_core::GUID]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAnchor>,
-        P1: windows_core::IntoParam<IAnchor>,
+        P0: windows_core::Param<IAnchor>,
+        P1: windows_core::Param<IAnchor>,
     {
-        (windows_core::Interface::vtable(self).OnAttrsChange)(windows_core::Interface::as_raw(self), pastart.into_param().abi(), paend.into_param().abi(), paattrs.len().try_into().unwrap(), core::mem::transmute(paattrs.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).OnAttrsChange)(windows_core::Interface::as_raw(self), pastart.param().abi(), paend.param().abi(), paattrs.len().try_into().unwrap(), core::mem::transmute(paattrs.as_ptr())).ok()
     }
     pub unsafe fn OnLockGranted(&self, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnLockGranted)(windows_core::Interface::as_raw(self), dwlockflags).ok()
@@ -1434,10 +1434,10 @@ windows_core::imp::interface_hierarchy!(ITextStoreSinkAnchorEx, windows_core::IU
 impl ITextStoreSinkAnchorEx {
     pub unsafe fn OnTextChange<P0, P1>(&self, dwflags: TEXT_STORE_CHANGE_FLAGS, pastart: P0, paend: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAnchor>,
-        P1: windows_core::IntoParam<IAnchor>,
+        P0: windows_core::Param<IAnchor>,
+        P1: windows_core::Param<IAnchor>,
     {
-        (windows_core::Interface::vtable(self).base__.OnTextChange)(windows_core::Interface::as_raw(self), dwflags, pastart.into_param().abi(), paend.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.OnTextChange)(windows_core::Interface::as_raw(self), dwflags, pastart.param().abi(), paend.param().abi()).ok()
     }
     pub unsafe fn OnSelectionChange(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.OnSelectionChange)(windows_core::Interface::as_raw(self)).ok()
@@ -1450,10 +1450,10 @@ impl ITextStoreSinkAnchorEx {
     }
     pub unsafe fn OnAttrsChange<P0, P1>(&self, pastart: P0, paend: P1, paattrs: &[windows_core::GUID]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAnchor>,
-        P1: windows_core::IntoParam<IAnchor>,
+        P0: windows_core::Param<IAnchor>,
+        P1: windows_core::Param<IAnchor>,
     {
-        (windows_core::Interface::vtable(self).base__.OnAttrsChange)(windows_core::Interface::as_raw(self), pastart.into_param().abi(), paend.into_param().abi(), paattrs.len().try_into().unwrap(), core::mem::transmute(paattrs.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.OnAttrsChange)(windows_core::Interface::as_raw(self), pastart.param().abi(), paend.param().abi(), paattrs.len().try_into().unwrap(), core::mem::transmute(paattrs.as_ptr())).ok()
     }
     pub unsafe fn OnLockGranted(&self, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.OnLockGranted)(windows_core::Interface::as_raw(self), dwlockflags).ok()
@@ -1478,9 +1478,9 @@ windows_core::imp::interface_hierarchy!(ITfActiveLanguageProfileNotifySink, wind
 impl ITfActiveLanguageProfileNotifySink {
     pub unsafe fn OnActivated<P0>(&self, clsid: *const windows_core::GUID, guidprofile: *const windows_core::GUID, factivated: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OnActivated)(windows_core::Interface::as_raw(self), clsid, guidprofile, factivated.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnActivated)(windows_core::Interface::as_raw(self), clsid, guidprofile, factivated.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1528,9 +1528,9 @@ impl ITfCandidateListUIElement {
     }
     pub unsafe fn Show<P0>(&self, bshow: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.Show)(windows_core::Interface::as_raw(self), bshow.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Show)(windows_core::Interface::as_raw(self), bshow.param().abi()).ok()
     }
     pub unsafe fn IsShown(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1592,9 +1592,9 @@ impl ITfCandidateListUIElementBehavior {
     }
     pub unsafe fn Show<P0>(&self, bshow: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.Show)(windows_core::Interface::as_raw(self), bshow.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.Show)(windows_core::Interface::as_raw(self), bshow.param().abi()).ok()
     }
     pub unsafe fn IsShown(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1765,9 +1765,9 @@ windows_core::imp::interface_hierarchy!(ITfCleanupContextSink, windows_core::IUn
 impl ITfCleanupContextSink {
     pub unsafe fn OnCleanupContext<P0>(&self, ecwrite: u32, pic: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfContext>,
+        P0: windows_core::Param<ITfContext>,
     {
-        (windows_core::Interface::vtable(self).OnCleanupContext)(windows_core::Interface::as_raw(self), ecwrite, pic.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnCleanupContext)(windows_core::Interface::as_raw(self), ecwrite, pic.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1852,15 +1852,15 @@ impl ITfComposition {
     }
     pub unsafe fn ShiftStart<P0>(&self, ecwrite: u32, pnewstart: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).ShiftStart)(windows_core::Interface::as_raw(self), ecwrite, pnewstart.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ShiftStart)(windows_core::Interface::as_raw(self), ecwrite, pnewstart.param().abi()).ok()
     }
     pub unsafe fn ShiftEnd<P0>(&self, ecwrite: u32, pnewend: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).ShiftEnd)(windows_core::Interface::as_raw(self), ecwrite, pnewend.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ShiftEnd)(windows_core::Interface::as_raw(self), ecwrite, pnewend.param().abi()).ok()
     }
     pub unsafe fn EndComposition(&self, ecwrite: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndComposition)(windows_core::Interface::as_raw(self), ecwrite).ok()
@@ -1879,9 +1879,9 @@ windows_core::imp::interface_hierarchy!(ITfCompositionSink, windows_core::IUnkno
 impl ITfCompositionSink {
     pub unsafe fn OnCompositionTerminated<P0>(&self, ecwrite: u32, pcomposition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfComposition>,
+        P0: windows_core::Param<ITfComposition>,
     {
-        (windows_core::Interface::vtable(self).OnCompositionTerminated)(windows_core::Interface::as_raw(self), ecwrite, pcomposition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnCompositionTerminated)(windows_core::Interface::as_raw(self), ecwrite, pcomposition.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1928,10 +1928,10 @@ windows_core::imp::interface_hierarchy!(ITfContext, windows_core::IUnknown);
 impl ITfContext {
     pub unsafe fn RequestEditSession<P0>(&self, tid: u32, pes: P0, dwflags: TF_CONTEXT_EDIT_CONTEXT_FLAGS) -> windows_core::Result<windows_core::HRESULT>
     where
-        P0: windows_core::IntoParam<ITfEditSession>,
+        P0: windows_core::Param<ITfEditSession>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).RequestEditSession)(windows_core::Interface::as_raw(self), tid, pes.into_param().abi(), dwflags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).RequestEditSession)(windows_core::Interface::as_raw(self), tid, pes.param().abi(), dwflags, &mut result__).map(|| result__)
     }
     pub unsafe fn InWriteSession(&self, tid: u32) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1985,10 +1985,10 @@ impl ITfContext {
     }
     pub unsafe fn CreateRangeBackup<P0>(&self, ec: u32, prange: P0) -> windows_core::Result<ITfRangeBackup>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateRangeBackup)(windows_core::Interface::as_raw(self), ec, prange.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateRangeBackup)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -2015,11 +2015,11 @@ windows_core::imp::interface_hierarchy!(ITfContextComposition, windows_core::IUn
 impl ITfContextComposition {
     pub unsafe fn StartComposition<P0, P1>(&self, ecwrite: u32, pcompositionrange: P0, psink: P1) -> windows_core::Result<ITfComposition>
     where
-        P0: windows_core::IntoParam<ITfRange>,
-        P1: windows_core::IntoParam<ITfCompositionSink>,
+        P0: windows_core::Param<ITfRange>,
+        P1: windows_core::Param<ITfCompositionSink>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).StartComposition)(windows_core::Interface::as_raw(self), ecwrite, pcompositionrange.into_param().abi(), psink.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).StartComposition)(windows_core::Interface::as_raw(self), ecwrite, pcompositionrange.param().abi(), psink.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumCompositions(&self) -> windows_core::Result<IEnumITfCompositionView> {
         let mut result__ = std::mem::zeroed();
@@ -2027,18 +2027,18 @@ impl ITfContextComposition {
     }
     pub unsafe fn FindComposition<P0>(&self, ecread: u32, ptestrange: P0) -> windows_core::Result<IEnumITfCompositionView>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindComposition)(windows_core::Interface::as_raw(self), ecread, ptestrange.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindComposition)(windows_core::Interface::as_raw(self), ecread, ptestrange.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn TakeOwnership<P0, P1>(&self, ecwrite: u32, pcomposition: P0, psink: P1) -> windows_core::Result<ITfComposition>
     where
-        P0: windows_core::IntoParam<ITfCompositionView>,
-        P1: windows_core::IntoParam<ITfCompositionSink>,
+        P0: windows_core::Param<ITfCompositionView>,
+        P1: windows_core::Param<ITfCompositionSink>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).TakeOwnership)(windows_core::Interface::as_raw(self), ecwrite, pcomposition.into_param().abi(), psink.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).TakeOwnership)(windows_core::Interface::as_raw(self), ecwrite, pcomposition.param().abi(), psink.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -2054,35 +2054,35 @@ windows_core::imp::interface_hierarchy!(ITfContextKeyEventSink, windows_core::IU
 impl ITfContextKeyEventSink {
     pub unsafe fn OnKeyDown<P0, P1>(&self, wparam: P0, lparam: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P1: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::Foundation::WPARAM>,
+        P1: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnKeyDown)(windows_core::Interface::as_raw(self), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OnKeyDown)(windows_core::Interface::as_raw(self), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn OnKeyUp<P0, P1>(&self, wparam: P0, lparam: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P1: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::Foundation::WPARAM>,
+        P1: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnKeyUp)(windows_core::Interface::as_raw(self), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OnKeyUp)(windows_core::Interface::as_raw(self), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn OnTestKeyDown<P0, P1>(&self, wparam: P0, lparam: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P1: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::Foundation::WPARAM>,
+        P1: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnTestKeyDown)(windows_core::Interface::as_raw(self), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OnTestKeyDown)(windows_core::Interface::as_raw(self), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn OnTestKeyUp<P0, P1>(&self, wparam: P0, lparam: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P1: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::Foundation::WPARAM>,
+        P1: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnTestKeyUp)(windows_core::Interface::as_raw(self), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OnTestKeyUp)(windows_core::Interface::as_raw(self), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -2135,11 +2135,11 @@ windows_core::imp::interface_hierarchy!(ITfContextOwnerCompositionServices, wind
 impl ITfContextOwnerCompositionServices {
     pub unsafe fn StartComposition<P0, P1>(&self, ecwrite: u32, pcompositionrange: P0, psink: P1) -> windows_core::Result<ITfComposition>
     where
-        P0: windows_core::IntoParam<ITfRange>,
-        P1: windows_core::IntoParam<ITfCompositionSink>,
+        P0: windows_core::Param<ITfRange>,
+        P1: windows_core::Param<ITfCompositionSink>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.StartComposition)(windows_core::Interface::as_raw(self), ecwrite, pcompositionrange.into_param().abi(), psink.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.StartComposition)(windows_core::Interface::as_raw(self), ecwrite, pcompositionrange.param().abi(), psink.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumCompositions(&self) -> windows_core::Result<IEnumITfCompositionView> {
         let mut result__ = std::mem::zeroed();
@@ -2147,24 +2147,24 @@ impl ITfContextOwnerCompositionServices {
     }
     pub unsafe fn FindComposition<P0>(&self, ecread: u32, ptestrange: P0) -> windows_core::Result<IEnumITfCompositionView>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindComposition)(windows_core::Interface::as_raw(self), ecread, ptestrange.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.FindComposition)(windows_core::Interface::as_raw(self), ecread, ptestrange.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn TakeOwnership<P0, P1>(&self, ecwrite: u32, pcomposition: P0, psink: P1) -> windows_core::Result<ITfComposition>
     where
-        P0: windows_core::IntoParam<ITfCompositionView>,
-        P1: windows_core::IntoParam<ITfCompositionSink>,
+        P0: windows_core::Param<ITfCompositionView>,
+        P1: windows_core::Param<ITfCompositionSink>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.TakeOwnership)(windows_core::Interface::as_raw(self), ecwrite, pcomposition.into_param().abi(), psink.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.TakeOwnership)(windows_core::Interface::as_raw(self), ecwrite, pcomposition.param().abi(), psink.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn TerminateComposition<P0>(&self, pcomposition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfCompositionView>,
+        P0: windows_core::Param<ITfCompositionView>,
     {
-        (windows_core::Interface::vtable(self).TerminateComposition)(windows_core::Interface::as_raw(self), pcomposition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).TerminateComposition)(windows_core::Interface::as_raw(self), pcomposition.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -2177,23 +2177,23 @@ windows_core::imp::interface_hierarchy!(ITfContextOwnerCompositionSink, windows_
 impl ITfContextOwnerCompositionSink {
     pub unsafe fn OnStartComposition<P0>(&self, pcomposition: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<ITfCompositionView>,
+        P0: windows_core::Param<ITfCompositionView>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnStartComposition)(windows_core::Interface::as_raw(self), pcomposition.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OnStartComposition)(windows_core::Interface::as_raw(self), pcomposition.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn OnUpdateComposition<P0, P1>(&self, pcomposition: P0, prangenew: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfCompositionView>,
-        P1: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfCompositionView>,
+        P1: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).OnUpdateComposition)(windows_core::Interface::as_raw(self), pcomposition.into_param().abi(), prangenew.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnUpdateComposition)(windows_core::Interface::as_raw(self), pcomposition.param().abi(), prangenew.param().abi()).ok()
     }
     pub unsafe fn OnEndComposition<P0>(&self, pcomposition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfCompositionView>,
+        P0: windows_core::Param<ITfCompositionView>,
     {
-        (windows_core::Interface::vtable(self).OnEndComposition)(windows_core::Interface::as_raw(self), pcomposition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnEndComposition)(windows_core::Interface::as_raw(self), pcomposition.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -2218,26 +2218,26 @@ impl ITfContextOwnerServices {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Serialize<P0, P1, P2>(&self, pprop: P0, prange: P1, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfProperty>,
-        P1: windows_core::IntoParam<ITfRange>,
-        P2: windows_core::IntoParam<super::super::System::Com::IStream>,
+        P0: windows_core::Param<ITfProperty>,
+        P1: windows_core::Param<ITfRange>,
+        P2: windows_core::Param<super::super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), pprop.into_param().abi(), prange.into_param().abi(), phdr, pstream.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), pprop.param().abi(), prange.param().abi(), phdr, pstream.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Unserialize<P0, P1, P2>(&self, pprop: P0, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: P1, ploader: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfProperty>,
-        P1: windows_core::IntoParam<super::super::System::Com::IStream>,
-        P2: windows_core::IntoParam<ITfPersistentPropertyLoaderACP>,
+        P0: windows_core::Param<ITfProperty>,
+        P1: windows_core::Param<super::super::System::Com::IStream>,
+        P2: windows_core::Param<ITfPersistentPropertyLoaderACP>,
     {
-        (windows_core::Interface::vtable(self).Unserialize)(windows_core::Interface::as_raw(self), pprop.into_param().abi(), phdr, pstream.into_param().abi(), ploader.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Unserialize)(windows_core::Interface::as_raw(self), pprop.param().abi(), phdr, pstream.param().abi(), ploader.param().abi()).ok()
     }
     pub unsafe fn ForceLoadProperty<P0>(&self, pprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfProperty>,
+        P0: windows_core::Param<ITfProperty>,
     {
-        (windows_core::Interface::vtable(self).ForceLoadProperty)(windows_core::Interface::as_raw(self), pprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ForceLoadProperty)(windows_core::Interface::as_raw(self), pprop.param().abi()).ok()
     }
     pub unsafe fn CreateRange(&self, acpstart: i32, acpend: i32) -> windows_core::Result<ITfRangeACP> {
         let mut result__ = std::mem::zeroed();
@@ -2270,9 +2270,9 @@ impl ITfContextView {
     }
     pub unsafe fn GetTextExt<P0>(&self, ec: u32, prange: P0, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).GetTextExt)(windows_core::Interface::as_raw(self), ec, prange.into_param().abi(), prc, pfclipped).ok()
+        (windows_core::Interface::vtable(self).GetTextExt)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), prc, pfclipped).ok()
     }
     pub unsafe fn GetScreenExt(&self) -> windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = std::mem::zeroed();
@@ -2296,20 +2296,20 @@ windows_core::imp::interface_hierarchy!(ITfCreatePropertyStore, windows_core::IU
 impl ITfCreatePropertyStore {
     pub unsafe fn IsStoreSerializable<P0, P1>(&self, guidprop: *const windows_core::GUID, prange: P0, ppropstore: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<ITfRange>,
-        P1: windows_core::IntoParam<ITfPropertyStore>,
+        P0: windows_core::Param<ITfRange>,
+        P1: windows_core::Param<ITfPropertyStore>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsStoreSerializable)(windows_core::Interface::as_raw(self), guidprop, prange.into_param().abi(), ppropstore.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).IsStoreSerializable)(windows_core::Interface::as_raw(self), guidprop, prange.param().abi(), ppropstore.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePropertyStore<P0, P1>(&self, guidprop: *const windows_core::GUID, prange: P0, cb: u32, pstream: P1) -> windows_core::Result<ITfPropertyStore>
     where
-        P0: windows_core::IntoParam<ITfRange>,
-        P1: windows_core::IntoParam<super::super::System::Com::IStream>,
+        P0: windows_core::Param<ITfRange>,
+        P1: windows_core::Param<super::super::System::Com::IStream>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePropertyStore)(windows_core::Interface::as_raw(self), guidprop, prange.into_param().abi(), cb, pstream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePropertyStore)(windows_core::Interface::as_raw(self), guidprop, prange.param().abi(), cb, pstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -2407,15 +2407,15 @@ windows_core::imp::interface_hierarchy!(ITfDocumentMgr, windows_core::IUnknown);
 impl ITfDocumentMgr {
     pub unsafe fn CreateContext<P0>(&self, tidowner: u32, dwflags: u32, punk: P0, ppic: *mut Option<ITfContext>, pectextstore: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).CreateContext)(windows_core::Interface::as_raw(self), tidowner, dwflags, punk.into_param().abi(), core::mem::transmute(ppic), pectextstore).ok()
+        (windows_core::Interface::vtable(self).CreateContext)(windows_core::Interface::as_raw(self), tidowner, dwflags, punk.param().abi(), core::mem::transmute(ppic), pectextstore).ok()
     }
     pub unsafe fn Push<P0>(&self, pic: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfContext>,
+        P0: windows_core::Param<ITfContext>,
     {
-        (windows_core::Interface::vtable(self).Push)(windows_core::Interface::as_raw(self), pic.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Push)(windows_core::Interface::as_raw(self), pic.param().abi()).ok()
     }
     pub unsafe fn Pop(&self, dwflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Pop)(windows_core::Interface::as_raw(self), dwflags).ok()
@@ -2478,15 +2478,15 @@ windows_core::imp::interface_hierarchy!(ITfEditTransactionSink, windows_core::IU
 impl ITfEditTransactionSink {
     pub unsafe fn OnStartEditTransaction<P0>(&self, pic: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfContext>,
+        P0: windows_core::Param<ITfContext>,
     {
-        (windows_core::Interface::vtable(self).OnStartEditTransaction)(windows_core::Interface::as_raw(self), pic.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnStartEditTransaction)(windows_core::Interface::as_raw(self), pic.param().abi()).ok()
     }
     pub unsafe fn OnEndEditTransaction<P0>(&self, pic: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfContext>,
+        P0: windows_core::Param<ITfContext>,
     {
-        (windows_core::Interface::vtable(self).OnEndEditTransaction)(windows_core::Interface::as_raw(self), pic.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnEndEditTransaction)(windows_core::Interface::as_raw(self), pic.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -2504,16 +2504,16 @@ impl ITfFnAdviseText {
     }
     pub unsafe fn OnTextUpdate<P0>(&self, prange: P0, pchtext: &[u16]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).OnTextUpdate)(windows_core::Interface::as_raw(self), prange.into_param().abi(), core::mem::transmute(pchtext.as_ptr()), pchtext.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).OnTextUpdate)(windows_core::Interface::as_raw(self), prange.param().abi(), core::mem::transmute(pchtext.as_ptr()), pchtext.len().try_into().unwrap()).ok()
     }
     pub unsafe fn OnLatticeUpdate<P0, P1>(&self, prange: P0, plattice: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
-        P1: windows_core::IntoParam<ITfLMLattice>,
+        P0: windows_core::Param<ITfRange>,
+        P1: windows_core::Param<ITfLMLattice>,
     {
-        (windows_core::Interface::vtable(self).OnLatticeUpdate)(windows_core::Interface::as_raw(self), prange.into_param().abi(), plattice.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnLatticeUpdate)(windows_core::Interface::as_raw(self), prange.param().abi(), plattice.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -2543,9 +2543,9 @@ impl ITfFnConfigure {
     }
     pub unsafe fn Show<P0>(&self, hwndparent: P0, langid: u16, rguidprofile: *const windows_core::GUID) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), langid, rguidprofile).ok()
+        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), langid, rguidprofile).ok()
     }
 }
 #[repr(C)]
@@ -2562,10 +2562,10 @@ impl ITfFnConfigureRegisterEudc {
     }
     pub unsafe fn Show<P0, P1>(&self, hwndparent: P0, langid: u16, rguidprofile: *const windows_core::GUID, bstrregistered: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), langid, rguidprofile, bstrregistered.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), langid, rguidprofile, bstrregistered.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -2582,10 +2582,10 @@ impl ITfFnConfigureRegisterWord {
     }
     pub unsafe fn Show<P0, P1>(&self, hwndparent: P0, langid: u16, rguidprofile: *const windows_core::GUID, bstrregistered: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), langid, rguidprofile, bstrregistered.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), langid, rguidprofile, bstrregistered.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -2602,9 +2602,9 @@ impl ITfFnCustomSpeechCommand {
     }
     pub unsafe fn SetSpeechCommandProvider<P0>(&self, pspcmdprovider: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetSpeechCommandProvider)(windows_core::Interface::as_raw(self), pspcmdprovider.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSpeechCommandProvider)(windows_core::Interface::as_raw(self), pspcmdprovider.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -2621,10 +2621,10 @@ impl ITfFnGetLinguisticAlternates {
     }
     pub unsafe fn GetAlternates<P0>(&self, prange: P0) -> windows_core::Result<ITfCandidateList>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAlternates)(windows_core::Interface::as_raw(self), prange.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAlternates)(windows_core::Interface::as_raw(self), prange.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -2674,9 +2674,9 @@ impl ITfFnLMInternal {
     }
     pub unsafe fn QueryRange<P0>(&self, prange: P0, ppnewrange: *mut Option<ITfRange>, pfaccepted: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).base__.QueryRange)(windows_core::Interface::as_raw(self), prange.into_param().abi(), core::mem::transmute(ppnewrange), pfaccepted).ok()
+        (windows_core::Interface::vtable(self).base__.QueryRange)(windows_core::Interface::as_raw(self), prange.param().abi(), core::mem::transmute(ppnewrange), pfaccepted).ok()
     }
     pub unsafe fn QueryLangID(&self, langid: u16) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -2684,45 +2684,45 @@ impl ITfFnLMInternal {
     }
     pub unsafe fn GetReconversion<P0>(&self, prange: P0) -> windows_core::Result<ITfCandidateList>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetReconversion)(windows_core::Interface::as_raw(self), prange.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetReconversion)(windows_core::Interface::as_raw(self), prange.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Reconvert<P0>(&self, prange: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).base__.Reconvert)(windows_core::Interface::as_raw(self), prange.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Reconvert)(windows_core::Interface::as_raw(self), prange.param().abi()).ok()
     }
     pub unsafe fn QueryKey<P0, P1, P2>(&self, fup: P0, vkey: P1, lparamkeydata: P2) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P1: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P2: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.QueryKey)(windows_core::Interface::as_raw(self), fup.into_param().abi(), vkey.into_param().abi(), lparamkeydata.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.QueryKey)(windows_core::Interface::as_raw(self), fup.param().abi(), vkey.param().abi(), lparamkeydata.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn InvokeKey<P0, P1, P2>(&self, fup: P0, vkey: P1, lparamkeydata: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P1: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P2: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::Foundation::LPARAM>,
     {
-        (windows_core::Interface::vtable(self).base__.InvokeKey)(windows_core::Interface::as_raw(self), fup.into_param().abi(), vkey.into_param().abi(), lparamkeydata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.InvokeKey)(windows_core::Interface::as_raw(self), fup.param().abi(), vkey.param().abi(), lparamkeydata.param().abi()).ok()
     }
     pub unsafe fn InvokeFunc<P0>(&self, pic: P0, refguidfunc: *const windows_core::GUID) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfContext>,
+        P0: windows_core::Param<ITfContext>,
     {
-        (windows_core::Interface::vtable(self).base__.InvokeFunc)(windows_core::Interface::as_raw(self), pic.into_param().abi(), refguidfunc).ok()
+        (windows_core::Interface::vtable(self).base__.InvokeFunc)(windows_core::Interface::as_raw(self), pic.param().abi(), refguidfunc).ok()
     }
     pub unsafe fn ProcessLattice<P0>(&self, prange: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).ProcessLattice)(windows_core::Interface::as_raw(self), prange.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ProcessLattice)(windows_core::Interface::as_raw(self), prange.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -2739,9 +2739,9 @@ impl ITfFnLMProcessor {
     }
     pub unsafe fn QueryRange<P0>(&self, prange: P0, ppnewrange: *mut Option<ITfRange>, pfaccepted: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).QueryRange)(windows_core::Interface::as_raw(self), prange.into_param().abi(), core::mem::transmute(ppnewrange), pfaccepted).ok()
+        (windows_core::Interface::vtable(self).QueryRange)(windows_core::Interface::as_raw(self), prange.param().abi(), core::mem::transmute(ppnewrange), pfaccepted).ok()
     }
     pub unsafe fn QueryLangID(&self, langid: u16) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -2749,39 +2749,39 @@ impl ITfFnLMProcessor {
     }
     pub unsafe fn GetReconversion<P0>(&self, prange: P0) -> windows_core::Result<ITfCandidateList>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetReconversion)(windows_core::Interface::as_raw(self), prange.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetReconversion)(windows_core::Interface::as_raw(self), prange.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Reconvert<P0>(&self, prange: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).Reconvert)(windows_core::Interface::as_raw(self), prange.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Reconvert)(windows_core::Interface::as_raw(self), prange.param().abi()).ok()
     }
     pub unsafe fn QueryKey<P0, P1, P2>(&self, fup: P0, vkey: P1, lparamkeydata: P2) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P1: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P2: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).QueryKey)(windows_core::Interface::as_raw(self), fup.into_param().abi(), vkey.into_param().abi(), lparamkeydata.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).QueryKey)(windows_core::Interface::as_raw(self), fup.param().abi(), vkey.param().abi(), lparamkeydata.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn InvokeKey<P0, P1, P2>(&self, fup: P0, vkey: P1, lparamkeydata: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P1: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P2: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::Foundation::LPARAM>,
     {
-        (windows_core::Interface::vtable(self).InvokeKey)(windows_core::Interface::as_raw(self), fup.into_param().abi(), vkey.into_param().abi(), lparamkeydata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).InvokeKey)(windows_core::Interface::as_raw(self), fup.param().abi(), vkey.param().abi(), lparamkeydata.param().abi()).ok()
     }
     pub unsafe fn InvokeFunc<P0>(&self, pic: P0, refguidfunc: *const windows_core::GUID) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfContext>,
+        P0: windows_core::Param<ITfContext>,
     {
-        (windows_core::Interface::vtable(self).InvokeFunc)(windows_core::Interface::as_raw(self), pic.into_param().abi(), refguidfunc).ok()
+        (windows_core::Interface::vtable(self).InvokeFunc)(windows_core::Interface::as_raw(self), pic.param().abi(), refguidfunc).ok()
     }
 }
 #[repr(C)]
@@ -2825,15 +2825,15 @@ impl ITfFnPlayBack {
     }
     pub unsafe fn QueryRange<P0>(&self, prange: P0, ppnewrange: *mut Option<ITfRange>, pfplayable: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).QueryRange)(windows_core::Interface::as_raw(self), prange.into_param().abi(), core::mem::transmute(ppnewrange), pfplayable).ok()
+        (windows_core::Interface::vtable(self).QueryRange)(windows_core::Interface::as_raw(self), prange.param().abi(), core::mem::transmute(ppnewrange), pfplayable).ok()
     }
     pub unsafe fn Play<P0>(&self, prange: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).Play)(windows_core::Interface::as_raw(self), prange.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Play)(windows_core::Interface::as_raw(self), prange.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -2872,22 +2872,22 @@ impl ITfFnReconversion {
     }
     pub unsafe fn QueryRange<P0>(&self, prange: P0, ppnewrange: *mut Option<ITfRange>, pfconvertable: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).QueryRange)(windows_core::Interface::as_raw(self), prange.into_param().abi(), core::mem::transmute(ppnewrange), pfconvertable).ok()
+        (windows_core::Interface::vtable(self).QueryRange)(windows_core::Interface::as_raw(self), prange.param().abi(), core::mem::transmute(ppnewrange), pfconvertable).ok()
     }
     pub unsafe fn GetReconversion<P0>(&self, prange: P0) -> windows_core::Result<ITfCandidateList>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetReconversion)(windows_core::Interface::as_raw(self), prange.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetReconversion)(windows_core::Interface::as_raw(self), prange.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Reconvert<P0>(&self, prange: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).Reconvert)(windows_core::Interface::as_raw(self), prange.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Reconvert)(windows_core::Interface::as_raw(self), prange.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -2906,19 +2906,19 @@ impl ITfFnSearchCandidateProvider {
     }
     pub unsafe fn GetSearchCandidates<P0, P1>(&self, bstrquery: P0, bstrapplicationid: P1) -> windows_core::Result<ITfCandidateList>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSearchCandidates)(windows_core::Interface::as_raw(self), bstrquery.into_param().abi(), bstrapplicationid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetSearchCandidates)(windows_core::Interface::as_raw(self), bstrquery.param().abi(), bstrapplicationid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetResult<P0, P1, P2>(&self, bstrquery: P0, bstrapplicationid: P1, bstrresult: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetResult)(windows_core::Interface::as_raw(self), bstrquery.into_param().abi(), bstrapplicationid.into_param().abi(), bstrresult.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetResult)(windows_core::Interface::as_raw(self), bstrquery.param().abi(), bstrapplicationid.param().abi(), bstrresult.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -2936,9 +2936,9 @@ impl ITfFnShowHelp {
     }
     pub unsafe fn Show<P0>(&self, hwndparent: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), hwndparent.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), hwndparent.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -2987,9 +2987,9 @@ windows_core::imp::interface_hierarchy!(ITfInputProcessorProfileActivationSink, 
 impl ITfInputProcessorProfileActivationSink {
     pub unsafe fn OnActivated<P0>(&self, dwprofiletype: u32, langid: u16, clsid: *const windows_core::GUID, catid: *const windows_core::GUID, guidprofile: *const windows_core::GUID, hkl: P0, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<HKL>,
+        P0: windows_core::Param<HKL>,
     {
-        (windows_core::Interface::vtable(self).OnActivated)(windows_core::Interface::as_raw(self), dwprofiletype, langid, clsid, catid, guidprofile, hkl.into_param().abi(), dwflags).ok()
+        (windows_core::Interface::vtable(self).OnActivated)(windows_core::Interface::as_raw(self), dwprofiletype, langid, clsid, catid, guidprofile, hkl.param().abi(), dwflags).ok()
     }
 }
 #[repr(C)]
@@ -3002,21 +3002,21 @@ windows_core::imp::interface_hierarchy!(ITfInputProcessorProfileMgr, windows_cor
 impl ITfInputProcessorProfileMgr {
     pub unsafe fn ActivateProfile<P0>(&self, dwprofiletype: u32, langid: u16, clsid: *const windows_core::GUID, guidprofile: *const windows_core::GUID, hkl: P0, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<HKL>,
+        P0: windows_core::Param<HKL>,
     {
-        (windows_core::Interface::vtable(self).ActivateProfile)(windows_core::Interface::as_raw(self), dwprofiletype, langid, clsid, guidprofile, hkl.into_param().abi(), dwflags).ok()
+        (windows_core::Interface::vtable(self).ActivateProfile)(windows_core::Interface::as_raw(self), dwprofiletype, langid, clsid, guidprofile, hkl.param().abi(), dwflags).ok()
     }
     pub unsafe fn DeactivateProfile<P0>(&self, dwprofiletype: u32, langid: u16, clsid: *const windows_core::GUID, guidprofile: *const windows_core::GUID, hkl: P0, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<HKL>,
+        P0: windows_core::Param<HKL>,
     {
-        (windows_core::Interface::vtable(self).DeactivateProfile)(windows_core::Interface::as_raw(self), dwprofiletype, langid, clsid, guidprofile, hkl.into_param().abi(), dwflags).ok()
+        (windows_core::Interface::vtable(self).DeactivateProfile)(windows_core::Interface::as_raw(self), dwprofiletype, langid, clsid, guidprofile, hkl.param().abi(), dwflags).ok()
     }
     pub unsafe fn GetProfile<P0>(&self, dwprofiletype: u32, langid: u16, clsid: *const windows_core::GUID, guidprofile: *const windows_core::GUID, hkl: P0, pprofile: *mut TF_INPUTPROCESSORPROFILE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<HKL>,
+        P0: windows_core::Param<HKL>,
     {
-        (windows_core::Interface::vtable(self).GetProfile)(windows_core::Interface::as_raw(self), dwprofiletype, langid, clsid, guidprofile, hkl.into_param().abi(), pprofile).ok()
+        (windows_core::Interface::vtable(self).GetProfile)(windows_core::Interface::as_raw(self), dwprofiletype, langid, clsid, guidprofile, hkl.param().abi(), pprofile).ok()
     }
     pub unsafe fn EnumProfiles(&self, langid: u16) -> windows_core::Result<IEnumTfInputProcessorProfiles> {
         let mut result__ = std::mem::zeroed();
@@ -3027,10 +3027,10 @@ impl ITfInputProcessorProfileMgr {
     }
     pub unsafe fn RegisterProfile<P0, P1>(&self, rclsid: *const windows_core::GUID, langid: u16, guidprofile: *const windows_core::GUID, pchdesc: &[u16], pchiconfile: &[u16], uiconindex: u32, hklsubstitute: P0, dwpreferredlayout: u32, benabledbydefault: P1, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<HKL>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<HKL>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).RegisterProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, core::mem::transmute(pchdesc.as_ptr()), pchdesc.len().try_into().unwrap(), core::mem::transmute(pchiconfile.as_ptr()), pchiconfile.len().try_into().unwrap(), uiconindex, hklsubstitute.into_param().abi(), dwpreferredlayout, benabledbydefault.into_param().abi(), dwflags).ok()
+        (windows_core::Interface::vtable(self).RegisterProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, core::mem::transmute(pchdesc.as_ptr()), pchdesc.len().try_into().unwrap(), core::mem::transmute(pchiconfile.as_ptr()), pchiconfile.len().try_into().unwrap(), uiconindex, hklsubstitute.param().abi(), dwpreferredlayout, benabledbydefault.param().abi(), dwflags).ok()
     }
     pub unsafe fn UnregisterProfile(&self, rclsid: *const windows_core::GUID, langid: u16, guidprofile: *const windows_core::GUID, dwflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnregisterProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, dwflags).ok()
@@ -3116,9 +3116,9 @@ impl ITfInputProcessorProfiles {
     }
     pub unsafe fn EnableLanguageProfile<P0>(&self, rclsid: *const windows_core::GUID, langid: u16, guidprofile: *const windows_core::GUID, fenable: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).EnableLanguageProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, fenable.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).EnableLanguageProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, fenable.param().abi()).ok()
     }
     pub unsafe fn IsEnabledLanguageProfile(&self, rclsid: *const windows_core::GUID, langid: u16, guidprofile: *const windows_core::GUID) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -3126,15 +3126,15 @@ impl ITfInputProcessorProfiles {
     }
     pub unsafe fn EnableLanguageProfileByDefault<P0>(&self, rclsid: *const windows_core::GUID, langid: u16, guidprofile: *const windows_core::GUID, fenable: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).EnableLanguageProfileByDefault)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, fenable.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).EnableLanguageProfileByDefault)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, fenable.param().abi()).ok()
     }
     pub unsafe fn SubstituteKeyboardLayout<P0>(&self, rclsid: *const windows_core::GUID, langid: u16, guidprofile: *const windows_core::GUID, hkl: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<HKL>,
+        P0: windows_core::Param<HKL>,
     {
-        (windows_core::Interface::vtable(self).SubstituteKeyboardLayout)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, hkl.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SubstituteKeyboardLayout)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, hkl.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -3214,9 +3214,9 @@ impl ITfInputProcessorProfilesEx {
     }
     pub unsafe fn EnableLanguageProfile<P0>(&self, rclsid: *const windows_core::GUID, langid: u16, guidprofile: *const windows_core::GUID, fenable: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.EnableLanguageProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, fenable.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.EnableLanguageProfile)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, fenable.param().abi()).ok()
     }
     pub unsafe fn IsEnabledLanguageProfile(&self, rclsid: *const windows_core::GUID, langid: u16, guidprofile: *const windows_core::GUID) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -3224,15 +3224,15 @@ impl ITfInputProcessorProfilesEx {
     }
     pub unsafe fn EnableLanguageProfileByDefault<P0>(&self, rclsid: *const windows_core::GUID, langid: u16, guidprofile: *const windows_core::GUID, fenable: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.EnableLanguageProfileByDefault)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, fenable.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.EnableLanguageProfileByDefault)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, fenable.param().abi()).ok()
     }
     pub unsafe fn SubstituteKeyboardLayout<P0>(&self, rclsid: *const windows_core::GUID, langid: u16, guidprofile: *const windows_core::GUID, hkl: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<HKL>,
+        P0: windows_core::Param<HKL>,
     {
-        (windows_core::Interface::vtable(self).base__.SubstituteKeyboardLayout)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, hkl.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SubstituteKeyboardLayout)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, hkl.param().abi()).ok()
     }
     pub unsafe fn SetLanguageProfileDisplayName(&self, rclsid: *const windows_core::GUID, langid: u16, guidprofile: *const windows_core::GUID, pchfile: &[u16], uresid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetLanguageProfileDisplayName)(windows_core::Interface::as_raw(self), rclsid, langid, guidprofile, core::mem::transmute(pchfile.as_ptr()), pchfile.len().try_into().unwrap(), uresid).ok()
@@ -3319,10 +3319,10 @@ impl ITfInsertAtSelection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEmbeddedAtSelection<P0>(&self, ec: u32, dwflags: u32, pdataobject: P0) -> windows_core::Result<ITfRange>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IDataObject>,
+        P0: windows_core::Param<super::super::System::Com::IDataObject>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).InsertEmbeddedAtSelection)(windows_core::Interface::as_raw(self), ec, dwflags, pdataobject.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).InsertEmbeddedAtSelection)(windows_core::Interface::as_raw(self), ec, dwflags, pdataobject.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -3346,11 +3346,11 @@ impl ITfIntegratableCandidateListUIElement {
     }
     pub unsafe fn OnKeyDown<P0, P1>(&self, wparam: P0, lparam: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P1: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::Foundation::WPARAM>,
+        P1: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnKeyDown)(windows_core::Interface::as_raw(self), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OnKeyDown)(windows_core::Interface::as_raw(self), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn ShowCandidateNumbers(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -3374,52 +3374,52 @@ windows_core::imp::interface_hierarchy!(ITfKeyEventSink, windows_core::IUnknown)
 impl ITfKeyEventSink {
     pub unsafe fn OnSetFocus<P0>(&self, fforeground: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OnSetFocus)(windows_core::Interface::as_raw(self), fforeground.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnSetFocus)(windows_core::Interface::as_raw(self), fforeground.param().abi()).ok()
     }
     pub unsafe fn OnTestKeyDown<P0, P1, P2>(&self, pic: P0, wparam: P1, lparam: P2) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<ITfContext>,
-        P1: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P2: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<ITfContext>,
+        P1: windows_core::Param<super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnTestKeyDown)(windows_core::Interface::as_raw(self), pic.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OnTestKeyDown)(windows_core::Interface::as_raw(self), pic.param().abi(), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn OnTestKeyUp<P0, P1, P2>(&self, pic: P0, wparam: P1, lparam: P2) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<ITfContext>,
-        P1: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P2: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<ITfContext>,
+        P1: windows_core::Param<super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnTestKeyUp)(windows_core::Interface::as_raw(self), pic.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OnTestKeyUp)(windows_core::Interface::as_raw(self), pic.param().abi(), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn OnKeyDown<P0, P1, P2>(&self, pic: P0, wparam: P1, lparam: P2) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<ITfContext>,
-        P1: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P2: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<ITfContext>,
+        P1: windows_core::Param<super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnKeyDown)(windows_core::Interface::as_raw(self), pic.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OnKeyDown)(windows_core::Interface::as_raw(self), pic.param().abi(), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn OnKeyUp<P0, P1, P2>(&self, pic: P0, wparam: P1, lparam: P2) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<ITfContext>,
-        P1: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P2: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<ITfContext>,
+        P1: windows_core::Param<super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnKeyUp)(windows_core::Interface::as_raw(self), pic.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OnKeyUp)(windows_core::Interface::as_raw(self), pic.param().abi(), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn OnPreservedKey<P0>(&self, pic: P0, rguid: *const windows_core::GUID) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<ITfContext>,
+        P0: windows_core::Param<ITfContext>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnPreservedKey)(windows_core::Interface::as_raw(self), pic.into_param().abi(), rguid, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OnPreservedKey)(windows_core::Interface::as_raw(self), pic.param().abi(), rguid, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -3437,17 +3437,17 @@ windows_core::imp::interface_hierarchy!(ITfKeyTraceEventSink, windows_core::IUnk
 impl ITfKeyTraceEventSink {
     pub unsafe fn OnKeyTraceDown<P0, P1>(&self, wparam: P0, lparam: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P1: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::Foundation::WPARAM>,
+        P1: windows_core::Param<super::super::Foundation::LPARAM>,
     {
-        (windows_core::Interface::vtable(self).OnKeyTraceDown)(windows_core::Interface::as_raw(self), wparam.into_param().abi(), lparam.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnKeyTraceDown)(windows_core::Interface::as_raw(self), wparam.param().abi(), lparam.param().abi()).ok()
     }
     pub unsafe fn OnKeyTraceUp<P0, P1>(&self, wparam: P0, lparam: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P1: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::Foundation::WPARAM>,
+        P1: windows_core::Param<super::super::Foundation::LPARAM>,
     {
-        (windows_core::Interface::vtable(self).OnKeyTraceUp)(windows_core::Interface::as_raw(self), wparam.into_param().abi(), lparam.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnKeyTraceUp)(windows_core::Interface::as_raw(self), wparam.param().abi(), lparam.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -3461,10 +3461,10 @@ windows_core::imp::interface_hierarchy!(ITfKeystrokeMgr, windows_core::IUnknown)
 impl ITfKeystrokeMgr {
     pub unsafe fn AdviseKeyEventSink<P0, P1>(&self, tid: u32, psink: P0, fforeground: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfKeyEventSink>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<ITfKeyEventSink>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).AdviseKeyEventSink)(windows_core::Interface::as_raw(self), tid, psink.into_param().abi(), fforeground.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AdviseKeyEventSink)(windows_core::Interface::as_raw(self), tid, psink.param().abi(), fforeground.param().abi()).ok()
     }
     pub unsafe fn UnadviseKeyEventSink(&self, tid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnadviseKeyEventSink)(windows_core::Interface::as_raw(self), tid).ok()
@@ -3475,42 +3475,42 @@ impl ITfKeystrokeMgr {
     }
     pub unsafe fn TestKeyDown<P0, P1>(&self, wparam: P0, lparam: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P1: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::Foundation::WPARAM>,
+        P1: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).TestKeyDown)(windows_core::Interface::as_raw(self), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).TestKeyDown)(windows_core::Interface::as_raw(self), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn TestKeyUp<P0, P1>(&self, wparam: P0, lparam: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P1: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::Foundation::WPARAM>,
+        P1: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).TestKeyUp)(windows_core::Interface::as_raw(self), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).TestKeyUp)(windows_core::Interface::as_raw(self), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn KeyDown<P0, P1>(&self, wparam: P0, lparam: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P1: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::Foundation::WPARAM>,
+        P1: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).KeyDown)(windows_core::Interface::as_raw(self), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).KeyDown)(windows_core::Interface::as_raw(self), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn KeyUp<P0, P1>(&self, wparam: P0, lparam: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P1: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::Foundation::WPARAM>,
+        P1: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).KeyUp)(windows_core::Interface::as_raw(self), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).KeyUp)(windows_core::Interface::as_raw(self), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPreservedKey<P0>(&self, pic: P0, pprekey: *const TF_PRESERVEDKEY) -> windows_core::Result<windows_core::GUID>
     where
-        P0: windows_core::IntoParam<ITfContext>,
+        P0: windows_core::Param<ITfContext>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPreservedKey)(windows_core::Interface::as_raw(self), pic.into_param().abi(), pprekey, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetPreservedKey)(windows_core::Interface::as_raw(self), pic.param().abi(), pprekey, &mut result__).map(|| result__)
     }
     pub unsafe fn IsPreservedKey(&self, rguid: *const windows_core::GUID, pprekey: *const TF_PRESERVEDKEY) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -3531,10 +3531,10 @@ impl ITfKeystrokeMgr {
     }
     pub unsafe fn SimulatePreservedKey<P0>(&self, pic: P0, rguid: *const windows_core::GUID) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<ITfContext>,
+        P0: windows_core::Param<ITfContext>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).SimulatePreservedKey)(windows_core::Interface::as_raw(self), pic.into_param().abi(), rguid, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).SimulatePreservedKey)(windows_core::Interface::as_raw(self), pic.param().abi(), rguid, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -3587,10 +3587,10 @@ impl ITfLangBarEventSink {
     }
     pub unsafe fn OnModalInput<P0, P1>(&self, dwthreadid: u32, umsg: u32, wparam: P0, lparam: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-        P1: windows_core::IntoParam<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::Foundation::WPARAM>,
+        P1: windows_core::Param<super::super::Foundation::LPARAM>,
     {
-        (windows_core::Interface::vtable(self).OnModalInput)(windows_core::Interface::as_raw(self), dwthreadid, umsg, wparam.into_param().abi(), lparam.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnModalInput)(windows_core::Interface::as_raw(self), dwthreadid, umsg, wparam.param().abi(), lparam.param().abi()).ok()
     }
     pub unsafe fn ShowFloating(&self, dwflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ShowFloating)(windows_core::Interface::as_raw(self), dwflags).ok()
@@ -3622,9 +3622,9 @@ impl ITfLangBarItem {
     }
     pub unsafe fn Show<P0>(&self, fshow: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), fshow.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), fshow.param().abi()).ok()
     }
     pub unsafe fn GetTooltipString(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3651,9 +3651,9 @@ impl ITfLangBarItemBalloon {
     }
     pub unsafe fn Show<P0>(&self, fshow: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.Show)(windows_core::Interface::as_raw(self), fshow.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Show)(windows_core::Interface::as_raw(self), fshow.param().abi()).ok()
     }
     pub unsafe fn GetTooltipString(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3690,9 +3690,9 @@ impl ITfLangBarItemBitmap {
     }
     pub unsafe fn Show<P0>(&self, fshow: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.Show)(windows_core::Interface::as_raw(self), fshow.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Show)(windows_core::Interface::as_raw(self), fshow.param().abi()).ok()
     }
     pub unsafe fn GetTooltipString(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3732,9 +3732,9 @@ impl ITfLangBarItemBitmapButton {
     }
     pub unsafe fn Show<P0>(&self, fshow: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.Show)(windows_core::Interface::as_raw(self), fshow.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Show)(windows_core::Interface::as_raw(self), fshow.param().abi()).ok()
     }
     pub unsafe fn GetTooltipString(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3745,9 +3745,9 @@ impl ITfLangBarItemBitmapButton {
     }
     pub unsafe fn InitMenu<P0>(&self, pmenu: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfMenu>,
+        P0: windows_core::Param<ITfMenu>,
     {
-        (windows_core::Interface::vtable(self).InitMenu)(windows_core::Interface::as_raw(self), pmenu.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).InitMenu)(windows_core::Interface::as_raw(self), pmenu.param().abi()).ok()
     }
     pub unsafe fn OnMenuSelect(&self, wid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnMenuSelect)(windows_core::Interface::as_raw(self), wid).ok()
@@ -3790,9 +3790,9 @@ impl ITfLangBarItemButton {
     }
     pub unsafe fn Show<P0>(&self, fshow: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.Show)(windows_core::Interface::as_raw(self), fshow.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Show)(windows_core::Interface::as_raw(self), fshow.param().abi()).ok()
     }
     pub unsafe fn GetTooltipString(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3803,9 +3803,9 @@ impl ITfLangBarItemButton {
     }
     pub unsafe fn InitMenu<P0>(&self, pmenu: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfMenu>,
+        P0: windows_core::Param<ITfMenu>,
     {
-        (windows_core::Interface::vtable(self).InitMenu)(windows_core::Interface::as_raw(self), pmenu.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).InitMenu)(windows_core::Interface::as_raw(self), pmenu.param().abi()).ok()
     }
     pub unsafe fn OnMenuSelect(&self, wid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnMenuSelect)(windows_core::Interface::as_raw(self), wid).ok()
@@ -3845,21 +3845,21 @@ impl ITfLangBarItemMgr {
     }
     pub unsafe fn AddItem<P0>(&self, punk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfLangBarItem>,
+        P0: windows_core::Param<ITfLangBarItem>,
     {
-        (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), punk.param().abi()).ok()
     }
     pub unsafe fn RemoveItem<P0>(&self, punk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfLangBarItem>,
+        P0: windows_core::Param<ITfLangBarItem>,
     {
-        (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), punk.param().abi()).ok()
     }
     pub unsafe fn AdviseItemSink<P0>(&self, punk: P0, pdwcookie: *mut u32, rguiditem: *const windows_core::GUID) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfLangBarItemSink>,
+        P0: windows_core::Param<ITfLangBarItemSink>,
     {
-        (windows_core::Interface::vtable(self).AdviseItemSink)(windows_core::Interface::as_raw(self), punk.into_param().abi(), pdwcookie, rguiditem).ok()
+        (windows_core::Interface::vtable(self).AdviseItemSink)(windows_core::Interface::as_raw(self), punk.param().abi(), pdwcookie, rguiditem).ok()
     }
     pub unsafe fn UnadviseItemSink(&self, dwcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnadviseItemSink)(windows_core::Interface::as_raw(self), dwcookie).ok()
@@ -3918,10 +3918,10 @@ windows_core::imp::interface_hierarchy!(ITfLangBarMgr, windows_core::IUnknown);
 impl ITfLangBarMgr {
     pub unsafe fn AdviseEventSink<P0, P1>(&self, psink: P0, hwnd: P1, dwflags: u32, pdwcookie: *const u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfLangBarEventSink>,
-        P1: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<ITfLangBarEventSink>,
+        P1: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).AdviseEventSink)(windows_core::Interface::as_raw(self), psink.into_param().abi(), hwnd.into_param().abi(), dwflags, pdwcookie).ok()
+        (windows_core::Interface::vtable(self).AdviseEventSink)(windows_core::Interface::as_raw(self), psink.param().abi(), hwnd.param().abi(), dwflags, pdwcookie).ok()
     }
     pub unsafe fn UnadviseEventSink(&self, dwcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnadviseEventSink)(windows_core::Interface::as_raw(self), dwcookie).ok()
@@ -3938,15 +3938,15 @@ impl ITfLangBarMgr {
     }
     pub unsafe fn RestoreLastFocus<P0>(&self, pdwthreadid: *mut u32, fprev: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).RestoreLastFocus)(windows_core::Interface::as_raw(self), pdwthreadid, fprev.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RestoreLastFocus)(windows_core::Interface::as_raw(self), pdwthreadid, fprev.param().abi()).ok()
     }
     pub unsafe fn SetModalInput<P0>(&self, psink: P0, dwthreadid: u32, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfLangBarEventSink>,
+        P0: windows_core::Param<ITfLangBarEventSink>,
     {
-        (windows_core::Interface::vtable(self).SetModalInput)(windows_core::Interface::as_raw(self), psink.into_param().abi(), dwthreadid, dwflags).ok()
+        (windows_core::Interface::vtable(self).SetModalInput)(windows_core::Interface::as_raw(self), psink.param().abi(), dwthreadid, dwflags).ok()
     }
     pub unsafe fn ShowFloating(&self, dwflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ShowFloating)(windows_core::Interface::as_raw(self), dwflags).ok()
@@ -4008,10 +4008,10 @@ impl ITfMenu {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn AddMenuItem<P0, P1>(&self, uid: u32, dwflags: u32, hbmp: P0, hbmpmask: P1, pch: &[u16], ppmenu: *mut Option<ITfMenu>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
-        P1: windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+        P0: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
+        P1: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
     {
-        (windows_core::Interface::vtable(self).AddMenuItem)(windows_core::Interface::as_raw(self), uid, dwflags, hbmp.into_param().abi(), hbmpmask.into_param().abi(), core::mem::transmute(pch.as_ptr()), pch.len().try_into().unwrap(), core::mem::transmute(ppmenu)).ok()
+        (windows_core::Interface::vtable(self).AddMenuItem)(windows_core::Interface::as_raw(self), uid, dwflags, hbmp.param().abi(), hbmpmask.param().abi(), core::mem::transmute(pch.as_ptr()), pch.len().try_into().unwrap(), core::mem::transmute(ppmenu)).ok()
     }
 }
 #[repr(C)]
@@ -4028,30 +4028,30 @@ impl ITfMessagePump {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn PeekMessageA<P0>(&self, pmsg: *mut super::WindowsAndMessaging::MSG, hwnd: P0, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).PeekMessageA)(windows_core::Interface::as_raw(self), pmsg, hwnd.into_param().abi(), wmsgfiltermin, wmsgfiltermax, wremovemsg, pfresult).ok()
+        (windows_core::Interface::vtable(self).PeekMessageA)(windows_core::Interface::as_raw(self), pmsg, hwnd.param().abi(), wmsgfiltermin, wmsgfiltermax, wremovemsg, pfresult).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetMessageA<P0>(&self, pmsg: *mut super::WindowsAndMessaging::MSG, hwnd: P0, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).GetMessageA)(windows_core::Interface::as_raw(self), pmsg, hwnd.into_param().abi(), wmsgfiltermin, wmsgfiltermax, pfresult).ok()
+        (windows_core::Interface::vtable(self).GetMessageA)(windows_core::Interface::as_raw(self), pmsg, hwnd.param().abi(), wmsgfiltermin, wmsgfiltermax, pfresult).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn PeekMessageW<P0>(&self, pmsg: *mut super::WindowsAndMessaging::MSG, hwnd: P0, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).PeekMessageW)(windows_core::Interface::as_raw(self), pmsg, hwnd.into_param().abi(), wmsgfiltermin, wmsgfiltermax, wremovemsg, pfresult).ok()
+        (windows_core::Interface::vtable(self).PeekMessageW)(windows_core::Interface::as_raw(self), pmsg, hwnd.param().abi(), wmsgfiltermin, wmsgfiltermax, wremovemsg, pfresult).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetMessageW<P0>(&self, pmsg: *mut super::WindowsAndMessaging::MSG, hwnd: P0, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).GetMessageW)(windows_core::Interface::as_raw(self), pmsg, hwnd.into_param().abi(), wmsgfiltermin, wmsgfiltermax, pfresult).ok()
+        (windows_core::Interface::vtable(self).GetMessageW)(windows_core::Interface::as_raw(self), pmsg, hwnd.param().abi(), wmsgfiltermin, wmsgfiltermax, pfresult).ok()
     }
 }
 #[repr(C)]
@@ -4092,11 +4092,11 @@ windows_core::imp::interface_hierarchy!(ITfMouseTracker, windows_core::IUnknown)
 impl ITfMouseTracker {
     pub unsafe fn AdviseMouseSink<P0, P1>(&self, range: P0, psink: P1) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<ITfRange>,
-        P1: windows_core::IntoParam<ITfMouseSink>,
+        P0: windows_core::Param<ITfRange>,
+        P1: windows_core::Param<ITfMouseSink>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AdviseMouseSink)(windows_core::Interface::as_raw(self), range.into_param().abi(), psink.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AdviseMouseSink)(windows_core::Interface::as_raw(self), range.param().abi(), psink.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn UnadviseMouseSink(&self, dwcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnadviseMouseSink)(windows_core::Interface::as_raw(self), dwcookie).ok()
@@ -4113,11 +4113,11 @@ windows_core::imp::interface_hierarchy!(ITfMouseTrackerACP, windows_core::IUnkno
 impl ITfMouseTrackerACP {
     pub unsafe fn AdviseMouseSink<P0, P1>(&self, range: P0, psink: P1) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<ITfRangeACP>,
-        P1: windows_core::IntoParam<ITfMouseSink>,
+        P0: windows_core::Param<ITfRangeACP>,
+        P1: windows_core::Param<ITfMouseSink>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AdviseMouseSink)(windows_core::Interface::as_raw(self), range.into_param().abi(), psink.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AdviseMouseSink)(windows_core::Interface::as_raw(self), range.param().abi(), psink.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn UnadviseMouseSink(&self, dwcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnadviseMouseSink)(windows_core::Interface::as_raw(self), dwcookie).ok()
@@ -4167,16 +4167,16 @@ impl ITfProperty {
     }
     pub unsafe fn EnumRanges<P0>(&self, ec: u32, ppenum: *mut Option<IEnumTfRanges>, ptargetrange: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).base__.EnumRanges)(windows_core::Interface::as_raw(self), ec, core::mem::transmute(ppenum), ptargetrange.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.EnumRanges)(windows_core::Interface::as_raw(self), ec, core::mem::transmute(ppenum), ptargetrange.param().abi()).ok()
     }
     pub unsafe fn GetValue<P0>(&self, ec: u32, prange: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetValue)(windows_core::Interface::as_raw(self), ec, prange.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetValue)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetContext(&self) -> windows_core::Result<ITfContext> {
         let mut result__ = std::mem::zeroed();
@@ -4184,28 +4184,28 @@ impl ITfProperty {
     }
     pub unsafe fn FindRange<P0>(&self, ec: u32, prange: P0, pprange: *mut Option<ITfRange>, apos: TfAnchor) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).FindRange)(windows_core::Interface::as_raw(self), ec, prange.into_param().abi(), core::mem::transmute(pprange), apos).ok()
+        (windows_core::Interface::vtable(self).FindRange)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), core::mem::transmute(pprange), apos).ok()
     }
     pub unsafe fn SetValueStore<P0, P1>(&self, ec: u32, prange: P0, ppropstore: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
-        P1: windows_core::IntoParam<ITfPropertyStore>,
+        P0: windows_core::Param<ITfRange>,
+        P1: windows_core::Param<ITfPropertyStore>,
     {
-        (windows_core::Interface::vtable(self).SetValueStore)(windows_core::Interface::as_raw(self), ec, prange.into_param().abi(), ppropstore.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetValueStore)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), ppropstore.param().abi()).ok()
     }
     pub unsafe fn SetValue<P0>(&self, ec: u32, prange: P0, pvarvalue: *const windows_core::VARIANT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), ec, prange.into_param().abi(), core::mem::transmute(pvarvalue)).ok()
+        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), core::mem::transmute(pvarvalue)).ok()
     }
     pub unsafe fn Clear<P0>(&self, ec: u32, prange: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self), ec, prange.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self), ec, prange.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -4233,25 +4233,25 @@ impl ITfPropertyStore {
     }
     pub unsafe fn OnTextUpdated<P0>(&self, dwflags: u32, prangenew: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnTextUpdated)(windows_core::Interface::as_raw(self), dwflags, prangenew.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OnTextUpdated)(windows_core::Interface::as_raw(self), dwflags, prangenew.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Shrink<P0>(&self, prangenew: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Shrink)(windows_core::Interface::as_raw(self), prangenew.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Shrink)(windows_core::Interface::as_raw(self), prangenew.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Divide<P0, P1>(&self, prangethis: P0, prangenew: P1) -> windows_core::Result<ITfPropertyStore>
     where
-        P0: windows_core::IntoParam<ITfRange>,
-        P1: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
+        P1: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Divide)(windows_core::Interface::as_raw(self), prangethis.into_param().abi(), prangenew.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Divide)(windows_core::Interface::as_raw(self), prangethis.param().abi(), prangenew.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<ITfPropertyStore> {
         let mut result__ = std::mem::zeroed();
@@ -4264,10 +4264,10 @@ impl ITfPropertyStore {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Serialize<P0>(&self, pstream: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IStream>,
+        P0: windows_core::Param<super::super::System::Com::IStream>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), pstream.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), pstream.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -4324,9 +4324,9 @@ impl ITfRange {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEmbedded<P0>(&self, ec: u32, dwflags: u32, pdataobject: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IDataObject>,
+        P0: windows_core::Param<super::super::System::Com::IDataObject>,
     {
-        (windows_core::Interface::vtable(self).InsertEmbedded)(windows_core::Interface::as_raw(self), ec, dwflags, pdataobject.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).InsertEmbedded)(windows_core::Interface::as_raw(self), ec, dwflags, pdataobject.param().abi()).ok()
     }
     pub unsafe fn ShiftStart(&self, ec: u32, cchreq: i32, pcch: *mut i32, phalt: *const TF_HALTCOND) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ShiftStart)(windows_core::Interface::as_raw(self), ec, cchreq, pcch, phalt).ok()
@@ -4336,15 +4336,15 @@ impl ITfRange {
     }
     pub unsafe fn ShiftStartToRange<P0>(&self, ec: u32, prange: P0, apos: TfAnchor) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).ShiftStartToRange)(windows_core::Interface::as_raw(self), ec, prange.into_param().abi(), apos).ok()
+        (windows_core::Interface::vtable(self).ShiftStartToRange)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), apos).ok()
     }
     pub unsafe fn ShiftEndToRange<P0>(&self, ec: u32, prange: P0, apos: TfAnchor) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).ShiftEndToRange)(windows_core::Interface::as_raw(self), ec, prange.into_param().abi(), apos).ok()
+        (windows_core::Interface::vtable(self).ShiftEndToRange)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), apos).ok()
     }
     pub unsafe fn ShiftStartRegion(&self, ec: u32, dir: TfShiftDir) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -4363,31 +4363,31 @@ impl ITfRange {
     }
     pub unsafe fn IsEqualStart<P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsEqualStart)(windows_core::Interface::as_raw(self), ec, pwith.into_param().abi(), apos, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).IsEqualStart)(windows_core::Interface::as_raw(self), ec, pwith.param().abi(), apos, &mut result__).map(|| result__)
     }
     pub unsafe fn IsEqualEnd<P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsEqualEnd)(windows_core::Interface::as_raw(self), ec, pwith.into_param().abi(), apos, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).IsEqualEnd)(windows_core::Interface::as_raw(self), ec, pwith.param().abi(), apos, &mut result__).map(|| result__)
     }
     pub unsafe fn CompareStart<P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CompareStart)(windows_core::Interface::as_raw(self), ec, pwith.into_param().abi(), apos, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CompareStart)(windows_core::Interface::as_raw(self), ec, pwith.param().abi(), apos, &mut result__).map(|| result__)
     }
     pub unsafe fn CompareEnd<P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CompareEnd)(windows_core::Interface::as_raw(self), ec, pwith.into_param().abi(), apos, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CompareEnd)(windows_core::Interface::as_raw(self), ec, pwith.param().abi(), apos, &mut result__).map(|| result__)
     }
     pub unsafe fn AdjustForInsert(&self, ec: u32, cchinsert: u32) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -4461,9 +4461,9 @@ impl ITfRangeACP {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEmbedded<P0>(&self, ec: u32, dwflags: u32, pdataobject: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IDataObject>,
+        P0: windows_core::Param<super::super::System::Com::IDataObject>,
     {
-        (windows_core::Interface::vtable(self).base__.InsertEmbedded)(windows_core::Interface::as_raw(self), ec, dwflags, pdataobject.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.InsertEmbedded)(windows_core::Interface::as_raw(self), ec, dwflags, pdataobject.param().abi()).ok()
     }
     pub unsafe fn ShiftStart(&self, ec: u32, cchreq: i32, pcch: *mut i32, phalt: *const TF_HALTCOND) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.ShiftStart)(windows_core::Interface::as_raw(self), ec, cchreq, pcch, phalt).ok()
@@ -4473,15 +4473,15 @@ impl ITfRangeACP {
     }
     pub unsafe fn ShiftStartToRange<P0>(&self, ec: u32, prange: P0, apos: TfAnchor) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).base__.ShiftStartToRange)(windows_core::Interface::as_raw(self), ec, prange.into_param().abi(), apos).ok()
+        (windows_core::Interface::vtable(self).base__.ShiftStartToRange)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), apos).ok()
     }
     pub unsafe fn ShiftEndToRange<P0>(&self, ec: u32, prange: P0, apos: TfAnchor) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).base__.ShiftEndToRange)(windows_core::Interface::as_raw(self), ec, prange.into_param().abi(), apos).ok()
+        (windows_core::Interface::vtable(self).base__.ShiftEndToRange)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), apos).ok()
     }
     pub unsafe fn ShiftStartRegion(&self, ec: u32, dir: TfShiftDir) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -4500,31 +4500,31 @@ impl ITfRangeACP {
     }
     pub unsafe fn IsEqualStart<P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsEqualStart)(windows_core::Interface::as_raw(self), ec, pwith.into_param().abi(), apos, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.IsEqualStart)(windows_core::Interface::as_raw(self), ec, pwith.param().abi(), apos, &mut result__).map(|| result__)
     }
     pub unsafe fn IsEqualEnd<P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsEqualEnd)(windows_core::Interface::as_raw(self), ec, pwith.into_param().abi(), apos, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.IsEqualEnd)(windows_core::Interface::as_raw(self), ec, pwith.param().abi(), apos, &mut result__).map(|| result__)
     }
     pub unsafe fn CompareStart<P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CompareStart)(windows_core::Interface::as_raw(self), ec, pwith.into_param().abi(), apos, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.CompareStart)(windows_core::Interface::as_raw(self), ec, pwith.param().abi(), apos, &mut result__).map(|| result__)
     }
     pub unsafe fn CompareEnd<P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CompareEnd)(windows_core::Interface::as_raw(self), ec, pwith.into_param().abi(), apos, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.CompareEnd)(windows_core::Interface::as_raw(self), ec, pwith.param().abi(), apos, &mut result__).map(|| result__)
     }
     pub unsafe fn AdjustForInsert(&self, ec: u32, cchinsert: u32) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -4562,9 +4562,9 @@ windows_core::imp::interface_hierarchy!(ITfRangeBackup, windows_core::IUnknown);
 impl ITfRangeBackup {
     pub unsafe fn Restore<P0>(&self, ec: u32, prange: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self), ec, prange.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self), ec, prange.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -4581,16 +4581,16 @@ impl ITfReadOnlyProperty {
     }
     pub unsafe fn EnumRanges<P0>(&self, ec: u32, ppenum: *mut Option<IEnumTfRanges>, ptargetrange: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
-        (windows_core::Interface::vtable(self).EnumRanges)(windows_core::Interface::as_raw(self), ec, core::mem::transmute(ppenum), ptargetrange.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).EnumRanges)(windows_core::Interface::as_raw(self), ec, core::mem::transmute(ppenum), ptargetrange.param().abi()).ok()
     }
     pub unsafe fn GetValue<P0>(&self, ec: u32, prange: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), ec, prange.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetContext(&self) -> windows_core::Result<ITfContext> {
         let mut result__ = std::mem::zeroed();
@@ -4618,9 +4618,9 @@ impl ITfReadingInformationUIElement {
     }
     pub unsafe fn Show<P0>(&self, bshow: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.Show)(windows_core::Interface::as_raw(self), bshow.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Show)(windows_core::Interface::as_raw(self), bshow.param().abi()).ok()
     }
     pub unsafe fn IsShown(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -4666,10 +4666,10 @@ windows_core::imp::interface_hierarchy!(ITfReverseConversion, windows_core::IUnk
 impl ITfReverseConversion {
     pub unsafe fn DoReverseConversion<P0>(&self, lpstr: P0) -> windows_core::Result<ITfReverseConversionList>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).DoReverseConversion)(windows_core::Interface::as_raw(self), lpstr.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).DoReverseConversion)(windows_core::Interface::as_raw(self), lpstr.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -4713,10 +4713,10 @@ windows_core::imp::interface_hierarchy!(ITfSource, windows_core::IUnknown);
 impl ITfSource {
     pub unsafe fn AdviseSink<P0>(&self, riid: *const windows_core::GUID, punk: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AdviseSink)(windows_core::Interface::as_raw(self), riid, punk.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AdviseSink)(windows_core::Interface::as_raw(self), riid, punk.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn UnadviseSink(&self, dwcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnadviseSink)(windows_core::Interface::as_raw(self), dwcookie).ok()
@@ -4733,9 +4733,9 @@ windows_core::imp::interface_hierarchy!(ITfSourceSingle, windows_core::IUnknown)
 impl ITfSourceSingle {
     pub unsafe fn AdviseSingleSink<P0>(&self, tid: u32, riid: *const windows_core::GUID, punk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).AdviseSingleSink)(windows_core::Interface::as_raw(self), tid, riid, punk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AdviseSingleSink)(windows_core::Interface::as_raw(self), tid, riid, punk.param().abi()).ok()
     }
     pub unsafe fn UnadviseSingleSink(&self, tid: u32, riid: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnadviseSingleSink)(windows_core::Interface::as_raw(self), tid, riid).ok()
@@ -4755,9 +4755,9 @@ impl ITfSpeechUIServer {
     }
     pub unsafe fn ShowUI<P0>(&self, fshow: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).ShowUI)(windows_core::Interface::as_raw(self), fshow.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ShowUI)(windows_core::Interface::as_raw(self), fshow.param().abi()).ok()
     }
     pub unsafe fn UpdateBalloon(&self, style: TfLBBalloonStyle, pch: &[u16]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UpdateBalloon)(windows_core::Interface::as_raw(self), style, core::mem::transmute(pch.as_ptr()), pch.len().try_into().unwrap()).ok()
@@ -4775,9 +4775,9 @@ windows_core::imp::interface_hierarchy!(ITfStatusSink, windows_core::IUnknown);
 impl ITfStatusSink {
     pub unsafe fn OnStatusChange<P0>(&self, pic: P0, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfContext>,
+        P0: windows_core::Param<ITfContext>,
     {
-        (windows_core::Interface::vtable(self).OnStatusChange)(windows_core::Interface::as_raw(self), pic.into_param().abi(), dwflags).ok()
+        (windows_core::Interface::vtable(self).OnStatusChange)(windows_core::Interface::as_raw(self), pic.param().abi(), dwflags).ok()
     }
 }
 #[repr(C)]
@@ -4808,9 +4808,9 @@ impl ITfSystemLangBarItem {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn SetIcon<P0>(&self, hicon: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::WindowsAndMessaging::HICON>,
+        P0: windows_core::Param<super::WindowsAndMessaging::HICON>,
     {
-        (windows_core::Interface::vtable(self).SetIcon)(windows_core::Interface::as_raw(self), hicon.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetIcon)(windows_core::Interface::as_raw(self), hicon.param().abi()).ok()
     }
     pub unsafe fn SetTooltipString(&self, pchtooltip: &[u16]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetTooltipString)(windows_core::Interface::as_raw(self), core::mem::transmute(pchtooltip.as_ptr()), pchtooltip.len().try_into().unwrap()).ok()
@@ -4830,9 +4830,9 @@ windows_core::imp::interface_hierarchy!(ITfSystemLangBarItemSink, windows_core::
 impl ITfSystemLangBarItemSink {
     pub unsafe fn InitMenu<P0>(&self, pmenu: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfMenu>,
+        P0: windows_core::Param<ITfMenu>,
     {
-        (windows_core::Interface::vtable(self).InitMenu)(windows_core::Interface::as_raw(self), pmenu.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).InitMenu)(windows_core::Interface::as_raw(self), pmenu.param().abi()).ok()
     }
     pub unsafe fn OnMenuSelect(&self, wid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnMenuSelect)(windows_core::Interface::as_raw(self), wid).ok()
@@ -4866,10 +4866,10 @@ windows_core::imp::interface_hierarchy!(ITfTextEditSink, windows_core::IUnknown)
 impl ITfTextEditSink {
     pub unsafe fn OnEndEdit<P0, P1>(&self, pic: P0, ecreadonly: u32, peditrecord: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfContext>,
-        P1: windows_core::IntoParam<ITfEditRecord>,
+        P0: windows_core::Param<ITfContext>,
+        P1: windows_core::Param<ITfEditRecord>,
     {
-        (windows_core::Interface::vtable(self).OnEndEdit)(windows_core::Interface::as_raw(self), pic.into_param().abi(), ecreadonly, peditrecord.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnEndEdit)(windows_core::Interface::as_raw(self), pic.param().abi(), ecreadonly, peditrecord.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -4882,9 +4882,9 @@ windows_core::imp::interface_hierarchy!(ITfTextInputProcessor, windows_core::IUn
 impl ITfTextInputProcessor {
     pub unsafe fn Activate<P0>(&self, ptim: P0, tid: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfThreadMgr>,
+        P0: windows_core::Param<ITfThreadMgr>,
     {
-        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), ptim.into_param().abi(), tid).ok()
+        (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), ptim.param().abi(), tid).ok()
     }
     pub unsafe fn Deactivate(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Deactivate)(windows_core::Interface::as_raw(self)).ok()
@@ -4901,18 +4901,18 @@ windows_core::imp::interface_hierarchy!(ITfTextInputProcessorEx, windows_core::I
 impl ITfTextInputProcessorEx {
     pub unsafe fn Activate<P0>(&self, ptim: P0, tid: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfThreadMgr>,
+        P0: windows_core::Param<ITfThreadMgr>,
     {
-        (windows_core::Interface::vtable(self).base__.Activate)(windows_core::Interface::as_raw(self), ptim.into_param().abi(), tid).ok()
+        (windows_core::Interface::vtable(self).base__.Activate)(windows_core::Interface::as_raw(self), ptim.param().abi(), tid).ok()
     }
     pub unsafe fn Deactivate(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Deactivate)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn ActivateEx<P0>(&self, ptim: P0, tid: u32, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfThreadMgr>,
+        P0: windows_core::Param<ITfThreadMgr>,
     {
-        (windows_core::Interface::vtable(self).ActivateEx)(windows_core::Interface::as_raw(self), ptim.into_param().abi(), tid, dwflags).ok()
+        (windows_core::Interface::vtable(self).ActivateEx)(windows_core::Interface::as_raw(self), ptim.param().abi(), tid, dwflags).ok()
     }
 }
 #[repr(C)]
@@ -4925,10 +4925,10 @@ windows_core::imp::interface_hierarchy!(ITfTextLayoutSink, windows_core::IUnknow
 impl ITfTextLayoutSink {
     pub unsafe fn OnLayoutChange<P0, P1>(&self, pic: P0, lcode: TfLayoutCode, pview: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfContext>,
-        P1: windows_core::IntoParam<ITfContextView>,
+        P0: windows_core::Param<ITfContext>,
+        P1: windows_core::Param<ITfContextView>,
     {
-        (windows_core::Interface::vtable(self).OnLayoutChange)(windows_core::Interface::as_raw(self), pic.into_param().abi(), lcode, pview.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnLayoutChange)(windows_core::Interface::as_raw(self), pic.param().abi(), lcode, pview.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -4976,17 +4976,17 @@ impl ITfThreadMgr {
     }
     pub unsafe fn SetFocus<P0>(&self, pdimfocus: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfDocumentMgr>,
+        P0: windows_core::Param<ITfDocumentMgr>,
     {
-        (windows_core::Interface::vtable(self).SetFocus)(windows_core::Interface::as_raw(self), pdimfocus.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFocus)(windows_core::Interface::as_raw(self), pdimfocus.param().abi()).ok()
     }
     pub unsafe fn AssociateFocus<P0, P1>(&self, hwnd: P0, pdimnew: P1) -> windows_core::Result<ITfDocumentMgr>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<ITfDocumentMgr>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<ITfDocumentMgr>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AssociateFocus)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), pdimnew.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).AssociateFocus)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pdimnew.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn IsThreadFocus(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -5044,9 +5044,9 @@ impl ITfThreadMgr2 {
     }
     pub unsafe fn SetFocus<P0>(&self, pdimfocus: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfDocumentMgr>,
+        P0: windows_core::Param<ITfDocumentMgr>,
     {
-        (windows_core::Interface::vtable(self).SetFocus)(windows_core::Interface::as_raw(self), pdimfocus.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFocus)(windows_core::Interface::as_raw(self), pdimfocus.param().abi()).ok()
     }
     pub unsafe fn IsThreadFocus(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -5101,34 +5101,34 @@ windows_core::imp::interface_hierarchy!(ITfThreadMgrEventSink, windows_core::IUn
 impl ITfThreadMgrEventSink {
     pub unsafe fn OnInitDocumentMgr<P0>(&self, pdim: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfDocumentMgr>,
+        P0: windows_core::Param<ITfDocumentMgr>,
     {
-        (windows_core::Interface::vtable(self).OnInitDocumentMgr)(windows_core::Interface::as_raw(self), pdim.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnInitDocumentMgr)(windows_core::Interface::as_raw(self), pdim.param().abi()).ok()
     }
     pub unsafe fn OnUninitDocumentMgr<P0>(&self, pdim: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfDocumentMgr>,
+        P0: windows_core::Param<ITfDocumentMgr>,
     {
-        (windows_core::Interface::vtable(self).OnUninitDocumentMgr)(windows_core::Interface::as_raw(self), pdim.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnUninitDocumentMgr)(windows_core::Interface::as_raw(self), pdim.param().abi()).ok()
     }
     pub unsafe fn OnSetFocus<P0, P1>(&self, pdimfocus: P0, pdimprevfocus: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfDocumentMgr>,
-        P1: windows_core::IntoParam<ITfDocumentMgr>,
+        P0: windows_core::Param<ITfDocumentMgr>,
+        P1: windows_core::Param<ITfDocumentMgr>,
     {
-        (windows_core::Interface::vtable(self).OnSetFocus)(windows_core::Interface::as_raw(self), pdimfocus.into_param().abi(), pdimprevfocus.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnSetFocus)(windows_core::Interface::as_raw(self), pdimfocus.param().abi(), pdimprevfocus.param().abi()).ok()
     }
     pub unsafe fn OnPushContext<P0>(&self, pic: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfContext>,
+        P0: windows_core::Param<ITfContext>,
     {
-        (windows_core::Interface::vtable(self).OnPushContext)(windows_core::Interface::as_raw(self), pic.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnPushContext)(windows_core::Interface::as_raw(self), pic.param().abi()).ok()
     }
     pub unsafe fn OnPopContext<P0>(&self, pic: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfContext>,
+        P0: windows_core::Param<ITfContext>,
     {
-        (windows_core::Interface::vtable(self).OnPopContext)(windows_core::Interface::as_raw(self), pic.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnPopContext)(windows_core::Interface::as_raw(self), pic.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -5164,17 +5164,17 @@ impl ITfThreadMgrEx {
     }
     pub unsafe fn SetFocus<P0>(&self, pdimfocus: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfDocumentMgr>,
+        P0: windows_core::Param<ITfDocumentMgr>,
     {
-        (windows_core::Interface::vtable(self).base__.SetFocus)(windows_core::Interface::as_raw(self), pdimfocus.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetFocus)(windows_core::Interface::as_raw(self), pdimfocus.param().abi()).ok()
     }
     pub unsafe fn AssociateFocus<P0, P1>(&self, hwnd: P0, pdimnew: P1) -> windows_core::Result<ITfDocumentMgr>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<ITfDocumentMgr>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<ITfDocumentMgr>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.AssociateFocus)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), pdimnew.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.AssociateFocus)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pdimnew.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn IsThreadFocus(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -5219,9 +5219,9 @@ impl ITfToolTipUIElement {
     }
     pub unsafe fn Show<P0>(&self, bshow: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.Show)(windows_core::Interface::as_raw(self), bshow.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Show)(windows_core::Interface::as_raw(self), bshow.param().abi()).ok()
     }
     pub unsafe fn IsShown(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -5242,12 +5242,12 @@ windows_core::imp::interface_hierarchy!(ITfTransitoryExtensionSink, windows_core
 impl ITfTransitoryExtensionSink {
     pub unsafe fn OnTransitoryExtensionUpdated<P0, P1, P2>(&self, pic: P0, ecreadonly: u32, presultrange: P1, pcompositionrange: P2) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<ITfContext>,
-        P1: windows_core::IntoParam<ITfRange>,
-        P2: windows_core::IntoParam<ITfRange>,
+        P0: windows_core::Param<ITfContext>,
+        P1: windows_core::Param<ITfRange>,
+        P2: windows_core::Param<ITfRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnTransitoryExtensionUpdated)(windows_core::Interface::as_raw(self), pic.into_param().abi(), ecreadonly, presultrange.into_param().abi(), pcompositionrange.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OnTransitoryExtensionUpdated)(windows_core::Interface::as_raw(self), pic.param().abi(), ecreadonly, presultrange.param().abi(), pcompositionrange.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -5268,9 +5268,9 @@ impl ITfTransitoryExtensionUIElement {
     }
     pub unsafe fn Show<P0>(&self, bshow: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.Show)(windows_core::Interface::as_raw(self), bshow.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Show)(windows_core::Interface::as_raw(self), bshow.param().abi()).ok()
     }
     pub unsafe fn IsShown(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -5299,9 +5299,9 @@ impl ITfUIElement {
     }
     pub unsafe fn Show<P0>(&self, bshow: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), bshow.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), bshow.param().abi()).ok()
     }
     pub unsafe fn IsShown(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -5321,9 +5321,9 @@ windows_core::imp::interface_hierarchy!(ITfUIElementMgr, windows_core::IUnknown)
 impl ITfUIElementMgr {
     pub unsafe fn BeginUIElement<P0>(&self, pelement: P0, pbshow: *mut super::super::Foundation::BOOL, pdwuielementid: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITfUIElement>,
+        P0: windows_core::Param<ITfUIElement>,
     {
-        (windows_core::Interface::vtable(self).BeginUIElement)(windows_core::Interface::as_raw(self), pelement.into_param().abi(), pbshow, pdwuielementid).ok()
+        (windows_core::Interface::vtable(self).BeginUIElement)(windows_core::Interface::as_raw(self), pelement.param().abi(), pbshow, pdwuielementid).ok()
     }
     pub unsafe fn UpdateUIElement(&self, dwuielementid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UpdateUIElement)(windows_core::Interface::as_raw(self), dwuielementid).ok()

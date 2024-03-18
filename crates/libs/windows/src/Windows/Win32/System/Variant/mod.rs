@@ -65,11 +65,11 @@ pub unsafe fn InitVariantFromInt64Array(prgn: &[i64]) -> windows_core::Result<wi
 #[inline]
 pub unsafe fn InitVariantFromResource<P0>(hinst: P0, id: u32) -> windows_core::Result<windows_core::VARIANT>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
 {
     windows_targets::link!("propsys.dll" "system" fn InitVariantFromResource(hinst : super::super::Foundation:: HINSTANCE, id : u32, pvar : *mut std::mem::MaybeUninit < windows_core::VARIANT >) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    InitVariantFromResource(hinst.into_param().abi(), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    InitVariantFromResource(hinst.param().abi(), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn InitVariantFromStringArray(prgsz: &[windows_core::PCWSTR]) -> windows_core::Result<windows_core::VARIANT> {
@@ -271,10 +271,10 @@ pub unsafe fn VariantToBooleanArrayAlloc(var: *const windows_core::VARIANT, pprg
 #[inline]
 pub unsafe fn VariantToBooleanWithDefault<P0>(varin: *const windows_core::VARIANT, fdefault: P0) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("propsys.dll" "system" fn VariantToBooleanWithDefault(varin : *const std::mem::MaybeUninit < windows_core::VARIANT >, fdefault : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    VariantToBooleanWithDefault(core::mem::transmute(varin), fdefault.into_param().abi())
+    VariantToBooleanWithDefault(core::mem::transmute(varin), fdefault.param().abi())
 }
 #[inline]
 pub unsafe fn VariantToBuffer(varin: *const windows_core::VARIANT, pv: *mut core::ffi::c_void, cb: u32) -> windows_core::Result<()> {
@@ -406,10 +406,10 @@ pub unsafe fn VariantToStringArrayAlloc(var: *const windows_core::VARIANT, pprgs
 #[inline]
 pub unsafe fn VariantToStringWithDefault<P0>(varin: *const windows_core::VARIANT, pszdefault: P0) -> windows_core::PCWSTR
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("propsys.dll" "system" fn VariantToStringWithDefault(varin : *const std::mem::MaybeUninit < windows_core::VARIANT >, pszdefault : windows_core::PCWSTR) -> windows_core::PCWSTR);
-    VariantToStringWithDefault(core::mem::transmute(varin), pszdefault.into_param().abi())
+    VariantToStringWithDefault(core::mem::transmute(varin), pszdefault.param().abi())
 }
 #[inline]
 pub unsafe fn VariantToUInt16(varin: *const windows_core::VARIANT) -> windows_core::Result<u16> {

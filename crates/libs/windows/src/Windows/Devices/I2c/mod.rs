@@ -80,12 +80,12 @@ impl II2cDeviceStatics {
     }
     pub fn FromIdAsync<P0>(&self, deviceid: &windows_core::HSTRING, settings: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>>
     where
-        P0: windows_core::IntoParam<I2cConnectionSettings>,
+        P0: windows_core::Param<I2cConnectionSettings>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), settings.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -168,22 +168,22 @@ windows_core::imp::interface_hierarchy!(I2cController, windows_core::IUnknown, w
 impl I2cController {
     pub fn GetDevice<P0>(&self, settings: P0) -> windows_core::Result<I2cDevice>
     where
-        P0: windows_core::IntoParam<I2cConnectionSettings>,
+        P0: windows_core::Param<I2cConnectionSettings>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDevice)(windows_core::Interface::as_raw(this), settings.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDevice)(windows_core::Interface::as_raw(this), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Devices_I2c_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<I2cController>>>
     where
-        P0: windows_core::IntoParam<Provider::II2cProvider>,
+        P0: windows_core::Param<Provider::II2cProvider>,
     {
         Self::II2cControllerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<I2cController>> {
@@ -281,11 +281,11 @@ impl I2cDevice {
     }
     pub fn FromIdAsync<P0>(deviceid: &windows_core::HSTRING, settings: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>>
     where
-        P0: windows_core::IntoParam<I2cConnectionSettings>,
+        P0: windows_core::Param<I2cConnectionSettings>,
     {
         Self::II2cDeviceStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), settings.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

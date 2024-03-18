@@ -421,10 +421,10 @@ impl RfcommInboundConnectionInformation {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetSdpRecord<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSdpRecord)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSdpRecord)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
     pub fn LocalServiceId(&self) -> windows_core::Result<super::Rfcomm::RfcommServiceId> {
@@ -437,10 +437,10 @@ impl RfcommInboundConnectionInformation {
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
     pub fn SetLocalServiceId<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Rfcomm::RfcommServiceId>,
+        P0: windows_core::Param<super::Rfcomm::RfcommServiceId>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLocalServiceId)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLocalServiceId)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ServiceCapabilities(&self) -> windows_core::Result<super::BluetoothServiceCapabilities> {
         let this = self;
@@ -482,10 +482,10 @@ impl RfcommOutboundConnectionInformation {
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
     pub fn SetRemoteServiceId<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Rfcomm::RfcommServiceId>,
+        P0: windows_core::Param<super::Rfcomm::RfcommServiceId>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRemoteServiceId)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRemoteServiceId)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for RfcommOutboundConnectionInformation {

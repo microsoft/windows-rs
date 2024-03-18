@@ -117,31 +117,31 @@ impl SpatialGraphInteropPreview {
     }
     pub fn TryCreateFrameOfReference<P0>(coordinatesystem: P0) -> windows_core::Result<SpatialGraphInteropFrameOfReferencePreview>
     where
-        P0: windows_core::IntoParam<super::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::SpatialCoordinateSystem>,
     {
         Self::ISpatialGraphInteropPreviewStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCreateFrameOfReference)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCreateFrameOfReference)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryCreateFrameOfReferenceWithPosition<P0>(coordinatesystem: P0, relativeposition: super::super::super::Foundation::Numerics::Vector3) -> windows_core::Result<SpatialGraphInteropFrameOfReferencePreview>
     where
-        P0: windows_core::IntoParam<super::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::SpatialCoordinateSystem>,
     {
         Self::ISpatialGraphInteropPreviewStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCreateFrameOfReferenceWithPosition)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), relativeposition, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCreateFrameOfReferenceWithPosition)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), relativeposition, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryCreateFrameOfReferenceWithPositionAndOrientation<P0>(coordinatesystem: P0, relativeposition: super::super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::super::Foundation::Numerics::Quaternion) -> windows_core::Result<SpatialGraphInteropFrameOfReferencePreview>
     where
-        P0: windows_core::IntoParam<super::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::SpatialCoordinateSystem>,
     {
         Self::ISpatialGraphInteropPreviewStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCreateFrameOfReferenceWithPositionAndOrientation)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), relativeposition, relativeorientation, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCreateFrameOfReferenceWithPositionAndOrientation)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), relativeposition, relativeorientation, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

@@ -1916,22 +1916,22 @@ impl AdvancedPhotoCapture {
     }
     pub fn CaptureWithContextAsync<P0>(&self, context: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CaptureWithContextAsync)(windows_core::Interface::as_raw(this), context.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CaptureWithContextAsync)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OptionalReferencePhotoCaptured<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, OptionalReferencePhotoCapturedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, OptionalReferencePhotoCapturedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).OptionalReferencePhotoCaptured)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).OptionalReferencePhotoCaptured)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveOptionalReferencePhotoCaptured(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1940,12 +1940,12 @@ impl AdvancedPhotoCapture {
     }
     pub fn AllPhotosCaptured<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AllPhotosCaptured)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AllPhotosCaptured)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAllPhotosCaptured(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1990,10 +1990,10 @@ impl AppBroadcastBackgroundService {
     }
     pub fn SetSignInInfo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<AppBroadcastBackgroundServiceSignInInfo>,
+        P0: windows_core::Param<AppBroadcastBackgroundServiceSignInInfo>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSignInInfo)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSignInInfo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn SignInInfo(&self) -> windows_core::Result<AppBroadcastBackgroundServiceSignInInfo> {
         let this = self;
@@ -2004,10 +2004,10 @@ impl AppBroadcastBackgroundService {
     }
     pub fn SetStreamInfo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<AppBroadcastBackgroundServiceStreamInfo>,
+        P0: windows_core::Param<AppBroadcastBackgroundServiceStreamInfo>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetStreamInfo)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetStreamInfo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn StreamInfo(&self) -> windows_core::Result<AppBroadcastBackgroundServiceStreamInfo> {
         let this = self;
@@ -2047,12 +2047,12 @@ impl AppBroadcastBackgroundService {
     }
     pub fn HeartbeatRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, AppBroadcastHeartbeatRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, AppBroadcastHeartbeatRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).HeartbeatRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HeartbeatRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveHeartbeatRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2094,12 +2094,12 @@ impl AppBroadcastBackgroundService {
     }
     pub fn BroadcastTitleChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).BroadcastTitleChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).BroadcastTitleChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveBroadcastTitleChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2108,12 +2108,12 @@ impl AppBroadcastBackgroundService {
     }
     pub fn BroadcastLanguageChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).BroadcastLanguageChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).BroadcastLanguageChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveBroadcastLanguageChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2122,12 +2122,12 @@ impl AppBroadcastBackgroundService {
     }
     pub fn BroadcastChannelChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).BroadcastChannelChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).BroadcastChannelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveBroadcastChannelChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2159,10 +2159,10 @@ impl AppBroadcastBackgroundServiceSignInInfo {
     }
     pub fn SetOAuthRequestUri<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetOAuthRequestUri)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetOAuthRequestUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn OAuthRequestUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2173,10 +2173,10 @@ impl AppBroadcastBackgroundServiceSignInInfo {
     }
     pub fn SetOAuthCallbackUri<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetOAuthCallbackUri)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetOAuthCallbackUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn OAuthCallbackUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2206,12 +2206,12 @@ impl AppBroadcastBackgroundServiceSignInInfo {
     }
     pub fn SignInStateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceSignInInfo, AppBroadcastSignInStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceSignInInfo, AppBroadcastSignInStateChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SignInStateChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SignInStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSignInStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2220,12 +2220,12 @@ impl AppBroadcastBackgroundServiceSignInInfo {
     }
     pub fn UserNameChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceSignInInfo, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceSignInInfo, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IAppBroadcastBackgroundServiceSignInInfo2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserNameChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UserNameChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveUserNameChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2297,12 +2297,12 @@ impl AppBroadcastBackgroundServiceStreamInfo {
     }
     pub fn StreamStateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, AppBroadcastStreamStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, AppBroadcastStreamStateChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StreamStateChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StreamStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStreamStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2311,12 +2311,12 @@ impl AppBroadcastBackgroundServiceStreamInfo {
     }
     pub fn VideoEncodingResolutionChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).VideoEncodingResolutionChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VideoEncodingResolutionChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveVideoEncodingResolutionChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2325,12 +2325,12 @@ impl AppBroadcastBackgroundServiceStreamInfo {
     }
     pub fn VideoEncodingBitrateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).VideoEncodingBitrateChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VideoEncodingBitrateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveVideoEncodingBitrateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2575,9 +2575,9 @@ impl AppBroadcastManager {
     }
     pub fn ApplyGlobalSettings<P0>(value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<AppBroadcastGlobalSettings>,
+        P0: windows_core::Param<AppBroadcastGlobalSettings>,
     {
-        Self::IAppBroadcastManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ApplyGlobalSettings)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() })
+        Self::IAppBroadcastManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ApplyGlobalSettings)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
     pub fn GetProviderSettings() -> windows_core::Result<AppBroadcastProviderSettings> {
         Self::IAppBroadcastManagerStatics(|this| unsafe {
@@ -2587,9 +2587,9 @@ impl AppBroadcastManager {
     }
     pub fn ApplyProviderSettings<P0>(value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<AppBroadcastProviderSettings>,
+        P0: windows_core::Param<AppBroadcastProviderSettings>,
     {
-        Self::IAppBroadcastManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ApplyProviderSettings)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() })
+        Self::IAppBroadcastManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ApplyProviderSettings)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
     #[doc(hidden)]
     pub fn IAppBroadcastManagerStatics<R, F: FnOnce(&IAppBroadcastManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2708,10 +2708,10 @@ impl AppBroadcastPlugInManager {
     }
     pub fn SetDefaultPlugIn<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<AppBroadcastPlugIn>,
+        P0: windows_core::Param<AppBroadcastPlugIn>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDefaultPlugIn)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDefaultPlugIn)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn GetDefault() -> windows_core::Result<AppBroadcastPlugInManager> {
         Self::IAppBroadcastPlugInManagerStatics(|this| unsafe {
@@ -2722,11 +2722,11 @@ impl AppBroadcastPlugInManager {
     #[cfg(feature = "System")]
     pub fn GetForUser<P0>(user: P0) -> windows_core::Result<AppBroadcastPlugInManager>
     where
-        P0: windows_core::IntoParam<super::super::System::User>,
+        P0: windows_core::Param<super::super::System::User>,
     {
         Self::IAppBroadcastPlugInManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -2797,12 +2797,12 @@ impl AppBroadcastPreview {
     }
     pub fn PreviewStateChanged<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastPreview, AppBroadcastPreviewStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastPreview, AppBroadcastPreviewStateChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PreviewStateChanged)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PreviewStateChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePreviewStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2912,12 +2912,12 @@ impl AppBroadcastPreviewStreamReader {
     }
     pub fn VideoFrameArrived<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastPreviewStreamReader, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastPreviewStreamReader, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).VideoFrameArrived)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VideoFrameArrived)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveVideoFrameArrived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3163,12 +3163,12 @@ impl AppBroadcastServices {
     }
     pub fn EnterBroadcastModeAsync<P0>(&self, plugin: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>
     where
-        P0: windows_core::IntoParam<AppBroadcastPlugIn>,
+        P0: windows_core::Param<AppBroadcastPlugIn>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnterBroadcastModeAsync)(windows_core::Interface::as_raw(this), plugin.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).EnterBroadcastModeAsync)(windows_core::Interface::as_raw(this), plugin.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ExitBroadcastMode(&self, reason: AppBroadcastExitBroadcastModeReason) -> windows_core::Result<()> {
@@ -3367,10 +3367,10 @@ impl AppBroadcastState {
     #[cfg(feature = "Security_Authentication_Web")]
     pub fn SetAuthenticationResult<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Security::Authentication::Web::WebAuthenticationResult>,
+        P0: windows_core::Param<super::super::Security::Authentication::Web::WebAuthenticationResult>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAuthenticationResult)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAuthenticationResult)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn SetSignInState(&self, value: AppBroadcastSignInState) -> windows_core::Result<()> {
         let this = self;
@@ -3399,12 +3399,12 @@ impl AppBroadcastState {
     }
     pub fn ViewerCountChanged<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastViewerCountChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastViewerCountChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ViewerCountChanged)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ViewerCountChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveViewerCountChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3413,12 +3413,12 @@ impl AppBroadcastState {
     }
     pub fn MicrophoneCaptureStateChanged<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastMicrophoneCaptureStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastMicrophoneCaptureStateChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MicrophoneCaptureStateChanged)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MicrophoneCaptureStateChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMicrophoneCaptureStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3427,12 +3427,12 @@ impl AppBroadcastState {
     }
     pub fn CameraCaptureStateChanged<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastCameraCaptureStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastCameraCaptureStateChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CameraCaptureStateChanged)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CameraCaptureStateChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCameraCaptureStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3441,12 +3441,12 @@ impl AppBroadcastState {
     }
     pub fn PlugInStateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastPlugInStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastPlugInStateChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PlugInStateChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PlugInStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePlugInStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3455,12 +3455,12 @@ impl AppBroadcastState {
     }
     pub fn StreamStateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastStreamStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastStreamStateChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StreamStateChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StreamStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStreamStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3469,12 +3469,12 @@ impl AppBroadcastState {
     }
     pub fn CaptureTargetClosed<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastState, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastState, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CaptureTargetClosed)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CaptureTargetClosed)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCaptureTargetClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3647,12 +3647,12 @@ impl AppBroadcastStreamReader {
     }
     pub fn AudioFrameArrived<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastStreamReader, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastStreamReader, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AudioFrameArrived)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AudioFrameArrived)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAudioFrameArrived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3661,12 +3661,12 @@ impl AppBroadcastStreamReader {
     }
     pub fn VideoFrameArrived<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppBroadcastStreamReader, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastStreamReader, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).VideoFrameArrived)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VideoFrameArrived)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveVideoFrameArrived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3865,12 +3865,12 @@ impl AppCapture {
     }
     pub fn CapturingChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppCapture, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppCapture, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CapturingChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CapturingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCapturingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4195,9 +4195,9 @@ impl AppCaptureManager {
     }
     pub fn ApplySettings<P0>(appcapturesettings: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<AppCaptureSettings>,
+        P0: windows_core::Param<AppCaptureSettings>,
     {
-        Self::IAppCaptureManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ApplySettings)(windows_core::Interface::as_raw(this), appcapturesettings.into_param().abi()).ok() })
+        Self::IAppCaptureManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ApplySettings)(windows_core::Interface::as_raw(this), appcapturesettings.param().abi()).ok() })
     }
     #[doc(hidden)]
     pub fn IAppCaptureManagerStatics<R, F: FnOnce(&IAppCaptureManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -4262,12 +4262,12 @@ impl AppCaptureMetadataWriter {
     }
     pub fn MetadataPurged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppCaptureMetadataWriter, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppCaptureMetadataWriter, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MetadataPurged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MetadataPurged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMetadataPurged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4370,12 +4370,12 @@ impl AppCaptureRecordOperation {
     }
     pub fn StateChanged<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureRecordingStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureRecordingStateChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4384,12 +4384,12 @@ impl AppCaptureRecordOperation {
     }
     pub fn DurationGenerated<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureDurationGeneratedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureDurationGeneratedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DurationGenerated)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DurationGenerated)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDurationGenerated(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4398,12 +4398,12 @@ impl AppCaptureRecordOperation {
     }
     pub fn FileGenerated<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureFileGeneratedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureFileGeneratedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FileGenerated)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FileGenerated)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveFileGenerated(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4509,10 +4509,10 @@ impl AppCaptureSettings {
     #[cfg(feature = "Storage")]
     pub fn SetAppCaptureDestinationFolder<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageFolder>,
+        P0: windows_core::Param<super::super::Storage::StorageFolder>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAppCaptureDestinationFolder)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAppCaptureDestinationFolder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage")]
     pub fn AppCaptureDestinationFolder(&self) -> windows_core::Result<super::super::Storage::StorageFolder> {
@@ -4646,10 +4646,10 @@ impl AppCaptureSettings {
     #[cfg(feature = "Storage")]
     pub fn SetScreenshotDestinationFolder<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageFolder>,
+        P0: windows_core::Param<super::super::Storage::StorageFolder>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetScreenshotDestinationFolder)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetScreenshotDestinationFolder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage")]
     pub fn ScreenshotDestinationFolder(&self) -> windows_core::Result<super::super::Storage::StorageFolder> {
@@ -4872,12 +4872,12 @@ impl AppCaptureState {
     }
     pub fn MicrophoneCaptureStateChanged<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppCaptureState, AppCaptureMicrophoneCaptureStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppCaptureState, AppCaptureMicrophoneCaptureStateChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MicrophoneCaptureStateChanged)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MicrophoneCaptureStateChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMicrophoneCaptureStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4886,12 +4886,12 @@ impl AppCaptureState {
     }
     pub fn CaptureTargetClosed<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppCaptureState, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppCaptureState, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CaptureTargetClosed)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CaptureTargetClosed)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCaptureTargetClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -5095,9 +5095,9 @@ pub struct CameraOptionsUI;
 impl CameraOptionsUI {
     pub fn Show<P0>(mediacapture: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<MediaCapture>,
+        P0: windows_core::Param<MediaCapture>,
     {
-        Self::ICameraOptionsUIStatics(|this| unsafe { (windows_core::Interface::vtable(this).Show)(windows_core::Interface::as_raw(this), mediacapture.into_param().abi()).ok() })
+        Self::ICameraOptionsUIStatics(|this| unsafe { (windows_core::Interface::vtable(this).Show)(windows_core::Interface::as_raw(this), mediacapture.param().abi()).ok() })
     }
     #[doc(hidden)]
     pub fn ICameraOptionsUIStatics<R, F: FnOnce(&ICameraOptionsUIStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -5167,23 +5167,23 @@ impl CapturedFrame {
     #[cfg(feature = "Storage_Streams")]
     pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IInputStream>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.into_param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -5474,12 +5474,12 @@ impl GameBarServices {
     }
     pub fn CommandReceived<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<GameBarServices, GameBarServicesCommandEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GameBarServices, GameBarServicesCommandEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CommandReceived)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CommandReceived)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCommandReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -5538,12 +5538,12 @@ windows_core::imp::interface_hierarchy!(GameBarServicesManager, windows_core::IU
 impl GameBarServicesManager {
     pub fn GameBarServicesCreated<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<GameBarServicesManager, GameBarServicesManagerGameBarServicesCreatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GameBarServicesManager, GameBarServicesManagerGameBarServicesCreatedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GameBarServicesCreated)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GameBarServicesCreated)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveGameBarServicesCreated(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -5770,12 +5770,12 @@ impl LowLagPhotoSequenceCapture {
     }
     pub fn PhotoCaptured<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<LowLagPhotoSequenceCapture, PhotoCapturedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<LowLagPhotoSequenceCapture, PhotoCapturedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PhotoCaptured)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PhotoCaptured)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePhotoCaptured(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -5819,60 +5819,60 @@ impl MediaCapture {
     }
     pub fn InitializeWithSettingsAsync<P0>(&self, mediacaptureinitializationsettings: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<MediaCaptureInitializationSettings>,
+        P0: windows_core::Param<MediaCaptureInitializationSettings>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).InitializeWithSettingsAsync)(windows_core::Interface::as_raw(this), mediacaptureinitializationsettings.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InitializeWithSettingsAsync)(windows_core::Interface::as_raw(this), mediacaptureinitializationsettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage"))]
     pub fn StartRecordToStorageFileAsync<P0, P1>(&self, encodingprofile: P0, file: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
-        P1: windows_core::IntoParam<super::super::Storage::IStorageFile>,
+        P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
+        P1: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartRecordToStorageFileAsync)(windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), file.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartRecordToStorageFileAsync)(windows_core::Interface::as_raw(this), encodingprofile.param().abi(), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
     pub fn StartRecordToStreamAsync<P0, P1>(&self, encodingprofile: P0, stream: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
-        P1: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
+        P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartRecordToStreamAsync)(windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), stream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartRecordToStreamAsync)(windows_core::Interface::as_raw(this), encodingprofile.param().abi(), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
     pub fn StartRecordToCustomSinkAsync<P0, P1>(&self, encodingprofile: P0, custommediasink: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
-        P1: windows_core::IntoParam<super::IMediaExtension>,
+        P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
+        P1: windows_core::Param<super::IMediaExtension>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartRecordToCustomSinkAsync)(windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), custommediasink.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartRecordToCustomSinkAsync)(windows_core::Interface::as_raw(this), encodingprofile.param().abi(), custommediasink.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
     pub fn StartRecordToCustomSinkIdAsync<P0, P1>(&self, encodingprofile: P0, customsinkactivationid: &windows_core::HSTRING, customsinksettings: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartRecordToCustomSinkIdAsync)(windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), core::mem::transmute_copy(customsinkactivationid), customsinksettings.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartRecordToCustomSinkIdAsync)(windows_core::Interface::as_raw(this), encodingprofile.param().abi(), core::mem::transmute_copy(customsinkactivationid), customsinksettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn StopRecordAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
@@ -5885,36 +5885,36 @@ impl MediaCapture {
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage"))]
     pub fn CapturePhotoToStorageFileAsync<P0, P1>(&self, r#type: P0, file: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::ImageEncodingProperties>,
-        P1: windows_core::IntoParam<super::super::Storage::IStorageFile>,
+        P0: windows_core::Param<super::MediaProperties::ImageEncodingProperties>,
+        P1: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CapturePhotoToStorageFileAsync)(windows_core::Interface::as_raw(this), r#type.into_param().abi(), file.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CapturePhotoToStorageFileAsync)(windows_core::Interface::as_raw(this), r#type.param().abi(), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
     pub fn CapturePhotoToStreamAsync<P0, P1>(&self, r#type: P0, stream: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::ImageEncodingProperties>,
-        P1: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P0: windows_core::Param<super::MediaProperties::ImageEncodingProperties>,
+        P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CapturePhotoToStreamAsync)(windows_core::Interface::as_raw(this), r#type.into_param().abi(), stream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CapturePhotoToStreamAsync)(windows_core::Interface::as_raw(this), r#type.param().abi(), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn AddEffectAsync<P0>(&self, mediastreamtype: MediaStreamType, effectactivationid: &windows_core::HSTRING, effectsettings: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddEffectAsync)(windows_core::Interface::as_raw(this), mediastreamtype, core::mem::transmute_copy(effectactivationid), effectsettings.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AddEffectAsync)(windows_core::Interface::as_raw(this), mediastreamtype, core::mem::transmute_copy(effectactivationid), effectsettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ClearEffectsAsync(&self, mediastreamtype: MediaStreamType) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
@@ -5926,10 +5926,10 @@ impl MediaCapture {
     }
     pub fn SetEncoderProperty<P0>(&self, mediastreamtype: MediaStreamType, propertyid: windows_core::GUID, propertyvalue: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetEncoderProperty)(windows_core::Interface::as_raw(this), mediastreamtype, propertyid, propertyvalue.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetEncoderProperty)(windows_core::Interface::as_raw(this), mediastreamtype, propertyid, propertyvalue.param().abi()).ok() }
     }
     pub fn GetEncoderProperty(&self, mediastreamtype: MediaStreamType, propertyid: windows_core::GUID) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
@@ -5940,12 +5940,12 @@ impl MediaCapture {
     }
     pub fn Failed<P0>(&self, erroreventhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<MediaCaptureFailedEventHandler>,
+        P0: windows_core::Param<MediaCaptureFailedEventHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Failed)(windows_core::Interface::as_raw(this), erroreventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Failed)(windows_core::Interface::as_raw(this), erroreventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveFailed(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -5954,12 +5954,12 @@ impl MediaCapture {
     }
     pub fn RecordLimitationExceeded<P0>(&self, recordlimitationexceededeventhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<RecordLimitationExceededEventHandler>,
+        P0: windows_core::Param<RecordLimitationExceededEventHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RecordLimitationExceeded)(windows_core::Interface::as_raw(this), recordlimitationexceededeventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RecordLimitationExceeded)(windows_core::Interface::as_raw(this), recordlimitationexceededeventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRecordLimitationExceeded(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -6025,104 +6025,104 @@ impl MediaCapture {
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage"))]
     pub fn PrepareLowLagRecordToStorageFileAsync<P0, P1>(&self, encodingprofile: P0, file: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
-        P1: windows_core::IntoParam<super::super::Storage::IStorageFile>,
+        P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
+        P1: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrepareLowLagRecordToStorageFileAsync)(windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), file.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PrepareLowLagRecordToStorageFileAsync)(windows_core::Interface::as_raw(this), encodingprofile.param().abi(), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
     pub fn PrepareLowLagRecordToStreamAsync<P0, P1>(&self, encodingprofile: P0, stream: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
-        P1: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
+        P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrepareLowLagRecordToStreamAsync)(windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), stream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PrepareLowLagRecordToStreamAsync)(windows_core::Interface::as_raw(this), encodingprofile.param().abi(), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
     pub fn PrepareLowLagRecordToCustomSinkAsync<P0, P1>(&self, encodingprofile: P0, custommediasink: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
-        P1: windows_core::IntoParam<super::IMediaExtension>,
+        P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
+        P1: windows_core::Param<super::IMediaExtension>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrepareLowLagRecordToCustomSinkAsync)(windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), custommediasink.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PrepareLowLagRecordToCustomSinkAsync)(windows_core::Interface::as_raw(this), encodingprofile.param().abi(), custommediasink.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
     pub fn PrepareLowLagRecordToCustomSinkIdAsync<P0, P1>(&self, encodingprofile: P0, customsinkactivationid: &windows_core::HSTRING, customsinksettings: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrepareLowLagRecordToCustomSinkIdAsync)(windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), core::mem::transmute_copy(customsinkactivationid), customsinksettings.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PrepareLowLagRecordToCustomSinkIdAsync)(windows_core::Interface::as_raw(this), encodingprofile.param().abi(), core::mem::transmute_copy(customsinkactivationid), customsinksettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
     pub fn PrepareLowLagPhotoCaptureAsync<P0>(&self, r#type: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LowLagPhotoCapture>>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::ImageEncodingProperties>,
+        P0: windows_core::Param<super::MediaProperties::ImageEncodingProperties>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrepareLowLagPhotoCaptureAsync)(windows_core::Interface::as_raw(this), r#type.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PrepareLowLagPhotoCaptureAsync)(windows_core::Interface::as_raw(this), r#type.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
     pub fn PrepareLowLagPhotoSequenceCaptureAsync<P0>(&self, r#type: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LowLagPhotoSequenceCapture>>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::ImageEncodingProperties>,
+        P0: windows_core::Param<super::MediaProperties::ImageEncodingProperties>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrepareLowLagPhotoSequenceCaptureAsync)(windows_core::Interface::as_raw(this), r#type.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PrepareLowLagPhotoSequenceCaptureAsync)(windows_core::Interface::as_raw(this), r#type.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
     pub fn SetEncodingPropertiesAsync<P0, P1>(&self, mediastreamtype: MediaStreamType, mediaencodingproperties: P0, encoderproperties: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::IMediaEncodingProperties>,
-        P1: windows_core::IntoParam<super::MediaProperties::MediaPropertySet>,
+        P0: windows_core::Param<super::MediaProperties::IMediaEncodingProperties>,
+        P1: windows_core::Param<super::MediaProperties::MediaPropertySet>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetEncodingPropertiesAsync)(windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.into_param().abi(), encoderproperties.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetEncodingPropertiesAsync)(windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.param().abi(), encoderproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_Capture_Core", feature = "Media_MediaProperties"))]
     pub fn PrepareVariablePhotoSequenceCaptureAsync<P0>(&self, r#type: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Core::VariablePhotoSequenceCapture>>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::ImageEncodingProperties>,
+        P0: windows_core::Param<super::MediaProperties::ImageEncodingProperties>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrepareVariablePhotoSequenceCaptureAsync)(windows_core::Interface::as_raw(this), r#type.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PrepareVariablePhotoSequenceCaptureAsync)(windows_core::Interface::as_raw(this), r#type.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FocusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MediaCapture, MediaCaptureFocusChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaCapture, MediaCaptureFocusChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FocusChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FocusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveFocusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -6131,12 +6131,12 @@ impl MediaCapture {
     }
     pub fn PhotoConfirmationCaptured<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MediaCapture, PhotoConfirmationCapturedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaCapture, PhotoConfirmationCapturedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PhotoConfirmationCaptured)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PhotoConfirmationCaptured)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePhotoConfirmationCaptured(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -6146,23 +6146,23 @@ impl MediaCapture {
     #[cfg(feature = "Media_Effects")]
     pub fn AddAudioEffectAsync<P0>(&self, definition: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>
     where
-        P0: windows_core::IntoParam<super::Effects::IAudioEffectDefinition>,
+        P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddAudioEffectAsync)(windows_core::Interface::as_raw(this), definition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AddAudioEffectAsync)(windows_core::Interface::as_raw(this), definition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_Effects")]
     pub fn AddVideoEffectAsync<P0>(&self, definition: P0, mediastreamtype: MediaStreamType) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>
     where
-        P0: windows_core::IntoParam<super::Effects::IVideoEffectDefinition>,
+        P0: windows_core::Param<super::Effects::IVideoEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddVideoEffectAsync)(windows_core::Interface::as_raw(this), definition.into_param().abi(), mediastreamtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AddVideoEffectAsync)(windows_core::Interface::as_raw(this), definition.param().abi(), mediastreamtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_Devices")]
@@ -6182,12 +6182,12 @@ impl MediaCapture {
     }
     pub fn CameraStreamStateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MediaCapture, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaCapture, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CameraStreamStateChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CameraStreamStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCameraStreamStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -6211,22 +6211,22 @@ impl MediaCapture {
     }
     pub fn GetPreviewFrameCopyAsync<P0>(&self, destination: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::VideoFrame>>
     where
-        P0: windows_core::IntoParam<super::VideoFrame>,
+        P0: windows_core::Param<super::VideoFrame>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPreviewFrameCopyAsync)(windows_core::Interface::as_raw(this), destination.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPreviewFrameCopyAsync)(windows_core::Interface::as_raw(this), destination.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ThermalStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MediaCapture, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaCapture, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ThermalStatusChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ThermalStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveThermalStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -6243,22 +6243,22 @@ impl MediaCapture {
     #[cfg(feature = "Media_MediaProperties")]
     pub fn PrepareAdvancedPhotoCaptureAsync<P0>(&self, encodingproperties: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<AdvancedPhotoCapture>>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::ImageEncodingProperties>,
+        P0: windows_core::Param<super::MediaProperties::ImageEncodingProperties>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrepareAdvancedPhotoCaptureAsync)(windows_core::Interface::as_raw(this), encodingproperties.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PrepareAdvancedPhotoCaptureAsync)(windows_core::Interface::as_raw(this), encodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveEffectAsync<P0>(&self, effect: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::IMediaExtension>,
+        P0: windows_core::Param<super::IMediaExtension>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture5>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveEffectAsync)(windows_core::Interface::as_raw(this), effect.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveEffectAsync)(windows_core::Interface::as_raw(this), effect.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_Devices")]
@@ -6287,44 +6287,44 @@ impl MediaCapture {
     #[cfg(feature = "Media_Capture_Frames")]
     pub fn CreateFrameReaderAsync<P0>(&self, inputsource: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>
     where
-        P0: windows_core::IntoParam<Frames::MediaFrameSource>,
+        P0: windows_core::Param<Frames::MediaFrameSource>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture5>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFrameReaderAsync)(windows_core::Interface::as_raw(this), inputsource.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFrameReaderAsync)(windows_core::Interface::as_raw(this), inputsource.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_Capture_Frames")]
     pub fn CreateFrameReaderWithSubtypeAsync<P0>(&self, inputsource: P0, outputsubtype: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>
     where
-        P0: windows_core::IntoParam<Frames::MediaFrameSource>,
+        P0: windows_core::Param<Frames::MediaFrameSource>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture5>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFrameReaderWithSubtypeAsync)(windows_core::Interface::as_raw(this), inputsource.into_param().abi(), core::mem::transmute_copy(outputsubtype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFrameReaderWithSubtypeAsync)(windows_core::Interface::as_raw(this), inputsource.param().abi(), core::mem::transmute_copy(outputsubtype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Graphics_Imaging", feature = "Media_Capture_Frames"))]
     pub fn CreateFrameReaderWithSubtypeAndSizeAsync<P0>(&self, inputsource: P0, outputsubtype: &windows_core::HSTRING, outputsize: super::super::Graphics::Imaging::BitmapSize) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>
     where
-        P0: windows_core::IntoParam<Frames::MediaFrameSource>,
+        P0: windows_core::Param<Frames::MediaFrameSource>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture5>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFrameReaderWithSubtypeAndSizeAsync)(windows_core::Interface::as_raw(this), inputsource.into_param().abi(), core::mem::transmute_copy(outputsubtype), outputsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFrameReaderWithSubtypeAndSizeAsync)(windows_core::Interface::as_raw(this), inputsource.param().abi(), core::mem::transmute_copy(outputsubtype), outputsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CaptureDeviceExclusiveControlStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MediaCapture, MediaCaptureDeviceExclusiveControlStatusChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaCapture, MediaCaptureDeviceExclusiveControlStatusChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture6>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CaptureDeviceExclusiveControlStatusChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CaptureDeviceExclusiveControlStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCaptureDeviceExclusiveControlStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -6334,23 +6334,23 @@ impl MediaCapture {
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames"))]
     pub fn CreateMultiSourceFrameReaderAsync<P0>(&self, inputsources: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Frames::MultiSourceMediaFrameReader>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<Frames::MediaFrameSource>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<Frames::MediaFrameSource>>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture6>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMultiSourceFrameReaderAsync)(windows_core::Interface::as_raw(this), inputsources.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMultiSourceFrameReaderAsync)(windows_core::Interface::as_raw(this), inputsources.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "UI_WindowManagement")]
     pub fn CreateRelativePanelWatcher<P0>(&self, capturemode: StreamingCaptureMode, displayregion: P0) -> windows_core::Result<MediaCaptureRelativePanelWatcher>
     where
-        P0: windows_core::IntoParam<super::super::UI::WindowManagement::DisplayRegion>,
+        P0: windows_core::Param<super::super::UI::WindowManagement::DisplayRegion>,
     {
         let this = &windows_core::Interface::cast::<IMediaCapture7>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateRelativePanelWatcher)(windows_core::Interface::as_raw(this), capturemode, displayregion.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateRelativePanelWatcher)(windows_core::Interface::as_raw(this), capturemode, displayregion.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsVideoProfileSupported(videodeviceid: &windows_core::HSTRING) -> windows_core::Result<bool> {
@@ -6390,25 +6390,25 @@ impl MediaCapture {
     #[cfg(feature = "Media_MediaProperties")]
     pub fn StartPreviewToCustomSinkAsync<P0, P1>(&self, encodingprofile: P0, custommediasink: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
-        P1: windows_core::IntoParam<super::IMediaExtension>,
+        P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
+        P1: windows_core::Param<super::IMediaExtension>,
     {
         let this = &windows_core::Interface::cast::<IMediaCaptureVideoPreview>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartPreviewToCustomSinkAsync)(windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), custommediasink.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartPreviewToCustomSinkAsync)(windows_core::Interface::as_raw(this), encodingprofile.param().abi(), custommediasink.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
     pub fn StartPreviewToCustomSinkIdAsync<P0, P1>(&self, encodingprofile: P0, customsinkactivationid: &windows_core::HSTRING, customsinksettings: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         let this = &windows_core::Interface::cast::<IMediaCaptureVideoPreview>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartPreviewToCustomSinkIdAsync)(windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), core::mem::transmute_copy(customsinkactivationid), customsinksettings.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartPreviewToCustomSinkIdAsync)(windows_core::Interface::as_raw(this), encodingprofile.param().abi(), core::mem::transmute_copy(customsinkactivationid), customsinksettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn StopPreviewAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
@@ -6603,10 +6603,10 @@ impl MediaCaptureInitializationSettings {
     #[cfg(feature = "Media_Core")]
     pub fn SetAudioSource<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Core::IMediaSource>,
+        P0: windows_core::Param<super::Core::IMediaSource>,
     {
         let this = &windows_core::Interface::cast::<IMediaCaptureInitializationSettings3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAudioSource)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAudioSource)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Media_Core")]
     pub fn AudioSource(&self) -> windows_core::Result<super::Core::IMediaSource> {
@@ -6619,10 +6619,10 @@ impl MediaCaptureInitializationSettings {
     #[cfg(feature = "Media_Core")]
     pub fn SetVideoSource<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Core::IMediaSource>,
+        P0: windows_core::Param<super::Core::IMediaSource>,
     {
         let this = &windows_core::Interface::cast::<IMediaCaptureInitializationSettings3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetVideoSource)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetVideoSource)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Media_Core")]
     pub fn VideoSource(&self) -> windows_core::Result<super::Core::IMediaSource> {
@@ -6641,10 +6641,10 @@ impl MediaCaptureInitializationSettings {
     }
     pub fn SetVideoProfile<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<MediaCaptureVideoProfile>,
+        P0: windows_core::Param<MediaCaptureVideoProfile>,
     {
         let this = &windows_core::Interface::cast::<IMediaCaptureInitializationSettings4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetVideoProfile)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetVideoProfile)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn PreviewMediaDescription(&self) -> windows_core::Result<MediaCaptureVideoProfileMediaDescription> {
         let this = &windows_core::Interface::cast::<IMediaCaptureInitializationSettings4>(self)?;
@@ -6655,10 +6655,10 @@ impl MediaCaptureInitializationSettings {
     }
     pub fn SetPreviewMediaDescription<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<MediaCaptureVideoProfileMediaDescription>,
+        P0: windows_core::Param<MediaCaptureVideoProfileMediaDescription>,
     {
         let this = &windows_core::Interface::cast::<IMediaCaptureInitializationSettings4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPreviewMediaDescription)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPreviewMediaDescription)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RecordMediaDescription(&self) -> windows_core::Result<MediaCaptureVideoProfileMediaDescription> {
         let this = &windows_core::Interface::cast::<IMediaCaptureInitializationSettings4>(self)?;
@@ -6669,10 +6669,10 @@ impl MediaCaptureInitializationSettings {
     }
     pub fn SetRecordMediaDescription<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<MediaCaptureVideoProfileMediaDescription>,
+        P0: windows_core::Param<MediaCaptureVideoProfileMediaDescription>,
     {
         let this = &windows_core::Interface::cast::<IMediaCaptureInitializationSettings4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetRecordMediaDescription)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRecordMediaDescription)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn PhotoMediaDescription(&self) -> windows_core::Result<MediaCaptureVideoProfileMediaDescription> {
         let this = &windows_core::Interface::cast::<IMediaCaptureInitializationSettings4>(self)?;
@@ -6683,10 +6683,10 @@ impl MediaCaptureInitializationSettings {
     }
     pub fn SetPhotoMediaDescription<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<MediaCaptureVideoProfileMediaDescription>,
+        P0: windows_core::Param<MediaCaptureVideoProfileMediaDescription>,
     {
         let this = &windows_core::Interface::cast::<IMediaCaptureInitializationSettings4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPhotoMediaDescription)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPhotoMediaDescription)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Media_Capture_Frames")]
     pub fn SourceGroup(&self) -> windows_core::Result<Frames::MediaFrameSourceGroup> {
@@ -6699,10 +6699,10 @@ impl MediaCaptureInitializationSettings {
     #[cfg(feature = "Media_Capture_Frames")]
     pub fn SetSourceGroup<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Frames::MediaFrameSourceGroup>,
+        P0: windows_core::Param<Frames::MediaFrameSourceGroup>,
     {
         let this = &windows_core::Interface::cast::<IMediaCaptureInitializationSettings5>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetSourceGroup)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSourceGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn SharingMode(&self) -> windows_core::Result<MediaCaptureSharingMode> {
         let this = &windows_core::Interface::cast::<IMediaCaptureInitializationSettings5>(self)?;
@@ -6748,10 +6748,10 @@ impl MediaCaptureInitializationSettings {
     #[cfg(feature = "Security_Credentials")]
     pub fn SetDeviceUriPasswordCredential<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Security::Credentials::PasswordCredential>,
+        P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
         let this = &windows_core::Interface::cast::<IMediaCaptureInitializationSettings7>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDeviceUriPasswordCredential)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDeviceUriPasswordCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn DeviceUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IMediaCaptureInitializationSettings7>(self)?;
@@ -6762,10 +6762,10 @@ impl MediaCaptureInitializationSettings {
     }
     pub fn SetDeviceUri<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IMediaCaptureInitializationSettings7>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDeviceUri)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDeviceUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for MediaCaptureInitializationSettings {
@@ -6835,12 +6835,12 @@ impl MediaCaptureRelativePanelWatcher {
     }
     pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MediaCaptureRelativePanelWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaCaptureRelativePanelWatcher, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -7308,12 +7308,12 @@ impl ScreenCapture {
     }
     pub fn SourceSuspensionChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ScreenCapture, SourceSuspensionChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ScreenCapture, SourceSuspensionChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SourceSuspensionChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SourceSuspensionChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSourceSuspensionChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -8334,11 +8334,11 @@ impl MediaCaptureFailedEventHandler {
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, erroreventargs: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<MediaCapture>,
-        P1: windows_core::IntoParam<MediaCaptureFailedEventArgs>,
+        P0: windows_core::Param<MediaCapture>,
+        P1: windows_core::Param<MediaCaptureFailedEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.into_param().abi(), erroreventargs.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), erroreventargs.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -8395,10 +8395,10 @@ impl RecordLimitationExceededEventHandler {
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<MediaCapture>,
+        P0: windows_core::Param<MediaCapture>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
     }
 }
 #[repr(C)]

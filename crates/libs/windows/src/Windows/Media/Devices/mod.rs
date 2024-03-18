@@ -707,12 +707,12 @@ impl IMediaDeviceController {
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn SetMediaStreamPropertiesAsync<P0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::IMediaEncodingProperties>,
+        P0: windows_core::Param<super::MediaProperties::IMediaEncodingProperties>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1077,10 +1077,10 @@ impl AdvancedPhotoControl {
     }
     pub fn Configure<P0>(&self, settings: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<AdvancedPhotoCaptureSettings>,
+        P0: windows_core::Param<AdvancedPhotoCaptureSettings>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Configure)(windows_core::Interface::as_raw(this), settings.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Configure)(windows_core::Interface::as_raw(this), settings.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for AdvancedPhotoControl {
@@ -1142,12 +1142,12 @@ impl AudioDeviceController {
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn SetMediaStreamPropertiesAsync<P0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::IMediaEncodingProperties>,
+        P0: windows_core::Param<super::MediaProperties::IMediaEncodingProperties>,
     {
         let this = &windows_core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1204,12 +1204,12 @@ impl AudioDeviceModule {
     #[cfg(feature = "Storage_Streams")]
     pub fn SendCommandAsync<P0>(&self, command: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ModuleCommandResult>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendCommandAsync)(windows_core::Interface::as_raw(this), command.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SendCommandAsync)(windows_core::Interface::as_raw(this), command.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1263,12 +1263,12 @@ windows_core::imp::interface_hierarchy!(AudioDeviceModulesManager, windows_core:
 impl AudioDeviceModulesManager {
     pub fn ModuleNotificationReceived<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioDeviceModulesManager, AudioDeviceModuleNotificationEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioDeviceModulesManager, AudioDeviceModuleNotificationEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ModuleNotificationReceived)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ModuleNotificationReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveModuleNotificationReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1351,12 +1351,12 @@ impl CallControl {
     }
     pub fn AnswerRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<CallControlEventHandler>,
+        P0: windows_core::Param<CallControlEventHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AnswerRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AnswerRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAnswerRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1365,12 +1365,12 @@ impl CallControl {
     }
     pub fn HangUpRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<CallControlEventHandler>,
+        P0: windows_core::Param<CallControlEventHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).HangUpRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HangUpRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveHangUpRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1379,12 +1379,12 @@ impl CallControl {
     }
     pub fn DialRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<DialRequestedEventHandler>,
+        P0: windows_core::Param<DialRequestedEventHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DialRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DialRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDialRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1393,12 +1393,12 @@ impl CallControl {
     }
     pub fn RedialRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<RedialRequestedEventHandler>,
+        P0: windows_core::Param<RedialRequestedEventHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RedialRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RedialRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRedialRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1407,12 +1407,12 @@ impl CallControl {
     }
     pub fn KeypadPressed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<KeypadPressedEventHandler>,
+        P0: windows_core::Param<KeypadPressedEventHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).KeypadPressed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).KeypadPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveKeypadPressed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1421,12 +1421,12 @@ impl CallControl {
     }
     pub fn AudioTransferRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<CallControlEventHandler>,
+        P0: windows_core::Param<CallControlEventHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AudioTransferRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AudioTransferRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAudioTransferRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1484,12 +1484,12 @@ impl CameraOcclusionInfo {
     }
     pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CameraOcclusionInfo, CameraOcclusionStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CameraOcclusionInfo, CameraOcclusionStateChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1818,10 +1818,10 @@ impl DigitalWindowControl {
     }
     pub fn ConfigureWithBounds<P0>(&self, digitalwindowmode: DigitalWindowMode, digitalwindowbounds: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<DigitalWindowBounds>,
+        P0: windows_core::Param<DigitalWindowBounds>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ConfigureWithBounds)(windows_core::Interface::as_raw(this), digitalwindowmode, digitalwindowbounds.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ConfigureWithBounds)(windows_core::Interface::as_raw(this), digitalwindowmode, digitalwindowbounds.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCapabilities(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<DigitalWindowCapability>> {
@@ -2267,10 +2267,10 @@ impl FocusControl {
     }
     pub fn Configure<P0>(&self, settings: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<FocusSettings>,
+        P0: windows_core::Param<FocusSettings>,
     {
         let this = &windows_core::Interface::cast::<IFocusControl2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Configure)(windows_core::Interface::as_raw(this), settings.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Configure)(windows_core::Interface::as_raw(this), settings.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for FocusControl {
@@ -2326,10 +2326,10 @@ impl FocusSettings {
     }
     pub fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Distance(&self) -> windows_core::Result<super::super::Foundation::IReference<ManualFocusDistance>> {
         let this = self;
@@ -2340,10 +2340,10 @@ impl FocusSettings {
     }
     pub fn SetDistance<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<ManualFocusDistance>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<ManualFocusDistance>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDistance)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDistance)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn WaitForFocus(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -2629,12 +2629,12 @@ impl LowLagPhotoControl {
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetHighestConcurrentFrameRate<P0>(&self, captureproperties: P0) -> windows_core::Result<super::MediaProperties::MediaRatio>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::IMediaEncodingProperties>,
+        P0: windows_core::Param<super::MediaProperties::IMediaEncodingProperties>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(windows_core::Interface::as_raw(this), captureproperties.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(windows_core::Interface::as_raw(this), captureproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
@@ -2749,12 +2749,12 @@ impl LowLagPhotoSequenceControl {
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetHighestConcurrentFrameRate<P0>(&self, captureproperties: P0) -> windows_core::Result<super::MediaProperties::MediaRatio>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::IMediaEncodingProperties>,
+        P0: windows_core::Param<super::MediaProperties::IMediaEncodingProperties>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(windows_core::Interface::as_raw(this), captureproperties.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(windows_core::Interface::as_raw(this), captureproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
@@ -2852,11 +2852,11 @@ impl MediaDevice {
     }
     pub fn DefaultAudioCaptureDeviceChanged<P0>(handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, DefaultAudioCaptureDeviceChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, DefaultAudioCaptureDeviceChangedEventArgs>>,
     {
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DefaultAudioCaptureDeviceChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DefaultAudioCaptureDeviceChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveDefaultAudioCaptureDeviceChanged(cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2864,11 +2864,11 @@ impl MediaDevice {
     }
     pub fn DefaultAudioRenderDeviceChanged<P0>(handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, DefaultAudioRenderDeviceChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, DefaultAudioRenderDeviceChangedEventArgs>>,
     {
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DefaultAudioRenderDeviceChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DefaultAudioRenderDeviceChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveDefaultAudioRenderDeviceChanged(cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3291,23 +3291,23 @@ impl RegionsOfInterestControl {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetRegionsAsync<P0>(&self, regions: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<RegionOfInterest>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<RegionOfInterest>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetRegionsAsync)(windows_core::Interface::as_raw(this), regions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetRegionsAsync)(windows_core::Interface::as_raw(this), regions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetRegionsWithLockAsync<P0>(&self, regions: P0, lockvalues: bool) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<RegionOfInterest>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<RegionOfInterest>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetRegionsWithLockAsync)(windows_core::Interface::as_raw(this), regions.into_param().abi(), lockvalues, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetRegionsWithLockAsync)(windows_core::Interface::as_raw(this), regions.param().abi(), lockvalues, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ClearRegionsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
@@ -3447,10 +3447,10 @@ windows_core::imp::required_hierarchy!(VideoDeviceController, IMediaDeviceContro
 impl VideoDeviceController {
     pub fn SetDeviceProperty<P0>(&self, propertyid: &windows_core::HSTRING, propertyvalue: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDeviceProperty)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), propertyvalue.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDeviceProperty)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), propertyvalue.param().abi()).ok() }
     }
     pub fn GetDeviceProperty(&self, propertyid: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController>(self)?;
@@ -3632,32 +3632,32 @@ impl VideoDeviceController {
     }
     pub fn GetDevicePropertyById<P0>(&self, propertyid: &windows_core::HSTRING, maxpropertyvaluesize: P0) -> windows_core::Result<VideoDeviceControllerGetDevicePropertyResult>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDevicePropertyById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), maxpropertyvaluesize.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDevicePropertyById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), maxpropertyvaluesize.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetDevicePropertyById<P0>(&self, propertyid: &windows_core::HSTRING, propertyvalue: P0) -> windows_core::Result<VideoDeviceControllerSetDevicePropertyStatus>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetDevicePropertyById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), propertyvalue.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SetDevicePropertyById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), propertyvalue.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn GetDevicePropertyByExtendedId<P0>(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: P0) -> windows_core::Result<VideoDeviceControllerGetDevicePropertyResult>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDevicePropertyByExtendedId)(windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), maxpropertyvaluesize.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDevicePropertyByExtendedId)(windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), maxpropertyvaluesize.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetDevicePropertyByExtendedId(&self, extendedpropertyid: &[u8], propertyvalue: &[u8]) -> windows_core::Result<VideoDeviceControllerSetDevicePropertyStatus> {
@@ -3714,12 +3714,12 @@ impl VideoDeviceController {
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn SetMediaStreamPropertiesAsync<P0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::IMediaEncodingProperties>,
+        P0: windows_core::Param<super::MediaProperties::IMediaEncodingProperties>,
     {
         let this = &windows_core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Brightness(&self) -> windows_core::Result<MediaDeviceControl> {
@@ -4035,10 +4035,10 @@ impl ZoomControl {
     }
     pub fn Configure<P0>(&self, settings: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ZoomSettings>,
+        P0: windows_core::Param<ZoomSettings>,
     {
         let this = &windows_core::Interface::cast::<IZoomControl2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Configure)(windows_core::Interface::as_raw(this), settings.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Configure)(windows_core::Interface::as_raw(this), settings.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for ZoomControl {
@@ -4656,10 +4656,10 @@ impl CallControlEventHandler {
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<CallControl>,
+        P0: windows_core::Param<CallControl>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -4716,11 +4716,11 @@ impl DialRequestedEventHandler {
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<CallControl>,
-        P1: windows_core::IntoParam<DialRequestedEventArgs>,
+        P0: windows_core::Param<CallControl>,
+        P1: windows_core::Param<DialRequestedEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -4777,11 +4777,11 @@ impl KeypadPressedEventHandler {
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<CallControl>,
-        P1: windows_core::IntoParam<KeypadPressedEventArgs>,
+        P0: windows_core::Param<CallControl>,
+        P1: windows_core::Param<KeypadPressedEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -4838,11 +4838,11 @@ impl RedialRequestedEventHandler {
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<CallControl>,
-        P1: windows_core::IntoParam<RedialRequestedEventArgs>,
+        P0: windows_core::Param<CallControl>,
+        P1: windows_core::Param<RedialRequestedEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
     }
 }
 #[repr(C)]

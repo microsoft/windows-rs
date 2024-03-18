@@ -310,12 +310,12 @@ impl ForceFeedbackMotor {
     }
     pub fn LoadEffectAsync<P0>(&self, effect: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>>
     where
-        P0: windows_core::IntoParam<IForceFeedbackEffect>,
+        P0: windows_core::Param<IForceFeedbackEffect>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadEffectAsync)(windows_core::Interface::as_raw(this), effect.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadEffectAsync)(windows_core::Interface::as_raw(this), effect.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PauseAllEffects(&self) -> windows_core::Result<()> {
@@ -353,12 +353,12 @@ impl ForceFeedbackMotor {
     }
     pub fn TryUnloadEffectAsync<P0>(&self, effect: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<IForceFeedbackEffect>,
+        P0: windows_core::Param<IForceFeedbackEffect>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryUnloadEffectAsync)(windows_core::Interface::as_raw(this), effect.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryUnloadEffectAsync)(windows_core::Interface::as_raw(this), effect.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

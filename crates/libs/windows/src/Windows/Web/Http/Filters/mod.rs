@@ -119,12 +119,12 @@ windows_core::imp::required_hierarchy!(IHttpFilter, super::super::super::Foundat
 impl IHttpFilter {
     pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>
     where
-        P0: windows_core::IntoParam<super::HttpRequestMessage>,
+        P0: windows_core::Param<super::HttpRequestMessage>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
@@ -242,10 +242,10 @@ impl HttpBaseProtocolFilter {
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn SetClientCertificate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Security::Cryptography::Certificates::Certificate>,
+        P0: windows_core::Param<super::super::super::Security::Cryptography::Certificates::Certificate>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetClientCertificate)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetClientCertificate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn IgnorableServerCertificateErrors(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
@@ -277,10 +277,10 @@ impl HttpBaseProtocolFilter {
     #[cfg(feature = "Security_Credentials")]
     pub fn SetProxyCredential<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Security::Credentials::PasswordCredential>,
+        P0: windows_core::Param<super::super::super::Security::Credentials::PasswordCredential>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetProxyCredential)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetProxyCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> windows_core::Result<super::super::super::Security::Credentials::PasswordCredential> {
@@ -293,10 +293,10 @@ impl HttpBaseProtocolFilter {
     #[cfg(feature = "Security_Credentials")]
     pub fn SetServerCredential<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Security::Credentials::PasswordCredential>,
+        P0: windows_core::Param<super::super::super::Security::Credentials::PasswordCredential>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetServerCredential)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetServerCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn UseProxy(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -333,12 +333,12 @@ impl HttpBaseProtocolFilter {
     }
     pub fn ServerCustomValidationRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<HttpBaseProtocolFilter, HttpServerCustomValidationRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<HttpBaseProtocolFilter, HttpServerCustomValidationRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IHttpBaseProtocolFilter4>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServerCustomValidationRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ServerCustomValidationRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveServerCustomValidationRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -360,21 +360,21 @@ impl HttpBaseProtocolFilter {
     #[cfg(feature = "System")]
     pub fn CreateForUser<P0>(user: P0) -> windows_core::Result<HttpBaseProtocolFilter>
     where
-        P0: windows_core::IntoParam<super::super::super::System::User>,
+        P0: windows_core::Param<super::super::super::System::User>,
     {
         Self::IHttpBaseProtocolFilterStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>
     where
-        P0: windows_core::IntoParam<super::HttpRequestMessage>,
+        P0: windows_core::Param<super::HttpRequestMessage>,
     {
         let this = &windows_core::Interface::cast::<IHttpFilter>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[doc(hidden)]

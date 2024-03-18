@@ -1093,11 +1093,11 @@ impl ImageFeatureValue {
     #[cfg(feature = "Media")]
     pub fn CreateFromVideoFrame<P0>(image: P0) -> windows_core::Result<ImageFeatureValue>
     where
-        P0: windows_core::IntoParam<super::super::Media::VideoFrame>,
+        P0: windows_core::Param<super::super::Media::VideoFrame>,
     {
         Self::IImageFeatureValueStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromVideoFrame)(windows_core::Interface::as_raw(this), image.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromVideoFrame)(windows_core::Interface::as_raw(this), image.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
@@ -1197,21 +1197,21 @@ impl LearningModel {
     #[cfg(feature = "Storage")]
     pub fn LoadFromStorageFileAsync<P0>(modelfile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::IStorageFile>,
+        P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadFromStorageFileAsync)(windows_core::Interface::as_raw(this), modelfile.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadFromStorageFileAsync)(windows_core::Interface::as_raw(this), modelfile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStreamAsync<P0>(modelstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadFromStreamAsync)(windows_core::Interface::as_raw(this), modelstream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadFromStreamAsync)(windows_core::Interface::as_raw(this), modelstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn LoadFromFilePath(filepath: &windows_core::HSTRING) -> windows_core::Result<LearningModel> {
@@ -1223,53 +1223,53 @@ impl LearningModel {
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStream<P0>(modelstream: P0) -> windows_core::Result<LearningModel>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadFromStream)(windows_core::Interface::as_raw(this), modelstream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadFromStream)(windows_core::Interface::as_raw(this), modelstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage")]
     pub fn LoadFromStorageFileWithOperatorProviderAsync<P0, P1>(modelfile: P0, operatorprovider: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::IStorageFile>,
-        P1: windows_core::IntoParam<ILearningModelOperatorProvider>,
+        P0: windows_core::Param<super::super::Storage::IStorageFile>,
+        P1: windows_core::Param<ILearningModelOperatorProvider>,
     {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadFromStorageFileWithOperatorProviderAsync)(windows_core::Interface::as_raw(this), modelfile.into_param().abi(), operatorprovider.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadFromStorageFileWithOperatorProviderAsync)(windows_core::Interface::as_raw(this), modelfile.param().abi(), operatorprovider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStreamWithOperatorProviderAsync<P0, P1>(modelstream: P0, operatorprovider: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
-        P1: windows_core::IntoParam<ILearningModelOperatorProvider>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P1: windows_core::Param<ILearningModelOperatorProvider>,
     {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadFromStreamWithOperatorProviderAsync)(windows_core::Interface::as_raw(this), modelstream.into_param().abi(), operatorprovider.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadFromStreamWithOperatorProviderAsync)(windows_core::Interface::as_raw(this), modelstream.param().abi(), operatorprovider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn LoadFromFilePathWithOperatorProvider<P0>(filepath: &windows_core::HSTRING, operatorprovider: P0) -> windows_core::Result<LearningModel>
     where
-        P0: windows_core::IntoParam<ILearningModelOperatorProvider>,
+        P0: windows_core::Param<ILearningModelOperatorProvider>,
     {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadFromFilePathWithOperatorProvider)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filepath), operatorprovider.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadFromFilePathWithOperatorProvider)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filepath), operatorprovider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStreamWithOperatorProvider<P0, P1>(modelstream: P0, operatorprovider: P1) -> windows_core::Result<LearningModel>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
-        P1: windows_core::IntoParam<ILearningModelOperatorProvider>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P1: windows_core::Param<ILearningModelOperatorProvider>,
     {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadFromStreamWithOperatorProvider)(windows_core::Interface::as_raw(this), modelstream.into_param().abi(), operatorprovider.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadFromStreamWithOperatorProvider)(windows_core::Interface::as_raw(this), modelstream.param().abi(), operatorprovider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1307,19 +1307,19 @@ impl LearningModelBinding {
     }
     pub fn Bind<P0>(&self, name: &windows_core::HSTRING, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Bind)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Bind)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn BindWithProperties<P0, P1>(&self, name: &windows_core::HSTRING, value: P0, props: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P0: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).BindWithProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.into_param().abi(), props.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).BindWithProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.param().abi(), props.param().abi()).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
         let this = self;
@@ -1327,11 +1327,11 @@ impl LearningModelBinding {
     }
     pub fn CreateFromSession<P0>(session: P0) -> windows_core::Result<LearningModelBinding>
     where
-        P0: windows_core::IntoParam<LearningModelSession>,
+        P0: windows_core::Param<LearningModelSession>,
     {
         Self::ILearningModelBindingFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromSession)(windows_core::Interface::as_raw(this), session.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromSession)(windows_core::Interface::as_raw(this), session.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1427,11 +1427,11 @@ impl LearningModelDevice {
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn CreateFromDirect3D11Device<P0>(device: P0) -> windows_core::Result<LearningModelDevice>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>,
+        P0: windows_core::Param<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>,
     {
         Self::ILearningModelDeviceStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromDirect3D11Device)(windows_core::Interface::as_raw(this), device.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromDirect3D11Device)(windows_core::Interface::as_raw(this), device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1538,74 +1538,74 @@ impl LearningModelSession {
     }
     pub fn EvaluateAsync<P0>(&self, bindings: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>
     where
-        P0: windows_core::IntoParam<LearningModelBinding>,
+        P0: windows_core::Param<LearningModelBinding>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).EvaluateAsync)(windows_core::Interface::as_raw(this), bindings.into_param().abi(), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).EvaluateAsync)(windows_core::Interface::as_raw(this), bindings.param().abi(), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn EvaluateFeaturesAsync<P0>(&self, features: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).EvaluateFeaturesAsync)(windows_core::Interface::as_raw(this), features.into_param().abi(), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).EvaluateFeaturesAsync)(windows_core::Interface::as_raw(this), features.param().abi(), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Evaluate<P0>(&self, bindings: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<LearningModelEvaluationResult>
     where
-        P0: windows_core::IntoParam<LearningModelBinding>,
+        P0: windows_core::Param<LearningModelBinding>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Evaluate)(windows_core::Interface::as_raw(this), bindings.into_param().abi(), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Evaluate)(windows_core::Interface::as_raw(this), bindings.param().abi(), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn EvaluateFeatures<P0>(&self, features: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<LearningModelEvaluationResult>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).EvaluateFeatures)(windows_core::Interface::as_raw(this), features.into_param().abi(), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).EvaluateFeatures)(windows_core::Interface::as_raw(this), features.param().abi(), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateFromModel<P0>(model: P0) -> windows_core::Result<LearningModelSession>
     where
-        P0: windows_core::IntoParam<LearningModel>,
+        P0: windows_core::Param<LearningModel>,
     {
         Self::ILearningModelSessionFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromModel)(windows_core::Interface::as_raw(this), model.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromModel)(windows_core::Interface::as_raw(this), model.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromModelOnDevice<P0, P1>(model: P0, devicetorunon: P1) -> windows_core::Result<LearningModelSession>
     where
-        P0: windows_core::IntoParam<LearningModel>,
-        P1: windows_core::IntoParam<LearningModelDevice>,
+        P0: windows_core::Param<LearningModel>,
+        P1: windows_core::Param<LearningModelDevice>,
     {
         Self::ILearningModelSessionFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromModelOnDevice)(windows_core::Interface::as_raw(this), model.into_param().abi(), devicetorunon.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromModelOnDevice)(windows_core::Interface::as_raw(this), model.param().abi(), devicetorunon.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromModelOnDeviceWithSessionOptions<P0, P1, P2>(model: P0, devicetorunon: P1, learningmodelsessionoptions: P2) -> windows_core::Result<LearningModelSession>
     where
-        P0: windows_core::IntoParam<LearningModel>,
-        P1: windows_core::IntoParam<LearningModelDevice>,
-        P2: windows_core::IntoParam<LearningModelSessionOptions>,
+        P0: windows_core::Param<LearningModel>,
+        P1: windows_core::Param<LearningModelDevice>,
+        P2: windows_core::Param<LearningModelSessionOptions>,
     {
         Self::ILearningModelSessionFactory2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromModelOnDeviceWithSessionOptions)(windows_core::Interface::as_raw(this), model.into_param().abi(), devicetorunon.into_param().abi(), learningmodelsessionoptions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromModelOnDeviceWithSessionOptions)(windows_core::Interface::as_raw(this), model.param().abi(), devicetorunon.param().abi(), learningmodelsessionoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1853,32 +1853,32 @@ impl TensorBoolean {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorBoolean>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[bool]) -> windows_core::Result<TensorBoolean>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorBoolean>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<bool>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<bool>>,
     {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[bool]) -> windows_core::Result<TensorBoolean> {
@@ -1890,11 +1890,11 @@ impl TensorBoolean {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorBoolean>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorBooleanStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1976,32 +1976,32 @@ impl TensorDouble {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorDouble>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[f64]) -> windows_core::Result<TensorDouble>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorDouble>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<f64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<f64>>,
     {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[f64]) -> windows_core::Result<TensorDouble> {
@@ -2013,11 +2013,11 @@ impl TensorDouble {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorDouble>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorDoubleStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -2161,32 +2161,32 @@ impl TensorFloat {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorFloat>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[f32]) -> windows_core::Result<TensorFloat>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorFloat>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<f32>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<f32>>,
     {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[f32]) -> windows_core::Result<TensorFloat> {
@@ -2198,11 +2198,11 @@ impl TensorFloat {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorFloat>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorFloatStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -2284,32 +2284,32 @@ impl TensorFloat16Bit {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorFloat16Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[f32]) -> windows_core::Result<TensorFloat16Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorFloat16Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<f32>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<f32>>,
     {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[f32]) -> windows_core::Result<TensorFloat16Bit> {
@@ -2321,11 +2321,11 @@ impl TensorFloat16Bit {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorFloat16Bit>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorFloat16BitStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -2407,32 +2407,32 @@ impl TensorInt16Bit {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorInt16Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[i16]) -> windows_core::Result<TensorInt16Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorInt16Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i16>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<i16>>,
     {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[i16]) -> windows_core::Result<TensorInt16Bit> {
@@ -2444,11 +2444,11 @@ impl TensorInt16Bit {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorInt16Bit>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorInt16BitStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -2530,32 +2530,32 @@ impl TensorInt32Bit {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorInt32Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[i32]) -> windows_core::Result<TensorInt32Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorInt32Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i32>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<i32>>,
     {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[i32]) -> windows_core::Result<TensorInt32Bit> {
@@ -2567,11 +2567,11 @@ impl TensorInt32Bit {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorInt32Bit>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorInt32BitStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -2653,32 +2653,32 @@ impl TensorInt64Bit {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorInt64Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[i64]) -> windows_core::Result<TensorInt64Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorInt64Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[i64]) -> windows_core::Result<TensorInt64Bit> {
@@ -2690,11 +2690,11 @@ impl TensorInt64Bit {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorInt64Bit>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorInt64BitStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -2776,32 +2776,32 @@ impl TensorInt8Bit {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorInt8Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[u8]) -> windows_core::Result<TensorInt8Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorInt8Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<u8>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<u8>>,
     {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u8]) -> windows_core::Result<TensorInt8Bit> {
@@ -2813,11 +2813,11 @@ impl TensorInt8Bit {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorInt8Bit>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorInt8BitStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -2899,32 +2899,32 @@ impl TensorString {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorString>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[windows_core::HSTRING]) -> windows_core::Result<TensorString>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), core::mem::transmute(data.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), core::mem::transmute(data.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorString>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[windows_core::HSTRING]) -> windows_core::Result<TensorString> {
@@ -3012,32 +3012,32 @@ impl TensorUInt16Bit {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorUInt16Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[u16]) -> windows_core::Result<TensorUInt16Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorUInt16Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<u16>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<u16>>,
     {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u16]) -> windows_core::Result<TensorUInt16Bit> {
@@ -3049,11 +3049,11 @@ impl TensorUInt16Bit {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorUInt16Bit>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorUInt16BitStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -3135,32 +3135,32 @@ impl TensorUInt32Bit {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorUInt32Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[u32]) -> windows_core::Result<TensorUInt32Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorUInt32Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<u32>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<u32>>,
     {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u32]) -> windows_core::Result<TensorUInt32Bit> {
@@ -3172,11 +3172,11 @@ impl TensorUInt32Bit {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorUInt32Bit>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorUInt32BitStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -3258,32 +3258,32 @@ impl TensorUInt64Bit {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorUInt64Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[u64]) -> windows_core::Result<TensorUInt64Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorUInt64Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<u64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<u64>>,
     {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u64]) -> windows_core::Result<TensorUInt64Bit> {
@@ -3295,11 +3295,11 @@ impl TensorUInt64Bit {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorUInt64Bit>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorUInt64BitStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -3381,32 +3381,32 @@ impl TensorUInt8Bit {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorUInt8Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[u8]) -> windows_core::Result<TensorUInt8Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
     {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorUInt8Bit>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<i64>>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<u8>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<i64>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<u8>>,
     {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u8]) -> windows_core::Result<TensorUInt8Bit> {
@@ -3418,11 +3418,11 @@ impl TensorUInt8Bit {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> windows_core::Result<TensorUInt8Bit>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ITensorUInt8BitStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

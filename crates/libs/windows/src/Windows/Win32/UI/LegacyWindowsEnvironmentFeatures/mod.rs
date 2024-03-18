@@ -13,9 +13,9 @@ impl IADesktopP2 {
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn MakeDynamicChanges<P0>(&self, poleobj: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Ole::IOleObject>,
+        P0: windows_core::Param<super::super::System::Ole::IOleObject>,
     {
-        (windows_core::Interface::vtable(self).MakeDynamicChanges)(windows_core::Interface::as_raw(self), poleobj.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).MakeDynamicChanges)(windows_core::Interface::as_raw(self), poleobj.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -40,9 +40,9 @@ impl IActiveDesktopP {
     }
     pub unsafe fn SetScheme<P0>(&self, pwszschemename: P0, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetScheme)(windows_core::Interface::as_raw(self), pwszschemename.into_param().abi(), dwflags).ok()
+        (windows_core::Interface::vtable(self).SetScheme)(windows_core::Interface::as_raw(self), pwszschemename.param().abi(), dwflags).ok()
     }
     pub unsafe fn GetScheme(&self, pwszschemename: windows_core::PWSTR, pdwcchbuffer: *mut u32, dwflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetScheme)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszschemename), pdwcchbuffer, dwflags).ok()
@@ -62,9 +62,9 @@ impl IBriefcaseInitiator {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsMonikerInBriefcase<P0>(&self, pmk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IMoniker>,
+        P0: windows_core::Param<super::super::System::Com::IMoniker>,
     {
-        (windows_core::Interface::vtable(self).IsMonikerInBriefcase)(windows_core::Interface::as_raw(self), pmk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).IsMonikerInBriefcase)(windows_core::Interface::as_raw(self), pmk.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -81,28 +81,28 @@ impl IEmptyVolumeCache {
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn Initialize<P0, P1>(&self, hkregkey: P0, pcwszvolume: P1, ppwszdisplayname: *mut windows_core::PWSTR, ppwszdescription: *mut windows_core::PWSTR, pdwflags: *mut EMPTY_VOLUME_CACHE_FLAGS) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Registry::HKEY>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<super::super::System::Registry::HKEY>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), hkregkey.into_param().abi(), pcwszvolume.into_param().abi(), ppwszdisplayname, ppwszdescription, pdwflags).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), hkregkey.param().abi(), pcwszvolume.param().abi(), ppwszdisplayname, ppwszdescription, pdwflags).ok()
     }
     pub unsafe fn GetSpaceUsed<P0>(&self, pdwlspaceused: *mut u64, picb: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IEmptyVolumeCacheCallBack>,
+        P0: windows_core::Param<IEmptyVolumeCacheCallBack>,
     {
-        (windows_core::Interface::vtable(self).GetSpaceUsed)(windows_core::Interface::as_raw(self), pdwlspaceused, picb.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).GetSpaceUsed)(windows_core::Interface::as_raw(self), pdwlspaceused, picb.param().abi()).ok()
     }
     pub unsafe fn Purge<P0>(&self, dwlspacetofree: u64, picb: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IEmptyVolumeCacheCallBack>,
+        P0: windows_core::Param<IEmptyVolumeCacheCallBack>,
     {
-        (windows_core::Interface::vtable(self).Purge)(windows_core::Interface::as_raw(self), dwlspacetofree, picb.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Purge)(windows_core::Interface::as_raw(self), dwlspacetofree, picb.param().abi()).ok()
     }
     pub unsafe fn ShowProperties<P0>(&self, hwnd: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).ShowProperties)(windows_core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ShowProperties)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
     }
     pub unsafe fn Deactivate(&self) -> windows_core::Result<EMPTY_VOLUME_CACHE_FLAGS> {
         let mut result__ = std::mem::zeroed();
@@ -127,28 +127,28 @@ impl IEmptyVolumeCache2 {
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn Initialize<P0, P1>(&self, hkregkey: P0, pcwszvolume: P1, ppwszdisplayname: *mut windows_core::PWSTR, ppwszdescription: *mut windows_core::PWSTR, pdwflags: *mut EMPTY_VOLUME_CACHE_FLAGS) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Registry::HKEY>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<super::super::System::Registry::HKEY>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.Initialize)(windows_core::Interface::as_raw(self), hkregkey.into_param().abi(), pcwszvolume.into_param().abi(), ppwszdisplayname, ppwszdescription, pdwflags).ok()
+        (windows_core::Interface::vtable(self).base__.Initialize)(windows_core::Interface::as_raw(self), hkregkey.param().abi(), pcwszvolume.param().abi(), ppwszdisplayname, ppwszdescription, pdwflags).ok()
     }
     pub unsafe fn GetSpaceUsed<P0>(&self, pdwlspaceused: *mut u64, picb: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IEmptyVolumeCacheCallBack>,
+        P0: windows_core::Param<IEmptyVolumeCacheCallBack>,
     {
-        (windows_core::Interface::vtable(self).base__.GetSpaceUsed)(windows_core::Interface::as_raw(self), pdwlspaceused, picb.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.GetSpaceUsed)(windows_core::Interface::as_raw(self), pdwlspaceused, picb.param().abi()).ok()
     }
     pub unsafe fn Purge<P0>(&self, dwlspacetofree: u64, picb: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IEmptyVolumeCacheCallBack>,
+        P0: windows_core::Param<IEmptyVolumeCacheCallBack>,
     {
-        (windows_core::Interface::vtable(self).base__.Purge)(windows_core::Interface::as_raw(self), dwlspacetofree, picb.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Purge)(windows_core::Interface::as_raw(self), dwlspacetofree, picb.param().abi()).ok()
     }
     pub unsafe fn ShowProperties<P0>(&self, hwnd: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).base__.ShowProperties)(windows_core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.ShowProperties)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
     }
     pub unsafe fn Deactivate(&self) -> windows_core::Result<EMPTY_VOLUME_CACHE_FLAGS> {
         let mut result__ = std::mem::zeroed();
@@ -157,11 +157,11 @@ impl IEmptyVolumeCache2 {
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn InitializeEx<P0, P1, P2>(&self, hkregkey: P0, pcwszvolume: P1, pcwszkeyname: P2, ppwszdisplayname: *mut windows_core::PWSTR, ppwszdescription: *mut windows_core::PWSTR, ppwszbtntext: *mut windows_core::PWSTR, pdwflags: *mut EMPTY_VOLUME_CACHE_FLAGS) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Registry::HKEY>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<super::super::System::Registry::HKEY>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).InitializeEx)(windows_core::Interface::as_raw(self), hkregkey.into_param().abi(), pcwszvolume.into_param().abi(), pcwszkeyname.into_param().abi(), ppwszdisplayname, ppwszdescription, ppwszbtntext, pdwflags).ok()
+        (windows_core::Interface::vtable(self).InitializeEx)(windows_core::Interface::as_raw(self), hkregkey.param().abi(), pcwszvolume.param().abi(), pcwszkeyname.param().abi(), ppwszdisplayname, ppwszdescription, ppwszbtntext, pdwflags).ok()
     }
 }
 #[repr(C)]
@@ -177,15 +177,15 @@ windows_core::imp::interface_hierarchy!(IEmptyVolumeCacheCallBack, windows_core:
 impl IEmptyVolumeCacheCallBack {
     pub unsafe fn ScanProgress<P0>(&self, dwlspaceused: u64, dwflags: u32, pcwszstatus: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ScanProgress)(windows_core::Interface::as_raw(self), dwlspaceused, dwflags, pcwszstatus.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ScanProgress)(windows_core::Interface::as_raw(self), dwlspaceused, dwflags, pcwszstatus.param().abi()).ok()
     }
     pub unsafe fn PurgeProgress<P0>(&self, dwlspacefreed: u64, dwlspacetofree: u64, dwflags: u32, pcwszstatus: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).PurgeProgress)(windows_core::Interface::as_raw(self), dwlspacefreed, dwlspacetofree, dwflags, pcwszstatus.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).PurgeProgress)(windows_core::Interface::as_raw(self), dwlspacefreed, dwlspacetofree, dwflags, pcwszstatus.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -200,12 +200,12 @@ impl IReconcilableObject {
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Reconcile<P0, P1, P2, P3>(&self, pinitiator: P0, dwflags: u32, hwndowner: P1, hwndprogressfeedback: P2, rgpmkotherinput: &mut [Option<super::super::System::Com::IMoniker>], ploutindex: *mut i32, pstgnewresidues: P3, pvreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IReconcileInitiator>,
-        P1: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P2: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P3: windows_core::IntoParam<super::super::System::Com::StructuredStorage::IStorage>,
+        P0: windows_core::Param<IReconcileInitiator>,
+        P1: windows_core::Param<super::super::Foundation::HWND>,
+        P2: windows_core::Param<super::super::Foundation::HWND>,
+        P3: windows_core::Param<super::super::System::Com::StructuredStorage::IStorage>,
     {
-        (windows_core::Interface::vtable(self).Reconcile)(windows_core::Interface::as_raw(self), pinitiator.into_param().abi(), dwflags, hwndowner.into_param().abi(), hwndprogressfeedback.into_param().abi(), rgpmkotherinput.len().try_into().unwrap(), core::mem::transmute(rgpmkotherinput.as_ptr()), ploutindex, pstgnewresidues.into_param().abi(), core::mem::transmute(pvreserved.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Reconcile)(windows_core::Interface::as_raw(self), pinitiator.param().abi(), dwflags, hwndowner.param().abi(), hwndprogressfeedback.param().abi(), rgpmkotherinput.len().try_into().unwrap(), core::mem::transmute(rgpmkotherinput.as_ptr()), ploutindex, pstgnewresidues.param().abi(), core::mem::transmute(pvreserved.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn GetProgressFeedbackMaxEstimate(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -226,9 +226,9 @@ windows_core::imp::interface_hierarchy!(IReconcileInitiator, windows_core::IUnkn
 impl IReconcileInitiator {
     pub unsafe fn SetAbortCallback<P0>(&self, punkforabort: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetAbortCallback)(windows_core::Interface::as_raw(self), punkforabort.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAbortCallback)(windows_core::Interface::as_raw(self), punkforabort.param().abi()).ok()
     }
     pub unsafe fn SetProgressFeedback(&self, ulprogress: u32, ulprogressmax: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetProgressFeedback)(windows_core::Interface::as_raw(self), ulprogress, ulprogressmax).ok()

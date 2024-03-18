@@ -17,74 +17,74 @@ impl IAccessibleWinSAT {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
     pub unsafe fn get_accChild<P0>(&self, varchild: P0) -> windows_core::Result<super::Com::IDispatch>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accChild)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.get_accChild)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn get_accName<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accName)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.get_accName)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn get_accValue<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accValue)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.get_accValue)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn get_accDescription<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accDescription)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.get_accDescription)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn get_accRole<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accRole)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.get_accRole)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn get_accState<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accState)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.get_accState)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn get_accHelp<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accHelp)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.get_accHelp)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn get_accHelpTopic<P0>(&self, pszhelpfile: *mut windows_core::BSTR, varchild: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accHelpTopic)(windows_core::Interface::as_raw(self), core::mem::transmute(pszhelpfile), varchild.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.get_accHelpTopic)(windows_core::Interface::as_raw(self), core::mem::transmute(pszhelpfile), varchild.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn get_accKeyboardShortcut<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accKeyboardShortcut)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.get_accKeyboardShortcut)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn accFocus(&self) -> windows_core::Result<windows_core::VARIANT> {
@@ -99,32 +99,32 @@ impl IAccessibleWinSAT {
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn get_accDefaultAction<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accDefaultAction)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.get_accDefaultAction)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn accSelect<P0>(&self, flagsselect: i32, varchild: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.accSelect)(windows_core::Interface::as_raw(self), flagsselect, varchild.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.accSelect)(windows_core::Interface::as_raw(self), flagsselect, varchild.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn accLocation<P0>(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.accLocation)(windows_core::Interface::as_raw(self), pxleft, pytop, pcxwidth, pcyheight, varchild.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.accLocation)(windows_core::Interface::as_raw(self), pxleft, pytop, pcxwidth, pcyheight, varchild.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn accNavigate<P0>(&self, navdir: i32, varstart: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.accNavigate)(windows_core::Interface::as_raw(self), navdir, varstart.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.accNavigate)(windows_core::Interface::as_raw(self), navdir, varstart.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn accHitTest(&self, xleft: i32, ytop: i32) -> windows_core::Result<windows_core::VARIANT> {
@@ -134,33 +134,33 @@ impl IAccessibleWinSAT {
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn accDoDefaultAction<P0>(&self, varchild: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.accDoDefaultAction)(windows_core::Interface::as_raw(self), varchild.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.accDoDefaultAction)(windows_core::Interface::as_raw(self), varchild.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn put_accName<P0, P1>(&self, varchild: P0, szname: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.put_accName)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), szname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.put_accName)(windows_core::Interface::as_raw(self), varchild.param().abi(), szname.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn put_accValue<P0, P1>(&self, varchild: P0, szvalue: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.put_accValue)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), szvalue.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.put_accValue)(windows_core::Interface::as_raw(self), varchild.param().abi(), szvalue.param().abi()).ok()
     }
     pub unsafe fn SetAccessiblityData<P0, P1, P2>(&self, wsname: P0, wsvalue: P1, wsdesc: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetAccessiblityData)(windows_core::Interface::as_raw(self), wsname.into_param().abi(), wsvalue.into_param().abi(), wsdesc.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAccessiblityData)(windows_core::Interface::as_raw(self), wsname.param().abi(), wsvalue.param().abi(), wsdesc.param().abi()).ok()
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
@@ -174,18 +174,18 @@ windows_core::imp::interface_hierarchy!(IInitiateWinSATAssessment, windows_core:
 impl IInitiateWinSATAssessment {
     pub unsafe fn InitiateAssessment<P0, P1, P2>(&self, cmdline: P0, pcallbacks: P1, callerhwnd: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IWinSATInitiateEvents>,
-        P2: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IWinSATInitiateEvents>,
+        P2: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).InitiateAssessment)(windows_core::Interface::as_raw(self), cmdline.into_param().abi(), pcallbacks.into_param().abi(), callerhwnd.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).InitiateAssessment)(windows_core::Interface::as_raw(self), cmdline.param().abi(), pcallbacks.param().abi(), callerhwnd.param().abi()).ok()
     }
     pub unsafe fn InitiateFormalAssessment<P0, P1>(&self, pcallbacks: P0, callerhwnd: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWinSATInitiateEvents>,
-        P1: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<IWinSATInitiateEvents>,
+        P1: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).InitiateFormalAssessment)(windows_core::Interface::as_raw(self), pcallbacks.into_param().abi(), callerhwnd.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).InitiateFormalAssessment)(windows_core::Interface::as_raw(self), pcallbacks.param().abi(), callerhwnd.param().abi()).ok()
     }
     pub unsafe fn CancelAssessment(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CancelAssessment)(windows_core::Interface::as_raw(self)).ok()
@@ -292,11 +292,11 @@ impl IQueryAllWinSATAssessments {
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn get_AllXML<P0, P1>(&self, xpath: P0, namespaces: P1) -> windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_AllXML)(windows_core::Interface::as_raw(self), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_AllXML)(windows_core::Interface::as_raw(self), xpath.param().abi(), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -330,11 +330,11 @@ impl IQueryRecentWinSATAssessment {
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn get_XML<P0, P1>(&self, xpath: P0, namespaces: P1) -> windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_XML)(windows_core::Interface::as_raw(self), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_XML)(windows_core::Interface::as_raw(self), xpath.param().abi(), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Info(&self) -> windows_core::Result<IProvideWinSATResultsInfo> {
@@ -360,15 +360,15 @@ windows_core::imp::interface_hierarchy!(IWinSATInitiateEvents, windows_core::IUn
 impl IWinSATInitiateEvents {
     pub unsafe fn WinSATComplete<P0>(&self, hresult: windows_core::HRESULT, strdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).WinSATComplete)(windows_core::Interface::as_raw(self), hresult, strdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WinSATComplete)(windows_core::Interface::as_raw(self), hresult, strdescription.param().abi()).ok()
     }
     pub unsafe fn WinSATUpdate<P0>(&self, ucurrenttick: u32, uticktotal: u32, strcurrentstate: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).WinSATUpdate)(windows_core::Interface::as_raw(self), ucurrenttick, uticktotal, strcurrentstate.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WinSATUpdate)(windows_core::Interface::as_raw(self), ucurrenttick, uticktotal, strcurrentstate.param().abi()).ok()
     }
 }
 #[repr(C)]

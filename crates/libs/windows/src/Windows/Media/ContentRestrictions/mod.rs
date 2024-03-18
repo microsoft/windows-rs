@@ -147,10 +147,10 @@ impl RatedContentDescription {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetImage<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetImage)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Category(&self) -> windows_core::Result<RatedContentCategory> {
         let this = self;
@@ -174,10 +174,10 @@ impl RatedContentDescription {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetRatings<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IVector<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IVector<windows_core::HSTRING>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRatings)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRatings)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Create(id: &windows_core::HSTRING, title: &windows_core::HSTRING, category: RatedContentCategory) -> windows_core::Result<RatedContentDescription> {
         Self::IRatedContentDescriptionFactory(|this| unsafe {
@@ -224,32 +224,32 @@ impl RatedContentRestrictions {
     }
     pub fn GetRestrictionLevelAsync<P0>(&self, ratedcontentdescription: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ContentAccessRestrictionLevel>>
     where
-        P0: windows_core::IntoParam<RatedContentDescription>,
+        P0: windows_core::Param<RatedContentDescription>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetRestrictionLevelAsync)(windows_core::Interface::as_raw(this), ratedcontentdescription.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetRestrictionLevelAsync)(windows_core::Interface::as_raw(this), ratedcontentdescription.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestContentAccessAsync<P0>(&self, ratedcontentdescription: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<RatedContentDescription>,
+        P0: windows_core::Param<RatedContentDescription>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestContentAccessAsync)(windows_core::Interface::as_raw(this), ratedcontentdescription.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestContentAccessAsync)(windows_core::Interface::as_raw(this), ratedcontentdescription.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RestrictionsChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RestrictionsChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RestrictionsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRestrictionsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

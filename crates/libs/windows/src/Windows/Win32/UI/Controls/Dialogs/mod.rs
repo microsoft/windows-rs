@@ -38,18 +38,18 @@ pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Found
 #[inline]
 pub unsafe fn GetFileTitleA<P0>(param0: P0, buf: &mut [u8]) -> i16
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("comdlg32.dll" "system" fn GetFileTitleA(param0 : windows_core::PCSTR, buf : windows_core::PSTR, cchsize : u16) -> i16);
-    GetFileTitleA(param0.into_param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap())
+    GetFileTitleA(param0.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetFileTitleW<P0>(param0: P0, buf: &mut [u16]) -> i16
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("comdlg32.dll" "system" fn GetFileTitleW(param0 : windows_core::PCWSTR, buf : windows_core::PWSTR, cchsize : u16) -> i16);
-    GetFileTitleW(param0.into_param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap())
+    GetFileTitleW(param0.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL {
@@ -126,11 +126,11 @@ impl IPrintDialogCallback {
     }
     pub unsafe fn HandleMessage<P0, P1, P2>(&self, hdlg: P0, umsg: u32, wparam: P1, lparam: P2, presult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::WPARAM>,
-        P2: windows_core::IntoParam<super::super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::super::Foundation::HWND>,
+        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
-        (windows_core::Interface::vtable(self).HandleMessage)(windows_core::Interface::as_raw(self), hdlg.into_param().abi(), umsg, wparam.into_param().abi(), lparam.into_param().abi(), presult).ok()
+        (windows_core::Interface::vtable(self).HandleMessage)(windows_core::Interface::as_raw(self), hdlg.param().abi(), umsg, wparam.param().abi(), lparam.param().abi(), presult).ok()
     }
 }
 #[repr(C)]

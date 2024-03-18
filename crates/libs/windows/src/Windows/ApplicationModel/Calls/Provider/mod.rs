@@ -202,10 +202,10 @@ impl PhoneCallOrigin {
     #[cfg(all(feature = "Storage", feature = "deprecated"))]
     pub fn SetDisplayPicture<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::StorageFile>,
+        P0: windows_core::Param<super::super::super::Storage::StorageFile>,
     {
         let this = &windows_core::Interface::cast::<IPhoneCallOrigin3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDisplayPicture)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDisplayPicture)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -243,9 +243,9 @@ impl PhoneCallOriginManager {
     #[cfg(feature = "deprecated")]
     pub fn SetCallOrigin<P0>(requestid: windows_core::GUID, callorigin: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<PhoneCallOrigin>,
+        P0: windows_core::Param<PhoneCallOrigin>,
     {
-        Self::IPhoneCallOriginManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetCallOrigin)(windows_core::Interface::as_raw(this), requestid, callorigin.into_param().abi()).ok() })
+        Self::IPhoneCallOriginManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetCallOrigin)(windows_core::Interface::as_raw(this), requestid, callorigin.param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     pub fn RequestSetAsActiveCallOriginAppAsync() -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {

@@ -259,11 +259,11 @@ impl LocalLocationFinder {
     #[cfg(feature = "Devices_Geolocation")]
     pub fn FindLocalLocationsAsync<P0>(searchterm: &windows_core::HSTRING, searcharea: P0, localcategory: &windows_core::HSTRING, maxresults: u32) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>
     where
-        P0: windows_core::IntoParam<super::super::super::Devices::Geolocation::Geocircle>,
+        P0: windows_core::Param<super::super::super::Devices::Geolocation::Geocircle>,
     {
         Self::ILocalLocationFinderStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindLocalLocationsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(searchterm), searcharea.into_param().abi(), core::mem::transmute_copy(localcategory), maxresults, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindLocalLocationsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(searchterm), searcharea.param().abi(), core::mem::transmute_copy(localcategory), maxresults, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -391,11 +391,11 @@ pub struct PlaceInfoHelper;
 impl PlaceInfoHelper {
     pub fn CreateFromLocalLocation<P0>(location: P0) -> windows_core::Result<super::PlaceInfo>
     where
-        P0: windows_core::IntoParam<LocalLocation>,
+        P0: windows_core::Param<LocalLocation>,
     {
         Self::IPlaceInfoHelperStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromLocalLocation)(windows_core::Interface::as_raw(this), location.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromLocalLocation)(windows_core::Interface::as_raw(this), location.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

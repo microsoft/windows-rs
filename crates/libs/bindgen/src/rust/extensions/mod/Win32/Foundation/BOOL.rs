@@ -66,8 +66,8 @@ impl core::ops::Not for BOOL {
         }
     }
 }
-impl windows_core::IntoParam<BOOL> for bool {
-    unsafe fn into_param(self) -> windows_core::Param<BOOL> {
-        windows_core::Param::Owned(self.into())
+impl windows_core::Param<BOOL> for bool {
+    unsafe fn param(self) -> windows_core::ParamValue<BOOL> {
+        windows_core::ParamValue::Owned(self.into())
     }
 }

@@ -46,12 +46,12 @@ where
 #[inline]
 pub unsafe fn CreateControlInputEx<P0, T>(pcorewindow: P0) -> windows_core::Result<T>
 where
-    P0: windows_core::IntoParam<windows_core::IUnknown>,
+    P0: windows_core::Param<windows_core::IUnknown>,
     T: windows_core::Interface,
 {
     windows_targets::link!("windows.ui.dll" "cdecl" fn CreateControlInputEx(pcorewindow : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::ptr::null_mut();
-    CreateControlInputEx(pcorewindow.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    CreateControlInputEx(pcorewindow.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "System")]
 #[inline]
@@ -63,33 +63,33 @@ pub unsafe fn CreateDispatcherQueueController(options: DispatcherQueueOptions) -
 #[inline]
 pub unsafe fn CreateRandomAccessStreamOnFile<P0, T>(filepath: P0, accessmode: u32) -> windows_core::Result<T>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
     T: windows_core::Interface,
 {
     windows_targets::link!("api-ms-win-shcore-stream-winrt-l1-1-0.dll" "system" fn CreateRandomAccessStreamOnFile(filepath : windows_core::PCWSTR, accessmode : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::ptr::null_mut();
-    CreateRandomAccessStreamOnFile(filepath.into_param().abi(), accessmode, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    CreateRandomAccessStreamOnFile(filepath.param().abi(), accessmode, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateRandomAccessStreamOverStream<P0, T>(stream: P0, options: BSOS_OPTIONS) -> windows_core::Result<T>
 where
-    P0: windows_core::IntoParam<super::Com::IStream>,
+    P0: windows_core::Param<super::Com::IStream>,
     T: windows_core::Interface,
 {
     windows_targets::link!("api-ms-win-shcore-stream-winrt-l1-1-0.dll" "system" fn CreateRandomAccessStreamOverStream(stream : * mut core::ffi::c_void, options : BSOS_OPTIONS, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::ptr::null_mut();
-    CreateRandomAccessStreamOverStream(stream.into_param().abi(), options, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    CreateRandomAccessStreamOverStream(stream.param().abi(), options, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn CreateStreamOverRandomAccessStream<P0, T>(randomaccessstream: P0) -> windows_core::Result<T>
 where
-    P0: windows_core::IntoParam<windows_core::IUnknown>,
+    P0: windows_core::Param<windows_core::IUnknown>,
     T: windows_core::Interface,
 {
     windows_targets::link!("api-ms-win-shcore-stream-winrt-l1-1-0.dll" "system" fn CreateStreamOverRandomAccessStream(randomaccessstream : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::ptr::null_mut();
-    CreateStreamOverRandomAccessStream(randomaccessstream.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    CreateStreamOverRandomAccessStream(randomaccessstream.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn GetRestrictedErrorInfo() -> windows_core::Result<IRestrictedErrorInfo> {
@@ -175,11 +175,11 @@ where
 #[inline]
 pub unsafe fn RoGetAgileReference<P0>(options: AgileReferenceOptions, riid: *const windows_core::GUID, punk: P0) -> windows_core::Result<IAgileReference>
 where
-    P0: windows_core::IntoParam<windows_core::IUnknown>,
+    P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("ole32.dll" "system" fn RoGetAgileReference(options : AgileReferenceOptions, riid : *const windows_core::GUID, punk : * mut core::ffi::c_void, ppagilereference : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    RoGetAgileReference(options, riid, punk.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    RoGetAgileReference(options, riid, punk.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn RoGetApartmentIdentifier() -> windows_core::Result<u64> {
@@ -240,10 +240,10 @@ pub unsafe fn RoOriginateErrorW(error: windows_core::HRESULT, cchmax: u32, messa
 #[inline]
 pub unsafe fn RoOriginateLanguageException<P0>(error: windows_core::HRESULT, message: &windows_core::HSTRING, languageexception: P0) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<windows_core::IUnknown>,
+    P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoOriginateLanguageException(error : windows_core::HRESULT, message : std::mem::MaybeUninit < windows_core::HSTRING >, languageexception : * mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    RoOriginateLanguageException(error, core::mem::transmute_copy(message), languageexception.into_param().abi())
+    RoOriginateLanguageException(error, core::mem::transmute_copy(message), languageexception.param().abi())
 }
 #[inline]
 pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const windows_core::HSTRING, activationfactorycallbacks: *const PFNGETACTIVATIONFACTORY, count: u32) -> windows_core::Result<RO_REGISTRATION_COOKIE> {
@@ -254,44 +254,44 @@ pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const windows_
 #[inline]
 pub unsafe fn RoRegisterForApartmentShutdown<P0>(callbackobject: P0, apartmentidentifier: *mut u64, regcookie: *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<IApartmentShutdown>,
+    P0: windows_core::Param<IApartmentShutdown>,
 {
     windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRegisterForApartmentShutdown(callbackobject : * mut core::ffi::c_void, apartmentidentifier : *mut u64, regcookie : *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> windows_core::HRESULT);
-    RoRegisterForApartmentShutdown(callbackobject.into_param().abi(), apartmentidentifier, regcookie).ok()
+    RoRegisterForApartmentShutdown(callbackobject.param().abi(), apartmentidentifier, regcookie).ok()
 }
 #[inline]
 pub unsafe fn RoReportFailedDelegate<P0, P1>(punkdelegate: P0, prestrictederrorinfo: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::IUnknown>,
-    P1: windows_core::IntoParam<IRestrictedErrorInfo>,
+    P0: windows_core::Param<windows_core::IUnknown>,
+    P1: windows_core::Param<IRestrictedErrorInfo>,
 {
     windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoReportFailedDelegate(punkdelegate : * mut core::ffi::c_void, prestrictederrorinfo : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    RoReportFailedDelegate(punkdelegate.into_param().abi(), prestrictederrorinfo.into_param().abi()).ok()
+    RoReportFailedDelegate(punkdelegate.param().abi(), prestrictederrorinfo.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn RoReportUnhandledError<P0>(prestrictederrorinfo: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<IRestrictedErrorInfo>,
+    P0: windows_core::Param<IRestrictedErrorInfo>,
 {
     windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoReportUnhandledError(prestrictederrorinfo : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    RoReportUnhandledError(prestrictederrorinfo.into_param().abi()).ok()
+    RoReportUnhandledError(prestrictederrorinfo.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn RoResolveRestrictedErrorInfoReference<P0>(reference: P0) -> windows_core::Result<IRestrictedErrorInfo>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoResolveRestrictedErrorInfoReference(reference : windows_core::PCWSTR, pprestrictederrorinfo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    RoResolveRestrictedErrorInfoReference(reference.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    RoResolveRestrictedErrorInfoReference(reference.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn RoRevokeActivationFactories<P0>(cookie: P0)
 where
-    P0: windows_core::IntoParam<RO_REGISTRATION_COOKIE>,
+    P0: windows_core::Param<RO_REGISTRATION_COOKIE>,
 {
     windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRevokeActivationFactories(cookie : RO_REGISTRATION_COOKIE));
-    RoRevokeActivationFactories(cookie.into_param().abi())
+    RoRevokeActivationFactories(cookie.param().abi())
 }
 #[inline]
 pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> windows_core::Result<()> {
@@ -316,18 +316,18 @@ pub unsafe fn RoUninitialize() {
 #[inline]
 pub unsafe fn RoUnregisterForApartmentShutdown<P0>(regcookie: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<APARTMENT_SHUTDOWN_REGISTRATION_COOKIE>,
+    P0: windows_core::Param<APARTMENT_SHUTDOWN_REGISTRATION_COOKIE>,
 {
     windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoUnregisterForApartmentShutdown(regcookie : APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> windows_core::HRESULT);
-    RoUnregisterForApartmentShutdown(regcookie.into_param().abi()).ok()
+    RoUnregisterForApartmentShutdown(regcookie.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SetRestrictedErrorInfo<P0>(prestrictederrorinfo: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<IRestrictedErrorInfo>,
+    P0: windows_core::Param<IRestrictedErrorInfo>,
 {
     windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn SetRestrictedErrorInfo(prestrictederrorinfo : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    SetRestrictedErrorInfo(prestrictederrorinfo.into_param().abi()).ok()
+    SetRestrictedErrorInfo(prestrictederrorinfo.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn WindowsCompareStringOrdinal(string1: &windows_core::HSTRING, string2: &windows_core::HSTRING) -> windows_core::Result<i32> {
@@ -350,10 +350,10 @@ pub unsafe fn WindowsCreateString(sourcestring: Option<&[u16]>) -> windows_core:
 #[inline]
 pub unsafe fn WindowsCreateStringReference<P0>(sourcestring: P0, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut windows_core::HSTRING) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateStringReference(sourcestring : windows_core::PCWSTR, length : u32, hstringheader : *mut HSTRING_HEADER, string : *mut std::mem::MaybeUninit < windows_core::HSTRING >) -> windows_core::HRESULT);
-    WindowsCreateStringReference(sourcestring.into_param().abi(), length, hstringheader, core::mem::transmute(string)).ok()
+    WindowsCreateStringReference(sourcestring.param().abi(), length, hstringheader, core::mem::transmute(string)).ok()
 }
 #[inline]
 pub unsafe fn WindowsDeleteString(string: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -363,10 +363,10 @@ pub unsafe fn WindowsDeleteString(string: &windows_core::HSTRING) -> windows_cor
 #[inline]
 pub unsafe fn WindowsDeleteStringBuffer<P0>(bufferhandle: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HSTRING_BUFFER>,
+    P0: windows_core::Param<HSTRING_BUFFER>,
 {
     windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDeleteStringBuffer(bufferhandle : HSTRING_BUFFER) -> windows_core::HRESULT);
-    WindowsDeleteStringBuffer(bufferhandle.into_param().abi()).ok()
+    WindowsDeleteStringBuffer(bufferhandle.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn WindowsDuplicateString(string: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
@@ -407,11 +407,11 @@ pub unsafe fn WindowsPreallocateStringBuffer(length: u32, charbuffer: *mut *mut 
 #[inline]
 pub unsafe fn WindowsPromoteStringBuffer<P0>(bufferhandle: P0) -> windows_core::Result<windows_core::HSTRING>
 where
-    P0: windows_core::IntoParam<HSTRING_BUFFER>,
+    P0: windows_core::Param<HSTRING_BUFFER>,
 {
     windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsPromoteStringBuffer(bufferhandle : HSTRING_BUFFER, string : *mut std::mem::MaybeUninit < windows_core::HSTRING >) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    WindowsPromoteStringBuffer(bufferhandle.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    WindowsPromoteStringBuffer(bufferhandle.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn WindowsReplaceString(string: &windows_core::HSTRING, stringreplaced: &windows_core::HSTRING, stringreplacewith: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
@@ -454,27 +454,27 @@ windows_core::imp::interface_hierarchy!(IAccountsSettingsPaneInterop, windows_co
 impl IAccountsSettingsPaneInterop {
     pub unsafe fn GetForWindow<P0, T>(&self, appwindow: P0) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), appwindow.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ShowManageAccountsForWindowAsync<P0, T>(&self, appwindow: P0) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).ShowManageAccountsForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ShowManageAccountsForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ShowAddAccountForWindowAsync<P0, T>(&self, appwindow: P0) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).ShowAddAccountForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ShowAddAccountForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -559,10 +559,10 @@ windows_core::imp::interface_hierarchy!(ICastingController, windows_core::IUnkno
 impl ICastingController {
     pub unsafe fn Initialize<P0, P1>(&self, castingengine: P0, castingsource: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), castingengine.into_param().abi(), castingsource.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), castingengine.param().abi(), castingsource.param().abi()).ok()
     }
     pub unsafe fn Connect(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self)).ok()
@@ -572,10 +572,10 @@ impl ICastingController {
     }
     pub unsafe fn Advise<P0>(&self, eventhandler: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<ICastingEventHandler>,
+        P0: windows_core::Param<ICastingEventHandler>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), eventhandler.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), eventhandler.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn UnAdvise(&self, cookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnAdvise)(windows_core::Interface::as_raw(self), cookie).ok()
@@ -598,9 +598,9 @@ impl ICastingEventHandler {
     }
     pub unsafe fn OnError<P0>(&self, errorstatus: CASTING_CONNECTION_ERROR_STATUS, errormessage: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).OnError)(windows_core::Interface::as_raw(self), errorstatus, errormessage.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnError)(windows_core::Interface::as_raw(self), errorstatus, errormessage.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -636,9 +636,9 @@ windows_core::imp::interface_hierarchy!(ICoreInputInterop, windows_core::IUnknow
 impl ICoreInputInterop {
     pub unsafe fn SetInputSource<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetInputSource)(windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetInputSource)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
     }
     pub unsafe fn SetMessageHandled(&self, value: u8) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMessageHandled)(windows_core::Interface::as_raw(self), value).ok()
@@ -659,9 +659,9 @@ impl ICoreInputInterop2 {
     }
     pub unsafe fn ChangeHostingContext<P0>(&self, newparentwindow: P0, newviewinstanceid: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).ChangeHostingContext)(windows_core::Interface::as_raw(self), newparentwindow.into_param().abi(), newviewinstanceid).ok()
+        (windows_core::Interface::vtable(self).ChangeHostingContext)(windows_core::Interface::as_raw(self), newparentwindow.param().abi(), newviewinstanceid).ok()
     }
 }
 #[repr(C)]
@@ -703,9 +703,9 @@ impl ICoreWindowAdapterInterop {
     }
     pub unsafe fn SetWindowClientAdapter<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetWindowClientAdapter)(windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetWindowClientAdapter)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -725,10 +725,10 @@ windows_core::imp::interface_hierarchy!(ICoreWindowComponentInterop, windows_cor
 impl ICoreWindowComponentInterop {
     pub unsafe fn ConfigureComponentInput<P0, P1>(&self, hostviewinstanceid: u32, hwndhost: P0, inputsourcevisual: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).ConfigureComponentInput)(windows_core::Interface::as_raw(self), hostviewinstanceid, hwndhost.into_param().abi(), inputsourcevisual.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ConfigureComponentInput)(windows_core::Interface::as_raw(self), hostviewinstanceid, hwndhost.param().abi(), inputsourcevisual.param().abi()).ok()
     }
     pub unsafe fn GetViewInstanceId(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -798,11 +798,11 @@ windows_core::imp::interface_hierarchy!(IDragDropManagerInterop, windows_core::I
 impl IDragDropManagerInterop {
     pub unsafe fn GetForWindow<P0, T>(&self, hwnd: P0) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -815,11 +815,11 @@ windows_core::imp::interface_hierarchy!(IHolographicSpaceInterop, windows_core::
 impl IHolographicSpaceInterop {
     pub unsafe fn CreateForWindow<P0, T>(&self, window: P0) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateForWindow)(windows_core::Interface::as_raw(self), window.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateForWindow)(windows_core::Interface::as_raw(self), window.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -832,11 +832,11 @@ windows_core::imp::interface_hierarchy!(IInputPaneInterop, windows_core::IUnknow
 impl IInputPaneInterop {
     pub unsafe fn GetForWindow<P0, T>(&self, appwindow: P0) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), appwindow.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -870,9 +870,9 @@ impl ILanguageExceptionErrorInfo2 {
     }
     pub unsafe fn CapturePropagationContext<P0>(&self, languageexception: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).CapturePropagationContext)(windows_core::Interface::as_raw(self), languageexception.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CapturePropagationContext)(windows_core::Interface::as_raw(self), languageexception.param().abi()).ok()
     }
     pub unsafe fn GetPropagationContextHead(&self) -> windows_core::Result<ILanguageExceptionErrorInfo2> {
         let mut result__ = std::mem::zeroed();
@@ -940,17 +940,17 @@ windows_core::imp::interface_hierarchy!(IPlayToManagerInterop, windows_core::IUn
 impl IPlayToManagerInterop {
     pub unsafe fn GetForWindow<P0, T>(&self, appwindow: P0) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), appwindow.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ShowPlayToUIForWindow<P0>(&self, appwindow: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).ShowPlayToUIForWindow)(windows_core::Interface::as_raw(self), appwindow.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ShowPlayToUIForWindow)(windows_core::Interface::as_raw(self), appwindow.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -996,11 +996,11 @@ windows_core::imp::interface_hierarchy!(IShareWindowCommandSourceInterop, window
 impl IShareWindowCommandSourceInterop {
     pub unsafe fn GetForWindow<P0, T>(&self, appwindow: P0) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), appwindow.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1013,11 +1013,11 @@ windows_core::imp::interface_hierarchy!(ISpatialInteractionManagerInterop, windo
 impl ISpatialInteractionManagerInterop {
     pub unsafe fn GetForWindow<P0, T>(&self, window: P0) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), window.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), window.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1030,11 +1030,11 @@ windows_core::imp::interface_hierarchy!(ISystemMediaTransportControlsInterop, wi
 impl ISystemMediaTransportControlsInterop {
     pub unsafe fn GetForWindow<P0, T>(&self, appwindow: P0) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), appwindow.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1047,11 +1047,11 @@ windows_core::imp::interface_hierarchy!(IUIViewSettingsInterop, windows_core::IU
 impl IUIViewSettingsInterop {
     pub unsafe fn GetForWindow<P0, T>(&self, hwnd: P0) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1064,11 +1064,11 @@ windows_core::imp::interface_hierarchy!(IUserActivityInterop, windows_core::IUnk
 impl IUserActivityInterop {
     pub unsafe fn CreateSessionForWindow<P0, T>(&self, window: P0) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateSessionForWindow)(windows_core::Interface::as_raw(self), window.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateSessionForWindow)(windows_core::Interface::as_raw(self), window.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1081,11 +1081,11 @@ windows_core::imp::interface_hierarchy!(IUserActivityRequestManagerInterop, wind
 impl IUserActivityRequestManagerInterop {
     pub unsafe fn GetForWindow<P0, T>(&self, window: P0) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), window.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), window.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1110,11 +1110,11 @@ windows_core::imp::interface_hierarchy!(IUserConsentVerifierInterop, windows_cor
 impl IUserConsentVerifierInterop {
     pub unsafe fn RequestVerificationForWindowAsync<P0, T>(&self, appwindow: P0, message: &windows_core::HSTRING) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).RequestVerificationForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.into_param().abi(), core::mem::transmute_copy(message), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RequestVerificationForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), core::mem::transmute_copy(message), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1156,22 +1156,22 @@ windows_core::imp::interface_hierarchy!(IWebAuthenticationCoreManagerInterop, wi
 impl IWebAuthenticationCoreManagerInterop {
     pub unsafe fn RequestTokenForWindowAsync<P0, P1, T>(&self, appwindow: P0, request: P1) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<windows_core::IInspectable>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).RequestTokenForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.into_param().abi(), request.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RequestTokenForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), request.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestTokenWithWebAccountForWindowAsync<P0, P1, P2, T>(&self, appwindow: P0, request: P1, webaccount: P2) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<windows_core::IInspectable>,
-        P2: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<windows_core::IInspectable>,
+        P2: windows_core::Param<windows_core::IInspectable>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).RequestTokenWithWebAccountForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.into_param().abi(), request.into_param().abi(), webaccount.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RequestTokenWithWebAccountForWindowAsync)(windows_core::Interface::as_raw(self), appwindow.param().abi(), request.param().abi(), webaccount.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

@@ -17,12 +17,12 @@ windows_core::imp::interface_hierarchy!(IFsrmAccessDeniedRemediationClient, wind
 impl IFsrmAccessDeniedRemediationClient {
     pub unsafe fn Show<P0, P1, P2>(&self, parentwnd: usize, accesspath: P0, errortype: AdrClientErrorType, flags: i32, windowtitle: P1, windowmessage: P2) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), parentwnd, accesspath.into_param().abi(), errortype, flags, windowtitle.into_param().abi(), windowmessage.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), parentwnd, accesspath.param().abi(), errortype, flags, windowtitle.param().abi(), windowmessage.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -96,9 +96,9 @@ impl IFsrmActionCommand {
     }
     pub unsafe fn SetExecutablePath<P0>(&self, executablepath: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExecutablePath)(windows_core::Interface::as_raw(self), executablepath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExecutablePath)(windows_core::Interface::as_raw(self), executablepath.param().abi()).ok()
     }
     pub unsafe fn Arguments(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -106,9 +106,9 @@ impl IFsrmActionCommand {
     }
     pub unsafe fn SetArguments<P0>(&self, arguments: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetArguments)(windows_core::Interface::as_raw(self), arguments.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetArguments)(windows_core::Interface::as_raw(self), arguments.param().abi()).ok()
     }
     pub unsafe fn Account(&self) -> windows_core::Result<FsrmAccountType> {
         let mut result__ = std::mem::zeroed();
@@ -123,9 +123,9 @@ impl IFsrmActionCommand {
     }
     pub unsafe fn SetWorkingDirectory<P0>(&self, workingdirectory: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetWorkingDirectory)(windows_core::Interface::as_raw(self), workingdirectory.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetWorkingDirectory)(windows_core::Interface::as_raw(self), workingdirectory.param().abi()).ok()
     }
     pub unsafe fn MonitorCommand(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -133,9 +133,9 @@ impl IFsrmActionCommand {
     }
     pub unsafe fn SetMonitorCommand<P0>(&self, monitorcommand: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetMonitorCommand)(windows_core::Interface::as_raw(self), monitorcommand.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMonitorCommand)(windows_core::Interface::as_raw(self), monitorcommand.param().abi()).ok()
     }
     pub unsafe fn KillTimeOut(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -150,9 +150,9 @@ impl IFsrmActionCommand {
     }
     pub unsafe fn SetLogResult<P0>(&self, logresults: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetLogResult)(windows_core::Interface::as_raw(self), logresults.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLogResult)(windows_core::Interface::as_raw(self), logresults.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -204,9 +204,9 @@ impl IFsrmActionEmail {
     }
     pub unsafe fn SetMailFrom<P0>(&self, mailfrom: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMailFrom)(windows_core::Interface::as_raw(self), mailfrom.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMailFrom)(windows_core::Interface::as_raw(self), mailfrom.param().abi()).ok()
     }
     pub unsafe fn MailReplyTo(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -214,9 +214,9 @@ impl IFsrmActionEmail {
     }
     pub unsafe fn SetMailReplyTo<P0>(&self, mailreplyto: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMailReplyTo)(windows_core::Interface::as_raw(self), mailreplyto.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMailReplyTo)(windows_core::Interface::as_raw(self), mailreplyto.param().abi()).ok()
     }
     pub unsafe fn MailTo(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -224,9 +224,9 @@ impl IFsrmActionEmail {
     }
     pub unsafe fn SetMailTo<P0>(&self, mailto: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMailTo)(windows_core::Interface::as_raw(self), mailto.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMailTo)(windows_core::Interface::as_raw(self), mailto.param().abi()).ok()
     }
     pub unsafe fn MailCc(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -234,9 +234,9 @@ impl IFsrmActionEmail {
     }
     pub unsafe fn SetMailCc<P0>(&self, mailcc: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMailCc)(windows_core::Interface::as_raw(self), mailcc.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMailCc)(windows_core::Interface::as_raw(self), mailcc.param().abi()).ok()
     }
     pub unsafe fn MailBcc(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -244,9 +244,9 @@ impl IFsrmActionEmail {
     }
     pub unsafe fn SetMailBcc<P0>(&self, mailbcc: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMailBcc)(windows_core::Interface::as_raw(self), mailbcc.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMailBcc)(windows_core::Interface::as_raw(self), mailbcc.param().abi()).ok()
     }
     pub unsafe fn MailSubject(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -254,9 +254,9 @@ impl IFsrmActionEmail {
     }
     pub unsafe fn SetMailSubject<P0>(&self, mailsubject: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMailSubject)(windows_core::Interface::as_raw(self), mailsubject.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMailSubject)(windows_core::Interface::as_raw(self), mailsubject.param().abi()).ok()
     }
     pub unsafe fn MessageText(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -264,9 +264,9 @@ impl IFsrmActionEmail {
     }
     pub unsafe fn SetMessageText<P0>(&self, messagetext: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMessageText)(windows_core::Interface::as_raw(self), messagetext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMessageText)(windows_core::Interface::as_raw(self), messagetext.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -318,9 +318,9 @@ impl IFsrmActionEmail2 {
     }
     pub unsafe fn SetMailFrom<P0>(&self, mailfrom: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetMailFrom)(windows_core::Interface::as_raw(self), mailfrom.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetMailFrom)(windows_core::Interface::as_raw(self), mailfrom.param().abi()).ok()
     }
     pub unsafe fn MailReplyTo(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -328,9 +328,9 @@ impl IFsrmActionEmail2 {
     }
     pub unsafe fn SetMailReplyTo<P0>(&self, mailreplyto: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetMailReplyTo)(windows_core::Interface::as_raw(self), mailreplyto.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetMailReplyTo)(windows_core::Interface::as_raw(self), mailreplyto.param().abi()).ok()
     }
     pub unsafe fn MailTo(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -338,9 +338,9 @@ impl IFsrmActionEmail2 {
     }
     pub unsafe fn SetMailTo<P0>(&self, mailto: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetMailTo)(windows_core::Interface::as_raw(self), mailto.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetMailTo)(windows_core::Interface::as_raw(self), mailto.param().abi()).ok()
     }
     pub unsafe fn MailCc(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -348,9 +348,9 @@ impl IFsrmActionEmail2 {
     }
     pub unsafe fn SetMailCc<P0>(&self, mailcc: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetMailCc)(windows_core::Interface::as_raw(self), mailcc.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetMailCc)(windows_core::Interface::as_raw(self), mailcc.param().abi()).ok()
     }
     pub unsafe fn MailBcc(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -358,9 +358,9 @@ impl IFsrmActionEmail2 {
     }
     pub unsafe fn SetMailBcc<P0>(&self, mailbcc: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetMailBcc)(windows_core::Interface::as_raw(self), mailbcc.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetMailBcc)(windows_core::Interface::as_raw(self), mailbcc.param().abi()).ok()
     }
     pub unsafe fn MailSubject(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -368,9 +368,9 @@ impl IFsrmActionEmail2 {
     }
     pub unsafe fn SetMailSubject<P0>(&self, mailsubject: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetMailSubject)(windows_core::Interface::as_raw(self), mailsubject.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetMailSubject)(windows_core::Interface::as_raw(self), mailsubject.param().abi()).ok()
     }
     pub unsafe fn MessageText(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -378,9 +378,9 @@ impl IFsrmActionEmail2 {
     }
     pub unsafe fn SetMessageText<P0>(&self, messagetext: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetMessageText)(windows_core::Interface::as_raw(self), messagetext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetMessageText)(windows_core::Interface::as_raw(self), messagetext.param().abi()).ok()
     }
     pub unsafe fn AttachmentFileListSize(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -434,9 +434,9 @@ impl IFsrmActionEventLog {
     }
     pub unsafe fn SetMessageText<P0>(&self, messagetext: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMessageText)(windows_core::Interface::as_raw(self), messagetext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMessageText)(windows_core::Interface::as_raw(self), messagetext.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -487,9 +487,9 @@ impl IFsrmActionReport {
     }
     pub unsafe fn SetMailTo<P0>(&self, mailto: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMailTo)(windows_core::Interface::as_raw(self), mailto.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMailTo)(windows_core::Interface::as_raw(self), mailto.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -523,9 +523,9 @@ impl IFsrmAutoApplyQuota {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -539,9 +539,9 @@ impl IFsrmAutoApplyQuota {
     }
     pub unsafe fn SetQuotaLimit<P0>(&self, quotalimit: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetQuotaLimit)(windows_core::Interface::as_raw(self), quotalimit.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetQuotaLimit)(windows_core::Interface::as_raw(self), quotalimit.param().abi()).ok()
     }
     pub unsafe fn QuotaFlags(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -596,9 +596,9 @@ impl IFsrmAutoApplyQuota {
     }
     pub unsafe fn ApplyTemplate<P0>(&self, quotatemplatename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.ApplyTemplate)(windows_core::Interface::as_raw(self), quotatemplatename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.ApplyTemplate)(windows_core::Interface::as_raw(self), quotatemplatename.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ExcludeFolders(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
@@ -660,9 +660,9 @@ impl IFsrmClassificationManager {
     }
     pub unsafe fn SetClassificationReportMailTo<P0>(&self, mailto: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetClassificationReportMailTo)(windows_core::Interface::as_raw(self), mailto.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetClassificationReportMailTo)(windows_core::Interface::as_raw(self), mailto.param().abi()).ok()
     }
     pub unsafe fn ClassificationReportEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -670,9 +670,9 @@ impl IFsrmClassificationManager {
     }
     pub unsafe fn SetClassificationReportEnabled<P0>(&self, reportenabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetClassificationReportEnabled)(windows_core::Interface::as_raw(self), reportenabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetClassificationReportEnabled)(windows_core::Interface::as_raw(self), reportenabled.param().abi()).ok()
     }
     pub unsafe fn ClassificationLastReportPathWithoutExtension(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -699,10 +699,10 @@ impl IFsrmClassificationManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPropertyDefinition<P0>(&self, propertyname: P0) -> windows_core::Result<IFsrmPropertyDefinition>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPropertyDefinition)(windows_core::Interface::as_raw(self), propertyname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetPropertyDefinition)(windows_core::Interface::as_raw(self), propertyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumRules(&self, ruletype: FsrmRuleType, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCollection> {
@@ -717,10 +717,10 @@ impl IFsrmClassificationManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRule<P0>(&self, rulename: P0, ruletype: FsrmRuleType) -> windows_core::Result<IFsrmRule>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRule)(windows_core::Interface::as_raw(self), rulename.into_param().abi(), ruletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetRule)(windows_core::Interface::as_raw(self), rulename.param().abi(), ruletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumModuleDefinitions(&self, moduletype: FsrmPipelineModuleType, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCollection> {
@@ -735,16 +735,16 @@ impl IFsrmClassificationManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetModuleDefinition<P0>(&self, modulename: P0, moduletype: FsrmPipelineModuleType) -> windows_core::Result<IFsrmPipelineModuleDefinition>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetModuleDefinition)(windows_core::Interface::as_raw(self), modulename.into_param().abi(), moduletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetModuleDefinition)(windows_core::Interface::as_raw(self), modulename.param().abi(), moduletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RunClassification<P0>(&self, context: FsrmReportGenerationContext, reserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).RunClassification)(windows_core::Interface::as_raw(self), context, reserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RunClassification)(windows_core::Interface::as_raw(self), context, reserved.param().abi()).ok()
     }
     pub unsafe fn WaitForClassificationCompletion(&self, waitseconds: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -756,34 +756,34 @@ impl IFsrmClassificationManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumFileProperties<P0>(&self, filepath: P0, options: FsrmGetFilePropertyOptions) -> windows_core::Result<IFsrmCollection>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumFileProperties)(windows_core::Interface::as_raw(self), filepath.into_param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumFileProperties)(windows_core::Interface::as_raw(self), filepath.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFileProperty<P0, P1>(&self, filepath: P0, propertyname: P1, options: FsrmGetFilePropertyOptions) -> windows_core::Result<IFsrmProperty>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFileProperty)(windows_core::Interface::as_raw(self), filepath.into_param().abi(), propertyname.into_param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetFileProperty)(windows_core::Interface::as_raw(self), filepath.param().abi(), propertyname.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetFileProperty<P0, P1, P2>(&self, filepath: P0, propertyname: P1, propertyvalue: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFileProperty)(windows_core::Interface::as_raw(self), filepath.into_param().abi(), propertyname.into_param().abi(), propertyvalue.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFileProperty)(windows_core::Interface::as_raw(self), filepath.param().abi(), propertyname.param().abi(), propertyvalue.param().abi()).ok()
     }
     pub unsafe fn ClearFileProperty<P0, P1>(&self, filepath: P0, property: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ClearFileProperty)(windows_core::Interface::as_raw(self), filepath.into_param().abi(), property.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ClearFileProperty)(windows_core::Interface::as_raw(self), filepath.param().abi(), property.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -885,9 +885,9 @@ impl IFsrmClassificationManager2 {
     }
     pub unsafe fn SetClassificationReportMailTo<P0>(&self, mailto: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetClassificationReportMailTo)(windows_core::Interface::as_raw(self), mailto.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetClassificationReportMailTo)(windows_core::Interface::as_raw(self), mailto.param().abi()).ok()
     }
     pub unsafe fn ClassificationReportEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -895,9 +895,9 @@ impl IFsrmClassificationManager2 {
     }
     pub unsafe fn SetClassificationReportEnabled<P0>(&self, reportenabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetClassificationReportEnabled)(windows_core::Interface::as_raw(self), reportenabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetClassificationReportEnabled)(windows_core::Interface::as_raw(self), reportenabled.param().abi()).ok()
     }
     pub unsafe fn ClassificationLastReportPathWithoutExtension(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -924,10 +924,10 @@ impl IFsrmClassificationManager2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPropertyDefinition<P0>(&self, propertyname: P0) -> windows_core::Result<IFsrmPropertyDefinition>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetPropertyDefinition)(windows_core::Interface::as_raw(self), propertyname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetPropertyDefinition)(windows_core::Interface::as_raw(self), propertyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumRules(&self, ruletype: FsrmRuleType, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCollection> {
@@ -942,10 +942,10 @@ impl IFsrmClassificationManager2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRule<P0>(&self, rulename: P0, ruletype: FsrmRuleType) -> windows_core::Result<IFsrmRule>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetRule)(windows_core::Interface::as_raw(self), rulename.into_param().abi(), ruletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetRule)(windows_core::Interface::as_raw(self), rulename.param().abi(), ruletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumModuleDefinitions(&self, moduletype: FsrmPipelineModuleType, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCollection> {
@@ -960,16 +960,16 @@ impl IFsrmClassificationManager2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetModuleDefinition<P0>(&self, modulename: P0, moduletype: FsrmPipelineModuleType) -> windows_core::Result<IFsrmPipelineModuleDefinition>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetModuleDefinition)(windows_core::Interface::as_raw(self), modulename.into_param().abi(), moduletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetModuleDefinition)(windows_core::Interface::as_raw(self), modulename.param().abi(), moduletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RunClassification<P0>(&self, context: FsrmReportGenerationContext, reserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.RunClassification)(windows_core::Interface::as_raw(self), context, reserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RunClassification)(windows_core::Interface::as_raw(self), context, reserved.param().abi()).ok()
     }
     pub unsafe fn WaitForClassificationCompletion(&self, waitseconds: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -981,34 +981,34 @@ impl IFsrmClassificationManager2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumFileProperties<P0>(&self, filepath: P0, options: FsrmGetFilePropertyOptions) -> windows_core::Result<IFsrmCollection>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EnumFileProperties)(windows_core::Interface::as_raw(self), filepath.into_param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.EnumFileProperties)(windows_core::Interface::as_raw(self), filepath.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFileProperty<P0, P1>(&self, filepath: P0, propertyname: P1, options: FsrmGetFilePropertyOptions) -> windows_core::Result<IFsrmProperty>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFileProperty)(windows_core::Interface::as_raw(self), filepath.into_param().abi(), propertyname.into_param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetFileProperty)(windows_core::Interface::as_raw(self), filepath.param().abi(), propertyname.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetFileProperty<P0, P1, P2>(&self, filepath: P0, propertyname: P1, propertyvalue: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetFileProperty)(windows_core::Interface::as_raw(self), filepath.into_param().abi(), propertyname.into_param().abi(), propertyvalue.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetFileProperty)(windows_core::Interface::as_raw(self), filepath.param().abi(), propertyname.param().abi(), propertyvalue.param().abi()).ok()
     }
     pub unsafe fn ClearFileProperty<P0, P1>(&self, filepath: P0, property: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.ClearFileProperty)(windows_core::Interface::as_raw(self), filepath.into_param().abi(), property.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.ClearFileProperty)(windows_core::Interface::as_raw(self), filepath.param().abi(), property.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClassifyFiles(&self, filepaths: *const super::super::System::Com::SAFEARRAY, propertynames: *const super::super::System::Com::SAFEARRAY, propertyvalues: *const super::super::System::Com::SAFEARRAY, options: FsrmGetFilePropertyOptions) -> windows_core::Result<()> {
@@ -1040,9 +1040,9 @@ impl IFsrmClassificationRule {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -1056,9 +1056,9 @@ impl IFsrmClassificationRule {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn RuleType(&self) -> windows_core::Result<FsrmRuleType> {
         let mut result__ = std::mem::zeroed();
@@ -1070,9 +1070,9 @@ impl IFsrmClassificationRule {
     }
     pub unsafe fn SetModuleDefinitionName<P0>(&self, moduledefinitionname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetModuleDefinitionName)(windows_core::Interface::as_raw(self), moduledefinitionname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetModuleDefinitionName)(windows_core::Interface::as_raw(self), moduledefinitionname.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceRoots(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
@@ -1116,9 +1116,9 @@ impl IFsrmClassificationRule {
     }
     pub unsafe fn SetPropertyAffected<P0>(&self, property: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetPropertyAffected)(windows_core::Interface::as_raw(self), property.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPropertyAffected)(windows_core::Interface::as_raw(self), property.param().abi()).ok()
     }
     pub unsafe fn Value(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1126,9 +1126,9 @@ impl IFsrmClassificationRule {
     }
     pub unsafe fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1158,9 +1158,9 @@ impl IFsrmClassifierModuleDefinition {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -1174,9 +1174,9 @@ impl IFsrmClassifierModuleDefinition {
     }
     pub unsafe fn SetModuleClsid<P0>(&self, moduleclsid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetModuleClsid)(windows_core::Interface::as_raw(self), moduleclsid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetModuleClsid)(windows_core::Interface::as_raw(self), moduleclsid.param().abi()).ok()
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1184,9 +1184,9 @@ impl IFsrmClassifierModuleDefinition {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn Company(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1194,9 +1194,9 @@ impl IFsrmClassifierModuleDefinition {
     }
     pub unsafe fn SetCompany<P0>(&self, company: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetCompany)(windows_core::Interface::as_raw(self), company.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetCompany)(windows_core::Interface::as_raw(self), company.param().abi()).ok()
     }
     pub unsafe fn Version(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1204,9 +1204,9 @@ impl IFsrmClassifierModuleDefinition {
     }
     pub unsafe fn SetVersion<P0>(&self, version: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetVersion)(windows_core::Interface::as_raw(self), version.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetVersion)(windows_core::Interface::as_raw(self), version.param().abi()).ok()
     }
     pub unsafe fn ModuleType(&self) -> windows_core::Result<FsrmPipelineModuleType> {
         let mut result__ = std::mem::zeroed();
@@ -1218,9 +1218,9 @@ impl IFsrmClassifierModuleDefinition {
     }
     pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetEnabled)(windows_core::Interface::as_raw(self), enabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetEnabled)(windows_core::Interface::as_raw(self), enabled.param().abi()).ok()
     }
     pub unsafe fn NeedsFileContent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1228,9 +1228,9 @@ impl IFsrmClassifierModuleDefinition {
     }
     pub unsafe fn SetNeedsFileContent<P0>(&self, needsfilecontent: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetNeedsFileContent)(windows_core::Interface::as_raw(self), needsfilecontent.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetNeedsFileContent)(windows_core::Interface::as_raw(self), needsfilecontent.param().abi()).ok()
     }
     pub unsafe fn Account(&self) -> windows_core::Result<FsrmAccountType> {
         let mut result__ = std::mem::zeroed();
@@ -1281,9 +1281,9 @@ impl IFsrmClassifierModuleDefinition {
     }
     pub unsafe fn SetNeedsExplicitValue<P0>(&self, needsexplicitvalue: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetNeedsExplicitValue)(windows_core::Interface::as_raw(self), needsexplicitvalue.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetNeedsExplicitValue)(windows_core::Interface::as_raw(self), needsexplicitvalue.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1318,10 +1318,10 @@ impl IFsrmClassifierModuleImplementation {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnLoad<P0>(&self, moduledefinition: P0) -> windows_core::Result<IFsrmPipelineModuleConnector>
     where
-        P0: windows_core::IntoParam<IFsrmPipelineModuleDefinition>,
+        P0: windows_core::Param<IFsrmPipelineModuleDefinition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OnLoad)(windows_core::Interface::as_raw(self), moduledefinition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.OnLoad)(windows_core::Interface::as_raw(self), moduledefinition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn OnUnload(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.OnUnload)(windows_core::Interface::as_raw(self)).ok()
@@ -1333,30 +1333,30 @@ impl IFsrmClassifierModuleImplementation {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UseRulesAndDefinitions<P0, P1>(&self, rules: P0, propertydefinitions: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFsrmCollection>,
-        P1: windows_core::IntoParam<IFsrmCollection>,
+        P0: windows_core::Param<IFsrmCollection>,
+        P1: windows_core::Param<IFsrmCollection>,
     {
-        (windows_core::Interface::vtable(self).UseRulesAndDefinitions)(windows_core::Interface::as_raw(self), rules.into_param().abi(), propertydefinitions.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UseRulesAndDefinitions)(windows_core::Interface::as_raw(self), rules.param().abi(), propertydefinitions.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnBeginFile<P0>(&self, propertybag: P0, arrayruleids: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFsrmPropertyBag>,
+        P0: windows_core::Param<IFsrmPropertyBag>,
     {
-        (windows_core::Interface::vtable(self).OnBeginFile)(windows_core::Interface::as_raw(self), propertybag.into_param().abi(), arrayruleids).ok()
+        (windows_core::Interface::vtable(self).OnBeginFile)(windows_core::Interface::as_raw(self), propertybag.param().abi(), arrayruleids).ok()
     }
     pub unsafe fn DoesPropertyValueApply<P0, P1>(&self, property: P0, value: P1, applyvalue: *mut super::super::Foundation::VARIANT_BOOL, idrule: windows_core::GUID, idpropdef: windows_core::GUID) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).DoesPropertyValueApply)(windows_core::Interface::as_raw(self), property.into_param().abi(), value.into_param().abi(), applyvalue, core::mem::transmute(idrule), core::mem::transmute(idpropdef)).ok()
+        (windows_core::Interface::vtable(self).DoesPropertyValueApply)(windows_core::Interface::as_raw(self), property.param().abi(), value.param().abi(), applyvalue, core::mem::transmute(idrule), core::mem::transmute(idpropdef)).ok()
     }
     pub unsafe fn GetPropertyValueToApply<P0>(&self, property: P0, value: *mut windows_core::BSTR, idrule: windows_core::GUID, idpropdef: windows_core::GUID) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).GetPropertyValueToApply)(windows_core::Interface::as_raw(self), property.into_param().abi(), core::mem::transmute(value), core::mem::transmute(idrule), core::mem::transmute(idpropdef)).ok()
+        (windows_core::Interface::vtable(self).GetPropertyValueToApply)(windows_core::Interface::as_raw(self), property.param().abi(), core::mem::transmute(value), core::mem::transmute(idrule), core::mem::transmute(idpropdef)).ok()
     }
     pub unsafe fn OnEndFile(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnEndFile)(windows_core::Interface::as_raw(self)).ok()
@@ -1460,9 +1460,9 @@ impl IFsrmCommittableCollection {
     }
     pub unsafe fn Add<P0>(&self, item: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.Add)(windows_core::Interface::as_raw(self), item.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Add)(windows_core::Interface::as_raw(self), item.param().abi()).ok()
     }
     pub unsafe fn Remove(&self, index: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Remove)(windows_core::Interface::as_raw(self), index).ok()
@@ -1528,51 +1528,51 @@ windows_core::imp::interface_hierarchy!(IFsrmExportImport, windows_core::IUnknow
 impl IFsrmExportImport {
     pub unsafe fn ExportFileGroups<P0, P1>(&self, filepath: P0, filegroupnamessafearray: *const windows_core::VARIANT, remotehost: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ExportFileGroups)(windows_core::Interface::as_raw(self), filepath.into_param().abi(), core::mem::transmute(filegroupnamessafearray), remotehost.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ExportFileGroups)(windows_core::Interface::as_raw(self), filepath.param().abi(), core::mem::transmute(filegroupnamessafearray), remotehost.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ImportFileGroups<P0, P1>(&self, filepath: P0, filegroupnamessafearray: *const windows_core::VARIANT, remotehost: P1) -> windows_core::Result<IFsrmCommittableCollection>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ImportFileGroups)(windows_core::Interface::as_raw(self), filepath.into_param().abi(), core::mem::transmute(filegroupnamessafearray), remotehost.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ImportFileGroups)(windows_core::Interface::as_raw(self), filepath.param().abi(), core::mem::transmute(filegroupnamessafearray), remotehost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ExportFileScreenTemplates<P0, P1>(&self, filepath: P0, templatenamessafearray: *const windows_core::VARIANT, remotehost: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ExportFileScreenTemplates)(windows_core::Interface::as_raw(self), filepath.into_param().abi(), core::mem::transmute(templatenamessafearray), remotehost.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ExportFileScreenTemplates)(windows_core::Interface::as_raw(self), filepath.param().abi(), core::mem::transmute(templatenamessafearray), remotehost.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ImportFileScreenTemplates<P0, P1>(&self, filepath: P0, templatenamessafearray: *const windows_core::VARIANT, remotehost: P1) -> windows_core::Result<IFsrmCommittableCollection>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ImportFileScreenTemplates)(windows_core::Interface::as_raw(self), filepath.into_param().abi(), core::mem::transmute(templatenamessafearray), remotehost.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ImportFileScreenTemplates)(windows_core::Interface::as_raw(self), filepath.param().abi(), core::mem::transmute(templatenamessafearray), remotehost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ExportQuotaTemplates<P0, P1>(&self, filepath: P0, templatenamessafearray: *const windows_core::VARIANT, remotehost: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ExportQuotaTemplates)(windows_core::Interface::as_raw(self), filepath.into_param().abi(), core::mem::transmute(templatenamessafearray), remotehost.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ExportQuotaTemplates)(windows_core::Interface::as_raw(self), filepath.param().abi(), core::mem::transmute(templatenamessafearray), remotehost.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ImportQuotaTemplates<P0, P1>(&self, filepath: P0, templatenamessafearray: *const windows_core::VARIANT, remotehost: P1) -> windows_core::Result<IFsrmCommittableCollection>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ImportQuotaTemplates)(windows_core::Interface::as_raw(self), filepath.into_param().abi(), core::mem::transmute(templatenamessafearray), remotehost.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ImportQuotaTemplates)(windows_core::Interface::as_raw(self), filepath.param().abi(), core::mem::transmute(templatenamessafearray), remotehost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1635,9 +1635,9 @@ impl IFsrmFileConditionProperty {
     }
     pub unsafe fn SetPropertyName<P0>(&self, newval: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetPropertyName)(windows_core::Interface::as_raw(self), newval.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPropertyName)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
     }
     pub unsafe fn PropertyId(&self) -> windows_core::Result<FsrmFileSystemPropertyId> {
         let mut result__ = std::mem::zeroed();
@@ -1666,9 +1666,9 @@ impl IFsrmFileConditionProperty {
     }
     pub unsafe fn SetValue<P0>(&self, newval: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), newval.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1702,9 +1702,9 @@ impl IFsrmFileGroup {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -1718,9 +1718,9 @@ impl IFsrmFileGroup {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Members(&self) -> windows_core::Result<IFsrmMutableCollection> {
@@ -1730,9 +1730,9 @@ impl IFsrmFileGroup {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMembers<P0>(&self, members: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFsrmMutableCollection>,
+        P0: windows_core::Param<IFsrmMutableCollection>,
     {
-        (windows_core::Interface::vtable(self).SetMembers)(windows_core::Interface::as_raw(self), members.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMembers)(windows_core::Interface::as_raw(self), members.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NonMembers(&self) -> windows_core::Result<IFsrmMutableCollection> {
@@ -1742,9 +1742,9 @@ impl IFsrmFileGroup {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNonMembers<P0>(&self, nonmembers: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFsrmMutableCollection>,
+        P0: windows_core::Param<IFsrmMutableCollection>,
     {
-        (windows_core::Interface::vtable(self).SetNonMembers)(windows_core::Interface::as_raw(self), nonmembers.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetNonMembers)(windows_core::Interface::as_raw(self), nonmembers.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1786,9 +1786,9 @@ impl IFsrmFileGroupImported {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -1802,9 +1802,9 @@ impl IFsrmFileGroupImported {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Members(&self) -> windows_core::Result<IFsrmMutableCollection> {
@@ -1814,9 +1814,9 @@ impl IFsrmFileGroupImported {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMembers<P0>(&self, members: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFsrmMutableCollection>,
+        P0: windows_core::Param<IFsrmMutableCollection>,
     {
-        (windows_core::Interface::vtable(self).base__.SetMembers)(windows_core::Interface::as_raw(self), members.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetMembers)(windows_core::Interface::as_raw(self), members.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NonMembers(&self) -> windows_core::Result<IFsrmMutableCollection> {
@@ -1826,9 +1826,9 @@ impl IFsrmFileGroupImported {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNonMembers<P0>(&self, nonmembers: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFsrmMutableCollection>,
+        P0: windows_core::Param<IFsrmMutableCollection>,
     {
-        (windows_core::Interface::vtable(self).base__.SetNonMembers)(windows_core::Interface::as_raw(self), nonmembers.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetNonMembers)(windows_core::Interface::as_raw(self), nonmembers.param().abi()).ok()
     }
     pub unsafe fn OverwriteOnCommit(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1836,9 +1836,9 @@ impl IFsrmFileGroupImported {
     }
     pub unsafe fn SetOverwriteOnCommit<P0>(&self, overwrite: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetOverwriteOnCommit)(windows_core::Interface::as_raw(self), overwrite.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOverwriteOnCommit)(windows_core::Interface::as_raw(self), overwrite.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1862,10 +1862,10 @@ impl IFsrmFileGroupManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFileGroup<P0>(&self, name: P0) -> windows_core::Result<IFsrmFileGroup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFileGroup)(windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetFileGroup)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumFileGroups(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection> {
@@ -1879,10 +1879,10 @@ impl IFsrmFileGroupManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ImportFileGroups<P0>(&self, serializedfilegroups: P0, filegroupnamesarray: *const windows_core::VARIANT) -> windows_core::Result<IFsrmCommittableCollection>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ImportFileGroups)(windows_core::Interface::as_raw(self), serializedfilegroups.into_param().abi(), core::mem::transmute(filegroupnamesarray), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ImportFileGroups)(windows_core::Interface::as_raw(self), serializedfilegroups.param().abi(), core::mem::transmute(filegroupnamesarray), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1923,9 +1923,9 @@ impl IFsrmFileManagementJob {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -1939,9 +1939,9 @@ impl IFsrmFileManagementJob {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceRoots(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
@@ -1958,9 +1958,9 @@ impl IFsrmFileManagementJob {
     }
     pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), enabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), enabled.param().abi()).ok()
     }
     pub unsafe fn OperationType(&self) -> windows_core::Result<FsrmFileManagementType> {
         let mut result__ = std::mem::zeroed();
@@ -1975,9 +1975,9 @@ impl IFsrmFileManagementJob {
     }
     pub unsafe fn SetExpirationDirectory<P0>(&self, expirationdirectory: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetExpirationDirectory)(windows_core::Interface::as_raw(self), expirationdirectory.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExpirationDirectory)(windows_core::Interface::as_raw(self), expirationdirectory.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CustomAction(&self) -> windows_core::Result<IFsrmActionCommand> {
@@ -2002,9 +2002,9 @@ impl IFsrmFileManagementJob {
     }
     pub unsafe fn SetReportEnabled<P0>(&self, reportenabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetReportEnabled)(windows_core::Interface::as_raw(self), reportenabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetReportEnabled)(windows_core::Interface::as_raw(self), reportenabled.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Formats(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
@@ -2021,9 +2021,9 @@ impl IFsrmFileManagementJob {
     }
     pub unsafe fn SetMailTo<P0>(&self, mailto: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMailTo)(windows_core::Interface::as_raw(self), mailto.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMailTo)(windows_core::Interface::as_raw(self), mailto.param().abi()).ok()
     }
     pub unsafe fn DaysSinceFileCreated(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -2064,9 +2064,9 @@ impl IFsrmFileManagementJob {
     }
     pub unsafe fn SetTask<P0>(&self, taskname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTask)(windows_core::Interface::as_raw(self), taskname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTask)(windows_core::Interface::as_raw(self), taskname.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parameters(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
@@ -2099,9 +2099,9 @@ impl IFsrmFileManagementJob {
     }
     pub unsafe fn SetFileNamePattern<P0>(&self, filenamepattern: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFileNamePattern)(windows_core::Interface::as_raw(self), filenamepattern.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFileNamePattern)(windows_core::Interface::as_raw(self), filenamepattern.param().abi()).ok()
     }
     pub unsafe fn Run(&self, context: FsrmReportGenerationContext) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Run)(windows_core::Interface::as_raw(self), context).ok()
@@ -2135,10 +2135,10 @@ impl IFsrmFileManagementJob {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePropertyCondition<P0>(&self, name: P0) -> windows_core::Result<IFsrmPropertyCondition>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePropertyCondition)(windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePropertyCondition)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateCustomAction(&self) -> windows_core::Result<IFsrmActionCommand> {
@@ -2268,10 +2268,10 @@ impl IFsrmFileManagementJobManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFileManagementJob<P0>(&self, name: P0) -> windows_core::Result<IFsrmFileManagementJob>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFileManagementJob)(windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetFileManagementJob)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2315,9 +2315,9 @@ impl IFsrmFileScreen {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -2333,9 +2333,9 @@ impl IFsrmFileScreen {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBlockedFileGroups<P0>(&self, blocklist: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFsrmMutableCollection>,
+        P0: windows_core::Param<IFsrmMutableCollection>,
     {
-        (windows_core::Interface::vtable(self).base__.SetBlockedFileGroups)(windows_core::Interface::as_raw(self), blocklist.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetBlockedFileGroups)(windows_core::Interface::as_raw(self), blocklist.param().abi()).ok()
     }
     pub unsafe fn FileScreenFlags(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -2376,9 +2376,9 @@ impl IFsrmFileScreen {
     }
     pub unsafe fn ApplyTemplate<P0>(&self, filescreentemplatename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ApplyTemplate)(windows_core::Interface::as_raw(self), filescreentemplatename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ApplyTemplate)(windows_core::Interface::as_raw(self), filescreentemplatename.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2408,9 +2408,9 @@ impl IFsrmFileScreenBase {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -2426,9 +2426,9 @@ impl IFsrmFileScreenBase {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBlockedFileGroups<P0>(&self, blocklist: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFsrmMutableCollection>,
+        P0: windows_core::Param<IFsrmMutableCollection>,
     {
-        (windows_core::Interface::vtable(self).SetBlockedFileGroups)(windows_core::Interface::as_raw(self), blocklist.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBlockedFileGroups)(windows_core::Interface::as_raw(self), blocklist.param().abi()).ok()
     }
     pub unsafe fn FileScreenFlags(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -2487,9 +2487,9 @@ impl IFsrmFileScreenException {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -2509,9 +2509,9 @@ impl IFsrmFileScreenException {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetAllowedFileGroups<P0>(&self, allowlist: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFsrmMutableCollection>,
+        P0: windows_core::Param<IFsrmMutableCollection>,
     {
-        (windows_core::Interface::vtable(self).SetAllowedFileGroups)(windows_core::Interface::as_raw(self), allowlist.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAllowedFileGroups)(windows_core::Interface::as_raw(self), allowlist.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2547,50 +2547,50 @@ impl IFsrmFileScreenManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateFileScreen<P0>(&self, path: P0) -> windows_core::Result<IFsrmFileScreen>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateFileScreen)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateFileScreen)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFileScreen<P0>(&self, path: P0) -> windows_core::Result<IFsrmFileScreen>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFileScreen)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetFileScreen)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumFileScreens<P0>(&self, path: P0, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumFileScreens)(windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumFileScreens)(windows_core::Interface::as_raw(self), path.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateFileScreenException<P0>(&self, path: P0) -> windows_core::Result<IFsrmFileScreenException>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateFileScreenException)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateFileScreenException)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFileScreenException<P0>(&self, path: P0) -> windows_core::Result<IFsrmFileScreenException>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFileScreenException)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetFileScreenException)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumFileScreenExceptions<P0>(&self, path: P0, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumFileScreenExceptions)(windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumFileScreenExceptions)(windows_core::Interface::as_raw(self), path.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateFileScreenCollection(&self) -> windows_core::Result<IFsrmCommittableCollection> {
@@ -2655,9 +2655,9 @@ impl IFsrmFileScreenTemplate {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -2673,9 +2673,9 @@ impl IFsrmFileScreenTemplate {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBlockedFileGroups<P0>(&self, blocklist: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFsrmMutableCollection>,
+        P0: windows_core::Param<IFsrmMutableCollection>,
     {
-        (windows_core::Interface::vtable(self).base__.SetBlockedFileGroups)(windows_core::Interface::as_raw(self), blocklist.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetBlockedFileGroups)(windows_core::Interface::as_raw(self), blocklist.param().abi()).ok()
     }
     pub unsafe fn FileScreenFlags(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -2700,15 +2700,15 @@ impl IFsrmFileScreenTemplate {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn CopyTemplate<P0>(&self, filescreentemplatename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).CopyTemplate)(windows_core::Interface::as_raw(self), filescreentemplatename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CopyTemplate)(windows_core::Interface::as_raw(self), filescreentemplatename.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> windows_core::Result<IFsrmDerivedObjectsResult> {
@@ -2744,9 +2744,9 @@ impl IFsrmFileScreenTemplateImported {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -2762,9 +2762,9 @@ impl IFsrmFileScreenTemplateImported {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBlockedFileGroups<P0>(&self, blocklist: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFsrmMutableCollection>,
+        P0: windows_core::Param<IFsrmMutableCollection>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetBlockedFileGroups)(windows_core::Interface::as_raw(self), blocklist.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetBlockedFileGroups)(windows_core::Interface::as_raw(self), blocklist.param().abi()).ok()
     }
     pub unsafe fn FileScreenFlags(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -2789,15 +2789,15 @@ impl IFsrmFileScreenTemplateImported {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn CopyTemplate<P0>(&self, filescreentemplatename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.CopyTemplate)(windows_core::Interface::as_raw(self), filescreentemplatename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.CopyTemplate)(windows_core::Interface::as_raw(self), filescreentemplatename.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> windows_core::Result<IFsrmDerivedObjectsResult> {
@@ -2810,9 +2810,9 @@ impl IFsrmFileScreenTemplateImported {
     }
     pub unsafe fn SetOverwriteOnCommit<P0>(&self, overwrite: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetOverwriteOnCommit)(windows_core::Interface::as_raw(self), overwrite.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOverwriteOnCommit)(windows_core::Interface::as_raw(self), overwrite.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2836,10 +2836,10 @@ impl IFsrmFileScreenTemplateManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTemplate<P0>(&self, name: P0) -> windows_core::Result<IFsrmFileScreenTemplate>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTemplate)(windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetTemplate)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumTemplates(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection> {
@@ -2853,10 +2853,10 @@ impl IFsrmFileScreenTemplateManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ImportTemplates<P0>(&self, serializedfilescreentemplates: P0, filescreentemplatenamesarray: *const windows_core::VARIANT) -> windows_core::Result<IFsrmCommittableCollection>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ImportTemplates)(windows_core::Interface::as_raw(self), serializedfilescreentemplates.into_param().abi(), core::mem::transmute(filescreentemplatenamesarray), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ImportTemplates)(windows_core::Interface::as_raw(self), serializedfilescreentemplates.param().abi(), core::mem::transmute(filescreentemplatenamesarray), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2916,9 +2916,9 @@ impl IFsrmMutableCollection {
     }
     pub unsafe fn Add<P0>(&self, item: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), item.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), item.param().abi()).ok()
     }
     pub unsafe fn Remove(&self, index: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), index).ok()
@@ -2960,9 +2960,9 @@ impl IFsrmObject {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -2990,10 +2990,10 @@ impl IFsrmPathMapper {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSharePathsForLocalPath<P0>(&self, localpath: P0) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSharePathsForLocalPath)(windows_core::Interface::as_raw(self), localpath.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetSharePathsForLocalPath)(windows_core::Interface::as_raw(self), localpath.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3031,10 +3031,10 @@ impl IFsrmPipelineModuleConnector {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Bind<P0, P1>(&self, moduledefinition: P0, moduleimplementation: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFsrmPipelineModuleDefinition>,
-        P1: windows_core::IntoParam<IFsrmPipelineModuleImplementation>,
+        P0: windows_core::Param<IFsrmPipelineModuleDefinition>,
+        P1: windows_core::Param<IFsrmPipelineModuleImplementation>,
     {
-        (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), moduledefinition.into_param().abi(), moduleimplementation.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), moduledefinition.param().abi(), moduleimplementation.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3069,9 +3069,9 @@ impl IFsrmPipelineModuleDefinition {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -3085,9 +3085,9 @@ impl IFsrmPipelineModuleDefinition {
     }
     pub unsafe fn SetModuleClsid<P0>(&self, moduleclsid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetModuleClsid)(windows_core::Interface::as_raw(self), moduleclsid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetModuleClsid)(windows_core::Interface::as_raw(self), moduleclsid.param().abi()).ok()
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3095,9 +3095,9 @@ impl IFsrmPipelineModuleDefinition {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn Company(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3105,9 +3105,9 @@ impl IFsrmPipelineModuleDefinition {
     }
     pub unsafe fn SetCompany<P0>(&self, company: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetCompany)(windows_core::Interface::as_raw(self), company.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCompany)(windows_core::Interface::as_raw(self), company.param().abi()).ok()
     }
     pub unsafe fn Version(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3115,9 +3115,9 @@ impl IFsrmPipelineModuleDefinition {
     }
     pub unsafe fn SetVersion<P0>(&self, version: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetVersion)(windows_core::Interface::as_raw(self), version.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetVersion)(windows_core::Interface::as_raw(self), version.param().abi()).ok()
     }
     pub unsafe fn ModuleType(&self) -> windows_core::Result<FsrmPipelineModuleType> {
         let mut result__ = std::mem::zeroed();
@@ -3129,9 +3129,9 @@ impl IFsrmPipelineModuleDefinition {
     }
     pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), enabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), enabled.param().abi()).ok()
     }
     pub unsafe fn NeedsFileContent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -3139,9 +3139,9 @@ impl IFsrmPipelineModuleDefinition {
     }
     pub unsafe fn SetNeedsFileContent<P0>(&self, needsfilecontent: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetNeedsFileContent)(windows_core::Interface::as_raw(self), needsfilecontent.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetNeedsFileContent)(windows_core::Interface::as_raw(self), needsfilecontent.param().abi()).ok()
     }
     pub unsafe fn Account(&self) -> windows_core::Result<FsrmAccountType> {
         let mut result__ = std::mem::zeroed();
@@ -3214,10 +3214,10 @@ impl IFsrmPipelineModuleImplementation {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnLoad<P0>(&self, moduledefinition: P0) -> windows_core::Result<IFsrmPipelineModuleConnector>
     where
-        P0: windows_core::IntoParam<IFsrmPipelineModuleDefinition>,
+        P0: windows_core::Param<IFsrmPipelineModuleDefinition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OnLoad)(windows_core::Interface::as_raw(self), moduledefinition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OnLoad)(windows_core::Interface::as_raw(self), moduledefinition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn OnUnload(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnUnload)(windows_core::Interface::as_raw(self)).ok()
@@ -3348,23 +3348,23 @@ impl IFsrmPropertyBag {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFileProperty<P0>(&self, name: P0) -> windows_core::Result<IFsrmProperty>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFileProperty)(windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetFileProperty)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetFileProperty<P0, P1>(&self, name: P0, value: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFileProperty)(windows_core::Interface::as_raw(self), name.into_param().abi(), value.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFileProperty)(windows_core::Interface::as_raw(self), name.param().abi(), value.param().abi()).ok()
     }
     pub unsafe fn AddMessage<P0>(&self, message: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).AddMessage)(windows_core::Interface::as_raw(self), message.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddMessage)(windows_core::Interface::as_raw(self), message.param().abi()).ok()
     }
     pub unsafe fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -3485,23 +3485,23 @@ impl IFsrmPropertyBag2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFileProperty<P0>(&self, name: P0) -> windows_core::Result<IFsrmProperty>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFileProperty)(windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetFileProperty)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetFileProperty<P0, P1>(&self, name: P0, value: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetFileProperty)(windows_core::Interface::as_raw(self), name.into_param().abi(), value.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetFileProperty)(windows_core::Interface::as_raw(self), name.param().abi(), value.param().abi()).ok()
     }
     pub unsafe fn AddMessage<P0>(&self, message: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.AddMessage)(windows_core::Interface::as_raw(self), message.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddMessage)(windows_core::Interface::as_raw(self), message.param().abi()).ok()
     }
     pub unsafe fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -3539,9 +3539,9 @@ impl IFsrmPropertyCondition {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn Type(&self) -> windows_core::Result<FsrmPropertyConditionType> {
         let mut result__ = std::mem::zeroed();
@@ -3556,9 +3556,9 @@ impl IFsrmPropertyCondition {
     }
     pub unsafe fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -3592,9 +3592,9 @@ impl IFsrmPropertyDefinition {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -3608,9 +3608,9 @@ impl IFsrmPropertyDefinition {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn Type(&self) -> windows_core::Result<FsrmPropertyDefinitionType> {
         let mut result__ = std::mem::zeroed();
@@ -3696,9 +3696,9 @@ impl IFsrmPropertyDefinition2 {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -3712,9 +3712,9 @@ impl IFsrmPropertyDefinition2 {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn Type(&self) -> windows_core::Result<FsrmPropertyDefinitionType> {
         let mut result__ = std::mem::zeroed();
@@ -3760,9 +3760,9 @@ impl IFsrmPropertyDefinition2 {
     }
     pub unsafe fn SetDisplayName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDisplayName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDisplayName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn AppliesTo(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -3835,9 +3835,9 @@ impl IFsrmQuota {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -3851,9 +3851,9 @@ impl IFsrmQuota {
     }
     pub unsafe fn SetQuotaLimit<P0>(&self, quotalimit: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetQuotaLimit)(windows_core::Interface::as_raw(self), quotalimit.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetQuotaLimit)(windows_core::Interface::as_raw(self), quotalimit.param().abi()).ok()
     }
     pub unsafe fn QuotaFlags(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -3908,9 +3908,9 @@ impl IFsrmQuota {
     }
     pub unsafe fn ApplyTemplate<P0>(&self, quotatemplatename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.ApplyTemplate)(windows_core::Interface::as_raw(self), quotatemplatename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.ApplyTemplate)(windows_core::Interface::as_raw(self), quotatemplatename.param().abi()).ok()
     }
     pub unsafe fn QuotaUsed(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -3957,9 +3957,9 @@ impl IFsrmQuotaBase {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -3973,9 +3973,9 @@ impl IFsrmQuotaBase {
     }
     pub unsafe fn SetQuotaLimit<P0>(&self, quotalimit: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetQuotaLimit)(windows_core::Interface::as_raw(self), quotalimit.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetQuotaLimit)(windows_core::Interface::as_raw(self), quotalimit.param().abi()).ok()
     }
     pub unsafe fn QuotaFlags(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -4052,73 +4052,73 @@ impl IFsrmQuotaManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateQuota<P0>(&self, path: P0) -> windows_core::Result<IFsrmQuota>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateQuota)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateQuota)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAutoApplyQuota<P0, P1>(&self, quotatemplatename: P0, path: P1) -> windows_core::Result<IFsrmAutoApplyQuota>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateAutoApplyQuota)(windows_core::Interface::as_raw(self), quotatemplatename.into_param().abi(), path.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateAutoApplyQuota)(windows_core::Interface::as_raw(self), quotatemplatename.param().abi(), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetQuota<P0>(&self, path: P0) -> windows_core::Result<IFsrmQuota>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetQuota)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetQuota)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAutoApplyQuota<P0>(&self, path: P0) -> windows_core::Result<IFsrmAutoApplyQuota>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAutoApplyQuota)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAutoApplyQuota)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRestrictiveQuota<P0>(&self, path: P0) -> windows_core::Result<IFsrmQuota>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRestrictiveQuota)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetRestrictiveQuota)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumQuotas<P0>(&self, path: P0, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumQuotas)(windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumQuotas)(windows_core::Interface::as_raw(self), path.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumAutoApplyQuotas<P0>(&self, path: P0, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumAutoApplyQuotas)(windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumAutoApplyQuotas)(windows_core::Interface::as_raw(self), path.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumEffectiveQuotas<P0>(&self, path: P0, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumEffectiveQuotas)(windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumEffectiveQuotas)(windows_core::Interface::as_raw(self), path.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Scan<P0>(&self, strpath: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Scan)(windows_core::Interface::as_raw(self), strpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Scan)(windows_core::Interface::as_raw(self), strpath.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateQuotaCollection(&self) -> windows_core::Result<IFsrmCommittableCollection> {
@@ -4195,73 +4195,73 @@ impl IFsrmQuotaManagerEx {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateQuota<P0>(&self, path: P0) -> windows_core::Result<IFsrmQuota>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateQuota)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateQuota)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAutoApplyQuota<P0, P1>(&self, quotatemplatename: P0, path: P1) -> windows_core::Result<IFsrmAutoApplyQuota>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateAutoApplyQuota)(windows_core::Interface::as_raw(self), quotatemplatename.into_param().abi(), path.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateAutoApplyQuota)(windows_core::Interface::as_raw(self), quotatemplatename.param().abi(), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetQuota<P0>(&self, path: P0) -> windows_core::Result<IFsrmQuota>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetQuota)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetQuota)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAutoApplyQuota<P0>(&self, path: P0) -> windows_core::Result<IFsrmAutoApplyQuota>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetAutoApplyQuota)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetAutoApplyQuota)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRestrictiveQuota<P0>(&self, path: P0) -> windows_core::Result<IFsrmQuota>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetRestrictiveQuota)(windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetRestrictiveQuota)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumQuotas<P0>(&self, path: P0, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EnumQuotas)(windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.EnumQuotas)(windows_core::Interface::as_raw(self), path.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumAutoApplyQuotas<P0>(&self, path: P0, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EnumAutoApplyQuotas)(windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.EnumAutoApplyQuotas)(windows_core::Interface::as_raw(self), path.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumEffectiveQuotas<P0>(&self, path: P0, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EnumEffectiveQuotas)(windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.EnumEffectiveQuotas)(windows_core::Interface::as_raw(self), path.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Scan<P0>(&self, strpath: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.Scan)(windows_core::Interface::as_raw(self), strpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Scan)(windows_core::Interface::as_raw(self), strpath.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateQuotaCollection(&self) -> windows_core::Result<IFsrmCommittableCollection> {
@@ -4270,10 +4270,10 @@ impl IFsrmQuotaManagerEx {
     }
     pub unsafe fn IsAffectedByQuota<P0>(&self, path: P0, options: FsrmEnumOptions) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsAffectedByQuota)(windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).IsAffectedByQuota)(windows_core::Interface::as_raw(self), path.param().abi(), options, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4298,9 +4298,9 @@ impl IFsrmQuotaObject {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -4314,9 +4314,9 @@ impl IFsrmQuotaObject {
     }
     pub unsafe fn SetQuotaLimit<P0>(&self, quotalimit: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.SetQuotaLimit)(windows_core::Interface::as_raw(self), quotalimit.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetQuotaLimit)(windows_core::Interface::as_raw(self), quotalimit.param().abi()).ok()
     }
     pub unsafe fn QuotaFlags(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -4371,9 +4371,9 @@ impl IFsrmQuotaObject {
     }
     pub unsafe fn ApplyTemplate<P0>(&self, quotatemplatename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ApplyTemplate)(windows_core::Interface::as_raw(self), quotatemplatename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ApplyTemplate)(windows_core::Interface::as_raw(self), quotatemplatename.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4403,9 +4403,9 @@ impl IFsrmQuotaTemplate {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -4419,9 +4419,9 @@ impl IFsrmQuotaTemplate {
     }
     pub unsafe fn SetQuotaLimit<P0>(&self, quotalimit: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.SetQuotaLimit)(windows_core::Interface::as_raw(self), quotalimit.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetQuotaLimit)(windows_core::Interface::as_raw(self), quotalimit.param().abi()).ok()
     }
     pub unsafe fn QuotaFlags(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -4460,15 +4460,15 @@ impl IFsrmQuotaTemplate {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn CopyTemplate<P0>(&self, quotatemplatename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).CopyTemplate)(windows_core::Interface::as_raw(self), quotatemplatename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CopyTemplate)(windows_core::Interface::as_raw(self), quotatemplatename.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> windows_core::Result<IFsrmDerivedObjectsResult> {
@@ -4504,9 +4504,9 @@ impl IFsrmQuotaTemplateImported {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -4520,9 +4520,9 @@ impl IFsrmQuotaTemplateImported {
     }
     pub unsafe fn SetQuotaLimit<P0>(&self, quotalimit: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetQuotaLimit)(windows_core::Interface::as_raw(self), quotalimit.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetQuotaLimit)(windows_core::Interface::as_raw(self), quotalimit.param().abi()).ok()
     }
     pub unsafe fn QuotaFlags(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -4561,15 +4561,15 @@ impl IFsrmQuotaTemplateImported {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn CopyTemplate<P0>(&self, quotatemplatename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.CopyTemplate)(windows_core::Interface::as_raw(self), quotatemplatename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.CopyTemplate)(windows_core::Interface::as_raw(self), quotatemplatename.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> windows_core::Result<IFsrmDerivedObjectsResult> {
@@ -4582,9 +4582,9 @@ impl IFsrmQuotaTemplateImported {
     }
     pub unsafe fn SetOverwriteOnCommit<P0>(&self, overwrite: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetOverwriteOnCommit)(windows_core::Interface::as_raw(self), overwrite.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOverwriteOnCommit)(windows_core::Interface::as_raw(self), overwrite.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4608,10 +4608,10 @@ impl IFsrmQuotaTemplateManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTemplate<P0>(&self, name: P0) -> windows_core::Result<IFsrmQuotaTemplate>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTemplate)(windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetTemplate)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumTemplates(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection> {
@@ -4625,10 +4625,10 @@ impl IFsrmQuotaTemplateManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ImportTemplates<P0>(&self, serializedquotatemplates: P0, quotatemplatenamesarray: *const windows_core::VARIANT) -> windows_core::Result<IFsrmCommittableCollection>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ImportTemplates)(windows_core::Interface::as_raw(self), serializedquotatemplates.into_param().abi(), core::mem::transmute(quotatemplatenamesarray), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ImportTemplates)(windows_core::Interface::as_raw(self), serializedquotatemplates.param().abi(), core::mem::transmute(quotatemplatenamesarray), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4669,9 +4669,9 @@ impl IFsrmReport {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4679,9 +4679,9 @@ impl IFsrmReport {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn LastGeneratedFileNamePrefix(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4693,9 +4693,9 @@ impl IFsrmReport {
     }
     pub unsafe fn SetFilter<P0>(&self, filter: FsrmReportFilter, filtervalue: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetFilter)(windows_core::Interface::as_raw(self), filter, filtervalue.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFilter)(windows_core::Interface::as_raw(self), filter, filtervalue.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -4731,9 +4731,9 @@ impl IFsrmReportJob {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -4747,9 +4747,9 @@ impl IFsrmReportJob {
     }
     pub unsafe fn SetTask<P0>(&self, taskname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTask)(windows_core::Interface::as_raw(self), taskname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTask)(windows_core::Interface::as_raw(self), taskname.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceRoots(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
@@ -4775,9 +4775,9 @@ impl IFsrmReportJob {
     }
     pub unsafe fn SetMailTo<P0>(&self, mailto: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMailTo)(windows_core::Interface::as_raw(self), mailto.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMailTo)(windows_core::Interface::as_raw(self), mailto.param().abi()).ok()
     }
     pub unsafe fn RunningStatus(&self) -> windows_core::Result<FsrmReportRunningStatus> {
         let mut result__ = std::mem::zeroed();
@@ -4875,10 +4875,10 @@ impl IFsrmReportManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetReportJob<P0>(&self, taskname: P0) -> windows_core::Result<IFsrmReportJob>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetReportJob)(windows_core::Interface::as_raw(self), taskname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetReportJob)(windows_core::Interface::as_raw(self), taskname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetOutputDirectory(&self, context: FsrmReportGenerationContext) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4886,9 +4886,9 @@ impl IFsrmReportManager {
     }
     pub unsafe fn SetOutputDirectory<P0>(&self, context: FsrmReportGenerationContext, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOutputDirectory)(windows_core::Interface::as_raw(self), context, path.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputDirectory)(windows_core::Interface::as_raw(self), context, path.param().abi()).ok()
     }
     pub unsafe fn IsFilterValidForReportType(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -4900,9 +4900,9 @@ impl IFsrmReportManager {
     }
     pub unsafe fn SetDefaultFilter<P0>(&self, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetDefaultFilter)(windows_core::Interface::as_raw(self), reporttype, filter, filtervalue.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDefaultFilter)(windows_core::Interface::as_raw(self), reporttype, filter, filtervalue.param().abi()).ok()
     }
     pub unsafe fn GetReportSizeLimit(&self, limit: FsrmReportLimit) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -4910,9 +4910,9 @@ impl IFsrmReportManager {
     }
     pub unsafe fn SetReportSizeLimit<P0>(&self, limit: FsrmReportLimit, limitvalue: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetReportSizeLimit)(windows_core::Interface::as_raw(self), limit, limitvalue.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetReportSizeLimit)(windows_core::Interface::as_raw(self), limit, limitvalue.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4950,23 +4950,23 @@ impl IFsrmReportScheduler {
     }
     pub unsafe fn CreateScheduleTask<P0, P1>(&self, taskname: P0, namespacessafearray: *const windows_core::VARIANT, serializedtask: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).CreateScheduleTask)(windows_core::Interface::as_raw(self), taskname.into_param().abi(), core::mem::transmute(namespacessafearray), serializedtask.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateScheduleTask)(windows_core::Interface::as_raw(self), taskname.param().abi(), core::mem::transmute(namespacessafearray), serializedtask.param().abi()).ok()
     }
     pub unsafe fn ModifyScheduleTask<P0, P1>(&self, taskname: P0, namespacessafearray: *const windows_core::VARIANT, serializedtask: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ModifyScheduleTask)(windows_core::Interface::as_raw(self), taskname.into_param().abi(), core::mem::transmute(namespacessafearray), serializedtask.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ModifyScheduleTask)(windows_core::Interface::as_raw(self), taskname.param().abi(), core::mem::transmute(namespacessafearray), serializedtask.param().abi()).ok()
     }
     pub unsafe fn DeleteScheduleTask<P0>(&self, taskname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).DeleteScheduleTask)(windows_core::Interface::as_raw(self), taskname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteScheduleTask)(windows_core::Interface::as_raw(self), taskname.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4994,9 +4994,9 @@ impl IFsrmRule {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -5010,9 +5010,9 @@ impl IFsrmRule {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn RuleType(&self) -> windows_core::Result<FsrmRuleType> {
         let mut result__ = std::mem::zeroed();
@@ -5024,9 +5024,9 @@ impl IFsrmRule {
     }
     pub unsafe fn SetModuleDefinitionName<P0>(&self, moduledefinitionname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetModuleDefinitionName)(windows_core::Interface::as_raw(self), moduledefinitionname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetModuleDefinitionName)(windows_core::Interface::as_raw(self), moduledefinitionname.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceRoots(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
@@ -5099,9 +5099,9 @@ impl IFsrmSetting {
     }
     pub unsafe fn SetSmtpServer<P0>(&self, smtpserver: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSmtpServer)(windows_core::Interface::as_raw(self), smtpserver.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSmtpServer)(windows_core::Interface::as_raw(self), smtpserver.param().abi()).ok()
     }
     pub unsafe fn MailFrom(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5109,9 +5109,9 @@ impl IFsrmSetting {
     }
     pub unsafe fn SetMailFrom<P0>(&self, mailfrom: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMailFrom)(windows_core::Interface::as_raw(self), mailfrom.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMailFrom)(windows_core::Interface::as_raw(self), mailfrom.param().abi()).ok()
     }
     pub unsafe fn AdminEmail(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5119,9 +5119,9 @@ impl IFsrmSetting {
     }
     pub unsafe fn SetAdminEmail<P0>(&self, adminemail: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetAdminEmail)(windows_core::Interface::as_raw(self), adminemail.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAdminEmail)(windows_core::Interface::as_raw(self), adminemail.param().abi()).ok()
     }
     pub unsafe fn DisableCommandLine(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -5129,9 +5129,9 @@ impl IFsrmSetting {
     }
     pub unsafe fn SetDisableCommandLine<P0>(&self, disablecommandline: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetDisableCommandLine)(windows_core::Interface::as_raw(self), disablecommandline.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDisableCommandLine)(windows_core::Interface::as_raw(self), disablecommandline.param().abi()).ok()
     }
     pub unsafe fn EnableScreeningAudit(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -5139,15 +5139,15 @@ impl IFsrmSetting {
     }
     pub unsafe fn SetEnableScreeningAudit<P0>(&self, enablescreeningaudit: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetEnableScreeningAudit)(windows_core::Interface::as_raw(self), enablescreeningaudit.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEnableScreeningAudit)(windows_core::Interface::as_raw(self), enablescreeningaudit.param().abi()).ok()
     }
     pub unsafe fn EmailTest<P0>(&self, mailto: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).EmailTest)(windows_core::Interface::as_raw(self), mailto.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).EmailTest)(windows_core::Interface::as_raw(self), mailto.param().abi()).ok()
     }
     pub unsafe fn SetActionRunLimitInterval(&self, actiontype: FsrmActionType, delaytimeminutes: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetActionRunLimitInterval)(windows_core::Interface::as_raw(self), actiontype, delaytimeminutes).ok()
@@ -5191,9 +5191,9 @@ impl IFsrmStorageModuleDefinition {
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), description.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -5207,9 +5207,9 @@ impl IFsrmStorageModuleDefinition {
     }
     pub unsafe fn SetModuleClsid<P0>(&self, moduleclsid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetModuleClsid)(windows_core::Interface::as_raw(self), moduleclsid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetModuleClsid)(windows_core::Interface::as_raw(self), moduleclsid.param().abi()).ok()
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5217,9 +5217,9 @@ impl IFsrmStorageModuleDefinition {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     pub unsafe fn Company(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5227,9 +5227,9 @@ impl IFsrmStorageModuleDefinition {
     }
     pub unsafe fn SetCompany<P0>(&self, company: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetCompany)(windows_core::Interface::as_raw(self), company.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetCompany)(windows_core::Interface::as_raw(self), company.param().abi()).ok()
     }
     pub unsafe fn Version(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5237,9 +5237,9 @@ impl IFsrmStorageModuleDefinition {
     }
     pub unsafe fn SetVersion<P0>(&self, version: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetVersion)(windows_core::Interface::as_raw(self), version.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetVersion)(windows_core::Interface::as_raw(self), version.param().abi()).ok()
     }
     pub unsafe fn ModuleType(&self) -> windows_core::Result<FsrmPipelineModuleType> {
         let mut result__ = std::mem::zeroed();
@@ -5251,9 +5251,9 @@ impl IFsrmStorageModuleDefinition {
     }
     pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetEnabled)(windows_core::Interface::as_raw(self), enabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetEnabled)(windows_core::Interface::as_raw(self), enabled.param().abi()).ok()
     }
     pub unsafe fn NeedsFileContent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -5261,9 +5261,9 @@ impl IFsrmStorageModuleDefinition {
     }
     pub unsafe fn SetNeedsFileContent<P0>(&self, needsfilecontent: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetNeedsFileContent)(windows_core::Interface::as_raw(self), needsfilecontent.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetNeedsFileContent)(windows_core::Interface::as_raw(self), needsfilecontent.param().abi()).ok()
     }
     pub unsafe fn Account(&self) -> windows_core::Result<FsrmAccountType> {
         let mut result__ = std::mem::zeroed();
@@ -5310,9 +5310,9 @@ impl IFsrmStorageModuleDefinition {
     }
     pub unsafe fn SetUpdatesFileContent<P0>(&self, updatesfilecontent: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetUpdatesFileContent)(windows_core::Interface::as_raw(self), updatesfilecontent.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetUpdatesFileContent)(windows_core::Interface::as_raw(self), updatesfilecontent.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5335,10 +5335,10 @@ impl IFsrmStorageModuleImplementation {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnLoad<P0>(&self, moduledefinition: P0) -> windows_core::Result<IFsrmPipelineModuleConnector>
     where
-        P0: windows_core::IntoParam<IFsrmPipelineModuleDefinition>,
+        P0: windows_core::Param<IFsrmPipelineModuleDefinition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OnLoad)(windows_core::Interface::as_raw(self), moduledefinition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.OnLoad)(windows_core::Interface::as_raw(self), moduledefinition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn OnUnload(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.OnUnload)(windows_core::Interface::as_raw(self)).ok()
@@ -5346,23 +5346,23 @@ impl IFsrmStorageModuleImplementation {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UseDefinitions<P0>(&self, propertydefinitions: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFsrmCollection>,
+        P0: windows_core::Param<IFsrmCollection>,
     {
-        (windows_core::Interface::vtable(self).UseDefinitions)(windows_core::Interface::as_raw(self), propertydefinitions.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UseDefinitions)(windows_core::Interface::as_raw(self), propertydefinitions.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadProperties<P0>(&self, propertybag: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFsrmPropertyBag>,
+        P0: windows_core::Param<IFsrmPropertyBag>,
     {
-        (windows_core::Interface::vtable(self).LoadProperties)(windows_core::Interface::as_raw(self), propertybag.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).LoadProperties)(windows_core::Interface::as_raw(self), propertybag.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveProperties<P0>(&self, propertybag: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFsrmPropertyBag>,
+        P0: windows_core::Param<IFsrmPropertyBag>,
     {
-        (windows_core::Interface::vtable(self).SaveProperties)(windows_core::Interface::as_raw(self), propertybag.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SaveProperties)(windows_core::Interface::as_raw(self), propertybag.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

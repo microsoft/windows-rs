@@ -14,9 +14,9 @@ windows_core::imp::interface_hierarchy!(IRendezvousApplication, windows_core::IU
 impl IRendezvousApplication {
     pub unsafe fn SetRendezvousSession<P0>(&self, prendezvoussession: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetRendezvousSession)(windows_core::Interface::as_raw(self), prendezvoussession.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetRendezvousSession)(windows_core::Interface::as_raw(self), prendezvoussession.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -41,15 +41,15 @@ impl IRendezvousSession {
     }
     pub unsafe fn SendContextData<P0>(&self, bstrdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SendContextData)(windows_core::Interface::as_raw(self), bstrdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SendContextData)(windows_core::Interface::as_raw(self), bstrdata.param().abi()).ok()
     }
     pub unsafe fn Terminate<P0>(&self, hr: windows_core::HRESULT, bstrappdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self), hr, bstrappdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self), hr, bstrappdata.param().abi()).ok()
     }
 }
 #[repr(C)]

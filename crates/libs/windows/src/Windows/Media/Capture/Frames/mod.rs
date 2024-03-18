@@ -497,13 +497,13 @@ impl DepthMediaFrame {
     #[cfg(all(feature = "Media_Devices_Core", feature = "Perception_Spatial"))]
     pub fn TryCreateCoordinateMapper<P0, P1>(&self, cameraintrinsics: P0, coordinatesystem: P1) -> windows_core::Result<super::super::Devices::Core::DepthCorrelatedCoordinateMapper>
     where
-        P0: windows_core::IntoParam<super::super::Devices::Core::CameraIntrinsics>,
-        P1: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::Devices::Core::CameraIntrinsics>,
+        P1: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCreateCoordinateMapper)(windows_core::Interface::as_raw(this), cameraintrinsics.into_param().abi(), coordinatesystem.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCreateCoordinateMapper)(windows_core::Interface::as_raw(this), cameraintrinsics.param().abi(), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MaxReliableDepth(&self) -> windows_core::Result<u32> {
@@ -696,12 +696,12 @@ impl MediaFrameReader {
     }
     pub fn FrameArrived<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<MediaFrameReader, MediaFrameArrivedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<MediaFrameReader, MediaFrameArrivedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FrameArrived)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FrameArrived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveFrameArrived(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -877,22 +877,22 @@ impl MediaFrameSource {
     }
     pub fn SetFormatAsync<P0>(&self, format: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<MediaFrameFormat>,
+        P0: windows_core::Param<MediaFrameFormat>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetFormatAsync)(windows_core::Interface::as_raw(this), format.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetFormatAsync)(windows_core::Interface::as_raw(this), format.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FormatChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<MediaFrameSource, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<MediaFrameSource, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FormatChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FormatChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveFormatChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -902,12 +902,12 @@ impl MediaFrameSource {
     #[cfg(feature = "Media_Devices_Core")]
     pub fn TryGetCameraIntrinsics<P0>(&self, format: P0) -> windows_core::Result<super::super::Devices::Core::CameraIntrinsics>
     where
-        P0: windows_core::IntoParam<MediaFrameFormat>,
+        P0: windows_core::Param<MediaFrameFormat>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetCameraIntrinsics)(windows_core::Interface::as_raw(this), format.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetCameraIntrinsics)(windows_core::Interface::as_raw(this), format.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -937,12 +937,12 @@ impl MediaFrameSourceController {
     }
     pub fn SetPropertyAsync<P0>(&self, propertyid: &windows_core::HSTRING, propertyvalue: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceSetPropertyStatus>>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetPropertyAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), propertyvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetPropertyAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), propertyvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_Devices")]
@@ -955,12 +955,12 @@ impl MediaFrameSourceController {
     }
     pub fn GetPropertyByExtendedIdAsync<P0>(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGetPropertyResult>>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<u32>>,
     {
         let this = &windows_core::Interface::cast::<IMediaFrameSourceController2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPropertyByExtendedIdAsync)(windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), maxpropertyvaluesize.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPropertyByExtendedIdAsync)(windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), maxpropertyvaluesize.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetPropertyByExtendedIdAsync(&self, extendedpropertyid: &[u8], propertyvalue: &[u8]) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceSetPropertyStatus>> {
@@ -1162,12 +1162,12 @@ impl MediaFrameSourceInfo {
     #[cfg(all(feature = "Devices_Enumeration", feature = "UI_WindowManagement"))]
     pub fn GetRelativePanel<P0>(&self, displayregion: P0) -> windows_core::Result<super::super::super::Devices::Enumeration::Panel>
     where
-        P0: windows_core::IntoParam<super::super::super::UI::WindowManagement::DisplayRegion>,
+        P0: windows_core::Param<super::super::super::UI::WindowManagement::DisplayRegion>,
     {
         let this = &windows_core::Interface::cast::<IMediaFrameSourceInfo3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetRelativePanel)(windows_core::Interface::as_raw(this), displayregion.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GetRelativePanel)(windows_core::Interface::as_raw(this), displayregion.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn IsShareable(&self) -> windows_core::Result<bool> {
@@ -1219,12 +1219,12 @@ impl MultiSourceMediaFrameReader {
     }
     pub fn FrameArrived<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<MultiSourceMediaFrameReader, MultiSourceMediaFrameArrivedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<MultiSourceMediaFrameReader, MultiSourceMediaFrameArrivedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FrameArrived)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FrameArrived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveFrameArrived(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

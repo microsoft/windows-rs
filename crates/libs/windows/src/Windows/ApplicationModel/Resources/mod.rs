@@ -92,12 +92,12 @@ impl ResourceLoader {
     }
     pub fn GetStringForUri<P0>(&self, uri: P0) -> windows_core::Result<windows_core::HSTRING>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IResourceLoader2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStringForUri)(windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetStringForUri)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateResourceLoaderByName(name: &windows_core::HSTRING) -> windows_core::Result<ResourceLoader> {
@@ -108,11 +108,11 @@ impl ResourceLoader {
     }
     pub fn GetStringForReference<P0>(uri: P0) -> windows_core::Result<windows_core::HSTRING>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::IResourceLoaderStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStringForReference)(windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetStringForReference)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetForCurrentView() -> windows_core::Result<ResourceLoader> {
@@ -142,11 +142,11 @@ impl ResourceLoader {
     #[cfg(feature = "UI")]
     pub fn GetForUIContext<P0>(context: P0) -> windows_core::Result<ResourceLoader>
     where
-        P0: windows_core::IntoParam<super::super::UI::UIContext>,
+        P0: windows_core::Param<super::super::UI::UIContext>,
     {
         Self::IResourceLoaderStatics3(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetDefaultPriPath(packagefullname: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {

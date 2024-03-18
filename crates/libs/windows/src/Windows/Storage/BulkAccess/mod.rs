@@ -110,12 +110,12 @@ impl IStorageItemInformation {
     }
     pub fn ThumbnailUpdated<P0>(&self, changedhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ThumbnailUpdated)(windows_core::Interface::as_raw(this), changedhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ThumbnailUpdated)(windows_core::Interface::as_raw(this), changedhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveThumbnailUpdated(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -124,12 +124,12 @@ impl IStorageItemInformation {
     }
     pub fn PropertiesUpdated<P0>(&self, changedhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PropertiesUpdated)(windows_core::Interface::as_raw(this), changedhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PropertiesUpdated)(windows_core::Interface::as_raw(this), changedhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePropertiesUpdated(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -226,82 +226,82 @@ impl FileInformation {
     }
     pub fn CopyOverloadDefaultNameAndOptions<P0>(&self, destinationfolder: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>
     where
-        P0: windows_core::IntoParam<super::IStorageFolder>,
+        P0: windows_core::Param<super::IStorageFolder>,
     {
         let this = &windows_core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyOverloadDefaultNameAndOptions)(windows_core::Interface::as_raw(this), destinationfolder.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyOverloadDefaultNameAndOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CopyOverloadDefaultOptions<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>
     where
-        P0: windows_core::IntoParam<super::IStorageFolder>,
+        P0: windows_core::Param<super::IStorageFolder>,
     {
         let this = &windows_core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyOverloadDefaultOptions)(windows_core::Interface::as_raw(this), destinationfolder.into_param().abi(), core::mem::transmute_copy(desirednewname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyOverloadDefaultOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CopyOverload<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING, option: super::NameCollisionOption) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>
     where
-        P0: windows_core::IntoParam<super::IStorageFolder>,
+        P0: windows_core::Param<super::IStorageFolder>,
     {
         let this = &windows_core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyOverload)(windows_core::Interface::as_raw(this), destinationfolder.into_param().abi(), core::mem::transmute_copy(desirednewname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyOverload)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CopyAndReplaceAsync<P0>(&self, filetoreplace: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::IStorageFile>,
+        P0: windows_core::Param<super::IStorageFile>,
     {
         let this = &windows_core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyAndReplaceAsync)(windows_core::Interface::as_raw(this), filetoreplace.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyAndReplaceAsync)(windows_core::Interface::as_raw(this), filetoreplace.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MoveOverloadDefaultNameAndOptions<P0>(&self, destinationfolder: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::IStorageFolder>,
+        P0: windows_core::Param<super::IStorageFolder>,
     {
         let this = &windows_core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveOverloadDefaultNameAndOptions)(windows_core::Interface::as_raw(this), destinationfolder.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).MoveOverloadDefaultNameAndOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MoveOverloadDefaultOptions<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::IStorageFolder>,
+        P0: windows_core::Param<super::IStorageFolder>,
     {
         let this = &windows_core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveOverloadDefaultOptions)(windows_core::Interface::as_raw(this), destinationfolder.into_param().abi(), core::mem::transmute_copy(desirednewname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).MoveOverloadDefaultOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MoveOverload<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING, option: super::NameCollisionOption) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::IStorageFolder>,
+        P0: windows_core::Param<super::IStorageFolder>,
     {
         let this = &windows_core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveOverload)(windows_core::Interface::as_raw(this), destinationfolder.into_param().abi(), core::mem::transmute_copy(desirednewname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).MoveOverload)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MoveAndReplaceAsync<P0>(&self, filetoreplace: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::IStorageFile>,
+        P0: windows_core::Param<super::IStorageFile>,
     {
         let this = &windows_core::Interface::cast::<super::IStorageFile>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveAndReplaceAsync)(windows_core::Interface::as_raw(this), filetoreplace.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).MoveAndReplaceAsync)(windows_core::Interface::as_raw(this), filetoreplace.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -406,12 +406,12 @@ impl FileInformation {
     }
     pub fn IsEqual<P0>(&self, item: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<super::IStorageItem>,
+        P0: windows_core::Param<super::IStorageItem>,
     {
         let this = &windows_core::Interface::cast::<super::IStorageItem2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), item.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_FileProperties")]
@@ -464,12 +464,12 @@ impl FileInformation {
     }
     pub fn ThumbnailUpdated<P0>(&self, changedhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ThumbnailUpdated)(windows_core::Interface::as_raw(this), changedhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ThumbnailUpdated)(windows_core::Interface::as_raw(this), changedhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveThumbnailUpdated(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -478,12 +478,12 @@ impl FileInformation {
     }
     pub fn PropertiesUpdated<P0>(&self, changedhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PropertiesUpdated)(windows_core::Interface::as_raw(this), changedhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PropertiesUpdated)(windows_core::Interface::as_raw(this), changedhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePropertiesUpdated(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -638,41 +638,41 @@ impl FileInformationFactory {
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
     pub fn CreateWithMode<P0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode) -> windows_core::Result<FileInformationFactory>
     where
-        P0: windows_core::IntoParam<super::Search::IStorageQueryResultBase>,
+        P0: windows_core::Param<super::Search::IStorageQueryResultBase>,
     {
         Self::IFileInformationFactoryFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithMode)(windows_core::Interface::as_raw(this), queryresult.into_param().abi(), mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithMode)(windows_core::Interface::as_raw(this), queryresult.param().abi(), mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
     pub fn CreateWithModeAndSize<P0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32) -> windows_core::Result<FileInformationFactory>
     where
-        P0: windows_core::IntoParam<super::Search::IStorageQueryResultBase>,
+        P0: windows_core::Param<super::Search::IStorageQueryResultBase>,
     {
         Self::IFileInformationFactoryFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithModeAndSize)(windows_core::Interface::as_raw(this), queryresult.into_param().abi(), mode, requestedthumbnailsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithModeAndSize)(windows_core::Interface::as_raw(this), queryresult.param().abi(), mode, requestedthumbnailsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
     pub fn CreateWithModeAndSizeAndOptions<P0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions) -> windows_core::Result<FileInformationFactory>
     where
-        P0: windows_core::IntoParam<super::Search::IStorageQueryResultBase>,
+        P0: windows_core::Param<super::Search::IStorageQueryResultBase>,
     {
         Self::IFileInformationFactoryFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithModeAndSizeAndOptions)(windows_core::Interface::as_raw(this), queryresult.into_param().abi(), mode, requestedthumbnailsize, thumbnailoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithModeAndSizeAndOptions)(windows_core::Interface::as_raw(this), queryresult.param().abi(), mode, requestedthumbnailsize, thumbnailoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
     pub fn CreateWithModeAndSizeAndOptionsAndFlags<P0>(queryresult: P0, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, delayload: bool) -> windows_core::Result<FileInformationFactory>
     where
-        P0: windows_core::IntoParam<super::Search::IStorageQueryResultBase>,
+        P0: windows_core::Param<super::Search::IStorageQueryResultBase>,
     {
         Self::IFileInformationFactoryFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithModeAndSizeAndOptionsAndFlags)(windows_core::Interface::as_raw(this), queryresult.into_param().abi(), mode, requestedthumbnailsize, thumbnailoptions, delayload, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithModeAndSizeAndOptionsAndFlags)(windows_core::Interface::as_raw(this), queryresult.param().abi(), mode, requestedthumbnailsize, thumbnailoptions, delayload, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -807,12 +807,12 @@ impl FolderInformation {
     #[cfg(feature = "Storage_Search")]
     pub fn CreateFileQueryWithOptions<P0>(&self, queryoptions: P0) -> windows_core::Result<super::Search::StorageFileQueryResult>
     where
-        P0: windows_core::IntoParam<super::Search::QueryOptions>,
+        P0: windows_core::Param<super::Search::QueryOptions>,
     {
         let this = &windows_core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFileQueryWithOptions)(windows_core::Interface::as_raw(this), queryoptions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFileQueryWithOptions)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Search")]
@@ -834,12 +834,12 @@ impl FolderInformation {
     #[cfg(feature = "Storage_Search")]
     pub fn CreateFolderQueryWithOptions<P0>(&self, queryoptions: P0) -> windows_core::Result<super::Search::StorageFolderQueryResult>
     where
-        P0: windows_core::IntoParam<super::Search::QueryOptions>,
+        P0: windows_core::Param<super::Search::QueryOptions>,
     {
         let this = &windows_core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFolderQueryWithOptions)(windows_core::Interface::as_raw(this), queryoptions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFolderQueryWithOptions)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Search")]
@@ -853,12 +853,12 @@ impl FolderInformation {
     #[cfg(feature = "Storage_Search")]
     pub fn CreateItemQueryWithOptions<P0>(&self, queryoptions: P0) -> windows_core::Result<super::Search::StorageItemQueryResult>
     where
-        P0: windows_core::IntoParam<super::Search::QueryOptions>,
+        P0: windows_core::Param<super::Search::QueryOptions>,
     {
         let this = &windows_core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateItemQueryWithOptions)(windows_core::Interface::as_raw(this), queryoptions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateItemQueryWithOptions)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
@@ -904,12 +904,12 @@ impl FolderInformation {
     #[cfg(feature = "Storage_Search")]
     pub fn AreQueryOptionsSupported<P0>(&self, queryoptions: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<super::Search::QueryOptions>,
+        P0: windows_core::Param<super::Search::QueryOptions>,
     {
         let this = &windows_core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AreQueryOptionsSupported)(windows_core::Interface::as_raw(this), queryoptions.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AreQueryOptionsSupported)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_Search")]
@@ -1008,12 +1008,12 @@ impl FolderInformation {
     }
     pub fn IsEqual<P0>(&self, item: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<super::IStorageItem>,
+        P0: windows_core::Param<super::IStorageItem>,
     {
         let this = &windows_core::Interface::cast::<super::IStorageItem2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), item.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_FileProperties")]
@@ -1066,12 +1066,12 @@ impl FolderInformation {
     }
     pub fn ThumbnailUpdated<P0>(&self, changedhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ThumbnailUpdated)(windows_core::Interface::as_raw(this), changedhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ThumbnailUpdated)(windows_core::Interface::as_raw(this), changedhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveThumbnailUpdated(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1080,12 +1080,12 @@ impl FolderInformation {
     }
     pub fn PropertiesUpdated<P0>(&self, changedhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PropertiesUpdated)(windows_core::Interface::as_raw(this), changedhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PropertiesUpdated)(windows_core::Interface::as_raw(this), changedhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePropertiesUpdated(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

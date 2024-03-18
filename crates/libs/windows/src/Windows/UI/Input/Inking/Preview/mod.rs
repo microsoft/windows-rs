@@ -35,22 +35,22 @@ impl PalmRejectionDelayZonePreview {
     #[cfg(feature = "UI_Composition")]
     pub fn CreateForVisual<P0>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect) -> windows_core::Result<PalmRejectionDelayZonePreview>
     where
-        P0: windows_core::IntoParam<super::super::super::Composition::Visual>,
+        P0: windows_core::Param<super::super::super::Composition::Visual>,
     {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForVisual)(windows_core::Interface::as_raw(this), inputpanelvisual.into_param().abi(), inputpanelrect, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForVisual)(windows_core::Interface::as_raw(this), inputpanelvisual.param().abi(), inputpanelrect, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "UI_Composition")]
     pub fn CreateForVisualWithViewportClip<P0, P1>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect, viewportvisual: P1, viewportrect: super::super::super::super::Foundation::Rect) -> windows_core::Result<PalmRejectionDelayZonePreview>
     where
-        P0: windows_core::IntoParam<super::super::super::Composition::Visual>,
-        P1: windows_core::IntoParam<super::super::super::Composition::Visual>,
+        P0: windows_core::Param<super::super::super::Composition::Visual>,
+        P1: windows_core::Param<super::super::super::Composition::Visual>,
     {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForVisualWithViewportClip)(windows_core::Interface::as_raw(this), inputpanelvisual.into_param().abi(), inputpanelrect, viewportvisual.into_param().abi(), viewportrect, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForVisualWithViewportClip)(windows_core::Interface::as_raw(this), inputpanelvisual.param().abi(), inputpanelrect, viewportvisual.param().abi(), viewportrect, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

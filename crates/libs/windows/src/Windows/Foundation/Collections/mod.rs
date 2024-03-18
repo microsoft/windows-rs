@@ -167,12 +167,12 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IMap<K, V> {
     pub fn Lookup<P0>(&self, key: P0) -> windows_core::Result<V>
     where
-        P0: windows_core::IntoParam<K>,
+        P0: windows_core::Param<K>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), key.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), key.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -184,12 +184,12 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     }
     pub fn HasKey<P0>(&self, key: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<K>,
+        P0: windows_core::Param<K>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), key.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), key.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn GetView(&self) -> windows_core::Result<IMapView<K, V>> {
@@ -201,21 +201,21 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     }
     pub fn Insert<P0, P1>(&self, key: P0, value: P1) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<K>,
-        P1: windows_core::IntoParam<V>,
+        P0: windows_core::Param<K>,
+        P1: windows_core::Param<V>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), key.into_param().abi(), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), key.param().abi(), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn Remove<P0>(&self, key: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<K>,
+        P0: windows_core::Param<K>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), key.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), key.param().abi()).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
         let this = self;
@@ -321,12 +321,12 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IMapView<K, V> {
     pub fn Lookup<P0>(&self, key: P0) -> windows_core::Result<V>
     where
-        P0: windows_core::IntoParam<K>,
+        P0: windows_core::Param<K>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), key.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), key.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -338,12 +338,12 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     }
     pub fn HasKey<P0>(&self, key: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<K>,
+        P0: windows_core::Param<K>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), key.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), key.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn Split(&self, first: &mut Option<IMapView<K, V>>, second: &mut Option<IMapView<K, V>>) -> windows_core::Result<()> {
@@ -410,12 +410,12 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IObservableMap<K, V> {
     pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<super::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<MapChangedEventHandler<K, V>>,
+        P0: windows_core::Param<MapChangedEventHandler<K, V>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> windows_core::Result<()> {
@@ -431,12 +431,12 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     }
     pub fn Lookup<P0>(&self, key: P0) -> windows_core::Result<V>
     where
-        P0: windows_core::IntoParam<K>,
+        P0: windows_core::Param<K>,
     {
         let this = &windows_core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), key.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), key.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -448,12 +448,12 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     }
     pub fn HasKey<P0>(&self, key: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<K>,
+        P0: windows_core::Param<K>,
     {
         let this = &windows_core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), key.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), key.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn GetView(&self) -> windows_core::Result<IMapView<K, V>> {
@@ -465,21 +465,21 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     }
     pub fn Insert<P0, P1>(&self, key: P0, value: P1) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<K>,
-        P1: windows_core::IntoParam<V>,
+        P0: windows_core::Param<K>,
+        P1: windows_core::Param<V>,
     {
         let this = &windows_core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), key.into_param().abi(), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), key.param().abi(), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn Remove<P0>(&self, key: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<K>,
+        P0: windows_core::Param<K>,
     {
         let this = &windows_core::Interface::cast::<IMap<K, V>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), key.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), key.param().abi()).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMap<K, V>>(self)?;
@@ -535,12 +535,12 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<IVector<T>> f
 impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
     pub fn VectorChanged<P0>(&self, vhnd: P0) -> windows_core::Result<super::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<VectorChangedEventHandler<T>>,
+        P0: windows_core::Param<VectorChangedEventHandler<T>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).VectorChanged)(windows_core::Interface::as_raw(this), vhnd.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VectorChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveVectorChanged(&self, token: super::EventRegistrationToken) -> windows_core::Result<()> {
@@ -577,27 +577,27 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
     }
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<T>,
+        P0: windows_core::Param<T>,
     {
         let this = &windows_core::Interface::cast::<IVector<T>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
     pub fn SetAt<P0>(&self, index: u32, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<T>,
+        P0: windows_core::Param<T>,
     {
         let this = &windows_core::Interface::cast::<IVector<T>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn InsertAt<P0>(&self, index: u32, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<T>,
+        P0: windows_core::Param<T>,
     {
         let this = &windows_core::Interface::cast::<IVector<T>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVector<T>>(self)?;
@@ -605,10 +605,10 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
     }
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<T>,
+        P0: windows_core::Param<T>,
     {
         let this = &windows_core::Interface::cast::<IVector<T>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IVector<T>>(self)?;
@@ -702,12 +702,12 @@ impl IPropertySet {
     }
     pub fn Insert<P0>(&self, key: &windows_core::HSTRING, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -720,12 +720,12 @@ impl IPropertySet {
     }
     pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<super::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>,
+        P0: windows_core::Param<MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> windows_core::Result<()> {
@@ -788,27 +788,27 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     }
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<T>,
+        P0: windows_core::Param<T>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
     pub fn SetAt<P0>(&self, index: u32, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<T>,
+        P0: windows_core::Param<T>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn InsertAt<P0>(&self, index: u32, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<T>,
+        P0: windows_core::Param<T>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = self;
@@ -816,10 +816,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     }
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<T>,
+        P0: windows_core::Param<T>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = self;
@@ -961,12 +961,12 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
     }
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<T>,
+        P0: windows_core::Param<T>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [<T as windows_core::Type<T>>::Default]) -> windows_core::Result<u32> {
@@ -1085,12 +1085,12 @@ impl PropertySet {
     }
     pub fn Insert<P0>(&self, key: &windows_core::HSTRING, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1103,12 +1103,12 @@ impl PropertySet {
     }
     pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<super::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>,
+        P0: windows_core::Param<MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1207,12 +1207,12 @@ impl StringMap {
     }
     pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<super::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<MapChangedEventHandler<windows_core::HSTRING, windows_core::HSTRING>>,
+        P0: windows_core::Param<MapChangedEventHandler<windows_core::HSTRING, windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IObservableMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1296,12 +1296,12 @@ impl ValueSet {
     }
     pub fn Insert<P0>(&self, key: &windows_core::HSTRING, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1314,12 +1314,12 @@ impl ValueSet {
     }
     pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<super::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>,
+        P0: windows_core::Param<MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1386,11 +1386,11 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, event: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IObservableMap<K, V>>,
-        P1: windows_core::IntoParam<IMapChangedEventArgs<K>>,
+        P0: windows_core::Param<IObservableMap<K, V>>,
+        P1: windows_core::Param<IMapChangedEventArgs<K>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.into_param().abi(), event.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), event.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -1470,11 +1470,11 @@ impl<T: windows_core::RuntimeType + 'static> VectorChangedEventHandler<T> {
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, event: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IObservableVector<T>>,
-        P1: windows_core::IntoParam<IVectorChangedEventArgs>,
+        P0: windows_core::Param<IObservableVector<T>>,
+        P1: windows_core::Param<IVectorChangedEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.into_param().abi(), event.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), event.param().abi()).ok() }
     }
 }
 #[repr(C)]

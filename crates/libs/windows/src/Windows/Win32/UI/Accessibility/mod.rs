@@ -1,37 +1,37 @@
 #[inline]
 pub unsafe fn AccNotifyTouchInteraction<P0, P1>(hwndapp: P0, hwndtarget: P1, pttarget: super::super::Foundation::POINT) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("oleacc.dll" "system" fn AccNotifyTouchInteraction(hwndapp : super::super::Foundation:: HWND, hwndtarget : super::super::Foundation:: HWND, pttarget : super::super::Foundation:: POINT) -> windows_core::HRESULT);
-    AccNotifyTouchInteraction(hwndapp.into_param().abi(), hwndtarget.into_param().abi(), core::mem::transmute(pttarget)).ok()
+    AccNotifyTouchInteraction(hwndapp.param().abi(), hwndtarget.param().abi(), core::mem::transmute(pttarget)).ok()
 }
 #[inline]
 pub unsafe fn AccSetRunningUtilityState<P0>(hwndapp: P0, dwutilitystatemask: u32, dwutilitystate: ACC_UTILITY_STATE_FLAGS) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("oleacc.dll" "system" fn AccSetRunningUtilityState(hwndapp : super::super::Foundation:: HWND, dwutilitystatemask : u32, dwutilitystate : ACC_UTILITY_STATE_FLAGS) -> windows_core::HRESULT);
-    AccSetRunningUtilityState(hwndapp.into_param().abi(), dwutilitystatemask, dwutilitystate).ok()
+    AccSetRunningUtilityState(hwndapp.param().abi(), dwutilitystatemask, dwutilitystate).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn AccessibleChildren<P0>(pacccontainer: P0, ichildstart: i32, rgvarchildren: &mut [windows_core::VARIANT], pcobtained: *mut i32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<IAccessible>,
+    P0: windows_core::Param<IAccessible>,
 {
     windows_targets::link!("oleacc.dll" "system" fn AccessibleChildren(pacccontainer : * mut core::ffi::c_void, ichildstart : i32, cchildren : i32, rgvarchildren : *mut std::mem::MaybeUninit < windows_core::VARIANT >, pcobtained : *mut i32) -> windows_core::HRESULT);
-    AccessibleChildren(pacccontainer.into_param().abi(), ichildstart, rgvarchildren.len().try_into().unwrap(), core::mem::transmute(rgvarchildren.as_ptr()), pcobtained).ok()
+    AccessibleChildren(pacccontainer.param().abi(), ichildstart, rgvarchildren.len().try_into().unwrap(), core::mem::transmute(rgvarchildren.as_ptr()), pcobtained).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn AccessibleObjectFromEvent<P0>(hwnd: P0, dwid: u32, dwchildid: u32, ppacc: *mut Option<IAccessible>, pvarchild: *mut windows_core::VARIANT) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("oleacc.dll" "system" fn AccessibleObjectFromEvent(hwnd : super::super::Foundation:: HWND, dwid : u32, dwchildid : u32, ppacc : *mut * mut core::ffi::c_void, pvarchild : *mut std::mem::MaybeUninit < windows_core::VARIANT >) -> windows_core::HRESULT);
-    AccessibleObjectFromEvent(hwnd.into_param().abi(), dwid, dwchildid, core::mem::transmute(ppacc), core::mem::transmute(pvarchild)).ok()
+    AccessibleObjectFromEvent(hwnd.param().abi(), dwid, dwchildid, core::mem::transmute(ppacc), core::mem::transmute(pvarchild)).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -42,60 +42,60 @@ pub unsafe fn AccessibleObjectFromPoint(ptscreen: super::super::Foundation::POIN
 #[inline]
 pub unsafe fn AccessibleObjectFromWindow<P0>(hwnd: P0, dwid: u32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("oleacc.dll" "system" fn AccessibleObjectFromWindow(hwnd : super::super::Foundation:: HWND, dwid : u32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    AccessibleObjectFromWindow(hwnd.into_param().abi(), dwid, riid, ppvobject).ok()
+    AccessibleObjectFromWindow(hwnd.param().abi(), dwid, riid, ppvobject).ok()
 }
 #[inline]
 pub unsafe fn CreateStdAccessibleObject<P0>(hwnd: P0, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("oleacc.dll" "system" fn CreateStdAccessibleObject(hwnd : super::super::Foundation:: HWND, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    CreateStdAccessibleObject(hwnd.into_param().abi(), idobject, riid, ppvobject).ok()
+    CreateStdAccessibleObject(hwnd.param().abi(), idobject, riid, ppvobject).ok()
 }
 #[inline]
 pub unsafe fn CreateStdAccessibleProxyA<P0, P1>(hwnd: P0, pclassname: P1, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyA(hwnd : super::super::Foundation:: HWND, pclassname : windows_core::PCSTR, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    CreateStdAccessibleProxyA(hwnd.into_param().abi(), pclassname.into_param().abi(), idobject, riid, ppvobject).ok()
+    CreateStdAccessibleProxyA(hwnd.param().abi(), pclassname.param().abi(), idobject, riid, ppvobject).ok()
 }
 #[inline]
 pub unsafe fn CreateStdAccessibleProxyW<P0, P1>(hwnd: P0, pclassname: P1, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyW(hwnd : super::super::Foundation:: HWND, pclassname : windows_core::PCWSTR, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    CreateStdAccessibleProxyW(hwnd.into_param().abi(), pclassname.into_param().abi(), idobject, riid, ppvobject).ok()
+    CreateStdAccessibleProxyW(hwnd.param().abi(), pclassname.param().abi(), idobject, riid, ppvobject).ok()
 }
 #[inline]
 pub unsafe fn DockPattern_SetDockPosition<P0>(hobj: P0, dockposition: DockPosition) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn DockPattern_SetDockPosition(hobj : HUIAPATTERNOBJECT, dockposition : DockPosition) -> windows_core::HRESULT);
-    DockPattern_SetDockPosition(hobj.into_param().abi(), dockposition).ok()
+    DockPattern_SetDockPosition(hobj.param().abi(), dockposition).ok()
 }
 #[inline]
 pub unsafe fn ExpandCollapsePattern_Collapse<P0>(hobj: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn ExpandCollapsePattern_Collapse(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
-    ExpandCollapsePattern_Collapse(hobj.into_param().abi()).ok()
+    ExpandCollapsePattern_Collapse(hobj.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn ExpandCollapsePattern_Expand<P0>(hobj: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn ExpandCollapsePattern_Expand(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
-    ExpandCollapsePattern_Expand(hobj.into_param().abi()).ok()
+    ExpandCollapsePattern_Expand(hobj.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
@@ -125,18 +125,18 @@ pub unsafe fn GetStateTextW(lstatebit: u32, lpszstate: Option<&mut [u16]>) -> u3
 #[inline]
 pub unsafe fn GridPattern_GetItem<P0>(hobj: P0, row: i32, column: i32, presult: *mut HUIANODE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn GridPattern_GetItem(hobj : HUIAPATTERNOBJECT, row : i32, column : i32, presult : *mut HUIANODE) -> windows_core::HRESULT);
-    GridPattern_GetItem(hobj.into_param().abi(), row, column, presult).ok()
+    GridPattern_GetItem(hobj.param().abi(), row, column, presult).ok()
 }
 #[inline]
 pub unsafe fn InvokePattern_Invoke<P0>(hobj: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn InvokePattern_Invoke(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
-    InvokePattern_Invoke(hobj.into_param().abi()).ok()
+    InvokePattern_Invoke(hobj.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL {
@@ -146,435 +146,435 @@ pub unsafe fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::B
 #[inline]
 pub unsafe fn ItemContainerPattern_FindItemByProperty<P0, P1, P2>(hobj: P0, hnodestartafter: P1, propertyid: i32, value: P2, pfound: *mut HUIANODE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
-    P1: windows_core::IntoParam<HUIANODE>,
-    P2: windows_core::IntoParam<windows_core::VARIANT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
+    P1: windows_core::Param<HUIANODE>,
+    P2: windows_core::Param<windows_core::VARIANT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn ItemContainerPattern_FindItemByProperty(hobj : HUIAPATTERNOBJECT, hnodestartafter : HUIANODE, propertyid : i32, value : std::mem::MaybeUninit < windows_core::VARIANT >, pfound : *mut HUIANODE) -> windows_core::HRESULT);
-    ItemContainerPattern_FindItemByProperty(hobj.into_param().abi(), hnodestartafter.into_param().abi(), propertyid, value.into_param().abi(), pfound).ok()
+    ItemContainerPattern_FindItemByProperty(hobj.param().abi(), hnodestartafter.param().abi(), propertyid, value.param().abi(), pfound).ok()
 }
 #[inline]
 pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction<P0>(hobj: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_DoDefaultAction(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
-    LegacyIAccessiblePattern_DoDefaultAction(hobj.into_param().abi()).ok()
+    LegacyIAccessiblePattern_DoDefaultAction(hobj.param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn LegacyIAccessiblePattern_GetIAccessible<P0>(hobj: P0) -> windows_core::Result<IAccessible>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_GetIAccessible(hobj : HUIAPATTERNOBJECT, paccessible : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    LegacyIAccessiblePattern_GetIAccessible(hobj.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    LegacyIAccessiblePattern_GetIAccessible(hobj.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn LegacyIAccessiblePattern_Select<P0>(hobj: P0, flagsselect: i32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_Select(hobj : HUIAPATTERNOBJECT, flagsselect : i32) -> windows_core::HRESULT);
-    LegacyIAccessiblePattern_Select(hobj.into_param().abi(), flagsselect).ok()
+    LegacyIAccessiblePattern_Select(hobj.param().abi(), flagsselect).ok()
 }
 #[inline]
 pub unsafe fn LegacyIAccessiblePattern_SetValue<P0, P1>(hobj: P0, szvalue: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_SetValue(hobj : HUIAPATTERNOBJECT, szvalue : windows_core::PCWSTR) -> windows_core::HRESULT);
-    LegacyIAccessiblePattern_SetValue(hobj.into_param().abi(), szvalue.into_param().abi()).ok()
+    LegacyIAccessiblePattern_SetValue(hobj.param().abi(), szvalue.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn LresultFromObject<P0, P1>(riid: *const windows_core::GUID, wparam: P0, punk: P1) -> super::super::Foundation::LRESULT
 where
-    P0: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-    P1: windows_core::IntoParam<windows_core::IUnknown>,
+    P0: windows_core::Param<super::super::Foundation::WPARAM>,
+    P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("oleacc.dll" "system" fn LresultFromObject(riid : *const windows_core::GUID, wparam : super::super::Foundation:: WPARAM, punk : * mut core::ffi::c_void) -> super::super::Foundation:: LRESULT);
-    LresultFromObject(riid, wparam.into_param().abi(), punk.into_param().abi())
+    LresultFromObject(riid, wparam.param().abi(), punk.param().abi())
 }
 #[inline]
 pub unsafe fn MultipleViewPattern_GetViewName<P0>(hobj: P0, viewid: i32, ppstr: *mut windows_core::BSTR) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn MultipleViewPattern_GetViewName(hobj : HUIAPATTERNOBJECT, viewid : i32, ppstr : *mut std::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
-    MultipleViewPattern_GetViewName(hobj.into_param().abi(), viewid, core::mem::transmute(ppstr)).ok()
+    MultipleViewPattern_GetViewName(hobj.param().abi(), viewid, core::mem::transmute(ppstr)).ok()
 }
 #[inline]
 pub unsafe fn MultipleViewPattern_SetCurrentView<P0>(hobj: P0, viewid: i32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn MultipleViewPattern_SetCurrentView(hobj : HUIAPATTERNOBJECT, viewid : i32) -> windows_core::HRESULT);
-    MultipleViewPattern_SetCurrentView(hobj.into_param().abi(), viewid).ok()
+    MultipleViewPattern_SetCurrentView(hobj.param().abi(), viewid).ok()
 }
 #[inline]
 pub unsafe fn NotifyWinEvent<P0>(event: u32, hwnd: P0, idobject: i32, idchild: i32)
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn NotifyWinEvent(event : u32, hwnd : super::super::Foundation:: HWND, idobject : i32, idchild : i32));
-    NotifyWinEvent(event, hwnd.into_param().abi(), idobject, idchild)
+    NotifyWinEvent(event, hwnd.param().abi(), idobject, idchild)
 }
 #[inline]
 pub unsafe fn ObjectFromLresult<P0, P1>(lresult: P0, riid: *const windows_core::GUID, wparam: P1, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::LRESULT>,
-    P1: windows_core::IntoParam<super::super::Foundation::WPARAM>,
+    P0: windows_core::Param<super::super::Foundation::LRESULT>,
+    P1: windows_core::Param<super::super::Foundation::WPARAM>,
 {
     windows_targets::link!("oleacc.dll" "system" fn ObjectFromLresult(lresult : super::super::Foundation:: LRESULT, riid : *const windows_core::GUID, wparam : super::super::Foundation:: WPARAM, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    ObjectFromLresult(lresult.into_param().abi(), riid, wparam.into_param().abi(), ppvobject).ok()
+    ObjectFromLresult(lresult.param().abi(), riid, wparam.param().abi(), ppvobject).ok()
 }
 #[inline]
 pub unsafe fn RangeValuePattern_SetValue<P0>(hobj: P0, val: f64) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn RangeValuePattern_SetValue(hobj : HUIAPATTERNOBJECT, val : f64) -> windows_core::HRESULT);
-    RangeValuePattern_SetValue(hobj.into_param().abi(), val).ok()
+    RangeValuePattern_SetValue(hobj.param().abi(), val).ok()
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn RegisterPointerInputTarget<P0>(hwnd: P0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn RegisterPointerInputTarget(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> super::super::Foundation:: BOOL);
-    RegisterPointerInputTarget(hwnd.into_param().abi(), pointertype).ok()
+    RegisterPointerInputTarget(hwnd.param().abi(), pointertype).ok()
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn RegisterPointerInputTargetEx<P0, P1>(hwnd: P0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: P1) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn RegisterPointerInputTargetEx(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE, fobserve : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    RegisterPointerInputTargetEx(hwnd.into_param().abi(), pointertype, fobserve.into_param().abi())
+    RegisterPointerInputTargetEx(hwnd.param().abi(), pointertype, fobserve.param().abi())
 }
 #[inline]
 pub unsafe fn ScrollItemPattern_ScrollIntoView<P0>(hobj: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn ScrollItemPattern_ScrollIntoView(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
-    ScrollItemPattern_ScrollIntoView(hobj.into_param().abi()).ok()
+    ScrollItemPattern_ScrollIntoView(hobj.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn ScrollPattern_Scroll<P0>(hobj: P0, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn ScrollPattern_Scroll(hobj : HUIAPATTERNOBJECT, horizontalamount : ScrollAmount, verticalamount : ScrollAmount) -> windows_core::HRESULT);
-    ScrollPattern_Scroll(hobj.into_param().abi(), horizontalamount, verticalamount).ok()
+    ScrollPattern_Scroll(hobj.param().abi(), horizontalamount, verticalamount).ok()
 }
 #[inline]
 pub unsafe fn ScrollPattern_SetScrollPercent<P0>(hobj: P0, horizontalpercent: f64, verticalpercent: f64) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn ScrollPattern_SetScrollPercent(hobj : HUIAPATTERNOBJECT, horizontalpercent : f64, verticalpercent : f64) -> windows_core::HRESULT);
-    ScrollPattern_SetScrollPercent(hobj.into_param().abi(), horizontalpercent, verticalpercent).ok()
+    ScrollPattern_SetScrollPercent(hobj.param().abi(), horizontalpercent, verticalpercent).ok()
 }
 #[inline]
 pub unsafe fn SelectionItemPattern_AddToSelection<P0>(hobj: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn SelectionItemPattern_AddToSelection(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
-    SelectionItemPattern_AddToSelection(hobj.into_param().abi()).ok()
+    SelectionItemPattern_AddToSelection(hobj.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SelectionItemPattern_RemoveFromSelection<P0>(hobj: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn SelectionItemPattern_RemoveFromSelection(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
-    SelectionItemPattern_RemoveFromSelection(hobj.into_param().abi()).ok()
+    SelectionItemPattern_RemoveFromSelection(hobj.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SelectionItemPattern_Select<P0>(hobj: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn SelectionItemPattern_Select(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
-    SelectionItemPattern_Select(hobj.into_param().abi()).ok()
+    SelectionItemPattern_Select(hobj.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SetWinEventHook<P0>(eventmin: u32, eventmax: u32, hmodwineventproc: P0, pfnwineventproc: WINEVENTPROC, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P0: windows_core::Param<super::super::Foundation::HMODULE>,
 {
     windows_targets::link!("user32.dll" "system" fn SetWinEventHook(eventmin : u32, eventmax : u32, hmodwineventproc : super::super::Foundation:: HMODULE, pfnwineventproc : WINEVENTPROC, idprocess : u32, idthread : u32, dwflags : u32) -> HWINEVENTHOOK);
-    SetWinEventHook(eventmin, eventmax, hmodwineventproc.into_param().abi(), pfnwineventproc, idprocess, idthread, dwflags)
+    SetWinEventHook(eventmin, eventmax, hmodwineventproc.param().abi(), pfnwineventproc, idprocess, idthread, dwflags)
 }
 #[inline]
 pub unsafe fn SynchronizedInputPattern_Cancel<P0>(hobj: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn SynchronizedInputPattern_Cancel(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
-    SynchronizedInputPattern_Cancel(hobj.into_param().abi()).ok()
+    SynchronizedInputPattern_Cancel(hobj.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SynchronizedInputPattern_StartListening<P0>(hobj: P0, inputtype: SynchronizedInputType) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn SynchronizedInputPattern_StartListening(hobj : HUIAPATTERNOBJECT, inputtype : SynchronizedInputType) -> windows_core::HRESULT);
-    SynchronizedInputPattern_StartListening(hobj.into_param().abi(), inputtype).ok()
+    SynchronizedInputPattern_StartListening(hobj.param().abi(), inputtype).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn TextPattern_GetSelection<P0>(hobj: P0, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextPattern_GetSelection(hobj : HUIAPATTERNOBJECT, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
-    TextPattern_GetSelection(hobj.into_param().abi(), pretval).ok()
+    TextPattern_GetSelection(hobj.param().abi(), pretval).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn TextPattern_GetVisibleRanges<P0>(hobj: P0, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextPattern_GetVisibleRanges(hobj : HUIAPATTERNOBJECT, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
-    TextPattern_GetVisibleRanges(hobj.into_param().abi(), pretval).ok()
+    TextPattern_GetVisibleRanges(hobj.param().abi(), pretval).ok()
 }
 #[inline]
 pub unsafe fn TextPattern_RangeFromChild<P0, P1>(hobj: P0, hnodechild: P1, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
-    P1: windows_core::IntoParam<HUIANODE>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
+    P1: windows_core::Param<HUIANODE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextPattern_RangeFromChild(hobj : HUIAPATTERNOBJECT, hnodechild : HUIANODE, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
-    TextPattern_RangeFromChild(hobj.into_param().abi(), hnodechild.into_param().abi(), pretval).ok()
+    TextPattern_RangeFromChild(hobj.param().abi(), hnodechild.param().abi(), pretval).ok()
 }
 #[inline]
 pub unsafe fn TextPattern_RangeFromPoint<P0>(hobj: P0, point: UiaPoint, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextPattern_RangeFromPoint(hobj : HUIAPATTERNOBJECT, point : UiaPoint, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
-    TextPattern_RangeFromPoint(hobj.into_param().abi(), core::mem::transmute(point), pretval).ok()
+    TextPattern_RangeFromPoint(hobj.param().abi(), core::mem::transmute(point), pretval).ok()
 }
 #[inline]
 pub unsafe fn TextPattern_get_DocumentRange<P0>(hobj: P0, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextPattern_get_DocumentRange(hobj : HUIAPATTERNOBJECT, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
-    TextPattern_get_DocumentRange(hobj.into_param().abi(), pretval).ok()
+    TextPattern_get_DocumentRange(hobj.param().abi(), pretval).ok()
 }
 #[inline]
 pub unsafe fn TextPattern_get_SupportedTextSelection<P0>(hobj: P0, pretval: *mut SupportedTextSelection) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextPattern_get_SupportedTextSelection(hobj : HUIAPATTERNOBJECT, pretval : *mut SupportedTextSelection) -> windows_core::HRESULT);
-    TextPattern_get_SupportedTextSelection(hobj.into_param().abi(), pretval).ok()
+    TextPattern_get_SupportedTextSelection(hobj.param().abi(), pretval).ok()
 }
 #[inline]
 pub unsafe fn TextRange_AddToSelection<P0>(hobj: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_AddToSelection(hobj : HUIATEXTRANGE) -> windows_core::HRESULT);
-    TextRange_AddToSelection(hobj.into_param().abi()).ok()
+    TextRange_AddToSelection(hobj.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn TextRange_Clone<P0>(hobj: P0, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_Clone(hobj : HUIATEXTRANGE, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
-    TextRange_Clone(hobj.into_param().abi(), pretval).ok()
+    TextRange_Clone(hobj.param().abi(), pretval).ok()
 }
 #[inline]
 pub unsafe fn TextRange_Compare<P0, P1>(hobj: P0, range: P1, pretval: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
-    P1: windows_core::IntoParam<HUIATEXTRANGE>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
+    P1: windows_core::Param<HUIATEXTRANGE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_Compare(hobj : HUIATEXTRANGE, range : HUIATEXTRANGE, pretval : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    TextRange_Compare(hobj.into_param().abi(), range.into_param().abi(), pretval).ok()
+    TextRange_Compare(hobj.param().abi(), range.param().abi(), pretval).ok()
 }
 #[inline]
 pub unsafe fn TextRange_CompareEndpoints<P0, P1>(hobj: P0, endpoint: TextPatternRangeEndpoint, targetrange: P1, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
-    P1: windows_core::IntoParam<HUIATEXTRANGE>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
+    P1: windows_core::Param<HUIATEXTRANGE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_CompareEndpoints(hobj : HUIATEXTRANGE, endpoint : TextPatternRangeEndpoint, targetrange : HUIATEXTRANGE, targetendpoint : TextPatternRangeEndpoint, pretval : *mut i32) -> windows_core::HRESULT);
-    TextRange_CompareEndpoints(hobj.into_param().abi(), endpoint, targetrange.into_param().abi(), targetendpoint, pretval).ok()
+    TextRange_CompareEndpoints(hobj.param().abi(), endpoint, targetrange.param().abi(), targetendpoint, pretval).ok()
 }
 #[inline]
 pub unsafe fn TextRange_ExpandToEnclosingUnit<P0>(hobj: P0, unit: TextUnit) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_ExpandToEnclosingUnit(hobj : HUIATEXTRANGE, unit : TextUnit) -> windows_core::HRESULT);
-    TextRange_ExpandToEnclosingUnit(hobj.into_param().abi(), unit).ok()
+    TextRange_ExpandToEnclosingUnit(hobj.param().abi(), unit).ok()
 }
 #[inline]
 pub unsafe fn TextRange_FindAttribute<P0, P1, P2>(hobj: P0, attributeid: i32, val: P1, backward: P2, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
-    P1: windows_core::IntoParam<windows_core::VARIANT>,
-    P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
+    P1: windows_core::Param<windows_core::VARIANT>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_FindAttribute(hobj : HUIATEXTRANGE, attributeid : i32, val : std::mem::MaybeUninit < windows_core::VARIANT >, backward : super::super::Foundation:: BOOL, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
-    TextRange_FindAttribute(hobj.into_param().abi(), attributeid, val.into_param().abi(), backward.into_param().abi(), pretval).ok()
+    TextRange_FindAttribute(hobj.param().abi(), attributeid, val.param().abi(), backward.param().abi(), pretval).ok()
 }
 #[inline]
 pub unsafe fn TextRange_FindText<P0, P1, P2, P3>(hobj: P0, text: P1, backward: P2, ignorecase: P3, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
-    P1: windows_core::IntoParam<windows_core::BSTR>,
-    P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
-    P3: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
+    P1: windows_core::Param<windows_core::BSTR>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_FindText(hobj : HUIATEXTRANGE, text : std::mem::MaybeUninit < windows_core::BSTR >, backward : super::super::Foundation:: BOOL, ignorecase : super::super::Foundation:: BOOL, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
-    TextRange_FindText(hobj.into_param().abi(), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), pretval).ok()
+    TextRange_FindText(hobj.param().abi(), text.param().abi(), backward.param().abi(), ignorecase.param().abi(), pretval).ok()
 }
 #[inline]
 pub unsafe fn TextRange_GetAttributeValue<P0>(hobj: P0, attributeid: i32, pretval: *mut windows_core::VARIANT) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_GetAttributeValue(hobj : HUIATEXTRANGE, attributeid : i32, pretval : *mut std::mem::MaybeUninit < windows_core::VARIANT >) -> windows_core::HRESULT);
-    TextRange_GetAttributeValue(hobj.into_param().abi(), attributeid, core::mem::transmute(pretval)).ok()
+    TextRange_GetAttributeValue(hobj.param().abi(), attributeid, core::mem::transmute(pretval)).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn TextRange_GetBoundingRectangles<P0>(hobj: P0, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_GetBoundingRectangles(hobj : HUIATEXTRANGE, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
-    TextRange_GetBoundingRectangles(hobj.into_param().abi(), pretval).ok()
+    TextRange_GetBoundingRectangles(hobj.param().abi(), pretval).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn TextRange_GetChildren<P0>(hobj: P0, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_GetChildren(hobj : HUIATEXTRANGE, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
-    TextRange_GetChildren(hobj.into_param().abi(), pretval).ok()
+    TextRange_GetChildren(hobj.param().abi(), pretval).ok()
 }
 #[inline]
 pub unsafe fn TextRange_GetEnclosingElement<P0>(hobj: P0, pretval: *mut HUIANODE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_GetEnclosingElement(hobj : HUIATEXTRANGE, pretval : *mut HUIANODE) -> windows_core::HRESULT);
-    TextRange_GetEnclosingElement(hobj.into_param().abi(), pretval).ok()
+    TextRange_GetEnclosingElement(hobj.param().abi(), pretval).ok()
 }
 #[inline]
 pub unsafe fn TextRange_GetText<P0>(hobj: P0, maxlength: i32, pretval: *mut windows_core::BSTR) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_GetText(hobj : HUIATEXTRANGE, maxlength : i32, pretval : *mut std::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
-    TextRange_GetText(hobj.into_param().abi(), maxlength, core::mem::transmute(pretval)).ok()
+    TextRange_GetText(hobj.param().abi(), maxlength, core::mem::transmute(pretval)).ok()
 }
 #[inline]
 pub unsafe fn TextRange_Move<P0>(hobj: P0, unit: TextUnit, count: i32, pretval: *mut i32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_Move(hobj : HUIATEXTRANGE, unit : TextUnit, count : i32, pretval : *mut i32) -> windows_core::HRESULT);
-    TextRange_Move(hobj.into_param().abi(), unit, count, pretval).ok()
+    TextRange_Move(hobj.param().abi(), unit, count, pretval).ok()
 }
 #[inline]
 pub unsafe fn TextRange_MoveEndpointByRange<P0, P1>(hobj: P0, endpoint: TextPatternRangeEndpoint, targetrange: P1, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
-    P1: windows_core::IntoParam<HUIATEXTRANGE>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
+    P1: windows_core::Param<HUIATEXTRANGE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_MoveEndpointByRange(hobj : HUIATEXTRANGE, endpoint : TextPatternRangeEndpoint, targetrange : HUIATEXTRANGE, targetendpoint : TextPatternRangeEndpoint) -> windows_core::HRESULT);
-    TextRange_MoveEndpointByRange(hobj.into_param().abi(), endpoint, targetrange.into_param().abi(), targetendpoint).ok()
+    TextRange_MoveEndpointByRange(hobj.param().abi(), endpoint, targetrange.param().abi(), targetendpoint).ok()
 }
 #[inline]
 pub unsafe fn TextRange_MoveEndpointByUnit<P0>(hobj: P0, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: *mut i32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_MoveEndpointByUnit(hobj : HUIATEXTRANGE, endpoint : TextPatternRangeEndpoint, unit : TextUnit, count : i32, pretval : *mut i32) -> windows_core::HRESULT);
-    TextRange_MoveEndpointByUnit(hobj.into_param().abi(), endpoint, unit, count, pretval).ok()
+    TextRange_MoveEndpointByUnit(hobj.param().abi(), endpoint, unit, count, pretval).ok()
 }
 #[inline]
 pub unsafe fn TextRange_RemoveFromSelection<P0>(hobj: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_RemoveFromSelection(hobj : HUIATEXTRANGE) -> windows_core::HRESULT);
-    TextRange_RemoveFromSelection(hobj.into_param().abi()).ok()
+    TextRange_RemoveFromSelection(hobj.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn TextRange_ScrollIntoView<P0, P1>(hobj: P0, aligntotop: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
-    P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_ScrollIntoView(hobj : HUIATEXTRANGE, aligntotop : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    TextRange_ScrollIntoView(hobj.into_param().abi(), aligntotop.into_param().abi()).ok()
+    TextRange_ScrollIntoView(hobj.param().abi(), aligntotop.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn TextRange_Select<P0>(hobj: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_Select(hobj : HUIATEXTRANGE) -> windows_core::HRESULT);
-    TextRange_Select(hobj.into_param().abi()).ok()
+    TextRange_Select(hobj.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn TogglePattern_Toggle<P0>(hobj: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TogglePattern_Toggle(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
-    TogglePattern_Toggle(hobj.into_param().abi()).ok()
+    TogglePattern_Toggle(hobj.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn TransformPattern_Move<P0>(hobj: P0, x: f64, y: f64) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TransformPattern_Move(hobj : HUIAPATTERNOBJECT, x : f64, y : f64) -> windows_core::HRESULT);
-    TransformPattern_Move(hobj.into_param().abi(), x, y).ok()
+    TransformPattern_Move(hobj.param().abi(), x, y).ok()
 }
 #[inline]
 pub unsafe fn TransformPattern_Resize<P0>(hobj: P0, width: f64, height: f64) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TransformPattern_Resize(hobj : HUIAPATTERNOBJECT, width : f64, height : f64) -> windows_core::HRESULT);
-    TransformPattern_Resize(hobj.into_param().abi(), width, height).ok()
+    TransformPattern_Resize(hobj.param().abi(), width, height).ok()
 }
 #[inline]
 pub unsafe fn TransformPattern_Rotate<P0>(hobj: P0, degrees: f64) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn TransformPattern_Rotate(hobj : HUIAPATTERNOBJECT, degrees : f64) -> windows_core::HRESULT);
-    TransformPattern_Rotate(hobj.into_param().abi(), degrees).ok()
+    TransformPattern_Rotate(hobj.param().abi(), degrees).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaAddEvent<P0>(hnode: P0, eventid: i32, pcallback: *mut UiaEventCallback, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIANODE>,
+    P0: windows_core::Param<HUIANODE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaAddEvent(hnode : HUIANODE, eventid : i32, pcallback : *mut UiaEventCallback, scope : TreeScope, pproperties : *mut i32, cproperties : i32, prequest : *mut UiaCacheRequest, phevent : *mut HUIAEVENT) -> windows_core::HRESULT);
-    UiaAddEvent(hnode.into_param().abi(), eventid, pcallback, scope, pproperties, cproperties, prequest, phevent).ok()
+    UiaAddEvent(hnode.param().abi(), eventid, pcallback, scope, pproperties, cproperties, prequest, phevent).ok()
 }
 #[inline]
 pub unsafe fn UiaClientsAreListening() -> super::super::Foundation::BOOL {
@@ -589,37 +589,37 @@ pub unsafe fn UiaDisconnectAllProviders() -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn UiaDisconnectProvider<P0>(pprovider: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<IRawElementProviderSimple>,
+    P0: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaDisconnectProvider(pprovider : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    UiaDisconnectProvider(pprovider.into_param().abi()).ok()
+    UiaDisconnectProvider(pprovider.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn UiaEventAddWindow<P0, P1>(hevent: P0, hwnd: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAEVENT>,
-    P1: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<HUIAEVENT>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaEventAddWindow(hevent : HUIAEVENT, hwnd : super::super::Foundation:: HWND) -> windows_core::HRESULT);
-    UiaEventAddWindow(hevent.into_param().abi(), hwnd.into_param().abi()).ok()
+    UiaEventAddWindow(hevent.param().abi(), hwnd.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn UiaEventRemoveWindow<P0, P1>(hevent: P0, hwnd: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAEVENT>,
-    P1: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<HUIAEVENT>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaEventRemoveWindow(hevent : HUIAEVENT, hwnd : super::super::Foundation:: HWND) -> windows_core::HRESULT);
-    UiaEventRemoveWindow(hevent.into_param().abi(), hwnd.into_param().abi()).ok()
+    UiaEventRemoveWindow(hevent.param().abi(), hwnd.param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaFind<P0>(hnode: P0, pparams: *mut UiaFindParams, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, ppoffsets: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructures: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIANODE>,
+    P0: windows_core::Param<HUIANODE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaFind(hnode : HUIANODE, pparams : *mut UiaFindParams, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, ppoffsets : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructures : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
-    UiaFind(hnode.into_param().abi(), pparams, prequest, pprequesteddata, ppoffsets, pptreestructures).ok()
+    UiaFind(hnode.param().abi(), pparams, prequest, pprequesteddata, ppoffsets, pptreestructures).ok()
 }
 #[inline]
 pub unsafe fn UiaGetErrorDescription(pdescription: *mut windows_core::BSTR) -> super::super::Foundation::BOOL {
@@ -629,18 +629,18 @@ pub unsafe fn UiaGetErrorDescription(pdescription: *mut windows_core::BSTR) -> s
 #[inline]
 pub unsafe fn UiaGetPatternProvider<P0>(hnode: P0, patternid: i32, phobj: *mut HUIAPATTERNOBJECT) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIANODE>,
+    P0: windows_core::Param<HUIANODE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetPatternProvider(hnode : HUIANODE, patternid : i32, phobj : *mut HUIAPATTERNOBJECT) -> windows_core::HRESULT);
-    UiaGetPatternProvider(hnode.into_param().abi(), patternid, phobj).ok()
+    UiaGetPatternProvider(hnode.param().abi(), patternid, phobj).ok()
 }
 #[inline]
 pub unsafe fn UiaGetPropertyValue<P0>(hnode: P0, propertyid: i32, pvalue: *mut windows_core::VARIANT) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIANODE>,
+    P0: windows_core::Param<HUIANODE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetPropertyValue(hnode : HUIANODE, propertyid : i32, pvalue : *mut std::mem::MaybeUninit < windows_core::VARIANT >) -> windows_core::HRESULT);
-    UiaGetPropertyValue(hnode.into_param().abi(), propertyid, core::mem::transmute(pvalue)).ok()
+    UiaGetPropertyValue(hnode.param().abi(), propertyid, core::mem::transmute(pvalue)).ok()
 }
 #[inline]
 pub unsafe fn UiaGetReservedMixedAttributeValue() -> windows_core::Result<windows_core::IUnknown> {
@@ -663,19 +663,19 @@ pub unsafe fn UiaGetRootNode(phnode: *mut HUIANODE) -> windows_core::Result<()> 
 #[inline]
 pub unsafe fn UiaGetRuntimeId<P0>(hnode: P0, pruntimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIANODE>,
+    P0: windows_core::Param<HUIANODE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetRuntimeId(hnode : HUIANODE, pruntimeid : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
-    UiaGetRuntimeId(hnode.into_param().abi(), pruntimeid).ok()
+    UiaGetRuntimeId(hnode.param().abi(), pruntimeid).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaGetUpdatedCache<P0>(hnode: P0, prequest: *mut UiaCacheRequest, normalizestate: NormalizeState, pnormalizecondition: *mut UiaCondition, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut windows_core::BSTR) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIANODE>,
+    P0: windows_core::Param<HUIANODE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetUpdatedCache(hnode : HUIANODE, prequest : *mut UiaCacheRequest, normalizestate : NormalizeState, pnormalizecondition : *mut UiaCondition, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut std::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
-    UiaGetUpdatedCache(hnode.into_param().abi(), prequest, normalizestate, pnormalizecondition, pprequesteddata, core::mem::transmute(pptreestructure)).ok()
+    UiaGetUpdatedCache(hnode.param().abi(), prequest, normalizestate, pnormalizecondition, pprequesteddata, core::mem::transmute(pptreestructure)).ok()
 }
 #[inline]
 pub unsafe fn UiaHPatternObjectFromVariant(pvar: *mut windows_core::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> windows_core::Result<()> {
@@ -695,28 +695,28 @@ pub unsafe fn UiaHUiaNodeFromVariant(pvar: *mut windows_core::VARIANT, phnode: *
 #[inline]
 pub unsafe fn UiaHasServerSideProvider<P0>(hwnd: P0) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaHasServerSideProvider(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
-    UiaHasServerSideProvider(hwnd.into_param().abi())
+    UiaHasServerSideProvider(hwnd.param().abi())
 }
 #[inline]
 pub unsafe fn UiaHostProviderFromHwnd<P0>(hwnd: P0) -> windows_core::Result<IRawElementProviderSimple>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaHostProviderFromHwnd(hwnd : super::super::Foundation:: HWND, ppprovider : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    UiaHostProviderFromHwnd(hwnd.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    UiaHostProviderFromHwnd(hwnd.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaIAccessibleFromProvider<P0>(pprovider: P0, dwflags: u32, ppaccessible: *mut Option<IAccessible>, pvarchild: *mut windows_core::VARIANT) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<IRawElementProviderSimple>,
+    P0: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaIAccessibleFromProvider(pprovider : * mut core::ffi::c_void, dwflags : u32, ppaccessible : *mut * mut core::ffi::c_void, pvarchild : *mut std::mem::MaybeUninit < windows_core::VARIANT >) -> windows_core::HRESULT);
-    UiaIAccessibleFromProvider(pprovider.into_param().abi(), dwflags, core::mem::transmute(ppaccessible), core::mem::transmute(pvarchild)).ok()
+    UiaIAccessibleFromProvider(pprovider.param().abi(), dwflags, core::mem::transmute(ppaccessible), core::mem::transmute(pvarchild)).ok()
 }
 #[inline]
 pub unsafe fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const windows_core::GUID) -> i32 {
@@ -727,10 +727,10 @@ pub unsafe fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const window
 #[inline]
 pub unsafe fn UiaNavigate<P0>(hnode: P0, direction: NavigateDirection, pcondition: *mut UiaCondition, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut windows_core::BSTR) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIANODE>,
+    P0: windows_core::Param<HUIANODE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaNavigate(hnode : HUIANODE, direction : NavigateDirection, pcondition : *mut UiaCondition, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut std::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
-    UiaNavigate(hnode.into_param().abi(), direction, pcondition, prequest, pprequesteddata, core::mem::transmute(pptreestructure)).ok()
+    UiaNavigate(hnode.param().abi(), direction, pcondition, prequest, pprequesteddata, core::mem::transmute(pptreestructure)).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -741,10 +741,10 @@ pub unsafe fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: 
 #[inline]
 pub unsafe fn UiaNodeFromHandle<P0>(hwnd: P0, phnode: *mut HUIANODE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaNodeFromHandle(hwnd : super::super::Foundation:: HWND, phnode : *mut HUIANODE) -> windows_core::HRESULT);
-    UiaNodeFromHandle(hwnd.into_param().abi(), phnode).ok()
+    UiaNodeFromHandle(hwnd.param().abi(), phnode).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -755,115 +755,115 @@ pub unsafe fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, p
 #[inline]
 pub unsafe fn UiaNodeFromProvider<P0>(pprovider: P0, phnode: *mut HUIANODE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<IRawElementProviderSimple>,
+    P0: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaNodeFromProvider(pprovider : * mut core::ffi::c_void, phnode : *mut HUIANODE) -> windows_core::HRESULT);
-    UiaNodeFromProvider(pprovider.into_param().abi(), phnode).ok()
+    UiaNodeFromProvider(pprovider.param().abi(), phnode).ok()
 }
 #[inline]
 pub unsafe fn UiaNodeRelease<P0>(hnode: P0) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<HUIANODE>,
+    P0: windows_core::Param<HUIANODE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaNodeRelease(hnode : HUIANODE) -> super::super::Foundation:: BOOL);
-    UiaNodeRelease(hnode.into_param().abi())
+    UiaNodeRelease(hnode.param().abi())
 }
 #[inline]
 pub unsafe fn UiaPatternRelease<P0>(hobj: P0) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaPatternRelease(hobj : HUIAPATTERNOBJECT) -> super::super::Foundation:: BOOL);
-    UiaPatternRelease(hobj.into_param().abi())
+    UiaPatternRelease(hobj.param().abi())
 }
 #[inline]
 pub unsafe fn UiaProviderForNonClient<P0>(hwnd: P0, idobject: i32, idchild: i32) -> windows_core::Result<IRawElementProviderSimple>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaProviderForNonClient(hwnd : super::super::Foundation:: HWND, idobject : i32, idchild : i32, ppprovider : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    UiaProviderForNonClient(hwnd.into_param().abi(), idobject, idchild, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    UiaProviderForNonClient(hwnd.param().abi(), idobject, idchild, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaProviderFromIAccessible<P0>(paccessible: P0, idchild: i32, dwflags: u32) -> windows_core::Result<IRawElementProviderSimple>
 where
-    P0: windows_core::IntoParam<IAccessible>,
+    P0: windows_core::Param<IAccessible>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaProviderFromIAccessible(paccessible : * mut core::ffi::c_void, idchild : i32, dwflags : u32, ppprovider : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    UiaProviderFromIAccessible(paccessible.into_param().abi(), idchild, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    UiaProviderFromIAccessible(paccessible.param().abi(), idchild, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn UiaRaiseActiveTextPositionChangedEvent<P0, P1>(provider: P0, textrange: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<IRawElementProviderSimple>,
-    P1: windows_core::IntoParam<ITextRangeProvider>,
+    P0: windows_core::Param<IRawElementProviderSimple>,
+    P1: windows_core::Param<ITextRangeProvider>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseActiveTextPositionChangedEvent(provider : * mut core::ffi::c_void, textrange : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    UiaRaiseActiveTextPositionChangedEvent(provider.into_param().abi(), textrange.into_param().abi()).ok()
+    UiaRaiseActiveTextPositionChangedEvent(provider.param().abi(), textrange.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn UiaRaiseAsyncContentLoadedEvent<P0>(pprovider: P0, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: f64) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<IRawElementProviderSimple>,
+    P0: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseAsyncContentLoadedEvent(pprovider : * mut core::ffi::c_void, asynccontentloadedstate : AsyncContentLoadedState, percentcomplete : f64) -> windows_core::HRESULT);
-    UiaRaiseAsyncContentLoadedEvent(pprovider.into_param().abi(), asynccontentloadedstate, percentcomplete).ok()
+    UiaRaiseAsyncContentLoadedEvent(pprovider.param().abi(), asynccontentloadedstate, percentcomplete).ok()
 }
 #[inline]
 pub unsafe fn UiaRaiseAutomationEvent<P0>(pprovider: P0, id: UIA_EVENT_ID) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<IRawElementProviderSimple>,
+    P0: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseAutomationEvent(pprovider : * mut core::ffi::c_void, id : UIA_EVENT_ID) -> windows_core::HRESULT);
-    UiaRaiseAutomationEvent(pprovider.into_param().abi(), id).ok()
+    UiaRaiseAutomationEvent(pprovider.param().abi(), id).ok()
 }
 #[inline]
 pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<P0, P1, P2>(pprovider: P0, id: UIA_PROPERTY_ID, oldvalue: P1, newvalue: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<IRawElementProviderSimple>,
-    P1: windows_core::IntoParam<windows_core::VARIANT>,
-    P2: windows_core::IntoParam<windows_core::VARIANT>,
+    P0: windows_core::Param<IRawElementProviderSimple>,
+    P1: windows_core::Param<windows_core::VARIANT>,
+    P2: windows_core::Param<windows_core::VARIANT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseAutomationPropertyChangedEvent(pprovider : * mut core::ffi::c_void, id : UIA_PROPERTY_ID, oldvalue : std::mem::MaybeUninit < windows_core::VARIANT >, newvalue : std::mem::MaybeUninit < windows_core::VARIANT >) -> windows_core::HRESULT);
-    UiaRaiseAutomationPropertyChangedEvent(pprovider.into_param().abi(), id, oldvalue.into_param().abi(), newvalue.into_param().abi()).ok()
+    UiaRaiseAutomationPropertyChangedEvent(pprovider.param().abi(), id, oldvalue.param().abi(), newvalue.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn UiaRaiseChangesEvent<P0>(pprovider: P0, eventidcount: i32, puiachanges: *mut UiaChangeInfo) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<IRawElementProviderSimple>,
+    P0: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseChangesEvent(pprovider : * mut core::ffi::c_void, eventidcount : i32, puiachanges : *mut UiaChangeInfo) -> windows_core::HRESULT);
-    UiaRaiseChangesEvent(pprovider.into_param().abi(), eventidcount, puiachanges).ok()
+    UiaRaiseChangesEvent(pprovider.param().abi(), eventidcount, puiachanges).ok()
 }
 #[inline]
 pub unsafe fn UiaRaiseNotificationEvent<P0, P1, P2>(provider: P0, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: P1, activityid: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<IRawElementProviderSimple>,
-    P1: windows_core::IntoParam<windows_core::BSTR>,
-    P2: windows_core::IntoParam<windows_core::BSTR>,
+    P0: windows_core::Param<IRawElementProviderSimple>,
+    P1: windows_core::Param<windows_core::BSTR>,
+    P2: windows_core::Param<windows_core::BSTR>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseNotificationEvent(provider : * mut core::ffi::c_void, notificationkind : NotificationKind, notificationprocessing : NotificationProcessing, displaystring : std::mem::MaybeUninit < windows_core::BSTR >, activityid : std::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
-    UiaRaiseNotificationEvent(provider.into_param().abi(), notificationkind, notificationprocessing, displaystring.into_param().abi(), activityid.into_param().abi()).ok()
+    UiaRaiseNotificationEvent(provider.param().abi(), notificationkind, notificationprocessing, displaystring.param().abi(), activityid.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn UiaRaiseStructureChangedEvent<P0>(pprovider: P0, structurechangetype: StructureChangeType, pruntimeid: *mut i32, cruntimeidlen: i32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<IRawElementProviderSimple>,
+    P0: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseStructureChangedEvent(pprovider : * mut core::ffi::c_void, structurechangetype : StructureChangeType, pruntimeid : *mut i32, cruntimeidlen : i32) -> windows_core::HRESULT);
-    UiaRaiseStructureChangedEvent(pprovider.into_param().abi(), structurechangetype, pruntimeid, cruntimeidlen).ok()
+    UiaRaiseStructureChangedEvent(pprovider.param().abi(), structurechangetype, pruntimeid, cruntimeidlen).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaRaiseTextEditTextChangedEvent<P0>(pprovider: P0, texteditchangetype: TextEditChangeType, pchangeddata: *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<IRawElementProviderSimple>,
+    P0: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseTextEditTextChangedEvent(pprovider : * mut core::ffi::c_void, texteditchangetype : TextEditChangeType, pchangeddata : *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
-    UiaRaiseTextEditTextChangedEvent(pprovider.into_param().abi(), texteditchangetype, pchangeddata).ok()
+    UiaRaiseTextEditTextChangedEvent(pprovider.param().abi(), texteditchangetype, pchangeddata).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -874,113 +874,113 @@ pub unsafe fn UiaRegisterProviderCallback(pcallback: *mut UiaProviderCallback) {
 #[inline]
 pub unsafe fn UiaRemoveEvent<P0>(hevent: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAEVENT>,
+    P0: windows_core::Param<HUIAEVENT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaRemoveEvent(hevent : HUIAEVENT) -> windows_core::HRESULT);
-    UiaRemoveEvent(hevent.into_param().abi()).ok()
+    UiaRemoveEvent(hevent.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn UiaReturnRawElementProvider<P0, P1, P2, P3>(hwnd: P0, wparam: P1, lparam: P2, el: P3) -> super::super::Foundation::LRESULT
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-    P2: windows_core::IntoParam<super::super::Foundation::LPARAM>,
-    P3: windows_core::IntoParam<IRawElementProviderSimple>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::WPARAM>,
+    P2: windows_core::Param<super::super::Foundation::LPARAM>,
+    P3: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaReturnRawElementProvider(hwnd : super::super::Foundation:: HWND, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, el : * mut core::ffi::c_void) -> super::super::Foundation:: LRESULT);
-    UiaReturnRawElementProvider(hwnd.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi(), el.into_param().abi())
+    UiaReturnRawElementProvider(hwnd.param().abi(), wparam.param().abi(), lparam.param().abi(), el.param().abi())
 }
 #[inline]
 pub unsafe fn UiaSetFocus<P0>(hnode: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIANODE>,
+    P0: windows_core::Param<HUIANODE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaSetFocus(hnode : HUIANODE) -> windows_core::HRESULT);
-    UiaSetFocus(hnode.into_param().abi()).ok()
+    UiaSetFocus(hnode.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn UiaTextRangeRelease<P0>(hobj: P0) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<HUIATEXTRANGE>,
+    P0: windows_core::Param<HUIATEXTRANGE>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn UiaTextRangeRelease(hobj : HUIATEXTRANGE) -> super::super::Foundation:: BOOL);
-    UiaTextRangeRelease(hobj.into_param().abi())
+    UiaTextRangeRelease(hobj.param().abi())
 }
 #[inline]
 pub unsafe fn UnhookWinEvent<P0>(hwineventhook: P0) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<HWINEVENTHOOK>,
+    P0: windows_core::Param<HWINEVENTHOOK>,
 {
     windows_targets::link!("user32.dll" "system" fn UnhookWinEvent(hwineventhook : HWINEVENTHOOK) -> super::super::Foundation:: BOOL);
-    UnhookWinEvent(hwineventhook.into_param().abi())
+    UnhookWinEvent(hwineventhook.param().abi())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn UnregisterPointerInputTarget<P0>(hwnd: P0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn UnregisterPointerInputTarget(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> super::super::Foundation:: BOOL);
-    UnregisterPointerInputTarget(hwnd.into_param().abi(), pointertype).ok()
+    UnregisterPointerInputTarget(hwnd.param().abi(), pointertype).ok()
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn UnregisterPointerInputTargetEx<P0>(hwnd: P0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn UnregisterPointerInputTargetEx(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> super::super::Foundation:: BOOL);
-    UnregisterPointerInputTargetEx(hwnd.into_param().abi(), pointertype)
+    UnregisterPointerInputTargetEx(hwnd.param().abi(), pointertype)
 }
 #[inline]
 pub unsafe fn ValuePattern_SetValue<P0, P1>(hobj: P0, pval: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn ValuePattern_SetValue(hobj : HUIAPATTERNOBJECT, pval : windows_core::PCWSTR) -> windows_core::HRESULT);
-    ValuePattern_SetValue(hobj.into_param().abi(), pval.into_param().abi()).ok()
+    ValuePattern_SetValue(hobj.param().abi(), pval.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn VirtualizedItemPattern_Realize<P0>(hobj: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn VirtualizedItemPattern_Realize(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
-    VirtualizedItemPattern_Realize(hobj.into_param().abi()).ok()
+    VirtualizedItemPattern_Realize(hobj.param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WindowFromAccessibleObject<P0>(param0: P0, phwnd: Option<*mut super::super::Foundation::HWND>) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<IAccessible>,
+    P0: windows_core::Param<IAccessible>,
 {
     windows_targets::link!("oleacc.dll" "system" fn WindowFromAccessibleObject(param0 : * mut core::ffi::c_void, phwnd : *mut super::super::Foundation:: HWND) -> windows_core::HRESULT);
-    WindowFromAccessibleObject(param0.into_param().abi(), core::mem::transmute(phwnd.unwrap_or(std::ptr::null_mut()))).ok()
+    WindowFromAccessibleObject(param0.param().abi(), core::mem::transmute(phwnd.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn WindowPattern_Close<P0>(hobj: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_Close(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
-    WindowPattern_Close(hobj.into_param().abi()).ok()
+    WindowPattern_Close(hobj.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn WindowPattern_SetWindowVisualState<P0>(hobj: P0, state: WindowVisualState) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_SetWindowVisualState(hobj : HUIAPATTERNOBJECT, state : WindowVisualState) -> windows_core::HRESULT);
-    WindowPattern_SetWindowVisualState(hobj.into_param().abi(), state).ok()
+    WindowPattern_SetWindowVisualState(hobj.param().abi(), state).ok()
 }
 #[inline]
 pub unsafe fn WindowPattern_WaitForInputIdle<P0>(hobj: P0, milliseconds: i32, presult: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HUIAPATTERNOBJECT>,
+    P0: windows_core::Param<HUIAPATTERNOBJECT>,
 {
     windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_WaitForInputIdle(hobj : HUIAPATTERNOBJECT, milliseconds : i32, presult : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    WindowPattern_WaitForInputIdle(hobj.into_param().abi(), milliseconds, presult).ok()
+    WindowPattern_WaitForInputIdle(hobj.param().abi(), milliseconds, presult).ok()
 }
 windows_core::imp::define_interface!(IAccIdentity, IAccIdentity_Vtbl, 0x7852b78d_1cfd_41c1_a615_9c0c85960b5f);
 windows_core::imp::interface_hierarchy!(IAccIdentity, windows_core::IUnknown);
@@ -1011,51 +1011,51 @@ windows_core::imp::interface_hierarchy!(IAccPropServices, windows_core::IUnknown
 impl IAccPropServices {
     pub unsafe fn SetPropValue<P0>(&self, pidstring: &[u8], idprop: windows_core::GUID, var: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetPropValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pidstring.as_ptr()), pidstring.len().try_into().unwrap(), core::mem::transmute(idprop), var.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPropValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pidstring.as_ptr()), pidstring.len().try_into().unwrap(), core::mem::transmute(idprop), var.param().abi()).ok()
     }
     pub unsafe fn SetPropServer<P0>(&self, pidstring: &[u8], paprops: &[windows_core::GUID], pserver: P0, annoscope: AnnoScope) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAccPropServer>,
+        P0: windows_core::Param<IAccPropServer>,
     {
-        (windows_core::Interface::vtable(self).SetPropServer)(windows_core::Interface::as_raw(self), core::mem::transmute(pidstring.as_ptr()), pidstring.len().try_into().unwrap(), core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap(), pserver.into_param().abi(), annoscope).ok()
+        (windows_core::Interface::vtable(self).SetPropServer)(windows_core::Interface::as_raw(self), core::mem::transmute(pidstring.as_ptr()), pidstring.len().try_into().unwrap(), core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap(), pserver.param().abi(), annoscope).ok()
     }
     pub unsafe fn ClearProps(&self, pidstring: &[u8], paprops: &[windows_core::GUID]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ClearProps)(windows_core::Interface::as_raw(self), core::mem::transmute(pidstring.as_ptr()), pidstring.len().try_into().unwrap(), core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap()).ok()
     }
     pub unsafe fn SetHwndProp<P0, P1>(&self, hwnd: P0, idobject: u32, idchild: u32, idprop: windows_core::GUID, var: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetHwndProp)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), idobject, idchild, core::mem::transmute(idprop), var.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetHwndProp)(windows_core::Interface::as_raw(self), hwnd.param().abi(), idobject, idchild, core::mem::transmute(idprop), var.param().abi()).ok()
     }
     pub unsafe fn SetHwndPropStr<P0, P1>(&self, hwnd: P0, idobject: u32, idchild: u32, idprop: windows_core::GUID, str: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetHwndPropStr)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), idobject, idchild, core::mem::transmute(idprop), str.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetHwndPropStr)(windows_core::Interface::as_raw(self), hwnd.param().abi(), idobject, idchild, core::mem::transmute(idprop), str.param().abi()).ok()
     }
     pub unsafe fn SetHwndPropServer<P0, P1>(&self, hwnd: P0, idobject: u32, idchild: u32, paprops: &[windows_core::GUID], pserver: P1, annoscope: AnnoScope) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<IAccPropServer>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<IAccPropServer>,
     {
-        (windows_core::Interface::vtable(self).SetHwndPropServer)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), idobject, idchild, core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap(), pserver.into_param().abi(), annoscope).ok()
+        (windows_core::Interface::vtable(self).SetHwndPropServer)(windows_core::Interface::as_raw(self), hwnd.param().abi(), idobject, idchild, core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap(), pserver.param().abi(), annoscope).ok()
     }
     pub unsafe fn ClearHwndProps<P0>(&self, hwnd: P0, idobject: u32, idchild: u32, paprops: &[windows_core::GUID]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).ClearHwndProps)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), idobject, idchild, core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).ClearHwndProps)(windows_core::Interface::as_raw(self), hwnd.param().abi(), idobject, idchild, core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap()).ok()
     }
     pub unsafe fn ComposeHwndIdentityString<P0>(&self, hwnd: P0, idobject: u32, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).ComposeHwndIdentityString)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), idobject, idchild, ppidstring, pdwidstringlen).ok()
+        (windows_core::Interface::vtable(self).ComposeHwndIdentityString)(windows_core::Interface::as_raw(self), hwnd.param().abi(), idobject, idchild, ppidstring, pdwidstringlen).ok()
     }
     pub unsafe fn DecomposeHwndIdentityString(&self, pidstring: &[u8], phwnd: *mut super::super::Foundation::HWND, pidobject: *mut u32, pidchild: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DecomposeHwndIdentityString)(windows_core::Interface::as_raw(self), core::mem::transmute(pidstring.as_ptr()), pidstring.len().try_into().unwrap(), phwnd, pidobject, pidchild).ok()
@@ -1063,40 +1063,40 @@ impl IAccPropServices {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn SetHmenuProp<P0, P1>(&self, hmenu: P0, idchild: u32, idprop: windows_core::GUID, var: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::WindowsAndMessaging::HMENU>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<super::WindowsAndMessaging::HMENU>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetHmenuProp)(windows_core::Interface::as_raw(self), hmenu.into_param().abi(), idchild, core::mem::transmute(idprop), var.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetHmenuProp)(windows_core::Interface::as_raw(self), hmenu.param().abi(), idchild, core::mem::transmute(idprop), var.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn SetHmenuPropStr<P0, P1>(&self, hmenu: P0, idchild: u32, idprop: windows_core::GUID, str: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::WindowsAndMessaging::HMENU>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<super::WindowsAndMessaging::HMENU>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetHmenuPropStr)(windows_core::Interface::as_raw(self), hmenu.into_param().abi(), idchild, core::mem::transmute(idprop), str.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetHmenuPropStr)(windows_core::Interface::as_raw(self), hmenu.param().abi(), idchild, core::mem::transmute(idprop), str.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn SetHmenuPropServer<P0, P1>(&self, hmenu: P0, idchild: u32, paprops: &[windows_core::GUID], pserver: P1, annoscope: AnnoScope) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::WindowsAndMessaging::HMENU>,
-        P1: windows_core::IntoParam<IAccPropServer>,
+        P0: windows_core::Param<super::WindowsAndMessaging::HMENU>,
+        P1: windows_core::Param<IAccPropServer>,
     {
-        (windows_core::Interface::vtable(self).SetHmenuPropServer)(windows_core::Interface::as_raw(self), hmenu.into_param().abi(), idchild, core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap(), pserver.into_param().abi(), annoscope).ok()
+        (windows_core::Interface::vtable(self).SetHmenuPropServer)(windows_core::Interface::as_raw(self), hmenu.param().abi(), idchild, core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap(), pserver.param().abi(), annoscope).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn ClearHmenuProps<P0>(&self, hmenu: P0, idchild: u32, paprops: &[windows_core::GUID]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::WindowsAndMessaging::HMENU>,
+        P0: windows_core::Param<super::WindowsAndMessaging::HMENU>,
     {
-        (windows_core::Interface::vtable(self).ClearHmenuProps)(windows_core::Interface::as_raw(self), hmenu.into_param().abi(), idchild, core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).ClearHmenuProps)(windows_core::Interface::as_raw(self), hmenu.param().abi(), idchild, core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap()).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn ComposeHmenuIdentityString<P0>(&self, hmenu: P0, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::WindowsAndMessaging::HMENU>,
+        P0: windows_core::Param<super::WindowsAndMessaging::HMENU>,
     {
-        (windows_core::Interface::vtable(self).ComposeHmenuIdentityString)(windows_core::Interface::as_raw(self), hmenu.into_param().abi(), idchild, ppidstring, pdwidstringlen).ok()
+        (windows_core::Interface::vtable(self).ComposeHmenuIdentityString)(windows_core::Interface::as_raw(self), hmenu.param().abi(), idchild, ppidstring, pdwidstringlen).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn DecomposeHmenuIdentityString(&self, pidstring: &[u8], phmenu: *mut super::WindowsAndMessaging::HMENU, pidchild: *mut u32) -> windows_core::Result<()> {
@@ -1158,66 +1158,66 @@ impl IAccessible {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_accChild<P0>(&self, varchild: P0) -> windows_core::Result<super::super::System::Com::IDispatch>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_accChild)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_accChild)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn get_accName<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_accName)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_accName)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn get_accValue<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_accValue)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_accValue)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn get_accDescription<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_accDescription)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_accDescription)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn get_accRole<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_accRole)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_accRole)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn get_accState<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_accState)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_accState)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn get_accHelp<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_accHelp)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_accHelp)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn get_accHelpTopic<P0>(&self, pszhelpfile: *mut windows_core::BSTR, varchild: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_accHelpTopic)(windows_core::Interface::as_raw(self), core::mem::transmute(pszhelpfile), varchild.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).get_accHelpTopic)(windows_core::Interface::as_raw(self), core::mem::transmute(pszhelpfile), varchild.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn get_accKeyboardShortcut<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_accKeyboardShortcut)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_accKeyboardShortcut)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn accFocus(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -1229,29 +1229,29 @@ impl IAccessible {
     }
     pub unsafe fn get_accDefaultAction<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_accDefaultAction)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_accDefaultAction)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn accSelect<P0>(&self, flagsselect: i32, varchild: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).accSelect)(windows_core::Interface::as_raw(self), flagsselect, varchild.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).accSelect)(windows_core::Interface::as_raw(self), flagsselect, varchild.param().abi()).ok()
     }
     pub unsafe fn accLocation<P0>(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).accLocation)(windows_core::Interface::as_raw(self), pxleft, pytop, pcxwidth, pcyheight, varchild.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).accLocation)(windows_core::Interface::as_raw(self), pxleft, pytop, pcxwidth, pcyheight, varchild.param().abi()).ok()
     }
     pub unsafe fn accNavigate<P0>(&self, navdir: i32, varstart: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).accNavigate)(windows_core::Interface::as_raw(self), navdir, varstart.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).accNavigate)(windows_core::Interface::as_raw(self), navdir, varstart.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn accHitTest(&self, xleft: i32, ytop: i32) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -1259,23 +1259,23 @@ impl IAccessible {
     }
     pub unsafe fn accDoDefaultAction<P0>(&self, varchild: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).accDoDefaultAction)(windows_core::Interface::as_raw(self), varchild.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).accDoDefaultAction)(windows_core::Interface::as_raw(self), varchild.param().abi()).ok()
     }
     pub unsafe fn put_accName<P0, P1>(&self, varchild: P0, szname: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).put_accName)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), szname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).put_accName)(windows_core::Interface::as_raw(self), varchild.param().abi(), szname.param().abi()).ok()
     }
     pub unsafe fn put_accValue<P0, P1>(&self, varchild: P0, szvalue: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).put_accValue)(windows_core::Interface::as_raw(self), varchild.into_param().abi(), szvalue.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).put_accValue)(windows_core::Interface::as_raw(self), varchild.param().abi(), szvalue.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1328,10 +1328,10 @@ impl IAccessibleEx {
     }
     pub unsafe fn ConvertReturnedElement<P0>(&self, pin: P0) -> windows_core::Result<IAccessibleEx>
     where
-        P0: windows_core::IntoParam<IRawElementProviderSimple>,
+        P0: windows_core::Param<IRawElementProviderSimple>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ConvertReturnedElement)(windows_core::Interface::as_raw(self), pin.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ConvertReturnedElement)(windows_core::Interface::as_raw(self), pin.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1375,10 +1375,10 @@ impl IAccessibleHostingElementProviders {
     }
     pub unsafe fn GetObjectIdForProvider<P0>(&self, pprovider: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<IRawElementProviderSimple>,
+        P0: windows_core::Param<IRawElementProviderSimple>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetObjectIdForProvider)(windows_core::Interface::as_raw(self), pprovider.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetObjectIdForProvider)(windows_core::Interface::as_raw(self), pprovider.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -1395,24 +1395,24 @@ windows_core::imp::interface_hierarchy!(IAccessibleWindowlessSite, windows_core:
 impl IAccessibleWindowlessSite {
     pub unsafe fn AcquireObjectIdRange<P0>(&self, rangesize: i32, prangeowner: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<IAccessibleHandler>,
+        P0: windows_core::Param<IAccessibleHandler>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AcquireObjectIdRange)(windows_core::Interface::as_raw(self), rangesize, prangeowner.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AcquireObjectIdRange)(windows_core::Interface::as_raw(self), rangesize, prangeowner.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn ReleaseObjectIdRange<P0>(&self, rangebase: i32, prangeowner: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAccessibleHandler>,
+        P0: windows_core::Param<IAccessibleHandler>,
     {
-        (windows_core::Interface::vtable(self).ReleaseObjectIdRange)(windows_core::Interface::as_raw(self), rangebase, prangeowner.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReleaseObjectIdRange)(windows_core::Interface::as_raw(self), rangebase, prangeowner.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryObjectIdRanges<P0>(&self, prangesowner: P0) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>
     where
-        P0: windows_core::IntoParam<IAccessibleHandler>,
+        P0: windows_core::Param<IAccessibleHandler>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).QueryObjectIdRanges)(windows_core::Interface::as_raw(self), prangesowner.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).QueryObjectIdRanges)(windows_core::Interface::as_raw(self), prangesowner.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetParentAccessible(&self) -> windows_core::Result<IAccessible> {
@@ -1649,11 +1649,11 @@ windows_core::imp::interface_hierarchy!(IItemContainerProvider, windows_core::IU
 impl IItemContainerProvider {
     pub unsafe fn FindItemByProperty<P0, P1>(&self, pstartafter: P0, propertyid: UIA_PROPERTY_ID, value: P1) -> windows_core::Result<IRawElementProviderSimple>
     where
-        P0: windows_core::IntoParam<IRawElementProviderSimple>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<IRawElementProviderSimple>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindItemByProperty)(windows_core::Interface::as_raw(self), pstartafter.into_param().abi(), propertyid, value.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindItemByProperty)(windows_core::Interface::as_raw(self), pstartafter.param().abi(), propertyid, value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1672,9 +1672,9 @@ impl ILegacyIAccessibleProvider {
     }
     pub unsafe fn SetValue<P0>(&self, szvalue: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), szvalue.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), szvalue.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIAccessible(&self) -> windows_core::Result<IAccessible> {
@@ -1796,10 +1796,10 @@ windows_core::imp::interface_hierarchy!(IProxyProviderWinEventHandler, windows_c
 impl IProxyProviderWinEventHandler {
     pub unsafe fn RespondToWinEvent<P0, P1>(&self, idwinevent: u32, hwnd: P0, idobject: i32, idchild: i32, psink: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<IProxyProviderWinEventSink>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<IProxyProviderWinEventSink>,
     {
-        (windows_core::Interface::vtable(self).RespondToWinEvent)(windows_core::Interface::as_raw(self), idwinevent, hwnd.into_param().abi(), idobject, idchild, psink.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RespondToWinEvent)(windows_core::Interface::as_raw(self), idwinevent, hwnd.param().abi(), idobject, idchild, psink.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1812,23 +1812,23 @@ windows_core::imp::interface_hierarchy!(IProxyProviderWinEventSink, windows_core
 impl IProxyProviderWinEventSink {
     pub unsafe fn AddAutomationPropertyChangedEvent<P0, P1>(&self, pprovider: P0, id: UIA_PROPERTY_ID, newvalue: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IRawElementProviderSimple>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<IRawElementProviderSimple>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddAutomationPropertyChangedEvent)(windows_core::Interface::as_raw(self), pprovider.into_param().abi(), id, newvalue.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddAutomationPropertyChangedEvent)(windows_core::Interface::as_raw(self), pprovider.param().abi(), id, newvalue.param().abi()).ok()
     }
     pub unsafe fn AddAutomationEvent<P0>(&self, pprovider: P0, id: UIA_EVENT_ID) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IRawElementProviderSimple>,
+        P0: windows_core::Param<IRawElementProviderSimple>,
     {
-        (windows_core::Interface::vtable(self).AddAutomationEvent)(windows_core::Interface::as_raw(self), pprovider.into_param().abi(), id).ok()
+        (windows_core::Interface::vtable(self).AddAutomationEvent)(windows_core::Interface::as_raw(self), pprovider.param().abi(), id).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddStructureChangedEvent<P0>(&self, pprovider: P0, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IRawElementProviderSimple>,
+        P0: windows_core::Param<IRawElementProviderSimple>,
     {
-        (windows_core::Interface::vtable(self).AddStructureChangedEvent)(windows_core::Interface::as_raw(self), pprovider.into_param().abi(), structurechangetype, runtimeid).ok()
+        (windows_core::Interface::vtable(self).AddStructureChangedEvent)(windows_core::Interface::as_raw(self), pprovider.param().abi(), structurechangetype, runtimeid).ok()
     }
 }
 #[repr(C)]
@@ -1992,10 +1992,10 @@ windows_core::imp::interface_hierarchy!(IRawElementProviderHwndOverride, windows
 impl IRawElementProviderHwndOverride {
     pub unsafe fn GetOverrideProviderForHwnd<P0>(&self, hwnd: P0) -> windows_core::Result<IRawElementProviderSimple>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOverrideProviderForHwnd)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetOverrideProviderForHwnd)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -2134,10 +2134,10 @@ windows_core::imp::interface_hierarchy!(IRicheditWindowlessAccessibility, window
 impl IRicheditWindowlessAccessibility {
     pub unsafe fn CreateProvider<P0>(&self, psite: P0) -> windows_core::Result<IRawElementProviderSimple>
     where
-        P0: windows_core::IntoParam<IRawElementProviderWindowlessSite>,
+        P0: windows_core::Param<IRawElementProviderWindowlessSite>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateProvider)(windows_core::Interface::as_raw(self), psite.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateProvider)(windows_core::Interface::as_raw(self), psite.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -2337,10 +2337,10 @@ windows_core::imp::interface_hierarchy!(ISpreadsheetProvider, windows_core::IUnk
 impl ISpreadsheetProvider {
     pub unsafe fn GetItemByName<P0>(&self, name: P0) -> windows_core::Result<IRawElementProviderSimple>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetItemByName)(windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetItemByName)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -2497,10 +2497,10 @@ impl ITextEditProvider {
     }
     pub unsafe fn RangeFromChild<P0>(&self, childelement: P0) -> windows_core::Result<ITextRangeProvider>
     where
-        P0: windows_core::IntoParam<IRawElementProviderSimple>,
+        P0: windows_core::Param<IRawElementProviderSimple>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RangeFromChild)(windows_core::Interface::as_raw(self), childelement.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.RangeFromChild)(windows_core::Interface::as_raw(self), childelement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RangeFromPoint(&self, point: UiaPoint) -> windows_core::Result<ITextRangeProvider> {
         let mut result__ = std::mem::zeroed();
@@ -2544,10 +2544,10 @@ impl ITextProvider {
     }
     pub unsafe fn RangeFromChild<P0>(&self, childelement: P0) -> windows_core::Result<ITextRangeProvider>
     where
-        P0: windows_core::IntoParam<IRawElementProviderSimple>,
+        P0: windows_core::Param<IRawElementProviderSimple>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).RangeFromChild)(windows_core::Interface::as_raw(self), childelement.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RangeFromChild)(windows_core::Interface::as_raw(self), childelement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RangeFromPoint(&self, point: UiaPoint) -> windows_core::Result<ITextRangeProvider> {
         let mut result__ = std::mem::zeroed();
@@ -2593,10 +2593,10 @@ impl ITextProvider2 {
     }
     pub unsafe fn RangeFromChild<P0>(&self, childelement: P0) -> windows_core::Result<ITextRangeProvider>
     where
-        P0: windows_core::IntoParam<IRawElementProviderSimple>,
+        P0: windows_core::Param<IRawElementProviderSimple>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RangeFromChild)(windows_core::Interface::as_raw(self), childelement.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.RangeFromChild)(windows_core::Interface::as_raw(self), childelement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RangeFromPoint(&self, point: UiaPoint) -> windows_core::Result<ITextRangeProvider> {
         let mut result__ = std::mem::zeroed();
@@ -2612,10 +2612,10 @@ impl ITextProvider2 {
     }
     pub unsafe fn RangeFromAnnotation<P0>(&self, annotationelement: P0) -> windows_core::Result<ITextRangeProvider>
     where
-        P0: windows_core::IntoParam<IRawElementProviderSimple>,
+        P0: windows_core::Param<IRawElementProviderSimple>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).RangeFromAnnotation)(windows_core::Interface::as_raw(self), annotationelement.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RangeFromAnnotation)(windows_core::Interface::as_raw(self), annotationelement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL) -> windows_core::Result<ITextRangeProvider> {
         let mut result__ = std::mem::zeroed();
@@ -2637,37 +2637,37 @@ impl ITextRangeProvider {
     }
     pub unsafe fn Compare<P0>(&self, range: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<ITextRangeProvider>,
+        P0: windows_core::Param<ITextRangeProvider>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), range.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), range.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CompareEndpoints<P0>(&self, endpoint: TextPatternRangeEndpoint, targetrange: P0, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<ITextRangeProvider>,
+        P0: windows_core::Param<ITextRangeProvider>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CompareEndpoints)(windows_core::Interface::as_raw(self), endpoint, targetrange.into_param().abi(), targetendpoint, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CompareEndpoints)(windows_core::Interface::as_raw(self), endpoint, targetrange.param().abi(), targetendpoint, &mut result__).map(|| result__)
     }
     pub unsafe fn ExpandToEnclosingUnit(&self, unit: TextUnit) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ExpandToEnclosingUnit)(windows_core::Interface::as_raw(self), unit).ok()
     }
     pub unsafe fn FindAttribute<P0, P1>(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: P0, backward: P1) -> windows_core::Result<ITextRangeProvider>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindAttribute)(windows_core::Interface::as_raw(self), attributeid, val.into_param().abi(), backward.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindAttribute)(windows_core::Interface::as_raw(self), attributeid, val.param().abi(), backward.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindText<P0, P1, P2>(&self, text: P0, backward: P1, ignorecase: P2) -> windows_core::Result<ITextRangeProvider>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindText)(windows_core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindText)(windows_core::Interface::as_raw(self), text.param().abi(), backward.param().abi(), ignorecase.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetAttributeValue(&self, attributeid: UIA_TEXTATTRIBUTE_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -2696,9 +2696,9 @@ impl ITextRangeProvider {
     }
     pub unsafe fn MoveEndpointByRange<P0>(&self, endpoint: TextPatternRangeEndpoint, targetrange: P0, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITextRangeProvider>,
+        P0: windows_core::Param<ITextRangeProvider>,
     {
-        (windows_core::Interface::vtable(self).MoveEndpointByRange)(windows_core::Interface::as_raw(self), endpoint, targetrange.into_param().abi(), targetendpoint).ok()
+        (windows_core::Interface::vtable(self).MoveEndpointByRange)(windows_core::Interface::as_raw(self), endpoint, targetrange.param().abi(), targetendpoint).ok()
     }
     pub unsafe fn Select(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Select)(windows_core::Interface::as_raw(self)).ok()
@@ -2711,9 +2711,9 @@ impl ITextRangeProvider {
     }
     pub unsafe fn ScrollIntoView<P0>(&self, aligntotop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).ScrollIntoView)(windows_core::Interface::as_raw(self), aligntotop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ScrollIntoView)(windows_core::Interface::as_raw(self), aligntotop.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetChildren(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
@@ -2758,37 +2758,37 @@ impl ITextRangeProvider2 {
     }
     pub unsafe fn Compare<P0>(&self, range: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<ITextRangeProvider>,
+        P0: windows_core::Param<ITextRangeProvider>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Compare)(windows_core::Interface::as_raw(self), range.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.Compare)(windows_core::Interface::as_raw(self), range.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CompareEndpoints<P0>(&self, endpoint: TextPatternRangeEndpoint, targetrange: P0, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<ITextRangeProvider>,
+        P0: windows_core::Param<ITextRangeProvider>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CompareEndpoints)(windows_core::Interface::as_raw(self), endpoint, targetrange.into_param().abi(), targetendpoint, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.CompareEndpoints)(windows_core::Interface::as_raw(self), endpoint, targetrange.param().abi(), targetendpoint, &mut result__).map(|| result__)
     }
     pub unsafe fn ExpandToEnclosingUnit(&self, unit: TextUnit) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.ExpandToEnclosingUnit)(windows_core::Interface::as_raw(self), unit).ok()
     }
     pub unsafe fn FindAttribute<P0, P1>(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: P0, backward: P1) -> windows_core::Result<ITextRangeProvider>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindAttribute)(windows_core::Interface::as_raw(self), attributeid, val.into_param().abi(), backward.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.FindAttribute)(windows_core::Interface::as_raw(self), attributeid, val.param().abi(), backward.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindText<P0, P1, P2>(&self, text: P0, backward: P1, ignorecase: P2) -> windows_core::Result<ITextRangeProvider>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindText)(windows_core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.FindText)(windows_core::Interface::as_raw(self), text.param().abi(), backward.param().abi(), ignorecase.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetAttributeValue(&self, attributeid: UIA_TEXTATTRIBUTE_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -2817,9 +2817,9 @@ impl ITextRangeProvider2 {
     }
     pub unsafe fn MoveEndpointByRange<P0>(&self, endpoint: TextPatternRangeEndpoint, targetrange: P0, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITextRangeProvider>,
+        P0: windows_core::Param<ITextRangeProvider>,
     {
-        (windows_core::Interface::vtable(self).base__.MoveEndpointByRange)(windows_core::Interface::as_raw(self), endpoint, targetrange.into_param().abi(), targetendpoint).ok()
+        (windows_core::Interface::vtable(self).base__.MoveEndpointByRange)(windows_core::Interface::as_raw(self), endpoint, targetrange.param().abi(), targetendpoint).ok()
     }
     pub unsafe fn Select(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Select)(windows_core::Interface::as_raw(self)).ok()
@@ -2832,9 +2832,9 @@ impl ITextRangeProvider2 {
     }
     pub unsafe fn ScrollIntoView<P0>(&self, aligntotop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.ScrollIntoView)(windows_core::Interface::as_raw(self), aligntotop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.ScrollIntoView)(windows_core::Interface::as_raw(self), aligntotop.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetChildren(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
@@ -2964,11 +2964,11 @@ windows_core::imp::interface_hierarchy!(IUIAutomation, windows_core::IUnknown);
 impl IUIAutomation {
     pub unsafe fn CompareElements<P0, P1>(&self, el1: P0, el2: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CompareElements)(windows_core::Interface::as_raw(self), el1.into_param().abi(), el2.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CompareElements)(windows_core::Interface::as_raw(self), el1.param().abi(), el2.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -2981,10 +2981,10 @@ impl IUIAutomation {
     }
     pub unsafe fn ElementFromHandle<P0>(&self, hwnd: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ElementFromHandle)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ElementFromHandle)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ElementFromPoint(&self, pt: super::super::Foundation::POINT) -> windows_core::Result<IUIAutomationElement> {
         let mut result__ = std::mem::zeroed();
@@ -2996,39 +2996,39 @@ impl IUIAutomation {
     }
     pub unsafe fn GetRootElementBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRootElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetRootElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ElementFromHandleBuildCache<P0, P1>(&self, hwnd: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ElementFromHandleBuildCache)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ElementFromHandleBuildCache)(windows_core::Interface::as_raw(self), hwnd.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ElementFromPointBuildCache<P0>(&self, pt: super::super::Foundation::POINT, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ElementFromPointBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ElementFromPointBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFocusedElementBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFocusedElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetFocusedElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTreeWalker<P0>(&self, pcondition: P0) -> windows_core::Result<IUIAutomationTreeWalker>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateTreeWalker)(windows_core::Interface::as_raw(self), pcondition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateTreeWalker)(windows_core::Interface::as_raw(self), pcondition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ControlViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker> {
         let mut result__ = std::mem::zeroed();
@@ -3068,25 +3068,25 @@ impl IUIAutomation {
     }
     pub unsafe fn CreatePropertyCondition<P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePropertyCondition)(windows_core::Interface::as_raw(self), propertyid, value.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePropertyCondition)(windows_core::Interface::as_raw(self), propertyid, value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreatePropertyConditionEx<P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0, flags: PropertyConditionFlags) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePropertyConditionEx)(windows_core::Interface::as_raw(self), propertyid, value.into_param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePropertyConditionEx)(windows_core::Interface::as_raw(self), propertyid, value.param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateAndCondition<P0, P1>(&self, condition1: P0, condition2: P1) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateAndCondition)(windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateAndCondition)(windows_core::Interface::as_raw(self), condition1.param().abi(), condition2.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition> {
@@ -3099,11 +3099,11 @@ impl IUIAutomation {
     }
     pub unsafe fn CreateOrCondition<P0, P1>(&self, condition1: P0, condition2: P1) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateOrCondition)(windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateOrCondition)(windows_core::Interface::as_raw(self), condition1.param().abi(), condition2.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition> {
@@ -3116,77 +3116,77 @@ impl IUIAutomation {
     }
     pub unsafe fn CreateNotCondition<P0>(&self, condition: P0) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateNotCondition)(windows_core::Interface::as_raw(self), condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateNotCondition)(windows_core::Interface::as_raw(self), condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddAutomationEventHandler<P0, P1, P2>(&self, eventid: UIA_EVENT_ID, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationEventHandler>,
     {
-        (windows_core::Interface::vtable(self).AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveAutomationEventHandler<P0, P1>(&self, eventid: UIA_EVENT_ID, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationEventHandler>,
     {
-        (windows_core::Interface::vtable(self).RemoveAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddPropertyChangedEventHandlerNativeArray<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[UIA_PROPERTY_ID]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi(), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi(), propertyarray).ok()
+        (windows_core::Interface::vtable(self).AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), propertyarray).ok()
     }
     pub unsafe fn RemovePropertyChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).RemovePropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemovePropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddStructureChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationStructureChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationStructureChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveStructureChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationStructureChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationStructureChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).RemoveStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddFocusChangedEventHandler<P0, P1>(&self, cacherequest: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P1: windows_core::IntoParam<IUIAutomationFocusChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
+        P1: windows_core::Param<IUIAutomationFocusChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).AddFocusChangedEventHandler)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddFocusChangedEventHandler)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveFocusChangedEventHandler<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationFocusChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationFocusChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).RemoveFocusChangedEventHandler)(windows_core::Interface::as_raw(self), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveFocusChangedEventHandler)(windows_core::Interface::as_raw(self), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveAllEventHandlers(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveAllEventHandlers)(windows_core::Interface::as_raw(self)).ok()
@@ -3207,10 +3207,10 @@ impl IUIAutomation {
     }
     pub unsafe fn VariantToRect<P0>(&self, var: P0) -> windows_core::Result<super::super::Foundation::RECT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).VariantToRect)(windows_core::Interface::as_raw(self), var.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).VariantToRect)(windows_core::Interface::as_raw(self), var.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> windows_core::Result<i32> {
@@ -3219,10 +3219,10 @@ impl IUIAutomation {
     }
     pub unsafe fn CreateProxyFactoryEntry<P0>(&self, factory: P0) -> windows_core::Result<IUIAutomationProxyFactoryEntry>
     where
-        P0: windows_core::IntoParam<IUIAutomationProxyFactory>,
+        P0: windows_core::Param<IUIAutomationProxyFactory>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateProxyFactoryEntry)(windows_core::Interface::as_raw(self), factory.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateProxyFactoryEntry)(windows_core::Interface::as_raw(self), factory.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ProxyFactoryMapping(&self) -> windows_core::Result<IUIAutomationProxyFactoryMapping> {
         let mut result__ = std::mem::zeroed();
@@ -3239,23 +3239,23 @@ impl IUIAutomation {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedPatterns<P0>(&self, pelement: P0, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
-        (windows_core::Interface::vtable(self).PollForPotentialSupportedPatterns)(windows_core::Interface::as_raw(self), pelement.into_param().abi(), patternids, patternnames).ok()
+        (windows_core::Interface::vtable(self).PollForPotentialSupportedPatterns)(windows_core::Interface::as_raw(self), pelement.param().abi(), patternids, patternnames).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<P0>(&self, pelement: P0, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
-        (windows_core::Interface::vtable(self).PollForPotentialSupportedProperties)(windows_core::Interface::as_raw(self), pelement.into_param().abi(), propertyids, propertynames).ok()
+        (windows_core::Interface::vtable(self).PollForPotentialSupportedProperties)(windows_core::Interface::as_raw(self), pelement.param().abi(), propertyids, propertynames).ok()
     }
     pub unsafe fn CheckNotSupported<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CheckNotSupported)(windows_core::Interface::as_raw(self), value.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CheckNotSupported)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn ReservedNotSupportedValue(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -3268,19 +3268,19 @@ impl IUIAutomation {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessible<P0>(&self, accessible: P0, childid: i32) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IAccessible>,
+        P0: windows_core::Param<IAccessible>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ElementFromIAccessible)(windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ElementFromIAccessible)(windows_core::Interface::as_raw(self), accessible.param().abi(), childid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessibleBuildCache<P0, P1>(&self, accessible: P0, childid: i32, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IAccessible>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IAccessible>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ElementFromIAccessibleBuildCache)(windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ElementFromIAccessibleBuildCache)(windows_core::Interface::as_raw(self), accessible.param().abi(), childid, cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -3380,11 +3380,11 @@ windows_core::imp::interface_hierarchy!(IUIAutomation2, windows_core::IUnknown, 
 impl IUIAutomation2 {
     pub unsafe fn CompareElements<P0, P1>(&self, el1: P0, el2: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CompareElements)(windows_core::Interface::as_raw(self), el1.into_param().abi(), el2.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.CompareElements)(windows_core::Interface::as_raw(self), el1.param().abi(), el2.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -3397,10 +3397,10 @@ impl IUIAutomation2 {
     }
     pub unsafe fn ElementFromHandle<P0>(&self, hwnd: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ElementFromHandle)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.ElementFromHandle)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ElementFromPoint(&self, pt: super::super::Foundation::POINT) -> windows_core::Result<IUIAutomationElement> {
         let mut result__ = std::mem::zeroed();
@@ -3412,39 +3412,39 @@ impl IUIAutomation2 {
     }
     pub unsafe fn GetRootElementBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetRootElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetRootElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ElementFromHandleBuildCache<P0, P1>(&self, hwnd: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ElementFromHandleBuildCache)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.ElementFromHandleBuildCache)(windows_core::Interface::as_raw(self), hwnd.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ElementFromPointBuildCache<P0>(&self, pt: super::super::Foundation::POINT, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ElementFromPointBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.ElementFromPointBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFocusedElementBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFocusedElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetFocusedElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTreeWalker<P0>(&self, pcondition: P0) -> windows_core::Result<IUIAutomationTreeWalker>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateTreeWalker)(windows_core::Interface::as_raw(self), pcondition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateTreeWalker)(windows_core::Interface::as_raw(self), pcondition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ControlViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker> {
         let mut result__ = std::mem::zeroed();
@@ -3484,25 +3484,25 @@ impl IUIAutomation2 {
     }
     pub unsafe fn CreatePropertyCondition<P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreatePropertyCondition)(windows_core::Interface::as_raw(self), propertyid, value.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreatePropertyCondition)(windows_core::Interface::as_raw(self), propertyid, value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreatePropertyConditionEx<P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0, flags: PropertyConditionFlags) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreatePropertyConditionEx)(windows_core::Interface::as_raw(self), propertyid, value.into_param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreatePropertyConditionEx)(windows_core::Interface::as_raw(self), propertyid, value.param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateAndCondition<P0, P1>(&self, condition1: P0, condition2: P1) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateAndCondition)(windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateAndCondition)(windows_core::Interface::as_raw(self), condition1.param().abi(), condition2.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition> {
@@ -3515,11 +3515,11 @@ impl IUIAutomation2 {
     }
     pub unsafe fn CreateOrCondition<P0, P1>(&self, condition1: P0, condition2: P1) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateOrCondition)(windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateOrCondition)(windows_core::Interface::as_raw(self), condition1.param().abi(), condition2.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition> {
@@ -3532,77 +3532,77 @@ impl IUIAutomation2 {
     }
     pub unsafe fn CreateNotCondition<P0>(&self, condition: P0) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateNotCondition)(windows_core::Interface::as_raw(self), condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateNotCondition)(windows_core::Interface::as_raw(self), condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddAutomationEventHandler<P0, P1, P2>(&self, eventid: UIA_EVENT_ID, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveAutomationEventHandler<P0, P1>(&self, eventid: UIA_EVENT_ID, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.RemoveAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RemoveAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddPropertyChangedEventHandlerNativeArray<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[UIA_PROPERTY_ID]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi(), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi(), propertyarray).ok()
+        (windows_core::Interface::vtable(self).base__.AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), propertyarray).ok()
     }
     pub unsafe fn RemovePropertyChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.RemovePropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RemovePropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddStructureChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationStructureChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationStructureChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveStructureChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationStructureChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationStructureChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.RemoveStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RemoveStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddFocusChangedEventHandler<P0, P1>(&self, cacherequest: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P1: windows_core::IntoParam<IUIAutomationFocusChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
+        P1: windows_core::Param<IUIAutomationFocusChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.AddFocusChangedEventHandler)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddFocusChangedEventHandler)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveFocusChangedEventHandler<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationFocusChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationFocusChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.RemoveFocusChangedEventHandler)(windows_core::Interface::as_raw(self), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RemoveFocusChangedEventHandler)(windows_core::Interface::as_raw(self), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveAllEventHandlers(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.RemoveAllEventHandlers)(windows_core::Interface::as_raw(self)).ok()
@@ -3623,10 +3623,10 @@ impl IUIAutomation2 {
     }
     pub unsafe fn VariantToRect<P0>(&self, var: P0) -> windows_core::Result<super::super::Foundation::RECT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.VariantToRect)(windows_core::Interface::as_raw(self), var.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.VariantToRect)(windows_core::Interface::as_raw(self), var.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> windows_core::Result<i32> {
@@ -3635,10 +3635,10 @@ impl IUIAutomation2 {
     }
     pub unsafe fn CreateProxyFactoryEntry<P0>(&self, factory: P0) -> windows_core::Result<IUIAutomationProxyFactoryEntry>
     where
-        P0: windows_core::IntoParam<IUIAutomationProxyFactory>,
+        P0: windows_core::Param<IUIAutomationProxyFactory>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateProxyFactoryEntry)(windows_core::Interface::as_raw(self), factory.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateProxyFactoryEntry)(windows_core::Interface::as_raw(self), factory.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ProxyFactoryMapping(&self) -> windows_core::Result<IUIAutomationProxyFactoryMapping> {
         let mut result__ = std::mem::zeroed();
@@ -3655,23 +3655,23 @@ impl IUIAutomation2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedPatterns<P0>(&self, pelement: P0, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
-        (windows_core::Interface::vtable(self).base__.PollForPotentialSupportedPatterns)(windows_core::Interface::as_raw(self), pelement.into_param().abi(), patternids, patternnames).ok()
+        (windows_core::Interface::vtable(self).base__.PollForPotentialSupportedPatterns)(windows_core::Interface::as_raw(self), pelement.param().abi(), patternids, patternnames).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<P0>(&self, pelement: P0, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
-        (windows_core::Interface::vtable(self).base__.PollForPotentialSupportedProperties)(windows_core::Interface::as_raw(self), pelement.into_param().abi(), propertyids, propertynames).ok()
+        (windows_core::Interface::vtable(self).base__.PollForPotentialSupportedProperties)(windows_core::Interface::as_raw(self), pelement.param().abi(), propertyids, propertynames).ok()
     }
     pub unsafe fn CheckNotSupported<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CheckNotSupported)(windows_core::Interface::as_raw(self), value.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.CheckNotSupported)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn ReservedNotSupportedValue(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -3684,19 +3684,19 @@ impl IUIAutomation2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessible<P0>(&self, accessible: P0, childid: i32) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IAccessible>,
+        P0: windows_core::Param<IAccessible>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ElementFromIAccessible)(windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.ElementFromIAccessible)(windows_core::Interface::as_raw(self), accessible.param().abi(), childid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessibleBuildCache<P0, P1>(&self, accessible: P0, childid: i32, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IAccessible>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IAccessible>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ElementFromIAccessibleBuildCache)(windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.ElementFromIAccessibleBuildCache)(windows_core::Interface::as_raw(self), accessible.param().abi(), childid, cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AutoSetFocus(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -3704,9 +3704,9 @@ impl IUIAutomation2 {
     }
     pub unsafe fn SetAutoSetFocus<P0>(&self, autosetfocus: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetAutoSetFocus)(windows_core::Interface::as_raw(self), autosetfocus.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAutoSetFocus)(windows_core::Interface::as_raw(self), autosetfocus.param().abi()).ok()
     }
     pub unsafe fn ConnectionTimeout(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -3738,11 +3738,11 @@ windows_core::imp::interface_hierarchy!(IUIAutomation3, windows_core::IUnknown, 
 impl IUIAutomation3 {
     pub unsafe fn CompareElements<P0, P1>(&self, el1: P0, el2: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CompareElements)(windows_core::Interface::as_raw(self), el1.into_param().abi(), el2.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.CompareElements)(windows_core::Interface::as_raw(self), el1.param().abi(), el2.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -3755,10 +3755,10 @@ impl IUIAutomation3 {
     }
     pub unsafe fn ElementFromHandle<P0>(&self, hwnd: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ElementFromHandle)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.ElementFromHandle)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ElementFromPoint(&self, pt: super::super::Foundation::POINT) -> windows_core::Result<IUIAutomationElement> {
         let mut result__ = std::mem::zeroed();
@@ -3770,39 +3770,39 @@ impl IUIAutomation3 {
     }
     pub unsafe fn GetRootElementBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetRootElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.GetRootElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ElementFromHandleBuildCache<P0, P1>(&self, hwnd: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ElementFromHandleBuildCache)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.ElementFromHandleBuildCache)(windows_core::Interface::as_raw(self), hwnd.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ElementFromPointBuildCache<P0>(&self, pt: super::super::Foundation::POINT, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ElementFromPointBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.ElementFromPointBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFocusedElementBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetFocusedElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.GetFocusedElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTreeWalker<P0>(&self, pcondition: P0) -> windows_core::Result<IUIAutomationTreeWalker>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateTreeWalker)(windows_core::Interface::as_raw(self), pcondition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.CreateTreeWalker)(windows_core::Interface::as_raw(self), pcondition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ControlViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker> {
         let mut result__ = std::mem::zeroed();
@@ -3842,25 +3842,25 @@ impl IUIAutomation3 {
     }
     pub unsafe fn CreatePropertyCondition<P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreatePropertyCondition)(windows_core::Interface::as_raw(self), propertyid, value.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.CreatePropertyCondition)(windows_core::Interface::as_raw(self), propertyid, value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreatePropertyConditionEx<P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0, flags: PropertyConditionFlags) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreatePropertyConditionEx)(windows_core::Interface::as_raw(self), propertyid, value.into_param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.CreatePropertyConditionEx)(windows_core::Interface::as_raw(self), propertyid, value.param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateAndCondition<P0, P1>(&self, condition1: P0, condition2: P1) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateAndCondition)(windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.CreateAndCondition)(windows_core::Interface::as_raw(self), condition1.param().abi(), condition2.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition> {
@@ -3873,11 +3873,11 @@ impl IUIAutomation3 {
     }
     pub unsafe fn CreateOrCondition<P0, P1>(&self, condition1: P0, condition2: P1) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateOrCondition)(windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.CreateOrCondition)(windows_core::Interface::as_raw(self), condition1.param().abi(), condition2.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition> {
@@ -3890,77 +3890,77 @@ impl IUIAutomation3 {
     }
     pub unsafe fn CreateNotCondition<P0>(&self, condition: P0) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateNotCondition)(windows_core::Interface::as_raw(self), condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.CreateNotCondition)(windows_core::Interface::as_raw(self), condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddAutomationEventHandler<P0, P1, P2>(&self, eventid: UIA_EVENT_ID, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveAutomationEventHandler<P0, P1>(&self, eventid: UIA_EVENT_ID, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.RemoveAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.RemoveAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddPropertyChangedEventHandlerNativeArray<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[UIA_PROPERTY_ID]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi(), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi(), propertyarray).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), propertyarray).ok()
     }
     pub unsafe fn RemovePropertyChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.RemovePropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.RemovePropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddStructureChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationStructureChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationStructureChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveStructureChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationStructureChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationStructureChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.RemoveStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.RemoveStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddFocusChangedEventHandler<P0, P1>(&self, cacherequest: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P1: windows_core::IntoParam<IUIAutomationFocusChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
+        P1: windows_core::Param<IUIAutomationFocusChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddFocusChangedEventHandler)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddFocusChangedEventHandler)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveFocusChangedEventHandler<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationFocusChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationFocusChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.RemoveFocusChangedEventHandler)(windows_core::Interface::as_raw(self), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.RemoveFocusChangedEventHandler)(windows_core::Interface::as_raw(self), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveAllEventHandlers(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.RemoveAllEventHandlers)(windows_core::Interface::as_raw(self)).ok()
@@ -3981,10 +3981,10 @@ impl IUIAutomation3 {
     }
     pub unsafe fn VariantToRect<P0>(&self, var: P0) -> windows_core::Result<super::super::Foundation::RECT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.VariantToRect)(windows_core::Interface::as_raw(self), var.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.VariantToRect)(windows_core::Interface::as_raw(self), var.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> windows_core::Result<i32> {
@@ -3993,10 +3993,10 @@ impl IUIAutomation3 {
     }
     pub unsafe fn CreateProxyFactoryEntry<P0>(&self, factory: P0) -> windows_core::Result<IUIAutomationProxyFactoryEntry>
     where
-        P0: windows_core::IntoParam<IUIAutomationProxyFactory>,
+        P0: windows_core::Param<IUIAutomationProxyFactory>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateProxyFactoryEntry)(windows_core::Interface::as_raw(self), factory.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.CreateProxyFactoryEntry)(windows_core::Interface::as_raw(self), factory.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ProxyFactoryMapping(&self) -> windows_core::Result<IUIAutomationProxyFactoryMapping> {
         let mut result__ = std::mem::zeroed();
@@ -4013,23 +4013,23 @@ impl IUIAutomation3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedPatterns<P0>(&self, pelement: P0, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.PollForPotentialSupportedPatterns)(windows_core::Interface::as_raw(self), pelement.into_param().abi(), patternids, patternnames).ok()
+        (windows_core::Interface::vtable(self).base__.base__.PollForPotentialSupportedPatterns)(windows_core::Interface::as_raw(self), pelement.param().abi(), patternids, patternnames).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<P0>(&self, pelement: P0, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.PollForPotentialSupportedProperties)(windows_core::Interface::as_raw(self), pelement.into_param().abi(), propertyids, propertynames).ok()
+        (windows_core::Interface::vtable(self).base__.base__.PollForPotentialSupportedProperties)(windows_core::Interface::as_raw(self), pelement.param().abi(), propertyids, propertynames).ok()
     }
     pub unsafe fn CheckNotSupported<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CheckNotSupported)(windows_core::Interface::as_raw(self), value.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.CheckNotSupported)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn ReservedNotSupportedValue(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -4042,19 +4042,19 @@ impl IUIAutomation3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessible<P0>(&self, accessible: P0, childid: i32) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IAccessible>,
+        P0: windows_core::Param<IAccessible>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ElementFromIAccessible)(windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.ElementFromIAccessible)(windows_core::Interface::as_raw(self), accessible.param().abi(), childid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessibleBuildCache<P0, P1>(&self, accessible: P0, childid: i32, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IAccessible>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IAccessible>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ElementFromIAccessibleBuildCache)(windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.ElementFromIAccessibleBuildCache)(windows_core::Interface::as_raw(self), accessible.param().abi(), childid, cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AutoSetFocus(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -4062,9 +4062,9 @@ impl IUIAutomation3 {
     }
     pub unsafe fn SetAutoSetFocus<P0>(&self, autosetfocus: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetAutoSetFocus)(windows_core::Interface::as_raw(self), autosetfocus.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetAutoSetFocus)(windows_core::Interface::as_raw(self), autosetfocus.param().abi()).ok()
     }
     pub unsafe fn ConnectionTimeout(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -4082,18 +4082,18 @@ impl IUIAutomation3 {
     }
     pub unsafe fn AddTextEditTextChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationTextEditTextChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationTextEditTextChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).AddTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, texteditchangetype, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, texteditchangetype, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveTextEditTextChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationTextEditTextChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationTextEditTextChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).RemoveTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -4107,11 +4107,11 @@ windows_core::imp::interface_hierarchy!(IUIAutomation4, windows_core::IUnknown, 
 impl IUIAutomation4 {
     pub unsafe fn CompareElements<P0, P1>(&self, el1: P0, el2: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.CompareElements)(windows_core::Interface::as_raw(self), el1.into_param().abi(), el2.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.CompareElements)(windows_core::Interface::as_raw(self), el1.param().abi(), el2.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -4124,10 +4124,10 @@ impl IUIAutomation4 {
     }
     pub unsafe fn ElementFromHandle<P0>(&self, hwnd: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.ElementFromHandle)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.ElementFromHandle)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ElementFromPoint(&self, pt: super::super::Foundation::POINT) -> windows_core::Result<IUIAutomationElement> {
         let mut result__ = std::mem::zeroed();
@@ -4139,39 +4139,39 @@ impl IUIAutomation4 {
     }
     pub unsafe fn GetRootElementBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetRootElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.GetRootElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ElementFromHandleBuildCache<P0, P1>(&self, hwnd: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.ElementFromHandleBuildCache)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.ElementFromHandleBuildCache)(windows_core::Interface::as_raw(self), hwnd.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ElementFromPointBuildCache<P0>(&self, pt: super::super::Foundation::POINT, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.ElementFromPointBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.ElementFromPointBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFocusedElementBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetFocusedElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.GetFocusedElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTreeWalker<P0>(&self, pcondition: P0) -> windows_core::Result<IUIAutomationTreeWalker>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.CreateTreeWalker)(windows_core::Interface::as_raw(self), pcondition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.CreateTreeWalker)(windows_core::Interface::as_raw(self), pcondition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ControlViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker> {
         let mut result__ = std::mem::zeroed();
@@ -4211,25 +4211,25 @@ impl IUIAutomation4 {
     }
     pub unsafe fn CreatePropertyCondition<P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.CreatePropertyCondition)(windows_core::Interface::as_raw(self), propertyid, value.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.CreatePropertyCondition)(windows_core::Interface::as_raw(self), propertyid, value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreatePropertyConditionEx<P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0, flags: PropertyConditionFlags) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.CreatePropertyConditionEx)(windows_core::Interface::as_raw(self), propertyid, value.into_param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.CreatePropertyConditionEx)(windows_core::Interface::as_raw(self), propertyid, value.param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateAndCondition<P0, P1>(&self, condition1: P0, condition2: P1) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.CreateAndCondition)(windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.CreateAndCondition)(windows_core::Interface::as_raw(self), condition1.param().abi(), condition2.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition> {
@@ -4242,11 +4242,11 @@ impl IUIAutomation4 {
     }
     pub unsafe fn CreateOrCondition<P0, P1>(&self, condition1: P0, condition2: P1) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.CreateOrCondition)(windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.CreateOrCondition)(windows_core::Interface::as_raw(self), condition1.param().abi(), condition2.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition> {
@@ -4259,77 +4259,77 @@ impl IUIAutomation4 {
     }
     pub unsafe fn CreateNotCondition<P0>(&self, condition: P0) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.CreateNotCondition)(windows_core::Interface::as_raw(self), condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.CreateNotCondition)(windows_core::Interface::as_raw(self), condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddAutomationEventHandler<P0, P1, P2>(&self, eventid: UIA_EVENT_ID, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveAutomationEventHandler<P0, P1>(&self, eventid: UIA_EVENT_ID, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.RemoveAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.RemoveAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddPropertyChangedEventHandlerNativeArray<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[UIA_PROPERTY_ID]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi(), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi(), propertyarray).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), propertyarray).ok()
     }
     pub unsafe fn RemovePropertyChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.RemovePropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.RemovePropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddStructureChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationStructureChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationStructureChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveStructureChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationStructureChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationStructureChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.RemoveStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.RemoveStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddFocusChangedEventHandler<P0, P1>(&self, cacherequest: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P1: windows_core::IntoParam<IUIAutomationFocusChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
+        P1: windows_core::Param<IUIAutomationFocusChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AddFocusChangedEventHandler)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.AddFocusChangedEventHandler)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveFocusChangedEventHandler<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationFocusChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationFocusChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.RemoveFocusChangedEventHandler)(windows_core::Interface::as_raw(self), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.RemoveFocusChangedEventHandler)(windows_core::Interface::as_raw(self), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveAllEventHandlers(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.RemoveAllEventHandlers)(windows_core::Interface::as_raw(self)).ok()
@@ -4350,10 +4350,10 @@ impl IUIAutomation4 {
     }
     pub unsafe fn VariantToRect<P0>(&self, var: P0) -> windows_core::Result<super::super::Foundation::RECT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.VariantToRect)(windows_core::Interface::as_raw(self), var.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.VariantToRect)(windows_core::Interface::as_raw(self), var.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> windows_core::Result<i32> {
@@ -4362,10 +4362,10 @@ impl IUIAutomation4 {
     }
     pub unsafe fn CreateProxyFactoryEntry<P0>(&self, factory: P0) -> windows_core::Result<IUIAutomationProxyFactoryEntry>
     where
-        P0: windows_core::IntoParam<IUIAutomationProxyFactory>,
+        P0: windows_core::Param<IUIAutomationProxyFactory>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.CreateProxyFactoryEntry)(windows_core::Interface::as_raw(self), factory.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.CreateProxyFactoryEntry)(windows_core::Interface::as_raw(self), factory.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ProxyFactoryMapping(&self) -> windows_core::Result<IUIAutomationProxyFactoryMapping> {
         let mut result__ = std::mem::zeroed();
@@ -4382,23 +4382,23 @@ impl IUIAutomation4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedPatterns<P0>(&self, pelement: P0, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.PollForPotentialSupportedPatterns)(windows_core::Interface::as_raw(self), pelement.into_param().abi(), patternids, patternnames).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.PollForPotentialSupportedPatterns)(windows_core::Interface::as_raw(self), pelement.param().abi(), patternids, patternnames).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<P0>(&self, pelement: P0, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.PollForPotentialSupportedProperties)(windows_core::Interface::as_raw(self), pelement.into_param().abi(), propertyids, propertynames).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.PollForPotentialSupportedProperties)(windows_core::Interface::as_raw(self), pelement.param().abi(), propertyids, propertynames).ok()
     }
     pub unsafe fn CheckNotSupported<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.CheckNotSupported)(windows_core::Interface::as_raw(self), value.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.CheckNotSupported)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn ReservedNotSupportedValue(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -4411,19 +4411,19 @@ impl IUIAutomation4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessible<P0>(&self, accessible: P0, childid: i32) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IAccessible>,
+        P0: windows_core::Param<IAccessible>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.ElementFromIAccessible)(windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.ElementFromIAccessible)(windows_core::Interface::as_raw(self), accessible.param().abi(), childid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessibleBuildCache<P0, P1>(&self, accessible: P0, childid: i32, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IAccessible>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IAccessible>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.ElementFromIAccessibleBuildCache)(windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.ElementFromIAccessibleBuildCache)(windows_core::Interface::as_raw(self), accessible.param().abi(), childid, cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AutoSetFocus(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -4431,9 +4431,9 @@ impl IUIAutomation4 {
     }
     pub unsafe fn SetAutoSetFocus<P0>(&self, autosetfocus: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetAutoSetFocus)(windows_core::Interface::as_raw(self), autosetfocus.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetAutoSetFocus)(windows_core::Interface::as_raw(self), autosetfocus.param().abi()).ok()
     }
     pub unsafe fn ConnectionTimeout(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -4451,33 +4451,33 @@ impl IUIAutomation4 {
     }
     pub unsafe fn AddTextEditTextChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationTextEditTextChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationTextEditTextChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.AddTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, texteditchangetype, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, texteditchangetype, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveTextEditTextChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationTextEditTextChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationTextEditTextChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.RemoveTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RemoveTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddChangesEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, changetypes: &[i32], pcacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationChangesEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationChangesEventHandler>,
     {
-        (windows_core::Interface::vtable(self).AddChangesEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, core::mem::transmute(changetypes.as_ptr()), changetypes.len().try_into().unwrap(), pcacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddChangesEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, core::mem::transmute(changetypes.as_ptr()), changetypes.len().try_into().unwrap(), pcacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveChangesEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationChangesEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationChangesEventHandler>,
     {
-        (windows_core::Interface::vtable(self).RemoveChangesEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveChangesEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -4491,11 +4491,11 @@ windows_core::imp::interface_hierarchy!(IUIAutomation5, windows_core::IUnknown, 
 impl IUIAutomation5 {
     pub unsafe fn CompareElements<P0, P1>(&self, el1: P0, el2: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CompareElements)(windows_core::Interface::as_raw(self), el1.into_param().abi(), el2.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CompareElements)(windows_core::Interface::as_raw(self), el1.param().abi(), el2.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -4508,10 +4508,10 @@ impl IUIAutomation5 {
     }
     pub unsafe fn ElementFromHandle<P0>(&self, hwnd: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ElementFromHandle)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ElementFromHandle)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ElementFromPoint(&self, pt: super::super::Foundation::POINT) -> windows_core::Result<IUIAutomationElement> {
         let mut result__ = std::mem::zeroed();
@@ -4523,39 +4523,39 @@ impl IUIAutomation5 {
     }
     pub unsafe fn GetRootElementBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetRootElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetRootElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ElementFromHandleBuildCache<P0, P1>(&self, hwnd: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ElementFromHandleBuildCache)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ElementFromHandleBuildCache)(windows_core::Interface::as_raw(self), hwnd.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ElementFromPointBuildCache<P0>(&self, pt: super::super::Foundation::POINT, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ElementFromPointBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ElementFromPointBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFocusedElementBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetFocusedElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetFocusedElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTreeWalker<P0>(&self, pcondition: P0) -> windows_core::Result<IUIAutomationTreeWalker>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CreateTreeWalker)(windows_core::Interface::as_raw(self), pcondition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CreateTreeWalker)(windows_core::Interface::as_raw(self), pcondition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ControlViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker> {
         let mut result__ = std::mem::zeroed();
@@ -4595,25 +4595,25 @@ impl IUIAutomation5 {
     }
     pub unsafe fn CreatePropertyCondition<P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CreatePropertyCondition)(windows_core::Interface::as_raw(self), propertyid, value.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CreatePropertyCondition)(windows_core::Interface::as_raw(self), propertyid, value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreatePropertyConditionEx<P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0, flags: PropertyConditionFlags) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CreatePropertyConditionEx)(windows_core::Interface::as_raw(self), propertyid, value.into_param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CreatePropertyConditionEx)(windows_core::Interface::as_raw(self), propertyid, value.param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateAndCondition<P0, P1>(&self, condition1: P0, condition2: P1) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CreateAndCondition)(windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CreateAndCondition)(windows_core::Interface::as_raw(self), condition1.param().abi(), condition2.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition> {
@@ -4626,11 +4626,11 @@ impl IUIAutomation5 {
     }
     pub unsafe fn CreateOrCondition<P0, P1>(&self, condition1: P0, condition2: P1) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CreateOrCondition)(windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CreateOrCondition)(windows_core::Interface::as_raw(self), condition1.param().abi(), condition2.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition> {
@@ -4643,77 +4643,77 @@ impl IUIAutomation5 {
     }
     pub unsafe fn CreateNotCondition<P0>(&self, condition: P0) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CreateNotCondition)(windows_core::Interface::as_raw(self), condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CreateNotCondition)(windows_core::Interface::as_raw(self), condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddAutomationEventHandler<P0, P1, P2>(&self, eventid: UIA_EVENT_ID, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveAutomationEventHandler<P0, P1>(&self, eventid: UIA_EVENT_ID, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemoveAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemoveAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddPropertyChangedEventHandlerNativeArray<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[UIA_PROPERTY_ID]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi(), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi(), propertyarray).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), propertyarray).ok()
     }
     pub unsafe fn RemovePropertyChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemovePropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemovePropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddStructureChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationStructureChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationStructureChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveStructureChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationStructureChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationStructureChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemoveStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemoveStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddFocusChangedEventHandler<P0, P1>(&self, cacherequest: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P1: windows_core::IntoParam<IUIAutomationFocusChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
+        P1: windows_core::Param<IUIAutomationFocusChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AddFocusChangedEventHandler)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AddFocusChangedEventHandler)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveFocusChangedEventHandler<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationFocusChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationFocusChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemoveFocusChangedEventHandler)(windows_core::Interface::as_raw(self), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemoveFocusChangedEventHandler)(windows_core::Interface::as_raw(self), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveAllEventHandlers(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemoveAllEventHandlers)(windows_core::Interface::as_raw(self)).ok()
@@ -4734,10 +4734,10 @@ impl IUIAutomation5 {
     }
     pub unsafe fn VariantToRect<P0>(&self, var: P0) -> windows_core::Result<super::super::Foundation::RECT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.VariantToRect)(windows_core::Interface::as_raw(self), var.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.VariantToRect)(windows_core::Interface::as_raw(self), var.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> windows_core::Result<i32> {
@@ -4746,10 +4746,10 @@ impl IUIAutomation5 {
     }
     pub unsafe fn CreateProxyFactoryEntry<P0>(&self, factory: P0) -> windows_core::Result<IUIAutomationProxyFactoryEntry>
     where
-        P0: windows_core::IntoParam<IUIAutomationProxyFactory>,
+        P0: windows_core::Param<IUIAutomationProxyFactory>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CreateProxyFactoryEntry)(windows_core::Interface::as_raw(self), factory.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CreateProxyFactoryEntry)(windows_core::Interface::as_raw(self), factory.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ProxyFactoryMapping(&self) -> windows_core::Result<IUIAutomationProxyFactoryMapping> {
         let mut result__ = std::mem::zeroed();
@@ -4766,23 +4766,23 @@ impl IUIAutomation5 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedPatterns<P0>(&self, pelement: P0, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.PollForPotentialSupportedPatterns)(windows_core::Interface::as_raw(self), pelement.into_param().abi(), patternids, patternnames).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.PollForPotentialSupportedPatterns)(windows_core::Interface::as_raw(self), pelement.param().abi(), patternids, patternnames).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<P0>(&self, pelement: P0, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.PollForPotentialSupportedProperties)(windows_core::Interface::as_raw(self), pelement.into_param().abi(), propertyids, propertynames).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.PollForPotentialSupportedProperties)(windows_core::Interface::as_raw(self), pelement.param().abi(), propertyids, propertynames).ok()
     }
     pub unsafe fn CheckNotSupported<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CheckNotSupported)(windows_core::Interface::as_raw(self), value.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CheckNotSupported)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn ReservedNotSupportedValue(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -4795,19 +4795,19 @@ impl IUIAutomation5 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessible<P0>(&self, accessible: P0, childid: i32) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IAccessible>,
+        P0: windows_core::Param<IAccessible>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ElementFromIAccessible)(windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ElementFromIAccessible)(windows_core::Interface::as_raw(self), accessible.param().abi(), childid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessibleBuildCache<P0, P1>(&self, accessible: P0, childid: i32, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IAccessible>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IAccessible>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ElementFromIAccessibleBuildCache)(windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ElementFromIAccessibleBuildCache)(windows_core::Interface::as_raw(self), accessible.param().abi(), childid, cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AutoSetFocus(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -4815,9 +4815,9 @@ impl IUIAutomation5 {
     }
     pub unsafe fn SetAutoSetFocus<P0>(&self, autosetfocus: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetAutoSetFocus)(windows_core::Interface::as_raw(self), autosetfocus.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SetAutoSetFocus)(windows_core::Interface::as_raw(self), autosetfocus.param().abi()).ok()
     }
     pub unsafe fn ConnectionTimeout(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -4835,48 +4835,48 @@ impl IUIAutomation5 {
     }
     pub unsafe fn AddTextEditTextChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationTextEditTextChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationTextEditTextChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, texteditchangetype, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, texteditchangetype, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveTextEditTextChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationTextEditTextChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationTextEditTextChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.RemoveTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.RemoveTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddChangesEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, changetypes: &[i32], pcacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationChangesEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationChangesEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.AddChangesEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, core::mem::transmute(changetypes.as_ptr()), changetypes.len().try_into().unwrap(), pcacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddChangesEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, core::mem::transmute(changetypes.as_ptr()), changetypes.len().try_into().unwrap(), pcacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveChangesEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationChangesEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationChangesEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.RemoveChangesEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RemoveChangesEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddNotificationEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationNotificationEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationNotificationEventHandler>,
     {
-        (windows_core::Interface::vtable(self).AddNotificationEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddNotificationEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveNotificationEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationNotificationEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationNotificationEventHandler>,
     {
-        (windows_core::Interface::vtable(self).RemoveNotificationEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveNotificationEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -4890,11 +4890,11 @@ windows_core::imp::interface_hierarchy!(IUIAutomation6, windows_core::IUnknown, 
 impl IUIAutomation6 {
     pub unsafe fn CompareElements<P0, P1>(&self, el1: P0, el2: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CompareElements)(windows_core::Interface::as_raw(self), el1.into_param().abi(), el2.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CompareElements)(windows_core::Interface::as_raw(self), el1.param().abi(), el2.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -4907,10 +4907,10 @@ impl IUIAutomation6 {
     }
     pub unsafe fn ElementFromHandle<P0>(&self, hwnd: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ElementFromHandle)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ElementFromHandle)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ElementFromPoint(&self, pt: super::super::Foundation::POINT) -> windows_core::Result<IUIAutomationElement> {
         let mut result__ = std::mem::zeroed();
@@ -4922,39 +4922,39 @@ impl IUIAutomation6 {
     }
     pub unsafe fn GetRootElementBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetRootElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetRootElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ElementFromHandleBuildCache<P0, P1>(&self, hwnd: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ElementFromHandleBuildCache)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ElementFromHandleBuildCache)(windows_core::Interface::as_raw(self), hwnd.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ElementFromPointBuildCache<P0>(&self, pt: super::super::Foundation::POINT, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ElementFromPointBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ElementFromPointBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFocusedElementBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetFocusedElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetFocusedElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateTreeWalker<P0>(&self, pcondition: P0) -> windows_core::Result<IUIAutomationTreeWalker>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateTreeWalker)(windows_core::Interface::as_raw(self), pcondition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateTreeWalker)(windows_core::Interface::as_raw(self), pcondition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ControlViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker> {
         let mut result__ = std::mem::zeroed();
@@ -4994,25 +4994,25 @@ impl IUIAutomation6 {
     }
     pub unsafe fn CreatePropertyCondition<P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreatePropertyCondition)(windows_core::Interface::as_raw(self), propertyid, value.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreatePropertyCondition)(windows_core::Interface::as_raw(self), propertyid, value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreatePropertyConditionEx<P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0, flags: PropertyConditionFlags) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreatePropertyConditionEx)(windows_core::Interface::as_raw(self), propertyid, value.into_param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreatePropertyConditionEx)(windows_core::Interface::as_raw(self), propertyid, value.param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateAndCondition<P0, P1>(&self, condition1: P0, condition2: P1) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateAndCondition)(windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateAndCondition)(windows_core::Interface::as_raw(self), condition1.param().abi(), condition2.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition> {
@@ -5025,11 +5025,11 @@ impl IUIAutomation6 {
     }
     pub unsafe fn CreateOrCondition<P0, P1>(&self, condition1: P0, condition2: P1) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateOrCondition)(windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateOrCondition)(windows_core::Interface::as_raw(self), condition1.param().abi(), condition2.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition> {
@@ -5042,77 +5042,77 @@ impl IUIAutomation6 {
     }
     pub unsafe fn CreateNotCondition<P0>(&self, condition: P0) -> windows_core::Result<IUIAutomationCondition>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateNotCondition)(windows_core::Interface::as_raw(self), condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateNotCondition)(windows_core::Interface::as_raw(self), condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddAutomationEventHandler<P0, P1, P2>(&self, eventid: UIA_EVENT_ID, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveAutomationEventHandler<P0, P1>(&self, eventid: UIA_EVENT_ID, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemoveAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemoveAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddPropertyChangedEventHandlerNativeArray<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[UIA_PROPERTY_ID]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi(), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi(), propertyarray).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), propertyarray).ok()
     }
     pub unsafe fn RemovePropertyChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemovePropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemovePropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddStructureChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationStructureChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationStructureChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveStructureChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationStructureChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationStructureChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemoveStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemoveStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddFocusChangedEventHandler<P0, P1>(&self, cacherequest: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P1: windows_core::IntoParam<IUIAutomationFocusChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
+        P1: windows_core::Param<IUIAutomationFocusChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AddFocusChangedEventHandler)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AddFocusChangedEventHandler)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveFocusChangedEventHandler<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationFocusChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationFocusChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemoveFocusChangedEventHandler)(windows_core::Interface::as_raw(self), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemoveFocusChangedEventHandler)(windows_core::Interface::as_raw(self), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveAllEventHandlers(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemoveAllEventHandlers)(windows_core::Interface::as_raw(self)).ok()
@@ -5133,10 +5133,10 @@ impl IUIAutomation6 {
     }
     pub unsafe fn VariantToRect<P0>(&self, var: P0) -> windows_core::Result<super::super::Foundation::RECT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.VariantToRect)(windows_core::Interface::as_raw(self), var.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.VariantToRect)(windows_core::Interface::as_raw(self), var.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> windows_core::Result<i32> {
@@ -5145,10 +5145,10 @@ impl IUIAutomation6 {
     }
     pub unsafe fn CreateProxyFactoryEntry<P0>(&self, factory: P0) -> windows_core::Result<IUIAutomationProxyFactoryEntry>
     where
-        P0: windows_core::IntoParam<IUIAutomationProxyFactory>,
+        P0: windows_core::Param<IUIAutomationProxyFactory>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateProxyFactoryEntry)(windows_core::Interface::as_raw(self), factory.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateProxyFactoryEntry)(windows_core::Interface::as_raw(self), factory.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ProxyFactoryMapping(&self) -> windows_core::Result<IUIAutomationProxyFactoryMapping> {
         let mut result__ = std::mem::zeroed();
@@ -5165,23 +5165,23 @@ impl IUIAutomation6 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedPatterns<P0>(&self, pelement: P0, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.PollForPotentialSupportedPatterns)(windows_core::Interface::as_raw(self), pelement.into_param().abi(), patternids, patternnames).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.PollForPotentialSupportedPatterns)(windows_core::Interface::as_raw(self), pelement.param().abi(), patternids, patternnames).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<P0>(&self, pelement: P0, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.PollForPotentialSupportedProperties)(windows_core::Interface::as_raw(self), pelement.into_param().abi(), propertyids, propertynames).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.PollForPotentialSupportedProperties)(windows_core::Interface::as_raw(self), pelement.param().abi(), propertyids, propertynames).ok()
     }
     pub unsafe fn CheckNotSupported<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CheckNotSupported)(windows_core::Interface::as_raw(self), value.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CheckNotSupported)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn ReservedNotSupportedValue(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -5194,19 +5194,19 @@ impl IUIAutomation6 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessible<P0>(&self, accessible: P0, childid: i32) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IAccessible>,
+        P0: windows_core::Param<IAccessible>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ElementFromIAccessible)(windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ElementFromIAccessible)(windows_core::Interface::as_raw(self), accessible.param().abi(), childid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessibleBuildCache<P0, P1>(&self, accessible: P0, childid: i32, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IAccessible>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IAccessible>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ElementFromIAccessibleBuildCache)(windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ElementFromIAccessibleBuildCache)(windows_core::Interface::as_raw(self), accessible.param().abi(), childid, cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AutoSetFocus(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -5214,9 +5214,9 @@ impl IUIAutomation6 {
     }
     pub unsafe fn SetAutoSetFocus<P0>(&self, autosetfocus: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetAutoSetFocus)(windows_core::Interface::as_raw(self), autosetfocus.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetAutoSetFocus)(windows_core::Interface::as_raw(self), autosetfocus.param().abi()).ok()
     }
     pub unsafe fn ConnectionTimeout(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -5234,48 +5234,48 @@ impl IUIAutomation6 {
     }
     pub unsafe fn AddTextEditTextChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationTextEditTextChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationTextEditTextChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AddTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, texteditchangetype, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.AddTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, texteditchangetype, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveTextEditTextChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationTextEditTextChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationTextEditTextChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.RemoveTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.RemoveTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddChangesEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, changetypes: &[i32], pcacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationChangesEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationChangesEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddChangesEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, core::mem::transmute(changetypes.as_ptr()), changetypes.len().try_into().unwrap(), pcacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddChangesEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, core::mem::transmute(changetypes.as_ptr()), changetypes.len().try_into().unwrap(), pcacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveChangesEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationChangesEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationChangesEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.RemoveChangesEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.RemoveChangesEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddNotificationEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationNotificationEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationNotificationEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.AddNotificationEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddNotificationEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveNotificationEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationNotificationEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationNotificationEventHandler>,
     {
-        (windows_core::Interface::vtable(self).base__.RemoveNotificationEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RemoveNotificationEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn CreateEventHandlerGroup(&self) -> windows_core::Result<IUIAutomationEventHandlerGroup> {
         let mut result__ = std::mem::zeroed();
@@ -5283,17 +5283,17 @@ impl IUIAutomation6 {
     }
     pub unsafe fn AddEventHandlerGroup<P0, P1>(&self, element: P0, handlergroup: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationEventHandlerGroup>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationEventHandlerGroup>,
     {
-        (windows_core::Interface::vtable(self).AddEventHandlerGroup)(windows_core::Interface::as_raw(self), element.into_param().abi(), handlergroup.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddEventHandlerGroup)(windows_core::Interface::as_raw(self), element.param().abi(), handlergroup.param().abi()).ok()
     }
     pub unsafe fn RemoveEventHandlerGroup<P0, P1>(&self, element: P0, handlergroup: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationEventHandlerGroup>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationEventHandlerGroup>,
     {
-        (windows_core::Interface::vtable(self).RemoveEventHandlerGroup)(windows_core::Interface::as_raw(self), element.into_param().abi(), handlergroup.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveEventHandlerGroup)(windows_core::Interface::as_raw(self), element.param().abi(), handlergroup.param().abi()).ok()
     }
     pub unsafe fn ConnectionRecoveryBehavior(&self) -> windows_core::Result<ConnectionRecoveryBehaviorOptions> {
         let mut result__ = std::mem::zeroed();
@@ -5311,18 +5311,18 @@ impl IUIAutomation6 {
     }
     pub unsafe fn AddActiveTextPositionChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationActiveTextPositionChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationActiveTextPositionChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).AddActiveTextPositionChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddActiveTextPositionChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn RemoveActiveTextPositionChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationActiveTextPositionChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationActiveTextPositionChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).RemoveActiveTextPositionChangedEventHandler)(windows_core::Interface::as_raw(self), element.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveActiveTextPositionChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -5343,10 +5343,10 @@ windows_core::imp::interface_hierarchy!(IUIAutomationActiveTextPositionChangedEv
 impl IUIAutomationActiveTextPositionChangedEventHandler {
     pub unsafe fn HandleActiveTextPositionChangedEvent<P0, P1>(&self, sender: P0, range: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationTextRange>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationTextRange>,
     {
-        (windows_core::Interface::vtable(self).HandleActiveTextPositionChangedEvent)(windows_core::Interface::as_raw(self), sender.into_param().abi(), range.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).HandleActiveTextPositionChangedEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), range.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -5477,9 +5477,9 @@ impl IUIAutomationCacheRequest {
     }
     pub unsafe fn SetTreeFilter<P0>(&self, filter: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
-        (windows_core::Interface::vtable(self).SetTreeFilter)(windows_core::Interface::as_raw(self), filter.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTreeFilter)(windows_core::Interface::as_raw(self), filter.param().abi()).ok()
     }
     pub unsafe fn AutomationElementMode(&self) -> windows_core::Result<AutomationElementMode> {
         let mut result__ = std::mem::zeroed();
@@ -5507,9 +5507,9 @@ windows_core::imp::interface_hierarchy!(IUIAutomationChangesEventHandler, window
 impl IUIAutomationChangesEventHandler {
     pub unsafe fn HandleChangesEvent<P0>(&self, sender: P0, uiachanges: &[UiaChangeInfo]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
-        (windows_core::Interface::vtable(self).HandleChangesEvent)(windows_core::Interface::as_raw(self), sender.into_param().abi(), core::mem::transmute(uiachanges.as_ptr()), uiachanges.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).HandleChangesEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), core::mem::transmute(uiachanges.as_ptr()), uiachanges.len().try_into().unwrap()).ok()
     }
 }
 #[repr(C)]
@@ -5664,40 +5664,40 @@ impl IUIAutomationElement {
     }
     pub unsafe fn FindFirst<P0>(&self, scope: TreeScope, condition: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindFirst)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindFirst)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAll<P0>(&self, scope: TreeScope, condition: P0) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindAll)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindAll)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindFirstBuildCache<P0, P1>(&self, scope: TreeScope, condition: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAllBuildCache<P0, P1>(&self, scope: TreeScope, condition: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn BuildUpdatedCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -5705,10 +5705,10 @@ impl IUIAutomationElement {
     }
     pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -5716,10 +5716,10 @@ impl IUIAutomationElement {
     }
     pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<T>
     where
@@ -6114,40 +6114,40 @@ impl IUIAutomationElement2 {
     }
     pub unsafe fn FindFirst<P0>(&self, scope: TreeScope, condition: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindFirst)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.FindFirst)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAll<P0>(&self, scope: TreeScope, condition: P0) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindAll)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.FindAll)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindFirstBuildCache<P0, P1>(&self, scope: TreeScope, condition: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAllBuildCache<P0, P1>(&self, scope: TreeScope, condition: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn BuildUpdatedCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -6155,10 +6155,10 @@ impl IUIAutomationElement2 {
     }
     pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -6166,10 +6166,10 @@ impl IUIAutomationElement2 {
     }
     pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<T>
     where
@@ -6509,40 +6509,40 @@ impl IUIAutomationElement3 {
     }
     pub unsafe fn FindFirst<P0>(&self, scope: TreeScope, condition: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.FindFirst)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.FindFirst)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAll<P0>(&self, scope: TreeScope, condition: P0) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.FindAll)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.FindAll)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindFirstBuildCache<P0, P1>(&self, scope: TreeScope, condition: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAllBuildCache<P0, P1>(&self, scope: TreeScope, condition: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn BuildUpdatedCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -6550,10 +6550,10 @@ impl IUIAutomationElement3 {
     }
     pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -6561,10 +6561,10 @@ impl IUIAutomationElement3 {
     }
     pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<T>
     where
@@ -6912,40 +6912,40 @@ impl IUIAutomationElement4 {
     }
     pub unsafe fn FindFirst<P0>(&self, scope: TreeScope, condition: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.FindFirst)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.FindFirst)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAll<P0>(&self, scope: TreeScope, condition: P0) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.FindAll)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.FindAll)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindFirstBuildCache<P0, P1>(&self, scope: TreeScope, condition: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAllBuildCache<P0, P1>(&self, scope: TreeScope, condition: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn BuildUpdatedCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -6953,10 +6953,10 @@ impl IUIAutomationElement4 {
     }
     pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -6964,10 +6964,10 @@ impl IUIAutomationElement4 {
     }
     pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<T>
     where
@@ -7370,40 +7370,40 @@ impl IUIAutomationElement5 {
     }
     pub unsafe fn FindFirst<P0>(&self, scope: TreeScope, condition: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.FindFirst)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.FindFirst)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAll<P0>(&self, scope: TreeScope, condition: P0) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.FindAll)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.FindAll)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindFirstBuildCache<P0, P1>(&self, scope: TreeScope, condition: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAllBuildCache<P0, P1>(&self, scope: TreeScope, condition: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn BuildUpdatedCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -7411,10 +7411,10 @@ impl IUIAutomationElement5 {
     }
     pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -7422,10 +7422,10 @@ impl IUIAutomationElement5 {
     }
     pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<T>
     where
@@ -7832,40 +7832,40 @@ impl IUIAutomationElement6 {
     }
     pub unsafe fn FindFirst<P0>(&self, scope: TreeScope, condition: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.FindFirst)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.FindFirst)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAll<P0>(&self, scope: TreeScope, condition: P0) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.FindAll)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.FindAll)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindFirstBuildCache<P0, P1>(&self, scope: TreeScope, condition: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAllBuildCache<P0, P1>(&self, scope: TreeScope, condition: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn BuildUpdatedCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -7873,10 +7873,10 @@ impl IUIAutomationElement6 {
     }
     pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -7884,10 +7884,10 @@ impl IUIAutomationElement6 {
     }
     pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<T>
     where
@@ -8300,40 +8300,40 @@ impl IUIAutomationElement7 {
     }
     pub unsafe fn FindFirst<P0>(&self, scope: TreeScope, condition: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.FindFirst)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.FindFirst)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAll<P0>(&self, scope: TreeScope, condition: P0) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.FindAll)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.FindAll)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindFirstBuildCache<P0, P1>(&self, scope: TreeScope, condition: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAllBuildCache<P0, P1>(&self, scope: TreeScope, condition: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn BuildUpdatedCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -8341,10 +8341,10 @@ impl IUIAutomationElement7 {
     }
     pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -8352,10 +8352,10 @@ impl IUIAutomationElement7 {
     }
     pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<T>
     where
@@ -8750,37 +8750,37 @@ impl IUIAutomationElement7 {
     }
     pub unsafe fn FindFirstWithOptions<P0, P1>(&self, scope: TreeScope, condition: P0, traversaloptions: TreeTraversalOptions, root: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindFirstWithOptions)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), traversaloptions, root.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindFirstWithOptions)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAllWithOptions<P0, P1>(&self, scope: TreeScope, condition: P0, traversaloptions: TreeTraversalOptions, root: P1) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindAllWithOptions)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), traversaloptions, root.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindAllWithOptions)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindFirstWithOptionsBuildCache<P0, P1, P2>(&self, scope: TreeScope, condition: P0, cacherequest: P1, traversaloptions: TreeTraversalOptions, root: P2) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindFirstWithOptionsBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), traversaloptions, root.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindFirstWithOptionsBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAllWithOptionsBuildCache<P0, P1, P2>(&self, scope: TreeScope, condition: P0, cacherequest: P1, traversaloptions: TreeTraversalOptions, root: P2) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindAllWithOptionsBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), traversaloptions, root.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindAllWithOptionsBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -8809,40 +8809,40 @@ impl IUIAutomationElement8 {
     }
     pub unsafe fn FindFirst<P0>(&self, scope: TreeScope, condition: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.FindFirst)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.FindFirst)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAll<P0>(&self, scope: TreeScope, condition: P0) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.FindAll)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.FindAll)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindFirstBuildCache<P0, P1>(&self, scope: TreeScope, condition: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAllBuildCache<P0, P1>(&self, scope: TreeScope, condition: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn BuildUpdatedCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -8850,10 +8850,10 @@ impl IUIAutomationElement8 {
     }
     pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -8861,10 +8861,10 @@ impl IUIAutomationElement8 {
     }
     pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<T>
     where
@@ -9259,37 +9259,37 @@ impl IUIAutomationElement8 {
     }
     pub unsafe fn FindFirstWithOptions<P0, P1>(&self, scope: TreeScope, condition: P0, traversaloptions: TreeTraversalOptions, root: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindFirstWithOptions)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), traversaloptions, root.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.FindFirstWithOptions)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAllWithOptions<P0, P1>(&self, scope: TreeScope, condition: P0, traversaloptions: TreeTraversalOptions, root: P1) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindAllWithOptions)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), traversaloptions, root.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.FindAllWithOptions)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindFirstWithOptionsBuildCache<P0, P1, P2>(&self, scope: TreeScope, condition: P0, cacherequest: P1, traversaloptions: TreeTraversalOptions, root: P2) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindFirstWithOptionsBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), traversaloptions, root.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.FindFirstWithOptionsBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAllWithOptionsBuildCache<P0, P1, P2>(&self, scope: TreeScope, condition: P0, cacherequest: P1, traversaloptions: TreeTraversalOptions, root: P2) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindAllWithOptionsBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), traversaloptions, root.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.FindAllWithOptionsBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -9323,40 +9323,40 @@ impl IUIAutomationElement9 {
     }
     pub unsafe fn FindFirst<P0>(&self, scope: TreeScope, condition: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.FindFirst)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.FindFirst)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAll<P0>(&self, scope: TreeScope, condition: P0) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
+        P0: windows_core::Param<IUIAutomationCondition>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.FindAll)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.FindAll)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindFirstBuildCache<P0, P1>(&self, scope: TreeScope, condition: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAllBuildCache<P0, P1>(&self, scope: TreeScope, condition: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn BuildUpdatedCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -9364,10 +9364,10 @@ impl IUIAutomationElement9 {
     }
     pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -9375,10 +9375,10 @@ impl IUIAutomationElement9 {
     }
     pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<T>
     where
@@ -9773,37 +9773,37 @@ impl IUIAutomationElement9 {
     }
     pub unsafe fn FindFirstWithOptions<P0, P1>(&self, scope: TreeScope, condition: P0, traversaloptions: TreeTraversalOptions, root: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.FindFirstWithOptions)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), traversaloptions, root.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.FindFirstWithOptions)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAllWithOptions<P0, P1>(&self, scope: TreeScope, condition: P0, traversaloptions: TreeTraversalOptions, root: P1) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.FindAllWithOptions)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), traversaloptions, root.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.FindAllWithOptions)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindFirstWithOptionsBuildCache<P0, P1, P2>(&self, scope: TreeScope, condition: P0, cacherequest: P1, traversaloptions: TreeTraversalOptions, root: P2) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.FindFirstWithOptionsBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), traversaloptions, root.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.FindFirstWithOptionsBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindAllWithOptionsBuildCache<P0, P1, P2>(&self, scope: TreeScope, condition: P0, cacherequest: P1, traversaloptions: TreeTraversalOptions, root: P2) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCondition>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P2: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationCondition>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
+        P2: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.FindAllWithOptionsBuildCache)(windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), traversaloptions, root.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.FindAllWithOptionsBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -9855,9 +9855,9 @@ windows_core::imp::interface_hierarchy!(IUIAutomationEventHandler, windows_core:
 impl IUIAutomationEventHandler {
     pub unsafe fn HandleAutomationEvent<P0>(&self, sender: P0, eventid: UIA_EVENT_ID) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
-        (windows_core::Interface::vtable(self).HandleAutomationEvent)(windows_core::Interface::as_raw(self), sender.into_param().abi(), eventid).ok()
+        (windows_core::Interface::vtable(self).HandleAutomationEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), eventid).ok()
     }
 }
 #[repr(C)]
@@ -9870,52 +9870,52 @@ windows_core::imp::interface_hierarchy!(IUIAutomationEventHandlerGroup, windows_
 impl IUIAutomationEventHandlerGroup {
     pub unsafe fn AddActiveTextPositionChangedEventHandler<P0, P1>(&self, scope: TreeScope, cacherequest: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P1: windows_core::IntoParam<IUIAutomationActiveTextPositionChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
+        P1: windows_core::Param<IUIAutomationActiveTextPositionChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).AddActiveTextPositionChangedEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddActiveTextPositionChangedEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddAutomationEventHandler<P0, P1>(&self, eventid: UIA_EVENT_ID, scope: TreeScope, cacherequest: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P1: windows_core::IntoParam<IUIAutomationEventHandler>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
+        P1: windows_core::Param<IUIAutomationEventHandler>,
     {
-        (windows_core::Interface::vtable(self).AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddChangesEventHandler<P0, P1>(&self, scope: TreeScope, changetypes: &[i32], cacherequest: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P1: windows_core::IntoParam<IUIAutomationChangesEventHandler>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
+        P1: windows_core::Param<IUIAutomationChangesEventHandler>,
     {
-        (windows_core::Interface::vtable(self).AddChangesEventHandler)(windows_core::Interface::as_raw(self), scope, core::mem::transmute(changetypes.as_ptr()), changetypes.len().try_into().unwrap(), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddChangesEventHandler)(windows_core::Interface::as_raw(self), scope, core::mem::transmute(changetypes.as_ptr()), changetypes.len().try_into().unwrap(), cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddNotificationEventHandler<P0, P1>(&self, scope: TreeScope, cacherequest: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P1: windows_core::IntoParam<IUIAutomationNotificationEventHandler>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
+        P1: windows_core::Param<IUIAutomationNotificationEventHandler>,
     {
-        (windows_core::Interface::vtable(self).AddNotificationEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddNotificationEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddPropertyChangedEventHandler<P0, P1>(&self, scope: TreeScope, cacherequest: P0, handler: P1, propertyarray: &[UIA_PROPERTY_ID]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P1: windows_core::IntoParam<IUIAutomationPropertyChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
+        P1: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.into_param().abi(), handler.into_param().abi(), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi(), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok()
     }
     pub unsafe fn AddStructureChangedEventHandler<P0, P1>(&self, scope: TreeScope, cacherequest: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P1: windows_core::IntoParam<IUIAutomationStructureChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
+        P1: windows_core::Param<IUIAutomationStructureChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi()).ok()
     }
     pub unsafe fn AddTextEditTextChangedEventHandler<P0, P1>(&self, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: P0, handler: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
-        P1: windows_core::IntoParam<IUIAutomationTextEditTextChangedEventHandler>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
+        P1: windows_core::Param<IUIAutomationTextEditTextChangedEventHandler>,
     {
-        (windows_core::Interface::vtable(self).AddTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), scope, texteditchangetype, cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), scope, texteditchangetype, cacherequest.param().abi(), handler.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -9960,9 +9960,9 @@ windows_core::imp::interface_hierarchy!(IUIAutomationFocusChangedEventHandler, w
 impl IUIAutomationFocusChangedEventHandler {
     pub unsafe fn HandleFocusChangedEvent<P0>(&self, sender: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
-        (windows_core::Interface::vtable(self).HandleFocusChangedEvent)(windows_core::Interface::as_raw(self), sender.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).HandleFocusChangedEvent)(windows_core::Interface::as_raw(self), sender.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -10078,11 +10078,11 @@ windows_core::imp::interface_hierarchy!(IUIAutomationItemContainerPattern, windo
 impl IUIAutomationItemContainerPattern {
     pub unsafe fn FindItemByProperty<P0, P1>(&self, pstartafter: P0, propertyid: UIA_PROPERTY_ID, value: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindItemByProperty)(windows_core::Interface::as_raw(self), pstartafter.into_param().abi(), propertyid, value.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindItemByProperty)(windows_core::Interface::as_raw(self), pstartafter.param().abi(), propertyid, value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -10101,9 +10101,9 @@ impl IUIAutomationLegacyIAccessiblePattern {
     }
     pub unsafe fn SetValue<P0>(&self, szvalue: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), szvalue.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), szvalue.param().abi()).ok()
     }
     pub unsafe fn CurrentChildId(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -10285,11 +10285,11 @@ windows_core::imp::interface_hierarchy!(IUIAutomationNotificationEventHandler, w
 impl IUIAutomationNotificationEventHandler {
     pub unsafe fn HandleNotificationEvent<P0, P1, P2>(&self, sender: P0, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: P1, activityid: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).HandleNotificationEvent)(windows_core::Interface::as_raw(self), sender.into_param().abi(), notificationkind, notificationprocessing, displaystring.into_param().abi(), activityid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).HandleNotificationEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), notificationkind, notificationprocessing, displaystring.param().abi(), activityid.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -10341,16 +10341,16 @@ windows_core::imp::interface_hierarchy!(IUIAutomationPatternHandler, windows_cor
 impl IUIAutomationPatternHandler {
     pub unsafe fn CreateClientWrapper<P0>(&self, ppatterninstance: P0) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::IntoParam<IUIAutomationPatternInstance>,
+        P0: windows_core::Param<IUIAutomationPatternInstance>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateClientWrapper)(windows_core::Interface::as_raw(self), ppatterninstance.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateClientWrapper)(windows_core::Interface::as_raw(self), ppatterninstance.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Dispatch<P0>(&self, ptarget: P0, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Dispatch)(windows_core::Interface::as_raw(self), ptarget.into_param().abi(), index, pparams, cparams).ok()
+        (windows_core::Interface::vtable(self).Dispatch)(windows_core::Interface::as_raw(self), ptarget.param().abi(), index, pparams, cparams).ok()
     }
 }
 #[repr(C)]
@@ -10364,9 +10364,9 @@ windows_core::imp::interface_hierarchy!(IUIAutomationPatternInstance, windows_co
 impl IUIAutomationPatternInstance {
     pub unsafe fn GetProperty<P0>(&self, index: u32, cached: P0, r#type: UIAutomationType, pptr: *mut core::ffi::c_void) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), index, cached.into_param().abi(), r#type, pptr).ok()
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), index, cached.param().abi(), r#type, pptr).ok()
     }
     pub unsafe fn CallMethod(&self, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CallMethod)(windows_core::Interface::as_raw(self), index, pparams, cparams).ok()
@@ -10383,10 +10383,10 @@ windows_core::imp::interface_hierarchy!(IUIAutomationPropertyChangedEventHandler
 impl IUIAutomationPropertyChangedEventHandler {
     pub unsafe fn HandlePropertyChangedEvent<P0, P1>(&self, sender: P0, propertyid: UIA_PROPERTY_ID, newvalue: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).HandlePropertyChangedEvent)(windows_core::Interface::as_raw(self), sender.into_param().abi(), propertyid, newvalue.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).HandlePropertyChangedEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), propertyid, newvalue.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -10422,10 +10422,10 @@ windows_core::imp::interface_hierarchy!(IUIAutomationProxyFactory, windows_core:
 impl IUIAutomationProxyFactory {
     pub unsafe fn CreateProvider<P0>(&self, hwnd: P0, idobject: i32, idchild: i32) -> windows_core::Result<IRawElementProviderSimple>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateProvider)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), idobject, idchild, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateProvider)(windows_core::Interface::as_raw(self), hwnd.param().abi(), idobject, idchild, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ProxyFactoryId(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -10467,33 +10467,33 @@ impl IUIAutomationProxyFactoryEntry {
     }
     pub unsafe fn SetClassName<P0>(&self, classname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetClassName)(windows_core::Interface::as_raw(self), classname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetClassName)(windows_core::Interface::as_raw(self), classname.param().abi()).ok()
     }
     pub unsafe fn SetImageName<P0>(&self, imagename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetImageName)(windows_core::Interface::as_raw(self), imagename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetImageName)(windows_core::Interface::as_raw(self), imagename.param().abi()).ok()
     }
     pub unsafe fn SetAllowSubstringMatch<P0>(&self, allowsubstringmatch: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetAllowSubstringMatch)(windows_core::Interface::as_raw(self), allowsubstringmatch.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAllowSubstringMatch)(windows_core::Interface::as_raw(self), allowsubstringmatch.param().abi()).ok()
     }
     pub unsafe fn SetCanCheckBaseClass<P0>(&self, cancheckbaseclass: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetCanCheckBaseClass)(windows_core::Interface::as_raw(self), cancheckbaseclass.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCanCheckBaseClass)(windows_core::Interface::as_raw(self), cancheckbaseclass.param().abi()).ok()
     }
     pub unsafe fn SetNeedsAdviseEvents<P0>(&self, adviseevents: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetNeedsAdviseEvents)(windows_core::Interface::as_raw(self), adviseevents.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetNeedsAdviseEvents)(windows_core::Interface::as_raw(self), adviseevents.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID, winevents: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
@@ -10554,9 +10554,9 @@ impl IUIAutomationProxyFactoryMapping {
     }
     pub unsafe fn InsertEntry<P0>(&self, before: u32, factory: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationProxyFactoryEntry>,
+        P0: windows_core::Param<IUIAutomationProxyFactoryEntry>,
     {
-        (windows_core::Interface::vtable(self).InsertEntry)(windows_core::Interface::as_raw(self), before, factory.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).InsertEntry)(windows_core::Interface::as_raw(self), before, factory.param().abi()).ok()
     }
     pub unsafe fn RemoveEntry(&self, index: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveEntry)(windows_core::Interface::as_raw(self), index).ok()
@@ -10973,10 +10973,10 @@ windows_core::imp::interface_hierarchy!(IUIAutomationSpreadsheetPattern, windows
 impl IUIAutomationSpreadsheetPattern {
     pub unsafe fn GetItemByName<P0>(&self, name: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetItemByName)(windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetItemByName)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -10990,9 +10990,9 @@ impl IUIAutomationStructureChangedEventHandler {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HandleStructureChangedEvent<P0>(&self, sender: P0, changetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
-        (windows_core::Interface::vtable(self).HandleStructureChangedEvent)(windows_core::Interface::as_raw(self), sender.into_param().abi(), changetype, runtimeid).ok()
+        (windows_core::Interface::vtable(self).HandleStructureChangedEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), changetype, runtimeid).ok()
     }
 }
 #[repr(C)]
@@ -11198,10 +11198,10 @@ impl IUIAutomationTextEditPattern {
     }
     pub unsafe fn RangeFromChild<P0>(&self, child: P0) -> windows_core::Result<IUIAutomationTextRange>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RangeFromChild)(windows_core::Interface::as_raw(self), child.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.RangeFromChild)(windows_core::Interface::as_raw(self), child.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSelection(&self) -> windows_core::Result<IUIAutomationTextRangeArray> {
         let mut result__ = std::mem::zeroed();
@@ -11240,9 +11240,9 @@ impl IUIAutomationTextEditTextChangedEventHandler {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HandleTextEditTextChangedEvent<P0>(&self, sender: P0, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
-        (windows_core::Interface::vtable(self).HandleTextEditTextChangedEvent)(windows_core::Interface::as_raw(self), sender.into_param().abi(), texteditchangetype, eventstrings).ok()
+        (windows_core::Interface::vtable(self).HandleTextEditTextChangedEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), texteditchangetype, eventstrings).ok()
     }
 }
 #[repr(C)]
@@ -11262,10 +11262,10 @@ impl IUIAutomationTextPattern {
     }
     pub unsafe fn RangeFromChild<P0>(&self, child: P0) -> windows_core::Result<IUIAutomationTextRange>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).RangeFromChild)(windows_core::Interface::as_raw(self), child.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RangeFromChild)(windows_core::Interface::as_raw(self), child.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSelection(&self) -> windows_core::Result<IUIAutomationTextRangeArray> {
         let mut result__ = std::mem::zeroed();
@@ -11303,10 +11303,10 @@ impl IUIAutomationTextPattern2 {
     }
     pub unsafe fn RangeFromChild<P0>(&self, child: P0) -> windows_core::Result<IUIAutomationTextRange>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RangeFromChild)(windows_core::Interface::as_raw(self), child.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.RangeFromChild)(windows_core::Interface::as_raw(self), child.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSelection(&self) -> windows_core::Result<IUIAutomationTextRangeArray> {
         let mut result__ = std::mem::zeroed();
@@ -11326,10 +11326,10 @@ impl IUIAutomationTextPattern2 {
     }
     pub unsafe fn RangeFromAnnotation<P0>(&self, annotation: P0) -> windows_core::Result<IUIAutomationTextRange>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).RangeFromAnnotation)(windows_core::Interface::as_raw(self), annotation.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RangeFromAnnotation)(windows_core::Interface::as_raw(self), annotation.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL) -> windows_core::Result<IUIAutomationTextRange> {
         let mut result__ = std::mem::zeroed();
@@ -11351,37 +11351,37 @@ impl IUIAutomationTextRange {
     }
     pub unsafe fn Compare<P0>(&self, range: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<IUIAutomationTextRange>,
+        P0: windows_core::Param<IUIAutomationTextRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), range.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), range.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CompareEndpoints<P0>(&self, srcendpoint: TextPatternRangeEndpoint, range: P0, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<IUIAutomationTextRange>,
+        P0: windows_core::Param<IUIAutomationTextRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CompareEndpoints)(windows_core::Interface::as_raw(self), srcendpoint, range.into_param().abi(), targetendpoint, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CompareEndpoints)(windows_core::Interface::as_raw(self), srcendpoint, range.param().abi(), targetendpoint, &mut result__).map(|| result__)
     }
     pub unsafe fn ExpandToEnclosingUnit(&self, textunit: TextUnit) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ExpandToEnclosingUnit)(windows_core::Interface::as_raw(self), textunit).ok()
     }
     pub unsafe fn FindAttribute<P0, P1>(&self, attr: UIA_TEXTATTRIBUTE_ID, val: P0, backward: P1) -> windows_core::Result<IUIAutomationTextRange>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindAttribute)(windows_core::Interface::as_raw(self), attr, val.into_param().abi(), backward.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindAttribute)(windows_core::Interface::as_raw(self), attr, val.param().abi(), backward.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindText<P0, P1, P2>(&self, text: P0, backward: P1, ignorecase: P2) -> windows_core::Result<IUIAutomationTextRange>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindText)(windows_core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindText)(windows_core::Interface::as_raw(self), text.param().abi(), backward.param().abi(), ignorecase.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -11410,9 +11410,9 @@ impl IUIAutomationTextRange {
     }
     pub unsafe fn MoveEndpointByRange<P0>(&self, srcendpoint: TextPatternRangeEndpoint, range: P0, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationTextRange>,
+        P0: windows_core::Param<IUIAutomationTextRange>,
     {
-        (windows_core::Interface::vtable(self).MoveEndpointByRange)(windows_core::Interface::as_raw(self), srcendpoint, range.into_param().abi(), targetendpoint).ok()
+        (windows_core::Interface::vtable(self).MoveEndpointByRange)(windows_core::Interface::as_raw(self), srcendpoint, range.param().abi(), targetendpoint).ok()
     }
     pub unsafe fn Select(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Select)(windows_core::Interface::as_raw(self)).ok()
@@ -11425,9 +11425,9 @@ impl IUIAutomationTextRange {
     }
     pub unsafe fn ScrollIntoView<P0>(&self, aligntotop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).ScrollIntoView)(windows_core::Interface::as_raw(self), aligntotop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ScrollIntoView)(windows_core::Interface::as_raw(self), aligntotop.param().abi()).ok()
     }
     pub unsafe fn GetChildren(&self) -> windows_core::Result<IUIAutomationElementArray> {
         let mut result__ = std::mem::zeroed();
@@ -11468,37 +11468,37 @@ impl IUIAutomationTextRange2 {
     }
     pub unsafe fn Compare<P0>(&self, range: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<IUIAutomationTextRange>,
+        P0: windows_core::Param<IUIAutomationTextRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Compare)(windows_core::Interface::as_raw(self), range.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.Compare)(windows_core::Interface::as_raw(self), range.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CompareEndpoints<P0>(&self, srcendpoint: TextPatternRangeEndpoint, range: P0, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<IUIAutomationTextRange>,
+        P0: windows_core::Param<IUIAutomationTextRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CompareEndpoints)(windows_core::Interface::as_raw(self), srcendpoint, range.into_param().abi(), targetendpoint, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.CompareEndpoints)(windows_core::Interface::as_raw(self), srcendpoint, range.param().abi(), targetendpoint, &mut result__).map(|| result__)
     }
     pub unsafe fn ExpandToEnclosingUnit(&self, textunit: TextUnit) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.ExpandToEnclosingUnit)(windows_core::Interface::as_raw(self), textunit).ok()
     }
     pub unsafe fn FindAttribute<P0, P1>(&self, attr: UIA_TEXTATTRIBUTE_ID, val: P0, backward: P1) -> windows_core::Result<IUIAutomationTextRange>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindAttribute)(windows_core::Interface::as_raw(self), attr, val.into_param().abi(), backward.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.FindAttribute)(windows_core::Interface::as_raw(self), attr, val.param().abi(), backward.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindText<P0, P1, P2>(&self, text: P0, backward: P1, ignorecase: P2) -> windows_core::Result<IUIAutomationTextRange>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindText)(windows_core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.FindText)(windows_core::Interface::as_raw(self), text.param().abi(), backward.param().abi(), ignorecase.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -11527,9 +11527,9 @@ impl IUIAutomationTextRange2 {
     }
     pub unsafe fn MoveEndpointByRange<P0>(&self, srcendpoint: TextPatternRangeEndpoint, range: P0, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationTextRange>,
+        P0: windows_core::Param<IUIAutomationTextRange>,
     {
-        (windows_core::Interface::vtable(self).base__.MoveEndpointByRange)(windows_core::Interface::as_raw(self), srcendpoint, range.into_param().abi(), targetendpoint).ok()
+        (windows_core::Interface::vtable(self).base__.MoveEndpointByRange)(windows_core::Interface::as_raw(self), srcendpoint, range.param().abi(), targetendpoint).ok()
     }
     pub unsafe fn Select(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Select)(windows_core::Interface::as_raw(self)).ok()
@@ -11542,9 +11542,9 @@ impl IUIAutomationTextRange2 {
     }
     pub unsafe fn ScrollIntoView<P0>(&self, aligntotop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.ScrollIntoView)(windows_core::Interface::as_raw(self), aligntotop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.ScrollIntoView)(windows_core::Interface::as_raw(self), aligntotop.param().abi()).ok()
     }
     pub unsafe fn GetChildren(&self) -> windows_core::Result<IUIAutomationElementArray> {
         let mut result__ = std::mem::zeroed();
@@ -11568,37 +11568,37 @@ impl IUIAutomationTextRange3 {
     }
     pub unsafe fn Compare<P0>(&self, range: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<IUIAutomationTextRange>,
+        P0: windows_core::Param<IUIAutomationTextRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Compare)(windows_core::Interface::as_raw(self), range.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.Compare)(windows_core::Interface::as_raw(self), range.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CompareEndpoints<P0>(&self, srcendpoint: TextPatternRangeEndpoint, range: P0, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<IUIAutomationTextRange>,
+        P0: windows_core::Param<IUIAutomationTextRange>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CompareEndpoints)(windows_core::Interface::as_raw(self), srcendpoint, range.into_param().abi(), targetendpoint, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.CompareEndpoints)(windows_core::Interface::as_raw(self), srcendpoint, range.param().abi(), targetendpoint, &mut result__).map(|| result__)
     }
     pub unsafe fn ExpandToEnclosingUnit(&self, textunit: TextUnit) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.ExpandToEnclosingUnit)(windows_core::Interface::as_raw(self), textunit).ok()
     }
     pub unsafe fn FindAttribute<P0, P1>(&self, attr: UIA_TEXTATTRIBUTE_ID, val: P0, backward: P1) -> windows_core::Result<IUIAutomationTextRange>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.FindAttribute)(windows_core::Interface::as_raw(self), attr, val.into_param().abi(), backward.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.FindAttribute)(windows_core::Interface::as_raw(self), attr, val.param().abi(), backward.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindText<P0, P1, P2>(&self, text: P0, backward: P1, ignorecase: P2) -> windows_core::Result<IUIAutomationTextRange>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.FindText)(windows_core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.FindText)(windows_core::Interface::as_raw(self), text.param().abi(), backward.param().abi(), ignorecase.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -11627,9 +11627,9 @@ impl IUIAutomationTextRange3 {
     }
     pub unsafe fn MoveEndpointByRange<P0>(&self, srcendpoint: TextPatternRangeEndpoint, range: P0, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUIAutomationTextRange>,
+        P0: windows_core::Param<IUIAutomationTextRange>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.MoveEndpointByRange)(windows_core::Interface::as_raw(self), srcendpoint, range.into_param().abi(), targetendpoint).ok()
+        (windows_core::Interface::vtable(self).base__.base__.MoveEndpointByRange)(windows_core::Interface::as_raw(self), srcendpoint, range.param().abi(), targetendpoint).ok()
     }
     pub unsafe fn Select(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.Select)(windows_core::Interface::as_raw(self)).ok()
@@ -11642,9 +11642,9 @@ impl IUIAutomationTextRange3 {
     }
     pub unsafe fn ScrollIntoView<P0>(&self, aligntotop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.ScrollIntoView)(windows_core::Interface::as_raw(self), aligntotop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.ScrollIntoView)(windows_core::Interface::as_raw(self), aligntotop.param().abi()).ok()
     }
     pub unsafe fn GetChildren(&self) -> windows_core::Result<IUIAutomationElementArray> {
         let mut result__ = std::mem::zeroed();
@@ -11655,17 +11655,17 @@ impl IUIAutomationTextRange3 {
     }
     pub unsafe fn GetEnclosingElementBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetEnclosingElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetEnclosingElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetChildrenBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElementArray>
     where
-        P0: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetChildrenBuildCache)(windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetChildrenBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAttributeValues(&self, attributeids: &[UIA_TEXTATTRIBUTE_ID]) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
@@ -11867,93 +11867,93 @@ windows_core::imp::interface_hierarchy!(IUIAutomationTreeWalker, windows_core::I
 impl IUIAutomationTreeWalker {
     pub unsafe fn GetParentElement<P0>(&self, element: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetParentElement)(windows_core::Interface::as_raw(self), element.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetParentElement)(windows_core::Interface::as_raw(self), element.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFirstChildElement<P0>(&self, element: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFirstChildElement)(windows_core::Interface::as_raw(self), element.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetFirstChildElement)(windows_core::Interface::as_raw(self), element.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLastChildElement<P0>(&self, element: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetLastChildElement)(windows_core::Interface::as_raw(self), element.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetLastChildElement)(windows_core::Interface::as_raw(self), element.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetNextSiblingElement<P0>(&self, element: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetNextSiblingElement)(windows_core::Interface::as_raw(self), element.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetNextSiblingElement)(windows_core::Interface::as_raw(self), element.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPreviousSiblingElement<P0>(&self, element: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPreviousSiblingElement)(windows_core::Interface::as_raw(self), element.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetPreviousSiblingElement)(windows_core::Interface::as_raw(self), element.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn NormalizeElement<P0>(&self, element: P0) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
+        P0: windows_core::Param<IUIAutomationElement>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).NormalizeElement)(windows_core::Interface::as_raw(self), element.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).NormalizeElement)(windows_core::Interface::as_raw(self), element.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetParentElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetParentElementBuildCache)(windows_core::Interface::as_raw(self), element.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetParentElementBuildCache)(windows_core::Interface::as_raw(self), element.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFirstChildElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFirstChildElementBuildCache)(windows_core::Interface::as_raw(self), element.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetFirstChildElementBuildCache)(windows_core::Interface::as_raw(self), element.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLastChildElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetLastChildElementBuildCache)(windows_core::Interface::as_raw(self), element.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetLastChildElementBuildCache)(windows_core::Interface::as_raw(self), element.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetNextSiblingElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetNextSiblingElementBuildCache)(windows_core::Interface::as_raw(self), element.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetNextSiblingElementBuildCache)(windows_core::Interface::as_raw(self), element.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPreviousSiblingElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPreviousSiblingElementBuildCache)(windows_core::Interface::as_raw(self), element.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetPreviousSiblingElementBuildCache)(windows_core::Interface::as_raw(self), element.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn NormalizeElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
     where
-        P0: windows_core::IntoParam<IUIAutomationElement>,
-        P1: windows_core::IntoParam<IUIAutomationCacheRequest>,
+        P0: windows_core::Param<IUIAutomationElement>,
+        P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).NormalizeElementBuildCache)(windows_core::Interface::as_raw(self), element.into_param().abi(), cacherequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).NormalizeElementBuildCache)(windows_core::Interface::as_raw(self), element.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Condition(&self) -> windows_core::Result<IUIAutomationCondition> {
         let mut result__ = std::mem::zeroed();
@@ -11982,9 +11982,9 @@ windows_core::imp::interface_hierarchy!(IUIAutomationValuePattern, windows_core:
 impl IUIAutomationValuePattern {
     pub unsafe fn SetValue<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn CurrentValue(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -12110,9 +12110,9 @@ windows_core::imp::interface_hierarchy!(IValueProvider, windows_core::IUnknown);
 impl IValueProvider {
     pub unsafe fn SetValue<P0>(&self, val: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), val.param().abi()).ok()
     }
     pub unsafe fn Value(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();

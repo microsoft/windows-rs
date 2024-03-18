@@ -1,79 +1,79 @@
 #[inline]
 pub unsafe fn SwDeviceClose<P0>(hswdevice: P0)
 where
-    P0: windows_core::IntoParam<HSWDEVICE>,
+    P0: windows_core::Param<HSWDEVICE>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceClose(hswdevice : HSWDEVICE));
-    SwDeviceClose(hswdevice.into_param().abi())
+    SwDeviceClose(hswdevice.param().abi())
 }
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn SwDeviceCreate<P0, P1>(pszenumeratorname: P0, pszparentdeviceinstance: P1, pcreateinfo: *const SW_DEVICE_CREATE_INFO, pproperties: Option<&[super::super::Properties::DEVPROPERTY]>, pcallback: SW_DEVICE_CREATE_CALLBACK, pcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<HSWDEVICE>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceCreate(pszenumeratorname : windows_core::PCWSTR, pszparentdeviceinstance : windows_core::PCWSTR, pcreateinfo : *const SW_DEVICE_CREATE_INFO, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY, pcallback : SW_DEVICE_CREATE_CALLBACK, pcontext : *const core::ffi::c_void, phswdevice : *mut HSWDEVICE) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    SwDeviceCreate(pszenumeratorname.into_param().abi(), pszparentdeviceinstance.into_param().abi(), pcreateinfo, pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcallback, core::mem::transmute(pcontext.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
+    SwDeviceCreate(pszenumeratorname.param().abi(), pszparentdeviceinstance.param().abi(), pcreateinfo, pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcallback, core::mem::transmute(pcontext.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn SwDeviceGetLifetime<P0>(hswdevice: P0) -> windows_core::Result<SW_DEVICE_LIFETIME>
 where
-    P0: windows_core::IntoParam<HSWDEVICE>,
+    P0: windows_core::Param<HSWDEVICE>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceGetLifetime(hswdevice : HSWDEVICE, plifetime : *mut SW_DEVICE_LIFETIME) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    SwDeviceGetLifetime(hswdevice.into_param().abi(), &mut result__).map(|| result__)
+    SwDeviceGetLifetime(hswdevice.param().abi(), &mut result__).map(|| result__)
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
 pub unsafe fn SwDeviceInterfacePropertySet<P0, P1>(hswdevice: P0, pszdeviceinterfaceid: P1, pproperties: &[super::super::Properties::DEVPROPERTY]) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HSWDEVICE>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<HSWDEVICE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceInterfacePropertySet(hswdevice : HSWDEVICE, pszdeviceinterfaceid : windows_core::PCWSTR, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY) -> windows_core::HRESULT);
-    SwDeviceInterfacePropertySet(hswdevice.into_param().abi(), pszdeviceinterfaceid.into_param().abi(), pproperties.len().try_into().unwrap(), core::mem::transmute(pproperties.as_ptr())).ok()
+    SwDeviceInterfacePropertySet(hswdevice.param().abi(), pszdeviceinterfaceid.param().abi(), pproperties.len().try_into().unwrap(), core::mem::transmute(pproperties.as_ptr())).ok()
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
 pub unsafe fn SwDeviceInterfaceRegister<P0, P1, P2>(hswdevice: P0, pinterfaceclassguid: *const windows_core::GUID, pszreferencestring: P1, pproperties: Option<&[super::super::Properties::DEVPROPERTY]>, fenabled: P2) -> windows_core::Result<windows_core::PWSTR>
 where
-    P0: windows_core::IntoParam<HSWDEVICE>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
-    P2: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+    P0: windows_core::Param<HSWDEVICE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<super::super::super::Foundation::BOOL>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceInterfaceRegister(hswdevice : HSWDEVICE, pinterfaceclassguid : *const windows_core::GUID, pszreferencestring : windows_core::PCWSTR, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY, fenabled : super::super::super::Foundation:: BOOL, ppszdeviceinterfaceid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    SwDeviceInterfaceRegister(hswdevice.into_param().abi(), pinterfaceclassguid, pszreferencestring.into_param().abi(), pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), fenabled.into_param().abi(), &mut result__).map(|| result__)
+    SwDeviceInterfaceRegister(hswdevice.param().abi(), pinterfaceclassguid, pszreferencestring.param().abi(), pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), fenabled.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn SwDeviceInterfaceSetState<P0, P1, P2>(hswdevice: P0, pszdeviceinterfaceid: P1, fenabled: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HSWDEVICE>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
-    P2: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+    P0: windows_core::Param<HSWDEVICE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<super::super::super::Foundation::BOOL>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceInterfaceSetState(hswdevice : HSWDEVICE, pszdeviceinterfaceid : windows_core::PCWSTR, fenabled : super::super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    SwDeviceInterfaceSetState(hswdevice.into_param().abi(), pszdeviceinterfaceid.into_param().abi(), fenabled.into_param().abi()).ok()
+    SwDeviceInterfaceSetState(hswdevice.param().abi(), pszdeviceinterfaceid.param().abi(), fenabled.param().abi()).ok()
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
 pub unsafe fn SwDevicePropertySet<P0>(hswdevice: P0, pproperties: &[super::super::Properties::DEVPROPERTY]) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HSWDEVICE>,
+    P0: windows_core::Param<HSWDEVICE>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDevicePropertySet(hswdevice : HSWDEVICE, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY) -> windows_core::HRESULT);
-    SwDevicePropertySet(hswdevice.into_param().abi(), pproperties.len().try_into().unwrap(), core::mem::transmute(pproperties.as_ptr())).ok()
+    SwDevicePropertySet(hswdevice.param().abi(), pproperties.len().try_into().unwrap(), core::mem::transmute(pproperties.as_ptr())).ok()
 }
 #[inline]
 pub unsafe fn SwDeviceSetLifetime<P0>(hswdevice: P0, lifetime: SW_DEVICE_LIFETIME) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<HSWDEVICE>,
+    P0: windows_core::Param<HSWDEVICE>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn SwDeviceSetLifetime(hswdevice : HSWDEVICE, lifetime : SW_DEVICE_LIFETIME) -> windows_core::HRESULT);
-    SwDeviceSetLifetime(hswdevice.into_param().abi(), lifetime).ok()
+    SwDeviceSetLifetime(hswdevice.param().abi(), lifetime).ok()
 }
 #[inline]
 pub unsafe fn SwMemFree(pmem: *const core::ffi::c_void) {
@@ -121,16 +121,16 @@ impl IUPnPDescriptionDocument {
     }
     pub unsafe fn Load<P0>(&self, bstrurl: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), bstrurl.param().abi()).ok()
     }
     pub unsafe fn LoadAsync<P0, P1>(&self, bstrurl: P0, punkcallback: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).LoadAsync)(windows_core::Interface::as_raw(self), bstrurl.into_param().abi(), punkcallback.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).LoadAsync)(windows_core::Interface::as_raw(self), bstrurl.param().abi(), punkcallback.param().abi()).ok()
     }
     pub unsafe fn LoadResult(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -147,10 +147,10 @@ impl IUPnPDescriptionDocument {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeviceByUDN<P0>(&self, bstrudn: P0) -> windows_core::Result<IUPnPDevice>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).DeviceByUDN)(windows_core::Interface::as_raw(self), bstrudn.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).DeviceByUDN)(windows_core::Interface::as_raw(self), bstrudn.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -262,10 +262,10 @@ impl IUPnPDevice {
     }
     pub unsafe fn IconURL<P0>(&self, bstrencodingformat: P0, lsizex: i32, lsizey: i32, lbitdepth: i32) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).IconURL)(windows_core::Interface::as_raw(self), bstrencodingformat.into_param().abi(), lsizex, lsizey, lbitdepth, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).IconURL)(windows_core::Interface::as_raw(self), bstrencodingformat.param().abi(), lsizex, lsizey, lbitdepth, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Services(&self) -> windows_core::Result<IUPnPServices> {
@@ -314,20 +314,20 @@ windows_core::imp::interface_hierarchy!(IUPnPDeviceControl, windows_core::IUnkno
 impl IUPnPDeviceControl {
     pub unsafe fn Initialize<P0, P1, P2>(&self, bstrxmldesc: P0, bstrdeviceidentifier: P1, bstrinitstring: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), bstrxmldesc.into_param().abi(), bstrdeviceidentifier.into_param().abi(), bstrinitstring.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), bstrxmldesc.param().abi(), bstrdeviceidentifier.param().abi(), bstrinitstring.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetServiceObject<P0, P1>(&self, bstrudn: P0, bstrserviceid: P1) -> windows_core::Result<super::super::super::System::Com::IDispatch>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetServiceObject)(windows_core::Interface::as_raw(self), bstrudn.into_param().abi(), bstrserviceid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetServiceObject)(windows_core::Interface::as_raw(self), bstrudn.param().abi(), bstrserviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -387,18 +387,18 @@ impl IUPnPDeviceFinder {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindByType<P0>(&self, bstrtypeuri: P0, dwflags: u32) -> windows_core::Result<IUPnPDevices>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindByType)(windows_core::Interface::as_raw(self), bstrtypeuri.into_param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindByType)(windows_core::Interface::as_raw(self), bstrtypeuri.param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateAsyncFind<P0, P1>(&self, bstrtypeuri: P0, dwflags: u32, punkdevicefindercallback: P1) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateAsyncFind)(windows_core::Interface::as_raw(self), bstrtypeuri.into_param().abi(), dwflags, punkdevicefindercallback.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CreateAsyncFind)(windows_core::Interface::as_raw(self), bstrtypeuri.param().abi(), dwflags, punkdevicefindercallback.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn StartAsyncFind(&self, lfinddata: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).StartAsyncFind)(windows_core::Interface::as_raw(self), lfinddata).ok()
@@ -409,10 +409,10 @@ impl IUPnPDeviceFinder {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindByUDN<P0>(&self, bstrudn: P0) -> windows_core::Result<IUPnPDevice>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).FindByUDN)(windows_core::Interface::as_raw(self), bstrudn.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FindByUDN)(windows_core::Interface::as_raw(self), bstrudn.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -437,9 +437,9 @@ impl IUPnPDeviceFinderAddCallbackWithInterface {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeviceAddedWithInterface<P0>(&self, lfinddata: i32, pdevice: P0, pguidinterface: *const windows_core::GUID) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUPnPDevice>,
+        P0: windows_core::Param<IUPnPDevice>,
     {
-        (windows_core::Interface::vtable(self).DeviceAddedWithInterface)(windows_core::Interface::as_raw(self), lfinddata, pdevice.into_param().abi(), pguidinterface).ok()
+        (windows_core::Interface::vtable(self).DeviceAddedWithInterface)(windows_core::Interface::as_raw(self), lfinddata, pdevice.param().abi(), pguidinterface).ok()
     }
 }
 #[repr(C)]
@@ -456,15 +456,15 @@ impl IUPnPDeviceFinderCallback {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeviceAdded<P0>(&self, lfinddata: i32, pdevice: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUPnPDevice>,
+        P0: windows_core::Param<IUPnPDevice>,
     {
-        (windows_core::Interface::vtable(self).DeviceAdded)(windows_core::Interface::as_raw(self), lfinddata, pdevice.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeviceAdded)(windows_core::Interface::as_raw(self), lfinddata, pdevice.param().abi()).ok()
     }
     pub unsafe fn DeviceRemoved<P0>(&self, lfinddata: i32, bstrudn: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).DeviceRemoved)(windows_core::Interface::as_raw(self), lfinddata, bstrudn.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeviceRemoved)(windows_core::Interface::as_raw(self), lfinddata, bstrudn.param().abi()).ok()
     }
     pub unsafe fn SearchComplete(&self, lfinddata: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SearchComplete)(windows_core::Interface::as_raw(self), lfinddata).ok()
@@ -485,9 +485,9 @@ windows_core::imp::interface_hierarchy!(IUPnPDeviceProvider, windows_core::IUnkn
 impl IUPnPDeviceProvider {
     pub unsafe fn Start<P0>(&self, bstrinitstring: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), bstrinitstring.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), bstrinitstring.param().abi()).ok()
     }
     pub unsafe fn Stop(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok()
@@ -516,10 +516,10 @@ impl IUPnPDevices {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, bstrudn: P0) -> windows_core::Result<IUPnPDevice>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), bstrudn.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), bstrudn.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -541,9 +541,9 @@ impl IUPnPEventSink {
     }
     pub unsafe fn OnStateChangedSafe<P0>(&self, varsadispidchanges: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).OnStateChangedSafe)(windows_core::Interface::as_raw(self), varsadispidchanges.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnStateChangedSafe)(windows_core::Interface::as_raw(self), varsadispidchanges.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -557,15 +557,15 @@ windows_core::imp::interface_hierarchy!(IUPnPEventSource, windows_core::IUnknown
 impl IUPnPEventSource {
     pub unsafe fn Advise<P0>(&self, pessubscriber: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUPnPEventSink>,
+        P0: windows_core::Param<IUPnPEventSink>,
     {
-        (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), pessubscriber.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), pessubscriber.param().abi()).ok()
     }
     pub unsafe fn Unadvise<P0>(&self, pessubscriber: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUPnPEventSink>,
+        P0: windows_core::Param<IUPnPEventSink>,
     {
-        (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), pessubscriber.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), pessubscriber.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -579,9 +579,9 @@ windows_core::imp::interface_hierarchy!(IUPnPHttpHeaderControl, windows_core::IU
 impl IUPnPHttpHeaderControl {
     pub unsafe fn AddRequestHeaders<P0>(&self, bstrhttpheaders: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).AddRequestHeaders)(windows_core::Interface::as_raw(self), bstrhttpheaders.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddRequestHeaders)(windows_core::Interface::as_raw(self), bstrhttpheaders.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -594,54 +594,54 @@ windows_core::imp::interface_hierarchy!(IUPnPRegistrar, windows_core::IUnknown);
 impl IUPnPRegistrar {
     pub unsafe fn RegisterDevice<P0, P1, P2, P3, P4>(&self, bstrxmldesc: P0, bstrprogiddevicecontrolclass: P1, bstrinitstring: P2, bstrcontainerid: P3, bstrresourcepath: P4, nlifetime: i32) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
-        P3: windows_core::IntoParam<windows_core::BSTR>,
-        P4: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
+        P3: windows_core::Param<windows_core::BSTR>,
+        P4: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).RegisterDevice)(windows_core::Interface::as_raw(self), bstrxmldesc.into_param().abi(), bstrprogiddevicecontrolclass.into_param().abi(), bstrinitstring.into_param().abi(), bstrcontainerid.into_param().abi(), bstrresourcepath.into_param().abi(), nlifetime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RegisterDevice)(windows_core::Interface::as_raw(self), bstrxmldesc.param().abi(), bstrprogiddevicecontrolclass.param().abi(), bstrinitstring.param().abi(), bstrcontainerid.param().abi(), bstrresourcepath.param().abi(), nlifetime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterRunningDevice<P0, P1, P2, P3>(&self, bstrxmldesc: P0, punkdevicecontrol: P1, bstrinitstring: P2, bstrresourcepath: P3, nlifetime: i32) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
-        P3: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::IUnknown>,
+        P2: windows_core::Param<windows_core::BSTR>,
+        P3: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).RegisterRunningDevice)(windows_core::Interface::as_raw(self), bstrxmldesc.into_param().abi(), punkdevicecontrol.into_param().abi(), bstrinitstring.into_param().abi(), bstrresourcepath.into_param().abi(), nlifetime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RegisterRunningDevice)(windows_core::Interface::as_raw(self), bstrxmldesc.param().abi(), punkdevicecontrol.param().abi(), bstrinitstring.param().abi(), bstrresourcepath.param().abi(), nlifetime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RegisterDeviceProvider<P0, P1, P2, P3>(&self, bstrprovidername: P0, bstrprogidproviderclass: P1, bstrinitstring: P2, bstrcontainerid: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
-        P3: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
+        P3: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).RegisterDeviceProvider)(windows_core::Interface::as_raw(self), bstrprovidername.into_param().abi(), bstrprogidproviderclass.into_param().abi(), bstrinitstring.into_param().abi(), bstrcontainerid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterDeviceProvider)(windows_core::Interface::as_raw(self), bstrprovidername.param().abi(), bstrprogidproviderclass.param().abi(), bstrinitstring.param().abi(), bstrcontainerid.param().abi()).ok()
     }
     pub unsafe fn GetUniqueDeviceName<P0, P1>(&self, bstrdeviceidentifier: P0, bstrtemplateudn: P1) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetUniqueDeviceName)(windows_core::Interface::as_raw(self), bstrdeviceidentifier.into_param().abi(), bstrtemplateudn.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetUniqueDeviceName)(windows_core::Interface::as_raw(self), bstrdeviceidentifier.param().abi(), bstrtemplateudn.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn UnregisterDevice<P0, P1>(&self, bstrdeviceidentifier: P0, fpermanent: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).UnregisterDevice)(windows_core::Interface::as_raw(self), bstrdeviceidentifier.into_param().abi(), fpermanent.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnregisterDevice)(windows_core::Interface::as_raw(self), bstrdeviceidentifier.param().abi(), fpermanent.param().abi()).ok()
     }
     pub unsafe fn UnregisterDeviceProvider<P0>(&self, bstrprovidername: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).UnregisterDeviceProvider)(windows_core::Interface::as_raw(self), bstrprovidername.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnregisterDeviceProvider)(windows_core::Interface::as_raw(self), bstrprovidername.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -659,24 +659,24 @@ windows_core::imp::interface_hierarchy!(IUPnPRemoteEndpointInfo, windows_core::I
 impl IUPnPRemoteEndpointInfo {
     pub unsafe fn GetDwordValue<P0>(&self, bstrvaluename: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDwordValue)(windows_core::Interface::as_raw(self), bstrvaluename.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetDwordValue)(windows_core::Interface::as_raw(self), bstrvaluename.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetStringValue<P0>(&self, bstrvaluename: P0) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetStringValue)(windows_core::Interface::as_raw(self), bstrvaluename.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetStringValue)(windows_core::Interface::as_raw(self), bstrvaluename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetGuidValue<P0>(&self, bstrvaluename: P0) -> windows_core::Result<windows_core::GUID>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetGuidValue)(windows_core::Interface::as_raw(self), bstrvaluename.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetGuidValue)(windows_core::Interface::as_raw(self), bstrvaluename.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -691,24 +691,24 @@ windows_core::imp::interface_hierarchy!(IUPnPReregistrar, windows_core::IUnknown
 impl IUPnPReregistrar {
     pub unsafe fn ReregisterDevice<P0, P1, P2, P3, P4, P5>(&self, bstrdeviceidentifier: P0, bstrxmldesc: P1, bstrprogiddevicecontrolclass: P2, bstrinitstring: P3, bstrcontainerid: P4, bstrresourcepath: P5, nlifetime: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
-        P3: windows_core::IntoParam<windows_core::BSTR>,
-        P4: windows_core::IntoParam<windows_core::BSTR>,
-        P5: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
+        P3: windows_core::Param<windows_core::BSTR>,
+        P4: windows_core::Param<windows_core::BSTR>,
+        P5: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ReregisterDevice)(windows_core::Interface::as_raw(self), bstrdeviceidentifier.into_param().abi(), bstrxmldesc.into_param().abi(), bstrprogiddevicecontrolclass.into_param().abi(), bstrinitstring.into_param().abi(), bstrcontainerid.into_param().abi(), bstrresourcepath.into_param().abi(), nlifetime).ok()
+        (windows_core::Interface::vtable(self).ReregisterDevice)(windows_core::Interface::as_raw(self), bstrdeviceidentifier.param().abi(), bstrxmldesc.param().abi(), bstrprogiddevicecontrolclass.param().abi(), bstrinitstring.param().abi(), bstrcontainerid.param().abi(), bstrresourcepath.param().abi(), nlifetime).ok()
     }
     pub unsafe fn ReregisterRunningDevice<P0, P1, P2, P3, P4>(&self, bstrdeviceidentifier: P0, bstrxmldesc: P1, punkdevicecontrol: P2, bstrinitstring: P3, bstrresourcepath: P4, nlifetime: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::IUnknown>,
-        P3: windows_core::IntoParam<windows_core::BSTR>,
-        P4: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::IUnknown>,
+        P3: windows_core::Param<windows_core::BSTR>,
+        P4: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ReregisterRunningDevice)(windows_core::Interface::as_raw(self), bstrdeviceidentifier.into_param().abi(), bstrxmldesc.into_param().abi(), punkdevicecontrol.into_param().abi(), bstrinitstring.into_param().abi(), bstrresourcepath.into_param().abi(), nlifetime).ok()
+        (windows_core::Interface::vtable(self).ReregisterRunningDevice)(windows_core::Interface::as_raw(self), bstrdeviceidentifier.param().abi(), bstrxmldesc.param().abi(), punkdevicecontrol.param().abi(), bstrinitstring.param().abi(), bstrresourcepath.param().abi(), nlifetime).ok()
     }
 }
 #[repr(C)]
@@ -725,18 +725,18 @@ windows_core::imp::interface_hierarchy!(IUPnPService, windows_core::IUnknown, su
 impl IUPnPService {
     pub unsafe fn QueryStateVariable<P0>(&self, bstrvariablename: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).QueryStateVariable)(windows_core::Interface::as_raw(self), bstrvariablename.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).QueryStateVariable)(windows_core::Interface::as_raw(self), bstrvariablename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InvokeAction<P0, P1>(&self, bstractionname: P0, vinactionargs: P1, pvoutactionargs: *mut windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).InvokeAction)(windows_core::Interface::as_raw(self), bstractionname.into_param().abi(), vinactionargs.into_param().abi(), core::mem::transmute(pvoutactionargs), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).InvokeAction)(windows_core::Interface::as_raw(self), bstractionname.param().abi(), vinactionargs.param().abi(), core::mem::transmute(pvoutactionargs), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ServiceTypeIdentifier(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -744,9 +744,9 @@ impl IUPnPService {
     }
     pub unsafe fn AddCallback<P0>(&self, punkcallback: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).AddCallback)(windows_core::Interface::as_raw(self), punkcallback.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddCallback)(windows_core::Interface::as_raw(self), punkcallback.param().abi()).ok()
     }
     pub unsafe fn Id(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -773,44 +773,44 @@ windows_core::imp::interface_hierarchy!(IUPnPServiceAsync, windows_core::IUnknow
 impl IUPnPServiceAsync {
     pub unsafe fn BeginInvokeAction<P0, P1, P2>(&self, bstractionname: P0, vinactionargs: P1, pasyncresult: P2) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
-        P2: windows_core::IntoParam<IUPnPAsyncResult>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
+        P2: windows_core::Param<IUPnPAsyncResult>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).BeginInvokeAction)(windows_core::Interface::as_raw(self), bstractionname.into_param().abi(), vinactionargs.into_param().abi(), pasyncresult.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).BeginInvokeAction)(windows_core::Interface::as_raw(self), bstractionname.param().abi(), vinactionargs.param().abi(), pasyncresult.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInvokeAction(&self, ullrequestid: u64, pvoutactionargs: *mut windows_core::VARIANT, pvretval: *mut windows_core::VARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndInvokeAction)(windows_core::Interface::as_raw(self), ullrequestid, core::mem::transmute(pvoutactionargs), core::mem::transmute(pvretval)).ok()
     }
     pub unsafe fn BeginQueryStateVariable<P0, P1>(&self, bstrvariablename: P0, pasyncresult: P1) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<IUPnPAsyncResult>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<IUPnPAsyncResult>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).BeginQueryStateVariable)(windows_core::Interface::as_raw(self), bstrvariablename.into_param().abi(), pasyncresult.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).BeginQueryStateVariable)(windows_core::Interface::as_raw(self), bstrvariablename.param().abi(), pasyncresult.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndQueryStateVariable(&self, ullrequestid: u64, pvalue: *mut windows_core::VARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndQueryStateVariable)(windows_core::Interface::as_raw(self), ullrequestid, core::mem::transmute(pvalue)).ok()
     }
     pub unsafe fn BeginSubscribeToEvents<P0, P1>(&self, punkcallback: P0, pasyncresult: P1) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
-        P1: windows_core::IntoParam<IUPnPAsyncResult>,
+        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<IUPnPAsyncResult>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).BeginSubscribeToEvents)(windows_core::Interface::as_raw(self), punkcallback.into_param().abi(), pasyncresult.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).BeginSubscribeToEvents)(windows_core::Interface::as_raw(self), punkcallback.param().abi(), pasyncresult.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndSubscribeToEvents(&self, ullrequestid: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndSubscribeToEvents)(windows_core::Interface::as_raw(self), ullrequestid).ok()
     }
     pub unsafe fn BeginSCPDDownload<P0>(&self, pasyncresult: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<IUPnPAsyncResult>,
+        P0: windows_core::Param<IUPnPAsyncResult>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).BeginSCPDDownload)(windows_core::Interface::as_raw(self), pasyncresult.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).BeginSCPDDownload)(windows_core::Interface::as_raw(self), pasyncresult.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndSCPDDownload(&self, ullrequestid: u64) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -839,18 +839,18 @@ impl IUPnPServiceCallback {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateVariableChanged<P0, P1, P2>(&self, pus: P0, pcwszstatevarname: P1, vavalue: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUPnPService>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<IUPnPService>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).StateVariableChanged)(windows_core::Interface::as_raw(self), pus.into_param().abi(), pcwszstatevarname.into_param().abi(), vavalue.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StateVariableChanged)(windows_core::Interface::as_raw(self), pus.param().abi(), pcwszstatevarname.param().abi(), vavalue.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ServiceInstanceDied<P0>(&self, pus: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUPnPService>,
+        P0: windows_core::Param<IUPnPService>,
     {
-        (windows_core::Interface::vtable(self).ServiceInstanceDied)(windows_core::Interface::as_raw(self), pus.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ServiceInstanceDied)(windows_core::Interface::as_raw(self), pus.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -912,10 +912,10 @@ impl IUPnPServices {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, bstrserviceid: P0) -> windows_core::Result<IUPnPService>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), bstrserviceid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), bstrserviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]

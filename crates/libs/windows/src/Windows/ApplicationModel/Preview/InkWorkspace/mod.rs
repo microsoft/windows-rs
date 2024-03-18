@@ -27,12 +27,12 @@ impl InkWorkspaceHostedAppManager {
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetThumbnailAsync<P0>(&self, bitmap: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::super::Graphics::Imaging::SoftwareBitmap>,
+        P0: windows_core::Param<super::super::super::Graphics::Imaging::SoftwareBitmap>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetThumbnailAsync)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetThumbnailAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetForCurrentApp() -> windows_core::Result<InkWorkspaceHostedAppManager> {

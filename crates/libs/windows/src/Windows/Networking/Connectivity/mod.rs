@@ -950,10 +950,10 @@ impl ConnectionProfileFilter {
     }
     pub fn SetServiceProviderGuid<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<windows_core::GUID>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<windows_core::GUID>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetServiceProviderGuid)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetServiceProviderGuid)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ServiceProviderGuid(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_core::GUID>> {
         let this = self;
@@ -964,10 +964,10 @@ impl ConnectionProfileFilter {
     }
     pub fn SetIsRoaming<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<bool>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<bool>>,
     {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetIsRoaming)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetIsRoaming)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn IsRoaming(&self) -> windows_core::Result<super::super::Foundation::IReference<bool>> {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter2>(self)?;
@@ -978,10 +978,10 @@ impl ConnectionProfileFilter {
     }
     pub fn SetIsOverDataLimit<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<bool>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<bool>>,
     {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetIsOverDataLimit)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetIsOverDataLimit)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn IsOverDataLimit(&self) -> windows_core::Result<super::super::Foundation::IReference<bool>> {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter2>(self)?;
@@ -992,10 +992,10 @@ impl ConnectionProfileFilter {
     }
     pub fn SetIsBackgroundDataUsageRestricted<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<bool>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<bool>>,
     {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetIsBackgroundDataUsageRestricted)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetIsBackgroundDataUsageRestricted)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn IsBackgroundDataUsageRestricted(&self) -> windows_core::Result<super::super::Foundation::IReference<bool>> {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter2>(self)?;
@@ -1014,10 +1014,10 @@ impl ConnectionProfileFilter {
     }
     pub fn SetPurposeGuid<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<windows_core::GUID>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<windows_core::GUID>>,
     {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPurposeGuid)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPurposeGuid)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn PurposeGuid(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_core::GUID>> {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter3>(self)?;
@@ -1105,24 +1105,24 @@ pub struct ConnectivityManager;
 impl ConnectivityManager {
     pub fn AcquireConnectionAsync<P0>(cellularapncontext: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ConnectionSession>>
     where
-        P0: windows_core::IntoParam<CellularApnContext>,
+        P0: windows_core::Param<CellularApnContext>,
     {
         Self::IConnectivityManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AcquireConnectionAsync)(windows_core::Interface::as_raw(this), cellularapncontext.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AcquireConnectionAsync)(windows_core::Interface::as_raw(this), cellularapncontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn AddHttpRoutePolicy<P0>(routepolicy: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<RoutePolicy>,
+        P0: windows_core::Param<RoutePolicy>,
     {
-        Self::IConnectivityManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).AddHttpRoutePolicy)(windows_core::Interface::as_raw(this), routepolicy.into_param().abi()).ok() })
+        Self::IConnectivityManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).AddHttpRoutePolicy)(windows_core::Interface::as_raw(this), routepolicy.param().abi()).ok() })
     }
     pub fn RemoveHttpRoutePolicy<P0>(routepolicy: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<RoutePolicy>,
+        P0: windows_core::Param<RoutePolicy>,
     {
-        Self::IConnectivityManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveHttpRoutePolicy)(windows_core::Interface::as_raw(this), routepolicy.into_param().abi()).ok() })
+        Self::IConnectivityManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveHttpRoutePolicy)(windows_core::Interface::as_raw(this), routepolicy.param().abi()).ok() })
     }
     #[doc(hidden)]
     pub fn IConnectivityManagerStatics<R, F: FnOnce(&IConnectivityManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1462,30 +1462,30 @@ impl NetworkInformation {
     }
     pub fn GetProxyConfigurationAsync<P0>(uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ProxyConfiguration>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetProxyConfigurationAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetProxyConfigurationAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSortedEndpointPairs<P0>(destinationlist: P0, sortoptions: super::HostNameSortOptions) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<super::EndpointPair>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::EndpointPair>>,
     {
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSortedEndpointPairs)(windows_core::Interface::as_raw(this), destinationlist.into_param().abi(), sortoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetSortedEndpointPairs)(windows_core::Interface::as_raw(this), destinationlist.param().abi(), sortoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn NetworkStatusChanged<P0>(networkstatushandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<NetworkStatusChangedEventHandler>,
+        P0: windows_core::Param<NetworkStatusChangedEventHandler>,
     {
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).NetworkStatusChanged)(windows_core::Interface::as_raw(this), networkstatushandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NetworkStatusChanged)(windows_core::Interface::as_raw(this), networkstatushandler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveNetworkStatusChanged(eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1494,11 +1494,11 @@ impl NetworkInformation {
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindConnectionProfilesAsync<P0>(pprofilefilter: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>>
     where
-        P0: windows_core::IntoParam<ConnectionProfileFilter>,
+        P0: windows_core::Param<ConnectionProfileFilter>,
     {
         Self::INetworkInformationStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindConnectionProfilesAsync)(windows_core::Interface::as_raw(this), pprofilefilter.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindConnectionProfilesAsync)(windows_core::Interface::as_raw(this), pprofilefilter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1792,12 +1792,12 @@ impl RoutePolicy {
     }
     pub fn CreateRoutePolicy<P0, P1>(connectionprofile: P0, hostname: P1, r#type: super::DomainNameType) -> windows_core::Result<RoutePolicy>
     where
-        P0: windows_core::IntoParam<ConnectionProfile>,
-        P1: windows_core::IntoParam<super::HostName>,
+        P0: windows_core::Param<ConnectionProfile>,
+        P1: windows_core::Param<super::HostName>,
     {
         Self::IRoutePolicyFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateRoutePolicy)(windows_core::Interface::as_raw(this), connectionprofile.into_param().abi(), hostname.into_param().abi(), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateRoutePolicy)(windows_core::Interface::as_raw(this), connectionprofile.param().abi(), hostname.param().abi(), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -2373,10 +2373,10 @@ impl NetworkStatusChangedEventHandler {
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
     }
 }
 #[repr(C)]

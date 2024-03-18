@@ -605,12 +605,12 @@ windows_core::imp::interface_hierarchy!(IPackageCatalogStatics2, windows_core::I
 impl IPackageCatalogStatics2 {
     pub fn OpenForPackage<P0>(&self, package: P0) -> windows_core::Result<PackageCatalog>
     where
-        P0: windows_core::IntoParam<Package>,
+        P0: windows_core::Param<Package>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenForPackage)(windows_core::Interface::as_raw(this), package.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OpenForPackage)(windows_core::Interface::as_raw(this), package.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1007,11 +1007,11 @@ impl AppInfo {
     #[cfg(feature = "System")]
     pub fn GetFromAppUserModelIdForUser<P0>(user: P0, appusermodelid: &windows_core::HSTRING) -> windows_core::Result<AppInfo>
     where
-        P0: windows_core::IntoParam<super::System::User>,
+        P0: windows_core::Param<super::System::User>,
     {
         Self::IAppInfoStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFromAppUserModelIdForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(appusermodelid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetFromAppUserModelIdForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(appusermodelid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1699,23 +1699,23 @@ impl Package {
     #[cfg(feature = "Foundation_Collections")]
     pub fn StageContentGroupsAsync<P0>(&self, names: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>
     where
-        P0: windows_core::IntoParam<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IPackage5>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StageContentGroupsAsync)(windows_core::Interface::as_raw(this), names.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StageContentGroupsAsync)(windows_core::Interface::as_raw(this), names.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn StageContentGroupsWithPriorityAsync<P0>(&self, names: P0, movetoheadofqueue: bool) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>
     where
-        P0: windows_core::IntoParam<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IPackage5>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StageContentGroupsWithPriorityAsync)(windows_core::Interface::as_raw(this), names.into_param().abi(), movetoheadofqueue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StageContentGroupsWithPriorityAsync)(windows_core::Interface::as_raw(this), names.param().abi(), movetoheadofqueue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetInUseAsync(&self, inuse: bool) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>> {
@@ -1847,12 +1847,12 @@ impl Package {
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindRelatedPackages<P0>(&self, options: P0) -> windows_core::Result<super::Foundation::Collections::IVector<Package>>
     where
-        P0: windows_core::IntoParam<FindRelatedPackagesOptions>,
+        P0: windows_core::Param<FindRelatedPackagesOptions>,
     {
         let this = &windows_core::Interface::cast::<IPackage9>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindRelatedPackages)(windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindRelatedPackages)(windows_core::Interface::as_raw(this), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SourceUriSchemeName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1912,12 +1912,12 @@ windows_core::imp::interface_hierarchy!(PackageCatalog, windows_core::IUnknown, 
 impl PackageCatalog {
     pub fn PackageStaging<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<PackageCatalog, PackageStagingEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<PackageCatalog, PackageStagingEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageStaging)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PackageStaging)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePackageStaging(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1926,12 +1926,12 @@ impl PackageCatalog {
     }
     pub fn PackageInstalling<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<PackageCatalog, PackageInstallingEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<PackageCatalog, PackageInstallingEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageInstalling)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PackageInstalling)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePackageInstalling(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1940,12 +1940,12 @@ impl PackageCatalog {
     }
     pub fn PackageUpdating<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<PackageCatalog, PackageUpdatingEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<PackageCatalog, PackageUpdatingEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageUpdating)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PackageUpdating)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePackageUpdating(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1954,12 +1954,12 @@ impl PackageCatalog {
     }
     pub fn PackageUninstalling<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<PackageCatalog, PackageUninstallingEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<PackageCatalog, PackageUninstallingEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageUninstalling)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PackageUninstalling)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePackageUninstalling(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1968,12 +1968,12 @@ impl PackageCatalog {
     }
     pub fn PackageStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<PackageCatalog, PackageStatusChangedEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<PackageCatalog, PackageStatusChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageStatusChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PackageStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePackageStatusChanged(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1982,12 +1982,12 @@ impl PackageCatalog {
     }
     pub fn PackageContentGroupStaging<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::Foundation::TypedEventHandler<PackageCatalog, PackageContentGroupStagingEventArgs>>,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<PackageCatalog, PackageContentGroupStagingEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IPackageCatalog2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageContentGroupStaging)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PackageContentGroupStaging)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePackageContentGroupStaging(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2004,12 +2004,12 @@ impl PackageCatalog {
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveOptionalPackagesAsync<P0>(&self, optionalpackagefamilynames: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveOptionalPackagesResult>>
     where
-        P0: windows_core::IntoParam<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IPackageCatalog3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveOptionalPackagesAsync)(windows_core::Interface::as_raw(this), optionalpackagefamilynames.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveOptionalPackagesAsync)(windows_core::Interface::as_raw(this), optionalpackagefamilynames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AddResourcePackageAsync(&self, resourcepackagefamilyname: &windows_core::HSTRING, resourceid: &windows_core::HSTRING, options: AddResourcePackageOptions) -> windows_core::Result<super::Foundation::IAsyncOperationWithProgress<PackageCatalogAddResourcePackageResult, PackageInstallProgress>> {
@@ -2022,12 +2022,12 @@ impl PackageCatalog {
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveResourcePackagesAsync<P0>(&self, resourcepackages: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveResourcePackagesResult>>
     where
-        P0: windows_core::IntoParam<super::Foundation::Collections::IIterable<Package>>,
+        P0: windows_core::Param<super::Foundation::Collections::IIterable<Package>>,
     {
         let this = &windows_core::Interface::cast::<IPackageCatalog4>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveResourcePackagesAsync)(windows_core::Interface::as_raw(this), resourcepackages.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveResourcePackagesAsync)(windows_core::Interface::as_raw(this), resourcepackages.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OpenForCurrentPackage() -> windows_core::Result<PackageCatalog> {
@@ -2044,11 +2044,11 @@ impl PackageCatalog {
     }
     pub fn OpenForPackage<P0>(package: P0) -> windows_core::Result<PackageCatalog>
     where
-        P0: windows_core::IntoParam<Package>,
+        P0: windows_core::Param<Package>,
     {
         Self::IPackageCatalogStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenForPackage)(windows_core::Interface::as_raw(this), package.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OpenForPackage)(windows_core::Interface::as_raw(this), package.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

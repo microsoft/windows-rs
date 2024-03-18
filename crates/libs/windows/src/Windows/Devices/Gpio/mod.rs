@@ -173,11 +173,11 @@ impl GpioChangeCounter {
     }
     pub fn Create<P0>(pin: P0) -> windows_core::Result<GpioChangeCounter>
     where
-        P0: windows_core::IntoParam<GpioPin>,
+        P0: windows_core::Param<GpioPin>,
     {
         Self::IGpioChangeCounterFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), pin.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), pin.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -297,20 +297,20 @@ impl GpioChangeReader {
     }
     pub fn Create<P0>(pin: P0) -> windows_core::Result<GpioChangeReader>
     where
-        P0: windows_core::IntoParam<GpioPin>,
+        P0: windows_core::Param<GpioPin>,
     {
         Self::IGpioChangeReaderFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), pin.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), pin.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithCapacity<P0>(pin: P0, mincapacity: i32) -> windows_core::Result<GpioChangeReader>
     where
-        P0: windows_core::IntoParam<GpioPin>,
+        P0: windows_core::Param<GpioPin>,
     {
         Self::IGpioChangeReaderFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithCapacity)(windows_core::Interface::as_raw(this), pin.into_param().abi(), mincapacity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithCapacity)(windows_core::Interface::as_raw(this), pin.param().abi(), mincapacity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -373,11 +373,11 @@ impl GpioController {
     #[cfg(all(feature = "Devices_Gpio_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<GpioController>>>
     where
-        P0: windows_core::IntoParam<Provider::IGpioProvider>,
+        P0: windows_core::Param<Provider::IGpioProvider>,
     {
         Self::IGpioControllerStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<GpioController>> {
@@ -421,12 +421,12 @@ impl GpioPin {
     }
     pub fn ValueChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<GpioPin, GpioPinValueChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GpioPin, GpioPinValueChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ValueChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ValueChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveValueChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

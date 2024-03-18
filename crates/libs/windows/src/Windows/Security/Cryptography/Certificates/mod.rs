@@ -669,24 +669,24 @@ impl Certificate {
     #[cfg(feature = "Foundation_Collections")]
     pub fn BuildChainAsync<P0>(&self, certificates: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<CertificateChain>>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<Certificate>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<Certificate>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).BuildChainAsync)(windows_core::Interface::as_raw(this), certificates.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).BuildChainAsync)(windows_core::Interface::as_raw(this), certificates.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn BuildChainWithParametersAsync<P0, P1>(&self, certificates: P0, parameters: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<CertificateChain>>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<Certificate>>,
-        P1: windows_core::IntoParam<ChainBuildingParameters>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<Certificate>>,
+        P1: windows_core::Param<ChainBuildingParameters>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).BuildChainWithParametersAsync)(windows_core::Interface::as_raw(this), certificates.into_param().abi(), parameters.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).BuildChainWithParametersAsync)(windows_core::Interface::as_raw(this), certificates.param().abi(), parameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SerialNumber(&self) -> windows_core::Result<windows_core::Array<u8>> {
@@ -845,11 +845,11 @@ impl Certificate {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateCertificate<P0>(certblob: P0) -> windows_core::Result<Certificate>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::ICertificateFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCertificate)(windows_core::Interface::as_raw(this), certblob.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCertificate)(windows_core::Interface::as_raw(this), certblob.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -884,12 +884,12 @@ impl CertificateChain {
     }
     pub fn ValidateWithParameters<P0>(&self, parameter: P0) -> windows_core::Result<ChainValidationResult>
     where
-        P0: windows_core::IntoParam<ChainValidationParameters>,
+        P0: windows_core::Param<ChainValidationParameters>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ValidateWithParameters)(windows_core::Interface::as_raw(this), parameter.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ValidateWithParameters)(windows_core::Interface::as_raw(this), parameter.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -917,11 +917,11 @@ pub struct CertificateEnrollmentManager;
 impl CertificateEnrollmentManager {
     pub fn CreateRequestAsync<P0>(request: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
     where
-        P0: windows_core::IntoParam<CertificateRequestProperties>,
+        P0: windows_core::Param<CertificateRequestProperties>,
     {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateRequestAsync)(windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn InstallCertificateAsync(certificate: &windows_core::HSTRING, installoption: InstallOptions) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
@@ -950,11 +950,11 @@ impl CertificateEnrollmentManager {
     }
     pub fn ImportPfxDataToKspWithParametersAsync<P0>(pfxdata: &windows_core::HSTRING, password: &windows_core::HSTRING, pfximportparameters: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<PfxImportParameters>,
+        P0: windows_core::Param<PfxImportParameters>,
     {
         Self::ICertificateEnrollmentManagerStatics3(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportPfxDataToKspWithParametersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), pfximportparameters.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ImportPfxDataToKspWithParametersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), pfximportparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1392,10 +1392,10 @@ impl CertificateRequestProperties {
     }
     pub fn SetSigningCertificate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Certificate>,
+        P0: windows_core::Param<Certificate>,
     {
         let this = &windows_core::Interface::cast::<ICertificateRequestProperties2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetSigningCertificate)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSigningCertificate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn AttestationCredentialCertificate(&self) -> windows_core::Result<Certificate> {
         let this = &windows_core::Interface::cast::<ICertificateRequestProperties2>(self)?;
@@ -1406,10 +1406,10 @@ impl CertificateRequestProperties {
     }
     pub fn SetAttestationCredentialCertificate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Certificate>,
+        P0: windows_core::Param<Certificate>,
     {
         let this = &windows_core::Interface::cast::<ICertificateRequestProperties2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAttestationCredentialCertificate)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAttestationCredentialCertificate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn CurveName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ICertificateRequestProperties3>(self)?;
@@ -1509,17 +1509,17 @@ windows_core::imp::interface_hierarchy!(CertificateStore, windows_core::IUnknown
 impl CertificateStore {
     pub fn Add<P0>(&self, certificate: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Certificate>,
+        P0: windows_core::Param<Certificate>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Add)(windows_core::Interface::as_raw(this), certificate.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Add)(windows_core::Interface::as_raw(this), certificate.param().abi()).ok() }
     }
     pub fn Delete<P0>(&self, certificate: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Certificate>,
+        P0: windows_core::Param<Certificate>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Delete)(windows_core::Interface::as_raw(this), certificate.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Delete)(windows_core::Interface::as_raw(this), certificate.param().abi()).ok() }
     }
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ICertificateStore2>(self)?;
@@ -1553,11 +1553,11 @@ impl CertificateStores {
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllWithQueryAsync<P0>(query: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>>
     where
-        P0: windows_core::IntoParam<CertificateQuery>,
+        P0: windows_core::Param<CertificateQuery>,
     {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindAllWithQueryAsync)(windows_core::Interface::as_raw(this), query.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindAllWithQueryAsync)(windows_core::Interface::as_raw(this), query.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn TrustedRootCertificationAuthorities() -> windows_core::Result<CertificateStore> {
@@ -1728,10 +1728,10 @@ impl ChainValidationParameters {
     #[cfg(feature = "Networking")]
     pub fn SetServerDnsName<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Networking::HostName>,
+        P0: windows_core::Param<super::super::super::Networking::HostName>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetServerDnsName)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetServerDnsName)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for ChainValidationParameters {
@@ -1784,23 +1784,23 @@ impl CmsAttachedSignature {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateCmsAttachedSignature<P0>(inputblob: P0) -> windows_core::Result<CmsAttachedSignature>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::ICmsAttachedSignatureFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCmsAttachedSignature)(windows_core::Interface::as_raw(this), inputblob.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCmsAttachedSignature)(windows_core::Interface::as_raw(this), inputblob.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GenerateSignatureAsync<P0, P1, P2>(data: P0, signers: P1, certificates: P2) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>>,
-        P2: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<Certificate>>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>>,
+        P2: windows_core::Param<super::super::super::Foundation::Collections::IIterable<Certificate>>,
     {
         Self::ICmsAttachedSignatureStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GenerateSignatureAsync)(windows_core::Interface::as_raw(this), data.into_param().abi(), signers.into_param().abi(), certificates.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GenerateSignatureAsync)(windows_core::Interface::as_raw(this), data.param().abi(), signers.param().abi(), certificates.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1850,34 +1850,34 @@ impl CmsDetachedSignature {
     #[cfg(feature = "Storage_Streams")]
     pub fn VerifySignatureAsync<P0>(&self, data: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<SignatureValidationResult>>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IInputStream>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).VerifySignatureAsync)(windows_core::Interface::as_raw(this), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).VerifySignatureAsync)(windows_core::Interface::as_raw(this), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateCmsDetachedSignature<P0>(inputblob: P0) -> windows_core::Result<CmsDetachedSignature>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::ICmsDetachedSignatureFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCmsDetachedSignature)(windows_core::Interface::as_raw(this), inputblob.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCmsDetachedSignature)(windows_core::Interface::as_raw(this), inputblob.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GenerateSignatureAsync<P0, P1, P2>(data: P0, signers: P1, certificates: P2) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IInputStream>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>>,
-        P2: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<Certificate>>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
+        P1: windows_core::Param<super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>>,
+        P2: windows_core::Param<super::super::super::Foundation::Collections::IIterable<Certificate>>,
     {
         Self::ICmsDetachedSignatureStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GenerateSignatureAsync)(windows_core::Interface::as_raw(this), data.into_param().abi(), signers.into_param().abi(), certificates.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GenerateSignatureAsync)(windows_core::Interface::as_raw(this), data.param().abi(), signers.param().abi(), certificates.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1924,10 +1924,10 @@ impl CmsSignerInfo {
     }
     pub fn SetCertificate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Certificate>,
+        P0: windows_core::Param<Certificate>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCertificate)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCertificate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn HashAlgorithmName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -2416,12 +2416,12 @@ windows_core::imp::interface_hierarchy!(UserCertificateEnrollmentManager, window
 impl UserCertificateEnrollmentManager {
     pub fn CreateRequestAsync<P0>(&self, request: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
     where
-        P0: windows_core::IntoParam<CertificateRequestProperties>,
+        P0: windows_core::Param<CertificateRequestProperties>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateRequestAsync)(windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn InstallCertificateAsync(&self, certificate: &windows_core::HSTRING, installoption: InstallOptions) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
@@ -2447,12 +2447,12 @@ impl UserCertificateEnrollmentManager {
     }
     pub fn ImportPfxDataToKspWithParametersAsync<P0>(&self, pfxdata: &windows_core::HSTRING, password: &windows_core::HSTRING, pfximportparameters: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<PfxImportParameters>,
+        P0: windows_core::Param<PfxImportParameters>,
     {
         let this = &windows_core::Interface::cast::<IUserCertificateEnrollmentManager2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportPfxDataToKspWithParametersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), pfximportparameters.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ImportPfxDataToKspWithParametersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), pfximportparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -2475,22 +2475,22 @@ windows_core::imp::interface_hierarchy!(UserCertificateStore, windows_core::IUnk
 impl UserCertificateStore {
     pub fn RequestAddAsync<P0>(&self, certificate: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<Certificate>,
+        P0: windows_core::Param<Certificate>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAddAsync)(windows_core::Interface::as_raw(this), certificate.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestAddAsync)(windows_core::Interface::as_raw(this), certificate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestDeleteAsync<P0>(&self, certificate: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<Certificate>,
+        P0: windows_core::Param<Certificate>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestDeleteAsync)(windows_core::Interface::as_raw(this), certificate.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestDeleteAsync)(windows_core::Interface::as_raw(this), certificate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {

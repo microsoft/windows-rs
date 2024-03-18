@@ -9,10 +9,10 @@ impl IGeometrySource2DInterop {
     #[cfg(feature = "Win32_Graphics_Direct2D")]
     pub unsafe fn TryGetGeometryUsingFactory<P0>(&self, factory: P0) -> windows_core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Graphics::Direct2D::ID2D1Factory>,
+        P0: windows_core::Param<super::super::super::super::Graphics::Direct2D::ID2D1Factory>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).TryGetGeometryUsingFactory)(windows_core::Interface::as_raw(self), factory.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).TryGetGeometryUsingFactory)(windows_core::Interface::as_raw(self), factory.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -36,9 +36,9 @@ impl IGraphicsEffectD2D1Interop {
     }
     pub unsafe fn GetNamedPropertyMapping<P0>(&self, name: P0, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetNamedPropertyMapping)(windows_core::Interface::as_raw(self), name.into_param().abi(), index, mapping).ok()
+        (windows_core::Interface::vtable(self).GetNamedPropertyMapping)(windows_core::Interface::as_raw(self), name.param().abi(), index, mapping).ok()
     }
     pub unsafe fn GetPropertyCount(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();

@@ -140,23 +140,23 @@ impl FaceDetector {
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
     pub fn DetectFacesAsync<P0>(&self, image: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::SoftwareBitmap>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::SoftwareBitmap>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DetectFacesAsync)(windows_core::Interface::as_raw(this), image.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DetectFacesAsync)(windows_core::Interface::as_raw(this), image.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
     pub fn DetectFacesWithSearchAreaAsync<P0>(&self, image: P0, searcharea: super::super::Graphics::Imaging::BitmapBounds) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::SoftwareBitmap>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::SoftwareBitmap>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DetectFacesWithSearchAreaAsync)(windows_core::Interface::as_raw(this), image.into_param().abi(), searcharea, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DetectFacesWithSearchAreaAsync)(windows_core::Interface::as_raw(this), image.param().abi(), searcharea, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
@@ -237,12 +237,12 @@ impl FaceTracker {
     #[cfg(feature = "Foundation_Collections")]
     pub fn ProcessNextFrameAsync<P0>(&self, videoframe: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>
     where
-        P0: windows_core::IntoParam<super::VideoFrame>,
+        P0: windows_core::Param<super::VideoFrame>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProcessNextFrameAsync)(windows_core::Interface::as_raw(this), videoframe.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ProcessNextFrameAsync)(windows_core::Interface::as_raw(this), videoframe.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Graphics_Imaging")]

@@ -408,14 +408,14 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
     }
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<T>,
+        P0: windows_core::Param<T>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(
                 windows_core::Interface::as_raw(this),
-                value.into_param().abi(),
+                value.param().abi(),
                 index,
                 &mut result__,
             )
@@ -825,14 +825,14 @@ impl Uri {
     }
     pub fn Equals<P0>(&self, puri: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<Uri>,
+        P0: windows_core::Param<Uri>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
             (windows_core::Interface::vtable(this).Equals)(
                 windows_core::Interface::as_raw(this),
-                puri.into_param().abi(),
+                puri.param().abi(),
                 &mut result__,
             )
             .map(|| result__)
@@ -983,14 +983,14 @@ impl WwwFormUrlDecoder {
     }
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IWwwFormUrlDecoderEntry>,
+        P0: windows_core::Param<IWwwFormUrlDecoderEntry>,
     {
         let this = &windows_core::Interface::cast::<IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(
                 windows_core::Interface::as_raw(this),
-                value.into_param().abi(),
+                value.param().abi(),
                 index,
                 &mut result__,
             )

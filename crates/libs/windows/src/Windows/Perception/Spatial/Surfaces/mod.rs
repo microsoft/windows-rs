@@ -162,12 +162,12 @@ impl SpatialSurfaceInfo {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryGetBounds<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>>
     where
-        P0: windows_core::IntoParam<super::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetBounds)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetBounds)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryComputeLatestMeshAsync(&self, maxtrianglespercubicmeter: f64) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>> {
@@ -179,12 +179,12 @@ impl SpatialSurfaceInfo {
     }
     pub fn TryComputeLatestMeshWithOptionsAsync<P0>(&self, maxtrianglespercubicmeter: f64, options: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>
     where
-        P0: windows_core::IntoParam<SpatialSurfaceMeshOptions>,
+        P0: windows_core::Param<SpatialSurfaceMeshOptions>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryComputeLatestMeshWithOptionsAsync)(windows_core::Interface::as_raw(this), maxtrianglespercubicmeter, options.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryComputeLatestMeshWithOptionsAsync)(windows_core::Interface::as_raw(this), maxtrianglespercubicmeter, options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -432,27 +432,27 @@ impl SpatialSurfaceObserver {
     }
     pub fn SetBoundingVolume<P0>(&self, bounds: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::SpatialBoundingVolume>,
+        P0: windows_core::Param<super::SpatialBoundingVolume>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBoundingVolume)(windows_core::Interface::as_raw(this), bounds.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBoundingVolume)(windows_core::Interface::as_raw(this), bounds.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetBoundingVolumes<P0>(&self, bounds: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<super::SpatialBoundingVolume>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::SpatialBoundingVolume>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBoundingVolumes)(windows_core::Interface::as_raw(this), bounds.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBoundingVolumes)(windows_core::Interface::as_raw(this), bounds.param().abi()).ok() }
     }
     pub fn ObservedSurfacesChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialSurfaceObserver, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialSurfaceObserver, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ObservedSurfacesChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ObservedSurfacesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveObservedSurfacesChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

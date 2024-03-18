@@ -121,10 +121,10 @@ impl MediaTranscoder {
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddAudioEffectWithSettings<P0>(&self, activatableclassid: &windows_core::HSTRING, effectrequired: bool, configuration: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddAudioEffectWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), effectrequired, configuration.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddAudioEffectWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), effectrequired, configuration.param().abi()).ok() }
     }
     pub fn AddVideoEffect(&self, activatableclassid: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -133,10 +133,10 @@ impl MediaTranscoder {
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddVideoEffectWithSettings<P0>(&self, activatableclassid: &windows_core::HSTRING, effectrequired: bool, configuration: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddVideoEffectWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), effectrequired, configuration.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddVideoEffectWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), effectrequired, configuration.param().abi()).ok() }
     }
     pub fn ClearEffects(&self) -> windows_core::Result<()> {
         let this = self;
@@ -145,40 +145,40 @@ impl MediaTranscoder {
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage"))]
     pub fn PrepareFileTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::IStorageFile>,
-        P1: windows_core::IntoParam<super::super::Storage::IStorageFile>,
-        P2: windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
+        P0: windows_core::Param<super::super::Storage::IStorageFile>,
+        P1: windows_core::Param<super::super::Storage::IStorageFile>,
+        P2: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrepareFileTranscodeAsync)(windows_core::Interface::as_raw(this), source.into_param().abi(), destination.into_param().abi(), profile.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PrepareFileTranscodeAsync)(windows_core::Interface::as_raw(this), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
     pub fn PrepareStreamTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
-        P1: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
-        P2: windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
+        P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
+        P2: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrepareStreamTranscodeAsync)(windows_core::Interface::as_raw(this), source.into_param().abi(), destination.into_param().abi(), profile.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PrepareStreamTranscodeAsync)(windows_core::Interface::as_raw(this), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
     pub fn PrepareMediaStreamSourceTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>
     where
-        P0: windows_core::IntoParam<super::Core::IMediaSource>,
-        P1: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
-        P2: windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
+        P0: windows_core::Param<super::Core::IMediaSource>,
+        P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
+        P2: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
     {
         let this = &windows_core::Interface::cast::<IMediaTranscoder2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrepareMediaStreamSourceTranscodeAsync)(windows_core::Interface::as_raw(this), source.into_param().abi(), destination.into_param().abi(), profile.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PrepareMediaStreamSourceTranscodeAsync)(windows_core::Interface::as_raw(this), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetVideoProcessingAlgorithm(&self, value: MediaVideoProcessingAlgorithm) -> windows_core::Result<()> {

@@ -599,18 +599,18 @@ impl InputInjector {
     #[cfg(feature = "Foundation_Collections")]
     pub fn InjectKeyboardInput<P0>(&self, input: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Foundation::Collections::IIterable<InjectedInputKeyboardInfo>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::Collections::IIterable<InjectedInputKeyboardInfo>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).InjectKeyboardInput)(windows_core::Interface::as_raw(this), input.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InjectKeyboardInput)(windows_core::Interface::as_raw(this), input.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn InjectMouseInput<P0>(&self, input: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Foundation::Collections::IIterable<InjectedInputMouseInfo>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::Collections::IIterable<InjectedInputMouseInfo>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).InjectMouseInput)(windows_core::Interface::as_raw(this), input.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InjectMouseInput)(windows_core::Interface::as_raw(this), input.param().abi()).ok() }
     }
     pub fn InitializeTouchInjection(&self, visualmode: InjectedInputVisualizationMode) -> windows_core::Result<()> {
         let this = self;
@@ -619,10 +619,10 @@ impl InputInjector {
     #[cfg(feature = "Foundation_Collections")]
     pub fn InjectTouchInput<P0>(&self, input: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Foundation::Collections::IIterable<InjectedInputTouchInfo>>,
+        P0: windows_core::Param<super::super::super::super::Foundation::Collections::IIterable<InjectedInputTouchInfo>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).InjectTouchInput)(windows_core::Interface::as_raw(this), input.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InjectTouchInput)(windows_core::Interface::as_raw(this), input.param().abi()).ok() }
     }
     pub fn UninitializeTouchInjection(&self) -> windows_core::Result<()> {
         let this = self;
@@ -634,10 +634,10 @@ impl InputInjector {
     }
     pub fn InjectPenInput<P0>(&self, input: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<InjectedInputPenInfo>,
+        P0: windows_core::Param<InjectedInputPenInfo>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).InjectPenInput)(windows_core::Interface::as_raw(this), input.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InjectPenInput)(windows_core::Interface::as_raw(this), input.param().abi()).ok() }
     }
     pub fn UninitializePenInjection(&self) -> windows_core::Result<()> {
         let this = self;
@@ -653,10 +653,10 @@ impl InputInjector {
     }
     pub fn InjectGamepadInput<P0>(&self, input: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<InjectedInputGamepadInfo>,
+        P0: windows_core::Param<InjectedInputGamepadInfo>,
     {
         let this = &windows_core::Interface::cast::<IInputInjector2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InjectGamepadInput)(windows_core::Interface::as_raw(this), input.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InjectGamepadInput)(windows_core::Interface::as_raw(this), input.param().abi()).ok() }
     }
     pub fn UninitializeGamepadInjection(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IInputInjector2>(self)?;

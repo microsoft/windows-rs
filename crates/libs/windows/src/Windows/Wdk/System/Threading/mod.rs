@@ -1,43 +1,43 @@
 #[inline]
 pub unsafe fn NtQueryInformationProcess<P0>(processhandle: P0, processinformationclass: PROCESSINFOCLASS, processinformation: *mut core::ffi::c_void, processinformationlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtQueryInformationProcess(processhandle : super::super::super::Win32::Foundation:: HANDLE, processinformationclass : PROCESSINFOCLASS, processinformation : *mut core::ffi::c_void, processinformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtQueryInformationProcess(processhandle.into_param().abi(), processinformationclass, processinformation, processinformationlength, returnlength)
+    NtQueryInformationProcess(processhandle.param().abi(), processinformationclass, processinformation, processinformationlength, returnlength)
 }
 #[inline]
 pub unsafe fn NtQueryInformationThread<P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: *mut core::ffi::c_void, threadinformationlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtQueryInformationThread(threadhandle : super::super::super::Win32::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *mut core::ffi::c_void, threadinformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtQueryInformationThread(threadhandle.into_param().abi(), threadinformationclass, threadinformation, threadinformationlength, returnlength)
+    NtQueryInformationThread(threadhandle.param().abi(), threadinformationclass, threadinformation, threadinformationlength, returnlength)
 }
 #[inline]
 pub unsafe fn NtSetInformationThread<P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: *const core::ffi::c_void, threadinformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtSetInformationThread(threadhandle : super::super::super::Win32::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *const core::ffi::c_void, threadinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtSetInformationThread(threadhandle.into_param().abi(), threadinformationclass, threadinformation, threadinformationlength)
+    NtSetInformationThread(threadhandle.param().abi(), threadinformationclass, threadinformation, threadinformationlength)
 }
 #[inline]
 pub unsafe fn NtWaitForSingleObject<P0, P1>(handle: P0, alertable: P1, timeout: *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : super::super::super::Win32::Foundation:: HANDLE, alertable : super::super::super::Win32::Foundation:: BOOLEAN, timeout : *mut i64) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtWaitForSingleObject(handle.into_param().abi(), alertable.into_param().abi(), timeout)
+    NtWaitForSingleObject(handle.param().abi(), alertable.param().abi(), timeout)
 }
 #[inline]
 pub unsafe fn ZwSetInformationThread<P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: *const core::ffi::c_void, threadinformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwSetInformationThread(threadhandle : super::super::super::Win32::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *const core::ffi::c_void, threadinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwSetInformationThread(threadhandle.into_param().abi(), threadinformationclass, threadinformation, threadinformationlength)
+    ZwSetInformationThread(threadhandle.param().abi(), threadinformationclass, threadinformation, threadinformationlength)
 }
 pub const MaxProcessInfoClass: PROCESSINFOCLASS = PROCESSINFOCLASS(83i32);
 pub const MaxThreadInfoClass: THREADINFOCLASS = THREADINFOCLASS(56i32);

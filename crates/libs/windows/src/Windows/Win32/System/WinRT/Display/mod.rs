@@ -4,17 +4,17 @@ impl IDisplayDeviceInterop {
     #[cfg(feature = "Win32_Security")]
     pub unsafe fn CreateSharedHandle<P0>(&self, pobject: P0, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::HANDLE>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), pobject.into_param().abi(), psecurityattributes, access, core::mem::transmute_copy(name), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), pobject.param().abi(), psecurityattributes, access, core::mem::transmute_copy(name), &mut result__).map(|| result__)
     }
     pub unsafe fn OpenSharedHandle<P0>(&self, nthandle: P0, riid: windows_core::GUID) -> windows_core::Result<*mut core::ffi::c_void>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
+        P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenSharedHandle)(windows_core::Interface::as_raw(self), nthandle.into_param().abi(), core::mem::transmute(riid), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OpenSharedHandle)(windows_core::Interface::as_raw(self), nthandle.param().abi(), core::mem::transmute(riid), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

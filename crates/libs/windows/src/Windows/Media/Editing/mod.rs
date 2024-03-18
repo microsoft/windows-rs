@@ -366,21 +366,21 @@ impl BackgroundAudioTrack {
     }
     pub fn CreateFromEmbeddedAudioTrack<P0>(embeddedaudiotrack: P0) -> windows_core::Result<BackgroundAudioTrack>
     where
-        P0: windows_core::IntoParam<EmbeddedAudioTrack>,
+        P0: windows_core::Param<EmbeddedAudioTrack>,
     {
         Self::IBackgroundAudioTrackStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromEmbeddedAudioTrack)(windows_core::Interface::as_raw(this), embeddedaudiotrack.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromEmbeddedAudioTrack)(windows_core::Interface::as_raw(this), embeddedaudiotrack.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage")]
     pub fn CreateFromFileAsync<P0>(file: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::IStorageFile>,
+        P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         Self::IBackgroundAudioTrackStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromFileAsync)(windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -561,31 +561,31 @@ impl MediaClip {
     #[cfg(feature = "Storage")]
     pub fn CreateFromFileAsync<P0>(file: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::IStorageFile>,
+        P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         Self::IMediaClipStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromFileAsync)(windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage")]
     pub fn CreateFromImageFileAsync<P0>(file: P0, originalduration: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::IStorageFile>,
+        P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         Self::IMediaClipStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromImageFileAsync)(windows_core::Interface::as_raw(this), file.into_param().abi(), originalduration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromImageFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), originalduration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn CreateFromSurface<P0>(surface: P0, originalduration: super::super::Foundation::TimeSpan) -> windows_core::Result<MediaClip>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>,
+        P0: windows_core::Param<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>,
     {
         Self::IMediaClipStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromSurface)(windows_core::Interface::as_raw(this), surface.into_param().abi(), originalduration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromSurface)(windows_core::Interface::as_raw(this), surface.param().abi(), originalduration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -664,12 +664,12 @@ impl MediaComposition {
     #[cfg(feature = "Storage")]
     pub fn SaveAsync<P0>(&self, file: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Storage::IStorageFile>,
+        P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveAsync)(windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SaveAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Graphics_Imaging", feature = "Storage_Streams"))]
@@ -683,46 +683,46 @@ impl MediaComposition {
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Storage_Streams"))]
     pub fn GetThumbnailsAsync<P0>(&self, timesfromstart: P0, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::TimeSpan>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetThumbnailsAsync)(windows_core::Interface::as_raw(this), timesfromstart.into_param().abi(), scaledwidth, scaledheight, frameprecision, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetThumbnailsAsync)(windows_core::Interface::as_raw(this), timesfromstart.param().abi(), scaledwidth, scaledheight, frameprecision, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_Transcoding", feature = "Storage"))]
     pub fn RenderToFileAsync<P0>(&self, destination: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::IStorageFile>,
+        P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenderToFileAsync)(windows_core::Interface::as_raw(this), destination.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RenderToFileAsync)(windows_core::Interface::as_raw(this), destination.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_Transcoding", feature = "Storage"))]
     pub fn RenderToFileWithTrimmingPreferenceAsync<P0>(&self, destination: P0, trimmingpreference: MediaTrimmingPreference) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::IStorageFile>,
+        P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenderToFileWithTrimmingPreferenceAsync)(windows_core::Interface::as_raw(this), destination.into_param().abi(), trimmingpreference, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RenderToFileWithTrimmingPreferenceAsync)(windows_core::Interface::as_raw(this), destination.param().abi(), trimmingpreference, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage"))]
     pub fn RenderToFileWithProfileAsync<P0, P1>(&self, destination: P0, trimmingpreference: MediaTrimmingPreference, encodingprofile: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::IStorageFile>,
-        P1: windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
+        P0: windows_core::Param<super::super::Storage::IStorageFile>,
+        P1: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenderToFileWithProfileAsync)(windows_core::Interface::as_raw(this), destination.into_param().abi(), trimmingpreference, encodingprofile.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RenderToFileWithProfileAsync)(windows_core::Interface::as_raw(this), destination.param().abi(), trimmingpreference, encodingprofile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
@@ -744,12 +744,12 @@ impl MediaComposition {
     #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties"))]
     pub fn GenerateMediaStreamSourceWithProfile<P0>(&self, encodingprofile: P0) -> windows_core::Result<super::Core::MediaStreamSource>
     where
-        P0: windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
+        P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GenerateMediaStreamSourceWithProfile)(windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GenerateMediaStreamSourceWithProfile)(windows_core::Interface::as_raw(this), encodingprofile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_Core")]
@@ -771,11 +771,11 @@ impl MediaComposition {
     #[cfg(feature = "Storage")]
     pub fn LoadAsync<P0>(file: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaComposition>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageFile>,
+        P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
         Self::IMediaCompositionStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -861,20 +861,20 @@ impl MediaOverlay {
     }
     pub fn Create<P0>(clip: P0) -> windows_core::Result<MediaOverlay>
     where
-        P0: windows_core::IntoParam<MediaClip>,
+        P0: windows_core::Param<MediaClip>,
     {
         Self::IMediaOverlayFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), clip.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), clip.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithPositionAndOpacity<P0>(clip: P0, position: super::super::Foundation::Rect, opacity: f64) -> windows_core::Result<MediaOverlay>
     where
-        P0: windows_core::IntoParam<MediaClip>,
+        P0: windows_core::Param<MediaClip>,
     {
         Self::IMediaOverlayFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithPositionAndOpacity)(windows_core::Interface::as_raw(this), clip.into_param().abi(), position, opacity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithPositionAndOpacity)(windows_core::Interface::as_raw(this), clip.param().abi(), position, opacity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -933,11 +933,11 @@ impl MediaOverlayLayer {
     #[cfg(feature = "Media_Effects")]
     pub fn CreateWithCompositorDefinition<P0>(compositordefinition: P0) -> windows_core::Result<MediaOverlayLayer>
     where
-        P0: windows_core::IntoParam<super::Effects::IVideoCompositorDefinition>,
+        P0: windows_core::Param<super::Effects::IVideoCompositorDefinition>,
     {
         Self::IMediaOverlayLayerFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithCompositorDefinition)(windows_core::Interface::as_raw(this), compositordefinition.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithCompositorDefinition)(windows_core::Interface::as_raw(this), compositordefinition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
