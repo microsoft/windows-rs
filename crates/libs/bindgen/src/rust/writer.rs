@@ -373,7 +373,7 @@ impl Writer {
             if param.kind == metadata::SignatureParamKind::IntoParam {
                 let name: TokenStream = gen_name(position);
                 let into = self.type_name(&param.ty);
-                tokens.combine(&quote! { #name: windows_core::IntoParam<#into>, });
+                tokens.combine(&quote! { #name: windows_core::Param<#into>, });
             }
         }
         tokens
@@ -982,7 +982,7 @@ impl Writer {
                             }
                         }
                         metadata::SignatureParamKind::IntoParam => {
-                            quote! { #name.into_param().abi(), }
+                            quote! { #name.param().abi(), }
                         }
                         metadata::SignatureParamKind::OptionalPointer => {
                             if flags.contains(metadata::ParamAttributes::Out) {
