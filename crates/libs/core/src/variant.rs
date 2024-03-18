@@ -53,11 +53,11 @@ impl Drop for PROPVARIANT {
 }
 
 impl TypeKind for VARIANT {
-    type TypeKind = ValueType;
+    type TypeKind = CloneType;
 }
 
 impl TypeKind for PROPVARIANT {
-    type TypeKind = ValueType;
+    type TypeKind = CloneType;
 }
 
 impl std::fmt::Debug for VARIANT {

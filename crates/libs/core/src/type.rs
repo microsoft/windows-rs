@@ -6,10 +6,10 @@ pub trait TypeKind {
 }
 
 #[doc(hidden)]
-pub struct ReferenceType;
+pub struct InterfaceType;
 
 #[doc(hidden)]
-pub struct ValueType;
+pub struct CloneType;
 
 #[doc(hidden)]
 pub struct CopyType;
@@ -24,9 +24,9 @@ pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized + C
     fn from_default(default: &Self::Default) -> Result<Self>;
 }
 
-impl<T> Type<T, ReferenceType> for T
+impl<T> Type<T, InterfaceType> for T
 where
-    T: TypeKind<TypeKind = ReferenceType> + Clone,
+    T: TypeKind<TypeKind = InterfaceType> + Clone,
 {
     type Abi = *mut std::ffi::c_void;
     type Default = Option<Self>;
@@ -44,9 +44,9 @@ where
     }
 }
 
-impl<T> Type<T, ValueType> for T
+impl<T> Type<T, CloneType> for T
 where
-    T: TypeKind<TypeKind = ValueType> + Clone,
+    T: TypeKind<TypeKind = CloneType> + Clone,
 {
     type Abi = std::mem::MaybeUninit<Self>;
     type Default = Self;
@@ -77,7 +77,7 @@ where
 }
 
 impl<T: Interface> TypeKind for T {
-    type TypeKind = ReferenceType;
+    type TypeKind = InterfaceType;
 }
 
 impl<T> TypeKind for *mut T {
@@ -116,9 +116,9 @@ impl TypeKind for PCSTR {
 }
 
 impl TypeKind for HSTRING {
-    type TypeKind = ValueType;
+    type TypeKind = CloneType;
 }
 
 impl TypeKind for BSTR {
-    type TypeKind = ValueType;
+    type TypeKind = CloneType;
 }
